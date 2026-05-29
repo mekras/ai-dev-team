@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Choosing tools for documentation" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/guide/choosing-tools/" />
+<meta property="og:site_name" content="Write the Docs" />
+<meta property="og:description" content="One of the most important tasks for the documentation team is choosing what tooling to use for creating the docs. There are many, many choices out there. Paid, proprietary tools that can do a lot o..." />
+<meta property="og:image" content="https://www.writethedocs.org/_static/logo-opengraph.png" />
+<meta property="og:image:alt" content="Write the Docs" />
+<meta name="description" content="One of the most important tasks for the documentation team is choosing what tooling to use for creating the docs. There are many, many choices out there. Paid, proprietary tools that can do a lot o..." />
+<meta name="twitter:card" content="summary_large_image" />
+
+    <title>Choosing tools for documentation &#8212; Write the Docs</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=27fed22d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/global-customizations.css?v=cc78cf2f" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/survey.css?v=aec99644" />
+    <script src="../../_static/documentation_options.js?v=14e74cc1"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="canonical" href="https://www.writethedocs.org/guide/choosing-tools/" />
+    <link rel="icon" href="../../_static/favicon-96x96.png"/>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Tools for documentation writing" href="../tools/" />
+    <link rel="prev" title="Introduction to AsciiDoc" href="../writing/asciidoc/" /> 
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../blog/archive/atom.xml"
+  title="Blog"
+/>
+ 
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" />
+ 
+  <script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="writethedocs-www" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/guide/choosing-tools/" /><meta name="readthedocs-http-status" content="200" /></head><body>
+  
+
+    <div class="document">
+  <div class="announcement-banner-wrapper">
+    <div class="announcement-banner">
+      <p>Berlin 2026 CFP is open! <a href='/conf/berlin/2026/cfp/'>Submit your talk</a>.</p>
+    </div>
+  </div>
+
+  <div class="documentwrapper">
+    <div class="bodywrapper">
+      <div class="body" role="main">
+          
+          <div class="breadcrumbs">
+            
+            
+              <a href="../../">Home</a> &raquo;
+                
+                  <a href="../">Software documentation guide</a> &raquo;
+                
+            
+          </div>
+        
+         <section id="choosing-tools-for-documentation">
+<h1>Choosing tools for documentation<a class="headerlink" href="#choosing-tools-for-documentation" title="Link to this heading">¶</a></h1>
+<p>One of the most important tasks for the documentation team is choosing what tooling to use for creating the docs.
+There are many, many choices out there.
+Paid, proprietary tools that can do a lot of the back end heavy lifting for you.
+Highly customizable static site generators that offer bespoke pipeline, but require a lot of time and knowledge investment.</p>
+<p>How does one go about deciding which set of tools will work best for your situation?</p>
+<p>Below are some questions you can ask and some considerations to keep in mind as you go about navigating the doc tooling landscape.</p>
+<section id="questions-to-ask">
+<h2>Questions to ask<a class="headerlink" href="#questions-to-ask" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>What is your budget?
+Make sure you plan for both money and time.</p></li>
+<li><p>What kind of output(s) do you need?
+Some common outputs include:
+- Website
+- PDFs
+- Word docs
+- Embedded in the product
+- eBooks
+- Salesforce/Zendesk/help center</p></li>
+<li><p>What kind of programming skill do you have access to?
+Specifically, what (if any) languages?
+Consider both what you yourself or your team already know or are willing to learn and what development resources can be available to you within your company.</p></li>
+<li><p>Are you comfortable editing HTMl/CSS/JS directly, or do you want more hand holding?
+Some tools put all of the design and coding work on you.
+Other tools provide helpers and interfaces to minimize the hard coding required.</p></li>
+<li><p>Do you prefer to work in a <em>What You See Is What You Get</em> environment (WYSIWYG) or do you like using a text editor so formatting doesn’t get in the way of writing?
+Whichever you prefer, you still need a way to preview your content as you draft to make sure it turns out as expected.
+Plan for some kind of staging area for yourself and other reviewers.</p></li>
+<li><p>How do you plan to handle subject matter expert reviews before publication?
+Some tools require a separate license for each reviewer.
+Others will require that you train some reviewers on how to use tools that might be new to them.</p></li>
+<li><p>Is there a support portal already in place (Zendesk, Freshdesk, Salesforce Service, or the like)?
+The knowledge management solution attached to one of those tools might be a great option.</p></li>
+<li><p>What other tooling already exists at your company?
+Usually, you are better off leaning in to what is already available rather than trying to spin up something new.
+If your end users are already active on a Confluence or SharePoint site, exposing your content there will be much easier than launching yet another place for them to keep track of.</p></li>
+<li><p>Do you use or want to use version control (like Git or Subversion)?
+Version control offers some really nice perks and benefits for managing your content, but it also comes with a relatively steep learning curve.
+If you use version control, choose a system already in use at your company.</p></li>
+<li><p>How much do you want to be able to reuse or single-source content?</p></li>
+<li><p>Do you want to use a markup language?
+If so, which one? reStructured Text? Markdown? Asciidoc? Docbook? DITA?</p></li>
+<li><p>How many contributors are you going to have? Reviewers?
+Licensing fees and training costs can add up quickly depending on who all needs access to your toolset.</p></li>
+<li><p>Do you need Continuous Integration/Continuous Deployment pipeline support?</p></li>
+<li><p>Will you need to consider translation work?
+If so, you need to make sure that your content works well with the translation pipeline.</p></li>
+</ul>
+</section>
+<section id="considerations-and-gotchas">
+<h2>Considerations and “gotchas”<a class="headerlink" href="#considerations-and-gotchas" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Static Site Generators can be a great tooling choice, but the time spent spinning them up may cost as much as investing in a commercial tool.
+Consider contracting with an expert for your chosen tool or SSG to get your content looking how you want it.</p></li>
+<li><p>Plan who will be responsible for long term maintenance.
+Who will handle tooling upgrades?
+Who will be responsible when something breaks down?</p></li>
+<li><p>Most tools come with themes to get you started, but companies are going to want their content to look like their content.
+There is time and knowledge required to implement customizations for the design and the idiosyncrasies of your particular work methods.</p></li>
+<li><p>Some tool choices provide for content reuse, and single sourcing is a major topic in technical writing forums.
+However, how content gets reused and who can reuse it may be limiting factors.</p></li>
+<li><p>Some tools maintain internal databases of links that propagate changes throughout the docs.
+Other tools leave it up to you to find and replace each link.
+Pages inevitably get moved or deleted.
+Make sure you have a plan in place for managing link maintenance.</p></li>
+<li><p>Import or export requirements (to or from other tools or sites, for example?).
+Your content may need to be made available to third party clients or other software consumers that repackage it for their uses.
+Likewise, you may consume content from other sources, such as code examples from an engineering repository.</p></li>
+</ul>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+   
+</div>
+
+      </div>
+    </div>
+  </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../">
+    <img class="logo" src="../../_static/sticker-wtd-colors.png" alt="Logo" />
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<br>
+<p>
+Write the Docs is a global community of people who care about documentation.
+We have a Slack community, conferences on 4 continents, and local meetups!
+</p>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search/" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><style>
+.ethical-alabaster::before {margin-top: 1em;}
+</style>
+<div id="ethical-ad-placement"></div>
+
+
+<div id="toc">
+
+    <h3>Site Content</h3>
+
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../surveys/">Salary Surveys</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">Software documentation guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../book-club/">Book Club</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hiring-guide/">Hiring guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/stay-connected/">Stay Connected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/about-the-org/">About Our Organization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/events-activities/">Events and Activities</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../about/learning-resources/">Learning Resources</a></li>
+</ul>
+
+    
+</div>
+
+<br>
+
+
+<h3>Join our mailing list</h3>
+
+<!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+    <form action="https://writethedocs.us6.list-manage.com/subscribe/post?u=94377ea46d8b176a11a325d03&amp;id=dcf0ed349b&amp;f_id=00d2c2e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div id="mc_embed_signup_scroll">
+<div class="mc-field-group">
+	<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+</label>
+	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
+	<span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
+</div>
+<div class="mc-field-group input-group">
+    <strong>What types of updates would you like? </strong>
+    <ul><li>
+    <input type="checkbox" value="1" name="group[14633][1]" id="mce-group[14633]-14633-0" checked>
+    <label for="mce-group[14633]-14633-0">Monthly Community Newsletter</label>
+</li>
+<li>
+    <input type="checkbox" value="2" name="group[14633][2]" id="mce-group[14633]-14633-1">
+    <label for="mce-group[14633]-14633-1">North American Conference Announcements</label>
+</li>
+<li>
+    <input type="checkbox" value="4" name="group[14633][4]" id="mce-group[14633]-14633-2">
+    <label for="mce-group[14633]-14633-2">European Conference Announcements</label>
+</li>
+<li>
+    <input type="checkbox" value="8" name="group[14633][8]" id="mce-group[14633]-14633-3">
+    <label for="mce-group[14633]-14633-3">Australian Conference Announcements</label>
+</li>
+<li>
+    <input type="checkbox" value="16" name="group[14633][16]" id="mce-group[14633]-14633-4">
+    <label for="mce-group[14633]-14633-4">Atlantic Conference Announcements</label>
+</li>
+</ul>
+    <span id="mce-group[14633]-HELPERTEXT" class="helper_text"></span>
+</div>
+	<div id="mce-responses" class="clear">
+		<div class="response" id="mce-error-response" style="display:none"></div>
+		<div class="response" id="mce-success-response" style="display:none"></div>
+	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_94377ea46d8b176a11a325d03_dcf0ed349b" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+<!--End mc_embed_signup-->
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <style>
+
+/* Sponsors */
+.sponsors {
+    float: left;
+    margin-top: 12px;
+    text-align: center;
+}
+.sponsors .sponsor {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+}
+.sponsors .sponsor img {
+    width: 90px;
+    height: auto;
+}
+.sponsors .sponsor-name {
+    font-size: 12px;
+}
+.sponsors .sponsor-description {
+    font-size: 10px;
+    color: #BCC1C3;
+}
+.sponsors .sponsor-name, .sponsors .sponsor-description {
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* Links in footer */
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+#social-footer {
+  line-height: 1.5rem;
+}
+div.footer,div.footer a {
+  color: #757575;
+}
+</style>
+<div class="footer">
+      
+      <hr>
+      <div class="container">
+        <h2>
+          Missing something?
+        </h2>
+        <p>
+          You can always contribute to our guide on <a href="https://github.com/writethedocs/www/tree/master/docs/guide">GitHub</a>.
+        </p>
+      </div>
+      
+      <div class="container footer-links">
+        <div style="flex-basis: 20rem; text-align: left;">
+          <span>© Write the Docs</span>
+          <span>
+            &nbsp;<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0; vertical-align: middle;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+          </span>
+        </div>
+        <div id="social-footer">
+          <span><a href="/contact/"><i class="iconf-email"></i>Contact Us</a></span> |
+          <span><a href="/site-map"><i class="iconf-github-circled-alt2"></i>Site map</a></span> |
+          <span><a href="https://github.com/writethedocs"><i class="iconf-github-circled-alt2"></i>GitHub</a></span> |
+          <span><a href="https://twitter.com/writethedocs"><i class="iconf-twitter-circled"></i>Twitter</a></span> |
+          <span>
+                <a href="https://www.linkedin.com/company/write-the-docs">
+                  LinkedIn
+                </a>
+          </span> |
+          <span><a href="../../code-of-conduct/">Code&nbsp;of&nbsp;Conduct</a></span> |
+        </div>
+      </div>
+
+    
+
+  <div class="sponsors" id="community-sponsors" style="width: 100%;">
+  <hr>
+    <a class="sponsor" href="https://readthedocs.org" rel="noopener" target="_blank">
+      <img src="https://read-the-docs-guidelines.readthedocs-hosted.com/_images/logo-wordmark-dark.png" alt="Read the Docs" class="sponsor-image">
+      <div class="sponsor-name">Read the Docs</div>
+      <div class="sponsor-description">Website Hosting</div>
+    </a>
+    
+
+    <a class="sponsor" href="../../sponsorship/" rel="noopener" target="_blank">
+      <div class="sponsor-name">Sponsorship Info</div>
+    </a>
+  </div>
+</div>
+
+<!-- 100% privacy-first analytics -->
+<script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+<noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+  </body>
+</html>

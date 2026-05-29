@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="How to write software documentation" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/guide/writing/beginners-guide-to-docs/" />
+<meta property="og:site_name" content="Write the Docs" />
+<meta property="og:description" content="As a software developer or engineer, there is a magical feeling that comes from releasing open-source code. The feeling is a mix of terror and excitement. You’re eager to tell the world about your ..." />
+<meta property="og:image" content="https://www.writethedocs.org/_static/logo-opengraph.png" />
+<meta property="og:image:alt" content="Write the Docs" />
+<meta name="description" content="As a software developer or engineer, there is a magical feeling that comes from releasing open-source code. The feeling is a mix of terror and excitement. You’re eager to tell the world about your ..." />
+<meta name="twitter:card" content="summary_large_image" />
+
+    <title>How to write software documentation &#8212; Write the Docs</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css?v=27fed22d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/global-customizations.css?v=cc78cf2f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/survey.css?v=aec99644" />
+    <script src="../../../_static/documentation_options.js?v=14e74cc1"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="canonical" href="https://www.writethedocs.org/guide/writing/beginners-guide-to-docs/" />
+    <link rel="icon" href="../../../_static/favicon-96x96.png"/>
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="next" title="Getting started: documentation best practices for developers" href="../../starting/" />
+    <link rel="prev" title="Software documentation guide" href="../../" /> 
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../blog/archive/atom.xml"
+  title="Blog"
+/>
+ 
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" />
+ 
+  <script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="writethedocs-www" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/guide/writing/beginners-guide-to-docs/" /><meta name="readthedocs-http-status" content="200" /></head><body>
+  
+
+    <div class="document">
+  <div class="announcement-banner-wrapper">
+    <div class="announcement-banner">
+      <p>Berlin 2026 CFP is open! <a href='/conf/berlin/2026/cfp/'>Submit your talk</a>.</p>
+    </div>
+  </div>
+
+  <div class="documentwrapper">
+    <div class="bodywrapper">
+      <div class="body" role="main">
+          
+          <div class="breadcrumbs">
+            
+            
+              <a href="../../../">Home</a> &raquo;
+                
+                  <a href="../../">Software documentation guide</a> &raquo;
+                
+            
+          </div>
+        
+         <section id="how-to-write-software-documentation">
+<h1>How to write software documentation<a class="headerlink" href="#how-to-write-software-documentation" title="Link to this heading">¶</a></h1>
+<p>As a software developer or engineer, there is a magical feeling that comes from releasing open-source code.
+The feeling is a mix of terror and excitement.
+You’re eager to tell the world about your new project but despair at where to start. Even professional writers
+know the mixed emotions caused by a blank page.</p>
+<p>Good software documentation helps relieve that fear. So, have no fear! Use this guide to document your first open-source project for
+public release.</p>
+<section id="why-write-software-documentation">
+<span id="why"></span><h2>Why write software documentation?<a class="headerlink" href="#why-write-software-documentation" title="Link to this heading">¶</a></h2>
+<section id="understand-your-code-in-6-months">
+<h3>Understand your code in 6 months<a class="headerlink" href="#understand-your-code-in-6-months" title="Link to this heading">¶</a></h3>
+<p>Your code from 6 months ago looks like code that someone else wrote.
+Things that were obvious six months ago are now unclear, and you now empathize with potential
+users who need good documentation.</p>
+</section>
+<section id="get-people-to-use-your-code">
+<h3>Get people to use your code<a class="headerlink" href="#get-people-to-use-your-code" title="Link to this heading">¶</a></h3>
+<p>Just like code comments explain the <em>why</em> and not the <em>how</em>, software documentation states the <em>why</em> behind the code.
+Good documentation solves a few
+common reasons people won’t use your code:</p>
+<ul class="simple">
+<li><p>They don’t know why your project exists or how it meets their needs.</p></li>
+<li><p>They can’t find how to install your code.</p></li>
+<li><p>They can’t see how to use your code.</p></li>
+</ul>
+<p>Therefore, if you love your project, document it so others can use it.</p>
+</section>
+<section id="increase-contributions-to-your-code">
+<h3>Increase contributions to your code<a class="headerlink" href="#increase-contributions-to-your-code" title="Link to this heading">¶</a></h3>
+<p>Potential contributors need help through documentation. Documentation also provides another way for people to contribute and, for people who have never contributed, documentation changes may be easier than code changes.
+Overall, without documentation, you impede or even lose contributors.</p>
+</section>
+<section id="improve-your-code">
+<h3>Improve your code<a class="headerlink" href="#improve-your-code" title="Link to this heading">¶</a></h3>
+<p>The process of creating documentation requires focused thought that improves code design.
+Writing out API and design decisions allows you to formally think about them.
+Documentation also allows people to contribute code that follows your original intentions.</p>
+</section>
+<section id="improve-your-technical-writing">
+<h3>Improve your technical writing<a class="headerlink" href="#improve-your-technical-writing" title="Link to this heading">¶</a></h3>
+<p>Technical writing is a useful skill for programmers, but it requires different writing skills than most people have naturally.
+Writing documentation makes you a better technical writer. Technical writing becomes easier over time so maintain your writing skill by documenting your projects.</p>
+<p>Start simple to achieve the best results.</p>
+</section>
+</section>
+<section id="what-to-include-in-software-documentation">
+<span id="write"></span><h2>What to include in software documentation<a class="headerlink" href="#what-to-include-in-software-documentation" title="Link to this heading">¶</a></h2>
+<p>Give users the information they need, but not too much.</p>
+<p>First, know which of these common audiences you’re writing for:</p>
+<ul class="simple">
+<li><p>Users - want to use your code and don’t care how it works.</p></li>
+<li><p>Developers - want to contribute to your code.</p></li>
+</ul>
+<p>Importantly, beware of overusing Frequently Asked Questions (FAQs) as documentation. Although FAQs can be useful starter documentation for new projects until you have time to write better documentation, FAQs quickly outgrow their use due to many drawbacks:</p>
+<ul class="simple">
+<li><p>Become quickly outdated.</p></li>
+<li><p>Accumulate disparate content on unrelated topics.</p></li>
+<li><p>Become hard to sort and search through as content is added.</p></li>
+<li><p>Are rarely an actual list of frequently asked questions from real users.</p></li>
+<li><p>Tempt you to add content as a quick fix in lieu of creating actual, thorough documentation.</p></li>
+</ul>
+<section id="show-what-problem-your-code-solves">
+<h3>Show what problem your code solves<a class="headerlink" href="#show-what-problem-your-code-solves" title="Link to this heading">¶</a></h3>
+<p>People use your docs to learn about your project.
+Perhaps they will hear about your project from others or will find it from a search engine.
+Regardless, clearly state what your project does and why.</p>
+<p><a class="reference external" href="http://docs.fabfile.org/">Fabric</a> does a great job of this.</p>
+</section>
+<section id="provide-a-small-code-example">
+<h3>Provide a small code example<a class="headerlink" href="#provide-a-small-code-example" title="Link to this heading">¶</a></h3>
+<p>Show a common example use case for your project.</p>
+<p><a class="reference external" href="https://requests.kennethreitz.org/en/master/">Requests</a> is a great example.</p>
+</section>
+<section id="link-to-your-code-and-issue-tracker">
+<h3>Link to your code and issue tracker<a class="headerlink" href="#link-to-your-code-and-issue-tracker" title="Link to this heading">¶</a></h3>
+<p>People sometimes browse the code. They might want to file bugs for issues they’ve found,
+so make your code easy to contribute.</p>
+<p>The <a class="reference external" href="http://docs.python-guide.org/en/latest/index.html">Python Guide</a> does a good job of this.</p>
+</section>
+<section id="tell-people-how-to-get-support">
+<h3>Tell people how to get support<a class="headerlink" href="#tell-people-how-to-get-support" title="Link to this heading">¶</a></h3>
+<p>Whether from a mailing list or IRC Channel, document how to get help and interact with the community.</p>
+<p><a class="reference external" href="https://docs.djangoproject.com/en/1.8/faq/help">Django</a> does a great job at this.</p>
+</section>
+<section id="show-how-to-contribute">
+<h3>Show how to contribute<a class="headerlink" href="#show-how-to-contribute" title="Link to this heading">¶</a></h3>
+<p>People have their own expectations of how to contribute. Document your contribution process so that contributions follow the standards for your project.</p>
+<p><a class="reference external" href="https://packaginator.readthedocs.io/en/latest/contributing.html">Open Comparison</a> does a great job of this.</p>
+</section>
+<section id="provide-installation-instructions">
+<h3>Provide installation instructions<a class="headerlink" href="#provide-installation-instructions" title="Link to this heading">¶</a></h3>
+<p>Once people decide to use your code, they need to install and run it. Keep your install instructions to a couple of lines for the basic case. Link to a page with more information and any caveats.</p>
+<p><a class="reference external" href="https://docs.readthedocs.com/dev/latest/install.html">Read the Docs</a> does a good job with this.</p>
+</section>
+<section id="state-your-project-s-license">
+<h3>State your project’s license<a class="headerlink" href="#state-your-project-s-license" title="Link to this heading">¶</a></h3>
+<p>BSD? MIT? GPL? A project’s license might not matter to you, but the people who want to use your code will care. Think about what you want to accomplish with your license and only pick one standard license.</p>
+</section>
+</section>
+<section id="next-steps-for-software-documentation">
+<span id="template"></span><h2>Next steps for software documentation<a class="headerlink" href="#next-steps-for-software-documentation" title="Link to this heading">¶</a></h2>
+<p>After following this guide,
+we know your code is ready for success!
+But, if you’d like to learn more,
+see <a class="reference external" href="https://medium.com/p/aaa2a5437d3a">how to maintain an open source project</a>.</p>
+</section>
+<section id="tools-for-writing-software-documentation">
+<h2>Tools for writing software documentation<a class="headerlink" href="#tools-for-writing-software-documentation" title="Link to this heading">¶</a></h2>
+<p>Programmers live in a world of plain text.
+Their documentation tooling and workflows should function similarly while being powerful and easy to use.
+Writing tools should turn plain text into pretty HTML and track changes to files.</p>
+<section id="a-basic-markup-example">
+<h3>A basic markup example<a class="headerlink" href="#a-basic-markup-example" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Resources</span>
+<span class="o">---------</span>
+
+<span class="o">*</span> <span class="n">Online</span> <span class="n">documentation</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="o">.</span><span class="n">writethedocs</span><span class="o">.</span><span class="n">org</span><span class="o">/</span>
+<span class="o">*</span> <span class="n">Conference</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">conf</span><span class="o">.</span><span class="n">writethedocs</span><span class="o">.</span><span class="n">org</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>This will render a nice HTML header and a list with automatically hyperlinked URLs.
+It’s easy to write and still makes sense as plain text.</p>
+<aside class="sidebar" id="markup-languages">
+<p class="sidebar-title">Sidebar on markup languages.</p>
+<p>The examples in this document are both valid <a class="reference external" href="http://daringfireball.net/projects/markdown/">Markdown</a> and <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">reStructuredText</a>.
+reStructuredText is a bit harder to use,
+but is more powerful. Check them both out.</p>
+</aside>
+</section>
+<section id="readme-template">
+<h3>README template<a class="headerlink" href="#readme-template" title="Link to this heading">¶</a></h3>
+<p>Your project’s README is often the first time users interact with your project. Therefore, having a solid README is key.
+Code hosting services automatically render your README into HTML if you provide the proper extension.</p>
+<p>Some people even <a class="reference external" href="http://tom.preston-werner.com/2010/08/23/readme-driven-development.html">start a project with a README</a>.</p>
+<p>Below is a simple <code class="docutils literal notranslate"><span class="pre">README</span></code> template to start with.
+Name the file <code class="docutils literal notranslate"><span class="pre">README.md</span></code> to use markdown,
+or <code class="docutils literal notranslate"><span class="pre">README.rst</span></code> to use reStructuredText.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$project
+========
+
+$project solves the problem of where to start with documentation
+by providing a basic explanation of how to do it easily:
+
+    import project
+    # Get your stuff done
+    project.do_stuff()
+
+Features
+--------
+
+- Be awesome
+- Make things faster
+
+Installation
+------------
+
+Install $project by running:
+
+    install project
+
+Contribute
+----------
+
+- Issue Tracker: github.com/$project/$project/issues
+- Source Code: github.com/$project/$project
+
+Support
+-------
+
+Let us know if you have issues.
+See our mailing list at: project@google-groups.com
+
+License
+-------
+
+The project is licensed under the BSD license.
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+   
+</div>
+
+      </div>
+    </div>
+  </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../../../">
+    <img class="logo" src="../../../_static/sticker-wtd-colors.png" alt="Logo" />
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<br>
+<p>
+Write the Docs is a global community of people who care about documentation.
+We have a Slack community, conferences on 4 continents, and local meetups!
+</p>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search/" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><style>
+.ethical-alabaster::before {margin-top: 1em;}
+</style>
+<div id="ethical-ad-placement"></div>
+
+
+<div id="toc">
+
+    <h3>Site Content</h3>
+
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../surveys/">Salary Surveys</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../">Software documentation guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../book-club/">Book Club</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hiring-guide/">Hiring guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/stay-connected/">Stay Connected</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/about-the-org/">About Our Organization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/events-activities/">Events and Activities</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../about/learning-resources/">Learning Resources</a></li>
+</ul>
+
+    
+</div>
+
+<br>
+
+
+<h3>Join our mailing list</h3>
+
+<!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+    <form action="https://writethedocs.us6.list-manage.com/subscribe/post?u=94377ea46d8b176a11a325d03&amp;id=dcf0ed349b&amp;f_id=00d2c2e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div id="mc_embed_signup_scroll">
+<div class="mc-field-group">
+	<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+</label>
+	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
+	<span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
+</div>
+<div class="mc-field-group input-group">
+    <strong>What types of updates would you like? </strong>
+    <ul><li>
+    <input type="checkbox" value="1" name="group[14633][1]" id="mce-group[14633]-14633-0" checked>
+    <label for="mce-group[14633]-14633-0">Monthly Community Newsletter</label>
+</li>
+<li>
+    <input type="checkbox" value="2" name="group[14633][2]" id="mce-group[14633]-14633-1">
+    <label for="mce-group[14633]-14633-1">North American Conference Announcements</label>
+</li>
+<li>
+    <input type="checkbox" value="4" name="group[14633][4]" id="mce-group[14633]-14633-2">
+    <label for="mce-group[14633]-14633-2">European Conference Announcements</label>
+</li>
+<li>
+    <input type="checkbox" value="8" name="group[14633][8]" id="mce-group[14633]-14633-3">
+    <label for="mce-group[14633]-14633-3">Australian Conference Announcements</label>
+</li>
+<li>
+    <input type="checkbox" value="16" name="group[14633][16]" id="mce-group[14633]-14633-4">
+    <label for="mce-group[14633]-14633-4">Atlantic Conference Announcements</label>
+</li>
+</ul>
+    <span id="mce-group[14633]-HELPERTEXT" class="helper_text"></span>
+</div>
+	<div id="mce-responses" class="clear">
+		<div class="response" id="mce-error-response" style="display:none"></div>
+		<div class="response" id="mce-success-response" style="display:none"></div>
+	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_94377ea46d8b176a11a325d03_dcf0ed349b" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+<!--End mc_embed_signup-->
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <style>
+
+/* Sponsors */
+.sponsors {
+    float: left;
+    margin-top: 12px;
+    text-align: center;
+}
+.sponsors .sponsor {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+}
+.sponsors .sponsor img {
+    width: 90px;
+    height: auto;
+}
+.sponsors .sponsor-name {
+    font-size: 12px;
+}
+.sponsors .sponsor-description {
+    font-size: 10px;
+    color: #BCC1C3;
+}
+.sponsors .sponsor-name, .sponsors .sponsor-description {
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* Links in footer */
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+#social-footer {
+  line-height: 1.5rem;
+}
+div.footer,div.footer a {
+  color: #757575;
+}
+</style>
+<div class="footer">
+      
+      <hr>
+      <div class="container">
+        <h2>
+          Missing something?
+        </h2>
+        <p>
+          You can always contribute to our guide on <a href="https://github.com/writethedocs/www/tree/master/docs/guide">GitHub</a>.
+        </p>
+      </div>
+      
+      <div class="container footer-links">
+        <div style="flex-basis: 20rem; text-align: left;">
+          <span>© Write the Docs</span>
+          <span>
+            &nbsp;<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0; vertical-align: middle;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+          </span>
+        </div>
+        <div id="social-footer">
+          <span><a href="/contact/"><i class="iconf-email"></i>Contact Us</a></span> |
+          <span><a href="/site-map"><i class="iconf-github-circled-alt2"></i>Site map</a></span> |
+          <span><a href="https://github.com/writethedocs"><i class="iconf-github-circled-alt2"></i>GitHub</a></span> |
+          <span><a href="https://twitter.com/writethedocs"><i class="iconf-twitter-circled"></i>Twitter</a></span> |
+          <span>
+                <a href="https://www.linkedin.com/company/write-the-docs">
+                  LinkedIn
+                </a>
+          </span> |
+          <span><a href="../../../code-of-conduct/">Code&nbsp;of&nbsp;Conduct</a></span> |
+        </div>
+      </div>
+
+    
+
+  <div class="sponsors" id="community-sponsors" style="width: 100%;">
+  <hr>
+    <a class="sponsor" href="https://readthedocs.org" rel="noopener" target="_blank">
+      <img src="https://read-the-docs-guidelines.readthedocs-hosted.com/_images/logo-wordmark-dark.png" alt="Read the Docs" class="sponsor-image">
+      <div class="sponsor-name">Read the Docs</div>
+      <div class="sponsor-description">Website Hosting</div>
+    </a>
+    
+
+    <a class="sponsor" href="../../../sponsorship/" rel="noopener" target="_blank">
+      <div class="sponsor-name">Sponsorship Info</div>
+    </a>
+  </div>
+</div>
+
+<!-- 100% privacy-first analytics -->
+<script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+<noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+  </body>
+</html>
