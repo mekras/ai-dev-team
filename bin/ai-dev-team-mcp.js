@@ -433,12 +433,12 @@ function handleMessage(raw) {
   }
 
   if (!request || request.jsonrpc !== '2.0' || typeof request.method !== 'string') {
-    if (request && request.id) {
+    if (request && Object.prototype.hasOwnProperty.call(request, 'id')) {
       writeError(request.id, protocolError.INVALID_REQUEST, 'Невалидный запрос');
     }
     return;
   }
-  if (!request.id) {
+  if (!Object.prototype.hasOwnProperty.call(request, 'id')) {
     return;
   }
 
@@ -590,8 +590,15 @@ function runSelfCheck() {
   }
 }
 
+let transportMode = null;
+
 function writeResponse(response) {
   const payload = JSON.stringify(response);
+  if (transportMode === 'json-line') {
+    process.stdout.write(`${payload}\n`);
+    return;
+  }
+
   const frame =
     `Content-Length: ${Buffer.byteLength(payload, 'utf8')}\r\n\r\n${payload}`;
   process.stdout.write(frame);
@@ -658,6 +665,32 @@ function extractFrameFromBuffer(buffer) {
   };
 }
 
+function detectTransportMode(buffer) {
+  const trimmed = buffer.toString('utf8').trimStart();
+  if (!trimmed) {
+    return null;
+  }
+  if (trimmed.startsWith('Content-Length:')) {
+    return 'mcp-framed';
+  }
+  if (trimmed.startsWith('{') || trimmed.startsWith('[')) {
+    return 'json-line';
+  }
+  return null;
+}
+
+function extractJsonLineFromBuffer(buffer) {
+  const newlineIndex = buffer.indexOf('\n');
+  if (newlineIndex < 0) {
+    return null;
+  }
+
+  return {
+    raw: buffer.slice(0, newlineIndex).toString('utf8').trim(),
+    rest: buffer.slice(newlineIndex + 1),
+  };
+}
+
 function run() {
   if (process.stdin.isTTY && process.stderr.isTTY) {
     process.stderr.write(
@@ -669,8 +702,19 @@ function run() {
   process.stdin.on('data', (chunk) => {
     const next = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
     buffer = Buffer.concat([buffer, next]);
+
+    if (!transportMode) {
+      transportMode = detectTransportMode(buffer);
+      if (!transportMode) {
+        return;
+      }
+    }
+
     while (true) {
-      const frame = extractFrameFromBuffer(buffer);
+      const frame =
+        transportMode === 'json-line'
+          ? extractJsonLineFromBuffer(buffer)
+          : extractFrameFromBuffer(buffer);
       if (!frame) {
         break;
       }
@@ -681,7 +725,10 @@ function run() {
           id: null,
           error: {
             code: protocolError.PARSE_ERROR,
-            message: 'Невалидный заголовок MCP',
+            message:
+              transportMode === 'json-line'
+                ? 'Невалидное JSON-сообщение'
+                : 'Невалидный заголовок MCP',
           },
         });
         buffer = frame.rest;
@@ -702,7 +749,10 @@ function run() {
         id: null,
         error: {
           code: protocolError.PARSE_ERROR,
-          message: 'Незавершённое MCP-сообщение',
+          message:
+            transportMode === 'json-line'
+              ? 'Незавершённое JSON-сообщение'
+              : 'Незавершённое MCP-сообщение',
         },
       });
     }
