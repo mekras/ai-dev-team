@@ -46,7 +46,7 @@ ai-dev-team agents --channel stable
 Чтобы обновить установленную версию продукта, выполните:
 
   ```shell
-  npm install -g git+https://github.com/mekras/ai-dev-team.git
+npm install -g git+https://github.com/mekras/ai-dev-team.git
 ```
   
 ## Документация

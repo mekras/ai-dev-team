@@ -659,9 +659,11 @@ function extractFrameFromBuffer(buffer) {
 }
 
 function run() {
-  process.stderr.write(
-    `ai-dev-team-mcp: канал=${SERVER_CHANNEL}, транспорт=stdio, ожидание клиента\n`
-  );
+  if (process.stdin.isTTY && process.stderr.isTTY) {
+    process.stderr.write(
+      `ai-dev-team-mcp: канал=${SERVER_CHANNEL}, транспорт=stdio, ожидание клиента\n`
+    );
+  }
 
   let buffer = Buffer.alloc(0);
   process.stdin.on('data', (chunk) => {
