@@ -591,7 +591,10 @@ function runSelfCheck() {
 }
 
 function writeResponse(response) {
-  process.stdout.write(`${JSON.stringify(response)}\n`);
+  const payload = JSON.stringify(response);
+  const frame =
+    `Content-Length: ${Buffer.byteLength(payload, 'utf8')}\r\n\r\n${payload}`;
+  process.stdout.write(frame);
 }
 
 function writeError(id, code, message, data) {
@@ -606,25 +609,104 @@ function writeError(id, code, message, data) {
   });
 }
 
+function parseContentLength(headerBlock) {
+  const lines = headerBlock.split('\r\n');
+  for (const rawLine of lines) {
+    const idx = rawLine.indexOf(':');
+    if (idx < 0) {
+      continue;
+    }
+    const name = rawLine.slice(0, idx).trim().toLowerCase();
+    if (name !== 'content-length') {
+      continue;
+    }
+    const value = rawLine.slice(idx + 1).trim();
+    if (!value) {
+      return null;
+    }
+    const length = Number.parseInt(value, 10);
+    if (!Number.isFinite(length) || length < 0) {
+      return null;
+    }
+    return length;
+  }
+  return null;
+}
+
+function extractFrameFromBuffer(buffer) {
+  const separator = '\r\n\r\n';
+  const headerEnd = buffer.indexOf(separator);
+  if (headerEnd < 0) {
+    return null;
+  }
+
+  const headerBlock = buffer.slice(0, headerEnd).toString('utf8');
+  const contentLength = parseContentLength(headerBlock);
+  if (contentLength === null) {
+    return { raw: null, rest: buffer.slice(headerEnd + separator.length) };
+  }
+
+  const bodyStart = headerEnd + separator.length;
+  const bodyEnd = bodyStart + contentLength;
+  if (buffer.length < bodyEnd) {
+    return null;
+  }
+
+  return {
+    raw: buffer.slice(bodyStart, bodyEnd).toString('utf8'),
+    rest: buffer.slice(bodyEnd),
+  };
+}
+
 function run() {
   process.stderr.write(
     `ai-dev-team-mcp: канал=${SERVER_CHANNEL}, транспорт=stdio, ожидание клиента\n`
   );
 
-  let buffer = '';
-  process.stdin.setEncoding('utf8');
+  let buffer = Buffer.alloc(0);
   process.stdin.on('data', (chunk) => {
-    buffer += chunk;
-    let boundary = buffer.indexOf('\n');
-    while (boundary !== -1) {
-      const line = buffer.slice(0, boundary).trim();
-      buffer = buffer.slice(boundary + 1);
-      if (line) {
-        handleMessage(line);
+    const next = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
+    buffer = Buffer.concat([buffer, next]);
+    while (true) {
+      const frame = extractFrameFromBuffer(buffer);
+      if (!frame) {
+        break;
       }
-      boundary = buffer.indexOf('\n');
+
+      if (frame.raw === null) {
+        writeResponse({
+          jsonrpc: '2.0',
+          id: null,
+          error: {
+            code: protocolError.PARSE_ERROR,
+            message: 'Невалидный заголовок MCP',
+          },
+        });
+        buffer = frame.rest;
+        continue;
+      }
+
+      if (frame.raw) {
+        handleMessage(frame.raw);
+      }
+      buffer = frame.rest;
     }
   });
+
+  process.stdin.on('end', () => {
+    if (buffer.length !== 0) {
+      writeResponse({
+        jsonrpc: '2.0',
+        id: null,
+        error: {
+          code: protocolError.PARSE_ERROR,
+          message: 'Незавершённое MCP-сообщение',
+        },
+      });
+    }
+  });
+
+  process.stdin.resume();
 }
 
 run();
