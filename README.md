@@ -35,10 +35,20 @@ node ./bin/ai-dev-team-mcp.js --check --channel stable
 
 4. Добавьте подключение в `AGENTS.md` вашего проекта.
 
+В корневой папке вашего проекта выполните:
+
 ```markdown
 ai-dev-team agents --channel stable
 ```
 
+## Обновление
+
+Чтобы обновить установленную версию продукта, выполните:
+
+  ```shell
+  npm install -g git+https://github.com/mekras/ai-dev-team.git
+```
+  
 ## Документация
 
 - [Концепция](docs/concept.md).
