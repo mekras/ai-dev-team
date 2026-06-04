@@ -33,10 +33,10 @@ ai-dev-team-mcp --check --channel stable
 node ./bin/ai-dev-team-mcp.js --check --channel stable
 ```
 
-4. В `AGENTS.md` вашего проекта добавьте строку:
+4. Добавьте подключение в `AGENTS.md` вашего проекта.
 
 ```markdown
-Проект использует `ai-dev-team@stable`.
+ai-dev-team agents --channel stable
 ```
 
 ## Документация

@@ -9,6 +9,8 @@ const PRODUCT_ID = 'ai-dev-team';
 const DEFAULT_CHANNEL = 'stable';
 const AVAILABLE_CHANNELS = new Set(['stable', 'local', 'dev']);
 const SUPPORTED_CLIENTS = new Set(['codex']);
+const AGENTS_CONNECTION_LINE_PREFIX = 'Проект использует `ai-dev-team@';
+const AGENTS_CONNECTION_LINE_SUFFIX = '`.\n';
 
 const argv = process.argv.slice(2);
 
@@ -34,6 +36,11 @@ function run() {
     return runSetup(cli.client, channel);
   }
 
+  if (cli.command === 'agents') {
+    const channel = normalizeChannel(cli.channel);
+    return runAgents(channel);
+  }
+
   console.error(`Ошибка: неизвестная команда ${cli.command}`);
   printUsage();
   process.exit(1);
@@ -55,6 +62,31 @@ function runConnect(client, channel) {
 
 function runSetup(client, channel) {
   return runConnect(client, channel);
+}
+
+function runAgents(channel) {
+  const cwdAgentsPath = path.join(process.cwd(), 'AGENTS.md');
+  const marker = `${AGENTS_CONNECTION_LINE_PREFIX}${channel}${AGENTS_CONNECTION_LINE_SUFFIX}`;
+
+  if (!fs.existsSync(cwdAgentsPath)) {
+    fs.writeFileSync(cwdAgentsPath, marker, 'utf8');
+    console.log(`AGENTS.md создан: ${cwdAgentsPath}`);
+    process.exit(0);
+  }
+
+  const existing = fs.readFileSync(cwdAgentsPath, 'utf8');
+  if (existing.includes(marker)) {
+    console.log(`AGENTS.md уже содержит подключение: ${cwdAgentsPath}`);
+    process.exit(0);
+  }
+
+  const normalized = existing.trim().length === 0
+    ? marker
+    : `${existing.replace(/\n*$/, '')}\n\n${marker}`;
+
+  fs.writeFileSync(cwdAgentsPath, normalized, 'utf8');
+  console.log(`AGENTS.md обновлён: ${cwdAgentsPath}`);
+  process.exit(0);
 }
 
 function configureCodex(channel) {
@@ -148,7 +180,7 @@ function upsertTomlSection(content, sectionName, sectionText) {
 }
 
 function parseCliArgs(argv) {
-  if (argv.length < 2) {
+  if (!argv.length) {
     console.error('Ошибка: не указана команда или цель подключения.');
     printUsage();
     process.exit(1);
@@ -160,7 +192,12 @@ function parseCliArgs(argv) {
     channel: DEFAULT_CHANNEL,
   };
 
-  for (let index = 2; index < argv.length; index += 1) {
+  const startIndex = parsed.command === 'agents' ? 1 : 2;
+  if (startIndex === 2 && argv.length < 2) {
+    ensureTargetSpecified(parsed.client, parsed.command);
+  }
+
+  for (let index = startIndex; index < argv.length; index += 1) {
     const arg = argv[index];
     if (arg === '--help' || arg === '-h') {
       printUsage();
@@ -202,8 +239,10 @@ function normalizeChannel(value) {
 function printUsage() {
   console.log(`Использование:
   ai-dev-team connect|setup <client> [--channel stable|local|dev]
+  ai-dev-team agents [--channel stable|local|dev]
 
 Команды:
+  agents   добавить или обновить строку подключения в AGENTS.md
   connect  добавить или обновить подключение клиента
   setup    то же, что и connect
 
