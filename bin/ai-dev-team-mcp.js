@@ -246,7 +246,6 @@ function getStableResources() {
   return [
     buildResourceEntry('FRAMEWORK.md'),
     buildResourceEntry('team/templates/project-AGENTS.md'),
-    buildResourceEntry('team/README.md'),
     ...collectRoleResources(),
     ...collectSkillResources(),
   ].sort((a, b) => a.path.localeCompare(b.path));
