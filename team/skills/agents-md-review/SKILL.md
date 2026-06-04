@@ -25,7 +25,7 @@ description: >
 - отчёт влияния источников:
   `data/reports/source-impact/2026-06-03-agents-context-sources.md`;
 - рабочий регламент контрольного слоя: `ai-control/ai-work-control.md`;
-- общие правила корпуса знаний: `docs/knowlege_corpus.md`.
+- общие правила корпуса знаний: `docs/corpus.md`.
 
 Существенные рекомендации корпуса, которые проверяет этот навык:
 
