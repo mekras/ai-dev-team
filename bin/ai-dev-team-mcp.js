@@ -12,6 +12,45 @@ const MCP_URI_PREFIX = 'ai-dev-team://';
 
 const PRODUCT_ROOT = path.resolve(__dirname, '..');
 const TEAM_ROOT = path.join(PRODUCT_ROOT, 'team');
+const AI_CONTROL_RESOURCES = [
+  {
+    path: 'team/ai-control/README.md',
+    source: 'vendor/ai-agent-supervisor/knowledge/ai-control-layer.md',
+  },
+  {
+    path: 'team/ai-control/ai-application-check.md',
+    source:
+      'vendor/ai-agent-supervisor/skills/ai-application-check/references/application-check.md',
+  },
+  {
+    path: 'team/ai-control/ai-application-check-template.md',
+    source:
+      'vendor/ai-agent-supervisor/skills/ai-application-check/assets/application-check-template.md',
+  },
+  {
+    path: 'team/ai-control/ai-work-control.md',
+    source:
+      'vendor/ai-agent-supervisor/skills/ai-work-control/references/work-control.md',
+  },
+  {
+    path: 'team/ai-control/ai-work-result-evaluation.md',
+    source:
+      'vendor/ai-agent-supervisor/skills/ai-work-result-evaluation/references/work-result-evaluation.md',
+  },
+  {
+    path: 'team/ai-control/ai-work-result-evaluation-case-template.md',
+    source:
+      'vendor/ai-agent-supervisor/skills/ai-work-result-evaluation/assets/work-result-evaluation-case-template.md',
+  },
+  {
+    path: 'team/ai-control/data-collection-procedure.md',
+    source:
+      'vendor/ai-agent-supervisor/skills/ai-data-collection/references/data-collection-procedure.md',
+  },
+];
+const AI_CONTROL_RESOURCE_MAP = Object.fromEntries(
+  AI_CONTROL_RESOURCES.map((entry) => [entry.path, entry.source])
+);
 const CLI_OPTIONS = parseCliArgs(process.argv.slice(2));
 const SERVER_CHANNEL = normalizeChannel(CLI_OPTIONS.channel);
 
@@ -242,12 +281,19 @@ function buildResourceEntry(relativePath) {
   };
 }
 
+function collectAiControlResources() {
+  return AI_CONTROL_RESOURCES
+    .map((entry) => buildResourceEntry(entry.path))
+    .sort((a, b) => a.path.localeCompare(b.path));
+}
+
 function getStableResources() {
   return [
     buildResourceEntry('FRAMEWORK.md'),
     buildResourceEntry('team/templates/project-AGENTS.md'),
     ...collectRoleResources(),
     ...collectSkillResources(),
+    ...collectAiControlResources(),
   ].sort((a, b) => a.path.localeCompare(b.path));
 }
 
@@ -256,10 +302,7 @@ function getLocalResources() {
 }
 
 function getDevResources() {
-  return [
-    ...getLocalResources(),
-    buildResourceEntry('team/ai-control/ai-work-result-evaluation.md'),
-  ];
+  return [...getLocalResources()];
 }
 
 function getResources(channel) {
@@ -329,12 +372,11 @@ function getResource(args) {
     throw error;
   }
 
-  const { full } = safeJoinResourcePath(resourcePath);
   return {
     product_id: product.product_id,
     uri: `${MCP_URI_PREFIX}${resourcePath}`,
     path: resourcePath,
-    text: fs.readFileSync(full, 'utf8'),
+    text: fs.readFileSync(resolveResourceFile(resourcePath), 'utf8'),
   };
 }
 
@@ -354,6 +396,16 @@ function sanitizeResourcePath(resourcePath) {
     throw error;
   }
   return normalized;
+}
+
+function resolveResourceFile(resourcePath) {
+  const mappedPath = AI_CONTROL_RESOURCE_MAP[resourcePath];
+  if (mappedPath) {
+    const { full } = safeJoinResourcePath(mappedPath);
+    return full;
+  }
+  const { full } = safeJoinResourcePath(resourcePath);
+  return full;
 }
 
 function listTools() {
@@ -404,7 +456,7 @@ function readResourceByUri(uri) {
     error.code = 'RESOURCE_NOT_AVAILABLE_FOR_CHANNEL';
     throw error;
   }
-  const data = fs.readFileSync(path.join(PRODUCT_ROOT, item.path), 'utf8');
+  const data = fs.readFileSync(resolveResourceFile(item.path), 'utf8');
   return {
     contents: [
       {
