@@ -31,7 +31,7 @@
 
 - `AGENTS.md`
 - `team/skills/agents-md-review/SKILL.md`
-- `data/reports/source-impact/2026-06-03-agents-context-sources.md`
+- `knowledge/reports/source-impact/2026-06-03-agents-context-sources.md`
 
 ## Ожидаемое срабатывание
 

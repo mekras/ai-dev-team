@@ -124,20 +124,36 @@ function ensureAgentsConnectionAtTop(content, marker) {
   }
 
   const insertionIndex = findAgentsConnectionInsertionIndex(withoutConnectionLines);
-  const before = withoutConnectionLines.slice(0, insertionIndex);
-  const after = withoutConnectionLines.slice(insertionIndex);
+  const before = trimTrailingEmptyLines(withoutConnectionLines.slice(0, insertionIndex));
+  const after = trimLeadingEmptyLines(withoutConnectionLines.slice(insertionIndex));
   const nextLines = [...before];
 
-  if (nextLines.length === 0 || nextLines[nextLines.length - 1].trim() !== "") {
+  if (nextLines.length > 0) {
     nextLines.push("");
   }
   nextLines.push(marker);
-  if (after.length && after[0].trim() !== "") {
+  if (after.length > 0) {
     nextLines.push("");
   }
   nextLines.push(...after);
 
   return nextLines.join("\n").trimEnd();
+}
+
+function trimLeadingEmptyLines(lines) {
+  let start = 0;
+  while (start < lines.length && lines[start].trim() === "") {
+    start += 1;
+  }
+  return lines.slice(start);
+}
+
+function trimTrailingEmptyLines(lines) {
+  let end = lines.length;
+  while (end > 0 && lines[end - 1].trim() === "") {
+    end -= 1;
+  }
+  return lines.slice(0, end);
 }
 
 function normalizeLineEndings(value) {

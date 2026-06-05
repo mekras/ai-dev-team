@@ -23,7 +23,7 @@ description: >
 Навык опирается на следующие основания корпуса знаний:
 
 - отчёт влияния источников:
-  `data/reports/source-impact/2026-06-03-agents-context-sources.md`;
+  `knowledge/reports/source-impact/2026-06-03-agents-context-sources.md`;
 - рабочий регламент контрольного слоя: `team/ai-control/ai-work-control.md`;
 - общие правила корпуса знаний: `docs/knowledge.md`.
 

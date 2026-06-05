@@ -21,13 +21,13 @@ description: >
 Навык опирается на два разделённых источника корпуса:
 
 - `ASKL`:
-  - первичный источник: `data/primary/ASKL/source.md`;
-  - нормализованный слой: `data/normalized/ASKL/source.md`;
-  - извлечённые утверждения: `data/statements/ASKL.md`;
+- первичный источник: `knowledge/primary/ASKL/source.md`;
+- нормализованный слой: `knowledge/normalized/ASKL/source.md`;
+- извлечённые утверждения: `knowledge/statements/ASKL.md`;
 - `PPRX`:
-  - первичный источник: `data/primary/PPRX/source.md`;
-  - нормализованный слой: `data/normalized/PPRX/source.md`;
-  - извлечённые утверждения: `data/statements/PPRX.md`.
+- первичный источник: `knowledge/primary/PPRX/source.md`;
+- нормализованный слой: `knowledge/normalized/PPRX/source.md`;
+- извлечённые утверждения: `knowledge/statements/PPRX.md`.
 
 Положения источника не являются правилами проекта сами по себе. Они используются
 как основание для проектного навыка после анализа применимости к этому продукту.

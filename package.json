@@ -4,7 +4,7 @@
   "description": "Команда агентной разработки ПО",
   "scripts": {
     "mcp": "node ./bin/ai-dev-team-mcp.js",
-    "lint:md": "markdownlint '**/*.md' --ignore 'node_modules/**' --ignore 'data/primary/**' --ignore 'data/normalized/**' --ignore 'local/**'"
+    "lint:md": "markdownlint '**/*.md' --ignore 'node_modules/**' --ignore 'knowledge/primary/**' --ignore 'knowledge/normalized/**' --ignore 'knowledge/inventory/**' --ignore 'local/**'"
   },
   "bin": {
     "ai-dev-team": "./bin/ai-dev-team.js",
