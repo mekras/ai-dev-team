@@ -68,26 +68,80 @@ function runSetup(client, channel) {
 
 function runAgents(channel) {
   const cwdAgentsPath = path.join(process.cwd(), "AGENTS.md");
-  const marker = `${AGENTS_CONNECTION_LINE_PREFIX}${channel}${AGENTS_CONNECTION_LINE_SUFFIX}`;
+  const marker = buildAgentsConnectionLine(channel);
 
   if (!fs.existsSync(cwdAgentsPath)) {
-    fs.writeFileSync(cwdAgentsPath, marker, "utf8");
+    fs.writeFileSync(cwdAgentsPath, `${marker}\n`, "utf8");
     console.log(`AGENTS.md создан: ${cwdAgentsPath}`);
     process.exit(0);
   }
 
-  const existing = fs.readFileSync(cwdAgentsPath, "utf8");
-  if (existing.includes(marker)) {
+  const existing = normalizeLineEndings(fs.readFileSync(cwdAgentsPath, "utf8"));
+  const updated = ensureAgentsConnectionAtTop(existing, marker);
+  if (existing.trimEnd() === updated) {
     console.log(`AGENTS.md уже содержит подключение: ${cwdAgentsPath}`);
     process.exit(0);
   }
 
-  const normalized =
-    existing.trim().length === 0 ? marker : `${existing.replace(/\n*$/, "")}\n\n${marker}`;
-
-  fs.writeFileSync(cwdAgentsPath, normalized, "utf8");
+  fs.writeFileSync(cwdAgentsPath, `${updated}\n`, "utf8");
   console.log(`AGENTS.md обновлён: ${cwdAgentsPath}`);
   process.exit(0);
+}
+
+function buildAgentsConnectionLine(channel) {
+  return `${AGENTS_CONNECTION_LINE_PREFIX}${channel}${AGENTS_CONNECTION_LINE_SUFFIX}`.trim();
+}
+
+function isAgentsConnectionLine(line) {
+  const normalizedLine = line.trim();
+  return (
+    normalizedLine.startsWith(AGENTS_CONNECTION_LINE_PREFIX) &&
+    normalizedLine.endsWith("`.") &&
+    normalizedLine.length > AGENTS_CONNECTION_LINE_PREFIX.length
+  );
+}
+
+function findAgentsConnectionInsertionIndex(lines) {
+  const sectionHeaderIndex = lines.findIndex((line) => line.startsWith("## "));
+  if (sectionHeaderIndex !== -1) {
+    return sectionHeaderIndex;
+  }
+
+  const firstNonEmptyIndex = lines.findIndex((line) => line.trim() !== "");
+  return firstNonEmptyIndex === -1 ? 0 : firstNonEmptyIndex;
+}
+
+function ensureAgentsConnectionAtTop(content, marker) {
+  const normalizedContent = content.trimEnd();
+  if (normalizedContent.length === 0) {
+    return marker;
+  }
+
+  const lines = normalizedContent.split("\n");
+  const withoutConnectionLines = lines.filter((line) => !isAgentsConnectionLine(line));
+  if (withoutConnectionLines.every((line) => line.trim() === "")) {
+    return marker;
+  }
+
+  const insertionIndex = findAgentsConnectionInsertionIndex(withoutConnectionLines);
+  const before = withoutConnectionLines.slice(0, insertionIndex);
+  const after = withoutConnectionLines.slice(insertionIndex);
+  const nextLines = [...before];
+
+  if (nextLines.length === 0 || nextLines[nextLines.length - 1].trim() !== "") {
+    nextLines.push("");
+  }
+  nextLines.push(marker);
+  if (after.length && after[0].trim() !== "") {
+    nextLines.push("");
+  }
+  nextLines.push(...after);
+
+  return nextLines.join("\n").trimEnd();
+}
+
+function normalizeLineEndings(value) {
+  return value.replace(/\r\n/g, "\n").replace(/\r/g, "\n");
 }
 
 function configureCodex(channel) {
