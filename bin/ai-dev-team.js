@@ -313,8 +313,8 @@ function printUsage() {
   ai-dev-team agents [--channel stable|local|dev]
 
 Команды:
-  agents   добавить или обновить строку подключения в AGENTS.md
-  connect  добавить или обновить подключение клиента
+  agents   добавить или обновить строку подключения в AGENTS.md текущего проекта
+  connect  настроить клиент на этой машине
   setup    то же, что и connect
 
 Поддерживаемые клиенты:
