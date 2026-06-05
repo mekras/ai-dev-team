@@ -5,6 +5,7 @@
 ## Навыки
 
 - `agents-md-review` — роль: `technical-writer` — проверка `AGENTS.md`.
+  Источник: `vendor/ai-agent-supervisor/skills/agents-md-review/SKILL.md`.
 - `analysis` — роль: `analyst` — аналитический разбор.
 - `knowledge-corpus-validation` — роль: `source-inventory` — проверка корпуса
   знаний.
@@ -16,6 +17,7 @@
 - `project-readme` — роль: `technical-writer` — сопровождение проектного
   `README.md`.
 - `skill-development` — роль: `cross-role` — разработка навыков агента.
+  Источник: `vendor/ai-agent-supervisor/skills/skill-development/SKILL.md`.
 - `ait-corpus-add-source` — роль: `source-inventory` — добавление нового
   источника в корпус знаний.
 - `statement-extraction` — роль: `statement-extractor` — извлечение утверждений

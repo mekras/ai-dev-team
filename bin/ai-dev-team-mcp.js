@@ -12,6 +12,12 @@ const MCP_URI_PREFIX = 'ai-dev-team://';
 
 const PRODUCT_ROOT = path.resolve(__dirname, '..');
 const TEAM_ROOT = path.join(PRODUCT_ROOT, 'team');
+const SKILL_RESOURCE_OVERRIDES = {
+  'team/skills/agents-md-review/SKILL.md':
+    'vendor/ai-agent-supervisor/skills/agents-md-review/SKILL.md',
+  'team/skills/skill-development/SKILL.md':
+    'vendor/ai-agent-supervisor/skills/skill-development/SKILL.md',
+};
 const AI_CONTROL_RESOURCES = [
   {
     path: 'team/ai-control/README.md',
@@ -48,9 +54,12 @@ const AI_CONTROL_RESOURCES = [
       'vendor/ai-agent-supervisor/skills/ai-data-collection/references/data-collection-procedure.md',
   },
 ];
-const AI_CONTROL_RESOURCE_MAP = Object.fromEntries(
-  AI_CONTROL_RESOURCES.map((entry) => [entry.path, entry.source])
-);
+const RESOURCE_PATH_MAP = {
+  ...SKILL_RESOURCE_OVERRIDES,
+  ...Object.fromEntries(
+    AI_CONTROL_RESOURCES.map((entry) => [entry.path, entry.source])
+  ),
+};
 const CLI_OPTIONS = parseCliArgs(process.argv.slice(2));
 const SERVER_CHANNEL = normalizeChannel(CLI_OPTIONS.channel);
 
@@ -268,6 +277,11 @@ function collectSkillResources() {
     result.push(buildResourceEntry(`team/skills/${entry.name}/SKILL.md`));
   }
 
+  for (const resourcePath of Object.keys(SKILL_RESOURCE_OVERRIDES)) {
+    if (result.some((entry) => entry.path === resourcePath)) continue;
+    result.push(buildResourceEntry(resourcePath));
+  }
+
   return [skillsIndex, ...result];
 }
 
@@ -399,7 +413,7 @@ function sanitizeResourcePath(resourcePath) {
 }
 
 function resolveResourceFile(resourcePath) {
-  const mappedPath = AI_CONTROL_RESOURCE_MAP[resourcePath];
+  const mappedPath = RESOURCE_PATH_MAP[resourcePath];
   if (mappedPath) {
     const { full } = safeJoinResourcePath(mappedPath);
     return full;
