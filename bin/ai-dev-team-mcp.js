@@ -12,7 +12,34 @@ const MCP_URI_PREFIX = 'ai-dev-team://';
 
 const PRODUCT_ROOT = path.resolve(__dirname, '..');
 const TEAM_ROOT = path.join(PRODUCT_ROOT, 'team');
+const KNOWLEDGE_CORPUS_SKILL_OVERRIDES = {
+  'team/skills/knowledge-analysis/SKILL.md':
+    'vendor/project-knowlege-corpus/skills/knowledge-analysis/SKILL.md',
+  'team/skills/knowledge-corpus-add-source/SKILL.md':
+    'vendor/project-knowlege-corpus/skills/knowledge-corpus-add-source/SKILL.md',
+  'team/skills/knowledge-corpus-validation/SKILL.md':
+    'vendor/project-knowlege-corpus/skills/knowledge-corpus-validation/SKILL.md',
+  'team/skills/primary-data-intake/SKILL.md':
+    'vendor/project-knowlege-corpus/skills/primary-data-intake/SKILL.md',
+  'team/skills/primary-data-normalization/SKILL.md':
+    'vendor/project-knowlege-corpus/skills/primary-data-normalization/SKILL.md',
+  'team/skills/primary-data-pipeline/SKILL.md':
+    'vendor/project-knowlege-corpus/skills/primary-data-pipeline/SKILL.md',
+  'team/skills/primary-data-summary/SKILL.md':
+    'vendor/project-knowlege-corpus/skills/primary-data-summary/SKILL.md',
+  'team/skills/source-fact-extraction/SKILL.md':
+    'vendor/project-knowlege-corpus/skills/source-fact-extraction/SKILL.md',
+  'team/skills/source-impact-audit/SKILL.md':
+    'vendor/project-knowlege-corpus/skills/source-impact-audit/SKILL.md',
+  'team/skills/source-inventory/SKILL.md':
+    'vendor/project-knowlege-corpus/skills/source-inventory/SKILL.md',
+  'team/skills/statement-extraction/SKILL.md':
+    'vendor/project-knowlege-corpus/skills/statement-extraction/SKILL.md',
+  'team/skills/transcript-analysis/SKILL.md':
+    'vendor/project-knowlege-corpus/skills/transcript-analysis/SKILL.md',
+};
 const SKILL_RESOURCE_OVERRIDES = {
+  ...KNOWLEDGE_CORPUS_SKILL_OVERRIDES,
   'team/skills/agents-md-review/SKILL.md':
     'vendor/ai-agent-supervisor/skills/agents-md-review/SKILL.md',
   'team/skills/skill-development/SKILL.md':
