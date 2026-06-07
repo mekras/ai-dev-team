@@ -23,11 +23,11 @@
 - Лицензионный статус: `Creative Commons Attribution 4.0 International`
   (`CC BY 4.0`)
 - URL лицензии: `https://creativecommons.org/licenses/by/4.0/`
-- Использование в корпусе: сохранены HTML-снимки главной страницы,
-  страниц методологии (`/introduction`, `/abstractions/*`, `/diagrams/*`,
-  `/tooling`, `/faq`), заголовки ответа и индекс страниц.
-- Условия: публичное использование производных материалов требует атрибуции
-  по условиям `CC BY 4.0`.
+- Использование в корпусе: сохранены HTML-снимки главной страницы, страниц
+  методологии (`/introduction`, `/abstractions/*`, `/diagrams/*`, `/tooling`,
+  `/faq`), заголовки ответа и индекс страниц.
+- Условия: публичное использование производных материалов требует атрибуции по
+  условиям `CC BY 4.0`.
 
 ## ASKL
 
@@ -167,3 +167,108 @@
   `pages/` из Git; в Git сохраняются метаданные и хэши.
 - Условия: публикация полного текста и крупных дословных фрагментов требует
   отдельной проверки лицензии статьи.
+
+## O523
+
+- Источник: `OpenChain Specification`
+- URL:
+  `https://raw.githubusercontent.com/OpenChain-Project/License-Compliance-Specification/refs/heads/master/ISO-5230-2020/en/ISO-5230-2020.md`
+- Лицензионный статус: `CC BY 4.0`
+- URL лицензии: `https://creativecommons.org/licenses/by/4.0/`
+- Использование в корпусе: сохранён Markdown-снимок спецификации, заголовки
+  ответа и производные описания.
+
+## SPDX
+
+- Источник: `SPDX license and specification pages`
+- URL: `https://spdx.org/licenses/`
+- Использованные страницы:
+  - `https://spdx.org/licenses/`
+  - `https://spdx.org/licenses/exceptions-index.html`
+  - `https://spdx.github.io/spdx-spec/latest/annexes/spdx-license-expressions/`
+  - `https://spdx.github.io/spdx-spec/latest/annexes/license-matching-guidelines-and-templates/`
+- Лицензионный статус: открытая лицензия на полный HTML-снимок не подтверждена;
+  в подвале страницы SPDX указаны copyright и terms of use Linux Foundation.
+- Использование в корпусе: полные HTML-снимки сохраняются локально; в Git
+  сохраняются метаданные, хэши и производные описания.
+
+## REUS
+
+- Источник: `REUSE`
+- URL: `https://reuse.software/spec-3.3/`
+- Использованные страницы:
+  - `https://reuse.software/spec-3.3/`
+  - `https://reuse.software/spec/`
+  - `https://reuse.software/faq/`
+  - `https://reuse.software/specifications/`
+- Лицензионный статус:
+  `Creative Commons Attribution-ShareAlike 4.0 International` (`CC BY-SA 4.0`)
+- URL лицензии: `https://creativecommons.org/licenses/by-sa/4.0/`
+- Использование в корпусе: HTML-снимки страниц сохраняются локально; в Git
+  сохраняются метаданные и производные описания.
+- Условия: публичные производные материалы требуют атрибуции и совместимой
+  лицензии.
+
+## LFSP
+
+- Источник: `Open Source License Best Practices`
+- URL: `https://www.linuxfoundation.org/hubfs/spdx_oslbp_022525a.pdf`
+- Лицензионный статус: `CC BY 4.0`
+- Основание: в PDF указан `SPDX-License-Identifier: CC-BY-4.0`.
+- URL лицензии: `https://creativecommons.org/licenses/by/4.0/`
+- Использование в корпусе: сохранены PDF, заголовки ответа, локальная текстовая
+  выгрузка и производные описания.
+
+## TODO
+
+- Источник: `TODO Group guide`
+- URL: `https://todogroup.org/resources/guides/using-open-source-code/`
+- Лицензионный статус: `CC BY 4.0`, если не указано иное.
+- URL лицензии: `https://creativecommons.org/licenses/by/4.0/`
+- Использование в корпусе: HTML-снимок страницы сохраняется локально; в Git
+  сохраняются метаданные и производные описания.
+
+## OSIL
+
+- Источник: `Open Source Initiative licenses page`
+- URL: `https://opensource.org/licenses`
+- Лицензионный статус: открытая лицензия на полный HTML-снимок не подтверждена.
+- Использование в корпусе: полный HTML-снимок сохраняется локально; в Git
+  сохраняются метаданные, хэши и производные описания.
+
+## CHAL
+
+- Источник: `Choose a License`
+- URL: `https://choosealicense.com/`
+- Использованные страницы:
+  - `https://choosealicense.com/`
+  - `https://choosealicense.com/licenses/`
+- Лицензионный статус: `Creative Commons Attribution 3.0 Unported` (`CC BY 3.0`)
+- URL лицензии: `https://creativecommons.org/licenses/by/3.0/`
+- Использование в корпусе: HTML-снимки страниц сохраняются локально; в Git
+  сохраняются метаданные и производные описания.
+
+## ODCM
+
+- Источник: `Open Data Commons`
+- URL: `https://opendatacommons.org/licenses/`
+- Использованные страницы:
+  - `https://opendatacommons.org/licenses/`
+  - `https://opendatacommons.org/licenses/odbl/`
+  - `https://opendatacommons.org/licenses/by/`
+  - `https://opendatacommons.org/licenses/pddl/`
+  - `https://opendatacommons.org/faq/licenses/`
+- Лицензионный статус: явная открытая лицензия страниц сайта не подтверждена в
+  сохранённых снимках.
+- Использование в корпусе: полные HTML-снимки сохраняются локально; в Git
+  сохраняются метаданные, хэши и производные описания.
+
+## GPLQ
+
+- Источник: `GNU GPL FAQ`
+- URL: `https://www.gnu.org/licenses/gpl-faq.html`
+- Лицензионный статус: не фиксировался отдельно, так как прямой локальный
+  HTTP-снимок страницы в текущей среде не был получен.
+- Использование в корпусе: в Git сохранены метаданные источника и ограничение
+  получения; детальное содержимое нужно получать повторно при первом рабочем
+  запросе к FAQ.
