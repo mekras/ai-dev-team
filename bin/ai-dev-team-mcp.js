@@ -12,75 +12,77 @@ const MCP_URI_PREFIX = 'ai-dev-team://';
 
 const PRODUCT_ROOT = path.resolve(__dirname, '..');
 const TEAM_ROOT = path.join(PRODUCT_ROOT, 'team');
+const AI_AGENT_SUPERVISOR_ROOT = 'apm_modules/mekras/ai-agent-supervisor';
+const PROJECT_KNOWLEGE_CORPUS_ROOT = 'apm_modules/mekras/project-knowlege-corpus';
 const KNOWLEDGE_CORPUS_SKILL_OVERRIDES = {
   'team/skills/knowledge-analysis/SKILL.md':
-    'vendor/project-knowlege-corpus/skills/knowledge-analysis/SKILL.md',
+    `${PROJECT_KNOWLEGE_CORPUS_ROOT}/skills/knowledge-analysis/SKILL.md`,
   'team/skills/knowledge-corpus-add-source/SKILL.md':
-    'vendor/project-knowlege-corpus/skills/knowledge-corpus-add-source/SKILL.md',
+    `${PROJECT_KNOWLEGE_CORPUS_ROOT}/skills/knowledge-corpus-add-source/SKILL.md`,
   'team/skills/knowledge-corpus-validation/SKILL.md':
-    'vendor/project-knowlege-corpus/skills/knowledge-corpus-validation/SKILL.md',
+    `${PROJECT_KNOWLEGE_CORPUS_ROOT}/skills/knowledge-corpus-validation/SKILL.md`,
   'team/skills/primary-data-intake/SKILL.md':
-    'vendor/project-knowlege-corpus/skills/primary-data-intake/SKILL.md',
+    `${PROJECT_KNOWLEGE_CORPUS_ROOT}/skills/primary-data-intake/SKILL.md`,
   'team/skills/primary-data-normalization/SKILL.md':
-    'vendor/project-knowlege-corpus/skills/primary-data-normalization/SKILL.md',
+    `${PROJECT_KNOWLEGE_CORPUS_ROOT}/skills/primary-data-normalization/SKILL.md`,
   'team/skills/primary-data-pipeline/SKILL.md':
-    'vendor/project-knowlege-corpus/skills/primary-data-pipeline/SKILL.md',
+    `${PROJECT_KNOWLEGE_CORPUS_ROOT}/skills/primary-data-pipeline/SKILL.md`,
   'team/skills/primary-data-summary/SKILL.md':
-    'vendor/project-knowlege-corpus/skills/primary-data-summary/SKILL.md',
+    `${PROJECT_KNOWLEGE_CORPUS_ROOT}/skills/primary-data-summary/SKILL.md`,
   'team/skills/source-fact-extraction/SKILL.md':
-    'vendor/project-knowlege-corpus/skills/source-fact-extraction/SKILL.md',
+    `${PROJECT_KNOWLEGE_CORPUS_ROOT}/skills/source-fact-extraction/SKILL.md`,
   'team/skills/source-impact-audit/SKILL.md':
-    'vendor/project-knowlege-corpus/skills/source-impact-audit/SKILL.md',
+    `${PROJECT_KNOWLEGE_CORPUS_ROOT}/skills/source-impact-audit/SKILL.md`,
   'team/skills/source-inventory/SKILL.md':
-    'vendor/project-knowlege-corpus/skills/source-inventory/SKILL.md',
+    `${PROJECT_KNOWLEGE_CORPUS_ROOT}/skills/source-inventory/SKILL.md`,
   'team/skills/statement-extraction/SKILL.md':
-    'vendor/project-knowlege-corpus/skills/statement-extraction/SKILL.md',
+    `${PROJECT_KNOWLEGE_CORPUS_ROOT}/skills/statement-extraction/SKILL.md`,
   'team/skills/transcript-analysis/SKILL.md':
-    'vendor/project-knowlege-corpus/skills/transcript-analysis/SKILL.md',
+    `${PROJECT_KNOWLEGE_CORPUS_ROOT}/skills/transcript-analysis/SKILL.md`,
 };
 const SKILL_RESOURCE_OVERRIDES = {
   ...KNOWLEDGE_CORPUS_SKILL_OVERRIDES,
   'team/skills/agents-md-review/SKILL.md':
-    'vendor/ai-agent-supervisor/skills/agents-md-review/SKILL.md',
+    `${AI_AGENT_SUPERVISOR_ROOT}/skills/agents-md-review/SKILL.md`,
   'team/skills/skill-development/SKILL.md':
-    'vendor/ai-agent-supervisor/skills/skill-development/SKILL.md',
+    `${AI_AGENT_SUPERVISOR_ROOT}/skills/skill-development/SKILL.md`,
   'team/skills/subagent-model-routing/SKILL.md':
-    'vendor/ai-agent-supervisor/skills/subagent-model-routing/SKILL.md',
+    `${AI_AGENT_SUPERVISOR_ROOT}/skills/subagent-model-routing/SKILL.md`,
 };
 const AI_CONTROL_RESOURCES = [
   {
     path: 'team/ai-control/README.md',
-    source: 'vendor/ai-agent-supervisor/knowledge/ai-control-layer.md',
+    source: `${AI_AGENT_SUPERVISOR_ROOT}/knowledge/ai-control-layer.md`,
   },
   {
     path: 'team/ai-control/ai-application-check.md',
     source:
-      'vendor/ai-agent-supervisor/skills/ai-application-check/references/application-check.md',
+      `${AI_AGENT_SUPERVISOR_ROOT}/skills/ai-application-check/references/application-check.md`,
   },
   {
     path: 'team/ai-control/ai-application-check-template.md',
     source:
-      'vendor/ai-agent-supervisor/skills/ai-application-check/assets/application-check-template.md',
+      `${AI_AGENT_SUPERVISOR_ROOT}/skills/ai-application-check/assets/application-check-template.md`,
   },
   {
     path: 'team/ai-control/ai-work-control.md',
     source:
-      'vendor/ai-agent-supervisor/skills/ai-work-control/references/work-control.md',
+      `${AI_AGENT_SUPERVISOR_ROOT}/skills/ai-work-control/references/work-control.md`,
   },
   {
     path: 'team/ai-control/ai-work-result-evaluation.md',
     source:
-      'vendor/ai-agent-supervisor/skills/ai-work-result-evaluation/references/work-result-evaluation.md',
+      `${AI_AGENT_SUPERVISOR_ROOT}/skills/ai-work-result-evaluation/references/work-result-evaluation.md`,
   },
   {
     path: 'team/ai-control/ai-work-result-evaluation-case-template.md',
     source:
-      'vendor/ai-agent-supervisor/skills/ai-work-result-evaluation/assets/work-result-evaluation-case-template.md',
+      `${AI_AGENT_SUPERVISOR_ROOT}/skills/ai-work-result-evaluation/assets/work-result-evaluation-case-template.md`,
   },
   {
     path: 'team/ai-control/data-collection-procedure.md',
     source:
-      'vendor/ai-agent-supervisor/skills/ai-data-collection/references/data-collection-procedure.md',
+      `${AI_AGENT_SUPERVISOR_ROOT}/skills/ai-data-collection/references/data-collection-procedure.md`,
   },
 ];
 const RESOURCE_PATH_MAP = {
@@ -457,12 +459,16 @@ function sanitizeResourcePath(resourcePath) {
 
 function resolveResourceFile(resourcePath) {
   const mappedPath = RESOURCE_PATH_MAP[resourcePath];
-  if (mappedPath) {
-    const { full } = safeJoinResourcePath(mappedPath);
-    return full;
-  }
-  const { full } = safeJoinResourcePath(resourcePath);
-  return full;
+  return resolveExistingProductFile(mappedPath || resourcePath);
+}
+
+function resolveExistingProductFile(relativePath) {
+  const { full } = safeJoinResourcePath(relativePath);
+  if (fs.existsSync(full)) return full;
+
+  const error = new Error(`Файл ресурса не найден: ${relativePath}`);
+  error.code = 'RESOURCE_FILE_NOT_FOUND';
+  throw error;
 }
 
 function listTools() {
@@ -668,7 +674,8 @@ function codeToJsonRpc(error) {
   }
   if (
     error.code === 'RESOURCE_NOT_AVAILABLE_FOR_CHANNEL' ||
-    error.code === 'ENTRYPOINT_NOT_FOUND'
+    error.code === 'ENTRYPOINT_NOT_FOUND' ||
+    error.code === 'RESOURCE_FILE_NOT_FOUND'
   ) {
     return protocolError.INVALID_REQUEST;
   }

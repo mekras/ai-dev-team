@@ -1,0 +1,54 @@
+lockfile_version: '1'
+generated_at: '2026-06-08T13:06:45.400464+00:00'
+apm_version: 0.13.0
+dependencies:
+- repo_url: mekras/ai-agent-supervisor
+  host: github.com
+  resolved_commit: ecdd15e1f96fa044fdb1433a38ad8c3a80a931a8
+  resolved_ref: ecdd15e1f96fa044fdb1433a38ad8c3a80a931a8
+  package_type: skill_bundle
+  deployed_files:
+  - .agents/skills/agents-md-maintenance
+  - .agents/skills/agents-md-review
+  - .agents/skills/ai-application-check
+  - .agents/skills/ai-data-collection
+  - .agents/skills/ai-rule-failure-analysis
+  - .agents/skills/ai-work-control
+  - .agents/skills/ai-work-result-evaluation
+  - .agents/skills/project-rules-audit
+  - .agents/skills/skill-development
+  - .agents/skills/subagent-model-routing
+  content_hash: sha256:fcdf8057852ea613b610c39fa5fde309d0a4d03ab13c550caca0468c7746bca0
+- repo_url: mekras/project-knowlege-corpus
+  host: github.com
+  resolved_commit: 3fbe0bba0694b3be6a7a91a3244a51f1e113e590
+  resolved_ref: 3fbe0bba0694b3be6a7a91a3244a51f1e113e590
+  package_type: skill_bundle
+  deployed_files:
+  - .agents/skills/knowledge-analysis
+  - .agents/skills/knowledge-corpus-add-source
+  - .agents/skills/knowledge-corpus-validation
+  - .agents/skills/primary-data-intake
+  - .agents/skills/primary-data-normalization
+  - .agents/skills/primary-data-pipeline
+  - .agents/skills/primary-data-summary
+  - .agents/skills/source-impact-audit
+  - .agents/skills/source-inventory
+  - .agents/skills/statement-extraction
+  - .agents/skills/transcript-analysis
+  content_hash: sha256:2688da7c019582de7c6035625fceff18ddf25d1dc2fa08cf327464ec568c617b
+mcp_servers:
+- ai-dev-team
+mcp_configs:
+  ai-dev-team:
+    name: ai-dev-team
+    transport: stdio
+    args:
+    - -y
+    - --package
+    - git+https://github.com/mekras/ai-dev-team.git
+    - ai-dev-team-mcp
+    - --channel
+    - stable
+    registry: false
+    command: npx

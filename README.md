@@ -8,57 +8,60 @@
 
 ## Установка и обновление
 
-1. Установите продукт.
+Продукт устанавливается через
+[Agent Package Manager](https://github.com/microsoft/apm):
 
 ```shell
-npm install -g git+https://github.com/mekras/ai-dev-team.git
+apm install --global github.com/mekras/ai-dev-team#master
 ```
 
-1. Подключите продукт к Codex.
-
-```shell
-ai-dev-team setup codex --channel stable
-```
-
-Этот шаг выполняется один раз для клиента Codex на машине пользователя.
-
-Эта команда:
-
-- подключает MCP-сервер `ai-dev-team`;
-- добавляет в `~/.codex/config.toml` клиентскую инструкцию, которая распознаёт
-  строку подключения в `AGENTS.md` и заставляет Codex применить входную точку
-  продукта до предметной работы и по умолчанию считает папку `knowledge/` местом
-  корпуса знаний, если проект не указал другой путь явно.
-
-1. Проверьте подключение.
-
-```shell
-ai-dev-team-mcp --check --channel stable
-```
-
-Если глобальная установка недоступна, можно проверять так:
-
-```shell
-node ./bin/ai-dev-team-mcp.js --check --channel stable
-```
+APM установит файлы продукта и добавит серве MCP `ai-dev-team` в конфигурации
+поддерживаемых инструментов (таких, как Codex).
 
 Чтобы обновить установленную версию продукта, выполните:
 
 ```shell
-npm install -g git+https://github.com/mekras/ai-dev-team.git
+apm deps update --global
+```
+
+Для Codex проверить установку сервера MCP можно командой:
+
+```shell
+codex mcp list
+```
+
+## Зависимости разработки продукта
+
+При разработке самого `ai-dev-team` зависимые коллекции навыков подключаются
+через `APM`.
+
+В корне этого репозитория выполните:
+
+```shell
+make deps
+```
+
+Если нужно обновить закреплённые зависимости и lockfile, выполните:
+
+```shell
+make apm-update
 ```
 
 ## Подключение к проекту
 
-Добавьте подключение в `AGENTS.md` вашего проекта.
-
-В корневой папке вашего проекта выполните:
+В корневой папке целевого проекта добавьте `ai-dev-team` как зависимость APM:
 
 ```shell
-ai-dev-team agents --channel stable
+apm install github.com/mekras/ai-dev-team#master --target codex
 ```
 
-Команда добавит в `AGENTS.md` только декларацию подключения:
+Скомпилируйте инструкции для Codex:
+
+```shell
+apm compile --target codex --single-agents
+```
+
+В скомпилированном `AGENTS.md` появится объявление подключения:
 
 ```markdown
 Проект использует `ai-dev-team@stable`.
@@ -76,6 +79,6 @@ ai-dev-team agents --channel stable
 
 ## Документация
 
-- [Концепция](docs/concept.md).
-- [Обзор продукта](docs/overview.md).
-- [Разработка продукта](docs/development.md).
+- [Концепция](docs/concept.md)
+- [Обзор продукта](docs/overview.md)
+- [Разработка продукта](docs/development.md)

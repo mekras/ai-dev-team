@@ -2,21 +2,12 @@ SHELL := bash
 .SHELLFLAGS := -eu -o pipefail -c
 .DEFAULT_GOAL := help
 
+APM ?= apm
 NPM ?= npm
 NPX ?= npx
 FILES ?=
 
-AI_AGENT_SUPERVISOR_REMOTE ?= ai-agent-supervisor
-AI_AGENT_SUPERVISOR_BRANCH ?= master
-AI_AGENT_SUPERVISOR_PREFIX ?= vendor/ai-agent-supervisor
-
-PROJECT_KNOWLEGE_CORPUS_REMOTE ?= project-knowlege-corpus
-PROJECT_KNOWLEGE_CORPUS_BRANCH ?= master
-PROJECT_KNOWLEGE_CORPUS_PREFIX ?= vendor/project-knowlege-corpus
-
-.PHONY: deps install lint-md format subtree-update \
-	subtree-update-ai-agent-supervisor \
-	subtree-update-project-knowlege-corpus
+.PHONY: deps install lint-md format apm-install apm-update
 
 .PHONY: help
 help:
@@ -25,13 +16,19 @@ help:
 		'  make deps                                  Установить или обновить зависимости' \
 		'  make lint-md                               Проверить Markdown-файлы' \
 		"  make format FILES='путь1 путь 2'           Отформатировать выбранные файлы" \
-		'  make subtree-update-ai-agent-supervisor    Обновить vendor/ai-agent-supervisor' \
-		'  make subtree-update-project-knowlege-corpus Обновить vendor/project-knowlege-corpus'
+		'  make apm-install                           Установить APM-зависимости проекта' \
+		'  make apm-update                            Обновить APM-зависимости проекта'
 
-deps: subtree-update install
+deps: apm-install install
 
 install:
 	$(NPM) install
+
+apm-install:
+	$(APM) install --target agent-skills --frozen
+
+apm-update:
+	$(APM) deps update --target agent-skills
 
 lint-md:
 	$(NPM) run lint:md
@@ -42,24 +39,3 @@ format:
 		exit 2; \
 	}
 	$(NPX) prettier --write $(FILES)
-
-subtree-update: subtree-update-ai-agent-supervisor \
-	subtree-update-project-knowlege-corpus
-
-subtree-update-ai-agent-supervisor:
-	git remote get-url $(AI_AGENT_SUPERVISOR_REMOTE) >/dev/null
-	git fetch $(AI_AGENT_SUPERVISOR_REMOTE)
-	git subtree pull --prefix=$(AI_AGENT_SUPERVISOR_PREFIX) \
-		$(AI_AGENT_SUPERVISOR_REMOTE) \
-		$(AI_AGENT_SUPERVISOR_BRANCH) \
-		-m "Обновлен subtree $(AI_AGENT_SUPERVISOR_PREFIX) из $(AI_AGENT_SUPERVISOR_REMOTE)/$(AI_AGENT_SUPERVISOR_BRANCH)" \
-		--squash
-
-subtree-update-project-knowlege-corpus:
-	git remote get-url $(PROJECT_KNOWLEGE_CORPUS_REMOTE) >/dev/null
-	git fetch $(PROJECT_KNOWLEGE_CORPUS_REMOTE)
-	git subtree pull --prefix=$(PROJECT_KNOWLEGE_CORPUS_PREFIX) \
-		$(PROJECT_KNOWLEGE_CORPUS_REMOTE) \
-		$(PROJECT_KNOWLEGE_CORPUS_BRANCH) \
-		-m "Обновлен subtree $(PROJECT_KNOWLEGE_CORPUS_PREFIX) из $(PROJECT_KNOWLEGE_CORPUS_REMOTE)/$(PROJECT_KNOWLEGE_CORPUS_BRANCH)" \
-		--squash

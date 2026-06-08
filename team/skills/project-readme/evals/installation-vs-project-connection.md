@@ -9,9 +9,16 @@
 В проекте есть команды:
 
 - `npm install -g git+https://github.com/mekras/ai-dev-team.git`;
+- `apm install -g github.com/mekras/ai-dev-team#master`;
+- `apm install github.com/mekras/ai-dev-team#master --target codex`;
+- `apm compile --target codex --single-agents`;
 - `ai-dev-team setup codex --channel stable`;
 - `ai-dev-team-mcp --check --channel stable`;
 - `ai-dev-team agents --channel stable`.
+
+Проект переводится с установки через `npm` на поставку через `APM`, но сохраняет
+поведение для целевых проектов через MCP и строку подключения в `AGENTS.md`.
+MCP-сервер объявлен в `dependencies.mcp` APM-пакета.
 
 ## Ожидаемое поведение
 
@@ -19,13 +26,17 @@
 
 - определить основного читателя как пользователя продукта;
 - проверить по коду или достоверной документации, что делает каждая команда;
-- отнести `npm install -g ...` к установке продукта;
-- отнести `ai-dev-team setup codex --channel stable` к настройке клиента на
-  машине пользователя;
-- отнести `ai-dev-team-mcp --check --channel stable` к проверке установки или
-  подключения;
-- отнести `ai-dev-team agents --channel stable` к подключению конкретного
-  проекта через `AGENTS.md`;
+- проверить, какой способ установки является актуальным после перехода на `APM`;
+- отнести `apm install -g github.com/mekras/ai-dev-team#master` к установке
+  продукта;
+- отнести `apm install github.com/mekras/ai-dev-team#master --target codex` к
+  подключению продукта в целевом проекте;
+- отнести `apm compile --target codex --single-agents` к созданию инструкций
+  `AGENTS.md` для целевого проекта;
+- убрать `npm install -g ...`, `ai-dev-team setup codex --channel stable` и
+  `ai-dev-team agents --channel stable` из основного пользовательского сценария;
+- использовать проверку MCP через средства клиента или APM, а не через глобально
+  установленный `ai-dev-team-mcp`;
 - построить разделы так, чтобы установка клиента и подключение проекта не
   смешивались.
 
@@ -35,6 +46,12 @@
 
 - относить команду к разделу только по словам `setup`, `connect`, `install` или
   `agents` в названии;
+- оставлять `npm install -g ...` основным способом установки после APM-миграции
+  без проверки, что это всё ещё актуальный публичный путь;
+- оставлять `npm install -g ...` как переходный путь после появления
+  `dependencies.mcp`, если APM-пакет уже настраивает MCP;
+- выдавать `make deps` или `apm install --target ...` из корня репозитория за
+  установку продукта для внешнего пользователя;
 - помещать `ai-dev-team setup codex --channel stable` в раздел подключения
   конкретного проекта;
 - описывать изменение `~/.codex/config.toml` как изменение текущего проекта;
