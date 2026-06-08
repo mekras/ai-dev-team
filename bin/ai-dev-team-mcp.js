@@ -44,6 +44,8 @@ const SKILL_RESOURCE_OVERRIDES = {
     'vendor/ai-agent-supervisor/skills/agents-md-review/SKILL.md',
   'team/skills/skill-development/SKILL.md':
     'vendor/ai-agent-supervisor/skills/skill-development/SKILL.md',
+  'team/skills/subagent-model-routing/SKILL.md':
+    'vendor/ai-agent-supervisor/skills/subagent-model-routing/SKILL.md',
 };
 const AI_CONTROL_RESOURCES = [
   {
@@ -310,6 +312,20 @@ function collectSkillResources() {
   }
 
   return [skillsIndex, ...result];
+}
+
+function collectIndexedSkillNames() {
+  const indexPath = path.join(TEAM_ROOT, 'skills', 'INDEX.md');
+  const text = fs.readFileSync(indexPath, 'utf8');
+  const names = [];
+  const pattern = /^- `([^`]+)`/gm;
+  let match;
+
+  while ((match = pattern.exec(text)) !== null) {
+    names.push(match[1]);
+  }
+
+  return names;
 }
 
 function buildResourceEntry(relativePath) {
@@ -668,14 +684,35 @@ function runSelfCheck() {
     const resolved = resolveProduct({ product_id: productId });
     const entrypoint = getEntrypoint({ product_id: productId });
     const resources = listResources({ product_id: productId });
+    const resourcePaths = new Set(
+      resources.resources.map((resource) => resource.uri.slice(MCP_URI_PREFIX.length)),
+    );
+    const missingSkillResources = collectIndexedSkillNames()
+      .map((name) => `team/skills/${name}/SKILL.md`)
+      .filter((resourcePath) => !resourcePaths.has(resourcePath));
 
-    process.stdout.write(`${JSON.stringify({
-      ok: true,
-      product_id: resolved.product_id,
-      channel: resolved.channel,
-      entrypoint: entrypoint.entrypoint,
-      resource_count: resources.resources.length,
-    }, null, 2)}\n`);
+    if (missingSkillResources.length > 0) {
+      const error = new Error(
+        `Навыки из INDEX.md не опубликованы через MCP: ${missingSkillResources.join(', ')}`,
+      );
+      error.code = 'MISSING_SKILL_RESOURCES';
+      throw error;
+    }
+
+    process.stdout.write(
+      `${JSON.stringify(
+        {
+          ok: true,
+          product_id: resolved.product_id,
+          channel: resolved.channel,
+          entrypoint: entrypoint.entrypoint,
+          resource_count: resources.resources.length,
+          indexed_skill_count: collectIndexedSkillNames().length,
+        },
+        null,
+        2,
+      )}\n`,
+    );
   } catch (error) {
     process.stderr.write(`Ошибка самопроверки: ${error.message}\n`);
     process.exit(1);

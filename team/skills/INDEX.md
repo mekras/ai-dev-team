@@ -2,10 +2,22 @@
 
 Этот файл служит навигацией по переносимым навыкам каркаса.
 
+## Правило применения
+
+Индекс помогает выбрать навык, но не заменяет сам навык. Если задача совпадает с
+назначением навыка из списка, агент обязан открыть соответствующий
+`team/skills/<skill>/SKILL.md` и применить его правила до исполнения.
+
+Для запросов вида «Настрой проект», «Начни новый проект», «Инициализируй
+проект», «Подготовь новый репозиторий» и близких по смыслу запросов применяй
+`team/skills/ait-init/SKILL.md`.
+
 ## Навыки
 
 - `agents-md-review` — роль: `technical-writer` — проверка `AGENTS.md`.
   Источник: `vendor/ai-agent-supervisor/skills/agents-md-review/SKILL.md`.
+- `ait-init` — роль: `project-manager` — начало нового проекта и создание
+  минимальных стартовых файлов через диалог.
 - `analysis` — роль: `analyst` — аналитический разбор.
 - `ait-docs-concept` — роль: `technical-writer` — создание и сопровождение
   концепции проекта как главного ориентира проектной документации.
@@ -67,6 +79,9 @@
 - `statement-extraction` — роль: `statement-extractor` — извлечение утверждений
   из данных. Источник:
   `vendor/project-knowlege-corpus/skills/statement-extraction/SKILL.md`.
+- `subagent-model-routing` — роль: `cross-role` — маршрутизация подагентов по
+  моделям, стоимости, риску, качеству и правилам эскалации. Источник:
+  `vendor/ai-agent-supervisor/skills/subagent-model-routing/SKILL.md`.
 - `technical-writing` — роль: `technical-writer` — техническое письмо.
 - `transcript-analysis` — роль: `technical-writer` — разбор и очистка
   стенограмм. Источник:

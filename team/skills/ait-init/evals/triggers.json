@@ -1,0 +1,65 @@
+{
+  "skill_name": "ait-init",
+  "cases": [
+    {
+      "id": "ait-init-positive-setup-project",
+      "prompt": "Настрой проект: нужны README, LICENSE, AGENTS.md и .gitignore.",
+      "should_trigger": true,
+      "rationale": "Запрос прямо просит настроить проект и создать стартовые файлы."
+    },
+    {
+      "id": "ait-init-positive-new-project",
+      "prompt": "Начни новый проект и через вопросы собери всё, что нужно для первых файлов.",
+      "should_trigger": true,
+      "rationale": "Нужно начать новый проект в диалоговом режиме."
+    },
+    {
+      "id": "ait-init-positive-init-project",
+      "prompt": "Инициализируй проект для работы с агентами и предложи настройку подагентов.",
+      "should_trigger": true,
+      "rationale": "Запрос касается инициализации проекта и рационального использования подагентов."
+    },
+    {
+      "id": "ait-init-positive-bootstrap-repo",
+      "prompt": "Подготовь новый репозиторий: базовый README, правила для агентов, лицензию и gitignore.",
+      "should_trigger": true,
+      "rationale": "Нужно подготовить стартовый набор файлов нового репозитория."
+    },
+    {
+      "id": "ait-init-positive-dialogue-missing-info",
+      "prompt": "Создай стартовые файлы проекта, но сначала уточни недостающие сведения.",
+      "should_trigger": true,
+      "rationale": "Запрос явно требует диалог перед созданием стартовых файлов."
+    },
+    {
+      "id": "ait-init-negative-readme-only",
+      "prompt": "Обнови README.md: добавь команду установки и ссылку на документацию.",
+      "should_trigger": false,
+      "rationale": "Это правка одного README, а не инициализация проекта."
+    },
+    {
+      "id": "ait-init-negative-subagents-only",
+      "prompt": "Настрой экономное использование подагентов в этом проекте.",
+      "should_trigger": false,
+      "rationale": "Это отдельная задача subagent-model-routing, без стартовых файлов проекта."
+    },
+    {
+      "id": "ait-init-negative-license-only",
+      "prompt": "Добавь MIT LICENSE в существующий репозиторий.",
+      "should_trigger": false,
+      "rationale": "Это создание одного файла лицензии, а не начало нового проекта."
+    },
+    {
+      "id": "ait-init-negative-concept",
+      "prompt": "Помоги сформулировать концепцию проекта через вопросы.",
+      "should_trigger": false,
+      "rationale": "Это задача ait-docs-concept, а не создание стартового набора файлов."
+    },
+    {
+      "id": "ait-init-negative-gitignore",
+      "prompt": "Добавь node_modules и .env в .gitignore.",
+      "should_trigger": false,
+      "rationale": "Это локальная правка .gitignore без инициализации проекта."
+    }
+  ]
+}
