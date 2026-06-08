@@ -14,7 +14,7 @@ PROJECT_KNOWLEGE_CORPUS_REMOTE ?= project-knowlege-corpus
 PROJECT_KNOWLEGE_CORPUS_BRANCH ?= master
 PROJECT_KNOWLEGE_CORPUS_PREFIX ?= vendor/project-knowlege-corpus
 
-.PHONY: install lint-md format subtree-update \
+.PHONY: deps install lint-md format subtree-update \
 	subtree-update-ai-agent-supervisor \
 	subtree-update-project-knowlege-corpus
 
@@ -28,7 +28,6 @@ help:
 		'  make subtree-update-ai-agent-supervisor    Обновить vendor/ai-agent-supervisor' \
 		'  make subtree-update-project-knowlege-corpus Обновить vendor/project-knowlege-corpus'
 
-.PHOYNY: deps
 deps: subtree-update install
 
 install:
@@ -53,6 +52,7 @@ subtree-update-ai-agent-supervisor:
 	git subtree pull --prefix=$(AI_AGENT_SUPERVISOR_PREFIX) \
 		$(AI_AGENT_SUPERVISOR_REMOTE) \
 		$(AI_AGENT_SUPERVISOR_BRANCH) \
+		-m "Обновлен subtree $(AI_AGENT_SUPERVISOR_PREFIX) из $(AI_AGENT_SUPERVISOR_REMOTE)/$(AI_AGENT_SUPERVISOR_BRANCH)" \
 		--squash
 
 subtree-update-project-knowlege-corpus:
@@ -61,4 +61,5 @@ subtree-update-project-knowlege-corpus:
 	git subtree pull --prefix=$(PROJECT_KNOWLEGE_CORPUS_PREFIX) \
 		$(PROJECT_KNOWLEGE_CORPUS_REMOTE) \
 		$(PROJECT_KNOWLEGE_CORPUS_BRANCH) \
+		-m "Обновлен subtree $(PROJECT_KNOWLEGE_CORPUS_PREFIX) из $(PROJECT_KNOWLEGE_CORPUS_REMOTE)/$(PROJECT_KNOWLEGE_CORPUS_BRANCH)" \
 		--squash
