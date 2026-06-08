@@ -69,3 +69,5 @@ npm install -g git+https://github.com/mekras/ai-dev-team.git
 ## Документация
 
 - [Концепция](docs/concept.md).
+- [Обзор продукта](docs/overview.md).
+- [Разработка продукта](docs/development.md).
