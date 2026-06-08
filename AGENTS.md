@@ -50,6 +50,9 @@
   `tools/codex-model-subagent`, `tools/codex-spark-subagent` и проверяй расход
   через `tools/codex-usage-report`.
 
+После каждой задачи используй `skills/subagent-model-routing` для однострочной
+сводки моделей и лимитов.
+
 ## Правила работы с файлами проекта
 
 1. Если файл уже существует, сначала прочитай его текущее содержимое.
