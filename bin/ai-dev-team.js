@@ -8,11 +8,13 @@ const path = require("node:path");
 const PRODUCT_ID = "ai-dev-team";
 const DEFAULT_CHANNEL = "stable";
 const AVAILABLE_CHANNELS = new Set(["stable", "local", "dev"]);
-const SUPPORTED_CLIENTS = new Set(["codex"]);
+const SUPPORTED_CLIENTS = new Set(["codex", "claude"]);
 const AGENTS_CONNECTION_LINE_PREFIX = "Проект использует `ai-dev-team@";
 const AGENTS_CONNECTION_LINE_SUFFIX = "`.\n";
 const CODEX_INSTRUCTIONS_BLOCK_START = "# BEGIN ai-dev-team developer_instructions";
 const CODEX_INSTRUCTIONS_BLOCK_END = "# END ai-dev-team developer_instructions";
+const CLAUDE_INSTRUCTIONS_BLOCK_START = "<!-- BEGIN ai-dev-team CLAUDE.md -->";
+const CLAUDE_INSTRUCTIONS_BLOCK_END = "<!-- END ai-dev-team CLAUDE.md -->";
 
 const argv = process.argv.slice(2);
 
@@ -56,6 +58,10 @@ function runConnect(client, channel) {
 
   if (client === "codex") {
     return configureCodex(channel);
+  }
+
+  if (client === "claude") {
+    return configureClaude(channel);
   }
 
   console.error(`Ошибка: не реализовано подключение для ${client}`);
@@ -239,7 +245,107 @@ function upsertTomlSection(content, sectionName, sectionText) {
 }
 
 function buildCodexInstructionsBlock() {
+  return [
+    CODEX_INSTRUCTIONS_BLOCK_START,
+    "developer_instructions = '''",
+    buildConnectionInstructionsText(),
+    "'''",
+    CODEX_INSTRUCTIONS_BLOCK_END,
+  ].join("\n");
+}
+
+function configureClaude(channel) {
+  const claudeDir = path.join(os.homedir(), ".claude");
+  fs.mkdirSync(claudeDir, { recursive: true });
+
+  const configPath = path.join(os.homedir(), ".claude.json");
+  const claudeMdPath = path.join(claudeDir, "CLAUDE.md");
+
+  const existingConfig = fs.existsSync(configPath) ? fs.readFileSync(configPath, "utf8") : "";
+  const withServer = upsertClaudeUserMcpServer(existingConfig, channel);
+
+  const existingClaudeMd = fs.existsSync(claudeMdPath)
+    ? normalizeLineEndings(fs.readFileSync(claudeMdPath, "utf8"))
+    : "";
+  const withInstructions = upsertManagedMarkdownBlock(
+    existingClaudeMd,
+    buildClaudeInstructionsBlock(),
+    CLAUDE_INSTRUCTIONS_BLOCK_START,
+    CLAUDE_INSTRUCTIONS_BLOCK_END,
+  );
+
+  fs.writeFileSync(configPath, withServer.text);
+  fs.writeFileSync(claudeMdPath, withInstructions.text);
+
+  if (withServer.changed || withInstructions.changed) {
+    const action =
+      existingConfig || existingClaudeMd
+        ? "Подключение Claude обновлено"
+        : "Подключение Claude добавлено";
+    console.log(`${action}: ${configPath}, ${claudeMdPath}`);
+    process.exit(0);
+  }
+
+  console.log(`Подключение Claude уже настроено: ${configPath}, ${claudeMdPath}`);
+  process.exit(0);
+}
+
+function upsertClaudeUserMcpServer(content, channel) {
+  let parsed;
+  if (content.trim().length === 0) {
+    parsed = {};
+  } else {
+    try {
+      parsed = JSON.parse(content);
+    } catch (error) {
+      console.error(
+        "Ошибка: ~/.claude.json содержит невалидный JSON. " +
+          "Исправьте файл вручную и повторите команду.",
+      );
+      process.exit(1);
+    }
+  }
+
+  if (parsed === null || Array.isArray(parsed) || typeof parsed !== "object") {
+    console.error("Ошибка: ~/.claude.json должен содержать JSON-объект.");
+    process.exit(1);
+  }
+
+  const next = { ...parsed };
+  const currentServers =
+    next.mcpServers && typeof next.mcpServers === "object" && !Array.isArray(next.mcpServers)
+      ? next.mcpServers
+      : {};
+  const desiredServer = {
+    type: "stdio",
+    command: `${PRODUCT_ID}-mcp`,
+    args: ["--channel", channel],
+  };
+
+  next.mcpServers = {
+    ...currentServers,
+    [PRODUCT_ID]: desiredServer,
+  };
+
+  const text = `${JSON.stringify(next, null, 2)}\n`;
+  return {
+    changed: text !== content,
+    text,
+  };
+}
+
+function buildClaudeInstructionsBlock() {
   const instructions = [
+    CLAUDE_INSTRUCTIONS_BLOCK_START,
+    buildConnectionInstructionsText(),
+    CLAUDE_INSTRUCTIONS_BLOCK_END,
+  ];
+
+  return instructions.join("\n");
+}
+
+function buildConnectionInstructionsText() {
+  return [
     "Если в инструкциях проекта есть строка вида",
     "`Проект использует `ai-dev-team@<канал>`.`,",
     "это означает обязательное подключение продукта `ai-dev-team`.",
@@ -255,20 +361,37 @@ function buildCodexInstructionsBlock() {
     "",
     "Работа с корпусом знаний целевого проекта:",
     "",
-    "- агент должен искать в проектном `AGENTS.md` явное правило о том, где",
-    "  хранятся файлы корпуса знаний;",
+    "- агент должен искать в машинных инструкциях проекта явное правило о том,",
+    "  где хранятся файлы корпуса знаний;",
+    "- если для проекта доступны и переносимые, и клиентские инструкции, агент",
+    "  должен предпочитать переносимое проектное правило;",
     "- если такое правило найдено, агент должен использовать указанный путь;",
     "- если явное правило не найдено, агент должен считать путём корпуса знаний",
     "  папку `knowledge/` в корне проекта;",
   ].join("\n");
+}
 
-  return [
-    CODEX_INSTRUCTIONS_BLOCK_START,
-    "developer_instructions = '''",
-    instructions,
-    "'''",
-    CODEX_INSTRUCTIONS_BLOCK_END,
-  ].join("\n");
+function upsertManagedMarkdownBlock(content, blockText, blockStart, blockEnd) {
+  const pattern = new RegExp(
+    `\\n?${escapeRegExp(blockStart)}[\\s\\S]*?${escapeRegExp(blockEnd)}\\n?`,
+  );
+  const sanitized = content
+    .replace(pattern, "")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+
+  if (sanitized.length === 0) {
+    return {
+      changed: content !== `${blockText}\n`,
+      text: `${blockText}\n`,
+    };
+  }
+
+  const text = `${blockText}\n\n${sanitized}\n`;
+  return {
+    changed: text !== content,
+    text,
+  };
 }
 
 function upsertManagedDeveloperInstructions(content, blockText) {
@@ -389,6 +512,7 @@ function printUsage() {
 
 Поддерживаемые клиенты:
   codex
+  claude
 
 Параметры:
   --channel  канал подключения. По умолчанию: ${DEFAULT_CHANNEL}

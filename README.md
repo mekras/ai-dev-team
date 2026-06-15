@@ -15,8 +15,8 @@
 apm install --global github.com/mekras/ai-dev-team#master
 ```
 
-APM установит файлы продукта и добавит серве MCP `ai-dev-team` в конфигурации
-поддерживаемых инструментов (таких, как Codex).
+APM установит продукт в пользовательскую область и подготовит зависимости,
+включая сервер MCP `ai-dev-team`, через который клиенты обращаются к продукту.
 
 Чтобы обновить установленную версию продукта, выполните:
 
@@ -24,10 +24,16 @@ APM установит файлы продукта и добавит серве 
 apm deps update --global
 ```
 
-Для Codex проверить установку сервера MCP можно командой:
+Для Codex проверить подключённые серверы MCP можно командой:
 
 ```shell
 codex mcp list
+```
+
+Для Claude проверить подключённые серверы MCP можно командой:
+
+```shell
+claude mcp list
 ```
 
 ## Зависимости разработки продукта
@@ -49,23 +55,36 @@ make apm-update
 
 ## Подключение к проекту
 
-В корневой папке целевого проекта добавьте `ai-dev-team` как зависимость APM:
+В корневой папке целевого проекта один раз задайте поддерживаемые цели APM:
 
 ```shell
-apm install github.com/mekras/ai-dev-team#master --target codex
+apm init --yes --target claude,codex
 ```
 
-Скомпилируйте инструкции для Codex:
+После этого APM будет брать цели из `apm.yml`, поэтому в обычных командах не
+нужно повторять `--target`.
+
+Добавьте `ai-dev-team` как зависимость APM:
 
 ```shell
-apm compile --target codex --single-agents
+apm install github.com/mekras/ai-dev-team#master
 ```
 
-В скомпилированном `AGENTS.md` появится объявление подключения:
+Скомпилируйте инструкции:
+
+```shell
+apm compile --single-agents
+```
+
+APM создаст клиентские файлы из одного переносимого набора инструкций. В них
+появится объявление подключения:
 
 ```markdown
 Проект использует `ai-dev-team@stable`.
 ```
+
+Если проект использует только один клиент, оставьте в `targets` только `claude`
+или только `codex`.
 
 ## Начальная настройка проекта
 
@@ -81,4 +100,5 @@ apm compile --target codex --single-agents
 
 - [Концепция](docs/concept.md)
 - [Обзор продукта](docs/overview.md)
+- [Корпус знаний проекта](docs/knowledge.md)
 - [Разработка продукта](docs/development.md)

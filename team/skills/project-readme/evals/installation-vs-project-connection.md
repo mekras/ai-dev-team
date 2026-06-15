@@ -3,22 +3,24 @@
 ## Ситуация
 
 Агенту поручили переписать главный `README.md` продукта, который подключается к
-проектам через строку в `AGENTS.md`, а также настраивает клиент Codex на машине
-пользователя.
+проектам через переносимые машинные инструкции, скомпилированные APM в файлы
+конкретных клиентов, а также может настраивать клиент на машине пользователя.
 
 В проекте есть команды:
 
 - `npm install -g git+https://github.com/mekras/ai-dev-team.git`;
 - `apm install -g github.com/mekras/ai-dev-team#master`;
-- `apm install github.com/mekras/ai-dev-team#master --target codex`;
-- `apm compile --target codex --single-agents`;
+- `apm init --yes --target claude,codex`;
+- `apm install github.com/mekras/ai-dev-team#master`;
+- `apm compile --single-agents`;
 - `ai-dev-team setup codex --channel stable`;
+- `ai-dev-team connect claude --channel stable`;
 - `ai-dev-team-mcp --check --channel stable`;
 - `ai-dev-team agents --channel stable`.
 
 Проект переводится с установки через `npm` на поставку через `APM`, но сохраняет
-поведение для целевых проектов через MCP и строку подключения в `AGENTS.md`.
-MCP-сервер объявлен в `dependencies.mcp` APM-пакета.
+поведение для целевых проектов через MCP и строку подключения в машинных
+инструкциях проекта. MCP-сервер объявлен в `dependencies.mcp` APM-пакета.
 
 ## Ожидаемое поведение
 
@@ -29,12 +31,18 @@ MCP-сервер объявлен в `dependencies.mcp` APM-пакета.
 - проверить, какой способ установки является актуальным после перехода на `APM`;
 - отнести `apm install -g github.com/mekras/ai-dev-team#master` к установке
   продукта;
-- отнести `apm install github.com/mekras/ai-dev-team#master --target codex` к
-  подключению продукта в целевом проекте;
-- отнести `apm compile --target codex --single-agents` к созданию инструкций
-  `AGENTS.md` для целевого проекта;
+- отнести `apm init --yes --target claude,codex` к однократной фиксации
+  поддерживаемых целей в `apm.yml` целевого проекта;
+- отнести `apm install github.com/mekras/ai-dev-team#master` к подключению
+  продукта в целевом проекте с целями из `apm.yml`;
+- отнести `apm compile --single-agents` к созданию клиентских инструкций из
+  одного переносимого набора правил с целями из `apm.yml`;
 - убрать `npm install -g ...`, `ai-dev-team setup codex --channel stable` и
   `ai-dev-team agents --channel stable` из основного пользовательского сценария;
+- не использовать `ai-dev-team connect claude --channel stable` как основной
+  способ подключения проекта, если APM уже поддерживает цель `claude`;
+- объяснить, что ручная настройка Claude нужна только как резервный вариант,
+  если после APM-подключения `claude mcp list` не показывает `ai-dev-team`;
 - использовать проверку MCP через средства клиента или APM, а не через глобально
   установленный `ai-dev-team-mcp`;
 - построить разделы так, чтобы установка клиента и подключение проекта не
@@ -52,9 +60,18 @@ MCP-сервер объявлен в `dependencies.mcp` APM-пакета.
   `dependencies.mcp`, если APM-пакет уже настраивает MCP;
 - выдавать `make deps` или `apm install --target ...` из корня репозитория за
   установку продукта для внешнего пользователя;
+- требовать повторять `--target claude,codex` в каждой обычной команде APM, если
+  цели уже закреплены в `apm.yml`;
 - помещать `ai-dev-team setup codex --channel stable` в раздел подключения
   конкретного проекта;
-- описывать изменение `~/.codex/config.toml` как изменение текущего проекта;
+- помещать `ai-dev-team connect claude --channel stable` в раздел подключения
+  конкретного проекта, если там нужен `apm compile`;
+- описывать ручную настройку Claude без критерия, по которому пользователь
+  понимает, что она действительно нужна;
+- требовать ручной правки `CLAUDE.md` как единственного источника проектных
+  правил, если правило должно работать и в Codex, и в Claude;
+- описывать изменение `~/.codex/config.toml`, `~/.claude.json` или
+  `~/.claude/CLAUDE.md` как изменение текущего проекта;
 - смешивать настройку клиента, проверку и подключение проекта без явного
   разделения по области действия.
 
