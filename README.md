@@ -16,20 +16,20 @@
 Для Claude:
 
 ```shell
-apm install mekras/ai-dev-team#^0.2.0 --target claude
+apm install mekras/ai-dev-team#^0.2.1 --target claude
 apm compile --single-agents --target claude
 ```
 
 Для Codex:
 
 ```shell
-apm install mekras/ai-dev-team#^0.2.0 --target codex
+apm install mekras/ai-dev-team#^0.2.1 --target codex
 apm compile --single-agents --target codex
 ```
 
 APM добавит продукт в зависимости текущего проекта, установит локальную копию
-продукта и его зависимости, затем создаст клиентские инструкции для
-выбранной цели. В скомпилированных инструкциях появится объявление подключения:
+продукта и его зависимости, затем создаст клиентские инструкции для выбранной
+цели. В скомпилированных инструкциях появится объявление подключения:
 
 ```markdown
 Проект использует `ai-dev-team`.
