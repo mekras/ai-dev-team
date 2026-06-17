@@ -3,17 +3,12 @@
 ## Установка и обновление зависимостей
 
 ```shell
-make deps
+apm install --target agent-skills --frozen
+npm install
 ```
-
-Эта команда:
-
-- ставит APM-зависимости проекта через
-  `apm install --target agent-skills --frozen`;
-- ставит Node.js-зависимости через `npm install`.
 
 Чтобы обновить закреплённые версии APM-зависимостей и lockfile, выполните:
 
 ```shell
-make apm-update
+apm deps update --target agent-skills
 ```

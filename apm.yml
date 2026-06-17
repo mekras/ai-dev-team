@@ -1,24 +1,10 @@
 name: ai-dev-team
 version: 0.1.0
-description: "Команда агентной разработки ПО"
-author: "mekras"
-license: "MIT"
-targets:
-  - claude
-  - codex
+description: Команда агентной разработки ПО
+author: mekras
+license: MIT
 dependencies:
   apm:
-    - github.com/mekras/ai-agent-supervisor#ecdd15e1f96fa044fdb1433a38ad8c3a80a931a8
-    - github.com/mekras/project-knowlege-corpus#3fbe0bba0694b3be6a7a91a3244a51f1e113e590
-  mcp:
-    - name: ai-dev-team
-      registry: false
-      transport: stdio
-      command: npx
-      args:
-        - -y
-        - --package
-        - git+https://github.com/mekras/ai-dev-team.git
-        - ai-dev-team-mcp
-        - --channel
-        - stable
+    - mekras/ai-russian-language#^1.1.1
+    - mekras/ai-agent-supervisor#^0.2.0
+    - mekras/project-knowlege-corpus#^0.2.0
