@@ -57,6 +57,29 @@ FORBIDDEN_TEXT = (
     "subagent-model-routing",
 )
 
+PROJECT_README_REGRESSION_NEEDLES = {
+    ".apm/skills/project-readme/SKILL.md": (
+        "slug",
+        "человекочитаемый заголовок",
+        "references/apm-skill-collections.md",
+    ),
+    ".apm/skills/project-readme/references/apm-skill-collections.md": (
+        "пакет APM",
+        "Не делай Codex",
+        "apm install --frozen",
+        "git status --short",
+    ),
+    ".apm/skills/project-readme/evals/openclaw-skills-regression.md": (
+        "# openclaw-skills",
+        "Навыки для OpenClaw",
+        "APM-пакет",
+        "пакет APM",
+        "OpenClaw skills",
+        "apm compile --target codex",
+        "git status --short",
+    ),
+}
+
 TEXT_SUFFIXES = {
     ".md",
     ".json",
@@ -169,10 +192,25 @@ def check_forbidden_references() -> None:
                 fail(f"{path.relative_to(ROOT)} still references {needle}")
 
 
+def check_project_readme_regression() -> None:
+    for relative_path, needles in PROJECT_README_REGRESSION_NEEDLES.items():
+        path = ROOT / relative_path
+        if not path.is_file():
+            fail(f"missing project-readme regression surface: {relative_path}")
+        text = path.read_text(encoding="utf-8")
+        for needle in needles:
+            if needle not in text:
+                fail(
+                    f"{relative_path} does not cover project-readme "
+                    f"regression marker {needle!r}",
+                )
+
+
 def main() -> None:
     check_manifest()
     check_tree()
     check_forbidden_references()
+    check_project_readme_regression()
     print("APM package structure OK")
 
 
