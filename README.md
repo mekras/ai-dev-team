@@ -16,14 +16,14 @@
 Для Claude:
 
 ```shell
-apm install mekras/ai-dev-team#^0.2.1 --target claude
+apm install mekras/ai-dev-team#^0.2.2 --target claude
 apm compile --single-agents --target claude
 ```
 
 Для Codex:
 
 ```shell
-apm install mekras/ai-dev-team#^0.2.1 --target codex
+apm install mekras/ai-dev-team#^0.2.2 --target codex
 apm compile --single-agents --target codex
 ```
 
