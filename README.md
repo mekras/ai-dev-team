@@ -16,15 +16,15 @@
 Для Claude:
 
 ```shell
-apm install mekras/ai-dev-team#^0.2.2 --target claude
-apm compile --single-agents --target claude
+apm install mekras/ai-dev-team#^0.3.0 --target claude
+apm compile --target claude
 ```
 
 Для Codex:
 
 ```shell
-apm install mekras/ai-dev-team#^0.2.2 --target codex
-apm compile --single-agents --target codex
+apm install mekras/ai-dev-team#^0.3.0 --target codex
+apm compile --target codex
 ```
 
 APM добавит продукт в зависимости текущего проекта, установит локальную копию
@@ -62,7 +62,7 @@ apm deps update --target agent-skills
 ## Начальная настройка проекта
 
 Для настройки нового проекта или перенастройки существующего проекта можно
-использовать навык [ait-setup](team/skills/ait-setup/SKILL.md). Откройте ваш
+использовать навык [ait-setup](.apm/skills/ait-setup/SKILL.md). Откройте ваш
 инструмент для общения с агентами и дайте команду вида:
 
 ```text

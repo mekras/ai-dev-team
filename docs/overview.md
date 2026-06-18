@@ -51,7 +51,8 @@
 
 ## Корпус знаний проекта
 
-Подробнее, см. https://github.com/mekras/project-knowlege-corpus.
+Подробнее см.
+[project-knowlege-corpus](https://github.com/mekras/project-knowlege-corpus).
 
 ## Скрытй локальный слой знаний (тайные знания)
 
