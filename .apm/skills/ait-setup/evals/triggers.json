@@ -38,6 +38,12 @@
       "rationale": "Запрос требует обновить существующую настройку проекта под правила продукта."
     },
     {
+      "id": "ait-setup-positive-after-apm-install",
+      "prompt": "Я выполнил apm install mekras/ai-dev-team#^0.3.0 --target codex. Настрой проект дальше.",
+      "should_trigger": true,
+      "rationale": "После установки продукта через APM дальнейшая настройка проекта должна идти через ait-setup."
+    },
+    {
       "id": "ait-setup-positive-agents-refresh",
       "prompt": "Обнови AGENTS.md, README и .gitignore по текущим требованиям ai-dev-team.",
       "should_trigger": true,
