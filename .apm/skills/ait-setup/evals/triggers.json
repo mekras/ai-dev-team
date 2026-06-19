@@ -44,6 +44,12 @@
       "rationale": "После установки продукта через APM дальнейшая настройка проекта должна идти через ait-setup."
     },
     {
+      "id": "ait-setup-positive-apm-consumer-project",
+      "prompt": "В проекте есть apm.yml с devDependencies.apm на ai-dev-team. Настрой проект, сохранив рукописный AGENTS.md.",
+      "should_trigger": true,
+      "rationale": "Проект является потребителем APM-пакета ai-dev-team, поэтому нужна настройка проекта через ait-setup, а не настройка коллекции APM."
+    },
+    {
       "id": "ait-setup-positive-agents-refresh",
       "prompt": "Обнови AGENTS.md, README и .gitignore по текущим требованиям ai-dev-team.",
       "should_trigger": true,
@@ -78,6 +84,12 @@
       "prompt": "Добавь node_modules и .env в .gitignore.",
       "should_trigger": false,
       "rationale": "Это локальная правка .gitignore без инициализации проекта."
+    },
+    {
+      "id": "ait-setup-negative-apm-collection-only",
+      "prompt": "Проверь APM-коллекцию навыков: apm.yml, .apm/skills, scripts.tests и упаковку.",
+      "should_trigger": false,
+      "rationale": "Это узкая задача ai-apm-setup по коллекции APM, а не настройка проекта под ai-dev-team."
     }
   ]
 }
