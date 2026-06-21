@@ -80,16 +80,15 @@
   режима.
 - `project-readme` — роль: `technical-writer` — сопровождение проектного
   `README.md`.
-- `requirements-analysis` — роль: `requirements-analyst` — анализ и
-  моделирование требований.
-- `requirements-elicitation` — роль: `requirements-analyst` — выявление
-  требований и работа с заинтересованными лицами.
-- `requirements-management` — роль: `requirements-analyst` — приоритеты,
-  изменения, статусы и связи требований.
-- `requirements-specification` — роль: `requirements-analyst` — запись
-  требований в проверяемом формате.
-- `requirements-validation` — роль: `requirements-analyst` — проверка и
-  подготовка требований к утверждению.
+- `requirements-analysis` — роль: `analyst` — анализ и моделирование требований.
+- `requirements-elicitation` — роль: `analyst` — выявление требований и работа с
+  заинтересованными лицами.
+- `requirements-management` — роль: `analyst` — приоритеты, изменения, статусы и
+  связи требований.
+- `requirements-specification` — роль: `analyst` — запись требований в
+  проверяемом формате.
+- `requirements-validation` — роль: `analyst` — проверка и подготовка требований
+  к утверждению.
 - `software-architecture` — роль: `software-architect` — архитектура ПО, ADR,
   компонентные границы и управление сложностью системы.
 - `technical-writing` — роль: `technical-writer` — техническое письмо.

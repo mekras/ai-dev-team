@@ -1,6 +1,6 @@
 ---
 name: requirements-specification
-role: requirements-analyst
+role: analyst
 description: >
   Используй, когда нужно написать, переписать или структурировать требования:
   спецификацию, функциональные требования, пользовательские истории, атрибуты

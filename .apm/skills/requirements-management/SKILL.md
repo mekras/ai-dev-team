@@ -1,6 +1,6 @@
 ---
 name: requirements-management
-role: requirements-analyst
+role: analyst
 description: >
   Используй, когда нужно управлять уже записанными требованиями: приоритеты,
   базовая версия, статусы, владельцы, изменения, анализ влияния, отслеживаемость

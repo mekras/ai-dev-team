@@ -1,6 +1,6 @@
 ---
 name: requirements-elicitation
-role: requirements-analyst
+role: analyst
 description: >
   Используй, когда нужно подготовить, провести или разобрать выявление
   требований: определить заинтересованных лиц, пользователей, методы сбора,
