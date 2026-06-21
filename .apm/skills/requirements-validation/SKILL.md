@@ -1,6 +1,6 @@
 ---
 name: requirements-validation
-role: requirements-analyst
+role: analyst
 description: >
   Используй, когда нужно проверить, рецензировать или подготовить к утверждению
   уже записанные требования: двусмысленность, неполноту, противоречия,

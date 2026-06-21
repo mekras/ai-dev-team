@@ -1,6 +1,6 @@
 ---
 name: requirements-analysis
-role: requirements-analyst
+role: analyst
 description: >
   Используй, когда нужно разобрать черновые сведения о требованиях: отделить
   цели, пользовательские задачи, требования, правила, ограничения и решения,
