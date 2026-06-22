@@ -32,6 +32,12 @@
       "rationale": "Подготовка к утверждению требований относится к requirements-validation."
     },
     {
+      "id": "requirements-validation-positive-real-time-states",
+      "prompt": "Проверь требования к системе реального времени: покрыты ли события, состояния, временные ограничения и критерии приёмки.",
+      "should_trigger": true,
+      "rationale": "Нужна проверка готовых требований с учётом класса проекта."
+    },
+    {
       "id": "requirements-validation-negative-write-requirements",
       "prompt": "Напиши функциональные требования для сценария восстановления пароля.",
       "should_trigger": false,

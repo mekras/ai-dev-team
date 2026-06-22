@@ -32,6 +32,12 @@
       "rationale": "Отслеживаемость требований относится к requirements-management."
     },
     {
+      "id": "requirements-management-positive-risk-card",
+      "prompt": "Заведи риск требований: пользователи мало участвуют, оцени вероятность, влияние, владельца и план смягчения.",
+      "should_trigger": true,
+      "rationale": "Риск требований и его сопровождение относятся к requirements-management."
+    },
+    {
       "id": "requirements-management-negative-elicitation",
       "prompt": "Составь план интервью с пользователями, чтобы впервые собрать требования к сервису.",
       "should_trigger": false,
