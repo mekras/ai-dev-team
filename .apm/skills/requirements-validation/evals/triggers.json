@@ -14,6 +14,12 @@
       "rationale": "Запрос касается проверки критериев приёмки."
     },
     {
+      "id": "requirements-validation-positive-use-case-review",
+      "prompt": "Проверь готовый вариант использования: не смешаны ли сценарий, детали интерфейса, предусловия, гарантии и расширения.",
+      "should_trigger": true,
+      "rationale": "Нужна проверка качества готового варианта использования."
+    },
+    {
       "id": "requirements-validation-positive-conceptual-tests",
       "prompt": "Составь концептуальные тесты по этим требованиям, чтобы найти пропущенные сценарии и неоднозначности.",
       "should_trigger": true,
@@ -42,6 +48,12 @@
       "prompt": "Напиши функциональные требования для сценария восстановления пароля.",
       "should_trigger": false,
       "rationale": "Написание требований относится к requirements-specification."
+    },
+    {
+      "id": "requirements-validation-negative-analyze-draft-use-case",
+      "prompt": "Из черновых заметок выдели варианты использования, границы, роли и открытые вопросы.",
+      "should_trigger": false,
+      "rationale": "Разбор черновых сведений относится к requirements-analysis."
     },
     {
       "id": "requirements-validation-negative-product-testing",
