@@ -76,7 +76,7 @@
   `tools/codex-model-subagent`, `tools/codex-spark-subagent` и проверяй расход
   через `tools/codex-usage-report`.
 
-После каждой задачи используй правила `ai-subagent-setup` для однострочной
+После каждой задачи используй правила `ai-setup-subagents` для однострочной
 сводки моделей и лимитов.
 
 ## Внесение изменений

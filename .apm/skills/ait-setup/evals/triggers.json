@@ -65,7 +65,7 @@
       "id": "ait-setup-negative-subagents-only",
       "prompt": "Настрой экономное использование подагентов в этом проекте.",
       "should_trigger": false,
-      "rationale": "Это отдельная задача ai-subagent-setup, без стартовых файлов проекта."
+      "rationale": "Это отдельная задача ai-setup-subagents, без стартовых файлов проекта."
     },
     {
       "id": "ait-setup-negative-license-only",
@@ -89,7 +89,7 @@
       "id": "ait-setup-negative-apm-collection-only",
       "prompt": "Проверь APM-коллекцию навыков: apm.yml, .apm/skills, scripts.tests и упаковку.",
       "should_trigger": false,
-      "rationale": "Это узкая задача ai-apm-setup по коллекции APM, а не настройка проекта под ai-dev-team."
+      "rationale": "Это узкая задача ai-setup-apm по коллекции APM, а не настройка проекта под ai-dev-team."
     }
   ]
 }
