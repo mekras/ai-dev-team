@@ -17,7 +17,7 @@
 
 - `ai-agents-md-maintenance` — роль: `technical-writer` — сопровождение
   `AGENTS.md`. Источник: `github.com/mekras/ai-agent-supervisor`.
-- `ai-apm-setup` — роль: `cross-role` — настройка и проверка APM-коллекций.
+- `ai-setup-apm` — роль: `cross-role` — настройка и проверка APM-коллекций.
   Источник: `github.com/mekras/ai-agent-supervisor`.
 - `ai-application-check` — роль: `analyst` — предварительная оценка пригодности
   задачи для ИИ. Источник: `github.com/mekras/ai-agent-supervisor`.
@@ -32,7 +32,7 @@
   маршрутизации агентом. Источник: `github.com/mekras/ai-agent-supervisor`.
 - `ai-skill-development` — роль: `cross-role` — разработка и проверка навыков
   агента. Источник: `github.com/mekras/ai-agent-supervisor`.
-- `ai-subagent-setup` — роль: `cross-role` — политика экономного использования
+- `ai-setup-subagents` — роль: `cross-role` — политика экономного использования
   подагентов, выбор моделей, лимиты и эскалации. Источник:
   `github.com/mekras/ai-agent-supervisor`.
 - `ai-work-control` — роль: `cross-role` — контроль существенных изменений
