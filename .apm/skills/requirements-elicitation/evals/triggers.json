@@ -32,6 +32,12 @@
       "rationale": "Нужно найти пропущенных заинтересованных лиц и источники требований."
     },
     {
+      "id": "requirements-elicitation-positive-use-case-actor-goal-map",
+      "prompt": "Перед детализацией вариантов использования помоги составить карту действующих лиц, целей, частоты и открытых вопросов.",
+      "should_trigger": true,
+      "rationale": "Нужно выявить действующих лиц и цели до спецификации сценариев."
+    },
+    {
       "id": "requirements-elicitation-positive-replacement-project",
       "prompt": "Нужно выявить требования для замены старой системы: кого опросить, какие процессы, данные и интеграции изучить.",
       "should_trigger": true,
@@ -42,6 +48,12 @@
       "prompt": "Оформи эти согласованные требования в спецификацию с идентификаторами и критериями приёмки.",
       "should_trigger": false,
       "rationale": "Написание спецификации относится к requirements-specification."
+    },
+    {
+      "id": "requirements-elicitation-negative-write-use-case",
+      "prompt": "Запиши полный вариант использования с предусловиями, гарантиями, основным сценарием и расширениями.",
+      "should_trigger": false,
+      "rationale": "Запись готового варианта использования относится к requirements-specification."
     },
     {
       "id": "requirements-elicitation-negative-validate-requirements",

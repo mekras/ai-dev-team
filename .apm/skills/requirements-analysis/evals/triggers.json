@@ -14,6 +14,12 @@
       "rationale": "Анализ пользовательских задач через варианты использования относится к requirements-analysis."
     },
     {
+      "id": "requirements-analysis-positive-use-case-quality-gaps",
+      "prompt": "Разбери черновик варианта использования: где область действия, уровень цели, основной сценарий, расширения и гарантии смешаны или пропущены.",
+      "should_trigger": true,
+      "rationale": "Нужно проанализировать структуру и пробелы чернового варианта использования."
+    },
+    {
       "id": "requirements-analysis-positive-business-rules",
       "prompt": "Найди в описании процесса бизнес-правила и покажи, какие требования к системе из них следуют.",
       "should_trigger": true,
@@ -42,6 +48,12 @@
       "prompt": "Проверь готовый набор требований на полноту, противоречия, дубли и непроверяемые формулировки.",
       "should_trigger": false,
       "rationale": "Проверка готового набора требований относится к requirements-validation."
+    },
+    {
+      "id": "requirements-analysis-negative-write-use-case",
+      "prompt": "Оформи согласованный сценарий как полный вариант использования с гарантиями и расширениями.",
+      "should_trigger": false,
+      "rationale": "Запись согласованного варианта использования относится к requirements-specification."
     },
     {
       "id": "requirements-analysis-negative-plan-interview",

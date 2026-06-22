@@ -20,6 +20,12 @@
       "rationale": "Запрос касается записи требований в формате пользовательских историй."
     },
     {
+      "id": "requirements-specification-positive-use-case-template",
+      "prompt": "Оформи вариант использования для восстановления доступа: цель, действующее лицо, основной сценарий, расширения и гарантии.",
+      "should_trigger": true,
+      "rationale": "Нужно записать требования в формате варианта использования."
+    },
+    {
       "id": "requirements-specification-positive-quality-requirement",
       "prompt": "Запиши требование к производительности так, чтобы оно было измеримым и проверяемым.",
       "should_trigger": true,
@@ -48,6 +54,12 @@
       "prompt": "Проверь готовую спецификацию требований на полноту, противоречия и непроверяемые формулировки.",
       "should_trigger": false,
       "rationale": "Проверка готовой спецификации относится к requirements-validation."
+    },
+    {
+      "id": "requirements-specification-negative-discover-use-cases",
+      "prompt": "Помоги собрать карту действующих лиц и целей перед интервью по вариантам использования.",
+      "should_trigger": false,
+      "rationale": "Первичное выявление действующих лиц и целей относится к requirements-elicitation."
     },
     {
       "id": "requirements-specification-negative-readme",
