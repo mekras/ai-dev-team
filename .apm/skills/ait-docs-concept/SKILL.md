@@ -25,9 +25,9 @@ description: >
 
 ## Основания
 
-- `/home/mekras/projects/github.com/mekras/ai-skills/skills/project-documentation`
-- `/home/mekras/projects/lizaalert.gitlab.yandexcloud.net/m.krasilnikov/lizaalert-mobile/docs/01-concept`
-- `/home/mekras/projects/lizaalert.gitlab.yandexcloud.net/m.krasilnikov/lizaalert-mobile/docs/reference/02-standards.md`
+- `project-documentation` как пример структуры документации
+- `docs/01-concept` как пример концепции проекта
+- `docs/reference/02-standards.md` как пример стандартов
 
 ## Когда применять
 
