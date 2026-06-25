@@ -31,6 +31,7 @@ REQUIRED_SKILLS = {
 
 REQUIRED_AGENTS = {
     "analyst",
+    "coder",
     "legal",
     "normalizer",
     "project-manager",
