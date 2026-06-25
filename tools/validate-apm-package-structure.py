@@ -38,6 +38,7 @@ REQUIRED_AGENTS = {
     "source-inventory",
     "statement-extractor",
     "technical-writer",
+    "ux-specialist",
 }
 
 REQUIRED_CONTEXTS = {
