@@ -35,6 +35,7 @@ REQUIRED_AGENTS = {
     "legal",
     "normalizer",
     "project-manager",
+    "security-engineer",
     "software-architect",
     "source-inventory",
     "statement-extractor",
