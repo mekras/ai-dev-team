@@ -898,18 +898,39 @@ local_deployed_files:
 - .agents/skills/requirements-specification/SKILL.md
 - .agents/skills/requirements-specification/evals/result-scenarios.json
 - .agents/skills/requirements-specification/evals/triggers.json
+- .agents/skills/requirements-specification/references/gost-tech-task.md
 - .agents/skills/requirements-specification/references/use-case-templates.md
 - .agents/skills/requirements-validation
 - .agents/skills/requirements-validation/SKILL.md
 - .agents/skills/requirements-validation/evals/result-scenarios.json
 - .agents/skills/requirements-validation/evals/triggers.json
+- .agents/skills/security-access-control
+- .agents/skills/security-access-control/SKILL.md
+- .agents/skills/security-access-control/evals/triggers.json
+- .agents/skills/security-access-control/references/dharma.md
+- .agents/skills/security-audit
+- .agents/skills/security-audit/SKILL.md
+- .agents/skills/security-audit/evals/triggers.json
+- .agents/skills/security-audit/references/standards-and-maturity.md
+- .agents/skills/security-threat-modeling
+- .agents/skills/security-threat-modeling/SKILL.md
+- .agents/skills/security-threat-modeling/evals/triggers.json
+- .agents/skills/security-threat-modeling/references/finding-threats.md
+- .agents/skills/security-threat-modeling/references/risk-and-validation.md
+- .agents/skills/security-tooling
+- .agents/skills/security-tooling/SKILL.md
+- .agents/skills/security-tooling/evals/triggers.json
 - .agents/skills/software-architecture
 - .agents/skills/software-architecture/SKILL.md
 - .agents/skills/software-architecture/evals/triggers.json
+- .agents/skills/software-architecture/references/api-design.md
+- .agents/skills/software-architecture/references/clean-architecture.md
 - .agents/skills/software-architecture/references/component-design.md
 - .agents/skills/software-architecture/references/core-principles.md
 - .agents/skills/software-architecture/references/decision-workflow.md
+- .agents/skills/software-architecture/references/distributed-tradeoffs.md
 - .agents/skills/software-architecture/references/domain-modeling.md
+- .agents/skills/software-architecture/references/evolutionary-architecture.md
 - .agents/skills/software-architecture/references/quality-criteria.md
 - .agents/skills/software-architecture/references/system-complexity.md
 - .agents/skills/software-architecture/references/task-protocol.md
@@ -921,6 +942,7 @@ local_deployed_files:
 - .claude/agents/legal.md
 - .claude/agents/normalizer.md
 - .claude/agents/project-manager.md
+- .claude/agents/security-engineer.md
 - .claude/agents/software-architect.md
 - .claude/agents/source-inventory.md
 - .claude/agents/statement-extractor.md
@@ -979,18 +1001,39 @@ local_deployed_files:
 - .claude/skills/requirements-specification/SKILL.md
 - .claude/skills/requirements-specification/evals/result-scenarios.json
 - .claude/skills/requirements-specification/evals/triggers.json
+- .claude/skills/requirements-specification/references/gost-tech-task.md
 - .claude/skills/requirements-specification/references/use-case-templates.md
 - .claude/skills/requirements-validation
 - .claude/skills/requirements-validation/SKILL.md
 - .claude/skills/requirements-validation/evals/result-scenarios.json
 - .claude/skills/requirements-validation/evals/triggers.json
+- .claude/skills/security-access-control
+- .claude/skills/security-access-control/SKILL.md
+- .claude/skills/security-access-control/evals/triggers.json
+- .claude/skills/security-access-control/references/dharma.md
+- .claude/skills/security-audit
+- .claude/skills/security-audit/SKILL.md
+- .claude/skills/security-audit/evals/triggers.json
+- .claude/skills/security-audit/references/standards-and-maturity.md
+- .claude/skills/security-threat-modeling
+- .claude/skills/security-threat-modeling/SKILL.md
+- .claude/skills/security-threat-modeling/evals/triggers.json
+- .claude/skills/security-threat-modeling/references/finding-threats.md
+- .claude/skills/security-threat-modeling/references/risk-and-validation.md
+- .claude/skills/security-tooling
+- .claude/skills/security-tooling/SKILL.md
+- .claude/skills/security-tooling/evals/triggers.json
 - .claude/skills/software-architecture
 - .claude/skills/software-architecture/SKILL.md
 - .claude/skills/software-architecture/evals/triggers.json
+- .claude/skills/software-architecture/references/api-design.md
+- .claude/skills/software-architecture/references/clean-architecture.md
 - .claude/skills/software-architecture/references/component-design.md
 - .claude/skills/software-architecture/references/core-principles.md
 - .claude/skills/software-architecture/references/decision-workflow.md
+- .claude/skills/software-architecture/references/distributed-tradeoffs.md
 - .claude/skills/software-architecture/references/domain-modeling.md
+- .claude/skills/software-architecture/references/evolutionary-architecture.md
 - .claude/skills/software-architecture/references/quality-criteria.md
 - .claude/skills/software-architecture/references/system-complexity.md
 - .claude/skills/software-architecture/references/task-protocol.md
@@ -1002,12 +1045,13 @@ local_deployed_files:
 - .codex/agents/legal.toml
 - .codex/agents/normalizer.toml
 - .codex/agents/project-manager.toml
+- .codex/agents/security-engineer.toml
 - .codex/agents/software-architect.toml
 - .codex/agents/source-inventory.toml
 - .codex/agents/statement-extractor.toml
 - .codex/agents/technical-writer.toml
 local_deployed_file_hashes:
-  .agents/skills/ait-docs-concept/SKILL.md: sha256:2a4b32ecabcfd0ee87aab22704d01b60790157440d590fdc0ba488838c5e1f89
+  .agents/skills/ait-docs-concept/SKILL.md: sha256:1e4798511ca2139a4dafcb42da45a5458d9b8249e9db7a1d40396eef31e83b16
   .agents/skills/ait-docs-concept/assets/concept-template.md: sha256:c9395fdc21c72c2944bb0a0666a0d316fad1762be9446e62744b82456fd82215
   .agents/skills/ait-docs-concept/evals/triggers.json: sha256:ca05242bb3387c94158346e1931f698b0bbfb61beb95c0d344d7f91ef03291db
   .agents/skills/ait-docs-concept/references/concept-dialogue.md: sha256:f7591821690a1b453bea1a63f403fb102e86f3458962442b6f54cf99cdc73c6a
@@ -1028,7 +1072,7 @@ local_deployed_file_hashes:
   .agents/skills/private-project-knowledge/evals/triggers.json: sha256:866a2dfad67a722b13b0c466ca861de25533cdd5d3718912dc56e470f971097a
   .agents/skills/private-project-knowledge/references/local-layer.md: sha256:66dc23b44447980f3b03e0b210df92e25e4b3b8ff3e64f9be312c1cb5d854649
   .agents/skills/project-management/SKILL.md: sha256:b7cc0d02583e3a24b0f2546675c2bad5c03b758579f70b15ad41050a59a2bba9
-  .agents/skills/project-management/references/skill-index.md: sha256:b79e0dd0b9d65f923e829982625554f846b7b3154fe5bcacd32ef61b3be463d7
+  .agents/skills/project-management/references/skill-index.md: sha256:697f9738a2a0ed4dc2ecb037fe739a1304a5920c6858526cc2ed6611c87203bf
   .agents/skills/project-readme/SKILL.md: sha256:85b4ca15cb37588d402c296e5bbc0bda55effc239af5f2d76e66fdbeaf21e04b
   .agents/skills/project-readme/evals/apm-skill-collection.md: sha256:9fe6e4ccafe389d25111bbe4447b77f90e3740ddd207dcb0815fe15ac1da87ca
   .agents/skills/project-readme/evals/installation-vs-project-connection.md: sha256:93088079f01b7f769df2f0119f44debcf639621a89614c25a1e602cf1e85d4b8
@@ -1044,35 +1088,53 @@ local_deployed_file_hashes:
   .agents/skills/requirements-management/assets/requirements-management-template.md: sha256:d6a99041d4c7270dfe4813e1a0b1969fa269568034c7294b5c81e21138427509
   .agents/skills/requirements-management/evals/result-scenarios.json: sha256:0675aa17c9a58b5c5712ec4b4fab265f77b715c0c2b07fcb9a76f465d9a23657
   .agents/skills/requirements-management/evals/triggers.json: sha256:15d1a2d32cd4ce0e7cf3b4e0e02daf7d0adde5f65b64b2ef3bdc8b84ee78449d
-  .agents/skills/requirements-specification/SKILL.md: sha256:e60c892e3dbd3c92eb4225802c3780db566c8c5d1251f69d9399f30f8c819fdb
+  .agents/skills/requirements-specification/SKILL.md: sha256:e681fae7d7e22465619d0aaed7712ff76ee8e2bdd8a6be33f84d8e21ca12eefc
   .agents/skills/requirements-specification/evals/result-scenarios.json: sha256:5de1821f2ebcfb5da259884d39343db4f3a0fa297601e302bde2b05232dd13a4
   .agents/skills/requirements-specification/evals/triggers.json: sha256:b9cef18cd495205e6eb300d15299b5f2a6826b1e22ce77d66d1fced559dcb918
+  .agents/skills/requirements-specification/references/gost-tech-task.md: sha256:e12c65267c7af8dc2a72dab7413f645337f9b276ecdbdbc9fe6cb8ec1b94a6c4
   .agents/skills/requirements-specification/references/use-case-templates.md: sha256:589644e9fd38a59dc8ea10e9e7b35dbf5b02032c6cf2e951654aaec47807fe8e
   .agents/skills/requirements-validation/SKILL.md: sha256:aea300b6d13a08845ace5e60f1b9457b0178d5bf5f1604bc7af8418ea6200457
   .agents/skills/requirements-validation/evals/result-scenarios.json: sha256:1f44603ba0d8e3b7f197df39089968015be4ea3f67df0d6a8e8f9f7068e691bd
   .agents/skills/requirements-validation/evals/triggers.json: sha256:5274d46408c4505911398408fdf3e58d977383712cb25af57b614ce222abe202
-  .agents/skills/software-architecture/SKILL.md: sha256:1ee42a2d71d83fa60e2636edaf84cf89e30c4b2d417525225c961cdbd619d72b
+  .agents/skills/security-access-control/SKILL.md: sha256:7d6e4aa8d4f44c034798814cac3eb4bbc175b762f4e59713e227765517cdcbad
+  .agents/skills/security-access-control/evals/triggers.json: sha256:cb6d9d6c6be801c778fb8cc85b66549f7de4db4867b3f4bb9874f93e346a5a33
+  .agents/skills/security-access-control/references/dharma.md: sha256:f608f946e8d611627f99117c283db95970828032d800a60a5267f8ba1f375ec8
+  .agents/skills/security-audit/SKILL.md: sha256:55fa03e73f5e7af6dc75c80540c5f0fbb08566ac969066d2c33b496fc5c4a0f5
+  .agents/skills/security-audit/evals/triggers.json: sha256:e04513e7d53e570435320a09e76390df3f0421dccb9e69bbaf8442b7e9925d5f
+  .agents/skills/security-audit/references/standards-and-maturity.md: sha256:f80084238c643871d9aa3776e2ecab67b68b5f9f72a8bfd1bb0e7842142269ee
+  .agents/skills/security-threat-modeling/SKILL.md: sha256:d3442e32177a4605939cb62dbbd6f9eb755b3e3c621e6d9b4029507dea41f519
+  .agents/skills/security-threat-modeling/evals/triggers.json: sha256:e6a2c7094e504f19b1867c70bd89cc9e0b365c97436402ada6c4cbacd89780c8
+  .agents/skills/security-threat-modeling/references/finding-threats.md: sha256:3477b3c58b739918dd101c66cc22c1d97b2073297a6b089f2e2a1bb49845238b
+  .agents/skills/security-threat-modeling/references/risk-and-validation.md: sha256:643749dc677518f40335078e925999b1cb35d7584fab40b1b7f0ba293821f9de
+  .agents/skills/security-tooling/SKILL.md: sha256:99bdb0576abcf7ab89a8fb29823358cab5d7e4e6bdd16a8bfab04cf63b8383e6
+  .agents/skills/security-tooling/evals/triggers.json: sha256:d99e0c9b214dca8863de602218501417fc90d01b6babf00efaad14eaff93c6e4
+  .agents/skills/software-architecture/SKILL.md: sha256:4212dd50b076fc2768365a03cdc92337ba4e0de41f0da6764b86dfc14291865c
   .agents/skills/software-architecture/evals/triggers.json: sha256:67cdc220077e815daf585a169ed95d7dc3acf7052a05ad092cbe0787862d096e
-  .agents/skills/software-architecture/references/component-design.md: sha256:6b7a520565d64bbb50675b80c34887d150279d0edf1576d1b897c7705ff09c3b
-  .agents/skills/software-architecture/references/core-principles.md: sha256:ce47a315f510b2b6436343d0520db4542f36ba0c1f20465dca8f000e1bf53a8f
-  .agents/skills/software-architecture/references/decision-workflow.md: sha256:8a2506842e8f352dba587c9fe20ed59189a6e46671c08eca3877ea69e23b8f83
-  .agents/skills/software-architecture/references/domain-modeling.md: sha256:6d591feb51dac5753cb085d9ac12bdd53a274668bb2596c6c5361752045fd272
-  .agents/skills/software-architecture/references/quality-criteria.md: sha256:da2f69c2adf7c841ed485e6456b050cbad54c00614821b1801d62c0dd6c041bb
+  .agents/skills/software-architecture/references/api-design.md: sha256:e76bc98c4dd24cd0be91893799df89e122430b49eb17e3350880c7e9d659eacd
+  .agents/skills/software-architecture/references/clean-architecture.md: sha256:c6b4379752d2d38e7af23ba0bfe9676f3a89913a9dc9830053d504bfafc1ebb8
+  .agents/skills/software-architecture/references/component-design.md: sha256:66358d262b47b20835086a3da45fdf35264d9a8a6f15454301d7e7c45805ab7c
+  .agents/skills/software-architecture/references/core-principles.md: sha256:d0cb6e6fcf45ae62d99cc3864606335c28714d95bd616f6646fe1e816c449568
+  .agents/skills/software-architecture/references/decision-workflow.md: sha256:9e151037c750f0b723688021540e21a128fc58e904bcb59d908a29d9575ae348
+  .agents/skills/software-architecture/references/distributed-tradeoffs.md: sha256:4738928f02ab517d011f1aaec3919b8578d24aa755481614639a7f916c2bf45b
+  .agents/skills/software-architecture/references/domain-modeling.md: sha256:7ecaa350a2e6eeb48585810484d1ba07f046b0bfcbc9d2ae9c12bc515d2b08ae
+  .agents/skills/software-architecture/references/evolutionary-architecture.md: sha256:7b3bd8013370ff9e97b8892aef6a1d27b9bcfe1d0ac5070d4e3885d805b70221
+  .agents/skills/software-architecture/references/quality-criteria.md: sha256:d147b0bf2a92c4507193536033de38f43f68116665a886f76827052a49725968
   .agents/skills/software-architecture/references/system-complexity.md: sha256:b0750f0b1342bd7a9cf825bca96c963350884a3f8665712e1b6df3035749975f
   .agents/skills/software-architecture/references/task-protocol.md: sha256:51665c1958528cc520b461cf1ec7faa1c1976aed4e21bbe5bc440480d165eb60
-  .agents/skills/technical-writing/SKILL.md: sha256:2031d637a3cee40b3e29987c9825e87fd6e5b749e9ba13e3e551e79a79a5a4d0
+  .agents/skills/technical-writing/SKILL.md: sha256:a81eef78a5e0b2d123f07b22bc429bd4821b926d55a1fe0de69c8f951c3e5a41
   .agents/skills/technical-writing/assets/document-design-template.md: sha256:12c28a9375190e783ee2ce9492b7b0d6014f984af71252ee6a69df652f840f35
   .agents/skills/technical-writing/assets/documentation-structure-template.md: sha256:5b85bd99aaa3ea138552f2d5ecd6f6e5fc8ebaad4627b33ac73e1ef5d7b3ba6f
   .claude/agents/analyst.md: sha256:5f598e0adf198b748263aede1c1c19b63da269af71a41bbebe7c9c2411a9fcc6
   .claude/agents/legal.md: sha256:1ecfe36e31acdf21bc2ab160491241089e3b819101ba9f51396fefff0fd0b625
   .claude/agents/normalizer.md: sha256:48d6414e34df38f317ccd73f66e775e2daf5aade2e1512d1499ecf9f54f40a21
   .claude/agents/project-manager.md: sha256:430ace86a95b29c1cead9ebf078c3535830606e100eec26733bfe2144778e341
+  .claude/agents/security-engineer.md: sha256:d43de46b25115881dc1a3ce67368f5b601c2fe8bbd4334884beb56f2b27f4b02
   .claude/agents/software-architect.md: sha256:d4ec5c5a24ac1b638400eb2064d22bf71ab5f89539e92bea505a87a5872be63f
   .claude/agents/source-inventory.md: sha256:74b4f2dafdc4284df6daba8800413b2dacd1b57316055831d58405406fa8b52a
   .claude/agents/statement-extractor.md: sha256:705358fad86d5bd40aed99133e12eee56d3c1d55f4a32baf74cfba36b8f92bde
   .claude/agents/technical-writer.md: sha256:7002df5c76813486957693a39b41ec4f37964729fa5281291d66c48171730632
   .claude/rules/ai-dev-team-connection.md: sha256:f8693126ff3e6bca46f3e49fe8d011d91912414fb907a137182718a096662c8f
-  .claude/skills/ait-docs-concept/SKILL.md: sha256:2a4b32ecabcfd0ee87aab22704d01b60790157440d590fdc0ba488838c5e1f89
+  .claude/skills/ait-docs-concept/SKILL.md: sha256:1e4798511ca2139a4dafcb42da45a5458d9b8249e9db7a1d40396eef31e83b16
   .claude/skills/ait-docs-concept/assets/concept-template.md: sha256:c9395fdc21c72c2944bb0a0666a0d316fad1762be9446e62744b82456fd82215
   .claude/skills/ait-docs-concept/evals/triggers.json: sha256:ca05242bb3387c94158346e1931f698b0bbfb61beb95c0d344d7f91ef03291db
   .claude/skills/ait-docs-concept/references/concept-dialogue.md: sha256:f7591821690a1b453bea1a63f403fb102e86f3458962442b6f54cf99cdc73c6a
@@ -1093,7 +1155,7 @@ local_deployed_file_hashes:
   .claude/skills/private-project-knowledge/evals/triggers.json: sha256:866a2dfad67a722b13b0c466ca861de25533cdd5d3718912dc56e470f971097a
   .claude/skills/private-project-knowledge/references/local-layer.md: sha256:66dc23b44447980f3b03e0b210df92e25e4b3b8ff3e64f9be312c1cb5d854649
   .claude/skills/project-management/SKILL.md: sha256:b7cc0d02583e3a24b0f2546675c2bad5c03b758579f70b15ad41050a59a2bba9
-  .claude/skills/project-management/references/skill-index.md: sha256:b79e0dd0b9d65f923e829982625554f846b7b3154fe5bcacd32ef61b3be463d7
+  .claude/skills/project-management/references/skill-index.md: sha256:697f9738a2a0ed4dc2ecb037fe739a1304a5920c6858526cc2ed6611c87203bf
   .claude/skills/project-readme/SKILL.md: sha256:85b4ca15cb37588d402c296e5bbc0bda55effc239af5f2d76e66fdbeaf21e04b
   .claude/skills/project-readme/evals/apm-skill-collection.md: sha256:9fe6e4ccafe389d25111bbe4447b77f90e3740ddd207dcb0815fe15ac1da87ca
   .claude/skills/project-readme/evals/installation-vs-project-connection.md: sha256:93088079f01b7f769df2f0119f44debcf639621a89614c25a1e602cf1e85d4b8
@@ -1109,29 +1171,47 @@ local_deployed_file_hashes:
   .claude/skills/requirements-management/assets/requirements-management-template.md: sha256:d6a99041d4c7270dfe4813e1a0b1969fa269568034c7294b5c81e21138427509
   .claude/skills/requirements-management/evals/result-scenarios.json: sha256:0675aa17c9a58b5c5712ec4b4fab265f77b715c0c2b07fcb9a76f465d9a23657
   .claude/skills/requirements-management/evals/triggers.json: sha256:15d1a2d32cd4ce0e7cf3b4e0e02daf7d0adde5f65b64b2ef3bdc8b84ee78449d
-  .claude/skills/requirements-specification/SKILL.md: sha256:e60c892e3dbd3c92eb4225802c3780db566c8c5d1251f69d9399f30f8c819fdb
+  .claude/skills/requirements-specification/SKILL.md: sha256:e681fae7d7e22465619d0aaed7712ff76ee8e2bdd8a6be33f84d8e21ca12eefc
   .claude/skills/requirements-specification/evals/result-scenarios.json: sha256:5de1821f2ebcfb5da259884d39343db4f3a0fa297601e302bde2b05232dd13a4
   .claude/skills/requirements-specification/evals/triggers.json: sha256:b9cef18cd495205e6eb300d15299b5f2a6826b1e22ce77d66d1fced559dcb918
+  .claude/skills/requirements-specification/references/gost-tech-task.md: sha256:e12c65267c7af8dc2a72dab7413f645337f9b276ecdbdbc9fe6cb8ec1b94a6c4
   .claude/skills/requirements-specification/references/use-case-templates.md: sha256:589644e9fd38a59dc8ea10e9e7b35dbf5b02032c6cf2e951654aaec47807fe8e
   .claude/skills/requirements-validation/SKILL.md: sha256:aea300b6d13a08845ace5e60f1b9457b0178d5bf5f1604bc7af8418ea6200457
   .claude/skills/requirements-validation/evals/result-scenarios.json: sha256:1f44603ba0d8e3b7f197df39089968015be4ea3f67df0d6a8e8f9f7068e691bd
   .claude/skills/requirements-validation/evals/triggers.json: sha256:5274d46408c4505911398408fdf3e58d977383712cb25af57b614ce222abe202
-  .claude/skills/software-architecture/SKILL.md: sha256:1ee42a2d71d83fa60e2636edaf84cf89e30c4b2d417525225c961cdbd619d72b
+  .claude/skills/security-access-control/SKILL.md: sha256:7d6e4aa8d4f44c034798814cac3eb4bbc175b762f4e59713e227765517cdcbad
+  .claude/skills/security-access-control/evals/triggers.json: sha256:cb6d9d6c6be801c778fb8cc85b66549f7de4db4867b3f4bb9874f93e346a5a33
+  .claude/skills/security-access-control/references/dharma.md: sha256:f608f946e8d611627f99117c283db95970828032d800a60a5267f8ba1f375ec8
+  .claude/skills/security-audit/SKILL.md: sha256:55fa03e73f5e7af6dc75c80540c5f0fbb08566ac969066d2c33b496fc5c4a0f5
+  .claude/skills/security-audit/evals/triggers.json: sha256:e04513e7d53e570435320a09e76390df3f0421dccb9e69bbaf8442b7e9925d5f
+  .claude/skills/security-audit/references/standards-and-maturity.md: sha256:f80084238c643871d9aa3776e2ecab67b68b5f9f72a8bfd1bb0e7842142269ee
+  .claude/skills/security-threat-modeling/SKILL.md: sha256:d3442e32177a4605939cb62dbbd6f9eb755b3e3c621e6d9b4029507dea41f519
+  .claude/skills/security-threat-modeling/evals/triggers.json: sha256:e6a2c7094e504f19b1867c70bd89cc9e0b365c97436402ada6c4cbacd89780c8
+  .claude/skills/security-threat-modeling/references/finding-threats.md: sha256:3477b3c58b739918dd101c66cc22c1d97b2073297a6b089f2e2a1bb49845238b
+  .claude/skills/security-threat-modeling/references/risk-and-validation.md: sha256:643749dc677518f40335078e925999b1cb35d7584fab40b1b7f0ba293821f9de
+  .claude/skills/security-tooling/SKILL.md: sha256:99bdb0576abcf7ab89a8fb29823358cab5d7e4e6bdd16a8bfab04cf63b8383e6
+  .claude/skills/security-tooling/evals/triggers.json: sha256:d99e0c9b214dca8863de602218501417fc90d01b6babf00efaad14eaff93c6e4
+  .claude/skills/software-architecture/SKILL.md: sha256:4212dd50b076fc2768365a03cdc92337ba4e0de41f0da6764b86dfc14291865c
   .claude/skills/software-architecture/evals/triggers.json: sha256:67cdc220077e815daf585a169ed95d7dc3acf7052a05ad092cbe0787862d096e
-  .claude/skills/software-architecture/references/component-design.md: sha256:6b7a520565d64bbb50675b80c34887d150279d0edf1576d1b897c7705ff09c3b
-  .claude/skills/software-architecture/references/core-principles.md: sha256:ce47a315f510b2b6436343d0520db4542f36ba0c1f20465dca8f000e1bf53a8f
-  .claude/skills/software-architecture/references/decision-workflow.md: sha256:8a2506842e8f352dba587c9fe20ed59189a6e46671c08eca3877ea69e23b8f83
-  .claude/skills/software-architecture/references/domain-modeling.md: sha256:6d591feb51dac5753cb085d9ac12bdd53a274668bb2596c6c5361752045fd272
-  .claude/skills/software-architecture/references/quality-criteria.md: sha256:da2f69c2adf7c841ed485e6456b050cbad54c00614821b1801d62c0dd6c041bb
+  .claude/skills/software-architecture/references/api-design.md: sha256:e76bc98c4dd24cd0be91893799df89e122430b49eb17e3350880c7e9d659eacd
+  .claude/skills/software-architecture/references/clean-architecture.md: sha256:c6b4379752d2d38e7af23ba0bfe9676f3a89913a9dc9830053d504bfafc1ebb8
+  .claude/skills/software-architecture/references/component-design.md: sha256:66358d262b47b20835086a3da45fdf35264d9a8a6f15454301d7e7c45805ab7c
+  .claude/skills/software-architecture/references/core-principles.md: sha256:d0cb6e6fcf45ae62d99cc3864606335c28714d95bd616f6646fe1e816c449568
+  .claude/skills/software-architecture/references/decision-workflow.md: sha256:9e151037c750f0b723688021540e21a128fc58e904bcb59d908a29d9575ae348
+  .claude/skills/software-architecture/references/distributed-tradeoffs.md: sha256:4738928f02ab517d011f1aaec3919b8578d24aa755481614639a7f916c2bf45b
+  .claude/skills/software-architecture/references/domain-modeling.md: sha256:7ecaa350a2e6eeb48585810484d1ba07f046b0bfcbc9d2ae9c12bc515d2b08ae
+  .claude/skills/software-architecture/references/evolutionary-architecture.md: sha256:7b3bd8013370ff9e97b8892aef6a1d27b9bcfe1d0ac5070d4e3885d805b70221
+  .claude/skills/software-architecture/references/quality-criteria.md: sha256:d147b0bf2a92c4507193536033de38f43f68116665a886f76827052a49725968
   .claude/skills/software-architecture/references/system-complexity.md: sha256:b0750f0b1342bd7a9cf825bca96c963350884a3f8665712e1b6df3035749975f
   .claude/skills/software-architecture/references/task-protocol.md: sha256:51665c1958528cc520b461cf1ec7faa1c1976aed4e21bbe5bc440480d165eb60
-  .claude/skills/technical-writing/SKILL.md: sha256:2031d637a3cee40b3e29987c9825e87fd6e5b749e9ba13e3e551e79a79a5a4d0
+  .claude/skills/technical-writing/SKILL.md: sha256:a81eef78a5e0b2d123f07b22bc429bd4821b926d55a1fe0de69c8f951c3e5a41
   .claude/skills/technical-writing/assets/document-design-template.md: sha256:12c28a9375190e783ee2ce9492b7b0d6014f984af71252ee6a69df652f840f35
   .claude/skills/technical-writing/assets/documentation-structure-template.md: sha256:5b85bd99aaa3ea138552f2d5ecd6f6e5fc8ebaad4627b33ac73e1ef5d7b3ba6f
   .codex/agents/analyst.toml: sha256:0d8ba16b92bb0bdd78a4151943ebebf73f75408c4ac904b6eb449d05df940d75
   .codex/agents/legal.toml: sha256:8f9e2b09b13e26821fa86963442c24c6acd79dc4d0f05cc6869d2c1e3fb851ac
   .codex/agents/normalizer.toml: sha256:e4564cf987fd974833fa5bf2d879d8d8b1db357457eb284ca097670562fded55
   .codex/agents/project-manager.toml: sha256:20971c01b1a4e505b7503318c2cb74a36271bca96d2df8497d1335798c4c1961
+  .codex/agents/security-engineer.toml: sha256:76f7f0da32e23f14b905ab3107d8cafc0e8f0d2724262bb94e04c419fcbb3a5a
   .codex/agents/software-architect.toml: sha256:3c7674b93abc09eb7b4cac9603c0799c3ab59a6899b7532fcbae694346bfed14
   .codex/agents/source-inventory.toml: sha256:e219b8a3da50480d458cce6e050360ee7419eccb3ce5727ff1788ccb34371ba4
   .codex/agents/statement-extractor.toml: sha256:1c4c38aa335c5dfbcb4d24ab0ed6f80be011d8be4c13b03bc5189e92ffdf5581
