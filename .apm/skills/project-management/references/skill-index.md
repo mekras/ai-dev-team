@@ -89,6 +89,14 @@
   проверяемом формате.
 - `requirements-validation` — роль: `analyst` — проверка и подготовка требований
   к утверждению.
+- `security-access-control` — роль: `security-engineer` — управление доступом к
+  API в распределённой и микросервисной архитектуре (IAAA, токены, DHARMA).
+- `security-audit` — роль: `security-engineer` — аудит и рецензия безопасности,
+  проверка внедрения и результативности мер.
+- `security-threat-modeling` — роль: `security-engineer` — моделирование угроз
+  (рамка из четырёх вопросов, STRIDE, деревья атак).
+- `security-tooling` — роль: `security-engineer` — выбор и применение средств
+  информационной безопасности под задачу и модель угроз.
 - `software-architecture` — роль: `software-architect` — архитектура ПО, ADR,
   компонентные границы и управление сложностью системы.
 - `technical-writing` — роль: `technical-writer` — техническое письмо.
