@@ -13,20 +13,26 @@ ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_SKILLS = {
     "ait-docs-concept",
     "ait-setup",
-    "analysis",
-    "documentation-structure-audit",
-    "documentation-structure-design",
-    "documentation-structure-rules",
-    "private-project-knowledge",
-    "project-management",
-    "project-readme",
-    "requirements-analysis",
-    "requirements-elicitation",
-    "requirements-management",
-    "requirements-specification",
-    "requirements-validation",
-    "software-architecture",
-    "technical-writing",
+    "ait-analysis",
+    "ait-code-construction",
+    "ait-code-review",
+    "ait-code-testing",
+    "ait-ux-design",
+    "ait-ux-audit",
+    "ait-docs-structure-audit",
+    "ait-docs-structure-design",
+    "ait-docs-structure-rules",
+    "ait-licensing",
+    "ait-private-knowledge",
+    "ait-routing",
+    "ait-readme",
+    "ait-req-analysis",
+    "ait-req-elicitation",
+    "ait-req-management",
+    "ait-req-specification",
+    "ait-req-validation",
+    "ait-architecture",
+    "ait-writing",
 }
 
 REQUIRED_AGENTS = {
@@ -60,18 +66,18 @@ FORBIDDEN_TEXT = (
 )
 
 PROJECT_README_REGRESSION_NEEDLES = {
-    ".apm/skills/project-readme/SKILL.md": (
+    ".apm/skills/ait-readme/SKILL.md": (
         "slug",
         "человекочитаемый заголовок",
         "references/apm-skill-collections.md",
     ),
-    ".apm/skills/project-readme/references/apm-skill-collections.md": (
+    ".apm/skills/ait-readme/references/apm-skill-collections.md": (
         "пакет APM",
         "Не делай Codex",
         "apm install --frozen",
         "git status --short",
     ),
-    ".apm/skills/project-readme/evals/openclaw-skills-regression.md": (
+    ".apm/skills/ait-readme/evals/openclaw-skills-regression.md": (
         "# openclaw-skills",
         "Навыки для OpenClaw",
         "APM-пакет",
@@ -141,9 +147,9 @@ def check_tree() -> None:
     for skill in sorted(REQUIRED_SKILLS):
         if not (skill_root / skill / "SKILL.md").is_file():
             fail(f"missing .apm/skills/{skill}/SKILL.md")
-    skill_index = skill_root / "project-management" / "references" / "skill-index.md"
+    skill_index = skill_root / "ait-routing" / "references" / "skill-index.md"
     if not skill_index.is_file():
-        fail("missing .apm/skills/project-management/references/skill-index.md")
+        fail("missing .apm/skills/ait-routing/references/skill-index.md")
 
     agent_root = ROOT / ".apm" / "agents"
     actual_agents = {path.name.removesuffix(".agent.md") for path in agent_root.glob("*.agent.md")}
