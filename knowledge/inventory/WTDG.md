@@ -31,7 +31,7 @@
 - Заголовки ответа: `knowledge/primary/WTDG/response-headers.txt`
 - Снимки внутренних страниц: `knowledge/primary/WTDG/pages`
 - Индекс внутренних страниц: `knowledge/primary/WTDG/page-index.tsv`
-- Вспомогательные очищенные копии: `knowledge/normalized/WTDG-source.md`,
+- Вспомогательные очищенные копии: `knowledge/normalized/WTDG/legacy-source.md`,
   `knowledge/normalized/WTDG/pages`
 
 ## Происхождение

@@ -13,7 +13,7 @@
         </tr>
         <tr>
           <td style="text-align: center">
-            <a href="docs/knowledge.md">Корпус знаний проекта</a>
+            <a href="knowledge.md">Корпус знаний проекта</a>
           </td>
         </tr>
       </table>

@@ -1,0 +1,29 @@
+{
+  "skill_name": "ait-writing",
+  "cases": [
+    {
+      "id": "writing-positive-document",
+      "prompt": "Оформи уже выявленные сведения и решения в точный проектный документ.",
+      "should_trigger": true,
+      "rationale": "Превращение сведений в документацию — суть навыка."
+    },
+    {
+      "id": "writing-positive-revise",
+      "prompt": "Проверь и улучши проектный документ без искажения исходного смысла.",
+      "should_trigger": true,
+      "rationale": "Точное оформление и проверка документа входят в навык."
+    },
+    {
+      "id": "writing-negative-analysis",
+      "prompt": "Выяви противоречия и пробелы в собранных утверждениях.",
+      "should_trigger": false,
+      "rationale": "Это анализ (ait-analysis), а не документирование."
+    },
+    {
+      "id": "writing-negative-readme",
+      "prompt": "Перепиши главный README проекта как точку входа для пользователя.",
+      "should_trigger": false,
+      "rationale": "Главный README ведёт навык ait-readme."
+    }
+  ]
+}

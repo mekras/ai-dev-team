@@ -3,10 +3,10 @@
 ## Основание
 
 - Источник учёта: `knowledge/inventory/WTDG.md`
-- Нормализованный слой: `knowledge/normalized/WTDG.md`
+- Нормализованный слой: `knowledge/normalized/WTDG/source.md`
 - Первичный снимок обзорной страницы: `knowledge/primary/WTDG/index.html`
 - Первичные снимки внутренних страниц: `knowledge/primary/WTDG/pages`
-- Вспомогательные очищенные копии: `knowledge/normalized/WTDG-source.md`,
+- Вспомогательные очищенные копии: `knowledge/normalized/WTDG/legacy-source.md`,
   `knowledge/normalized/WTDG/pages`
 - Атрибуция источника: `knowledge/source-attribution.md`
 
@@ -28,7 +28,7 @@
   сообщества `Write the Docs` по лучшим практикам создания документации и
   технического письма.
 - Основание:
-  - `knowledge/normalized/WTDG-source.md`
+  - `knowledge/normalized/WTDG/legacy-source.md`
 
 ### WTDG-002
 
@@ -36,7 +36,7 @@
 - Утверждение: источник описывает себя как живой и развиваемый корпус
   материалов, открытый для вкладов.
 - Основание:
-  - `knowledge/normalized/WTDG-source.md`
+  - `knowledge/normalized/WTDG/legacy-source.md`
   - `knowledge/normalized/WTDG/pages/contributing/index.md`
 
 ### WTDG-003
@@ -45,7 +45,7 @@
 - Утверждение: обзорная страница служит входной точкой в корпус и организована
   как тематический указатель, а не как единая линейная статья.
 - Основание:
-  - `knowledge/normalized/WTDG-source.md`
+  - `knowledge/normalized/WTDG/legacy-source.md`
 
 ### WTDG-004
 
@@ -285,7 +285,7 @@
   организационной работы, пользовательской пригодности и профессиональной
   позиции автора.
 - Основание:
-  - `knowledge/normalized/WTDG.md`
+  - `knowledge/normalized/WTDG/source.md`
   - перечисленные выше страницы источника
 
 ### WTDG-031
@@ -295,7 +295,7 @@
   одни содержат собственные принципы и рекомендации, другие в основном выступают
   как каталог ссылок и ресурсов.
 - Основание:
-  - `knowledge/normalized/WTDG.md`
+  - `knowledge/normalized/WTDG/source.md`
   - `knowledge/normalized/WTDG/pages/tools/index.md`
   - `knowledge/normalized/WTDG/pages/ux-writing/index.md`
   - `knowledge/normalized/WTDG/pages/writing/accessibility/index.md`

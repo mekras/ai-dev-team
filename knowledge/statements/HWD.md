@@ -3,7 +3,7 @@
 ## Основание
 
 - Источник учёта: `knowledge/inventory/HWD.md`
-- Нормализованный слой: `knowledge/normalized/HWD.md`
+- Нормализованный слой: `knowledge/normalized/HWD/source.md`
 - Индекс первичных артефактов: `knowledge/primary/HWD/page-index.tsv`
 - Первичный снимок:
   `knowledge/primary/HWD/287c3b86170f56b163dc65eeaaf3678c3cefb25c/pages`
