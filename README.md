@@ -16,13 +16,13 @@
 Для Claude:
 
 ```shell
-apm install mekras/ai-dev-team#^0.7.0 --target claude
+apm install mekras/ai-dev-team#^0.8.0 --target claude
 ```
 
 Для Codex:
 
 ```shell
-apm install mekras/ai-dev-team#^0.7.0 --target codex
+apm install mekras/ai-dev-team#^0.8.0 --target codex
 ```
 
 APM добавит продукт в зависимости текущего проекта, установит локальную копию
