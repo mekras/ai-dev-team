@@ -62,6 +62,12 @@
       "rationale": "Это рекомендуемый пользовательский путь пересмотра проекта после установки новой версии ai-dev-team."
     },
     {
+      "id": "ait-setup-positive-changelog-setup",
+      "prompt": "Настрой проект и, если журнала изменений нет, предложи создать CHANGELOG.md.",
+      "should_trigger": true,
+      "rationale": "Вопрос о стартовых файлах и правилах проекта относится к настройке через ait-setup."
+    },
+    {
       "id": "ait-setup-negative-readme-only",
       "prompt": "Обнови README.md: добавь команду установки и ссылку на документацию.",
       "should_trigger": false,
