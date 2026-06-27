@@ -56,6 +56,12 @@
       "rationale": "Запрос касается комплексной перенастройки нескольких стартовых файлов."
     },
     {
+      "id": "ait-setup-positive-version-update-review",
+      "prompt": "Обнови проект под новую версию ai-dev-team.",
+      "should_trigger": true,
+      "rationale": "Это рекомендуемый пользовательский путь пересмотра проекта после установки новой версии ai-dev-team."
+    },
+    {
       "id": "ait-setup-negative-readme-only",
       "prompt": "Обнови README.md: добавь команду установки и ссылку на документацию.",
       "should_trigger": false,
