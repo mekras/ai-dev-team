@@ -80,14 +80,15 @@ description: >
 ## Что читать дополнительно
 
 - `references/standards-and-maturity.md` — практики проверок и реагирования по
-  SSDF, уровни и каталог требований ASVS, оценка зрелости по SAMM (основание в
-  корпусе: `knowledge/statements/{SSDF,ASVS,SAMM}.md`).
+  SSDF, уровни и каталог требований ASVS, оценка зрелости по SAMM. Основание ищи
+  в корпусе через `knowledge/catalog.yml` и карточки источников.
 
 Читай справку, когда нужно опереть аудит на стандарт или оценить зрелость
 программы.
 
 ## Опорные источники
 
-Навык опирается на источники корпуса (`knowledge/inventory/<код>.md`,
-`knowledge/statements/<код>.md`): `SSDF`, `SAMM`, `ASVS`, `WSTG`, `MWAT`,
-`MSDL`, `BSIM`, `CVSS`.
+Навык опирается на источники корпуса: сначала найди источник по `id` в
+`knowledge/catalog.yml`, затем используй `knowledge/data/<slug>/source.yml`,
+`knowledge/data/<slug>/items.yml` и связанные утверждения: `SSDF`, `SAMM`,
+`ASVS`, `WSTG`, `MWAT`, `MSDL`, `BSIM`, `CVSS`.

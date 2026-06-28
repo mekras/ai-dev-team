@@ -91,13 +91,16 @@ description: >
 
 ## Основание в корпусе
 
-- Модель и механизмы доступа опираются на `knowledge/statements/SMAS.md` (IAAA,
-  токены, DHARMA).
+- Модель и механизмы доступа опираются на
+  `knowledge/data/smas/items/source/legacy-statements.md` (IAAA, токены,
+  DHARMA).
 - Проверяемые требования к аутентификации, управлению сессиями и доступом дают
-  разделы OWASP ASVS V2–V4 — `knowledge/statements/ASVS.md` (`ASVS-005`); их
-  можно использовать как чек-лист требований и критериев приёмки.
+  разделы OWASP ASVS V2–V4 —
+  `knowledge/data/asvs/items/source/legacy-statements.md` (`ASVS-005`); их можно
+  использовать как чек-лист требований и критериев приёмки.
 
 ## Опорные источники
 
-Навык опирается на источники корпуса (`knowledge/inventory/<код>.md`,
-`knowledge/statements/<код>.md`): `SMAS`, `ASVS`.
+Навык опирается на источники корпуса: сначала найди источник по `id` в
+`knowledge/catalog.yml`, затем используй `knowledge/data/<slug>/source.yml`,
+`knowledge/data/<slug>/items.yml` и связанные утверждения: `SMAS`, `ASVS`.

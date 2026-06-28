@@ -35,9 +35,9 @@ description: >
 
 ## Основания
 
-- `knowledge/reports/source-impact/2026-06-01-documentation-sources.md`
-- `knowledge/statements/HWD.md`
-- `knowledge/statements/WTDG.md`
+- `knowledge/index/source-impact/2026-06-01-documentation-sources.md`
+- `knowledge/data/hwd/items/source/legacy-statements.md`
+- `knowledge/data/wtdg/items/source/legacy-statements.md`
 - `.apm/agents/technical-writer.agent.md`
 - `.apm/skills/ait-writing/SKILL.md`
 - `.apm/skills/ait-writing/assets/documentation-structure-template.md`

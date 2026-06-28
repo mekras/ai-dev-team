@@ -29,9 +29,9 @@ description: >
 
 ## Основания
 
-- `knowledge/reports/source-impact/2026-06-01-documentation-sources.md`
-- `knowledge/reports/source-impact/2026-06-03-agents-context-sources.md`
-- `knowledge/statements/WTDG.md`
+- `knowledge/index/source-impact/2026-06-01-documentation-sources.md`
+- `knowledge/index/source-impact/2026-06-03-agents-context-sources.md`
+- `knowledge/data/wtdg/items/source/legacy-statements.md`
 - `.apm/agents/project-manager.agent.md`
 - `.apm/agents/technical-writer.agent.md`
 - `.apm/skills/ait-writing/assets/documentation-structure-template.md`

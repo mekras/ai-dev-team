@@ -76,17 +76,21 @@ description: >
   инструментов с автоматическим сбором артефактов (`PO.3`), настройка процессов
   компиляции и сборки на безопасность, включая утверждённый список инструментов
   и предупреждения компилятора (`PW.6`), и критерии проверок (`PO.4`). См.
-  `knowledge/statements/SSDF.md` (`SSDF-005`, `SSDF-010`).
+  `knowledge/data/ssdf/items/source/legacy-statements.md` (`SSDF-005`,
+  `SSDF-010`).
 - Для криптографических средств действует правило проверенных профессионалами
   решений из навыка `ait-sec-threat-modeling` (основание `TMDS`).
 - Для SCA и SBOM ориентиром служит стандарт состава ПО `CycloneDX`
-  (`knowledge/statements/CYDX.md`: компоненты, зависимости, уязвимости, VEX),
-  дополняющий учтённый `SPDX`; средства SCA связаны с проверкой компонентов
-  (SSDF `PW.4`).
+  (`knowledge/data/cydx/items/source/legacy-statements.md`: компоненты,
+  зависимости, уязвимости, VEX), дополняющий учтённый `SPDX`; средства SCA
+  связаны с проверкой компонентов (SSDF `PW.4`).
 - Классы средств тестирования (SAST/DAST/пентест) систематизирует OWASP WSTG
-  (`knowledge/statements/WSTG.md`); их применение ведёт навык `ait-sec-audit`.
+  (`knowledge/data/wstg/items/source/legacy-statements.md`); их применение ведёт
+  навык `ait-sec-audit`.
 
 ## Опорные источники
 
-Навык опирается на источники корпуса (`knowledge/inventory/<код>.md`,
-`knowledge/statements/<код>.md`): `CYDX`, `WSTG`, `SSDF`, `SAMM`, `ASVS`.
+Навык опирается на источники корпуса: сначала найди источник по `id` в
+`knowledge/catalog.yml`, затем используй `knowledge/data/<slug>/source.yml`,
+`knowledge/data/<slug>/items.yml` и связанные утверждения: `CYDX`, `WSTG`,
+`SSDF`, `SAMM`, `ASVS`.
