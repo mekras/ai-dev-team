@@ -1,0 +1,27 @@
+statements:
+- id: ODCM-001
+  source_id: ODCM
+  item_id: ODCM-licenses
+  status: ready_for_review
+  text: 'обзорная страница Open Data Commons рассматривает как минимум три основных
+    режима лицензирования: ODbL, ODC-By и PDDL.'
+  excerpt: список лицензий на странице `licenses`.
+  artifact: index.html
+  checked_at: '2026-06-05'
+  scope:
+    section_title: ''
+    application: первичный выбор лицензии для данных и баз данных.
+  open_questions: []
+- id: ODCM-004
+  source_id: ODCM
+  item_id: ODCM-licenses
+  status: ready_for_review
+  text: ODCM различает ODbL как режим `Attribution Share-Alike`, ODC-By как `Attribution`,
+    а PDDL как `Public Domain` для данных и баз данных.
+  excerpt: список лицензий на странице `licenses`.
+  artifact: index.html
+  checked_at: '2026-06-05'
+  scope:
+    section_title: ''
+    application: первичная развилка выбора лицензии для данных.
+  open_questions: []

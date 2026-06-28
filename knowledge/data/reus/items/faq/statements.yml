@@ -1,0 +1,66 @@
+statements:
+- id: REUS-001
+  source_id: REUS
+  item_id: REUS-faq
+  status: ready_for_review
+  text: REUSE связывает выбор лицензии проекта с использованием SPDX License List
+    и хранением текстов лицензий в каталоге `LICENSES/`.
+  excerpt: разделы FAQ про шаг `Choose and provide licenses`.
+  artifact: index.html
+  checked_at: '2026-06-05'
+  scope:
+    section_title: ''
+    application: организация лицензий в репозитории.
+  open_questions: []
+- id: REUS-002
+  source_id: REUS
+  item_id: REUS-faq
+  status: ready_for_review
+  text: REUSE уделяет отдельное внимание лицензионной информации в заголовках файлов
+    и объясняет, зачем она нужна даже при наличии VCS.
+  excerpt: FAQ про `copyright`, `license headers` и причины их сохранения.
+  artifact: index.html
+  checked_at: '2026-06-05'
+  scope:
+    section_title: ''
+    application: разметка файлов и проверка полноты сведений.
+  open_questions: []
+- id: REUS-003
+  source_id: REUS
+  item_id: REUS-faq
+  status: ready_for_review
+  text: FAQ REUSE рассматривает лицензии зависимостей, нестандартные лицензии и исключения
+    как отдельные практические случаи, требующие явной обработки.
+  excerpt: вопросы `dependencies licenses`, `custom license` и custom exception`.
+  artifact: index.html
+  checked_at: '2026-06-05'
+  scope:
+    section_title: ''
+    application: работа со смешанными и нестандартными сценариями.
+  open_questions: []
+- id: REUS-004
+  source_id: REUS
+  item_id: REUS-faq
+  status: ready_for_review
+  text: REUSE не предлагает создавать custom exception отдельно, а советует оформлять
+    такой случай как custom license, встраивающую исключение.
+  excerpt: вопрос `custom exception`.
+  artifact: index.html
+  checked_at: '2026-06-05'
+  scope:
+    section_title: ''
+    application: обработка нетиповых лицензионных исключений.
+  open_questions: []
+- id: REUS-005
+  source_id: REUS
+  item_id: REUS-faq
+  status: ready_for_review
+  text: FAQ REUSE отдельно объясняет, почему история VCS не считается заменой файловых
+    сведений о copyright и лицензии.
+  excerpt: вопросы `why-care` и `vcs-copyright`.
+  artifact: index.html
+  checked_at: '2026-06-05'
+  scope:
+    section_title: ''
+    application: обоснование сохранения лицензионных заголовков в файлах.
+  open_questions: []

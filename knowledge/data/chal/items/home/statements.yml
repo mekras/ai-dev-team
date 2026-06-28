@@ -1,0 +1,27 @@
+statements:
+- id: CHAL-001
+  source_id: CHAL
+  item_id: CHAL-home
+  status: ready_for_review
+  text: главная страница подаёт MIT и GPLv3 как две типовые развилки для permissive
+    и copyleft выбора лицензии.
+  excerpt: блоки `The MIT License` и `GNU GPLv3` на главной.
+  artifact: index.html
+  checked_at: '2026-06-05'
+  scope:
+    section_title: ''
+    application: первичное ориентирование при выборе лицензии проекта.
+  open_questions: []
+- id: CHAL-002
+  source_id: CHAL
+  item_id: CHAL-home
+  status: ready_for_review
+  text: сайт рекомендует учитывать лицензионные ожидания сообщества и не использовать
+    зависимости без явной лицензии.
+  excerpt: абзацы про community и зависимость без лицензии.
+  artifact: index.html
+  checked_at: '2026-06-05'
+  scope:
+    section_title: ''
+    application: выбор лицензии с учётом экосистемы и входящих компонентов.
+  open_questions: []

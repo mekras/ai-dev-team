@@ -1,0 +1,54 @@
+statements:
+- id: MWAT-001
+  source_id: MWAT
+  item_id: MWAT-normalized-MWAT-source.md
+  status: ready_for_review
+  text: CWE — каталог типов слабостей ПО и аппаратуры с идентификаторами CWE-<номер>`,
+    организованный иерархически; MITRE публикует список наиболее опасных слабостей
+    `CWE Top 25`.
+  excerpt: обзор CWE.
+  artifact: source.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: CWE — каталог слабостей
+    application: специалист по безопасности, разработчик.
+  open_questions: []
+- id: MWAT-002
+  source_id: MWAT
+  item_id: MWAT-normalized-MWAT-source.md
+  status: ready_for_review
+  text: CWE — общий словарь слабостей, на который ссылаются `ASVS`, OWASP Top 10`
+    и средства анализа; он связывает требования и находки с типами слабостей.
+  excerpt: связи CWE.
+  artifact: source.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: CWE как общий словарь
+    application: специалист по безопасности.
+  open_questions: []
+- id: MWAT-003
+  source_id: MWAT
+  item_id: MWAT-normalized-MWAT-source.md
+  status: ready_for_review
+  text: CAPEC — каталог шаблонов атак с идентификаторами `CAPEC-<номер>`, классифицированных
+    по механизмам и доменам атаки.
+  excerpt: обзор CAPEC.
+  artifact: source.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: CAPEC — каталог шаблонов атак
+    application: специалист по безопасности.
+  open_questions: []
+- id: MWAT-004
+  source_id: MWAT
+  item_id: MWAT-normalized-MWAT-source.md
+  status: ready_for_review
+  text: CAPEC связан с CWE (какие слабости эксплуатирует шаблон) и сопоставим с тактиками
+    и техниками `ATT&CK`, что соединяет слабости, шаблоны атак и наблюдаемые TTP.
+  excerpt: связи CAPEC.
+  artifact: source.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Связь CAPEC с CWE и ATT&CK
+    application: специалист по безопасности.
+  open_questions: []

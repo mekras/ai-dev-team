@@ -1,0 +1,969 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents</title>
+<!--Generated on Mon Mar 30 07:53:17 2026 by LaTeXML (version 0.8.8) http://dlmf.nist.gov/LaTeXML/.-->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/static/browse/0.3.4/css/arxiv-html-papers-20260131.css" type="text/css">
+<script src="/static/browse/0.3.4/js/arxiv-html-papers-20260131.js"></script>
+<meta name="keywords" lang="en" content="AI coding agents,  AGENTS.md,  pull requests,  efficiency">
+<script>
+  // Restore the saved color scheme preference, or
+  // enact the browser preference if "automatic", 
+  // without expecting DOM load to have completed.
+  //
+  // Also restore any saved readingmode and ToC display preferences.
+  function initializeReadingPreferences() {
+    let saved_theme = localStorage.getItem("ar5iv_theme") || "automatic";
+    if (saved_theme === "automatic") {
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        saved_theme = "dark";
+      }
+    }
+    if (saved_theme == "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+
+    const tocDisplay = localStorage.getItem('arxiv_html_paper_toc_display');
+    if (tocDisplay) {
+      document.documentElement.setAttribute("data-toc-display", tocDisplay);
+    }
+    const readingMode = localStorage.getItem('arxiv_html_paper_reading_mode');
+    if (readingMode) {
+      document.documentElement.setAttribute("data-reading-mode", readingMode);
+    }
+  }
+  // Run as soon as JS starts, to minimize repainting
+  initializeReadingPreferences();
+</script>
+<link rel="apple-touch-icon" sizes="180x180"
+  href="/static/browse/0.3.4/images/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32"
+  href="/static/browse/0.3.4/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16"
+  href="/static/browse/0.3.4/images/icons/favicon-16x16.png">
+<link rel="manifest" href="/static/browse/0.3.4/images/icons/site.webmanifest">
+<link rel="mask-icon" href="/static/browse/0.3.4/images/icons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="stylesheet" type="text/css" media="screen" href="https://use.typekit.net/utz6mli.css">
+</head>
+<body>
+<dialog id="modal-form" aria-labelledby="modal-title" closedby="any">
+  <form id="modal-form-content" method="dialog" enctype="multipart/form-data">
+    <header class="modal-header">
+      <h5 id="modal-title" class="modal-title">Report GitHub Issue</h5>
+      <button type="submit" formnovalidate class="modal-close" aria-label="Close">×</button>
+    </header>
+
+    <div class="modal-body">
+      <label for="form_title">Title:</label>
+      <input class="form-control" id="form_title" name="form_title" required placeholder="Enter title">
+
+      <p id="selectedTextModalDescription" hidden>Content selection saved. Describe the issue below:</p>
+
+      <label for="description">Description:</label>
+      <textarea class="form-control" id="description" name="description" required maxlength="500"
+        placeholder="500 characters maximum"></textarea>
+    </div>
+
+    <footer class="modal-footer">
+      <button type="submit" value="internal-report" class="sr-only modal-submit">Submit without GitHub</button>
+      <button type="submit" value="github-report" class="modal-submit">Submit in GitHub</button>
+    </footer>
+  </form>
+</dialog>
+
+<header class="arxiv-html-header">
+  <div class="html-header-logo">
+    <a href="/">
+      <img alt="arXiv logo" class="logo desktop-only" width="100"
+        src="/static/browse/0.3.4/images/arxiv-logo-one-color-white.svg">
+      <span class="sr-only">Back to arXiv</span>
+    </a>
+  </div>
+  <!--TOC, dark mode, links-->
+  <nav class="html-header-nav">
+    <a class="header-button hover-effect desktop-only" href="https://info.arxiv.org/about/accessible_HTML.html"
+      target="_blank">Why HTML?</a>
+    <a class="header-button" title="Report an Issue" href="#" title="Report an issue"
+      onclick="event.preventDefault(); showModalForm();">
+      <svg role="presentation" class="mobile-only toggle-icon" aria-hidden="true" height="1.25rem"
+        viewBox="0 0 640 640">
+        <path
+          d="M224 160C224 107 267 64 320 64C373 64 416 107 416 160L416 163.6C416 179.3 403.3 192 387.6 192L252.5 192C236.8 192 224.1 179.3 224.1 163.6L224.1 160zM569.6 172.8C580.2 186.9 577.3 207 563.2 217.6L465.4 290.9C470.7 299.8 474.7 309.6 477.2 320L576 320C593.7 320 608 334.3 608 352C608 369.7 593.7 384 576 384L480 384L480 416C480 418.6 479.9 421.3 479.8 423.9L563.2 486.4C577.3 497 580.2 517.1 569.6 531.2C559 545.3 538.9 548.2 524.8 537.6L461.7 490.3C438.5 534.5 395.2 566.5 344 574.2L344 344C344 330.7 333.3 320 320 320C306.7 320 296 330.7 296 344L296 574.2C244.8 566.5 201.5 534.5 178.3 490.3L115.2 537.6C101.1 548.2 81 545.3 70.4 531.2C59.8 517.1 62.7 497 76.8 486.4L160.2 423.9C160.1 421.3 160 418.7 160 416L160 384L64 384C46.3 384 32 369.7 32 352C32 334.3 46.3 320 64 320L162.8 320C165.3 309.6 169.3 299.8 174.6 290.9L76.8 217.6C62.7 207 59.8 186.9 70.4 172.8C81 158.7 101.1 155.8 115.2 166.4L224 248C236.3 242.9 249.8 240 264 240L376 240C390.2 240 403.7 242.8 416 248L524.8 166.4C538.9 155.8 559 158.7 569.6 172.8z" />
+      </svg>
+      <span class="desktop-only">Report Issue</span></a>
+    <!--back to abstract-->
+    <a class="header-button" title="Back to abstract page" aria-label="Back to abstract page"
+      href="/abs/2601.20404v2">
+      <svg class="mobile-only toggle-icon" role="presentation" height="1.25rem" viewBox="0 0 512 512" fill="#ffffff"
+        aria-hidden="true">
+        <path
+          d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 192 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128zM160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 32C43 32 0 75 0 128L0 384c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0z">
+        </path>
+      </svg>
+      <span class="desktop-only">Back to Abstract</span>
+    </a>
+    <!-- PDF download link -->
+    <a class="header-button" title="Download PDF" href="/pdf/2601.20404v2"
+      target="_blank">
+      <svg class="mobile-only toggle-icon" role="presentation" height="1.25rem" viewBox="0 0 576 542">
+        <path
+          d="M208 48L96 48c-8.8 0-16 7.2-16 16l0 384c0 8.8 7.2 16 16 16l80 0 0 48-80 0c-35.3 0-64-28.7-64-64L32 64C32 28.7 60.7 0 96 0L229.5 0c17 0 33.3 6.7 45.3 18.7L397.3 141.3c12 12 18.7 28.3 18.7 45.3l0 149.5-48 0 0-128-88 0c-39.8 0-72-32.2-72-72l0-88zM348.1 160L256 67.9 256 136c0 13.3 10.7 24 24 24l68.1 0zM240 380l32 0c33.1 0 60 26.9 60 60s-26.9 60-60 60l-12 0 0 28c0 11-9 20-20 20s-20-9-20-20l0-128c0-11 9-20 20-20zm32 80c11 0 20-9 20-20s-9-20-20-20l-12 0 0 40 12 0zm96-80l32 0c28.7 0 52 23.3 52 52l0 64c0 28.7-23.3 52-52 52l-32 0c-11 0-20-9-20-20l0-128c0-11 9-20 20-20zm32 128c6.6 0 12-5.4 12-12l0-64c0-6.6-5.4-12-12-12l-12 0 0 88 12 0zm76-108c0-11 9-20 20-20l48 0c11 0 20 9 20 20s-9 20-20 20l-28 0 0 24 28 0c11 0 20 9 20 20s-9 20-20 20l-28 0 0 44c0 11-9 20-20 20s-20-9-20-20l0-128z" />
+      </svg>
+      <span class="desktop-only">Download PDF</span></a>
+    <!-- navigational table of contents toggle -->
+    <a class="header-button toggle-icon" href="javascript:toggleNavTOC();" title="Toggle navigation"
+      aria-label="Toggle navigation">
+      <svg height="1.25rem" role="presentation" viewBox="0 0 512 512">
+        <path
+          d="M40 48C26.7 48 16 58.7 16 72v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V232c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V392c0-13.3-10.7-24-24-24H40z">
+        </path>
+      </svg>
+    </a>
+    <!--- collapsable header / reading mode toggle -->
+    <a class="header-button toggle-icon" href="javascript:toggleReadingMode();"
+      title="Disable reading mode, show header and footer">
+      <svg role="presentation" height="1.25rem"
+        viewBox="0 0 448 512"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+        <path
+          d="M32 32C14.3 32 0 46.3 0 64l0 96c0 17.7 14.3 32 32 32s32-14.3 32-32l0-64 64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L32 32zM64 352c0-17.7-14.3-32-32-32S0 334.3 0 352l0 96c0 17.7 14.3 32 32 32l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0 0-64zM320 32c-17.7 0-32 14.3-32 32s14.3 32 32 32l64 0 0 64c0 17.7 14.3 32 32 32s32-14.3 32-32l0-96c0-17.7-14.3-32-32-32l-96 0zM448 352c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 64-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l96 0c17.7 0 32-14.3 32-32l0-96z" />
+      </svg>
+    </a>
+    <!--- colored theme toggle -->
+    <button type="button" class="header-button color-tog" onclick="toggleColorScheme();" title="Toggle dark/light mode" aria-label="Toggle color scheme">
+      <span class="toggle-icon automatic-tog" aria-hidden="true">
+        <svg role="presentation" height="1.25rem" viewBox="0 0 24 24">
+          <path
+            d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z">
+          </path>
+        </svg>
+      </span>
+      <span class="toggle-icon light-tog" aria-hidden="true">
+        <svg role="presentation" height="1.25rem" viewBox="0 0 24 24">
+          <path
+            d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z">
+          </path>
+        </svg>
+      </span>
+      <span class="toggle-icon dark-tog" aria-hidden="true">
+        <svg role="presentation" height="1.25rem" viewBox="0 0 24 24">
+          <path
+            d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z">
+          </path>
+        </svg>
+      </span>
+    </button>
+  </nav>
+</header><nav class="ltx_page_navbar">
+<nav class="ltx_TOC">
+<ol class="ltx_toclist">
+<li class="ltx_tocentry ltx_tocentry_abstract"><a href="#abstract1" title="In On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_title">Abstract.</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="#S1" title="In On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1 </span>Introduction</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="#S2" title="In On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">2 </span>Background and Related Work</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section">
+<a href="#S3" title="In On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3 </span>Study Design</span></a>
+<ol class="ltx_toclist ltx_toclist_section">
+<li class="ltx_tocentry ltx_tocentry_subsection">
+<a href="#S3.SS1" title="In 3. Study Design ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.1 </span>Data Collection and Analysis</span></a>
+<ol class="ltx_toclist ltx_toclist_subsection">
+<li class="ltx_tocentry ltx_tocentry_subsubsection"><a href="#S3.SS1.SSS1" title="In 3.1. Data Collection and Analysis ‣ 3. Study Design ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.1.1 </span>Agent Selection</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsubsection"><a href="#S3.SS1.SSS2" title="In 3.1. Data Collection and Analysis ‣ 3. Study Design ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.1.2 </span>Repository Sampling and Inclusion Criteria</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsubsection"><a href="#S3.SS1.SSS3" title="In 3.1. Data Collection and Analysis ‣ 3. Study Design ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.1.3 </span>Pull Request Selection and Task Construction</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsubsection"><a href="#S3.SS1.SSS4" title="In 3.1. Data Collection and Analysis ‣ 3. Study Design ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.1.4 </span>Reconstructing Pre-PR Repository State</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsubsection"><a href="#S3.SS1.SSS5" title="In 3.1. Data Collection and Analysis ‣ 3. Study Design ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.1.5 </span>Issue Generation for PRs Lacking Usable Descriptions</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsubsection"><a href="#S3.SS1.SSS6" title="In 3.1. Data Collection and Analysis ‣ 3. Study Design ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.1.6 </span>Experimental Conditions</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsubsection"><a href="#S3.SS1.SSS7" title="In 3.1. Data Collection and Analysis ‣ 3. Study Design ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.1.7 </span>Running the Experiments</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsubsection"><a href="#S3.SS1.SSS8" title="In 3.1. Data Collection and Analysis ‣ 3. Study Design ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.1.8 </span>Metrics</span></a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li class="ltx_tocentry ltx_tocentry_section">
+<a href="#S4" title="In On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">4 </span>Results</span></a>
+<ol class="ltx_toclist ltx_toclist_section">
+<li class="ltx_tocentry ltx_tocentry_paragraph"><a href="#S4.SS0.SSS0.Px1" title="In 4. Results ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_title">Token usage</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_paragraph"><a href="#S4.SS0.SSS0.Px2" title="In 4. Results ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_title">Wall-clock time-to-completion</span></a></li>
+</ol>
+</li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="#S5" title="In On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">5 </span>Research Roadmap</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_bibliography"><a href="#bib" title="In On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_title">References</span></a></li>
+</ol></nav>
+</nav>
+<div class="ltx_page_main">
+<div id="infobox" class="infobox">
+  <a id="license-tr" href="https://info.arxiv.org/help/license/index.html#licenses-available">
+    License: arXiv.org perpetual non-exclusive license
+  </a>
+  <div id="watermark-tr">
+arXiv:2601.20404v2 [cs.SE] 30 Mar 2026</div>
+</div><div class="ltx_page_content">
+<article class="ltx_document ltx_authors_1line ltx_leqno">
+<h1 class="ltx_title ltx_title_document">On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents</h1>
+<div class="ltx_authors">
+<span class="ltx_creator ltx_role_author">
+<span class="ltx_personname">Jai Lal Lulla
+</span><span class="ltx_author_notes">
+<span class="ltx_contact ltx_role_affiliation"><span id="id1.1.id1" class="ltx_text ltx_affiliation_institution">Singapore Management University</span><span id="id2.2.id2" class="ltx_text ltx_affiliation_city">Singapore</span><span id="id3.3.id3" class="ltx_text ltx_affiliation_country">Singapore</span>
+</span>
+<span class="ltx_contact ltx_role_email"><a href="2601.20404v2/mailto:jailal.l.2025@phdcs.smu.edu.sg">jailal.l.2025@phdcs.smu.edu.sg</a>
+</span></span></span>
+<span class="ltx_author_before">, </span><span class="ltx_creator ltx_role_author">
+<span class="ltx_personname">Seyedmoein Mohsenimofidi
+</span><span class="ltx_author_notes">
+<span class="ltx_contact ltx_role_affiliation"><span id="id4.1.id1" class="ltx_text ltx_affiliation_institution">Heidelberg University</span><span id="id5.2.id2" class="ltx_text ltx_affiliation_city">Heidelberg</span><span id="id6.3.id3" class="ltx_text ltx_affiliation_country">Germany</span>
+</span>
+<span class="ltx_contact ltx_role_email"><a href="2601.20404v2/mailto:s.mohsenimofidi@uni-heidelberg.de">s.mohsenimofidi@uni-heidelberg.de</a>
+</span></span></span>
+<span class="ltx_author_before">, </span><span class="ltx_creator ltx_role_author">
+<span class="ltx_personname">Matthias Galster
+</span><span class="ltx_author_notes">
+<span class="ltx_contact ltx_role_affiliation"><span id="id7.1.id1" class="ltx_text ltx_affiliation_institution">University of Bamberg</span><span id="id8.2.id2" class="ltx_text ltx_affiliation_city">Bamberg</span><span id="id9.3.id3" class="ltx_text ltx_affiliation_country">Germany</span>
+</span>
+<span class="ltx_contact ltx_role_email"><a href="2601.20404v2/mailto:mgalster@ieee.org">mgalster@ieee.org</a>
+</span></span></span>
+<span class="ltx_author_before">, </span><span class="ltx_creator ltx_role_author">
+<span class="ltx_personname">Jie M. Zhang
+</span><span class="ltx_author_notes">
+<span class="ltx_contact ltx_role_affiliation"><span id="id10.1.id1" class="ltx_text ltx_affiliation_institution">King’s College London</span><span id="id11.2.id2" class="ltx_text ltx_affiliation_city">London</span><span id="id12.3.id3" class="ltx_text ltx_affiliation_country">United Kingdom</span>
+</span>
+<span class="ltx_contact ltx_role_email"><a href="2601.20404v2/mailto:jie.zhang@kcl.ac.uk">jie.zhang@kcl.ac.uk</a>
+</span></span></span>
+<span class="ltx_author_before">, </span><span class="ltx_creator ltx_role_author">
+<span class="ltx_personname">Sebastian Baltes
+</span><span class="ltx_author_notes">
+<span class="ltx_contact ltx_role_affiliation"><span id="id13.1.id1" class="ltx_text ltx_affiliation_institution">Heidelberg University</span><span id="id14.2.id2" class="ltx_text ltx_affiliation_city">Heidelberg</span><span id="id15.3.id3" class="ltx_text ltx_affiliation_country">Germany</span>
+</span>
+<span class="ltx_contact ltx_role_email"><a href="2601.20404v2/mailto:sebastian.baltes@uni-heidelberg.de">sebastian.baltes@uni-heidelberg.de</a>
+</span></span></span>
+<span class="ltx_author_before"> and </span><span class="ltx_creator ltx_role_author">
+<span class="ltx_personname">Christoph Treude
+</span><span class="ltx_author_notes">
+<span class="ltx_contact ltx_role_affiliation"><span id="id16.1.id1" class="ltx_text ltx_affiliation_institution">Singapore Management University</span><span id="id17.2.id2" class="ltx_text ltx_affiliation_city">Singapore</span><span id="id18.3.id3" class="ltx_text ltx_affiliation_country">Singapore</span>
+</span>
+<span class="ltx_contact ltx_role_email"><a href="2601.20404v2/mailto:ctreude@smu.edu.sg">ctreude@smu.edu.sg</a>
+</span></span></span>
+</div>
+<div class="ltx_dates">(23 January 2026)</div>
+
+<div id="abstract1" class="ltx_abstract">
+<h6 class="ltx_title ltx_title_abstract">Abstract.</h6>
+<p class="ltx_p">AI coding agents such as Codex and Claude Code are increasingly used to autonomously contribute to software repositories.
+However, little is known about how repository-level configuration artifacts affect operational efficiency of the agents.
+In this paper, we study the impact of <span class="ltx_text ltx_font_typewriter">AGENTS.md</span> files on the runtime and token consumption of AI coding agents operating on GitHub pull requests.
+We analyze 10 repositories and 124 pull requests, executing agents under two conditions: with and without an <span class="ltx_text ltx_font_typewriter">AGENTS.md</span> file. We measure wall-clock execution time and token usage during agent execution. Our results show that the presence of <span class="ltx_text ltx_font_typewriter">AGENTS.md</span> is associated with a lower median runtime (<math class="ltx_Math" alttext="\Delta 28.64" display="inline" intent=":literal"><semantics><mrow><mi mathvariant="normal">Δ</mi><mo lspace="0em" rspace="0em">​</mo><mn>28.64</mn></mrow><annotation encoding="application/x-tex">\Delta 28.64</annotation></semantics></math>%) and reduced output token consumption (<math class="ltx_Math" alttext="\Delta 16.58" display="inline" intent=":literal"><semantics><mrow><mi mathvariant="normal">Δ</mi><mo lspace="0em" rspace="0em">​</mo><mn>16.58</mn></mrow><annotation encoding="application/x-tex">\Delta 16.58</annotation></semantics></math>%), while maintaining a comparable task completion behavior.
+Based on these results, we discuss immediate implications for the configuration and deployment of AI coding agents in practice, and outline a broader research agenda on the role of repository-level instructions in shaping the behavior, efficiency, and integration of AI coding agents in software development workflows.</p>
+</div>
+<div class="ltx_keywords">AI coding agents, AGENTS.md, pull requests, efficiency
+</div>
+<span id="id1" class="ltx_note ltx_note_frontmatter ltx_role_copyright"><sup class="ltx_note_mark">†</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">†</sup><span class="ltx_note_type">copyright: </span>acmlicensed</span></span></span><span id="id2" class="ltx_note ltx_note_frontmatter ltx_role_journalyear"><sup class="ltx_note_mark">†</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">†</sup><span class="ltx_note_type">journalyear: </span>2026</span></span></span><span id="id3" class="ltx_note ltx_note_frontmatter ltx_role_doi"><sup class="ltx_note_mark">†</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">†</sup><span class="ltx_note_type">doi: </span>XXXXXXX.XXXXXXX</span></span></span><span id="id4" class="ltx_note ltx_note_frontmatter ltx_role_conference"><sup class="ltx_note_mark">†</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">†</sup><span class="ltx_note_type">conference: </span>Journal Ahead Workshop (JAWs) 2026; April 12–18,
+2026; Rio de Janeiro, Brazil</span></span></span><span id="id5" class="ltx_note ltx_note_frontmatter ltx_role_isbn"><sup class="ltx_note_mark">†</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">†</sup><span class="ltx_note_type">isbn: </span>978-1-4503-XXXX-X/2018/06</span></span></span><span id="id6" class="ltx_note ltx_note_frontmatter ltx_role_ccs"><sup class="ltx_note_mark">†</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">†</sup><span class="ltx_note_type">ccs: </span>Software and its engineering Software configuration management and version control systems</span></span></span>
+<section id="S1" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">1. </span>Introduction</h2>
+
+<div id="S1.p1" class="ltx_para">
+<p id="S1.p1.1" class="ltx_p">AI-assisted software development has evolved rapidly from tools that support individual programming actions to systems that can autonomously carry out multi-step development tasks. Large language models are now routinely used for code generation, testing, repair, review, and documentation, covering substantial portions of the software development lifecycle <cite class="ltx_cite ltx_citemacro_citep">(Fan<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib2" title="Large language models for software engineering: survey and open problems" class="ltx_ref">2023</a>; Hou<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib3" title="Large language models for software engineering: a systematic literature review" class="ltx_ref">2024</a>; Jiang<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib4" title="A survey on large language models for code generation" class="ltx_ref">2025</a>)</cite>. Building on these capabilities, recent AI coding agents, such as OpenAI Codex and Claude Code, can navigate repositories, reason over multiple files, execute commands, and submit pull requests with limited human intervention, effectively acting as autonomous contributors rather than passive assistants <cite class="ltx_cite ltx_citemacro_citep">(Yang<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib5" title="Swe-agent: agent-computer interfaces enable automated software engineering" class="ltx_ref">2024</a>; Roychoudhury, <a href="#bib.bib6" title="Agentic ai for software: thoughts from software engineering community" class="ltx_ref">2025</a>)</cite>.</p>
+</div>
+<div id="S1.p2" class="ltx_para">
+<p id="S1.p2.1" class="ltx_p">As these agents operate with increasing autonomy, their behavior depends not only on model capabilities but also on the contextual information provided by the repository. Previous research has largely focused on interaction-level prompt engineering and agent planning strategies <cite class="ltx_cite ltx_citemacro_citep">(Sahoo<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib7" title="A systematic survey of prompt engineering in large language models: techniques and applications" class="ltx_ref">2024</a>)</cite>, while less attention has been paid to persistent, repository-level artifacts that encode project-specific knowledge. In practice, developers have begun to introduce agent context files such as <span id="S1.p2.1.1" class="ltx_text ltx_font_typewriter">AGENTS.md</span> or <span id="S1.p2.1.2" class="ltx_text ltx_font_typewriter">CLAUDE.md</span> that serve as “READMEs for agents,” specifying architecture, build commands, coding conventions, and operational constraints <cite class="ltx_cite ltx_citemacro_citep">(Mohsenimofidi<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib1" title="Context engineering for ai agents in open-source software" class="ltx_ref">2026</a>)</cite>. The <span id="S1.p2.1.3" class="ltx_text ltx_font_typewriter">AGENTS.md</span> format, for example, has been adopted by more than 60,000 repositories to date <cite class="ltx_cite ltx_citemacro_citep">(<a href="#bib.bib20" title="AGENTS.md" class="ltx_ref">1</a>)</cite>. These files shift agent guidance from ephemeral prompts toward version-controlled, inspectable, and collaboratively maintained configuration artifacts.</p>
+</div>
+<div id="S1.p3" class="ltx_para">
+<p id="S1.p3.1" class="ltx_p">Recent empirical studies have established agent context files as a widespread and evolving phenomenon in open-source software. <cite class="ltx_cite ltx_citemacro_citeauthor"><a href="#bib.bib8" title="Agent readmes: an empirical study of context files for agentic coding" class="ltx_ref">Chatlatanagulchai<span class="ltx_text ltx_bib_etal"> et al.</span></a></cite> show that such files are actively maintained, structurally consistent, and heavily focused on functional instructions such as build, testing, and implementation details, while non-functional concerns such as performance and security are comparatively rare <cite class="ltx_cite ltx_citemacro_citep">(Chatlatanagulchai<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib8" title="Agent readmes: an empirical study of context files for agentic coding" class="ltx_ref">2025</a>)</cite>. Similarly, <cite class="ltx_cite ltx_citemacro_citeauthor"><a href="#bib.bib1" title="Context engineering for ai agents in open-source software" class="ltx_ref">Mohsenimofidi<span class="ltx_text ltx_bib_etal"> et al.</span></a></cite> document the emergence of agent context files as a mechanism for context engineering in agentic coding workflows, highlighting their role in shaping agent behavior across repositories <cite class="ltx_cite ltx_citemacro_citep">(Mohsenimofidi<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib1" title="Context engineering for ai agents in open-source software" class="ltx_ref">2026</a>)</cite>. Together, these studies establish agent context files as a new class of software artifacts that play a central role in agentic development.</p>
+</div>
+<div id="S1.p4" class="ltx_para">
+<p id="S1.p4.1" class="ltx_p">Although prior work characterizes the structure, content, and evolution of agent context files, their concrete impact on the behavior of AI coding agents remains largely unexplored. In particular, there is little empirical evidence on how repository-level instructions influence the behavior of AI coding agents once they are deployed in real development settings. As agents become more deeply integrated into continuous development workflows, understanding their behavioral and operational implications becomes increasingly important, with potential consequences for cost, scalability, and workflow integration.</p>
+</div>
+<div id="S1.p5" class="ltx_para">
+<p id="S1.p5.1" class="ltx_p">In this paper, we take a first step toward understanding the impact of <span id="S1.p5.1.1" class="ltx_text ltx_font_typewriter">AGENTS.md</span> files on AI coding agents by conducting an empirical study on real GitHub pull requests. Inspired by recent work on cost-efficient software engineering agents <cite class="ltx_cite ltx_citemacro_citep">(Guo<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib16" title="EET: experience-driven early termination for cost-efficient software engineering agents" class="ltx_ref">2026</a>)</cite> and sustainable software engineering <cite class="ltx_cite ltx_citemacro_citep">(Venters<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib17" title="Sustainable software engineering: reflections on advances in research and practice" class="ltx_ref">2023</a>)</cite>, we compare agent executions with and without an <span id="S1.p5.1.2" class="ltx_text ltx_font_typewriter">AGENTS.md</span> file, focusing on the operational efficiency of agents as a concrete and measurable aspect of agent behavior. Specifically, we analyze wall-clock execution time and token consumption, which directly relate to agent latency and computational cost in practice.
+Beyond this focused investigation, we outline a broader research roadmap that situates agent efficiency as one dimension within a more comprehensive study of how <span id="S1.p5.1.3" class="ltx_text ltx_font_typewriter">AGENTS.md</span> files influence the behavior and integration of AI coding agents in software development workflows.</p>
+</div>
+</section>
+<section id="S2" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">2. </span>Background and Related Work</h2>
+
+<div id="S2.p1" class="ltx_para">
+<p id="S2.p1.1" class="ltx_p">Repository-maintained instruction files are increasingly being adopted as a mechanism to align AI coding agents with project-specific norms and expectations. In particular, the use of a repository-level <span id="S2.p1.1.1" class="ltx_text ltx_font_typewriter">AGENTS.md</span> file has emerged in multiple agent tooling ecosystems. OpenAI Codex documents layered instruction discovery that incorporates repository-level <span id="S2.p1.1.2" class="ltx_text ltx_font_typewriter">AGENTS.md</span> files <cite class="ltx_cite ltx_citemacro_citep">(OpenAI, <a href="#bib.bib13" title="Custom instructions with AGENTS.md" class="ltx_ref">2025</a>)</cite>, while GitLab Duo similarly describes project-level <span id="S2.p1.1.3" class="ltx_text ltx_font_typewriter">AGENTS.md</span> files to scope and guide agent behavior <cite class="ltx_cite ltx_citemacro_citep">(GitLab, <a href="#bib.bib14" title="AGENTS.md customization files" class="ltx_ref">2025</a>)</cite>. Together, these efforts suggest that persistent, developer-curated instruction artifacts are becoming a practical and shared interface for shaping agent behavior in real software repositories.</p>
+</div>
+<div id="S2.p2" class="ltx_para">
+<p id="S2.p2.1" class="ltx_p">Despite this emerging adoption, we are not aware of empirical studies that isolate the impact of adding an <span id="S2.p2.1.1" class="ltx_text ltx_font_typewriter">AGENTS.md</span> file on AI coding agent behavior or efficiency. In particular, no prior work has evaluated how such instruction files affect token usage or wall-clock completion time under a paired, same-task/same-repository evaluation design. This gap motivates the present study.</p>
+</div>
+<div id="S2.p3" class="ltx_para">
+<p id="S2.p3.1" class="ltx_p">Previous work has examined the performance and efficiency of LLM-based autonomous coding agents in repository-level tasks. Benchmarks such as <em id="S2.p3.1.1" class="ltx_emph ltx_font_italic">SWE-bench</em> operationalize this setting using real GitHub issues paired with executable repository snapshots, enabling controlled comparisons of autonomous agents based on issue resolution success and test pass rates <cite class="ltx_cite ltx_citemacro_citep">(Jimenez<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib10" title="SWE-bench: can language models resolve real-world GitHub issues?" class="ltx_ref">2024</a>)</cite>. Building on this benchmark, recent agentic systems demonstrate that agent–repository and agent–tool interface design can significantly affect both performance and resource usage. For example, SWE-agent emphasizes agent–computer interface design and context management for repository navigation, editing, and command execution <cite class="ltx_cite ltx_citemacro_citep">(Yang<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib5" title="Swe-agent: agent-computer interfaces enable automated software engineering" class="ltx_ref">2024</a>)</cite>. <em id="S2.p3.1.2" class="ltx_emph ltx_font_italic">AutoCodeRover</em> similarly combines LLM reasoning with structured search and debugging signals to reduce cost and improve effectiveness on SWE-bench variants <cite class="ltx_cite ltx_citemacro_citep">(Zhang<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib18" title="AutoCodeRover: autonomous program improvement" class="ltx_ref">2024</a>)</cite>. These works motivate measuring not only task success, but also practical deployment costs such as wall-clock completion time and token usage.</p>
+</div>
+<div id="S2.p4" class="ltx_para">
+<p id="S2.p4.1" class="ltx_p">Recent work has also begun to characterize developer-provided, persistent context artifacts for AI coding agents, including files such as <span id="S2.p4.1.1" class="ltx_text ltx_font_typewriter">copilot-instructions.md</span> and <span id="S2.p4.1.2" class="ltx_text ltx_font_typewriter">CLAUDE.md</span> <cite class="ltx_cite ltx_citemacro_citep">(Chatlatanagulchai<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib8" title="Agent readmes: an empirical study of context files for agentic coding" class="ltx_ref">2025</a>; Jiang and Nam, <a href="#bib.bib11" title="An empirical study of developer-provided context for AI coding assistants in open-source projects" class="ltx_ref">2025</a>; Mohsenimofidi<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib1" title="Context engineering for ai agents in open-source software" class="ltx_ref">2026</a>)</cite>. However, we are not aware of studies that <em id="S2.p4.1.3" class="ltx_emph ltx_font_italic">isolate</em> the effect of introducing an <span id="S2.p4.1.4" class="ltx_text ltx_font_typewriter">AGENTS.md</span> file on agent efficiency, holding tasks, repositories, and agent architecture constant.</p>
+</div>
+</section>
+<section id="S3" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3. </span>Study Design</h2>
+
+<div id="S3.p1" class="ltx_para">
+<p id="S3.p1.1" class="ltx_p">This study investigates how the presence of an <span id="S3.p1.1.1" class="ltx_text ltx_font_typewriter">AGENTS.md</span> file affects the performance of autonomous AI coding agents when executing development tasks. We model a standard developer workflow: an agent receives a task description akin to a GitHub issue (“ticket”), performs repository-local actions (e.g., bug fixes, feature additions, refactors), and produces a code change intended to match an expected outcome.</p>
+</div>
+<div id="S3.p2" class="ltx_para">
+<p id="S3.p2.1" class="ltx_p">We focus on the <em id="S3.p2.1.1" class="ltx_emph ltx_font_italic">efficiency</em> of AI coding agents, defined as the computational resources required to complete a development task. This leads to the following research question:</p>
+</div>
+<div id="S3.p3" class="ltx_para">
+<dl id="S3.I1" class="ltx_description">
+<dt id="S3.I1.ix1" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span id="S3.I1.ix1.1.1.1" class="ltx_text ltx_font_bold">RQ:: </span></span></dt>
+<dd class="ltx_item">
+<div id="S3.I1.ix1.p1" class="ltx_para">
+<p id="S3.I1.ix1.p1.1" class="ltx_p">Does the presence of an <span id="S3.I1.ix1.p1.1.1" class="ltx_text ltx_font_typewriter">AGENTS.md</span> file in the repository root reduce the resources required by an autonomous AI coding agent to complete a development task?</p>
+</div>
+</dd>
+</dl>
+</div>
+<div id="S3.p4" class="ltx_para">
+<p id="S3.p4.1" class="ltx_p">We operationalize “resources” using (i) token usage and (ii) wall-clock time-to-completion measured during each task run. We compare these metrics between paired runs performed with and without an <span id="S3.p4.1.1" class="ltx_text ltx_font_typewriter">AGENTS.md</span> file in the repository root, keeping the task and repository snapshot constant.</p>
+</div>
+<section id="S3.SS1" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.1. </span>Data Collection and Analysis</h3>
+
+<section id="S3.SS1.SSS1" class="ltx_subsubsection">
+<h4 class="ltx_title ltx_title_subsubsection">
+<span class="ltx_tag ltx_tag_subsubsection">3.1.1. </span>Agent Selection</h4>
+
+<div id="S3.SS1.SSS1.p1" class="ltx_para">
+<p id="S3.SS1.SSS1.p1.1" class="ltx_p">The agent used in this study is <em id="S3.SS1.SSS1.p1.1.1" class="ltx_emph ltx_font_italic">OpenAI Codex</em>. At the time of experimentation, the latest available Codex model was <span id="S3.SS1.SSS1.p1.1.2" class="ltx_text ltx_font_typewriter">gpt-5.2-codex</span> <cite class="ltx_cite ltx_citemacro_citep">(<a href="#bib.bib21" title="Codex Models — developers.openai.com" class="ltx_ref">4</a>)</cite>, which we use consistently across all experiments. We selected Codex because it is specifically designed for software engineering tasks, supports repository-scale context and tool use, and is representative of production-grade AI coding agents used in practice.
+Moreover, <span id="S3.SS1.SSS1.p1.1.3" class="ltx_text ltx_font_typewriter">AGENTS.md</span> was first used with Codex before becoming an open format.
+Evaluating the effect of <span id="S3.SS1.SSS1.p1.1.4" class="ltx_text ltx_font_typewriter">AGENTS.md</span> across different agent systems and model families is an important direction for future work and part of our ongoing research agenda (Section <a href="#S5" title="5. Research Roadmap ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5</span></a>).</p>
+</div>
+<div id="S3.SS1.SSS1.p2" class="ltx_para">
+<p id="S3.SS1.SSS1.p2.1" class="ltx_p">We implemented a lightweight Python wrapper to interface with the Codex CLI and to automate task setup and metric collection, available in our online appendix <cite class="ltx_cite ltx_citemacro_citep">(Lulla<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib19" title="On the impact of agents.md files on the efficiency of ai coding agents (online appendix)" class="ltx_ref">2026</a>)</cite>.
+In the following, the term <em id="S3.SS1.SSS1.p2.1.1" class="ltx_emph ltx_font_italic">agent</em> refers to this Codex-based agent configuration.</p>
+</div>
+</section>
+<section id="S3.SS1.SSS2" class="ltx_subsubsection">
+<h4 class="ltx_title ltx_title_subsubsection">
+<span class="ltx_tag ltx_tag_subsubsection">3.1.2. </span>Repository Sampling and Inclusion Criteria</h4>
+
+<div id="S3.SS1.SSS2.p1" class="ltx_para">
+<p id="S3.SS1.SSS2.p1.1" class="ltx_p">We begin from a corpus of repositories sampled in previous work <cite class="ltx_cite ltx_citemacro_citep">(Mohsenimofidi<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib1" title="Context engineering for ai agents in open-source software" class="ltx_ref">2026</a>)</cite> that analyzed the adoption of agent instruction files, such as <span id="S3.SS1.SSS2.p1.1.1" class="ltx_text ltx_font_typewriter">AGENTS.md</span>. In that corpus, repositories may contain (i) multiple instruction files of different names, (ii) multiple copies in different subdirectories, or (iii) only one file at the root. In this study, we focus on the simplest configuration: repositories that contain one <span id="S3.SS1.SSS2.p1.1.2" class="ltx_text ltx_font_typewriter">AGENTS.md</span> file only at the repository root. This configuration minimizes confounding effects from overlapping or conflicting instruction files and enables clearer attribution of observed agent behavior to a single, well-defined source of repository-level guidance. Applying this constraint yields 89 repositories (from 132 total).</p>
+</div>
+<div id="S3.SS1.SSS2.p2" class="ltx_para">
+<p id="S3.SS1.SSS2.p2.1" class="ltx_p">To ensure that our evaluation focuses on <span id="S3.SS1.SSS2.p2.1.1" class="ltx_text ltx_font_typewriter">AGENTS.md</span> files that plausibly provide actionable project context to an AI coding agent, we further restrict the dataset based on the content of the instruction files. Concretely, we filter the root <span id="S3.SS1.SSS2.p2.1.2" class="ltx_text ltx_font_typewriter">AGENTS.md</span> files using content categories derived from the taxonomy developed in <cite class="ltx_cite ltx_citemacro_citep">(Mohsenimofidi<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib1" title="Context engineering for ai agents in open-source software" class="ltx_ref">2026</a>)</cite>. This taxonomy characterizes <span id="S3.SS1.SSS2.p2.1.3" class="ltx_text ltx_font_typewriter">AGENTS.md</span> content along dimensions such as coding conventions and best practices, architecture and project structure, project description, testing instructions, and security. We retain only those files that contain information related to (i) conventions and best practices, (ii) architecture and project structure, and (iii) project description. These categories were selected because they are the most common ones <cite class="ltx_cite ltx_citemacro_citep">(Mohsenimofidi<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib1" title="Context engineering for ai agents in open-source software" class="ltx_ref">2026</a>)</cite> and they capture core project knowledge that developers typically need in order to understand and contribute to a codebase <cite class="ltx_cite ltx_citemacro_citep">(He<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib15" title="LLM-as-a-judge for software engineering: literature review, vision, and the road ahead" class="ltx_ref">2025</a>)</cite>.</p>
+</div>
+<div id="S3.SS1.SSS2.p3" class="ltx_para">
+<p id="S3.SS1.SSS2.p3.1" class="ltx_p">The classification of <span id="S3.SS1.SSS2.p3.1.1" class="ltx_text ltx_font_typewriter">AGENTS.md</span> files was performed using an LLM (<span id="S3.SS1.SSS2.p3.1.2" class="ltx_text ltx_font_typewriter">gpt-oss-120b</span>) according to the above criteria. The model was run using Ollama <cite class="ltx_cite ltx_citemacro_citep">(<a href="#bib.bib22" title="Ollama" class="ltx_ref">15</a>)</cite>, followed by manual verification of the filtered results. After applying this filtering step, we retain 26 repositories, each containing a qualifying root <span id="S3.SS1.SSS2.p3.1.3" class="ltx_text ltx_font_typewriter">AGENTS.md</span> file.</p>
+</div>
+</section>
+<section id="S3.SS1.SSS3" class="ltx_subsubsection">
+<h4 class="ltx_title ltx_title_subsubsection">
+<span class="ltx_tag ltx_tag_subsubsection">3.1.3. </span>Pull Request Selection and Task Construction</h4>
+
+<div id="S3.SS1.SSS3.p1" class="ltx_para">
+<p id="S3.SS1.SSS3.p1.1" class="ltx_p">From the 26 repositories, we randomly sample 10 and select up to 15 merged pull requests (PRs) from each. The cap reflects resource constraints while still enabling coverage across repositories. To obtain task instances that can be executed repeatedly and comparable across repositories, we restrict PRs to small-scope, code-changing contributions and ensure that each PR post-dates the introduction of <span id="S3.SS1.SSS3.p1.1.1" class="ltx_text ltx_font_typewriter">AGENTS.md</span> in the repository. Each PR satisfies the following criteria:
+
+<span id="S3.I2" class="ltx_inline-enumerate">
+<span id="S3.I2.i1" class="ltx_inline-item"><span class="ltx_tag ltx_tag_inline-item">(1)</span> <span id="S3.I2.i1.1" class="ltx_text">Size constraint: total additions + deletions <math id="S3.I2.i1.1.m1" class="ltx_Math" alttext="\leq" display="inline" intent=":literal"><semantics><mo>≤</mo><annotation encoding="application/x-tex">\leq</annotation></semantics></math> 100 LoC;
+</span></span>
+<span id="S3.I2.i2" class="ltx_inline-item"><span class="ltx_tag ltx_tag_inline-item">(2)</span> <span id="S3.I2.i2.1" class="ltx_text">Scope constraint: <math id="S3.I2.i2.1.m1" class="ltx_Math" alttext="\leq" display="inline" intent=":literal"><semantics><mo>≤</mo><annotation encoding="application/x-tex">\leq</annotation></semantics></math> 5 modified files;
+</span></span>
+<span id="S3.I2.i3" class="ltx_inline-item"><span class="ltx_tag ltx_tag_inline-item">(3)</span> <span id="S3.I2.i3.1" class="ltx_text">Status: merged PRs only;
+</span></span>
+<span id="S3.I2.i4" class="ltx_inline-item"><span class="ltx_tag ltx_tag_inline-item">(4)</span> <span id="S3.I2.i4.1" class="ltx_text">Temporal constraint: PR created and merged after the introduction of <span id="S3.I2.i4.1.1" class="ltx_text ltx_font_typewriter">AGENTS.md</span> in that repository;
+</span></span>
+<span id="S3.I2.i5" class="ltx_inline-item"><span class="ltx_tag ltx_tag_inline-item">(5)</span> <span id="S3.I2.i5.1" class="ltx_text">Change type constraint: PR modifies code files only (excluding documentation and configuration changes).</span></span>
+</span></p>
+</div>
+<div id="S3.SS1.SSS3.p2" class="ltx_para">
+<p id="S3.SS1.SSS3.p2.1" class="ltx_p">The size and scope constraints reduce the variance from large refactorings and keep agent runs tractable and repeatable. The change-type constraint avoids skew from PRs that do not reflect code changes (e.g., documentation-only updates or version bumps). Together, these restrictions help isolate the effect of <span id="S3.SS1.SSS3.p2.1.1" class="ltx_text ltx_font_typewriter">AGENTS.md</span> in this initial study. Relaxing them to include larger changes and a broader range of PR types is part of our longer-term research agenda (Section <a href="#S5" title="5. Research Roadmap ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5</span></a>).</p>
+</div>
+</section>
+<section id="S3.SS1.SSS4" class="ltx_subsubsection">
+<h4 class="ltx_title ltx_title_subsubsection">
+<span class="ltx_tag ltx_tag_subsubsection">3.1.4. </span>Reconstructing Pre-PR Repository State</h4>
+
+<div id="S3.SS1.SSS4.p1" class="ltx_para">
+<p id="S3.SS1.SSS4.p1.1" class="ltx_p">To recreate realistic development conditions, we reconstruct each repository to the state immediately before the selected PR was merged. The agent is then tasked with recreating the PR’s changes from this pre-merge state. Concretely, for each PR we:</p>
+</div>
+<div id="S3.SS1.SSS4.p2" class="ltx_para">
+<ol id="S3.I3" class="ltx_enumerate">
+<li id="S3.I3.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">(1)</span> 
+<div id="S3.I3.i1.p1" class="ltx_para">
+<p id="S3.I3.i1.p1.1" class="ltx_p">Check out the repository at the pre-merge commit.</p>
+</div>
+</li>
+<li id="S3.I3.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">(2)</span> 
+<div id="S3.I3.i2.p1" class="ltx_para">
+<p id="S3.I3.i2.p1.1" class="ltx_p">Extract the <span id="S3.I3.i2.p1.1.1" class="ltx_text ltx_font_typewriter">AGENTS.md</span> version that existed at that commit.</p>
+</div>
+</li>
+<li id="S3.I3.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">(3)</span> 
+<div id="S3.I3.i3.p1" class="ltx_para">
+<p id="S3.I3.i3.p1.1" class="ltx_p">Run the agent on the pre-merge repository snapshot.</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="S3.SS1.SSS4.p3" class="ltx_para">
+<p id="S3.SS1.SSS4.p3.1" class="ltx_p">This produces an evaluation setup grounded in an actual, historically merged change, where the repository contents and instruction file (when present) exactly match what a developer or agent would have observed at that point in time.</p>
+</div>
+</section>
+<section id="S3.SS1.SSS5" class="ltx_subsubsection">
+<h4 class="ltx_title ltx_title_subsubsection">
+<span class="ltx_tag ltx_tag_subsubsection">3.1.5. </span>Issue Generation for PRs Lacking Usable Descriptions</h4>
+
+<div id="S3.SS1.SSS5.p1" class="ltx_para">
+<p id="S3.SS1.SSS5.p1.1" class="ltx_p">Many PRs do not contain sufficient natural-language context (e.g., empty body, “fix bug” titles, missing linked issues). To provide consistent and informative task input, we generate a GitHub-issue-style task statement for each PR using a local LLM (<span id="S3.SS1.SSS5.p1.1.1" class="ltx_text ltx_font_typewriter">gpt-oss-120b</span>). The model is prompted with:
+
+<span id="S3.I4" class="ltx_inline-enumerate">
+<span id="S3.I4.i1" class="ltx_inline-item"><span class="ltx_tag ltx_tag_inline-item">(1)</span> <span id="S3.I4.i1.1" class="ltx_text">the PR diff (patch) and
+</span></span>
+<span id="S3.I4.i2" class="ltx_inline-item"><span class="ltx_tag ltx_tag_inline-item">(2)</span> <span id="S3.I4.i2.1" class="ltx_text">the repository structure at pre-merge state (e.g., file tree).</span></span>
+</span></p>
+</div>
+<div id="S3.SS1.SSS5.p2" class="ltx_para">
+<p id="S3.SS1.SSS5.p2.1" class="ltx_p">The output is a structured task description that resembles a GitHub issue (problem statement, expected behavior, constraints, and acceptance criteria). This step standardizes the agent’s input format across PRs and reduces variance introduced by incomplete PR metadata <cite class="ltx_cite ltx_citemacro_citep">(Chaparro<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib9" title="Assessing the quality of the steps to reproduce in bug reports" class="ltx_ref">2019</a>)</cite>. The generated task descriptions are available online <cite class="ltx_cite ltx_citemacro_citep">(Lulla<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib19" title="On the impact of agents.md files on the efficiency of ai coding agents (online appendix)" class="ltx_ref">2026</a>)</cite>.</p>
+</div>
+</section>
+<section id="S3.SS1.SSS6" class="ltx_subsubsection">
+<h4 class="ltx_title ltx_title_subsubsection">
+<span class="ltx_tag ltx_tag_subsubsection">3.1.6. </span>Experimental Conditions</h4>
+
+<div id="S3.SS1.SSS6.p1" class="ltx_para">
+<p id="S3.SS1.SSS6.p1.1" class="ltx_p">We run the agent on each task instance under two conditions:</p>
+</div>
+<div id="S3.SS1.SSS6.p2" class="ltx_para">
+<ul id="S3.I5" class="ltx_itemize">
+<li id="S3.I5.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S3.I5.i1.p1" class="ltx_para">
+<p id="S3.I5.i1.p1.1" class="ltx_p"><span id="S3.I5.i1.p1.1.1" class="ltx_text ltx_font_bold">With</span> <span id="S3.I5.i1.p1.1.2" class="ltx_text ltx_font_typewriter">AGENTS.md</span>: The repository snapshot includes the extracted root <span id="S3.I5.i1.p1.1.3" class="ltx_text ltx_font_typewriter">AGENTS.md</span> from the pre-merge commit.</p>
+</div>
+</li>
+<li id="S3.I5.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S3.I5.i2.p1" class="ltx_para">
+<p id="S3.I5.i2.p1.1" class="ltx_p"><span id="S3.I5.i2.p1.1.1" class="ltx_text ltx_font_bold">Without</span> <span id="S3.I5.i2.p1.1.2" class="ltx_text ltx_font_typewriter">AGENTS.md</span>: The same snapshot is used, but the <span id="S3.I5.i2.p1.1.3" class="ltx_text ltx_font_typewriter">AGENTS.md</span> file is removed (all other files unchanged).</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="S3.SS1.SSS6.p3" class="ltx_para">
+<p id="S3.SS1.SSS6.p3.1" class="ltx_p">In both conditions, the agent is provided with the same task input, namely the GitHub-like issue generated earlier for each pull request. The agent then produces code changes corresponding to the original PR. The resulting setup constitutes a <span id="S3.SS1.SSS6.p3.1.1" class="ltx_text ltx_font_bold">paired within-task design</span> that controls for repository, task, and codebase state, while varying only the presence of <span id="S3.SS1.SSS6.p3.1.2" class="ltx_text ltx_font_typewriter">AGENTS.md</span>.</p>
+</div>
+</section>
+<section id="S3.SS1.SSS7" class="ltx_subsubsection">
+<h4 class="ltx_title ltx_title_subsubsection">
+<span class="ltx_tag ltx_tag_subsubsection">3.1.7. </span>Running the Experiments</h4>
+
+<div id="S3.SS1.SSS7.p1" class="ltx_para">
+<p id="S3.SS1.SSS7.p1.1" class="ltx_p">To minimize confounding factors and ensure repeatability, experiments were conducted in isolated Docker environments at the repository level. For each repository, we instantiated a fresh container and cloned the target repository into a temporary working directory. Each task instance was executed by checking out the corresponding pre-merge commit within the container. After task completion, the repository was reset to a clean state (discarding all local changes), and the workspace was cleaned before checking out the commit associated with the next task. The code used to run the experiments, including Dockerfiles, is provided as part of the supplementary material <cite class="ltx_cite ltx_citemacro_citep">(Lulla<span class="ltx_text ltx_bib_etal"> et al.</span>, <a href="#bib.bib19" title="On the impact of agents.md files on the efficiency of ai coding agents (online appendix)" class="ltx_ref">2026</a>)</cite>.</p>
+</div>
+<div id="S3.SS1.SSS7.p2" class="ltx_para">
+<p id="S3.SS1.SSS7.p2.1" class="ltx_p">The agent was granted access only to this sandboxed environment and could modify files exclusively within the container. No state (e.g., caches, artifacts, or intermediate files) was reused across tasks beyond the version-controlled repository contents, ensuring that every task began from an identical repository snapshot.</p>
+</div>
+</section>
+<section id="S3.SS1.SSS8" class="ltx_subsubsection">
+<h4 class="ltx_title ltx_title_subsubsection">
+<span class="ltx_tag ltx_tag_subsubsection">3.1.8. </span>Metrics</h4>
+
+<div id="S3.SS1.SSS8.p1" class="ltx_para">
+<p id="S3.SS1.SSS8.p1.1" class="ltx_p">We collected the following operational performance metrics during each run:</p>
+</div>
+<div id="S3.SS1.SSS8.p2" class="ltx_para">
+<ul id="S3.I6" class="ltx_itemize">
+<li id="S3.I6.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S3.I6.i1.p1" class="ltx_para">
+<p id="S3.I6.i1.p1.1" class="ltx_p"><span id="S3.I6.i1.p1.1.1" class="ltx_text ltx_font_bold">Token usage</span>: Total tokens consumed, comprising input tokens, cached input tokens, and output tokens.</p>
+</div>
+</li>
+<li id="S3.I6.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S3.I6.i2.p1" class="ltx_para">
+<p id="S3.I6.i2.p1.1" class="ltx_p"><span id="S3.I6.i2.p1.1.1" class="ltx_text ltx_font_bold">Time-to-completion</span>: Wall-clock time for the agent to produce its final output (in seconds).</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="S3.SS1.SSS8.p3" class="ltx_para">
+<p id="S3.SS1.SSS8.p3.1" class="ltx_p">A comprehensive evaluation of the output quality, e.g., the semantic correctness or the functional equivalence to the merged PR, is beyond the scope of this paper. However, it is part of our research roadmap described in Section <a href="#S5" title="5. Research Roadmap ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5</span></a>. Nevertheless, to ensure that the observed efficiency differences are not simply due to agents producing degenerate or trivially incomplete output, we performed a manual sanity check. Specifically, we randomly sampled <span id="S3.SS1.SSS8.p3.1.1" class="ltx_text ltx_font_bold">50</span> PR tasks and inspected the corresponding agent outputs, comparing them against the human-written merged pull requests, to confirm that they resulted in non-empty, non-trivial code changes consistent with the intended task, rather than aborted runs or random edits. Although this sanity check does not constitute a full correctness evaluation, it provides confidence that the efficiency measurements reported in this paper are not driven by obvious failures or reductions in task execution.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="S4" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">4. </span>Results</h2>
+
+<figure id="S4.T1" class="ltx_table">
+
+<figcaption class="ltx_caption ltx_centering" style="font-size:90%;"><span class="ltx_tag ltx_tag_table">Table 1. </span>Resource Usage With and Without <span id="S4.T1.9.1" class="ltx_text ltx_font_typewriter">AGENTS.md</span></figcaption><div class="ltx_flex_figure">
+<div class="ltx_flex_cell ltx_flex_size_1">
+<table id="S4.T1.3" class="ltx_tabular ltx_centering ltx_figure_panel ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr id="S4.T1.1.1" class="ltx_tr">
+<th id="S4.T1.1.1.2" class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t"><span id="S4.T1.1.1.2.1" class="ltx_text ltx_font_bold" style="font-size:90%;">Metric</span></th>
+<td id="S4.T1.1.1.3" class="ltx_td ltx_align_right ltx_border_t"><span id="S4.T1.1.1.3.1" class="ltx_text ltx_font_bold" style="font-size:90%;">Without</span></td>
+<td id="S4.T1.1.1.4" class="ltx_td ltx_align_right ltx_border_t"><span id="S4.T1.1.1.4.1" class="ltx_text ltx_font_bold" style="font-size:90%;">With</span></td>
+<td id="S4.T1.1.1.5" class="ltx_td ltx_align_right ltx_border_t"><span id="S4.T1.1.1.5.1" class="ltx_text ltx_font_bold" style="font-size:90%;">Diff</span></td>
+<td id="S4.T1.1.1.1" class="ltx_td ltx_align_right ltx_border_t">
+<math id="S4.T1.1.1.1.m1" class="ltx_Math" alttext="\Delta" display="inline" intent=":literal"><semantics><mi mathsize="0.900em" mathvariant="normal">Δ</mi><annotation encoding="application/x-tex">\Delta</annotation></semantics></math><span id="S4.T1.1.1.1.1" class="ltx_text ltx_font_bold" style="font-size:90%;">%</span>
+</td>
+</tr>
+<tr id="S4.T1.2.2" class="ltx_tr">
+<th id="S4.T1.2.2.1" class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" style="--ltx-bg-color:#F2F2F2;" colspan="5"><span id="S4.T1.2.2.1.1" class="ltx_text ltx_font_bold" style="font-size:90%;--ltx-bg-color:#F2F2F2;">Wall-Clock Time (s)<sup id="S4.T1.2.2.1.1.1" class="ltx_sup"><span id="S4.T1.2.2.1.1.1.1" class="ltx_text ltx_font_medium ltx_font_italic" style="--ltx-bg-color:#F2F2F2;">∗</span></sup></span></th>
+</tr>
+<tr id="S4.T1.3.4.1" class="ltx_tr">
+<th id="S4.T1.3.4.1.1" class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t"><span id="S4.T1.3.4.1.1.1" class="ltx_text" style="font-size:90%;">     Mean</span></th>
+<td id="S4.T1.3.4.1.2" class="ltx_td ltx_align_right ltx_border_t"><span id="S4.T1.3.4.1.2.1" class="ltx_text" style="font-size:90%;">162.94</span></td>
+<td id="S4.T1.3.4.1.3" class="ltx_td ltx_align_right ltx_border_t"><span id="S4.T1.3.4.1.3.1" class="ltx_text" style="font-size:90%;">129.91</span></td>
+<td id="S4.T1.3.4.1.4" class="ltx_td ltx_align_right ltx_border_t"><span id="S4.T1.3.4.1.4.1" class="ltx_text" style="font-size:90%;">33.03</span></td>
+<td id="S4.T1.3.4.1.5" class="ltx_td ltx_align_right ltx_border_t"><span id="S4.T1.3.4.1.5.1" class="ltx_text" style="font-size:90%;">20.27%</span></td>
+</tr>
+<tr id="S4.T1.3.5.2" class="ltx_tr">
+<th id="S4.T1.3.5.2.1" class="ltx_td ltx_align_left ltx_th ltx_th_row"><span id="S4.T1.3.5.2.1.1" class="ltx_text" style="font-size:90%;">     Median</span></th>
+<td id="S4.T1.3.5.2.2" class="ltx_td ltx_align_right"><span id="S4.T1.3.5.2.2.1" class="ltx_text" style="font-size:90%;">98.57</span></td>
+<td id="S4.T1.3.5.2.3" class="ltx_td ltx_align_right"><span id="S4.T1.3.5.2.3.1" class="ltx_text" style="font-size:90%;">70.34</span></td>
+<td id="S4.T1.3.5.2.4" class="ltx_td ltx_align_right"><span id="S4.T1.3.5.2.4.1" class="ltx_text" style="font-size:90%;">28.23</span></td>
+<td id="S4.T1.3.5.2.5" class="ltx_td ltx_align_right"><span id="S4.T1.3.5.2.5.1" class="ltx_text" style="font-size:90%;">28.64%</span></td>
+</tr>
+<tr id="S4.T1.3.6.3" class="ltx_tr">
+<th id="S4.T1.3.6.3.1" class="ltx_td ltx_align_left ltx_th ltx_th_row"><span id="S4.T1.3.6.3.1.1" class="ltx_text" style="font-size:90%;">     Std Dev</span></th>
+<td id="S4.T1.3.6.3.2" class="ltx_td ltx_align_right"><span id="S4.T1.3.6.3.2.1" class="ltx_text" style="font-size:90%;">182.24</span></td>
+<td id="S4.T1.3.6.3.3" class="ltx_td ltx_align_right"><span id="S4.T1.3.6.3.3.1" class="ltx_text" style="font-size:90%;">136.84</span></td>
+<td id="S4.T1.3.6.3.4" class="ltx_td ltx_align_right"><span id="S4.T1.3.6.3.4.1" class="ltx_text" style="font-size:90%;">45.40</span></td>
+<td id="S4.T1.3.6.3.5" class="ltx_td ltx_align_right"><span id="S4.T1.3.6.3.5.1" class="ltx_text" style="font-size:90%;">24.91%</span></td>
+</tr>
+<tr id="S4.T1.3.7.4" class="ltx_tr">
+<th id="S4.T1.3.7.4.1" class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" style="--ltx-bg-color:#F2F2F2;" colspan="5"><span id="S4.T1.3.7.4.1.1" class="ltx_text ltx_font_bold" style="font-size:90%;--ltx-bg-color:#F2F2F2;">Input Tokens</span></th>
+</tr>
+<tr id="S4.T1.3.8.5" class="ltx_tr">
+<th id="S4.T1.3.8.5.1" class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t"><span id="S4.T1.3.8.5.1.1" class="ltx_text" style="font-size:90%;">     Mean</span></th>
+<td id="S4.T1.3.8.5.2" class="ltx_td ltx_align_right ltx_border_t"><span id="S4.T1.3.8.5.2.1" class="ltx_text" style="font-size:90%;">353,010.01</span></td>
+<td id="S4.T1.3.8.5.3" class="ltx_td ltx_align_right ltx_border_t"><span id="S4.T1.3.8.5.3.1" class="ltx_text" style="font-size:90%;">318,651.51</span></td>
+<td id="S4.T1.3.8.5.4" class="ltx_td ltx_align_right ltx_border_t"><span id="S4.T1.3.8.5.4.1" class="ltx_text" style="font-size:90%;">34,358.50</span></td>
+<td id="S4.T1.3.8.5.5" class="ltx_td ltx_align_right ltx_border_t"><span id="S4.T1.3.8.5.5.1" class="ltx_text" style="font-size:90%;">9.73%</span></td>
+</tr>
+<tr id="S4.T1.3.9.6" class="ltx_tr">
+<th id="S4.T1.3.9.6.1" class="ltx_td ltx_align_left ltx_th ltx_th_row"><span id="S4.T1.3.9.6.1.1" class="ltx_text" style="font-size:90%;">     Median</span></th>
+<td id="S4.T1.3.9.6.2" class="ltx_td ltx_align_right"><span id="S4.T1.3.9.6.2.1" class="ltx_text" style="font-size:90%;">116,609.00</span></td>
+<td id="S4.T1.3.9.6.3" class="ltx_td ltx_align_right"><span id="S4.T1.3.9.6.3.1" class="ltx_text" style="font-size:90%;">120,587.00</span></td>
+<td id="S4.T1.3.9.6.4" class="ltx_td ltx_align_right"><span id="S4.T1.3.9.6.4.1" class="ltx_text" style="font-size:90%;">-3,978.00</span></td>
+<td id="S4.T1.3.9.6.5" class="ltx_td ltx_align_right"><span id="S4.T1.3.9.6.5.1" class="ltx_text" style="font-size:90%;">-3.41%</span></td>
+</tr>
+<tr id="S4.T1.3.10.7" class="ltx_tr">
+<th id="S4.T1.3.10.7.1" class="ltx_td ltx_align_left ltx_th ltx_th_row"><span id="S4.T1.3.10.7.1.1" class="ltx_text" style="font-size:90%;">     Std Dev</span></th>
+<td id="S4.T1.3.10.7.2" class="ltx_td ltx_align_right"><span id="S4.T1.3.10.7.2.1" class="ltx_text" style="font-size:90%;">654,603.95</span></td>
+<td id="S4.T1.3.10.7.3" class="ltx_td ltx_align_right"><span id="S4.T1.3.10.7.3.1" class="ltx_text" style="font-size:90%;">510,776.51</span></td>
+<td id="S4.T1.3.10.7.4" class="ltx_td ltx_align_right"><span id="S4.T1.3.10.7.4.1" class="ltx_text" style="font-size:90%;">143,827.43</span></td>
+<td id="S4.T1.3.10.7.5" class="ltx_td ltx_align_right"><span id="S4.T1.3.10.7.5.1" class="ltx_text" style="font-size:90%;">21.97%</span></td>
+</tr>
+<tr id="S4.T1.3.11.8" class="ltx_tr">
+<th id="S4.T1.3.11.8.1" class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" style="--ltx-bg-color:#F2F2F2;" colspan="5"><span id="S4.T1.3.11.8.1.1" class="ltx_text ltx_font_bold" style="font-size:90%;--ltx-bg-color:#F2F2F2;">Cached Input Tokens</span></th>
+</tr>
+<tr id="S4.T1.3.12.9" class="ltx_tr">
+<th id="S4.T1.3.12.9.1" class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t"><span id="S4.T1.3.12.9.1.1" class="ltx_text" style="font-size:90%;">     Mean</span></th>
+<td id="S4.T1.3.12.9.2" class="ltx_td ltx_align_right ltx_border_t"><span id="S4.T1.3.12.9.2.1" class="ltx_text" style="font-size:90%;">328,877.31</span></td>
+<td id="S4.T1.3.12.9.3" class="ltx_td ltx_align_right ltx_border_t"><span id="S4.T1.3.12.9.3.1" class="ltx_text" style="font-size:90%;">296,078.73</span></td>
+<td id="S4.T1.3.12.9.4" class="ltx_td ltx_align_right ltx_border_t"><span id="S4.T1.3.12.9.4.1" class="ltx_text" style="font-size:90%;">32,798.58</span></td>
+<td id="S4.T1.3.12.9.5" class="ltx_td ltx_align_right ltx_border_t"><span id="S4.T1.3.12.9.5.1" class="ltx_text" style="font-size:90%;">9.97%</span></td>
+</tr>
+<tr id="S4.T1.3.13.10" class="ltx_tr">
+<th id="S4.T1.3.13.10.1" class="ltx_td ltx_align_left ltx_th ltx_th_row"><span id="S4.T1.3.13.10.1.1" class="ltx_text" style="font-size:90%;">     Median</span></th>
+<td id="S4.T1.3.13.10.2" class="ltx_td ltx_align_right"><span id="S4.T1.3.13.10.2.1" class="ltx_text" style="font-size:90%;">103,424.00</span></td>
+<td id="S4.T1.3.13.10.3" class="ltx_td ltx_align_right"><span id="S4.T1.3.13.10.3.1" class="ltx_text" style="font-size:90%;">104,448.00</span></td>
+<td id="S4.T1.3.13.10.4" class="ltx_td ltx_align_right"><span id="S4.T1.3.13.10.4.1" class="ltx_text" style="font-size:90%;">-1,024.00</span></td>
+<td id="S4.T1.3.13.10.5" class="ltx_td ltx_align_right"><span id="S4.T1.3.13.10.5.1" class="ltx_text" style="font-size:90%;">-0.99%</span></td>
+</tr>
+<tr id="S4.T1.3.14.11" class="ltx_tr">
+<th id="S4.T1.3.14.11.1" class="ltx_td ltx_align_left ltx_th ltx_th_row"><span id="S4.T1.3.14.11.1.1" class="ltx_text" style="font-size:90%;">     Std Dev</span></th>
+<td id="S4.T1.3.14.11.2" class="ltx_td ltx_align_right"><span id="S4.T1.3.14.11.2.1" class="ltx_text" style="font-size:90%;">632,622.27</span></td>
+<td id="S4.T1.3.14.11.3" class="ltx_td ltx_align_right"><span id="S4.T1.3.14.11.3.1" class="ltx_text" style="font-size:90%;">494,157.89</span></td>
+<td id="S4.T1.3.14.11.4" class="ltx_td ltx_align_right"><span id="S4.T1.3.14.11.4.1" class="ltx_text" style="font-size:90%;">138,464.38</span></td>
+<td id="S4.T1.3.14.11.5" class="ltx_td ltx_align_right"><span id="S4.T1.3.14.11.5.1" class="ltx_text" style="font-size:90%;">21.89%</span></td>
+</tr>
+<tr id="S4.T1.3.3" class="ltx_tr">
+<th id="S4.T1.3.3.1" class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" style="--ltx-bg-color:#F2F2F2;" colspan="5"><span id="S4.T1.3.3.1.1" class="ltx_text ltx_font_bold" style="font-size:90%;--ltx-bg-color:#F2F2F2;">Output Tokens<sup id="S4.T1.3.3.1.1.1" class="ltx_sup"><span id="S4.T1.3.3.1.1.1.1" class="ltx_text ltx_font_medium ltx_font_italic" style="--ltx-bg-color:#F2F2F2;">∗</span></sup></span></th>
+</tr>
+<tr id="S4.T1.3.15.12" class="ltx_tr">
+<th id="S4.T1.3.15.12.1" class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t"><span id="S4.T1.3.15.12.1.1" class="ltx_text" style="font-size:90%;">     Mean</span></th>
+<td id="S4.T1.3.15.12.2" class="ltx_td ltx_align_right ltx_border_t"><span id="S4.T1.3.15.12.2.1" class="ltx_text" style="font-size:90%;">5,744.81</span></td>
+<td id="S4.T1.3.15.12.3" class="ltx_td ltx_align_right ltx_border_t"><span id="S4.T1.3.15.12.3.1" class="ltx_text" style="font-size:90%;">4,591.46</span></td>
+<td id="S4.T1.3.15.12.4" class="ltx_td ltx_align_right ltx_border_t"><span id="S4.T1.3.15.12.4.1" class="ltx_text" style="font-size:90%;">1,153.35</span></td>
+<td id="S4.T1.3.15.12.5" class="ltx_td ltx_align_right ltx_border_t"><span id="S4.T1.3.15.12.5.1" class="ltx_text" style="font-size:90%;">20.08%</span></td>
+</tr>
+<tr id="S4.T1.3.16.13" class="ltx_tr">
+<th id="S4.T1.3.16.13.1" class="ltx_td ltx_align_left ltx_th ltx_th_row"><span id="S4.T1.3.16.13.1.1" class="ltx_text" style="font-size:90%;">     Median</span></th>
+<td id="S4.T1.3.16.13.2" class="ltx_td ltx_align_right"><span id="S4.T1.3.16.13.2.1" class="ltx_text" style="font-size:90%;">2,925.00</span></td>
+<td id="S4.T1.3.16.13.3" class="ltx_td ltx_align_right"><span id="S4.T1.3.16.13.3.1" class="ltx_text" style="font-size:90%;">2,440.00</span></td>
+<td id="S4.T1.3.16.13.4" class="ltx_td ltx_align_right"><span id="S4.T1.3.16.13.4.1" class="ltx_text" style="font-size:90%;">485.00</span></td>
+<td id="S4.T1.3.16.13.5" class="ltx_td ltx_align_right"><span id="S4.T1.3.16.13.5.1" class="ltx_text" style="font-size:90%;">16.58%</span></td>
+</tr>
+<tr id="S4.T1.3.17.14" class="ltx_tr">
+<th id="S4.T1.3.17.14.1" class="ltx_td ltx_align_left ltx_th ltx_th_row"><span id="S4.T1.3.17.14.1.1" class="ltx_text" style="font-size:90%;">     Std Dev</span></th>
+<td id="S4.T1.3.17.14.2" class="ltx_td ltx_align_right"><span id="S4.T1.3.17.14.2.1" class="ltx_text" style="font-size:90%;">6,987.74</span></td>
+<td id="S4.T1.3.17.14.3" class="ltx_td ltx_align_right"><span id="S4.T1.3.17.14.3.1" class="ltx_text" style="font-size:90%;">5,161.67</span></td>
+<td id="S4.T1.3.17.14.4" class="ltx_td ltx_align_right"><span id="S4.T1.3.17.14.4.1" class="ltx_text" style="font-size:90%;">1,826.06</span></td>
+<td id="S4.T1.3.17.14.5" class="ltx_td ltx_align_right"><span id="S4.T1.3.17.14.5.1" class="ltx_text" style="font-size:90%;">26.13%</span></td>
+</tr>
+<tr id="S4.T1.3.18.15" class="ltx_tr">
+<th id="S4.T1.3.18.15.1" class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" style="--ltx-bg-color:#F2F2F2;" colspan="5"><span id="S4.T1.3.18.15.1.1" class="ltx_text ltx_font_bold" style="font-size:90%;--ltx-bg-color:#F2F2F2;">Total Tokens</span></th>
+</tr>
+<tr id="S4.T1.3.19.16" class="ltx_tr">
+<th id="S4.T1.3.19.16.1" class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t"><span id="S4.T1.3.19.16.1.1" class="ltx_text" style="font-size:90%;">     Mean</span></th>
+<td id="S4.T1.3.19.16.2" class="ltx_td ltx_align_right ltx_border_t"><span id="S4.T1.3.19.16.2.1" class="ltx_text" style="font-size:90%;">687,632.13</span></td>
+<td id="S4.T1.3.19.16.3" class="ltx_td ltx_align_right ltx_border_t"><span id="S4.T1.3.19.16.3.1" class="ltx_text" style="font-size:90%;">619,321.70</span></td>
+<td id="S4.T1.3.19.16.4" class="ltx_td ltx_align_right ltx_border_t"><span id="S4.T1.3.19.16.4.1" class="ltx_text" style="font-size:90%;">68,310.43</span></td>
+<td id="S4.T1.3.19.16.5" class="ltx_td ltx_align_right ltx_border_t"><span id="S4.T1.3.19.16.5.1" class="ltx_text" style="font-size:90%;">9.93%</span></td>
+</tr>
+<tr id="S4.T1.3.20.17" class="ltx_tr">
+<th id="S4.T1.3.20.17.1" class="ltx_td ltx_align_left ltx_th ltx_th_row"><span id="S4.T1.3.20.17.1.1" class="ltx_text" style="font-size:90%;">     Median</span></th>
+<td id="S4.T1.3.20.17.2" class="ltx_td ltx_align_right"><span id="S4.T1.3.20.17.2.1" class="ltx_text" style="font-size:90%;">223,707.00</span></td>
+<td id="S4.T1.3.20.17.3" class="ltx_td ltx_align_right"><span id="S4.T1.3.20.17.3.1" class="ltx_text" style="font-size:90%;">226,582.00</span></td>
+<td id="S4.T1.3.20.17.4" class="ltx_td ltx_align_right"><span id="S4.T1.3.20.17.4.1" class="ltx_text" style="font-size:90%;">-2,875.00</span></td>
+<td id="S4.T1.3.20.17.5" class="ltx_td ltx_align_right"><span id="S4.T1.3.20.17.5.1" class="ltx_text" style="font-size:90%;">-1.29%</span></td>
+</tr>
+<tr id="S4.T1.3.21.18" class="ltx_tr">
+<th id="S4.T1.3.21.18.1" class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b"><span id="S4.T1.3.21.18.1.1" class="ltx_text" style="font-size:90%;">     Std Dev</span></th>
+<td id="S4.T1.3.21.18.2" class="ltx_td ltx_align_right ltx_border_b"><span id="S4.T1.3.21.18.2.1" class="ltx_text" style="font-size:90%;">1,293,176.16</span></td>
+<td id="S4.T1.3.21.18.3" class="ltx_td ltx_align_right ltx_border_b"><span id="S4.T1.3.21.18.3.1" class="ltx_text" style="font-size:90%;">1,009,338.80</span></td>
+<td id="S4.T1.3.21.18.4" class="ltx_td ltx_align_right ltx_border_b"><span id="S4.T1.3.21.18.4.1" class="ltx_text" style="font-size:90%;">283,837.36</span></td>
+<td id="S4.T1.3.21.18.5" class="ltx_td ltx_align_right ltx_border_b"><span id="S4.T1.3.21.18.5.1" class="ltx_text" style="font-size:90%;">21.95%</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="ltx_flex_break"></div>
+<div class="ltx_flex_cell ltx_flex_size_1">
+<p id="S4.T1.5" class="ltx_p ltx_figure_panel ltx_align_center"><sup id="S4.T1.5.2" class="ltx_sup"><span id="S4.T1.5.2.1" class="ltx_text ltx_font_italic" style="font-size:80%;">∗</span></sup><span id="S4.T1.5.1" class="ltx_text" style="font-size:80%;"> Statistically significant difference, Wilcoxon signed-rank test (<math id="S4.T1.5.1.m1" class="ltx_Math" alttext="p&lt;0.05" display="inline" intent=":literal"><semantics><mrow><mi>p</mi><mo>&lt;</mo><mn>0.05</mn></mrow><annotation encoding="application/x-tex">p&lt;0.05</annotation></semantics></math>).
+<span id="S4.T1.5.1.1" class="ltx_text" style="font-size:113%;"></span></span></p>
+</div>
+<div class="ltx_flex_break"></div>
+</div>
+</figure>
+<section id="S4.SS0.SSS0.Px1" class="ltx_paragraph">
+<h5 class="ltx_title ltx_title_paragraph">Token usage</h5>
+
+<div id="S4.SS0.SSS0.Px1.p1" class="ltx_para">
+<p id="S4.SS0.SSS0.Px1.p1.4" class="ltx_p">Providing an <span id="S4.SS0.SSS0.Px1.p1.4.1" class="ltx_text ltx_font_typewriter">AGENTS.md</span> file reduces generation cost. Mean output token usage decreases from 5,744.81 tokens (without <span id="S4.SS0.SSS0.Px1.p1.4.2" class="ltx_text ltx_font_typewriter">AGENTS.md</span>) to 4,591.46 tokens (with <span id="S4.SS0.SSS0.Px1.p1.4.3" class="ltx_text ltx_font_typewriter">AGENTS.md</span>), a reduction of 1,153.35 tokens (<math id="S4.SS0.SSS0.Px1.p1.1.m1" class="ltx_Math" alttext="\approx 20.08\%" display="inline" intent=":literal"><semantics><mrow><mi></mi><mo>≈</mo><mrow><mn>20.08</mn><mo>%</mo></mrow></mrow><annotation encoding="application/x-tex">\approx 20.08\%</annotation></semantics></math>). Median output tokens decrease more modestly, from 2,925.00 to 2,440.00 (485 tokens, <math id="S4.SS0.SSS0.Px1.p1.2.m2" class="ltx_Math" alttext="\approx 16.58\%" display="inline" intent=":literal"><semantics><mrow><mi></mi><mo>≈</mo><mrow><mn>16.58</mn><mo>%</mo></mrow></mrow><annotation encoding="application/x-tex">\approx 16.58\%</annotation></semantics></math>). Mean input and cached input tokens also decline slightly (353,010.01 to 318,651.51; <math id="S4.SS0.SSS0.Px1.p1.3.m3" class="ltx_Math" alttext="9.73\%" display="inline" intent=":literal"><semantics><mrow><mn>9.73</mn><mo>%</mo></mrow><annotation encoding="application/x-tex">9.73\%</annotation></semantics></math> and 328,877.31 to 296,078.73; <math id="S4.SS0.SSS0.Px1.p1.4.m4" class="ltx_Math" alttext="9.97\%" display="inline" intent=":literal"><semantics><mrow><mn>9.97</mn><mo>%</mo></mrow><annotation encoding="application/x-tex">9.97\%</annotation></semantics></math>, respectively), with medians essentially unchanged or slightly higher. The larger reduction in mean output tokens compared to the median suggests that <span id="S4.SS0.SSS0.Px1.p1.4.4" class="ltx_text ltx_font_typewriter">AGENTS.md</span> primarily reduces token usage in a small number of very high-cost runs, rather than uniformly lowering token consumption across all task instances.</p>
+</div>
+</section>
+<section id="S4.SS0.SSS0.Px2" class="ltx_paragraph">
+<h5 class="ltx_title ltx_title_paragraph">Wall-clock time-to-completion</h5>
+
+<div id="S4.SS0.SSS0.Px2.p1" class="ltx_para">
+<p id="S4.SS0.SSS0.Px2.p1.2" class="ltx_p">Agents provided with an <span id="S4.SS0.SSS0.Px2.p1.2.1" class="ltx_text ltx_font_typewriter">AGENTS.md</span> file complete tasks faster than agents operating without it. Mean wall-clock time-to-completion decreases from 162.94s (without <span id="S4.SS0.SSS0.Px2.p1.2.2" class="ltx_text ltx_font_typewriter">AGENTS.md</span>, std dev 182.24s) to 129.91s (with <span id="S4.SS0.SSS0.Px2.p1.2.3" class="ltx_text ltx_font_typewriter">AGENTS.md</span>, std dev 136.84s), an absolute reduction of 33.03s (<math id="S4.SS0.SSS0.Px2.p1.1.m1" class="ltx_Math" alttext="\approx 20.27\%" display="inline" intent=":literal"><semantics><mrow><mi></mi><mo>≈</mo><mrow><mn>20.27</mn><mo>%</mo></mrow></mrow><annotation encoding="application/x-tex">\approx 20.27\%</annotation></semantics></math>). Median completion time shows a similar reduction, decreasing from 98.57s to 70.34s (28.23s, <math id="S4.SS0.SSS0.Px2.p1.2.m2" class="ltx_Math" alttext="\approx 28.64\%" display="inline" intent=":literal"><semantics><mrow><mi></mi><mo>≈</mo><mrow><mn>28.64</mn><mo>%</mo></mrow></mrow><annotation encoding="application/x-tex">\approx 28.64\%</annotation></semantics></math>). The close alignment between mean and median improvements indicates that the reduction is not driven solely by a small number of extreme runs, but reflects a general shift toward faster task completion.</p>
+</div>
+<figure id="S4.F1" class="ltx_figure"><img src="2601.20404v2/figures/violin_time.png" id="S4.F1.g1" class="ltx_graphics ltx_img_landscape" width="509" height="378" alt="Refer to caption">
+<figcaption class="ltx_caption"><span class="ltx_tag ltx_tag_figure">Figure 1. </span>Wall-clock time-to-completion distributions for agent runs with and without <span id="S4.F1.2.1" class="ltx_text ltx_font_typewriter">AGENTS.md</span></figcaption>
+</figure>
+</section>
+</section>
+<section id="S5" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">5. </span>Research Roadmap</h2>
+
+<div id="S5.p1" class="ltx_para">
+<p id="S5.p1.1" class="ltx_p">This study represents an initial step towards understanding how <span id="S5.p1.1.1" class="ltx_text ltx_font_typewriter">AGENTS.md</span> files influence the behavior of autonomous AI coding agents. Our results provide early evidence that such files can affect agent efficiency in realistic development tasks. At the same time, the study focuses on a sampled subset of repositories, pull requests, and agent configurations, which naturally motivates the next steps.</p>
+</div>
+<div id="S5.p2" class="ltx_para">
+<p id="S5.p2.1" class="ltx_p">A first direction for future work is to expand the empirical scope of the study. Although we control for task, repository state, and agent configuration through a paired design, observed effects may still depend on agent stochasticity, the specific agent framework and model used, and the characteristics of the selected tasks. Replicating the study across additional repositories, larger and more diverse pull requests, and multiple agent systems and model families will help assess the robustness and generality of the observed efficiency effects. Similarly, relaxing current constraints on task size and scope will allow us to examine whether the influence of <span id="S5.p2.1.1" class="ltx_text ltx_font_typewriter">AGENTS.md</span> extends to larger refactorings, multi-module changes, and more complex development scenarios.</p>
+</div>
+<div id="S5.p3" class="ltx_para">
+<p id="S5.p3.1" class="ltx_p">A second direction is to investigate dimensions of agent behavior beyond efficiency. In this study, we focus on token usage and wall-clock time as measurable indicators of cost. However, these metrics do not capture whether agent-produced changes are correct, maintainable, or aligned with developer intent. Future work will therefore incorporate correctness and alignment evaluations, for example, by comparing agent-generated changes against the original merged pull requests using automated checks and structural similarity analyzes. Beyond a binary treatment of <span id="S5.p3.1.1" class="ltx_text ltx_font_typewriter">AGENTS.md</span> as present or absent, we also plan to examine how properties of these files, such as specificity, organization, and the inclusion of workflow guidance, relate to agent outcomes. For example, we speculate that some of the efficiency gains reported in this paper arise because <span id="S5.p3.1.2" class="ltx_text ltx_font_typewriter">AGENTS.md</span> files describe repository structure and conventions upfront, reducing the need for agents to infer project organization through exploratory navigation. Analyzing agent execution traces will help explain why <span id="S5.p3.1.3" class="ltx_text ltx_font_typewriter">AGENTS.md</span> files lead to more efficient generation, for example, by fewer planning iterations, reduced exploratory navigation, and fewer repeated requests to the underlying model.</p>
+</div>
+<div id="S5.p4" class="ltx_para">
+<p id="S5.p4.1" class="ltx_p">In summary, our results provide initial empirical evidence that repository-level instruction files can have measurable operational effects on autonomous AI coding agents. In particular, we show that the presence of a root <span id="S5.p4.1.1" class="ltx_text ltx_font_typewriter">AGENTS.md</span> file is associated with reduced token usage and faster task completion on real pull requests. These findings position <span id="S5.p4.1.2" class="ltx_text ltx_font_typewriter">AGENTS.md</span> as a practical repository-level mechanism for shaping agent behavior and motivate further investigation of its role in agent efficiency, alignment, and integration within software development workflows.</p>
+</div>
+</section>
+<section id="bib" class="ltx_bibliography">
+<h2 class="ltx_title ltx_title_bibliography">References</h2>
+
+<ul id="bib.L1" class="ltx_biblist">
+<li id="bib.bib20" class="ltx_bibitem ltx_bib_misc">
+<span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[1]</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_year"> ()</span>
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">AGENTS.md</span>.
+</span>
+<span class="ltx_bibblock">Note: <span class="ltx_text ltx_bib_note"><a href="https://agents.md/" title="" class="ltx_ref ltx_url ltx_font_typewriter">https://agents.md/</a>[Accessed 23-01-2026]</span>
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S1.p2.1" title="1. Introduction ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§1</span></a>.
+</span>
+</li>
+<li id="bib.bib9" class="ltx_bibitem ltx_bib_inproceedings">
+<span class="ltx_tag ltx_bib_author-year ltx_role_refnum ltx_tag_bibitem">O. Chaparro, C. Bernal-Cárdenas, J. Lu, K. Moran, A. Marcus, M. Di Penta, D. Poshyvanyk, and V. Ng (2019)</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Assessing the quality of the steps to reproduce in bug reports</span>.
+</span>
+<span class="ltx_bibblock">In <span class="ltx_text ltx_bib_inbook">Proceedings of the 2019 27th ACM Joint Meeting on European Software Engineering Conference and Symposium on the Foundations of Software Engineering</span>,
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_series">ESEC/FSE 2019</span>, <span class="ltx_text ltx_bib_place">New York, NY, USA</span>, <span class="ltx_text ltx_bib_pages"> pp. 86–96</span>.
+</span>
+<span class="ltx_bibblock">External Links: <span class="ltx_text ltx_bib_links"><span class="ltx_text isbn ltx_bib_external">ISBN 9781450355728</span>,
+<a href="https://doi.org/10.1145/3338906.3338947" title="" class="ltx_ref ltx_bib_external">Link</a>,
+<a href="https://dx.doi.org/10.1145/3338906.3338947" title="" class="ltx_ref doi ltx_bib_external">Document</a></span>
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S3.SS1.SSS5.p2.1" title="3.1.5. Issue Generation for PRs Lacking Usable Descriptions ‣ 3.1. Data Collection and Analysis ‣ 3. Study Design ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§3.1.5</span></a>.
+</span>
+</li>
+<li id="bib.bib8" class="ltx_bibitem ltx_bib_article">
+<span class="ltx_tag ltx_bib_author-year ltx_role_refnum ltx_tag_bibitem">W. Chatlatanagulchai, H. Li, Y. Kashiwa, B. Reid, K. Thonglek, P. Leelaprute, A. Rungsawang, B. Manaskasemsak, B. Adams, A. E. Hassan, and H. Iida (2025)</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Agent readmes: an empirical study of context files for agentic coding</span>.
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">arXiv preprint arXiv:2511.12884</span>.
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S1.p3.1" title="1. Introduction ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§1</span></a>,
+<a href="#S2.p4.1" title="2. Background and Related Work ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2</span></a>.
+</span>
+</li>
+<li id="bib.bib21" class="ltx_bibitem ltx_bib_misc">
+<span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[4]</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_year"> ()</span>
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Codex Models — developers.openai.com</span>.
+</span>
+<span class="ltx_bibblock">Note: <span class="ltx_text ltx_bib_note"><a href="https://developers.openai.com/codex/models/" title="" class="ltx_ref ltx_url ltx_font_typewriter">https://developers.openai.com/codex/models/</a>[Accessed 23-01-2026]</span>
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S3.SS1.SSS1.p1.1" title="3.1.1. Agent Selection ‣ 3.1. Data Collection and Analysis ‣ 3. Study Design ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§3.1.1</span></a>.
+</span>
+</li>
+<li id="bib.bib2" class="ltx_bibitem ltx_bib_inproceedings">
+<span class="ltx_tag ltx_bib_author-year ltx_role_refnum ltx_tag_bibitem">A. Fan, B. Gokkaya, M. Harman, M. Lyubarskiy, S. Sengupta, S. Yoo, and J. M. Zhang (2023)</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Large language models for software engineering: survey and open problems</span>.
+</span>
+<span class="ltx_bibblock">In <span class="ltx_text ltx_bib_inbook">2023 IEEE/ACM International Conference on Software Engineering: Future of Software Engineering (ICSE-FoSE)</span>,
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_pages"> pp. 31–53</span>.
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S1.p1.1" title="1. Introduction ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§1</span></a>.
+</span>
+</li>
+<li id="bib.bib14" class="ltx_bibitem ltx_bib_misc">
+<span class="ltx_tag ltx_bib_author-year ltx_role_refnum ltx_tag_bibitem">GitLab (2025)</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">AGENTS.md customization files</span>.
+</span>
+<span class="ltx_bibblock">Note: <span class="ltx_text ltx_bib_note">GitLab DocumentationAccessed 2026-01-18</span>
+</span>
+<span class="ltx_bibblock">External Links: <span class="ltx_text ltx_bib_links"><a href="https://docs.gitlab.com/user/gitlab_duo/customize_duo/agents_md/" title="" class="ltx_ref ltx_bib_external">Link</a></span>
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.p1.1" title="2. Background and Related Work ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2</span></a>.
+</span>
+</li>
+<li id="bib.bib16" class="ltx_bibitem ltx_bib_article">
+<span class="ltx_tag ltx_bib_author-year ltx_role_refnum ltx_tag_bibitem">Y. Guo, Y. Xiao, J. M. Zhang, M. Harman, Y. Lou, Y. Liu, and Z. Chen (2026)</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">EET: experience-driven early termination for cost-efficient software engineering agents</span>.
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">arXiv preprint arXiv:2601.05777</span>.
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S1.p5.1" title="1. Introduction ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§1</span></a>.
+</span>
+</li>
+<li id="bib.bib15" class="ltx_bibitem ltx_bib_misc">
+<span class="ltx_tag ltx_bib_author-year ltx_role_refnum ltx_tag_bibitem">J. He, J. Shi, T. Y. Zhuo, C. Treude, J. Sun, Z. Xing, X. Du, and D. Lo (2025)</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">LLM-as-a-judge for software engineering: literature review, vision, and the road ahead</span>.
+</span>
+<span class="ltx_bibblock">External Links: <span class="ltx_text ltx_bib_links"><span class="ltx_text ltx_bib_external">2510.24367</span>,
+<a href="https://arxiv.org/abs/2510.24367" title="" class="ltx_ref ltx_bib_external">Link</a></span>
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S3.SS1.SSS2.p2.1" title="3.1.2. Repository Sampling and Inclusion Criteria ‣ 3.1. Data Collection and Analysis ‣ 3. Study Design ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§3.1.2</span></a>.
+</span>
+</li>
+<li id="bib.bib3" class="ltx_bibitem ltx_bib_article">
+<span class="ltx_tag ltx_bib_author-year ltx_role_refnum ltx_tag_bibitem">X. Hou, Y. Zhao, Y. Liu, Z. Yang, K. Wang, L. Li, X. Luo, D. Lo, J. Grundy, and H. Wang (2024)</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Large language models for software engineering: a systematic literature review</span>.
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">ACM Transactions on Software Engineering and Methodology</span> <span class="ltx_text ltx_bib_volume">33</span> (<span class="ltx_text ltx_bib_number">8</span>), <span class="ltx_text ltx_bib_pages"> pp. 1–79</span>.
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S1.p1.1" title="1. Introduction ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§1</span></a>.
+</span>
+</li>
+<li id="bib.bib4" class="ltx_bibitem ltx_bib_article">
+<span class="ltx_tag ltx_bib_author-year ltx_role_refnum ltx_tag_bibitem">J. Jiang, F. Wang, J. Shen, S. Kim, and S. Kim (2025)</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">A survey on large language models for code generation</span>.
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">ACM Transactions on Software Engineering and Methodology</span>.
+</span>
+<span class="ltx_bibblock">External Links: <span class="ltx_text ltx_bib_links"><span class="ltx_text issn ltx_bib_external">ISSN 1049-331X</span></span>
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S1.p1.1" title="1. Introduction ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§1</span></a>.
+</span>
+</li>
+<li id="bib.bib11" class="ltx_bibitem ltx_bib_misc">
+<span class="ltx_tag ltx_bib_author-year ltx_role_refnum ltx_tag_bibitem">S. Jiang and D. Nam (2025)</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">An empirical study of developer-provided context for AI coding assistants in open-source projects</span>.
+</span>
+<span class="ltx_bibblock">Note: <span class="ltx_text ltx_bib_note">arXiv:2512.18925</span>
+</span>
+<span class="ltx_bibblock">External Links: <span class="ltx_text ltx_bib_links"><a href="https://dx.doi.org/10.48550/arXiv.2512.18925" title="" class="ltx_ref doi ltx_bib_external">Document</a>,
+<a href="https://arxiv.org/abs/2512.18925" title="" class="ltx_ref ltx_bib_external">Link</a></span>
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.p4.1" title="2. Background and Related Work ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2</span></a>.
+</span>
+</li>
+<li id="bib.bib10" class="ltx_bibitem ltx_bib_misc">
+<span class="ltx_tag ltx_bib_author-year ltx_role_refnum ltx_tag_bibitem">C. E. Jimenez, J. Yang, A. Wettig, S. Yao, K. Pei, O. Press, and K. Narasimhan (2024)</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">SWE-bench: can language models resolve real-world GitHub issues?</span>.
+</span>
+<span class="ltx_bibblock">Note: <span class="ltx_text ltx_bib_note">arXiv:2310.06770v3</span>
+</span>
+<span class="ltx_bibblock">External Links: <span class="ltx_text ltx_bib_links"><a href="https://dx.doi.org/10.48550/arXiv.2310.06770" title="" class="ltx_ref doi ltx_bib_external">Document</a>,
+<a href="https://arxiv.org/abs/2310.06770" title="" class="ltx_ref ltx_bib_external">Link</a>,
+<span class="ltx_text ltx_bib_external">2310.06770</span></span>
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.p3.1" title="2. Background and Related Work ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2</span></a>.
+</span>
+</li>
+<li id="bib.bib19" class="ltx_bibitem ltx_bib_dataset">
+<span class="ltx_tag ltx_bib_author-year ltx_role_refnum ltx_tag_bibitem">J. L. Lulla, S. Mohsenimofidi, M. Galster, J. M. Zhang, S. Baltes, and C. Treude (2026)</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S3.SS1.SSS1.p2.1" title="3.1.1. Agent Selection ‣ 3.1. Data Collection and Analysis ‣ 3. Study Design ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§3.1.1</span></a>,
+<a href="#S3.SS1.SSS5.p2.1" title="3.1.5. Issue Generation for PRs Lacking Usable Descriptions ‣ 3.1. Data Collection and Analysis ‣ 3. Study Design ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§3.1.5</span></a>,
+<a href="#S3.SS1.SSS7.p1.1" title="3.1.7. Running the Experiments ‣ 3.1. Data Collection and Analysis ‣ 3. Study Design ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§3.1.7</span></a>.
+</span>
+</li>
+<li id="bib.bib1" class="ltx_bibitem ltx_bib_inproceedings">
+<span class="ltx_tag ltx_bib_author-year ltx_role_refnum ltx_tag_bibitem">S. Mohsenimofidi, M. Galster, C. Treude, and S. Baltes (2026)</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Context engineering for ai agents in open-source software</span>.
+</span>
+<span class="ltx_bibblock">In <span class="ltx_text ltx_bib_inbook">Proceedings of the 23rd IEEE/ACM International Conference on Mining Software Repositories (MSR 2026)</span>,
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S1.p2.1" title="1. Introduction ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§1</span></a>,
+<a href="#S1.p3.1" title="1. Introduction ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§1</span></a>,
+<a href="#S2.p4.1" title="2. Background and Related Work ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2</span></a>,
+<a href="#S3.SS1.SSS2.p1.1" title="3.1.2. Repository Sampling and Inclusion Criteria ‣ 3.1. Data Collection and Analysis ‣ 3. Study Design ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§3.1.2</span></a>,
+<a href="#S3.SS1.SSS2.p2.1" title="3.1.2. Repository Sampling and Inclusion Criteria ‣ 3.1. Data Collection and Analysis ‣ 3. Study Design ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§3.1.2</span></a>.
+</span>
+</li>
+<li id="bib.bib22" class="ltx_bibitem ltx_bib_misc">
+<span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[15]</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_year"> ()</span>
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Ollama</span>.
+</span>
+<span class="ltx_bibblock">Note: <span class="ltx_text ltx_bib_note"><a href="https://ollama.com/" title="" class="ltx_ref ltx_url ltx_font_typewriter">https://ollama.com/</a>[Accessed 23-01-2026]</span>
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S3.SS1.SSS2.p3.1" title="3.1.2. Repository Sampling and Inclusion Criteria ‣ 3.1. Data Collection and Analysis ‣ 3. Study Design ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§3.1.2</span></a>.
+</span>
+</li>
+<li id="bib.bib13" class="ltx_bibitem ltx_bib_misc">
+<span class="ltx_tag ltx_bib_author-year ltx_role_refnum ltx_tag_bibitem">OpenAI (2025)</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Custom instructions with AGENTS.md</span>.
+</span>
+<span class="ltx_bibblock">Note: <span class="ltx_text ltx_bib_note">OpenAI Developers DocumentationAccessed 2026-01-18</span>
+</span>
+<span class="ltx_bibblock">External Links: <span class="ltx_text ltx_bib_links"><a href="https://developers.openai.com/codex/guides/agents-md/" title="" class="ltx_ref ltx_bib_external">Link</a></span>
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.p1.1" title="2. Background and Related Work ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2</span></a>.
+</span>
+</li>
+<li id="bib.bib6" class="ltx_bibitem ltx_bib_article">
+<span class="ltx_tag ltx_bib_author-year ltx_role_refnum ltx_tag_bibitem">A. Roychoudhury (2025)</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Agentic ai for software: thoughts from software engineering community</span>.
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">arXiv preprint arXiv:2508.17343</span>.
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S1.p1.1" title="1. Introduction ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§1</span></a>.
+</span>
+</li>
+<li id="bib.bib7" class="ltx_bibitem ltx_bib_article">
+<span class="ltx_tag ltx_bib_author-year ltx_role_refnum ltx_tag_bibitem">P. Sahoo, A. K. Singh, S. Saha, V. Jain, S. Mondal, and A. Chadha (2024)</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">A systematic survey of prompt engineering in large language models: techniques and applications</span>.
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">arXiv preprint arXiv:2402.07927</span>.
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S1.p2.1" title="1. Introduction ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§1</span></a>.
+</span>
+</li>
+<li id="bib.bib17" class="ltx_bibitem ltx_bib_article">
+<span class="ltx_tag ltx_bib_author-year ltx_role_refnum ltx_tag_bibitem">C. C. Venters, R. Capilla, E. Y. Nakagawa, S. Betz, B. Penzenstadler, T. Crick, and I. Brooks (2023)</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Sustainable software engineering: reflections on advances in research and practice</span>.
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">Information and Software Technology</span> <span class="ltx_text ltx_bib_volume">164</span>, <span class="ltx_text ltx_bib_pages"> pp. 107316</span>.
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S1.p5.1" title="1. Introduction ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§1</span></a>.
+</span>
+</li>
+<li id="bib.bib5" class="ltx_bibitem ltx_bib_article">
+<span class="ltx_tag ltx_bib_author-year ltx_role_refnum ltx_tag_bibitem">J. Yang, C. E. Jimenez, A. Wettig, K. Lieret, S. Yao, K. Narasimhan, and O. Press (2024)</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Swe-agent: agent-computer interfaces enable automated software engineering</span>.
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">Advances in Neural Information Processing Systems</span> <span class="ltx_text ltx_bib_volume">37</span>, <span class="ltx_text ltx_bib_pages"> pp. 50528–50652</span>.
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S1.p1.1" title="1. Introduction ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§1</span></a>,
+<a href="#S2.p3.1" title="2. Background and Related Work ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2</span></a>.
+</span>
+</li>
+<li id="bib.bib18" class="ltx_bibitem ltx_bib_inproceedings">
+<span class="ltx_tag ltx_bib_author-year ltx_role_refnum ltx_tag_bibitem">Y. Zhang, H. Ruan, Z. Fan, and A. Roychoudhury (2024)</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">AutoCodeRover: autonomous program improvement</span>.
+</span>
+<span class="ltx_bibblock">In <span class="ltx_text ltx_bib_inbook">Proceedings of the 33rd ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA ’24)</span>,
+</span>
+<span class="ltx_bibblock">Note: <span class="ltx_text ltx_bib_note">Also available as arXiv:2404.05427</span>
+</span>
+<span class="ltx_bibblock">External Links: <span class="ltx_text ltx_bib_links"><a href="https://dx.doi.org/10.1145/3650212.3680384" title="" class="ltx_ref doi ltx_bib_external">Document</a>,
+<a href="https://dl.acm.org/doi/10.1145/3650212.3680384" title="" class="ltx_ref ltx_bib_external">Link</a></span>
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.p3.1" title="2. Background and Related Work ‣ On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2</span></a>.
+</span>
+</li>
+</ul>
+</section>
+</article>
+</div>
+</div>
+<footer class="arxiv-html-footer">
+  <div class="ltx_page_logo">
+    Experimental support, please
+    <a href="./2601.20404v2/__stdout.txt" class="ltx_ref"
+    target="_blank" rel="nofollow">view the build logs</a>
+    for errors. Generated by
+    <a href="https://math.nist.gov/~BMiller/LaTeXML/" target="_blank" class="ltx_ref ltx_LaTeXML_logo">
+      <span style="letter-spacing: -0.2em; margin-right: 0.1em;">
+        L
+        <span style="font-size: 70%; position: relative; bottom: 2.2pt;">A</span>
+        T
+        <span style="position: relative; bottom: -0.4ex;">E</span>
+      </span>
+      <span class="ltx_font_smallcaps">xml</span>
+      <img alt="[LOGO]"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==">
+    </a>.
+  </div>
+  <div class="keyboard-glossary">
+    <h2>Instructions for reporting errors</h2>
+    <p>We are continuing to improve HTML versions of papers, and your feedback helps enhance accessibility and mobile
+      support. To report errors in the HTML that will help us improve conversion and rendering, choose any of the
+      methods listed below:</p>
+    <ul>
+      <li>Click the "Report Issue" <span class="mobile-only">(<svg role="presentation"
+            style="display: inline-block; vertical-align: middle; fill: var(--text-color);" aria-hidden="true"
+            height="1em" viewBox="0 0 640 640">
+            <path
+              d="M224 160C224 107 267 64 320 64C373 64 416 107 416 160L416 163.6C416 179.3 403.3 192 387.6 192L252.5 192C236.8 192 224.1 179.3 224.1 163.6L224.1 160zM569.6 172.8C580.2 186.9 577.3 207 563.2 217.6L465.4 290.9C470.7 299.8 474.7 309.6 477.2 320L576 320C593.7 320 608 334.3 608 352C608 369.7 593.7 384 576 384L480 384L480 416C480 418.6 479.9 421.3 479.8 423.9L563.2 486.4C577.3 497 580.2 517.1 569.6 531.2C559 545.3 538.9 548.2 524.8 537.6L461.7 490.3C438.5 534.5 395.2 566.5 344 574.2L344 344C344 330.7 333.3 320 320 320C306.7 320 296 330.7 296 344L296 574.2C244.8 566.5 201.5 534.5 178.3 490.3L115.2 537.6C101.1 548.2 81 545.3 70.4 531.2C59.8 517.1 62.7 497 76.8 486.4L160.2 423.9C160.1 421.3 160 418.7 160 416L160 384L64 384C46.3 384 32 369.7 32 352C32 334.3 46.3 320 64 320L162.8 320C165.3 309.6 169.3 299.8 174.6 290.9L76.8 217.6C62.7 207 59.8 186.9 70.4 172.8C81 158.7 101.1 155.8 115.2 166.4L224 248C236.3 242.9 249.8 240 264 240L376 240C390.2 240 403.7 242.8 416 248L524.8 166.4C538.9 155.8 559 158.7 569.6 172.8z" />
+          </svg>)</span> button, located in the page header.</li>
+    </ul>
+    <p><strong>Tip:</strong> You can select the relevant text first, to include it in your report.</p>
+    <p>Our team has already identified <a class="ltx_ref" href="https://github.com/arXiv/html_feedback/issues"
+        target="_blank">the following issues</a>. We appreciate your time reviewing and reporting rendering errors we
+      may not have found yet. Your efforts will help us improve the HTML versions for all readers, because disability
+      should not be a barrier to accessing research. Thank you for your continued support in championing open access for
+      all.</p>
+    <p>Have a free development cycle? Help support accessibility at arXiv! Our collaborators at LaTeXML maintain a <a
+        class="ltx_ref" href="https://github.com/brucemiller/LaTeXML/wiki/Porting-LaTeX-packages-for-LaTeXML"
+        target="_blank">list of packages that need conversion</a>, and welcome <a class="ltx_ref"
+        href="https://github.com/brucemiller/LaTeXML/issues" target="_blank">developer contributions</a>.</p>
+  </div>
+</footer>
+<div id="fixed-buttons-container">
+  <div id="beta-badge" aria-hidden="true">BETA</div>
+  <a id="disable-reading-mode-btn" class="header-button" href="javascript:toggleReadingMode();"
+    title="Disable reading mode, show header and footer">
+    <svg role="presentation" height="1.25rem"
+      viewBox="0 0 448 512"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+      <path
+        d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z" />
+    </svg>
+  </a>
+</div></body>
+</html>

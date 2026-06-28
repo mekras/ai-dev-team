@@ -1,0 +1,58 @@
+statements:
+- id: MSDL-001
+  source_id: MSDL
+  item_id: MSDL-normalized-MSDL-source.md
+  status: ready_for_review
+  text: Microsoft SDL — методология встраивания безопасности и конфиденциальности
+    в процесс разработки; в основе — обучение, непрерывное улучшение процесса и отчётность.
+  excerpt: обзор SDL.
+  artifact: source.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Назначение методологии
+    application: специалист по безопасности, project-manager.
+  open_questions: []
+- id: MSDL-002
+  source_id: MSDL
+  item_id: MSDL-normalized-MSDL-source.md
+  status: ready_for_review
+  text: 'современная редакция выражена набором практик: обучение, требования безопасности,
+    метрики и отчётность о соответствии, моделирование угроз, требования к проектированию
+    (уменьшение поверхности атаки), стандарты криптографии, управление риском сторонних
+    компонентов, утверждённые инструменты, SAST, DAST (включая фаззинг), тестирование
+    на проникновение, процесс реагирования на инциденты.'
+  excerpt: страница практик SDL.
+  artifact: source.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Практики по этапам
+    application: специалист по безопасности, разработчик.
+  open_questions: []
+- id: MSDL-003
+  source_id: MSDL
+  item_id: MSDL-normalized-MSDL-source.md
+  status: ready_for_review
+  text: моделирование угроз выполняется на этапе проектирования и в основе использует
+    классификацию `STRIDE`; это согласуется с навыком security-threat-modeling` и
+    книгой `TMDS` в корпусе.
+  excerpt: практика моделирования угроз.
+  artifact: source.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Моделирование угроз и STRIDE
+    application: специалист по безопасности, архитектор.
+  open_questions: []
+- id: MSDL-004
+  source_id: MSDL
+  item_id: MSDL-normalized-MSDL-source.md
+  status: ready_for_review
+  text: MSDL — авторитетный отраслевой пример SDL, тема которого в значительной мере
+    покрыта `TMDS`, `SSDF` и `SAMM`; используется как пример, а не как предписывающий
+    стандарт; формулировки сверять по каноническому адресу.
+  excerpt: обзор и сопоставление.
+  artifact: source.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Положение среди источников корпуса
+    application: специалист по безопасности.
+  open_questions: []

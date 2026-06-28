@@ -1,0 +1,68 @@
+statements:
+- id: GIST-001
+  source_id: GIST
+  item_id: GIST-normalized-GIST-pages-7c8f65572930a21efa62623557d83f6e-index.md
+  status: ready_for_review
+  text: в источнике AGENTS.md описывается как документ машинного входа, дополняющий
+    human-oriented README.
+  excerpt: раздел "AGENTS.md has emerged as the de facto open standard... for AI coding
+    assistants" и сравнение с README.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: разделение человеческой и машинной документации.
+  open_questions: []
+- id: GIST-002
+  source_id: GIST
+  item_id: GIST-normalized-GIST-pages-7c8f65572930a21efa62623557d83f6e-index.md
+  status: ready_for_review
+  text: практика формализации AGENTS.md связывается с широким распространением стандарта
+    и использованием несколькими вендорами.
+  excerpt: упоминание формализации в сотрудничестве OpenAI/Google/Cursor/Sourcegraph
+    и массового adoption.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: обоснование поддержки cross-tool форматов.
+  open_questions: []
+- id: GIST-003
+  source_id: GIST
+  item_id: GIST-normalized-GIST-pages-7c8f65572930a21efa62623557d83f6e-index.md
+  status: ready_for_review
+  text: рекомендуемый фокус — внятные команды, шаблоны и секции по стеку, а не абстрактные
+    инструкции.
+  excerpt: разделы "What is AGENTS.md..." и "Template structures".
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: шаблоны содержания AGENTS.md.
+  open_questions: []
+- id: GIST-004
+  source_id: GIST
+  item_id: GIST-normalized-GIST-pages-7c8f65572930a21efa62623557d83f6e-index.md
+  status: ready_for_review
+  text: в разделе про критические ошибки указывается запрет секретов, опасность раздувания
+    документа и неактуальность устаревших файлов.
+  excerpt: список "Critical mistake X" в тексте.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: эксплуатационные риски AGENTS.md.
+  open_questions: []
+- id: GIST-005
+  source_id: GIST
+  item_id: GIST-normalized-GIST-pages-7c8f65572930a21efa62623557d83f6e-index.md
+  status: ready_for_review
+  text: для больших проектов рекомендуются шаблоны с уровнями детализации и отдельными
+    секциями под технологический стек.
+  excerpt: раздел "Template structures", "Python + AWS + Terraform".
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: масштабирование AGENTS.md в монорепозитории.
+  open_questions: []

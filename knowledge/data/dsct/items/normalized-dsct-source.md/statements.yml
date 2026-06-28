@@ -1,0 +1,67 @@
+statements:
+- id: DSCT-001
+  source_id: DSCT
+  item_id: DSCT-normalized-DSCT-source.md
+  status: ready_for_review
+  text: надёжность (dependability) — способность системы предоставлять сервис, которому
+    можно обоснованно доверять; это обобщающее понятие.
+  excerpt: раздел 2 (базовые понятия).
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Определение надёжности
+    application: аналитик, архитектор, специалист по безопасности.
+  open_questions: []
+- id: DSCT-002
+  source_id: DSCT
+  item_id: DSCT-normalized-DSCT-source.md
+  status: ready_for_review
+  text: надёжность объединяет свойства — готовность (availability), безотказность
+    (reliability), безопасность (safety), целостность (integrity), ремонтопригодность
+    (maintainability); конфиденциальность добавляется при рассмотрении security.
+  excerpt: раздел 2.3.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Свойства надёжности
+    application: аналитик, архитектор, security-engineer.
+  open_questions: []
+- id: DSCT-003
+  source_id: DSCT
+  item_id: DSCT-normalized-DSCT-source.md
+  status: ready_for_review
+  text: угрозы надёжности образуют причинную цепочку дефект (fault) → ошибка (error)
+    → отказ (failure).
+  excerpt: раздел 3.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Цепочка угроз
+    application: аналитик, архитектор.
+  open_questions: []
+- id: DSCT-004
+  source_id: DSCT
+  item_id: DSCT-normalized-DSCT-source.md
+  status: ready_for_review
+  text: средства делятся на предотвращение дефектов, отказоустойчивость, устранение
+    дефектов и прогнозирование дефектов.
+  excerpt: раздел 5.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Средства обеспечения надёжности
+    application: архитектор, security-engineer, project-manager.
+  open_questions: []
+- id: DSCT-005
+  source_id: DSCT
+  item_id: DSCT-normalized-DSCT-source.md
+  status: ready_for_review
+  text: дефект, ошибка и отказ — разные состояния; не каждый дефект приводит к отказу
+    (зависит от активации и распространения ошибки).
+  excerpt: разделы 3.2–3.3.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Дефект не равен отказу
+    application: аналитик, архитектор.
+  open_questions: []

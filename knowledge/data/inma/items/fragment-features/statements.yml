@@ -1,0 +1,29 @@
+statements:
+- id: INMA-004
+  source_id: INMA
+  item_id: INMA-fragment-features
+  status: ready_for_review
+  text: управление продуктом через перечень функций рискованно, если список функций
+    подменяет понимание целей и задач пользователя.
+  excerpt: глава о «торге за набор функций».
+  artifact: features-vs-goals.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: ''
+    application: requirements-analysis, requirements-validation, project-management.
+  open_questions: []
+- id: INMA-005
+  source_id: INMA
+  item_id: INMA-fragment-features
+  status: ready_for_review
+  text: пользователи заинтересованы не в максимальном количестве функций, а в способности
+    продукта решать их задачи; лишние функции повышают сложность, стоимость поддержки
+    и когнитивную нагрузку.
+  excerpt: глава о функциях и целях пользователя.
+  artifact: features-vs-goals.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: ''
+    application: проверка требований, проектирование пользовательских сценариев, UX-рецензия
+      интерфейса.
+  open_questions: []

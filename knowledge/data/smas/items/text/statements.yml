@@ -1,0 +1,530 @@
+statements:
+- id: SMAS-001
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: микросервис обычно реализует одну функциональную ответственность и обладает
+    свойствами независимой развёртываемости и управляемости, а также эфемерности и
+    эластичности (экземпляры короткоживущие, число масштабируется под нагрузку).
+  excerpt: глава 1, вводный раздел.
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Характеристики микросервиса
+    application: архитектор, специалист по безопасности.
+  open_questions: []
+- id: SMAS-002
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: типичные для микросервисов веб-API (HTTP/JSON) и контейнерные развёртывания
+    должны учитываться в любом решении по контролю доступа к API.
+  excerpt: глава 1, вводный раздел.
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Типичные технологии микросервисов влияют на безопасность
+    application: архитектор, специалист по безопасности.
+  open_questions: []
+- id: SMAS-003
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: отчёт фиксирует понятия — сервис, экземпляр сервиса, интерфейс/веб-API, эндпойнт
+    API, запрос и ответ API, потребитель и поставщик API, посредник API (шлюз, сервисный
+    прокси); один сервис может быть и потребителем, и поставщиком.
+  excerpt: глава 1, раздел «The Microservice API Landscape».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Базовый словарь API
+    application: архитектор, специалист по безопасности.
+  open_questions: []
+- id: SMAS-004
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: контроль доступа к веб-API описывается рамкой `IAAA` — идентификация, аутентификация,
+    авторизация и учёт/аудит (accountability).
+  excerpt: глава 1, раздел «API Access Control for Microservices».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Рамка управления доступом IAAA
+    application: архитектор, специалист по безопасности.
+  open_questions: []
+- id: SMAS-005
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: сообщения API могут запускаться действиями пользователя или автоматическими
+    событиями и проходить через посредников, поэтому участники должны уметь передавать
+    и принимать в запросе несколько идентичностей с их атрибутами.
+  excerpt: глава 1, подраздел «Identification».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Множественные идентичности в одном запросе
+    application: специалист по безопасности, архитектор.
+  open_questions: []
+- id: SMAS-006
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: в распределённой микросервисной архитектуре один запрос может пройти через
+    несколько решений об авторизации по мере передачи от компонента к компоненту;
+    любой аутентифицировавший идентичность компонент может принять решение об авторизации.
+  excerpt: глава 1, подраздел «Authorization».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Множественные решения об авторизации на пути запроса
+    application: архитектор, специалист по безопасности.
+  open_questions: []
+- id: SMAS-007
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: важно фиксировать активность, вызванную запросами API, с максимально полным
+    контекстом сообщения, чтобы иметь данные для расследования намеренных и непреднамеренных
+    нарушений.
+  excerpt: глава 1, подраздел «Accountability».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Ценность аудита для расследования инцидентов
+    application: специалист по безопасности.
+  open_questions: []
+- id: SMAS-008
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: решение по контролю доступа в микросервисной архитектуре должно удовлетворять
+    нефункциональным качествам — управляемости/операбельности (машинные интерфейсы
+    для автоматизации), производительности (минимум добавленной задержки) и удобству
+    для разработчика.
+  excerpt: глава 1, раздел «Microservice Architecture Qualities».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Нефункциональные качества решения доступа
+    application: архитектор, специалист по безопасности.
+  open_questions: []
+- id: SMAS-009
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: безопасность строится на доверии, у которого нет точной меры; хорошая архитектура
+    безопасности прозрачна относительно того, куда вложено доверие, и представляет
+    собой настройку баланса доверия и принятия риска.
+  excerpt: глава 2, раздел «Establishing Trust».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Вся безопасность основана на доверии
+    application: архитектор, специалист по безопасности.
+  open_questions: []
+- id: SMAS-010
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: сетевая сегментация — базовый механизм; сегменты следует держать как можно
+    меньше, а пересечение границы зоны должно требовать более строгой проверки (например,
+    валидации токена безопасности).
+  excerpt: глава 2, раздел «Network-Level Controls».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Сетевая сегментация и зоны
+    application: архитектор, специалист по безопасности.
+  open_questions: []
+- id: SMAS-011
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: SSL/TLS даёт конфиденциальность и целостность данных в передаче, аутентификацию
+    сервера и опционально клиента; на современных CPU влияние на производительность
+    незначительно, поэтому все API должны использовать SSL/TLS повсеместно.
+  excerpt: глава 2, раздел «SSL/TLS».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: SSL/TLS для всех API
+    application: архитектор, специалист по безопасности, разработчик.
+  open_questions: []
+- id: SMAS-012
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: SPIFFE упрощает аутентификацию сервисов и выдаёт `SVID` — сертификаты, уникально
+    идентифицирующие компоненты в микросервисной инфраструктуре, что полезно в динамичной
+    среде с традиционно сложным управлением PKI.
+  excerpt: глава 2, врезка «SPIFFE».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: SPIFFE для идентичности сервисов
+    application: специалист по безопасности, архитектор.
+  open_questions: []
+- id: SMAS-013
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: прикладные сущности устанавливают доверие через обмен токенами безопасности;
+    доверенная третья сторона выпускает токены и применяет криптографию, позволяя
+    сторонам без предварительных отношений установить доверие.
+  excerpt: глава 2, раздел «Application-Level Controls».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Прикладной контроль через обмен токенами
+    application: архитектор, специалист по безопасности.
+  open_questions: []
+- id: SMAS-014
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: идентификатор сессии привязан к акту аутентификации и служит заменой первичных
+    факторов пользователя, поэтому угон сессии (session hijacking) даёт атакующему
+    все права валидных учётных данных.
+  excerpt: глава 2, раздел «The Problem with Traditional Web Tokens».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Ограничения веб-сессий и угон сессии
+    application: специалист по безопасности, разработчик.
+  open_questions: []
+- id: SMAS-015
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: SAML ввёл важные паттерны контроля доступа — разделение клиентов, защищаемых
+    ресурсов и провайдеров идентичности и различие между точкой принятия решения (PDP)
+    и точкой его применения (PEP), которые могут быть централизованы или распределены.
+  excerpt: глава 2, раздел «The Problem with Traditional Web Tokens».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: 'Вклад SAML: PDP и PEP'
+    application: архитектор, специалист по безопасности.
+  open_questions: []
+- id: SMAS-016
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: SAML сложен, опирается на централизованное администрирование доверия и XML/SOAP
+    и не помогает пользователю делегировать авторизацию между приложениями, поэтому
+    он плохо подходит для API и микросервисов.
+  excerpt: глава 2, раздел «The Problem with Traditional Web Tokens».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: SAML не подходит для API и микросервисов
+    application: архитектор, специалист по безопасности.
+  open_questions: []
+- id: SMAS-017
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: современная модель токенов исходит из того, что клиентскому или серверному
+    приложению нельзя доверять первичный фактор аутентификации (пароль); следует выдавать
+    короткоживущие токены с ограниченными возможностями.
+  excerpt: глава 2, раздел «Modern Tokens For APIs».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Принцип недоверия приложениям
+    application: специалист по безопасности, архитектор.
+  open_questions: []
+- id: SMAS-018
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: API-ключ — непрозрачный токен, идентифицирующий приложение, а не пользователя;
+    он встроен в бинарный образ, может быть извлечён атакующим и поэтому не должен
+    считаться авторитетным и заменять аутентификацию пользователя.
+  excerpt: глава 2, раздел «API keys» и врезка «API Keys or OAuth».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: API-ключи идентифицируют приложение, а не пользователя
+    application: специалист по безопасности, разработчик, архитектор.
+  open_questions: []
+- id: SMAS-019
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: OAuth 2.0 — предпочтительный фреймворк делегированной авторизации; это не
+    протокол аутентификации, а способ для владельца ресурса дать приложению ограниченный
+    по времени и области доступ к ресурсу от своего имени.
+  excerpt: глава 2, раздел «OAuth 2.0».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: OAuth 2.0 — протокол авторизации, не аутентификации
+    application: архитектор, специалист по безопасности, разработчик.
+  open_questions: []
+- id: SMAS-020
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: 'OpenID Connect добавляет к OAuth аутентификацию: через доверенный канал (например,
+    нативный браузер) пользователь аутентифицируется у провайдера идентичности, а
+    приложению выдаётся ограниченный по области и времени ID-токен, что выводит приложения
+    из «бизнеса аутентификации».'
+  excerpt: глава 2, раздел «OpenID Connect».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: OpenID Connect — слой аутентификации поверх OAuth
+    application: архитектор, специалист по безопасности.
+  open_questions: []
+- id: SMAS-021
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: непрозрачный (by-reference) токен индексирует состояние на централизованном
+    сервере и требует валидации у эмитента (простое отзывание, но узкое место); прозрачный
+    (by-value) токен интерпретируется локально в точке принятия решения и лучше масштабируется;
+    ID-токен OIDC — прозрачный.
+  excerpt: глава 2, раздел «Opaque tokens versus transparent tokens».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Непрозрачные и прозрачные токены
+    application: архитектор, специалист по безопасности.
+  open_questions: []
+- id: SMAS-022
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: JWT — JSON-формат для обмена утверждениями (claims) с заголовком, телом, подписью
+    (JWS) и опциональным шифрованием (JWE); утверждения позволяют применять локальную
+    политику и лежат в основе ABAC — авторизации по атрибутам, а не по индивидуальной
+    идентичности.
+  excerpt: глава 2, раздел «JWT».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: JWT и ABAC
+    application: архитектор, специалист по безопасности.
+  open_questions: []
+- id: SMAS-023
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: отчёт рекомендует использовать JWT для авторизации, но избегать его для управления
+    пользовательскими сессиями, и отмечает выявленные проблемы стека JOSE (ранние
+    реализации позволяли подделывать токены, нет механизма версионирования для исключения
+    слабых алгоритмов).
+  excerpt: глава 2, врезка «JWT Sessions and JOSE Issues».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Осторожность с JWT для сессий и стеком JOSE
+    application: специалист по безопасности, разработчик.
+  open_questions: []
+- id: SMAS-024
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: прокси и шлюзы — обратные прокси между клиентом и сервером; шлюзы работают
+    на более высоком уровне, программируемы и обычно отвечают за аутентификацию, авторизацию,
+    обнаружение угроз и управление трафиком.
+  excerpt: глава 2, раздел «Proxy/Gateway».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Различие прокси и API-шлюза
+    application: архитектор, специалист по безопасности.
+  open_questions: []
+- id: SMAS-025
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: платформы (Kubernetes, Cloud Foundry, AWS) дают абстракции контроля доступа,
+    но их использование требует доверия к самой платформе, что нельзя принимать легкомысленно;
+    ответственность за доступ к веб-API часто всё равно остаётся за сервисом или делегированным
+    посредником (например, шлюзом).
+  excerpt: глава 2, разделы «PaaS», «Kubernetes».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Доверие к PaaS как осознанное решение
+    application: архитектор, специалист по безопасности.
+  open_questions: []
+- id: SMAS-026
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: контроль доступа всё больше уходит в платформу и выражается политиками высокого
+    уровня (Open Policy Agent) и через service mesh (например, Istio с Envoy и взаимным
+    TLS), что отделяет безопасность от отдельных сервисов.
+  excerpt: глава 2, разделы «Emerging Approaches», «Service Mesh».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: 'Развивающиеся подходы: OPA и service mesh'
+    application: архитектор, специалист по безопасности.
+  open_questions: []
+- id: SMAS-027
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: проверка доверия в рантайме обычно эффективнее аутентификации недоверенного
+    источника, поэтому различие доверенных и недоверенных запросов можно использовать
+    для оптимизации общего решения безопасности.
+  excerpt: глава 3, раздел «Common Patterns…».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Дуальность «доверенный/недоверенный» как приём оптимизации
+    application: архитектор, специалист по безопасности.
+  open_questions: []
+- id: SMAS-028
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: DHARMA` вводит трастовый домен (группа привилегированно взаимодействующих
+    сервисов), доменное отношение (причина группировки), механизм доверия (проверка
+    источника внутри домена) и механизм доступа (аутентификация и авторизация внешних
+    запросов).
+  excerpt: глава 3, раздел «DHARMA».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Базовые понятия DHARMA
+    application: архитектор, специалист по безопасности.
+  open_questions: []
+- id: SMAS-029
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: внутренний (interior) эндпойнт доступен сервисам внутри домена через механизм
+    доверия, граничный (boundary) — внешним сервисам через механизм доступа; граничный
+    эндпойнт одного домена может быть внутренним для внешнего домена, образуя доменную
+    иерархию.
+  excerpt: глава 3, раздел «DHARMA».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Внутренние и граничные эндпойнты, доменная иерархия
+    application: архитектор, специалист по безопасности.
+  open_questions: []
+- id: SMAS-030
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: 'методология DHARMA: (1) выявить трастовые домены, (2) определить механизмы
+    доверия и доступа для каждого домена, (3) определить внутренние и граничные эндпойнты,
+    (4) выбрать платформы реализации эндпойнтов.'
+  excerpt: глава 3, раздел «DHARMA Design Methodology».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Методология проектирования DHARMA из четырёх шагов
+    application: архитектор, специалист по безопасности.
+  open_questions: []
+- id: SMAS-031
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: 'предложенная реализация — три уровня: внешняя область (внешние сущности),
+    внешний домен (грубозернистые переиспользуемые сервисы) и внутренние домены (самые
+    гранулярные сервисы), с разными механизмами для каждого уровня.'
+  excerpt: глава 3, разделы «Domain Hierarchy», «Trust and Access Mechanisms».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Платформонезависимая реализация в три уровня
+    application: архитектор, специалист по безопасности.
+  open_questions: []
+- id: SMAS-032
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: для внешнего домена доступ — OAuth 2.0 с непрозрачным токеном; для внешнего
+    домена доверие (и доступ внутренних доменов) — доверие на основе сертификатов
+    и подписанных JWT; для внутренних доменов доверие смещено к производительности
+    (изоляция сети, коллокация), но JWT может передаваться для учёта и наблюдаемости.
+  excerpt: глава 3, раздел «Trust and Access Mechanisms».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Выбор механизмов по уровням
+    application: архитектор, специалист по безопасности.
+  open_questions: []
+- id: SMAS-033
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: реализация требует удостоверяющего центра для выдачи сертификатов (как минимум
+    по одному на внутренний домен) и комплексного управления токенами (валидация,
+    выпуск, обмен, разыменование), желательно с распределёнными защищёнными токен-сервисами
+    для снижения задержки.
+  excerpt: глава 3, разделы «Certificate management», «Token management».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: 'Соображения реализации: управление сертификатами и токенами'
+    application: специалист по безопасности, архитектор.
+  open_questions: []
+- id: SMAS-034
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: внутри доменов ожидаются короткоживущие JWT (срок жизни менее часа), возможно
+    одноразовые; области OAuth (scopes) и утверждения JWT (claims) несут информацию
+    для решений об авторизации.
+  excerpt: глава 3, раздел «Token management».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Короткоживущие токены и их область
+    application: специалист по безопасности, разработчик.
+  open_questions: []
+- id: SMAS-035
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: в распределённой архитектуре один запрос пользователя порождает несколько
+    записей аудита; все операции с токенами (выпуск, обмен, распространение) и все
+    решения об авторизации должны логироваться, обычно посредниками (шлюз, сервисный
+    прокси).
+  excerpt: глава 3, раздел «Microservice API accountability».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Аудит операций с токенами и решений об авторизации
+    application: специалист по безопасности, архитектор.
+  open_questions: []
+- id: SMAS-036
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: чтобы изменение политики доступа не затрагивало всех разработчиков, логику
+    применения политик следует изолировать в посредниках под управлением централизованных
+    команд, а не раздавать в общих библиотеках; политики доступа стоит публиковать
+    через OpenAPI.
+  excerpt: глава 3, разделы «Publishing… Policies», «Access Control Policy Change
+    Management».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Изоляция логики политик в посредниках
+    application: архитектор, специалист по безопасности.
+  open_questions: []
+- id: SMAS-037
+  source_id: SMAS
+  item_id: SMAS-text
+  status: ready_for_review
+  text: отчёт ограничен HTTP-API, но авторы считают, что абстрактная модель DHARMA
+    может быть обобщена на контроль плоскости данных для других протоколов (gRPC,
+    асинхронные сообщения), где зрелых механизмов доступа пока меньше.
+  excerpt: глава 4, разделы «Applying DHARMA», «Extending DHARMA».
+  artifact: securing-microservice-apis.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Граница применимости и расширение DHARMA
+    application: архитектор, специалист по безопасности.
+  open_questions: []

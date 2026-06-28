@@ -1,0 +1,78 @@
+statements:
+- id: AR26-001
+  source_id: AR26
+  item_id: AR26-normalized-AR26-pages-2602.11988v1-index.md
+  status: ready_for_review
+  text: исследование сравнивает LLM-генерируемые и developer-written контекстные файлы
+    на разных наборах задач.
+  excerpt: описание методики с SWE-bench и issue-коллекцией.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: дизайн методик оценки контекста.
+  open_questions: []
+- id: AR26-002
+  source_id: AR26
+  item_id: AR26-normalized-AR26-pages-2602.11988v1-index.md
+  status: ready_for_review
+  text: по результатам нескольких агентов и LLM использование context-файлов снижает
+    вероятность успешного завершения по сравнению с отсутствием контекста.
+  excerpt: абстракт.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: риск оценки избыточных требований.
+  open_questions: []
+- id: AR26-003
+  source_id: AR26
+  item_id: AR26-normalized-AR26-pages-2602.11988v1-index.md
+  status: ready_for_review
+  text: использование контекстных файлов увеличивает инференс-кост на более чем 20%.
+  excerpt: абстракт указывает рост inference cost.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: оценка производительности и стоимости.
+  open_questions: []
+- id: AR26-004
+  source_id: AR26
+  item_id: AR26-normalized-AR26-pages-2602.11988v1-index.md
+  status: ready_for_review
+  text: контекстные файлы увеличивают глубину изучения репозитория (широкая проверка,
+    большее файловое исследование), и агенты в целом следуют заданным инструкциям.
+  excerpt: абстракт о behavioral effects и "coding agents tend to respect their instructions".
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: баланс полезности и риска.
+  open_questions: []
+- id: AR26-005
+  source_id: AR26
+  item_id: AR26-normalized-AR26-pages-2602.11988v1-index.md
+  status: ready_for_review
+  text: итоговый вывод статьи — оставлять только минимально необходимые требования
+    во избежание усложнения задач.
+  excerpt: заключение абстракта.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: стратегия компоновки `AGENTS.md`.
+  open_questions: []
+- id: AR26-006
+  source_id: AR26
+  item_id: AR26-normalized-AR26-pages-2602.11988v1-index.md
+  status: ready_for_review
+  text: в введении указано, что на момент публикации практику используют десятки тысяч
+    репозиториев.
+  excerpt: упоминание более 60 000 репозиториев с такими файлами.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: оценка практической распространенности подхода.
+  open_questions: []

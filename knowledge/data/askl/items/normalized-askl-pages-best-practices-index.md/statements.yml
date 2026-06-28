@@ -1,0 +1,60 @@
+statements:
+- id: ASKL-001
+  source_id: ASKL
+  item_id: ASKL-normalized-ASKL-pages-best-practices-index.md
+  status: ready_for_review
+  text: навык должен опираться на реальный предметный опыт, проектные артефакты и
+    выполненные задачи, а не только на общие знания модели.
+  excerpt: страница `best-practices` рекомендует извлекать навык из практической задачи,
+    исправлений, форматов входа и выхода, проектных ограничений и существующих артефактов.
+  artifact: index.md
+  checked_at: '2026-06-01'
+  scope:
+    section_title: ''
+    application: разработка новых навыков и существенная переработка существующих
+      навыков.
+  open_questions: []
+- id: ASKL-002
+  source_id: ASKL
+  item_id: ASKL-normalized-ASKL-pages-best-practices-index.md
+  status: ready_for_review
+  text: первый вариант навыка следует проверять на реальных задачах и уточнять по
+    следам выполнения, включая успешные и неуспешные проходы.
+  excerpt: страница `best-practices` описывает цикл запуска навыка на реальных задачах
+    с последующим анализом ложных срабатываний, пропусков и лишнего содержимого.
+  artifact: index.md
+  checked_at: '2026-06-01'
+  scope:
+    section_title: ''
+    application: проверка и сопровождение навыков после первого черновика.
+  open_questions: []
+- id: ASKL-003
+  source_id: ASKL
+  item_id: ASKL-normalized-ASKL-pages-best-practices-index.md
+  status: ready_for_review
+  text: 'содержимое навыка должно добавлять сведения, которых агенту не хватает без
+    навыка: проектные соглашения, предметные процедуры, неочевидные случаи, инструменты
+    и API.'
+  excerpt: страница `best-practices` предлагает убирать сведения, которые агент обычно
+    знает без навыка, и проверять, ошибся бы агент без конкретной инструкции.
+  artifact: index.md
+  checked_at: '2026-06-01'
+  scope:
+    section_title: ''
+    application: отбор содержимого для `SKILL.md` и вспомогательных файлов навыка.
+  open_questions: []
+- id: ASKL-004
+  source_id: ASKL
+  item_id: ASKL-normalized-ASKL-pages-best-practices-index.md
+  status: ready_for_review
+  text: 'крупные навыки следует строить с постепенным раскрытием контекста: основной
+    файл содержит ядро, а подробные материалы загружаются по условиям из отдельных
+    файлов.'
+  excerpt: страница `best-practices` рекомендует переносить подробные материалы в
+    `references/` или похожие каталоги и явно указывать условие чтения каждого файла.
+  artifact: index.md
+  checked_at: '2026-06-01'
+  scope:
+    section_title: ''
+    application: структура больших навыков и вспомогательных материалов.
+  open_questions: []

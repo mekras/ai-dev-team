@@ -1,0 +1,67 @@
+statements:
+- id: ESWO-001
+  source_id: ESWO
+  item_id: ESWO-normalized-ESWO-source.md
+  status: ready_for_review
+  text: безопасность и надёжность — эмерджентные свойства системы, возникающие из
+    взаимодействия компонентов, а не сводимые к надёжности отдельных частей.
+  excerpt: вводные главы системного подхода.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Безопасность как эмерджентное свойство
+    application: архитектор, аналитик, security-engineer.
+  open_questions: []
+- id: ESWO-002
+  source_id: ESWO
+  item_id: ESWO-normalized-ESWO-source.md
+  status: ready_for_review
+  text: аварии возникают из-за нарушения ограничений безопасности (safety constraints)
+    в управляющей структуре, а не только из-за отказа компонентов.
+  excerpt: подтверждённые термины `safety constraint`, control structure`, `hazard`.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Аварии как недостаток контроля
+    application: архитектор, security-engineer.
+  open_questions: []
+- id: ESWO-003
+  source_id: ESWO
+  item_id: ESWO-normalized-ESWO-source.md
+  status: ready_for_review
+  text: STAMP` объясняет причины аварий через нарушение ограничений безопасности в
+    иерархической управляющей структуре.
+  excerpt: изложение модели STAMP.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Модель STAMP
+    application: архитектор, аналитик.
+  open_questions: []
+- id: ESWO-004
+  source_id: ESWO
+  item_id: ESWO-normalized-ESWO-source.md
+  status: ready_for_review
+  text: STPA` выявляет небезопасные управляющие воздействия (unsafe control actions)
+    и переформулирует их в ограничения безопасности.
+  excerpt: подтверждённый фрагмент об unsafe control actions и переформулировании
+    в ограничения.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Метод STPA
+    application: архитектор, security-engineer, аналитик.
+  open_questions: []
+- id: ESWO-005
+  source_id: ESWO
+  item_id: ESWO-normalized-ESWO-source.md
+  status: ready_for_review
+  text: подход разработан для систем с риском для жизни и критичной инфраструктуры;
+    перенос на обычное ПО требует отдельного обоснования.
+  excerpt: предмет и границы книги.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Область применимости
+    application: project-manager, архитектор.
+  open_questions: []

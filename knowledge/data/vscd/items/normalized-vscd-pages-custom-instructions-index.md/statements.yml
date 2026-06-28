@@ -1,0 +1,66 @@
+statements:
+- id: VSCD-001
+  source_id: VSCD
+  item_id: VSCD-normalized-VSCD-pages-custom-instructions-index.md
+  status: ready_for_review
+  text: VS Code поддерживает как глобальные, так и файловые инструкции для чат-ассистента,
+    включая scoped-подход по шаблонам.
+  excerpt: разделы про Always-on instructions и File-based instructions.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: политика конфигурации ассистента в проекте.
+  open_questions: []
+- id: VSCD-002
+  source_id: VSCD
+  item_id: VSCD-normalized-VSCD-pages-custom-instructions-index.md
+  status: ready_for_review
+  text: AGENTS.md`, `.github/copilot-instructions.md`, .instructions.md` и `CLAUDE.md`
+    рассматриваются как легитимные точки хранения правил.
+  excerpt: перечислены типы поддерживаемых файловых инструкций.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: выбор формата для внутренних и общих правил.
+  open_questions: []
+- id: VSCD-003
+  source_id: VSCD
+  item_id: VSCD-normalized-VSCD-pages-custom-instructions-index.md
+  status: ready_for_review
+  text: если инструкций несколько, их контент может комбинироваться без строгой гарантии
+    порядка.
+  excerpt: раздел об условиях слияния нескольких instruction-файлов.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: риск конфликтов при дублирующих правилах.
+  open_questions: []
+- id: VSCD-004
+  source_id: VSCD
+  item_id: VSCD-normalized-VSCD-pages-custom-instructions-index.md
+  status: ready_for_review
+  text: inline suggestions в редакторе не обрабатываются через custom instructions
+    чата.
+  excerpt: заметка о том, что custom instructions не применяются к предложениям inline.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: ожидания от поведения автодополнений.
+  open_questions: []
+- id: VSCD-005
+  source_id: VSCD
+  item_id: VSCD-normalized-VSCD-pages-custom-instructions-index.md
+  status: ready_for_review
+  text: scoped подход через паттерны файлов повышает точность применения инструкций
+    для частей репозитория.
+  excerpt: раздел про file-based instructions и match по описанию/файлу.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: модульная маршрутизация правил.
+  open_questions: []

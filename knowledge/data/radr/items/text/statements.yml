@@ -1,0 +1,1083 @@
+statements:
+- id: RADR-001
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: 'архитектурный стиль Веба образован шестью группами ограничений: client-server,
+    uniform interface, layered system, cache, stateless и code-on-demand.'
+  excerpt: глава 1 «Introduction», раздел «Web Architecture».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Шесть ограничений архитектуры Веба
+    application: архитектор.
+  open_questions: []
+- id: RADR-002
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: code-on-demand — единственное необязательное ограничение стиля Веба, остальные
+    пять обязательны для соответствия.
+  excerpt: глава 1 «Introduction», раздел «Code-On-Demand».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Code-on-demand — единственное опциональное ограничение
+    application: архитектор.
+  open_questions: []
+- id: RADR-003
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: 'единообразный интерфейс задаётся четырьмя ограничениями: идентификация ресурсов,
+    манипуляция через представления, самоописываемые сообщения и HATEOAS.'
+  excerpt: глава 1 «Introduction», раздел «Uniform Interface».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Четыре ограничения единообразного интерфейса
+    application: архитектор.
+  open_questions: []
+- id: RADR-004
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: сервер не обязан запоминать состояние клиентов, поэтому клиент должен передавать
+    весь нужный контекст в каждом запросе, что повышает масштабируемость.
+  excerpt: глава 1 «Introduction», раздел «Stateless».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Stateless как фактор масштабируемости
+    application: архитектор.
+  open_questions: []
+- id: RADR-005
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: модель зрелости Ричардсона из трёх уровней (URI, HTTP, Hypermedia) служит
+    способом оценки «RESTful» дизайна API.
+  excerpt: глава 1 «Introduction» / предисловие, упоминание Леонарда Ричардсона.
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Модель зрелости Ричардсона
+    application: архитектор.
+  open_questions: []
+- id: RADR-006
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: автор вводит WRML (Web Resource Modeling Language) и медиатип application/wrml`
+    с подключаемыми компонентами format и schema для единообразного описания форм
+    представлений.
+  excerpt: глава 1 «Introduction», раздел «WRML».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: WRML как рамка моделирования
+    application: архитектор.
+  open_questions: []
+- id: RADR-007
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: прямой слеш `/` обязательно используется для обозначения иерархических отношений
+    между ресурсами в пути URI.
+  excerpt: глава 2, правило «Forward slash separator».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Прямой слеш как иерархический разделитель
+    application: разработчик.
+  open_questions: []
+- id: RADR-008
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: завершающий прямой слеш `/` в URI использоваться не должен.
+  excerpt: глава 2, правило «A trailing forward slash should not be included».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Без завершающего слеша
+    application: разработчик.
+  open_questions: []
+- id: RADR-009
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: для улучшения читаемости URI следует использовать дефисы `-`.
+  excerpt: глава 2, правило «Hyphens should be used».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Дефисы для читаемости
+    application: разработчик.
+  open_questions: []
+- id: RADR-010
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: подчёркивания `_` в URI использоваться не должны, так как подчёркивание ссылок
+    может их скрыть.
+  excerpt: глава 2, правило «Underscores should not be used».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Без подчёркиваний
+    application: разработчик.
+  open_questions: []
+- id: RADR-011
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: в путях URI следует предпочитать строчные буквы.
+  excerpt: глава 2, правило «Lowercase letters should be preferred».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Нижний регистр в путях
+    application: разработчик.
+  open_questions: []
+- id: RADR-012
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: расширения файлов в URI включаться не должны; для выбора формата следует использовать
+    согласование медиатипа.
+  excerpt: глава 2, правило «File extensions should not be included».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Без расширений файлов в URI
+    application: разработчик.
+  open_questions: []
+- id: RADR-013
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: домен API следует дополнять субдоменом `api` (например, api.soccer.restapi.org`),
+    а портал разработчика — субдоменом `developer`.
+  excerpt: глава 2, правила «Consistent subdomain names».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Согласованные субдомены
+    application: архитектор.
+  open_questions: []
+- id: RADR-014
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: ресурс-документ (document) следует именовать существительным или именной группой
+    в единственном числе.
+  excerpt: глава 2, правило «A singular noun should be used for document names».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Существительное в единственном числе для document
+    application: разработчик.
+  open_questions: []
+- id: RADR-015
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: коллекцию (collection) следует именовать существительным во множественном
+    числе, отражающим содержимое.
+  excerpt: глава 2, правило «A plural noun should be used for collection names».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Множественное число для collection
+    application: разработчик.
+  open_questions: []
+- id: RADR-016
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: хранилище (store) следует именовать существительным во множественном числе.
+  excerpt: глава 2, правило «A plural noun should be used for store names».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Множественное число для store
+    application: разработчик.
+  open_questions: []
+- id: RADR-017
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: ресурс-контроллер (controller) следует именовать глаголом или глагольной группой,
+    обозначающей действие (например, `register`, `dedupe`).
+  excerpt: глава 2, правило «A verb or verb phrase should be used for controller names».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Глагол для controller
+    application: разработчик.
+  open_questions: []
+- id: RADR-018
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: имена CRUD-функций в URI использоваться не должны; функцию должен обозначать
+    HTTP-метод, а не путь (анти-паттерн `GET /deleteUser?id=1234`).
+  excerpt: глава 2, правило «CRUD function names should not be used in URIs».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Запрет имён CRUD-функций в URI
+    application: разработчик.
+  open_questions: []
+- id: RADR-019
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: клиенты должны считать URI единственными осмысленными идентификаторами ресурсов;
+    внутренние ID бэкенда для клиента бессмысленны.
+  excerpt: глава 2, правило «Variable path segments may be substituted with identity-based
+    values».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: URI — единственные значимые идентификаторы
+    application: архитектор.
+  open_questions: []
+- id: RADR-020
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: компонент query допустимо использовать для фильтрации коллекций и хранилищ
+    (например, `GET /users?role=admin`).
+  excerpt: глава 2, правило «The query component may be used to filter collections».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Query для фильтрации
+    application: разработчик.
+  open_questions: []
+- id: RADR-021
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: для пагинации результатов следует использовать query-параметры pageSize` (максимум
+    элементов) и `pageStartIndex` (нулевой индекс первого элемента).
+  excerpt: глава 2, правило «The query component should be used to paginate collections».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Query для пагинации
+    application: разработчик.
+  open_questions: []
+- id: RADR-022
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: когда сложность фильтрации или пагинации превышает возможности query, следует
+    завести специальный controller (например, POST /users/search`), принимающий параметры
+    в теле запроса.
+  excerpt: глава 2, раздел «URI Query Design».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Сложную фильтрацию — через controller с телом запроса
+    application: архитектор.
+  open_questions: []
+- id: RADR-023
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: GET и POST не должны использоваться для туннелирования других методов запроса,
+    чтобы не нарушать прозрачность протокола.
+  excerpt: глава 3, правило «GET and POST must not be used to tunnel».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Запрет туннелирования методов
+    application: разработчик.
+  open_questions: []
+- id: RADR-024
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: GET обязательно используется для получения представления состояния ресурса;
+    запрос GET не должен иметь тела и должен быть безопасным (без побочных эффектов).
+  excerpt: глава 3, правило «GET must be used to retrieve a representation».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: GET для получения представления
+    application: разработчик.
+  open_questions: []
+- id: RADR-025
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: HEAD следует использовать для получения тех же заголовков, что и GET, но с
+    пустым телом — например, чтобы проверить существование ресурса или прочитать метаданные.
+  excerpt: глава 3, правило «HEAD should be used to retrieve response headers».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: HEAD для заголовков
+    application: разработчик.
+  open_questions: []
+- id: RADR-026
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: PUT обязательно используется и для добавления нового ресурса в store по заданному
+    клиентом URI, и для обновления или замены уже хранимого ресурса.
+  excerpt: глава 3, правило «PUT must be used to both insert and update a stored resource».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: PUT для вставки и обновления в store
+    application: разработчик.
+  open_questions: []
+- id: RADR-027
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: для внесения изменений в изменяемые ресурсы клиенты обязательно используют
+    метод PUT с телом, отражающим желаемые изменения.
+  excerpt: глава 3, правило «PUT must be used to update mutable resources».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: PUT для изменения mutable-ресурсов
+    application: разработчик.
+  open_questions: []
+- id: RADR-028
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: POST обязательно используется для создания нового ресурса внутри коллекции;
+    тело содержит предлагаемое начальное состояние ресурса.
+  excerpt: глава 3, правило «POST must be used to create a new resource in a collection».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: POST для создания в collection
+    application: разработчик.
+  open_questions: []
+- id: RADR-029
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: POST обязательно используется для вызова контроллеров; метод неидемпотентен
+    и небезопасен, поэтому подходит для операций, не отображаемых на другие методы.
+  excerpt: глава 3, правило «POST must be used to execute controllers».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: POST для запуска контроллеров
+    application: разработчик.
+  open_questions: []
+- id: RADR-030
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: DELETE обязательно используется для полного удаления ресурса из родителя;
+    после удаления любой GET/HEAD к нему должен возвращать 404. «Мягкое» удаление
+    следует делать через controller и POST.
+  excerpt: глава 3, правило «DELETE must be used to remove a resource».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: DELETE для удаления
+    application: разработчик.
+  open_questions: []
+- id: RADR-031
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: 'OPTIONS следует использовать для получения метаданных о доступных взаимодействиях
+    с ресурсом, включая заголовок `Allow` (например, Allow: GET, PUT, DELETE`).'
+  excerpt: глава 3, правило «OPTIONS should be used to retrieve metadata».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: OPTIONS для метаданных взаимодействий
+    application: разработчик.
+  open_questions: []
+- id: RADR-032
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: код 200 («OK») следует использовать для обозначения успеха, когда нет более
+    точного кода 2xx; ответ 200 должен включать тело.
+  excerpt: глава 3, правило «200 should be used to indicate nonspecific success».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: 200 для неспецифического успеха
+    application: разработчик.
+  open_questions: []
+- id: RADR-033
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: код 200 не должен использоваться для передачи ошибок в теле ответа.
+  excerpt: глава 3, правило «200 must not be used to communicate errors».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: 200 не для ошибок в теле
+    application: разработчик.
+  open_questions: []
+- id: RADR-034
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: код 201 («Created») обязательно используется при создании ресурса в collection,
+    добавлении в store или создании ресурса в результате действия контроллера.
+  excerpt: глава 3, правило «201 must be used to indicate successful resource creation».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: 201 для успешного создания ресурса
+    application: разработчик.
+  open_questions: []
+- id: RADR-035
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: код 202 («Accepted») обязательно используется для обозначения успешного запуска
+    асинхронной операции; его могут отправлять контроллеры, но не другие типы ресурсов.
+  excerpt: глава 3, правило «202 must be used to indicate successful start of an asynchronous
+    action».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: 202 для асинхронного старта
+    application: разработчик.
+  open_questions: []
+- id: RADR-036
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: код 204 («No Content») следует использовать, когда тело ответа намеренно пустое
+    — обычно при PUT, POST или DELETE.
+  excerpt: глава 3, правило «204 should be used when the response body is intentionally
+    empty».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: 204 для пустого тела
+    application: разработчик.
+  open_questions: []
+- id: RADR-037
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: код 301 («Moved Permanently») следует использовать при значительной переработке
+    модели ресурсов с присвоением нового постоянного URI, указанного в заголовке `Location`.
+  excerpt: глава 3, правило «301 should be used to relocate resources».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: 301 для постоянного перемещения
+    application: архитектор.
+  open_questions: []
+- id: RADR-038
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: код 302 («Found») использоваться не должен из-за исторически неоднозначной
+    семантики; вместо него следует применять 303 или 307.
+  excerpt: глава 3, правило «302 should not be used».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: 302 не использовать
+    application: разработчик.
+  open_questions: []
+- id: RADR-039
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: код 303 («See Other») следует использовать, чтобы направить клиента к другому
+    URI (например, после завершения работы контроллера) вместо нежелательного тела
+    ответа.
+  excerpt: глава 3, правило «303 should be used to refer the client to a different
+    URI».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: 303 для отсылки к другому URI
+    application: разработчик.
+  open_questions: []
+- id: RADR-040
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: код 304 («Not Modified») следует использовать для экономии полосы пропускания,
+    сообщая клиенту, что его кэшированная копия актуальна.
+  excerpt: глава 3, правило «304 should be used to preserve bandwidth».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: 304 для экономии трафика
+    application: разработчик.
+  open_questions: []
+- id: RADR-041
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: код 307 («Temporary Redirect») следует использовать, чтобы сообщить клиенту
+    о необходимости повторить запрос по другому URI с сохранением метода.
+  excerpt: глава 3, правило «307 should be used to tell clients to resubmit».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: 307 для временного перенаправления
+    application: разработчик.
+  open_questions: []
+- id: RADR-042
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: код 400 («Bad Request») допустимо использовать для обозначения неспецифической
+    ошибки на стороне клиента, когда нет более точного кода 4xx.
+  excerpt: глава 3, правило «400 may be used to indicate nonspecific failure».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: 400 для неспецифической ошибки клиента
+    application: разработчик.
+  open_questions: []
+- id: RADR-043
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: код 401 («Unauthorized») обязательно используется при проблеме с учётными
+    данными клиента.
+  excerpt: глава 3, правило «401 must be used when there is a problem with the client's
+    credentials».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: 401 для проблем аутентификации
+    application: специалист по безопасности.
+  open_questions: []
+- id: RADR-044
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: код 403 («Forbidden») следует использовать для запрета доступа независимо
+    от статуса аутентификации.
+  excerpt: глава 3, правило «403 should be used to forbid access».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: 403 для запрета доступа
+    application: специалист по безопасности.
+  open_questions: []
+- id: RADR-045
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: код 404 («Not Found») обязательно используется, когда URI клиента не может
+    быть сопоставлен ни одному ресурсу.
+  excerpt: глава 3, правило «404 must be used when a client's URI cannot be mapped».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: 404 для ненайденного URI
+    application: разработчик.
+  open_questions: []
+- id: RADR-046
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: код 405 («Method Not Allowed») обязательно используется, когда HTTP-метод
+    не поддерживается ресурсом.
+  excerpt: глава 3, правило «405 must be used when the HTTP method is not supported».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: 405 для недопустимого метода
+    application: разработчик.
+  open_questions: []
+- id: RADR-047
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: код 406 («Not Acceptable») обязательно используется, когда запрошенный медиатип
+    не может быть предоставлен; код 415 («Unsupported Media Type») — когда медиатип
+    тела запроса не поддерживается.
+  excerpt: глава 3, правила «406 must be used…» и «415 must be used…».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: 406 и 415 при проблемах с медиатипом
+    application: разработчик.
+  open_questions: []
+- id: RADR-048
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: код 409 («Conflict») следует использовать для обозначения нарушения состояния
+    ресурса (например, неоднозначность PUT в store).
+  excerpt: глава 3, правило «409 should be used to indicate a violation of resource
+    state».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: 409 для конфликта состояния
+    application: разработчик.
+  open_questions: []
+- id: RADR-049
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: код 412 («Precondition Failed») следует использовать для поддержки условных
+    запросов, когда предусловие (например, `If-Match`) не выполнено.
+  excerpt: глава 3, правило «412 should be used to support conditional operations».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: 412 для условных запросов
+    application: разработчик.
+  open_questions: []
+- id: RADR-050
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: код 500 («Internal Server Error») следует использовать для обозначения неисправности
+    API на стороне сервера.
+  excerpt: глава 3, правило «500 should be used to indicate API malfunction».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: 500 для сбоя сервера
+    application: разработчик.
+  open_questions: []
+- id: RADR-051
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: заголовок `Content-Type` обязательно используется для указания медиатипа тела
+    сообщения.
+  excerpt: глава 4, правило «Content-Type must be used».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Content-Type обязателен
+    application: разработчик.
+  open_questions: []
+- id: RADR-052
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: заголовки `Last-Modified` (метка времени изменения состояния) и ETag` (непрозрачная
+    версия представления) следует включать в ответы, особенно на GET; ETag нельзя
+    генерировать из машинно-зависимых источников.
+  excerpt: глава 4, правила «Last-Modified should be used», «ETag should be used».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Last-Modified и ETag в ответах
+    application: разработчик.
+  open_questions: []
+- id: RADR-053
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: store обязательно должен поддерживать условные PUT-запросы, полагаясь на заголовки
+    `If-Unmodified-Since` и/или `If-Match`; при несовпадении entity tag API обязан
+    вернуть 412, при успехе — 200 или 204.
+  excerpt: глава 4, правило «Stores must support conditional PUT requests».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Условные PUT для store
+    application: разработчик.
+  open_questions: []
+- id: RADR-054
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: заголовок `Location` обязательно используется для указания URI вновь созданного
+    ресурса; в ответе 202 он может указывать на статус асинхронной операции.
+  excerpt: глава 4, правило «Location must be used».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Location для нового ресурса
+    application: разработчик.
+  open_questions: []
+- id: RADR-055
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: для поощрения кэширования следует использовать `Cache-Control` с max-age`,
+    а для совместимости с HTTP 1.0 — `Expires` и `Date`.
+  excerpt: глава 4, правило «Cache-Control, Expires, and Date response headers should
+    be used to encourage caching».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Заголовки кэширования для поощрения кэша
+    application: разработчик.
+  open_questions: []
+- id: RADR-056
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: 'чтобы запретить кэш, допустимо добавить Cache-Control: no-cache, no-store`
+    (плюс `Pragma: no-cache`, `Expires: 0`); но кэширование следует поощрять и предпочитать
+    малый `max-age` директиве no-cache`.'
+  excerpt: глава 4, правила «…may be used to discourage caching», «Caching should
+    be encouraged».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Подавление кэша и предпочтение малого max-age
+    application: разработчик.
+  open_questions: []
+- id: RADR-057
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: заголовки истечения следует ставить на успешные ответы 200 (GET/HEAD), а опционально
+    — на ответы 3xx и 4xx (негативное кэширование) для снижения нагрузки.
+  excerpt: глава 4, правила «Expiration caching headers should be used with 200»,
+    «…may optionally be used with 3xx and 4xx».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Кэш-заголовки с 200 и негативное кэширование
+    application: разработчик.
+  open_questions: []
+- id: RADR-058
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: кастомные HTTP-заголовки не должны менять поведение HTTP-методов; важная для
+    интерпретации информация должна быть в теле или URI, а не в кастомном заголовке.
+  excerpt: глава 4, правило «Custom HTTP headers must not be used to change the behavior».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Кастомные заголовки не меняют поведение методов
+    application: разработчик.
+  open_questions: []
+- id: RADR-059
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: следует использовать прикладные (application-specific) медиатипы (например,
+    `application/wrml` или vendor-specific с префиксом `vnd`), несущие специфичные
+    метаданные, а не только общие типы.
+  excerpt: глава 4, правило «Application-specific media types should be used».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Прикладные медиатипы
+    application: архитектор.
+  open_questions: []
+- id: RADR-060
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: при наличии нескольких представлений следует поддерживать согласование медиатипа
+    через заголовок `Accept` (клиент выбирает format и версию schema).
+  excerpt: глава 4, правило «Media type negotiation should be supported».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Согласование медиатипа через Accept
+    application: разработчик.
+  open_questions: []
+- id: RADR-061
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: допустимо поддерживать выбор медиатипа через query-параметр accept`; это предпочтительнее
+    виртуальных расширений `.xml`, но является формой туннелирования и требует осторожности.
+  excerpt: глава 4, правило «Media type selection using a query parameter may be supported».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Выбор медиатипа через query-параметр
+    application: разработчик.
+  open_questions: []
+- id: RADR-062
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: разные версии схемы следует оформлять как отдельные документы с разными URI
+    (суффикс версии, например `Player-2`), при этом текущая версия доступна и по URI
+    без номера.
+  excerpt: глава 4, раздел «Media Type Schema Versioning».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Версионирование схем через отдельные URI
+    application: архитектор.
+  open_questions: []
+- id: RADR-063
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: при отсутствии стандартного формата для типа ресурса для структурирования
+    данных следует использовать JSON.
+  excerpt: глава 5, правило «JSON should be supported for resource representation».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: JSON как формат представления
+    application: разработчик.
+  open_questions: []
+- id: RADR-064
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: JSON обязан быть корректным — имена всегда в двойных кавычках; имена следует
+    писать в смешанном нижнем регистре (camelCase) и избегать спецсимволов.
+  excerpt: глава 5, правило «JSON must be well-formed».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: JSON должен быть well-formed
+    application: разработчик.
+  open_questions: []
+- id: RADR-065
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: XML, HTML и другие форматы допустимо поддерживать как альтернативные представления,
+    выбираемые через согласование медиатипа.
+  excerpt: глава 5, правило «XML and other formats may optionally be used».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: XML и другие форматы — опционально
+    application: разработчик.
+  open_questions: []
+- id: RADR-066
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: дополнительные конверты (envelopes) создаваться не должны — тело должно содержать
+    только представление состояния ресурса, опираясь на «конверт» самого HTTP.
+  excerpt: глава 5, правило «Additional envelopes must not be created».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Запрет дополнительных «конвертов»
+    application: разработчик.
+  open_questions: []
+- id: RADR-067
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: следует использовать единообразную форму для представления ссылок (link) и
+    связей (link relation), включаемых в представления вместе с полями.
+  excerpt: глава 5, правила «A consistent form should be used to represent links /
+    link relations».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Единообразная форма ссылок и связей
+    application: архитектор.
+  open_questions: []
+- id: RADR-068
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: представление идентифицируемого ресурса должно включать ссылку с именем `self`,
+    указывающую на эквивалентный самому ресурсу URI.
+  excerpt: глава 5, правило «A self link should be included».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Обязательная ссылка self
+    application: разработчик.
+  open_questions: []
+- id: RADR-069
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: число рекламируемых «точек входа» следует минимизировать — публиковать URI
+    docroot, чьё представление даёт ссылки на остальные ресурсы, а не список всех
+    URI (иначе возникает тесная связанность клиентов).
+  excerpt: глава 5, правило «Minimize the number of advertised entry point API URIs».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Минимизация числа entry-point URI
+    application: архитектор.
+  open_questions: []
+- id: RADR-070
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: следует использовать ссылки для рекламы доступных действий ресурса с учётом
+    его состояния; HATEOAS требует, чтобы каждый ответ содержал состояние-зависимые
+    ссылки.
+  excerpt: глава 5, правило «Links should be used to advertise a resource's available
+    actions in a state-sensitive manner».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Ссылки как контекстно-зависимое меню действий (HATEOAS)
+    application: архитектор.
+  open_questions: []
+- id: RADR-071
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: следует использовать единообразную форму ошибки с полями `id (код типа) и
+    `description`, а ответ об ошибках оформлять как `ErrorContainer со списком `elements`
+    и статусом 4xx или 5xx.
+  excerpt: глава 5, правила «A consistent form should be used to represent errors
+    / error responses».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Единообразная форма ошибки и контейнера ошибок
+    application: разработчик.
+  open_questions: []
+- id: RADR-072
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: для типичных ошибок следует использовать согласованные общие типы ошибок,
+    определённые один раз и переиспользуемые через расширение схем.
+  excerpt: глава 5, правило «Consistent error types should be used».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Общие типы ошибок
+    application: архитектор.
+  open_questions: []
+- id: RADR-073
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: версию API или ресурса, как правило, не следует обозначать в URI (например,
+    `v2`); новый URI следует вводить только для нового концепта, сохраняя устойчивое
+    сопоставление URI и ресурсов.
+  excerpt: глава 6, правило «New URIs should be used to introduce new concepts».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Новый URI для нового концепта (версионирование)
+    application: архитектор.
+  open_questions: []
+- id: RADR-074
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: версии формы представлений следует вести через версионированные схемы; добавление
+    полей и ссылок в новые версии схемы вводит новые возможности без потери обратной
+    совместимости.
+  excerpt: глава 6, правило «Schemas should be used to manage representational form
+    versions».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Версии формы — через схемы
+    application: архитектор.
+  open_questions: []
+- id: RADR-075
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: для управления версиями состояния представления следует использовать entity
+    tags (ETag) — наиболее тонкозернистую систему версионирования.
+  excerpt: глава 6, правило «Entity tags should be used to manage representational
+    state versions».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Версии состояния — через ETag
+    application: разработчик.
+  open_questions: []
+- id: RADR-076
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: для защиты ресурсов допустимо использовать OAuth — открытый HTTP-протокол
+    авторизации, дополняющий ресурсно-ориентированную и stateless-природу REST.
+  excerpt: глава 6, правило «OAuth may be used to protect resources».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: OAuth для защиты ресурсов
+    application: специалист по безопасности.
+  open_questions: []
+- id: RADR-077
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: для защиты ресурсов допустимо использовать решения API management (reverse
+    proxy), закрывающие сквозные задачи и поддерживающие OAuth «из коробки».
+  excerpt: глава 6, правило «API management solutions may be used to protect resources».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: API management для защиты ресурсов
+    application: специалист по безопасности.
+  open_questions: []
+- id: RADR-078
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: для частичных ответов следует использовать query-параметр fields` (список
+    включения или, с `!`, исключения); API обязан разобрать список и вернуть частичное
+    представление.
+  excerpt: глава 6, правило «The query component should be used to support partial
+    responses».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Частичные ответы через query-параметр fields
+    application: разработчик.
+  open_questions: []
+- id: RADR-079
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: следует позволять клиенту через query управлять тем, какие связанные ресурсы
+    остаются «обычными» ссылками, а какие становятся «встроенными» (embedded), для
+    request-time композиции.
+  excerpt: глава 6, правило «The query component should be used to embed linked resources».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Встраивание связанных ресурсов через query
+    application: разработчик.
+  open_questions: []
+- id: RADR-080
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: следует поддерживать JSONP для многодоменного доступа на чтение из JavaScript
+    (через query-параметр `callback`); из-за инъекции элемента <script>` JSONP ограничен
+    запросами GET.
+  excerpt: глава 6, правило «JSONP should be supported».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: JSONP для кросс-доменного чтения
+    application: разработчик.
+  open_questions: []
+- id: RADR-081
+  source_id: RADR
+  item_id: RADR-text
+  status: ready_for_review
+  text: следует поддерживать CORS как стандартизированную W3C альтернативу JSONP для
+    многодоменного доступа на чтение и запись всеми методами; для методов, кроме GET/HEAD/POST,
+    используется preflight-запрос, а разрешённые источники задаются заголовком `Access-Control-Allow-Origin`.
+  excerpt: глава 6, правило «CORS should be supported».
+  artifact: rest-api-design-rulebook.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: CORS для кросс-доменного чтения и записи
+    application: специалист по безопасности.
+  open_questions: []

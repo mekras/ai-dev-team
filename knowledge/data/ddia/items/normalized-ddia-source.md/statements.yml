@@ -1,0 +1,67 @@
+statements:
+- id: DDIA-001
+  source_id: DDIA
+  item_id: DDIA-normalized-DDIA-source.md
+  status: ready_for_review
+  text: надёжность — продолжение корректной работы с нужной функцией и производительностью
+    при возникновении неблагоприятных условий.
+  excerpt: глава 1, раздел Reliability.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Определение надёжности
+    application: архитектор, аналитик.
+  open_questions: []
+- id: DDIA-002
+  source_id: DDIA
+  item_id: DDIA-normalized-DDIA-source.md
+  status: ready_for_review
+  text: дефект (fault) — отклонение компонента от спецификации; отказ (failure) —
+    прекращение работы системы; отказоустойчивые системы спроектированы справляться
+    с дефектами, не доводя их до отказа.
+  excerpt: глава 1, определения fault/failure.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Дефект и отказ
+    application: архитектор, аналитик.
+  open_questions: []
+- id: DDIA-003
+  source_id: DDIA
+  item_id: DDIA-normalized-DDIA-source.md
+  status: ready_for_review
+  text: типичные источники отказов — аппаратные дефекты, программные ошибки (часто
+    систематические и коррелированные) и человеческие ошибки.
+  excerpt: глава 1, разделы Hardware/Software/Human.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Классы дефектов
+    application: архитектор, security-engineer.
+  open_questions: []
+- id: DDIA-004
+  source_id: DDIA
+  item_id: DDIA-normalized-DDIA-source.md
+  status: ready_for_review
+  text: намеренное внесение дефектов проверяет механизмы отказоустойчивости и повышает
+    уверенность в них (смыкается с инженерией хаоса).
+  excerpt: глава 1, обсуждение fault-tolerance.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Намеренное внесение дефектов
+    application: архитектор, project-manager.
+  open_questions: []
+- id: DDIA-005
+  source_id: DDIA
+  item_id: DDIA-normalized-DDIA-source.md
+  status: ready_for_review
+  text: репликация, согласованность и отказоустойчивый консенсус — основа надёжности
+    распределённых систем хранения и обработки данных.
+  excerpt: главы 5–9 (репликация, консенсус).
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Надёжность распределённых систем
+    application: архитектор.
+  open_questions: []

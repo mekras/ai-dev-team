@@ -1,0 +1,66 @@
+statements:
+- id: CHEN-001
+  source_id: CHEN
+  item_id: CHEN-normalized-CHEN-source.md
+  status: ready_for_review
+  text: книга развивает «Принципы хаос-инжиниринга» и приводит базовый шаблон эксперимента
+    и пять ключевых шагов.
+  excerpt: глава 3 (обзор принципов).
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Развитие принципов
+    application: архитектор, project-manager.
+  open_questions: []
+- id: CHEN-002
+  source_id: CHEN
+  item_id: CHEN-normalized-CHEN-source.md
+  status: ready_for_review
+  text: книга вводит модель зрелости хаос-инжиниринга, описывающую уровни внедрения
+    дисциплины в организации.
+  excerpt: глава 15.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Модель зрелости хаоса
+    application: project-manager, архитектор.
+  open_questions: []
+- id: CHEN-003
+  source_id: CHEN
+  item_id: CHEN-normalized-CHEN-source.md
+  status: ready_for_review
+  text: инженерия хаоса развивается в сторону непрерывной проверки (continuous verification)
+    устойчивости систем.
+  excerpt: глава 16.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Непрерывная проверка
+    application: архитектор.
+  open_questions: []
+- id: CHEN-004
+  source_id: CHEN
+  item_id: CHEN-normalized-CHEN-source.md
+  status: ready_for_review
+  text: 'книга связывает хаос-инжиниринг с подходом HOP: ошибка — норма, вина не исправляет,
+    контекст определяет поведение, важны обучение и осмысленные ответы.'
+  excerpt: глава 18.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Человеческий фактор (HOP)
+    application: project-manager, аналитик.
+  open_questions: []
+- id: CHEN-005
+  source_id: CHEN
+  item_id: CHEN-normalized-CHEN-source.md
+  status: ready_for_review
+  text: приведены примеры внедрения (Slack, Google DiRT, LinkedIn, Capital One), показывающие
+    применимость дисциплины в разных контекстах.
+  excerpt: главы 4–13.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Отраслевые примеры
+    application: project-manager, архитектор.
+  open_questions: []

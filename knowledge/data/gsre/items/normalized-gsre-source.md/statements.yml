@@ -1,0 +1,53 @@
+statements:
+- id: GSRE-001
+  source_id: GSRE
+  item_id: GSRE-normalized-GSRE-source.md
+  status: ready_for_review
+  text: надёжность задаётся измеримыми показателями — SLI (индикатор), SLO (цель),
+    SLA (соглашение об уровне сервиса).
+  excerpt: часть «Принципы», цели уровня сервиса.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Измеримые цели надёжности
+    application: project-manager, архитектор, аналитик.
+  open_questions: []
+- id: GSRE-002
+  source_id: GSRE
+  item_id: GSRE-normalized-GSRE-source.md
+  status: ready_for_review
+  text: бюджет ошибок — допустимая ненадёжность как ресурс, балансирующий скорость
+    изменений и надёжность.
+  excerpt: глава о принятии риска и SLO.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Бюджет ошибок
+    application: project-manager, архитектор.
+  open_questions: []
+- id: GSRE-003
+  source_id: GSRE
+  item_id: GSRE-normalized-GSRE-source.md
+  status: ready_for_review
+  text: цель надёжности задаётся осознанно ниже 100 %, исходя из потребностей пользователей
+    и стоимости.
+  excerpt: принципы принятия риска.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Надёжность не равна 100 %
+    application: project-manager, аналитик.
+  open_questions: []
+- id: GSRE-004
+  source_id: GSRE
+  item_id: GSRE-normalized-GSRE-source.md
+  status: ready_for_review
+  text: надёжность поддерживается практиками мониторинга, дежурств, управления инцидентами,
+    постмортемов без обвинений и борьбы с каскадными отказами.
+  excerpt: часть «Практики».
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Практики эксплуатации
+    application: архитектор, security-engineer, project-manager.
+  open_questions: []

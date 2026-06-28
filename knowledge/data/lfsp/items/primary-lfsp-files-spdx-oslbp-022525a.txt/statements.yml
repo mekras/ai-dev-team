@@ -1,0 +1,53 @@
+statements:
+- id: LFSP-001
+  source_id: LFSP
+  item_id: LFSP-primary-LFSP-files-spdx-oslbp-022525a.txt
+  status: ready_for_review
+  text: документ рекомендует добавлять SPDX License ID в каждый файл, где это возможно.
+  excerpt: блок `Important Tips`.
+  artifact: spdx-oslbp-022525a.txt
+  checked_at: '2026-06-05'
+  scope:
+    section_title: ''
+    application: маркировка файлов и автоматизация проверки.
+  open_questions: []
+- id: LFSP-002
+  source_id: LFSP
+  item_id: LFSP-primary-LFSP-files-spdx-oslbp-022525a.txt
+  status: ready_for_review
+  text: для кода, документации, спецификаций и данных следует подбирать разные типы
+    лицензий, а исходная лицензия кода не должна автоматически переноситься на остальные
+    артефакты.
+  excerpt: блок `Choose Your License`.
+  artifact: spdx-oslbp-022525a.txt
+  checked_at: '2026-06-05'
+  scope:
+    section_title: ''
+    application: выбор лицензии по типу материала.
+  open_questions: []
+- id: LFSP-003
+  source_id: LFSP
+  item_id: LFSP-primary-LFSP-files-spdx-oslbp-022525a.txt
+  status: ready_for_review
+  text: среди базовых практик названы поиск и учёт всех лицензий через SCA-инструмент
+    и соблюдение всех обязанностей по лицензии, включая атрибуцию.
+  excerpt: блоки `Common License Conflicts` и `Attributions`.
+  artifact: spdx-oslbp-022525a.txt
+  checked_at: '2026-06-05'
+  scope:
+    section_title: ''
+    application: проверки соответствия и сопровождение процессов.
+  open_questions: []
+- id: LFSP-004
+  source_id: LFSP
+  item_id: LFSP-primary-LFSP-files-spdx-oslbp-022525a.txt
+  status: ready_for_review
+  text: документ прямо различает copyright notice и собственно лицензию, не сводя
+    одно к другому.
+  excerpt: строка `Copyright Notice ≠ License`.
+  artifact: spdx-oslbp-022525a.txt
+  checked_at: '2026-06-05'
+  scope:
+    section_title: ''
+    application: анализ полноты лицензионной информации в артефактах.
+  open_questions: []

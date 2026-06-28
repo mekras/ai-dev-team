@@ -1,0 +1,57 @@
+statements:
+- id: CVSS-001
+  source_id: CVSS
+  item_id: CVSS-normalized-CVSS-source.md
+  status: ready_for_review
+  text: CVSS — открытая методика оценки технической серьёзности уязвимостей, принадлежащая
+    FIRST и предоставляемая свободно при атрибуции.
+  excerpt: спецификация v4.0.
+  artifact: source.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Назначение
+    application: специалист по безопасности.
+  open_questions: []
+- id: CVSS-002
+  source_id: CVSS
+  item_id: CVSS-normalized-CVSS-source.md
+  status: ready_for_review
+  text: CVSS v4.0 включает группы метрик Base (постоянные характеристики), Threat
+    (эксплуатируемость), Environmental (факторы развёртывания) и Supplemental (контекст,
+    не влияет на балл).
+  excerpt: разделы метрик v4.0.
+  artifact: source.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Четыре группы метрик
+    application: специалист по безопасности.
+  open_questions: []
+- id: CVSS-003
+  source_id: CVSS
+  item_id: CVSS-normalized-CVSS-source.md
+  status: ready_for_review
+  text: 'базовая группа делится на метрики эксплуатируемости (Attack Vector, Attack
+    Complexity, Attack Requirements, Privileges Required, User Interaction) и влияния
+    (конфиденциальность/целостность/доступность уязвимой и последующих систем: VC/VI/VA,
+    SC/SI/SA).'
+  excerpt: базовые метрики v4.0.
+  artifact: source.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Базовые метрики
+    application: специалист по безопасности.
+  open_questions: []
+- id: CVSS-004
+  source_id: CVSS
+  item_id: CVSS-normalized-CVSS-source.md
+  status: ready_for_review
+  text: балл помечается по использованным группам (`CVSS-B`, `CVSS-BT`, CVSS-BE`,
+    `CVSS-BTE`); CVSS оценивает техническую серьёзность, а не риск конкретной организации,
+    поэтому приоритизация требует учёта контекста.
+  excerpt: нотация и руководство по применению.
+  artifact: source.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Нотация и оговорка о риске
+    application: специалист по безопасности.
+  open_questions: []

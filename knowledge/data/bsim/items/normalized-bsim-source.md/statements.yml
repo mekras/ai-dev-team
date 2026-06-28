@@ -1,0 +1,57 @@
+statements:
+- id: BSIM-001
+  source_id: BSIM
+  item_id: BSIM-normalized-BSIM-source.md
+  status: ready_for_review
+  text: BSIMM — модель зрелости, построенная на наблюдении того, что реально делают
+    организации в программах безопасности ПО; это описательный ориентир для сравнения,
+    а не предписывающий стандарт.
+  excerpt: обзор BSIMM.
+  artifact: source.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Назначение модели
+    application: специалист по безопасности, project-manager.
+  open_questions: []
+- id: BSIM-002
+  source_id: BSIM
+  item_id: BSIM-normalized-BSIM-source.md
+  status: ready_for_review
+  text: BSIMM организован по четырём доменам — Governance, Intelligence, SSDL Touchpoints,
+    Deployment — с двенадцатью практиками; каждая практика содержит наблюдаемые активности
+    по уровням.
+  excerpt: структура модели (страница издателя).
+  artifact: source.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Четыре домена и двенадцать практик
+    application: специалист по безопасности.
+  open_questions: []
+- id: BSIM-003
+  source_id: BSIM
+  item_id: BSIM-normalized-BSIM-source.md
+  status: ready_for_review
+  text: 'BSIMM описывает, что организации делают (наблюдение), тогда как SAMM` предписывает
+    целевые уровни; их уместно использовать вместе: SAMM — для целей, BSIMM — для
+    сравнения с практикой отрасли.'
+  excerpt: сопоставление моделей.
+  artifact: source.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Отличие от SAMM
+    application: специалист по безопасности.
+  open_questions: []
+- id: BSIM-004
+  source_id: BSIM
+  item_id: BSIM-normalized-BSIM-source.md
+  status: ready_for_review
+  text: отчёт обновляется ежегодно (на дату — `BSIMM16`, анализ практик 111 организаций)
+    и доступен бесплатно по регистрации; числа и тренды — снимок издания, сверять
+    по каноническому адресу.
+  excerpt: страница отчёта BSIMM16.
+  artifact: source.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Доступ и актуальность
+    application: специалист по безопасности.
+  open_questions: []
