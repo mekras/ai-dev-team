@@ -79,5 +79,6 @@ description: >
 
 ## Опорные источники
 
-Навык опирается на источники корпуса (`knowledge/inventory/<код>.md`,
-`knowledge/statements/<код>.md`): `INMA`, `SMFR`.
+Навык опирается на источники корпуса: сначала найди источник по `id` в
+`knowledge/catalog.yml`, затем используй `knowledge/data/<slug>/source.yml`,
+`knowledge/data/<slug>/items.yml` и связанные утверждения: `INMA`, `SMFR`.

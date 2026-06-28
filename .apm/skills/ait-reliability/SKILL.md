@@ -81,6 +81,7 @@ description: >
 
 ## Опорные источники
 
-Навык опирается на источники корпуса (`knowledge/inventory/<код>.md`,
-`knowledge/statements/<код>.md`): `DSCT`, `ESWO`, `CHAE`, `G272`, `G250`,
-`CHEN`, `DDIA`, `GSRE`, `HSRE`.
+Навык опирается на источники корпуса: сначала найди источник по `id` в
+`knowledge/catalog.yml`, затем используй `knowledge/data/<slug>/source.yml`,
+`knowledge/data/<slug>/items.yml` и связанные утверждения: `DSCT`, `ESWO`,
+`CHAE`, `G272`, `G250`, `CHEN`, `DDIA`, `GSRE`, `HSRE`.

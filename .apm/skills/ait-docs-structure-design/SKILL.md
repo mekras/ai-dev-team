@@ -35,11 +35,11 @@ description: >
 
 ## Основания
 
-- `knowledge/reports/source-impact/2026-06-01-documentation-sources.md`
-- `knowledge/reports/source-impact/2026-06-22-sreq-requirements-skills.md`
-- `knowledge/statements/HWD.md`
-- `knowledge/statements/WTDG.md`
-- `knowledge/statements/SREQ.md`
+- `knowledge/index/source-impact/2026-06-01-documentation-sources.md`
+- `knowledge/index/source-impact/2026-06-22-sreq-requirements-skills.md`
+- `knowledge/data/hwd/items/source/legacy-statements.md`
+- `knowledge/data/wtdg/items/source/legacy-statements.md`
+- `knowledge/data/sreq/items/source/legacy-statements.md`
 - `.apm/agents/analyst.agent.md`
 - `.apm/agents/technical-writer.agent.md`
 - `.apm/skills/ait-writing/assets/documentation-structure-template.md`
