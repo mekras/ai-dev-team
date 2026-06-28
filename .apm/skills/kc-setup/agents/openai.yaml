@@ -1,7 +1,7 @@
 interface:
   display_name: "kc-setup"
   short_description: "Настройка проекта на использование корпуса знаний"
-  default_prompt: "Используй $kc-setup, чтобы подключить корпус знаний к AGENTS.md проекта."
+  default_prompt: "Используй $kc-setup, чтобы настроить или перенастроить корпус знаний проекта, включая AGENTS.md и проверку структуры корпуса."
 
 policy:
   allow_implicit_invocation: true
