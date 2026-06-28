@@ -11,7 +11,7 @@ from __future__ import annotations
 
 import argparse
 import sys
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from typing import Any
 
 try:
@@ -65,6 +65,14 @@ DEFAULT_ALLOWED_STAGES = {
     "source_checked",
     "blocked",
     "rejected",
+}
+
+LEGACY_ROOT_DIRS = {
+    "inventory",
+    "normalized",
+    "primary",
+    "reports",
+    "statements",
 }
 
 
@@ -170,6 +178,7 @@ class Validator:
     def validate(self) -> int:
         try:
             self.validate_contract()
+            self.validate_no_legacy_roots()
             source_dirs = self.source_dirs()
             for source_dir in source_dirs:
                 self.validate_source(source_dir)
@@ -206,6 +215,48 @@ class Validator:
             self.allowed_stages = set(stages)
 
         self.add_value_errors("corpus.yml", contract)
+        self.validate_contract_legacy_layers(contract)
+
+    def validate_contract_legacy_layers(self, contract: dict[str, Any]) -> None:
+        structural_sections = ("tracked_data", "local_data", "source_units", "indexes", "reports")
+        for section in structural_sections:
+            for label, value in self.contract_paths(contract.get(section), section):
+                label_parts = label.replace("[", ".").split(".")
+                if not any(part.startswith("legacy_") for part in label_parts) and not any(
+                    part in LEGACY_ROOT_DIRS for part in value.parts
+                ):
+                    continue
+                self.errors.append(
+                    "corpus.yml: legacy layer remains active outside portable layout: "
+                    f"{label}={value.as_posix()}"
+                )
+
+    def contract_paths(self, contract: Any, prefix: str = "") -> list[tuple[str, PurePosixPath]]:
+        if isinstance(contract, str):
+            return [(prefix, PurePosixPath(contract))]
+        if isinstance(contract, dict):
+            result: list[tuple[str, PurePosixPath]] = []
+            for key, value in contract.items():
+                if not isinstance(key, str):
+                    continue
+                child_prefix = key if not prefix else f"{prefix}.{key}"
+                result.extend(self.contract_paths(value, child_prefix))
+            return result
+        if isinstance(contract, list):
+            result: list[tuple[str, PurePosixPath]] = []
+            for index, value in enumerate(contract, start=1):
+                result.extend(self.contract_paths(value, f"{prefix}[{index}]"))
+            return result
+        return []
+
+    def validate_no_legacy_roots(self) -> None:
+        for name in sorted(LEGACY_ROOT_DIRS):
+            path = self.root / name
+            if path.exists():
+                self.errors.append(
+                    f"{name}/: legacy corpus layer remains outside data/; "
+                    "migrate it into data/ or .local/ before declaring portable layout complete"
+                )
 
     def source_dirs(self) -> list[Path]:
         data_root = self.root / "data"
