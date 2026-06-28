@@ -22,3 +22,4 @@
 ## Справочник
 
 1. [Файловая структура корпуса](40-reference/01-corpus-file-structure.md)
+2. [Справочник навыков](40-reference/02-skills.md)
