@@ -1,0 +1,41 @@
+statements:
+- id: OSIL-001
+  source_id: OSIL
+  item_id: OSIL-licenses
+  status: ready_for_review
+  text: OSI описывает открытые лицензии как лицензии, соответствующие Open Source
+    Definition и проходящие license review process.
+  excerpt: вводный абзац страницы `OSI Approved Licenses`.
+  artifact: index.html
+  checked_at: '2026-06-05'
+  scope:
+    section_title: ''
+    application: проверка статуса лицензии относительно OSI.
+  open_questions: []
+- id: OSIL-002
+  source_id: OSIL
+  item_id: OSIL-licenses
+  status: ready_for_review
+  text: страница группирует лицензии по навигационным категориям, включая International`,
+    `Popular / Strong Community` и `Special Purpose`.
+  excerpt: блок фильтров категорий.
+  artifact: index.html
+  checked_at: '2026-06-05'
+  scope:
+    section_title: ''
+    application: обзор и навигация по одобренным лицензиям.
+  open_questions: []
+- id: OSIL-003
+  source_id: OSIL
+  item_id: OSIL-licenses
+  status: ready_for_review
+  text: сайт OSI отделяет свои авторские материалы сайта от текстов самих лицензий
+    и указывает, что вопросы copyright по тексту лицензии нужно направлять соответствующему
+    steward.
+  excerpt: нижний блок страницы `licenses`.
+  artifact: index.html
+  checked_at: '2026-06-05'
+  scope:
+    section_title: ''
+    application: различение прав на сайт-реестр и прав на сами лицензии.
+  open_questions: []

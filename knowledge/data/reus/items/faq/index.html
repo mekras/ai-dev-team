@@ -1,0 +1,912 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="We make licensing easy for humans and machines alike. REUSE solves a fundamental issue that Free Software licensing has at the very source. Adopting our recommendations is as easy as one-two-three!">
+    <meta name="author" content="Free Software Foundation Europe">
+    <meta name="keywords" content="reuse, free software, open source, foss, floss, license, licensing, copyright, git, tool, automate, easy, git">
+
+    <!-- Open Graph meta-data (e.g. Facebook) -->
+    <meta property="og:title" content="Frequently Asked Questions | REUSE"/>
+    <meta property="og:url" content="https://reuse.software/faq/"/>
+    <meta property="og:image" content="https://reuse.software/img/reuse.png"/>
+    <meta property="og:description" content="We make licensing easy for humans and machines alike. REUSE solves a fundamental issue that Free Software licensing has at the very source. Adopting our recommendations is as easy as one-two-three!"/>
+    <meta property="og:locale" content="en"/>
+
+    <!-- Twitter meta-data -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@fsfe"/>
+    <meta name="twitter:title" content="Frequently Asked Questions | REUSE"/>
+    <meta name="twitter:description" content="We make licensing easy for humans and machines alike. REUSE solves a fundamental issue that Free Software licensing has at the very source. Adopting our recommendations is as easy as one-two-three!"/>
+    <meta name="twitter:image" content="https://reuse.software/img/reuse.png"/>
+    <meta name="twitter:creator" content="@fsfe"/>
+
+    <title>Frequently Asked Questions | REUSE</title>
+
+    <link rel="icon" type="image/png" href="/img/favicon.png?v=1e979df73cc8c32a054343bd7c485110">
+    <link href="/css/bootstrap.min.css?v=1e979df73cc8c32a054343bd7c485110" rel="stylesheet">
+    <link href="/css/landing-page.css?v=1e979df73cc8c32a054343bd7c485110" rel="stylesheet">
+    <link href="/css/template.css?v=1e979df73cc8c32a054343bd7c485110" rel="stylesheet">
+    <link href="/css/share.css?v=1e979df73cc8c32a054343bd7c485110" rel="stylesheet">
+    <link href="/css/custom.css?v=1e979df73cc8c32a054343bd7c485110" rel="stylesheet">
+    <link href="/fonts/roboto/roboto.css?v=1e979df73cc8c32a054343bd7c485110" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/fonts/fontawesome/css/all.min.css?v=1e979df73cc8c32a054343bd7c485110" />
+
+</head>
+<body id="page-top">
+<div id="wrap">
+
+
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <noscript><div class="noscript"><strong>Warning:</strong> Some interactive features will not work with JavaScript disabled.</div></noscript>
+    <div class="container">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+              <a class="page-scroll navbar-brand" href="/" title="REUSE">
+                <img id="logo" src="/img/reuse-horizontal.png" />
+              </a>
+        </div>
+        
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class=""><a href="/tutorial/">Get Started</a></li>
+                <li class="active"><a href="/faq/">FAQ</a></li>
+                <li class=""><a href="/dev/">Developers</a></li>
+                <li class=""><a href="/spec/">Specification</a></li>
+                <li class=""><a href="/resources/">Resources</a></li>
+                <li class=""><a href="/supporters/">Supporters</a></li>
+                <li class=""><a href="https://api.reuse.software">API</a></li></ul>
+        </div>
+        
+    </div>
+    
+</nav>
+<div class="content-section-b">
+  <div class="container page-faq">
+
+<div class="content">
+  <div class="clearfix"></div>
+  
+  <h1>Frequently Asked Questions</h1>
+  
+   
+    
+    <div class="alert alert-success">
+      <div id="translist">
+        <p>Unofficial translations are available in:</p>
+          <ul>
+            <li><a href="/cs/faq/">Česky</a></li>
+            <li><a href="/uk/faq/">Українська</a></li>
+          </ul>
+      </div>
+    </div>
+    
+
+  <!-- raw HTML omitted -->
+<p>This page lists common questions and their answers when dealing with licensing
+and copyright, and with the adoption of REUSE specifically. Please note that
+nothing here is legal advice.</p>
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default" id="toc">
+    <div class="panel-heading" role="tab" id="headingOne">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          <h4 class="panel-title">Table of Contents</h4>
+        </a>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#general">General</a>
+      <ul>
+        <li><a href="#quick-summary">I am short on time. Can you give me the quickest possible summary?</a>
+          <ul>
+            <li><a href="#step-1">1. Choose and provide licenses</a></li>
+            <li><a href="#step-2">2. Add copyright and licensing information to each file</a></li>
+            <li><a href="#step-3">3. Confirm REUSE compliance</a></li>
+          </ul>
+        </li>
+        <li><a href="#what-is-spdx">What is SPDX?</a></li>
+      </ul>
+    </li>
+    <li><a href="#copyright">Copyright</a>
+      <ul>
+        <li><a href="#what-is-copyright">What is copyright?</a></li>
+        <li><a href="#standard-copyright">Is there a standard format for declaring copyright?</a></li>
+        <li><a href="#copyright-symbol">Do I use SPDX-FileCopyrightText, Copyright, or ©?</a></li>
+        <li><a href="#years-copyright">Which years do I include in the copyright statement?</a></li>
+        <li><a href="#what-is-copyrightable">Which files are copyrightable?</a></li>
+        <li><a href="#copyright-holder-author">What is a copyright holder, and what is an author?</a></li>
+        <li><a href="#when-copyright">I changed a single line of code. Should I add an SPDX-FileCopyrightText tag with my name?</a></li>
+      </ul>
+    </li>
+    <li><a href="#licensing">Licensing</a>
+      <ul>
+        <li><a href="#what-is-license">What is a license?</a></li>
+        <li><a href="#copyleft-permissive-license">What is a copyleft license? A permissive license?</a></li>
+        <li><a href="#which-license">Which license should I choose?</a></li>
+        <li><a href="#license-exceptions">What are license exceptions and what do I do with them?</a></li>
+        <li><a href="#license-compatibility">How does license compatibility work?</a></li>
+        <li><a href="#where-else">Where else do I put my license information?</a></li>
+        <li><a href="#single-license">I only have a single license file. Should I still create a LICENSES directory?</a></li>
+        <li><a href="#header-in-license">Should I put comment headers in my license files?</a></li>
+        <li><a href="#edit-license">Should I edit my license files?</a></li>
+        <li><a href="#edit-copyright-and-licensing">Can I edit copyright notices and license disclaimers?</a></li>
+        <li><a href="#minified">Can I remove the license and copyright information from minified code (e.g., JavaScript)?</a></li>
+        <li><a href="#gpl-plus">Do I need to include both GPL-3.0-or-later and GPL-3.0-only in my repository?</a></li>
+        <li><a href="#lgpl-only">If I use exclusively LGPL-3.0-or-later, should I also include the GPL-3.0-or-later text?</a></li>
+        <li><a href="#dependencies-licenses">Does REUSE help me with the licenses of my dependencies?</a></li>
+      </ul>
+    </li>
+    <li><a href="#howto">How do I &hellip;</a>
+      <ul>
+        <li><a href="#install-tool">&hellip; install the REUSE tool?</a></li>
+        <li><a href="#bill-of-materials">&hellip; create a software bill of materials</a></li>
+        <li><a href="#uncommentable-file">&hellip; add copyright and licensing information to an uncommentable file?</a></li>
+        <li><a href="#bulk-license">&hellip; bulk-license whole directories?</a></li>
+        <li><a href="#override-info">&hellip; override erroneous REUSE information?</a></li>
+        <li><a href="#aggregate-info">&hellip; add additional REUSE information to a file without editing the header?</a></li>
+        <li><a href="#copy-work">&hellip; copy someone else&rsquo;s work?</a></li>
+        <li><a href="#copy-pseudonym">&hellip; copy a work published under a pseudonym or nickname?</a></li>
+        <li><a href="#no-copyright-license">&hellip; copy a work that has no copyright notice or license?</a></li>
+        <li><a href="#exclude-file">&hellip; exclude a file from REUSE compliance testing?</a></li>
+        <li><a href="#exclude-lines">&hellip; exclude certain lines from REUSE compliance testing?</a></li>
+        <li><a href="#uncopyrightable">&hellip; deal with uncopyrightable files?</a></li>
+        <li><a href="#partial-license">&hellip; separately declare the copyright and license of a part of a file?</a></li>
+        <li><a href="#custom-license">&hellip; use a license that is not on the SPDX License List?</a></li>
+        <li><a href="#custom-exception">&hellip; use a custom license exception?</a></li>
+        <li><a href="#multi-licensing">&hellip; properly declare multi-licensing?</a></li>
+        <li><a href="#license-templates">&hellip; deal with license texts which include copyright statements, like MIT/BSD?</a></li>
+        <li><a href="#many-copyright-statements">&hellip; deal with a file that has been edited by many people?</a></li>
+      </ul>
+    </li>
+    <li><a href="#why-reuse">Why REUSE</a>
+      <ul>
+        <li><a href="#why-care">Do I really need to include the license and copyright headers in all files? Why should I care?</a></li>
+        <li><a href="#tradition">I&rsquo;m used to doing things differently; can&rsquo;t I just keep doing what I have always been doing?</a></li>
+        <li><a href="#metadata">Why doesn&rsquo;t REUSE use the metadata fields in pictures, SVG, text documents etc.?</a></li>
+        <li><a href="#vcs-copyright">Why doesn&rsquo;t REUSE use version control to record copyright?</a></li>
+        <li><a href="#dep5-history">What happened to <code>.reuse/dep5</code>?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h1 id="general">General</h1>
+<h2 id="quick-summary">I am short on time. Can you give me the quickest possible summary?</h2>
+<p>We want to improve the way that people license their software projects such that
+it is <strong>easy, comprehensive, unambiguous, and machine-readable</strong>. We propose
+three steps to achieve this:</p>
+<h3 id="step-1">1. Choose and provide licenses</h3>
+<p>Choose a <a href="https://fsfe.org/about/basics/freesoftware">Free Software</a> license
+for your project. Find the SPDX identifier of your license in the <a href="https://spdx.org/licenses/">SPDX
+License List</a>. Download the license text for your
+license from the
+<a href="https://github.com/spdx/license-list-data/tree/master/text">license-list-data</a>
+repository and put it in the <code>LICENSES/</code> directory.</p>
+<h3 id="step-2">2. Add copyright and licensing information to each file</h3>
+<p>Then, for all files, edit the header to contain the following:</p>
+<pre tabindex="0"><code># SPDX-FileCopyrightText: [year] [copyright holder] &lt;[email address]&gt;
+#
+# SPDX-License-Identifier: [identifier]
+</code></pre><h3 id="step-3">3. Confirm REUSE compliance</h3>
+<p>Use the <a href="https://codeberg.org/fsfe/reuse-tool">REUSE tool</a> to automate some of
+these steps, and to check whether you did everything correctly.</p>
+<h2 id="what-is-spdx">What is SPDX?</h2>
+<p>SPDX stands for <a href="https://spdx.org/">Software Package Data Exchange</a>. It is a
+project by the <a href="https://www.linuxfoundation.org/">Linux Foundation</a> and the rock
+upon which REUSE is built. SPDX defines a standardised way to share copyright
+and licensing information between projects and people. Most importantly for
+REUSE, SPDX maintains the <a href="https://spdx.org/licenses/">SPDX License List</a>, which
+defines standardised identifiers for a lot of licenses.</p>
+<h1 id="copyright">Copyright</h1>
+<h2 id="what-is-copyright">What is copyright?</h2>
+<p>Copyright is a legal construct that grants someone exclusive rights over a
+creative work. The most important exclusive right is in the name: The right to
+produce copies. Only the copyright holder is allowed to give new copies of their
+work to people. You do not need to do anything to gain copyright. As soon as you
+make a creative work, you instantly gain copyright over it.</p>
+<p>Usually the author is the copyright holder, but often copyright is transferred
+to the author&rsquo;s employer.</p>
+<p>Creative Commons provides a better and lengthier answer in their <a href="https://creativecommons.org/faq/#what-is-copyright-and-why-does-it-matter">Frequently
+Asked
+Questions</a>.</p>
+<p>If you want others to be able to freely use, study and share your code, you must
+release it under a license.</p>
+<h2 id="standard-copyright">Is there a standard format for declaring copyright?</h2>
+<p>Generally, we recommend that you use <code>SPDX-FileCopyrightText: [year] [copyright holder] &lt;[contact address]&gt;</code>. You may choose to drop items except the copyright
+holder, which must always be included. We recommend that you include all items,
+however.</p>
+<p>The specification includes a section on the exact format of the copyright
+notice. See <a href="/spec/">the specification</a> and <a href="/faq/#copyright-symbol">the next
+question</a>.</p>
+<h2 id="copyright-symbol">Do I use SPDX-FileCopyrightText, Copyright, or ©?</h2>
+<p>The specification lists the following copyright notices as valid:</p>
+<pre tabindex="0"><code>SPDX-FileCopyrightText: 2019 Jane Doe &lt;jane@example.com&gt;
+SPDX-FileCopyrightText: © 2019 John Doe &lt;john@example.com&gt;
+SPDX-FileCopyrightText: Contributors to Example Project &lt;https://project.example.com&gt;
+SPDX-FileCopyrightText: 2023 Alice Hack and (other) contributors to Project X &lt;https://git.example.com/alicehack/projectx/CONTRIBUTORS.md&gt;
+SPDX-SnippetCopyrightText: (C) Example Cooperative &lt;info@coop.example.com&gt;
+© Example Corporation &lt;https://corp.example.com&gt;
+Copyright 2016, 2018-2019 Joe Anybody
+Copyright (c) Alice, some rights reserved
+</code></pre><p>Out of those, the first two are highly recommended. The others exist primarily
+to be compatible with existing conventions.</p>
+<!-- raw HTML omitted -->
+<h2 id="years-copyright">Which years do I include in the copyright statement?</h2>
+<p>Generally, there are four options for you to choose:</p>
+<ol>
+<li>The year of initial publication.</li>
+<li>The year of the latest publication.</li>
+<li>All years of publications, either as range (e.g., 2017-2019) or as separate
+entries (e.g., 2017, 2018, 2019).</li>
+<li>Do not include any year.</li>
+</ol>
+<p>Which option you choose is ultimately up to you. <a href="https://matija.suklje.name/how-and-why-to-properly-write-copyright-statements-in-your-code">This
+article</a>
+makes a good case for using the year of initial publication of the file.</p>
+<h2 id="what-is-copyrightable">Which files are copyrightable?</h2>
+<p>All files that are original works of authorship are copyrightable. In essence,
+if someone sat down typing their own original thoughts on a keyboard, then that
+person holds copyright over the output. Common examples are source code,
+documentation, audio, and video.</p>
+<p>There are some edge cases, however. For instance, the program <code>print(&quot;Hello, REUSE!&quot;)</code> probably does not meet the threshold of originality. Similarly, data
+files and configuration files may not meet that threshold either. For these
+files, see <a href="/faq/#uncopyrightable">this question</a>.</p>
+<h2 id="copyright-holder-author">What is a copyright holder, and what is an author?</h2>
+<p>In these resources, we maintain a distinction between the copyright holder and
+the author. The author (also known as creator) is the person who sat down and
+created a work. Think of the author as a programmer, writer, or artist.</p>
+<p>The copyright holder is the person who has the exclusive rights over that work.
+Often the author and the copyright holder are the same. However, if the author
+is being paid by their employer to create a work, the employer is often the
+copyright holder.</p>
+<p>Keep in mind that in some jurisdictions, the word &ldquo;author&rdquo; is often used as a
+synonym for &ldquo;copyright holder&rdquo;. In other jurisdictions, authors maintain some
+rights over their work even if they are not the copyright holder.</p>
+<h2 id="when-copyright">I changed a single line of code. Should I add an SPDX-FileCopyrightText tag with my name?</h2>
+<p>The core question here is: At what point should I consider myself a copyright
+holder over a file? This is up to your discretion. It might help to be
+consistent and add the tag to every file you touch, but it is perhaps more
+valuable to reach a consensus about this within your project.</p>
+<h1 id="licensing">Licensing</h1>
+<h2 id="what-is-license">What is a license?</h2>
+<p>One problem with copyright as it pertains to software is that it makes software
+unshareable by default. A license changes that. A license defines the terms
+under which the copyright holder allows the recipient of the license to use the
+software.</p>
+<p>If the license allows the recipient to <a href="https://fsfe.org/freesoftware/basics/4freedoms.html">use, study, share and
+improve</a> the software, then
+that software is <a href="https://fsfe.org/about/basics/freesoftware">Free Software</a>.</p>
+<h2 id="copyleft-permissive-license">What is a copyleft license? A permissive license?</h2>
+<p>There are two broad categories of Free Software licenses; copyleft and
+permissive licenses.</p>
+<p>A copyleft license give you the right to use, study, share, and improve a piece
+of software under one strict condition. If you make any changes to the program
+and share your version of the program with someone else, you must share your
+changes under the same license as the original. A well-known copyleft license is
+the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public License version
+3</a>.</p>
+<p>A permissive license gives you the same Free Software rights, but does not
+include this condition. It is possible for someone to take a permissively
+licensed piece of software, make changes to it, and keep the changed version
+proprietary. A well-known permissive license is the <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache License, version
+2</a>.</p>
+<h2 id="which-license">Which license should I choose?</h2>
+<p>Always choose a Free Software license, i.e. a license that gives the recipient
+the freedom to use, study, share, and improve the software. Aside from that, the
+license you choose is up to you. If you are contributing to an existing project,
+you should release your changes under the same license as the project.
+Otherwise, the <a href="https://www.gnu.org/licenses/license-recommendations.html">Free Software
+Foundation</a>,
+<a href="https://choosealicense.com/">choosealicense.com</a>, and
+<a href="https://joinup.ec.europa.eu/collection/eupl/joinup-licensing-assistant-jla">joinup.eu</a>
+have some good recommendations. Note that these resources each emphasise a
+different value, and come with their own biases.</p>
+<p>Above all, if you value freedom, you should choose a license that makes your
+software <a href="https://fsfe.org/about/basics/freesoftware.en.html">Free Software</a>.</p>
+<h2 id="license-exceptions">What are license exceptions and what do I do with them?</h2>
+<p>License exceptions are additions or alterations to a license that often work to
+permit a certain use of the code that wouldn&rsquo;t be allowed under the original
+license. It is often used by compilers, where a portion of compiler code may end
+up in the resulting binary. The exception may waive rights over portions of code
+that end up in binaries.</p>
+<p>Exceptions are treated almost identically to licenses. In order to combine a
+license with an exception, you mark a file with the following tag:
+<code>SPDX-License-Identifier: GPL-3.0-or-later WITH GCC-exception-3.1</code>.</p>
+<p>You can find a list of common exceptions at <a href="https://spdx.org/licenses/exceptions-index.html">SPDX License
+Exceptions</a>.</p>
+<h2 id="license-compatibility">How does license compatibility work?</h2>
+<p>Free Software licenses often differ in detail, but always give you the right to
+use, study, share, and improve the software. Many licenses are compatible,
+meaning that you can use code from multiple licenses in the same project and
+still be able to respect the terms of each license simultaneously.</p>
+<p>Some licenses are <a href="/faq/#copyleft-permissive-license">less permissive than others</a>,
+meaning that a combined work containing code under both licenses must
+effectively respect the terms of the least permissive license.</p>
+<p>Some licenses have mutually exclusive requirements. For example, the
+<a href="https://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> license has a
+clause that disallows a work to be used for commercial purposes, and the
+<a href="https://www.gnu.org/licenses/gpl-3.0.html">GPL-3.0-or-later</a> has a clause that
+says that you may not impose additional restrictions that aren&rsquo;t in the GPL
+license. Because the GPL license has no clause regarding commercial purposes,
+these two licenses cannot be respected simultaneously, and they are considered
+incompatible.</p>
+<p>Exactly which licenses are compatible is a difficult question, and it also
+depends on what you want. Integrating work that is licensed differently may mean
+having to respect license terms which you do not want to respect.</p>
+<p>Specifically as pertains to the GNU GPL, <a href="https://www.gnu.org/licenses/license-compatibility.html">this GNU
+article</a> and <a href="https://www.gnu.org/licenses/license-list.html">GNU&rsquo;s
+license list</a> may help you work
+out compatibility.</p>
+<p>It is important to note that REUSE does not help you resolve license
+compatibility. REUSE&rsquo;s goal is to help you comprehensively declare your
+licensing metadata, not to check whether that metadata is correct or valid. You
+need different tools and processes for that.</p>
+<h2 id="where-else">Where else do I put my license information?</h2>
+<p>Marking all individual files with <code>SPDX-License-Identifier</code> tags goes a long way
+towards unambiguously communicating the license information of your project, but
+it helps to communicate the license information in natural language as well. In
+the README of your project, feel free to provide a summary of the licensing
+information, or simply redirect the reader to your <code>LICENSES/</code> directory.</p>
+<p>Additionally, many package hosting sites expect that you declare the licensing
+information of your package. For instance, the <a href="https://codeberg.org/fsfe/reuse-tool/src/branch/main/pyproject.toml">pyproject.toml file of the REUSE
+tool</a> declares
+all the licenses that it uses in the format expected by the Python packaging
+infrastructure.</p>
+<h2 id="single-license">I only have a single license file. Should I still create a LICENSES directory?</h2>
+<p>Yes. This may seem extraneous, but it prevents future confusion when differently
+licensed code is adopted. By keeping all licenses in a single directory, it is
+easy for a user of your program to find all the licenses they need to comply
+with in the blink of an eye.</p>
+<p>However, in addition to that, you can keep your <code>LICENSE</code>/<code>COPYING</code> file if you
+want. See <a href="/faq/#tradition">this question</a>.</p>
+<h2 id="header-in-license">Should I put comment headers in my license files?</h2>
+<p>You should not edit license files. Please see <a href="/faq/#edit-license">this question</a>.</p>
+<h2 id="edit-license">Should I edit my license files?</h2>
+<p>You should never edit license files. When you use an existing license, you
+should always copy it verbatim.</p>
+<p>Some licenses, such as MIT and the BSD family of licenses, have a line that says
+&ldquo;Copyright (c) [year] [copyright holder]&rdquo;. Please see <a href="/faq/#license-templates">this
+question</a> about how to deal with those licenses.</p>
+<p>There are many reasons for why you should not alter license texts, but if you do
+alter the texts, you should use a different SPDX identifier for this license.
+See <a href="/faq/#custom-license">this question</a>.</p>
+<h2 id="edit-copyright-and-licensing">Can I edit copyright notices and license disclaimers?</h2>
+<p>If you find out that some information is incorrect, you are free to adjust it.
+Otherwise, it is usually a good idea to leave copyright notices and license
+disclaimers intact. But there is no one-size-fits-all answer here.</p>
+<h2 id="minified">Can I remove the license and copyright information from minified code (e.g., JavaScript)?</h2>
+<p>You can, but you probably should not. Many minifiers have an option that allows
+you to retain the header comment. If this option is present, you should use it,
+especially if you use a license that mandates that you include a license
+disclaimer.</p>
+<h2 id="gpl-plus">Do I need to include both GPL-3.0-or-later and GPL-3.0-only in my repository?</h2>
+<p>Members of the GPL family are listed separately in the SPDX License List as
+-only and -or-later, even though the license texts are identical. If you have
+code under only one of these licenses, we recommend that you only include that
+one license.</p>
+<p>If you have code under both an -only license and an -or-later license, we
+recommend that you include both licenses separately.</p>
+<h2 id="lgpl-only">If I use exclusively LGPL-3.0-or-later, should I also include the GPL-3.0-or-later text?</h2>
+<p>The LGPL license text is an addendum to the GPL license text. If you provide
+<em>only</em> the LGPL license text to your downstream, you are effectively not
+providing them with the full license. For that reason, you should also provide
+the GPL-3.0-or-later license in your <code>LICENSES/</code> directory. The REUSE linter may
+complain that none of your files use the GPL-3.0-or-later license. To solve
+that, pick one file to be licensed under <code>LGPL-3.0-or-later OR GPL-3.0-or-later</code>.</p>
+<h2 id="dependencies-licenses">Does REUSE help me with the licenses of my dependencies?</h2>
+<p>No, that is out of scope for REUSE. If you need to check whether your project
+respects the licenses of all its dependencies, or whether you didn&rsquo;t
+inadvertently pull in a dependency with an unwanted license, you need different
+tools and processes. Some tools listed on the <a href="https://reuse.software/comparison/">comparison page</a> may help you.</p>
+<h1 id="howto">How do I &hellip;</h1>
+<h2 id="install-tool">&hellip; install the REUSE tool?</h2>
+<p>See the installation instructions and accompanying tool documentation at
+<a href="https://reuse.readthedocs.io/en/stable/readme.html#install">https://reuse.readthedocs.io/en/stable/readme.html#install</a>. The short of it
+is:</p>
+<pre tabindex="0"><code>$ pipx install reuse
+$ pipx ensurepath
+$ reuse --help
+</code></pre><h2 id="bill-of-materials">&hellip; create a software bill of materials</h2>
+<p>Install the reuse tool and run <code>reuse spdx -o reuse.spdx</code> in the project root
+to create an <a href="https://spdx.dev/use/specifications/">SPDX
+document</a>.</p>
+<h2 id="uncommentable-file">&hellip; add copyright and licensing information to an uncommentable file?</h2>
+<p>Binary files such as images or videos or certain text files such as JSON cannot
+be commented with a REUSE header, but they should still have copyright and
+licensing information.</p>
+<p>There are two ways of associating information with such a file:</p>
+<ol>
+<li>Add a file next to it with the suffix <code>.license</code> (e.g. <code>cat.jpg.license</code> for
+a file called <code>cat.jpg</code>) and write the comment header in that file. The
+contents of the original file are subsequently ignored, which may be handy in
+some cases.</li>
+<li>License the file via <a href="/faq/#bulk-license"><code>REUSE.toml</code></a>, a REUSE configuration file.</li>
+</ol>
+<h2 id="bulk-license">&hellip; bulk-license whole directories?</h2>
+<p>Where possible, you should add REUSE headers to every file. However, there are
+some scenarios where it is undesirable or impossible to add a REUSE header to
+every single file in a directory. For example:</p>
+<ul>
+<li>You are not allowed to edit the files (because they are test files, or come
+from a third party).</li>
+<li>Adding <code>.license</code> files would break the build system, especially for images
+and video.</li>
+</ul>
+<p>You can license files globally using the <code>REUSE.toml</code> file, typically placed in
+the root of your project, but it can be placed anywhere relative to the files.
+An example of the file follows:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>version = <span style="color:#666">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># A simple glob of all files in resources/img/</span>
+</span></span><span style="display:flex;"><span>[[annotations]]
+</span></span><span style="display:flex;"><span>path = <span style="color:#b44">&#34;resources/img/*&#34;</span>
+</span></span><span style="display:flex;"><span>SPDX-FileCopyrightText = <span style="color:#b44">&#34;2024 Jane Doe &lt;jane@example.com&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>SPDX-License-Identifier = <span style="color:#b44">&#34;CC0-1.0&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># All files in resources/vid/, with multiple copyright holders</span>
+</span></span><span style="display:flex;"><span>[[annotations]]
+</span></span><span style="display:flex;"><span>path = <span style="color:#b44">&#34;resources/vid/*&#34;</span>
+</span></span><span style="display:flex;"><span>SPDX-FileCopyrightText = [
+</span></span><span style="display:flex;"><span>    <span style="color:#b44">&#34;2024 Jane Doe &lt;jane@example.com&gt;&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#b44">&#34;2024 John Doe &lt;john@example.com&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>SPDX-License-Identifier = <span style="color:#b44">&#34;CC-BY-4.0&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># A recursive glob of all files and directories in tests/resources/,</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># and the REUSE information of these files is overridden.</span>
+</span></span><span style="display:flex;"><span>[[annotations]]
+</span></span><span style="display:flex;"><span>path = <span style="color:#b44">&#34;tests/resources/**&#34;</span>
+</span></span><span style="display:flex;"><span>precedence = <span style="color:#b44">&#34;override&#34;</span>
+</span></span><span style="display:flex;"><span>SPDX-FileCopyrightText = <span style="color:#b44">&#34;2024 Jane Doe &lt;jane@example.com&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>SPDX-License-Identifier = <span style="color:#b44">&#34;CC0-1.0&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># Two computer-generated files.</span>
+</span></span><span style="display:flex;"><span>[[annotations]]
+</span></span><span style="display:flex;"><span>path = [
+</span></span><span style="display:flex;"><span>    <span style="color:#b44">&#34;poetry.lock&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#b44">&#34;requirements.txt&#34;</span>
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>SPDX-FileCopyrightText = <span style="color:#b44">&#34;NONE&#34;</span>
+</span></span><span style="display:flex;"><span>SPDX-License-Identifier = <span style="color:#b44">&#34;CC0-1.0&#34;</span>
+</span></span></code></pre></div><p>The <a href="/spec/">REUSE Specification</a> documents more thoroughly how <code>REUSE.toml</code> can
+be used. You can find a JSON schema for <code>REUSE.toml</code> at
+<a href="https://reuse.software/reuse-toml-v1.schema.json">https://reuse.software/reuse-toml-v1.schema.json</a>.</p>
+<h2 id="override-info">&hellip; override erroneous REUSE information?</h2>
+<p>You may have a file that contains copyright or licensing tags that are wrong.
+This may be on purpose, or maybe you have good reasons not to edit these files.
+You have a few options to instruct REUSE to ignore the erroneous information and
+to use correct information instead.</p>
+<ol>
+<li>Use <a href="/faq/#exclude-lines">the <code>REUSE-IgnoreStart</code> and <code>REUSE-IgnoreEnd</code> tags</a>
+inside of the file.</li>
+<li>Use <a href="/faq/#uncommentable-file">a <code>.license</code> file to override the contents of the
+file</a>.</li>
+<li>Use <a href="/faq/#bulk-license">a <code>REUSE.toml</code> file</a> with the <code>precedence = &quot;override&quot;</code>
+key-value.</li>
+</ol>
+<!-- raw HTML omitted -->
+<h2 id="aggregate-info">&hellip; add additional REUSE information to a file without editing the header?</h2>
+<p>There is a specific corner case where a file may contain valid REUSE information
+(usually copyright holders), but it is not desirable for you to edit this file&rsquo;s
+comment header by hand, even though there is more information that should apply
+to this file. A good example of this corner case is <code>.po</code> files provided by
+translators. These may or may not contain copyright and licensing information,
+depending on the translator&rsquo;s translation software and settings.</p>
+<p>You can add additional information using the <code>precedence = &quot;aggregate&quot;</code>
+key-value in your <a href="/faq/#bulk-license"><code>REUSE.toml</code> file</a>. An example looks like
+this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[[annotations]]
+</span></span><span style="display:flex;"><span>path = <span style="color:#b44">&#34;po/*.po&#34;</span>
+</span></span><span style="display:flex;"><span>precedence = <span style="color:#b44">&#34;aggregate&#34;</span>
+</span></span><span style="display:flex;"><span>SPDX-FileCopyrightText = <span style="color:#b44">&#34;Contributors to My Project&#34;</span>
+</span></span><span style="display:flex;"><span>SPDX-License-Identifier = <span style="color:#b44">&#34;GPL-3.0-or-later&#34;</span>
+</span></span></code></pre></div><p>In the above example, &lsquo;Contributors to My Project&rsquo; is added to the file&rsquo;s
+copyright holders (if any), and &lsquo;GPL-3.0-or-later&rsquo; is added to the file&rsquo;s
+licenses (if any).</p>
+<h2 id="copy-work">&hellip; copy someone else&rsquo;s work?</h2>
+<p>If someone else has made their work available for you to use and copy, you can
+incorporate their work into your project. When you put the work in one of the
+files in your project, you should add an <code>SPDX-FileCopyrightText</code> tag for the copyright
+holder(s) and an <code>SPDX-License-Identifier</code> tag for the license(s) under which
+the work was made available.</p>
+<p>If the work was licensed differently from your project, you should <a href="/faq/#license-compatibility">verify
+whether the licenses are compatible</a>, and add the new
+licenses to your project.</p>
+<h2 id="copy-pseudonym">&hellip; copy a work published under a pseudonym or nickname?</h2>
+<p>You can list the pseudonym as the copyright holder. Some projects do not allow
+pseudonymous contributions.</p>
+<h2 id="no-copyright-license">&hellip; copy a work that has no copyright notice or license?</h2>
+<p>Before you proceed, always first make sure that you can find the copyright and
+licensing information elsewhere. Some projects only include this information in
+the root directory or in their README file.</p>
+<p>If you can find no copyright notice, you can try to add it yourself by divining
+the copyright holder from the author. See <a href="/faq/#copyright-holder-author">this
+question</a> for more information on the distinction.
+When in doubt, contact the author for clarification.</p>
+<p>It may be that the author wishes to remain anonymous, which is their right. You
+can write <a href="https://spdx.github.io/spdx-spec/v2.3/file-information/#88-copyright-text-field"><code>NONE</code> or <code>NOASSERTION</code> as the copyright
+holder</a>.</p>
+<p>If the work has no license, then that means that you do not have the right to
+copy it. If you believe that this is a mistake and the author clearly meant for
+you to be able to copy this work, you should contact the author and ask them to
+license their work. Feel free to refer them to <a href="https://reuse.software">https://reuse.software</a>.</p>
+<h2 id="exclude-file">&hellip; exclude a file from REUSE compliance testing?</h2>
+<p>If the file is a build artifact and you use Git, simply make sure that the file
+is covered by your <code>.gitignore</code> file. The same goes for other VCS ignore
+mechanisms.</p>
+<p>Otherwise, you cannot exclude files from REUSE compliance testing. It would go
+entirely against the purpose of REUSE: making sure that every file has a
+copyright and license tag.</p>
+<p>If you really want to exclude a file, consider using the
+<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0-1.0</a> license for this
+file. By doing this, you put the file in the <a href="https://fsfe.org/freesoftware/legal/faq.html#public-domain">public domain, or your country&rsquo;s
+equivalent</a>.</p>
+<p>If you have an entire directory that you want to &ldquo;exclude&rdquo; from REUSE compliance
+testing, you can <a href="/faq/#bulk-license">use <code>REUSE.toml</code></a>.</p>
+<h2 id="exclude-lines">&hellip; exclude certain lines from REUSE compliance testing?</h2>
+<p>In order to make the tool ignore a specific section containing strings that may
+falsely be detected as copyright or license statements, you can wrap it within
+the two comments <code>REUSE-IgnoreStart</code> and <code>REUSE-IgnoreEnd</code>.</p>
+<!-- raw HTML omitted -->
+<p>Please note that this must not be used to ignore valid copyright and licensing
+information by yourself or a third party. The ignore blocks must only be used
+for marking blocks that may trigger false-positive detections and errors.</p>
+<p>An example for a file that contains commands or documentation that confuse the
+REUSE tool:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># SPDX-FileCopyrightText: 2021 Jane Doe</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># SPDX-License-Identifier: GPL-3.0-or-later</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f">echo</span> <span style="color:#b44">&#34;SPDX-FileCopyrightText: </span><span style="color:#a2f;font-weight:bold">$(</span>date +<span style="color:#b44">&#39;%Y&#39;</span><span style="color:#a2f;font-weight:bold">)</span><span style="color:#b44"> John Doe&#34;</span> &gt; file.txt
+</span></span><span style="display:flex;"><span><span style="color:#a2f">echo</span> <span style="color:#b44">&#34;SPDX-License-Identifier: MIT&#34;</span> &gt;&gt; file.txt
+</span></span></code></pre></div><p>This is how the section can be ignored:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># SPDX-FileCopyrightText: 2021 Jane Doe</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># SPDX-License-Identifier: GPL-3.0-or-later</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># REUSE-IgnoreStart</span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f">echo</span> <span style="color:#b44">&#34;SPDX-FileCopyrightText: </span><span style="color:#a2f;font-weight:bold">$(</span>date +<span style="color:#b44">&#39;%Y&#39;</span><span style="color:#a2f;font-weight:bold">)</span><span style="color:#b44"> John Doe&#34;</span> &gt; file.txt
+</span></span><span style="display:flex;"><span><span style="color:#a2f">echo</span> <span style="color:#b44">&#34;SPDX-License-Identifier: MIT&#34;</span> &gt;&gt; file.txt
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># REUSE-IgnoreEnd</span>
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<h2 id="uncopyrightable">&hellip; deal with uncopyrightable files?</h2>
+<p>Some files, such as those generated by code, or config files which contain no
+creative expression, may not be copyrightable. However, REUSE mandates licensing
+information for every single file, so there is a conflict here. Because we <a href="/faq/#exclude-file">do
+not allow excluding files</a>, some information must be recorded for
+such files.</p>
+<p>You have two options:</p>
+<ol>
+<li>Simply use your regular copyright and license for this file. There is nothing
+that stops you from &ldquo;claiming&rdquo; copyright over your own works, even if a court
+might hypothetically find such files uncopyrightable.</li>
+<li>Waive your copyright using the
+<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0-1.0</a> license or
+another similar public domain dedication.</li>
+</ol>
+<p>You may choose to use a copyright tag such as <code>SPDX-FileCopyrightText: NONE</code>
+to assert that there is no copyright holder.</p>
+<p>The reason that these files <em>must</em> be licensed is because reasonable minds can
+differ about the threshold of originality. You may consider a file so
+insignificant that it does not merit licensing information, but downstream may
+disagree and believe that the file in question falls under copyright,
+effectively disallowing them from using it if there is no license.</p>
+<p>It is important to note that you can only apply licenses to your own works. If
+the file was authored by someone else, you should declare their copyright and
+license in the header. If there is no such information, you should contact the
+author.</p>
+<h2 id="partial-license">&hellip; separately declare the copyright and license of a part of a file?</h2>
+<p>It may happen that you copy some third-party code into a bigger file. You can
+add the copyright and licensing to the file&rsquo;s header, or you can add in-line
+snippet comments around this new block of code.</p>
+<p>Such an annotated snippet block must start with <code>SPDX-SnippetBegin</code> to mark its
+beginning and end with <code>SPDX-SnippetEnd</code> to mark the snippet&rsquo;s end.</p>
+<p>Do note that SPDX tags must start with <code>SPDX-Snippet</code> inside of snippets,
+meaning that the (only) correct copyright notice in a snippet is
+<code>SPDX-SnippetCopyrightText</code>. <code>SPDX-License-Identifier</code> is an exception.</p>
+<p>Example:</p>
+<pre tabindex="0"><code># SPDX-SnippetBegin
+# SPDX-License-Identifier: MIT
+# SPDX-SnippetCopyrightText: 2023 Jane Doe &lt;jane@example.com&gt;
+
+{$snippet_code_goes_here}
+
+# SPDX-SnippetEnd
+</code></pre><p>Snippets may nest, and this is denoted by having
+<code>SPDX-SnippetBegin</code>/<code>SPDX-SnippetEnd</code> pairs within other pairs, in the same way
+that parentheses nest in mathematical expressions. In the case of nested
+snippets, the SPDX file tags are considered to apply to the inner-most snippet. Example:</p>
+<pre tabindex="0"><code># SPDX-SnippetBegin
+# SPDX-License-Identifier: MIT
+# SPDX-SnippetCopyrightText: 2023 Jane Doe &lt;jane@example.com&gt;
+
+{$snippet_code_under_MIT}
+
+# SPDX-SnippetBegin
+# SPDX-License-Identifier: BSD-2-Clause
+# SPDX-SnippetCopyrightText: Copyright Example Company
+
+{$snippet_code_under_BSD-2-Clause}
+
+# SPDX-SnippetEnd
+
+{$more_snippet_code_under_MIT}
+
+# SPDX-SnippetEnd
+</code></pre><p>It is also considered good practice to further specify the origin of the
+snippet, for instance by a comment like &ldquo;The class Foo is copied from project Bar&rdquo;.</p>
+<p>A possible alternative to using snippets is to extract the code block from the
+file, and to keep it in its own file.</p>
+<h2 id="custom-license">&hellip; use a license that is not on the SPDX License List?</h2>
+<p>If you have a custom or modified license that does not appear in the SPDX
+License List, place your license in the file
+<code>LICENSES/LicenseRef-MyLicense.txt</code>. By naming your license with the prefix
+<code>LicenseRef-</code>, tools that speak SPDX will still be able to recognise your
+license.</p>
+<p>In this example, the header in files covered by this custom license may look
+like the following:</p>
+<pre tabindex="0"><code># SPDX-License-Identifier: LicenseRef-MyLicense
+# SPDX-FileCopyrightText: 2017 Jane Doe &lt;jane@example.com&gt;
+</code></pre><p>This may also be necessary when dealing with multiple different variants of
+<a href="/faq/#license-templates">customisable license text files like MIT or BSD</a>.</p>
+<p>Please note: It is strongly advised to <a href="/faq/#which-license">use established and approved
+licenses</a>.</p>
+<h2 id="custom-exception">&hellip; use a custom license exception?</h2>
+<p>It is not possible to create a custom exception. Instead, you may <a href="/faq/#custom-license">create a
+custom license</a> that embeds the exception.</p>
+<h2 id="multi-licensing">&hellip; properly declare multi-licensing?</h2>
+<p>You should always include all licenses in the <code>LICENSES/</code> directory.</p>
+<p>The correct SPDX license expression that applies to the file depends on the
+intent. If all the code within is licensed under multiple licenses, and the
+licensee can choose under which license they consume the work, use
+<code>SPDX-License-Identifier: MPL-1.1 OR GPL-2.0-or-later OR LGPL-2.1-or-later</code>, as
+parts of Firefox do.</p>
+<p>If all the code within the file is licensed under multiple licenses, and the
+user must comply with all licenses simultaneously, use
+<code>SPDX-License-Identifier: LGPL-2.0-or-later AND AML</code>, as can be found in Simple
+DirectMedia Layer (SDL).</p>
+<p>If all the code within the file is licensed under either one license or another
+(for instance, all code is under GPL-2.0-only, but one function is under MIT),
+use <a href="/faq/#partial-license">snippets</a>.</p>
+<!-- raw HTML omitted -->
+<p>You can read more about SPDX expressions <a href="https://spdx.github.io/spdx-spec/v2.3/SPDX-license-expressions/">in the
+specification</a>.</p>
+<h2 id="license-templates">&hellip; deal with license texts which include copyright statements, like MIT/BSD?</h2>
+<p>Some license texts, such as MIT or the BSD family of licenses, can be modified
+to contain custom copyright notices.</p>
+<p>If you are releasing code under such a license, we recommend that you add the
+license text to the project without any modifications whatsoever. A good way of
+obtaining the unmodified license text is using the REUSE helper tool (e.g.,
+<code>reuse download MIT</code>). Instead of inserting your copyright notice into the
+license text itself, you add copyright statements to your project&rsquo;s files
+following the normal REUSE best practices.</p>
+<p>When you reuse code from multiple sources that use an MIT/BSD license, you
+quickly run into a problem. Both the MIT license and the BSD family of licenses
+include a clause that requires the redistributor (that&rsquo;s you) to reproduce the
+copyright notice and the license text. For instance, Project A and Project B
+might both use an MIT license, but the actual license files will differ because
+they have different copyright notices embedded within them. If you want to reuse
+code from both of these projects, you might not be sure where to put your copies
+of those projects&rsquo; license files.</p>
+<p>We recommend two options:</p>
+<ol>
+<li>The most pragmatic solution is to put the unmodified license text (i.e., the
+license text template without any copyright notices) in your <code>LICENSES/</code>
+folder. You then embed the copyright notices of the upstream project into the
+corresponding source code files you reused, as usual.</li>
+<li>The more thorough and labour-intensive solution is to treat any of these
+license texts with modified copyright notices as a <a href="/faq/#custom-license">custom license using
+LicenseRef</a>. However, if you reuse code from many third
+parties under these licenses, you may end up with a lot of these custom
+licenses.</li>
+</ol>
+<h2 id="many-copyright-statements">&hellip; deal with a file that has been edited by many people?</h2>
+<p>Some files are edited by many people and would have an extremely long list of
+copyright holders in the header. This may be aesthetically unpleasing, but is
+not incorrect.</p>
+<p>If you would rather not deal with having so many copyright notices, some
+projects such as Chromium circumvent this problem by using &ldquo;Copyright (c) 2013
+The Chromium Authors&rdquo; as their copyright tag. You may consider doing this, but
+then you should keep a list of copyright holders and authors in a separate file
+in your project.</p>
+<h1 id="why-reuse">Why REUSE</h1>
+<h2 id="why-care">Do I really need to include the license and copyright headers in all files? Why should I care?</h2>
+<p>Big projects with complex copyright and licensing stand the most to gain from
+REUSE by shaping order out of chaos and disambiguating unclear licensing.
+Putting a header in every single file is a necessary evil to obtain that order
+and clarity. This metadata needs to be somewhere, and we are opined that it
+should be as close to the data as possible&mdash;as a header in each file.</p>
+<p>But even smaller projects or projects with simple licensing benefit from REUSE.
+For good or for ill, licensing is a cornerstone of the Free Software movement.
+It is what enables sharing, and in the case of copyleft, it enables us to keep
+software Free. Getting licensing right is important, or else people won&rsquo;t be
+able to use your software, and REUSE is a simple component in helping you with
+this.</p>
+<p>Furthermore, even if your project is simple <em>now</em>, it may not always be so. If
+you copy some code from another project that is differently licensed, you are
+often obliged to attribute correctly and/or provide the accompanying license
+text. By implementing REUSE early, it is a lot easier to discern your code from
+third-party code and correctly keep track of these things.</p>
+<p>Lastly, implementing REUSE is a small service to others. As a software engineer,
+it can be frustrating when you find some code that is purpose-built for the
+problem you are trying to solve, but you are unable to figure out the licensing
+of that code, effectively making it impossible to, well, reuse that code. REUSE
+helps you help other developers in reusing your code, which is one of the great
+boons of Free Software.</p>
+<h2 id="tradition">I&rsquo;m used to doing things differently; can&rsquo;t I just keep doing what I have always been doing?</h2>
+<p>Some people, when they first encounter REUSE, run into a couple of things that
+are very different from what they are used to. They miss the long legal blurbs
+at the tops of files, miss the <code>COPYING</code>/<code>LICENSE</code> file in the root of the
+repository, think that <code>.license</code> files clutter the directory, or find it very
+strange that even insignificant non-code files get licensing headers. The
+different-ness of REUSE can seem peculiar in that way.</p>
+<p>One of REUSE&rsquo;s main goals is to be as compatible to existing best practices as
+possible. It explicitly breaks with some old traditions, however. We believe
+that REUSE is better for it. By breaking new ground, REUSE is simpler, more
+comprehensive, and more unambiguous than it would have been if we tried to
+maintain compatibility with traditions of old.</p>
+<p>Nothing prevents you from adding long legal blurbs to your headers or putting a
+<code>COPYING</code> file in the root of your directory <em>anyway</em> though. These things can
+be done to your liking. Some other aspects of REUSE are unavoidable, however.
+REUSE maintains that <em>every single file should contain licensing information</em>,
+so that even the tiniest of files have licensing metadata. These things are
+simply inherent to the goal of REUSE, and we hope that these eccentricities will
+soon become commonplace, such that they would no longer seem so peculiar
+anymore.</p>
+<h2 id="metadata">Why doesn&rsquo;t REUSE use the metadata fields in pictures, SVG, text documents etc.?</h2>
+<p>Several file formats support the storage of metadata information within the file
+itself, and some even contain fields for copyright and license. However, we do
+not support these in REUSE for practical reasons:</p>
+<ol>
+<li>For humans and machines alike it&rsquo;s not always trivial to spot this
+information. REUSE intends to make it simple to find licensing and copyright
+information.</li>
+<li>Some tools redact metadata fields, for example to make files smaller or
+remove potentially sensible personal information. This could also wipe your
+or someone else&rsquo;s copyright information, and detecting this mistake is hard.</li>
+<li>With some file types, there are competing and unstandardised methods to store
+metadata.</li>
+</ol>
+<p>This question is also related to <a href="/faq/#vcs-copyright">why we cannot use version control to record
+copyright</a>.</p>
+<h2 id="vcs-copyright">Why doesn&rsquo;t REUSE use version control to record copyright?</h2>
+<p>In <a href="/faq/#copyright-holder-author">a different question</a>, we distinguish between
+copyright holders and authors, which are not always the same. Version control
+typically only records authorship, which makes it unsuitable for the task of
+recording copyright.</p>
+<p>Another obstacle is that version control history may contain errors, and fixing
+such an error would require rewriting the history, causing all contributors to
+have to re-download the new trunk.</p>
+<p>A further issue with version control is that the <code>blame</code> command that is
+typically (mis)used to find authorship line-by-line shows only the author of the
+last commit in that line, even if it was just something as trivial as fixing a
+typo or moving a block of code to a different location.</p>
+<h2 id="dep5-history">What happened to <code>.reuse/dep5</code>?</h2>
+<p>REUSE currently uses <a href="/faq/#bulk-license"><code>REUSE.toml</code> to bulk-license files</a>. But
+before version 3.2 of the specification, REUSE used <code>.reuse/dep5</code>, an
+almost-verbatim copy of
+<a href="https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/">DEP5/<code>debian/copyright</code></a>.</p>
+<p>In version 3.2, <code>.reuse/dep5</code> is deprecated but still supported, although
+mutually exclusive with <code>REUSE.toml</code>. You can use <code>reuse convert-dep5</code> to
+automatically convert a <code>.reuse/dep5</code> file to a semantically equivalent
+<code>REUSE.toml</code> file.</p>
+<p><code>.reuse/dep5</code> was dropped in favour of <code>REUSE.toml</code> for various reasons:</p>
+<ul>
+<li><code>debian/copyright</code> was never a purposive match for REUSE. Debian uses this
+file to holistically declare the licensing of a package; REUSE uses it to fill
+the licensing gaps.</li>
+<li><code>.reuse/dep5</code> was ambiguous on the licensing information of a file if its
+information was declared both in the file itself and in <code>.reuse/dep5</code>. Which
+information is applied? In version 3.2, this information is explicitly
+aggregated. Adding a new key to explicitly declare precedence would have been
+difficult, because&hellip;</li>
+<li><code>.reuse/dep5</code> is hard to parse. There is a Python module in
+<a href="https://salsa.debian.org/python-debian-team/python-debian">python-debian</a>,
+but the format is custom and inflexible. One of REUSE&rsquo;s core aims is to be
+machine-readable, and this custom format was not conducive to that end.</li>
+<li>TOML is more flexible. You can write any key-value that you want, which may be
+helpful for custom workflows.</li>
+<li>TOML is much easier to write. Developers already know how to write TOML, and
+don&rsquo;t need to accustom themselves to a custom format.</li>
+<li><code>REUSE.toml</code> can be placed anywhere relative to the files, and can nest. This
+is a big help for monorepos or monorepo-like projects.</li>
+</ul>
+<p>For compatibility, <code>.reuse/dep5</code> will remain supported in spite of its
+deprecation for a considerable length of time; at least until 2029.</p>
+<!-- raw HTML omitted -->
+
+</div>
+
+  </div> 
+</div> 
+</div> 
+
+<footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          
+<div class="social">
+  <ul class="social-links"><li><a href="https://git.fsfe.org/reuse" title="Git" target="_blank"><i class="fab fa-git"></i></a></li>
+    <li><a href="https://github.com/search?q=topic%3Areuse&#43;org%3Afsfe&amp;type=Repositories" title="Github" target="_blank"><i class="fab fa-github"></i></a></li>
+    <li><a href="https://lists.fsfe.org/postorius/lists/reuse.lists.fsfe.org/" title="Email" target="_blank"><i class="fa fa-envelope"></i></a></li>
+    <li><a href="https://mastodon.social/@fsfe" title="Mastodon" rel="me" target="_blank"><i class="fab fa-mastodon"></i></a></li>
+    <li><a href="https://twitter.com/fsfe" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a></li>
+    
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          
+
+
+
+
+<div class="orgs">
+  <p class="text-muted">Selected supporters and adopters:</p>
+  <ul>
+    
+    <li class="org">
+      <img src="/img/organisations/gray/kde.png" title="KDE" >
+    </li>
+    
+    <li class="org">
+      <img src="/img/organisations/gray/linux.png" title="Linux Kernel" >
+    </li>
+    
+    <li class="org">
+      <img src="/img/organisations/gray/ngi0.png" title="Next Generation Internet Zero" width="150px" height="auto">
+    </li>
+    
+    <li class="org">
+      <img src="/img/organisations/gray/siemens.png" title="Siemens" width="200px" height="auto">
+    </li>
+    
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p class="copyright text-muted small">Copyright &copy; 2026 <a href="https://fsfe.org/">Free Software Foundation Europe e.V.</a> – <a href="https://fsfe.org/about/legal/imprint.en.html">Imprint & Privacy</a>, <a href="https://fsfe.org/about/transparency-commitment.html">Transparency Committment</a></p>
+          <p class="text-muted small">Unless stated otherwise, the content of the website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 License</a>.</p>
+        </div>
+      </div>
+    </div>
+</footer>
+<a class="page-scroll" href="#page-top" title="Scroll to top">
+  <div id="scroll-to-top">
+    <i class="fa fa-chevron-up" aria-hidden="true"></i>
+  </div>
+</a>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/anchorforid.js"></script>
+
+</body>
+</html>
+

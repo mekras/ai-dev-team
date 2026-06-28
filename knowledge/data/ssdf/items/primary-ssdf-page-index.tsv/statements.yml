@@ -1,0 +1,190 @@
+statements:
+- id: SSDF-001
+  source_id: SSDF
+  item_id: SSDF-primary-SSDF-page-index.tsv
+  status: ready_for_review
+  text: SSDF — набор практик безопасной разработки ПО высокого уровня, которые можно
+    интегрировать в любой жизненный цикл разработки; цель — снизить число уязвимостей,
+    уменьшить влияние нераскрытых уязвимостей и устранять их первопричины.
+  excerpt: введение, цели документа.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Назначение SSDF
+    application: специалист по безопасности, project-manager.
+  open_questions: []
+- id: SSDF-002
+  source_id: SSDF
+  item_id: SSDF-primary-SSDF-page-index.tsv
+  status: ready_for_review
+  text: SSDF не привязан к конкретной методологии, языку, инструменту или платформе
+    и описывает, что делать, а не как именно реализовать; практики снабжены примерами
+    реализации и ссылками на другие методики (BSAFSS, BSIMM, OWASP, PCI и др.).
+  excerpt: введение, формат практик.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Технологическая нейтральность
+    application: специалист по безопасности, архитектор.
+  open_questions: []
+- id: SSDF-003
+  source_id: SSDF
+  item_id: SSDF-primary-SSDF-page-index.tsv
+  status: ready_for_review
+  text: 'практики сгруппированы в четыре группы: Prepare the Organization (PO), Protect
+    the Software (PS), Produce Well-Secured Software (PW), Respond to Vulnerabilities
+    (RV).'
+  excerpt: раздел структуры SSDF.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Четыре группы практик
+    application: специалист по безопасности.
+  open_questions: []
+- id: SSDF-004
+  source_id: SSDF
+  item_id: SSDF-primary-SSDF-page-index.tsv
+  status: ready_for_review
+  text: организация должна определить требования безопасности для разработки (PO.1),
+    назначить роли и ответственность с обучением и поддержкой руководства (PO.2).
+  excerpt: практики PO.1–PO.2.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Требования безопасности и роли
+    application: project-manager, специалист по безопасности.
+  open_questions: []
+- id: SSDF-005
+  source_id: SSDF
+  item_id: SSDF-primary-SSDF-page-index.tsv
+  status: ready_for_review
+  text: организация должна внедрить поддерживающие цепочки инструментов (PO.3), определить
+    и использовать критерии проверок безопасности ПО (PO.4) и поддерживать защищённые
+    среды разработки (PO.5).
+  excerpt: практики PO.3–PO.5.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Цепочки инструментов и критерии проверок
+    application: специалист по безопасности, разработчик.
+  open_questions: []
+- id: SSDF-006
+  source_id: SSDF
+  item_id: SSDF-primary-SSDF-page-index.tsv
+  status: ready_for_review
+  text: нужно защищать все формы кода от несанкционированного доступа и изменения
+    (PS.1) и обеспечить механизм проверки целостности выпуска (PS.2).
+  excerpt: практики PS.1–PS.2.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Защита кода и целостность выпуска
+    application: специалист по безопасности, разработчик.
+  open_questions: []
+- id: SSDF-007
+  source_id: SSDF
+  item_id: SSDF-primary-SSDF-page-index.tsv
+  status: ready_for_review
+  text: каждый выпуск ПО нужно архивировать и защищать, включая данные о происхождении
+    (provenance), доступные приобретателям ПО (PS.3).
+  excerpt: практика PS.3.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Архивирование и происхождение выпуска
+    application: специалист по безопасности.
+  open_questions: []
+- id: SSDF-008
+  source_id: SSDF
+  item_id: SSDF-primary-SSDF-page-index.tsv
+  status: ready_for_review
+  text: ПО следует проектировать под требования безопасности и снижение рисков (PW.1,
+    включая моделирование угроз) и рецензировать проект на соответствие требованиям
+    (PW.2).
+  excerpt: практики PW.1–PW.2.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Проектирование под требования и моделирование угроз
+    application: специалист по безопасности, архитектор.
+  open_questions: []
+- id: SSDF-009
+  source_id: SSDF
+  item_id: SSDF-primary-SSDF-page-index.tsv
+  status: ready_for_review
+  text: следует переиспользовать существующее защищённое ПО и регулярно проверять
+    сторонние, open-source и коммерческие компоненты на известные уязвимости (PW.4).
+  excerpt: практика PW.4.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Переиспользование и проверка компонентов
+    application: специалист по безопасности, разработчик.
+  open_questions: []
+- id: SSDF-010
+  source_id: SSDF
+  item_id: SSDF-primary-SSDF-page-index.tsv
+  status: ready_for_review
+  text: исходный код пишут по практикам безопасного программирования (PW.5), а процессы
+    компиляции, сборки и конфигурации настраивают на безопасность, включая предупреждения
+    компилятора (PW.6).
+  excerpt: практики PW.5–PW.6.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Безопасное программирование и сборка
+    application: разработчик, специалист по безопасности.
+  open_questions: []
+- id: SSDF-011
+  source_id: SSDF
+  item_id: SSDF-primary-SSDF-page-index.tsv
+  status: ready_for_review
+  text: код следует рецензировать и/или анализировать (PW.7), тестировать исполняемый
+    код, включая поиск уязвимостей (PW.8), и настраивать безопасные параметры по умолчанию
+    (PW.9).
+  excerpt: практики PW.7–PW.9.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Рецензирование, тестирование и безопасные умолчания
+    application: специалист по безопасности, разработчик, роль проверки.
+  open_questions: []
+- id: SSDF-012
+  source_id: SSDF
+  item_id: SSDF-primary-SSDF-page-index.tsv
+  status: ready_for_review
+  text: уязвимости нужно выявлять и подтверждать, включая автоматический анализ, и
+    иметь политику раскрытия уязвимостей (RV.1).
+  excerpt: практика RV.1.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Выявление и политика раскрытия уязвимостей
+    application: специалист по безопасности.
+  open_questions: []
+- id: SSDF-013
+  source_id: SSDF
+  item_id: SSDF-primary-SSDF-page-index.tsv
+  status: ready_for_review
+  text: по каждой уязвимости принимается риск-ориентированное решение об устранении;
+    уязвимости оценивают, приоритизируют и устраняют (RV.2).
+  excerpt: практика RV.2.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Оценка, приоритизация и устранение
+    application: специалист по безопасности, project-manager.
+  open_questions: []
+- id: SSDF-014
+  source_id: SSDF
+  item_id: SSDF-primary-SSDF-page-index.tsv
+  status: ready_for_review
+  text: уязвимости анализируют для выявления первопричин, проверяют ПО на схожие дефекты
+    и при необходимости обновляют сам процесс разработки (RV.3).
+  excerpt: практика RV.3.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Анализ первопричин и улучшение процесса
+    application: специалист по безопасности.
+  open_questions: []

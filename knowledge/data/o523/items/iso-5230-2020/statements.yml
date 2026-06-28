@@ -1,0 +1,66 @@
+statements:
+- id: O523-001
+  source_id: O523
+  item_id: O523-iso-5230-2020
+  status: ready_for_review
+  text: спецификация требует наличия письменной политики, управляющей соблюдением
+    лицензионных обязательств для поставляемого ПО.
+  excerpt: раздел `3.1.1 - Policy`.
+  artifact: index.md
+  checked_at: '2026-06-05'
+  scope:
+    section_title: ''
+    application: формализация правил работы с открытыми лицензиями.
+  open_questions: []
+- id: O523-002
+  source_id: O523
+  item_id: O523-iso-5230-2020
+  status: ready_for_review
+  text: программа должна иметь процесс обзора выявленных лицензий для определения
+    обязанностей, ограничений и предоставленных прав.
+  excerpt: раздел `3.1.5 - License obligations`.
+  artifact: index.md
+  checked_at: '2026-06-05'
+  scope:
+    section_title: ''
+    application: проверка лицензий и формирование правил использования.
+  open_questions: []
+- id: O523-003
+  source_id: O523
+  item_id: O523-iso-5230-2020
+  status: ready_for_review
+  text: спецификация требует процесса создания и сопровождения BOM, включающего компоненты
+    открытого ПО и их лицензии.
+  excerpt: раздел `3.3.1 - Bill of materials`.
+  artifact: index.md
+  checked_at: '2026-06-05'
+  scope:
+    section_title: ''
+    application: учёт состава поставляемого ПО и его лицензий.
+  open_questions: []
+- id: O523-004
+  source_id: O523
+  item_id: O523-iso-5230-2020
+  status: ready_for_review
+  text: программа должна поддерживать типовые лицензионные сценарии и выпускать требуемые
+    артефакты соответствия.
+  excerpt: разделы `3.3.2 - License compliance` и 3.4.1 - Compliance artifacts`.
+  artifact: index.md
+  checked_at: '2026-06-05'
+  scope:
+    section_title: ''
+    application: практическая обработка кейсов лицензирования и поставки.
+  open_questions: []
+- id: O523-005
+  source_id: O523
+  item_id: O523-iso-5230-2020
+  status: ready_for_review
+  text: спецификация требует публично видимого способа для приёма запросов третьих
+    лиц по вопросам лицензионного соответствия.
+  excerpt: пункт `3.2.1.1`.
+  artifact: index.md
+  checked_at: '2026-06-05'
+  scope:
+    section_title: ''
+    application: внешняя коммуникация и обработка compliance-запросов.
+  open_questions: []

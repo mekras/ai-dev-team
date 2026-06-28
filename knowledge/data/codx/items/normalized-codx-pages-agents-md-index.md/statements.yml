@@ -1,0 +1,82 @@
+statements:
+- id: CODX-001
+  source_id: CODX
+  item_id: CODX-normalized-CODX-pages-agents-md-index.md
+  status: ready_for_review
+  text: Codex строит цепочку инструкций при старте и применяет их к каждому сеансу.
+  excerpt: в разделе описания объясняется порядок формирование guidance-сцепочки при
+    старте.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: процессы инициализации.
+  open_questions: []
+- id: CODX-002
+  source_id: CODX
+  item_id: CODX-normalized-CODX-pages-agents-md-index.md
+  status: ready_for_review
+  text: глобальный уровень `~/.codex` имеет приоритет над локальными до тех пор, пока
+    не будет найден более специфичный override.
+  excerpt: указана очередь чтения в глобальном скоупе и правило "первый непустой файл".
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: глобальные соглашения между проектами.
+  open_questions: []
+- id: CODX-003
+  source_id: CODX
+  item_id: CODX-normalized-CODX-pages-agents-md-index.md
+  status: ready_for_review
+  text: проектный уровень просматривает все каталоги от корня до текущего и для каждого
+    пытается применить до одного файла (`AGENTS.override.md`, затем `AGENTS.md`, затем
+    fallback).
+  excerpt: описание процесса Discovery по пути от root до cwd.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: локальные правила в многоуровневых репозиториях.
+  open_questions: []
+- id: CODX-004
+  source_id: CODX
+  item_id: CODX-normalized-CODX-pages-agents-md-index.md
+  status: ready_for_review
+  text: порядок объединения — от корня вниз, более глубокие файлы идут позже и имеют
+    больший вес.
+  excerpt: описан порядок конкатенации с пустыми строками и правило override для closer
+    scope.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: маршрутизация конфликтов между файлами инструкций.
+  open_questions: []
+- id: CODX-005
+  source_id: CODX
+  item_id: CODX-normalized-CODX-pages-agents-md-index.md
+  status: ready_for_review
+  text: Codex прекращает добавление файлов инструкций по лимиту размера контекста
+    (`project_doc_max_bytes`, по умолчанию 32 KiB).
+  excerpt: источник прямо указывает на лимит и возможный срез при сборе инструкций.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: контроль размера цепочки инструкций.
+  open_questions: []
+- id: CODX-006
+  source_id: CODX
+  item_id: CODX-normalized-CODX-pages-agents-md-index.md
+  status: ready_for_review
+  text: для повышения надёжности рекомендуют увеличивать лимит или делить соглашения
+    на вложенные файлы при переполнении.
+  excerpt: указание "Raise the limit or split instructions across nested directories
+    when you hit the cap."
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: устойчивость конфигурации для длинных правил.
+  open_questions: []

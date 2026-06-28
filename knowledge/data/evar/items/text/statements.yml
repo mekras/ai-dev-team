@@ -1,0 +1,681 @@
+statements:
+- id: EVAR-001
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: архитектура с эволюционным развитием поддерживает управляемые, инкрементные
+    изменения в нескольких измерениях.
+  excerpt: глава 1, раздел «Архитектура с эволюционным развитием»; повторяется как
+    авторское определение в главах 2 и 3.
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Определение архитектуры с эволюционным развитием
+    application: архитектор — рамочное определение цели проектирования архитектуры
+      под изменения.
+  open_questions: []
+- id: EVAR-002
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: эволюционная архитектура отвечает на вопрос, как вести долгосрочное планирование,
+    когда всё постоянно меняется, — за счёт проектирования способности к изменению,
+    а не предсказания конечного состояния.
+  excerpt: глава 1, раздел «Как можно осуществлять долгосрочное планирование, если
+    всё постоянно меняется?».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Долгосрочное планирование при постоянных изменениях
+    application: архитектор, менеджер проекта.
+  open_questions: []
+- id: EVAR-003
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: со временем архитектура деградирует («гниёт») по мере непредвиденных изменений;
+    эволюционная архитектура защищает важные характеристики, делая их проверяемыми,
+    а не полагаясь на надежду.
+  excerpt: глава 1, раздел «Как можно защитить созданную архитектуру от постепенной
+    деградации?».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Защита от постепенной деградации архитектуры
+    application: архитектор.
+  open_questions: []
+- id: EVAR-004
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: инкрементное изменение означает, что архитектура должна способствовать изменению
+    небольшими приращениями как на этапе разработки, так и на этапе развёртывания.
+  excerpt: глава 1, раздел «Инкрементные изменения»; глава 3, вводный раздел.
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Инкрементное изменение
+    application: архитектор, разработчик.
+  open_questions: []
+- id: EVAR-005
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: слово «управляемое» в определении означает, что существует цель, к которой
+    архитектура должна двигаться; механизм управления — функции пригодности, а ограничения
+    исключают нежелательные направления эволюции.
+  excerpt: глава 1, раздел «Управляемое изменение»; глава 2, вводный раздел.
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Управляемое изменение
+    application: архитектор.
+  open_questions: []
+- id: EVAR-006
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: архитектура существует во многих измерениях (техническом, данных, безопасности,
+    операционном и др.); эволюционная архитектура должна поддерживать изменение во
+    всех важных измерениях одновременно, а не только в техническом коде.
+  excerpt: глава 1, раздел «Многочисленные области архитектуры».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Многочисленные измерения архитектуры
+    application: архитектор, аналитик.
+  open_questions: []
+- id: EVAR-007
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: организации, проектирующие системы, ограничены дизайном, копирующим структуру
+    их коммуникаций; функциональное разделение команд («анклавы») повышает затраты
+    на координацию и снижает гибкость.
+  excerpt: глава 1, раздел «Закон Конвея» (цитата Мелвина Конвея).
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Закон Конвея
+    application: архитектор, менеджер проекта.
+  open_questions: []
+- id: EVAR-008
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: команды стоит организовывать вокруг целевых границ архитектуры (например,
+    границ сервисов), чтобы структура команд напоминала желаемую архитектуру; ThoughtWorks
+    называет этот подход обратным маневром Конвея.
+  excerpt: глава 1, раздел «Закон Конвея».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Обратный маневр Конвея
+    application: менеджер проекта, архитектор.
+  open_questions: []
+- id: EVAR-009
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: вместо разделения по техническим слоям (UI, бэкенд, базы данных) эффективнее
+    межфункциональные команды вокруг бизнес-области, включающие все нужные роли, чтобы
+    сократить координацию между анклавами.
+  excerpt: глава 1, врезка «Знакомство с PenultimateWidgets и с их обратным законом
+    Конвея».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Кросс-функциональные команды против анклавов
+    application: менеджер проекта, архитектор.
+  open_questions: []
+- id: EVAR-010
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: архитектурная функция пригодности предоставляет оценку целостности некоторых
+    архитектурных характеристик; понятие заимствовано из эволюционных вычислений,
+    где функция пригодности оценивает приближение решения к цели.
+  excerpt: глава 2, вводный раздел (авторское определение).
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Определение функции пригодности
+    application: архитектор.
+  open_questions: []
+- id: EVAR-011
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: функция пригодности всей системы — это набор частных функций пригодности;
+    её не «оценивают», она служит основой для приоритезации будущих решений и понимания
+    компромиссов, когда отдельные характеристики конфликтуют.
+  excerpt: глава 2, вводный раздел.
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Функция пригодности всей системы
+    application: архитектор — управление компромиссами между конкурирующими характеристиками.
+  open_questions: []
+- id: EVAR-012
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: функции пригодности объединяют разнородные ранее «нефункциональные требования»
+    в один механизм (тесты, мониторинг, метрики), делая размытые субъективные критерии
+    конкретными и проверяемыми.
+  excerpt: глава 2, раздел «Что собой представляет функция пригодности?».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Функции пригодности как объединяющий механизм
+    application: архитектор, аналитик.
+  open_questions: []
+- id: EVAR-013
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: не все тесты относятся к функциям пригодности; тест является функцией пригодности,
+    только если он проверяет целостность характеристики архитектуры.
+  excerpt: глава 2, раздел «Категории».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Не каждый тест — функция пригодности
+    application: разработчик, архитектор.
+  open_questions: []
+- id: EVAR-014
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: атомарная функция пригодности проверяет один аспект архитектуры в единичном
+    контексте (например, модульный тест связанности модулей); комплексная функция
+    проверяет комбинацию аспектов (например, безопасность и масштабируемость вместе),
+    так как взаимодействие характеристик может нарушать каждую по отдельности корректную.
+  excerpt: глава 2, раздел «Атомарная и комплексная функции».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Атомарная и комплексная функции
+    application: архитектор.
+  open_questions: []
+- id: EVAR-015
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: триггерные функции запускаются по событию (модульный тест, запуск конвейера),
+    непрерывные функции постоянно проверяют параметры в эксплуатации (например, время
+    транзакций); разработка на основе мониторинга (MDD) — пример непрерывной проверки.
+  excerpt: глава 2, раздел «Триггерные и непрерывные функции».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Триггерные и непрерывные функции
+    application: архитектор, разработчик.
+  open_questions: []
+- id: EVAR-016
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: статическая функция имеет фиксированный результат (двоичный, диапазон, включение
+    в множество), динамическая опирается на изменяющийся контекст (например, допустимая
+    производительность зависит от масштаба).
+  excerpt: глава 2, раздел «Статические и динамические функции».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Статические и динамические функции
+    application: архитектор.
+  open_questions: []
+- id: EVAR-017
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: большинство функций пригодности следует автоматизировать в конвейере, но некоторые
+    аспекты (юридические требования, отдельные процессы обеспечения качества) не поддаются
+    автоматизации и проверяются вручную.
+  excerpt: глава 2, раздел «Автоматизированная и ручная функции».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Автоматизированная и ручная функции
+    application: архитектор, специалист по качеству.
+  open_questions: []
+- id: EVAR-018
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: временная функция пригодности встраивает компонент времени (например, напоминание
+    проверить обновление библиотеки шифрования или тест «повреждение при обновлении»
+    для возврата бэкпортированных функций).
+  excerpt: глава 2, раздел «Временная функция».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Временная функция пригодности
+    application: разработчик, архитектор.
+  open_questions: []
+- id: EVAR-019
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: не все функции пригодности известны в начале проекта; часть из них выявляется
+    по мере эволюции системы («неизвестное неизвестное»), поэтому набор функций пригодности
+    развивается.
+  excerpt: глава 2, раздел «Функция с преднамеренным развитием».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Функция с преднамеренным развитием
+    application: архитектор.
+  open_questions: []
+- id: EVAR-020
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: команды должны идентифицировать функции пригодности на ранней стадии как часть
+    понимания важных характеристик; их отсутствие ведёт к рискам неверного дизайна,
+    лишних затрат и неспособности системы эволюционировать.
+  excerpt: глава 2, раздел «Ранняя идентификация функций пригодности».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Ранняя идентификация функций пригодности
+    application: архитектор, аналитик.
+  open_questions: []
+- id: EVAR-021
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: эволюционная архитектура предполагает практики непрерывной поставки (Хамбл
+    и Фарлей) как предварительное условие проектирования программного обеспечения
+    с возможностью эволюции.
+  excerpt: глава 3, вводный раздел.
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Непрерывная поставка как предпосылка
+    application: архитектор, разработчик.
+  open_questions: []
+- id: EVAR-022
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: реализация инкрементного изменения охватывает два этапа — разработку (как
+    создают ПО) и эксплуатацию (как команды развёртывают ПО).
+  excerpt: глава 3, вводный раздел.
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Два этапа инкрементного изменения
+    application: разработчик, специалист по эксплуатации.
+  open_questions: []
+- id: EVAR-023
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: тестопригодность — один из строительных блоков эволюционной архитектуры; функции
+    пригодности на основе тестов позволяют проверять целостность характеристик при
+    каждом изменении.
+  excerpt: глава 3, раздел «Тестопригодность».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Тестопригодность как строительный блок
+    application: разработчик, архитектор.
+  open_questions: []
+- id: EVAR-024
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: конвейер развёртывания применяет функции пригодности к каждому изменению,
+    в отличие от случайной (несистематической) проверки важных характеристик.
+  excerpt: глава 3, раздел «Конвейеры развёртывания»; глава 6, шаг 3 техник.
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Конвейер развёртывания автоматизирует функции пригодности
+    application: разработчик, архитектор.
+  open_questions: []
+- id: EVAR-025
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: цели функций пригодности могут конфликтовать (например, скорость против стабильности),
+    и комбинирование категорий функций требует осознанного баланса.
+  excerpt: глава 3, разделы «Комбинирование категорий функций пригодности» и «Конфликтующие
+    цели».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Конфликтующие цели
+    application: архитектор.
+  open_questions: []
+- id: EVAR-026
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: 'эволюционная архитектура поддерживает разработку, основанную на гипотезах
+    и данных: функции выпускаются как проверяемые гипотезы, а решения о развитии опираются
+    на собранные данные.'
+  excerpt: глава 3, раздел «Разработка, основанная на гипотезах и на данных».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Разработка на основе гипотез и данных
+    application: архитектор, менеджер проекта, аналитик.
+  open_questions: []
+- id: EVAR-027
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: квант архитектуры — независимо развёртываемый компонент с высокой степенью
+    функциональной связности, включающий все структурные элементы, нужные системе
+    для работы; в монолите квантом является всё приложение.
+  excerpt: глава 4, раздел «Квант и гранулярность архитектуры» (авторское определение).
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Квант архитектуры
+    application: архитектор.
+  open_questions: []
+- id: EVAR-028
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: ограниченный контекст из предметно-ориентированного проектирования (DDD) локализует
+    модель в своих границах; архитектура микросервисов делает ограниченный контекст
+    физическим квантом, что облегчает инкрементные изменения.
+  excerpt: глава 4, врезка «Ограниченный контекст, определяемый предметной областью
+    проектирования».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Ограниченный контекст и эволюция
+    application: архитектор, аналитик.
+  open_questions: []
+- id: EVAR-029
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: большой размер кванта затрудняет инкрементные изменения; контроль размера
+    кванта (мелкая гранулярность, отсутствие циклов компонентов) повышает способность
+    к эволюции.
+  excerpt: 'глава 4, разделы «Контроль размера кванта» и «Практический пример: предотвращение
+    циклов компонентов».'
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Размер кванта и способность к изменению
+    application: архитектор.
+  open_questions: []
+- id: EVAR-030
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: 'архитектурные стили различаются по способности к эволюции: «большой комок
+    грязи» эволюционирует плохо, монолит — ограниченно, событийно-ориентированная
+    и сервис-ориентированные стили и микросервисы — лучше при правильной модульности
+    и низкой связанности.'
+  excerpt: глава 4, раздел «Эволюция архитектурных стилей».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Стили архитектуры различаются эволюционируемостью
+    application: архитектор.
+  open_questions: []
+- id: EVAR-031
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: данные должны эволюционировать вместе с кодом; инструменты миграций вносят
+    небольшие инкрементные изменения схемы, автоматически применяемые как часть конвейера
+    развёртывания.
+  excerpt: глава 5, разделы «Эволюционные схемы» и практический пример маршрутизации.
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Эволюционные схемы и миграции
+    application: разработчик баз данных, архитектор.
+  open_questions: []
+- id: EVAR-032
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: интеграция через общую базу данных и двухфазная фиксация транзакций создают
+    ненадлежащую связанность, затрудняющую эволюцию; на способность к изменению влияют
+    также возраст и качество данных.
+  excerpt: глава 5, разделы «Интеграция базы данных общего использования», «Ненадлежащая
+    связанность данных», «Возраст и качество данных».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Ненадлежащая связанность данных
+    application: архитектор, разработчик баз данных.
+  open_questions: []
+- id: EVAR-033
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: 'построение эволюционной архитектуры опирается на три техники: определить
+    измерения, затрагиваемые развитием; определить для каждого измерения функцию(-и)
+    пригодности; использовать конвейер развёртывания для их автоматизации.'
+  excerpt: глава 6, раздел «Техники».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Три техники построения
+    application: архитектор.
+  open_questions: []
+- id: EVAR-034
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: следует выявлять и удалять ненужные переменные (неиспользуемый код, забытые
+    переключатели функций, «серверы-снежинки»), так как неконтролируемая изменчивость
+    повышает риск; иллюстрируется историей «Knightmare» с потерей свыше 400 млн долларов.
+  excerpt: глава 6, раздел «Удаление ненужной изменчивости», врезка «Опасности снежинок».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Удаление ненужной изменчивости
+    application: разработчик, архитектор, специалист по эксплуатации.
+  open_questions: []
+- id: EVAR-035
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: следует делать как можно больше решений обратимыми с помощью практик DevOps
+    (сине-зелёные развёртывания, переключатели функций, канареечный релиз), чтобы
+    снизить риск и быстро восстанавливаться после сбоев.
+  excerpt: глава 6, раздел «Сделайте решения обратимыми».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Делайте решения обратимыми
+    application: архитектор, специалист по эксплуатации.
+  open_questions: []
+- id: EVAR-036
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: 'предпочтение следует отдавать эволюционированию, а не предсказуемости: вместо
+    попытки предсказать будущее нужно снижать стоимость изменения.'
+  excerpt: глава 6, раздел «Предпочтение следует отдавать эволюционированию, а не
+    предсказуемости».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Эволюция важнее предсказуемости
+    application: архитектор.
+  open_questions: []
+- id: EVAR-037
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: между приложением и внешней библиотекой или инструментом стоит строить уровень
+    защиты от повреждений (anticorruption layer) «точно в срок», чтобы изолировать
+    изменения зависимости и снизить затраты на её замену.
+  excerpt: глава 6, раздел «Построение уровня защиты от повреждений».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Уровень защиты от повреждений
+    application: разработчик, архитектор.
+  open_questions: []
+- id: EVAR-038
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: жертвенная архитектура (по Фаулеру) — архитектура, заведомо предназначенная
+    к замене после подтверждения концепции; примеры eBay и Twitter показывают её оправданность
+    для быстрого выхода на рынок.
+  excerpt: глава 6, раздел «Построение жертвенной архитектуры», практический пример
+    «Шаблоны сервисов».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Жертвенная архитектура
+    application: архитектор, менеджер проекта.
+  open_questions: []
+- id: EVAR-039
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: для внешних зависимостей следует предпочитать непрерывную поставку снимкам
+    состояния (snapshots); вводятся обозначения зависимостей «подвижная» (обновляется
+    автоматически через конвейер) и «охраняемая».
+  excerpt: глава 6, раздел «Отдавайте предпочтение непрерывной поставке, а не снимкам
+    состояния системы».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Непрерывная поставка вместо снимков состояния
+    application: разработчик, архитектор.
+  open_questions: []
+- id: EVAR-040
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: антипаттерн «король-поставщик» (Vendor King) — построение всей архитектуры
+    вокруг продукта поставщика (например, ERP), что патологически привязывает организацию
+    к инструменту; продукт поставщика стоит рассматривать как ещё одну точку интеграции.
+  excerpt: 'глава 7, раздел «Антипаттерн: Vendor King».'
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Антипаттерн Vendor King
+    application: архитектор.
+  open_questions: []
+- id: EVAR-041
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: все нетривиальные абстракции в какой-то степени дырявые (Спольски); рост сложности
+    стека увеличивает риск утечки деталей нижних уровней и усложняет диагностику.
+  excerpt: 'глава 7, раздел «Ловушка: дырявая абстракция».'
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Ловушка дырявой абстракции
+    application: архитектор, разработчик.
+  open_questions: []
+- id: EVAR-042
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: ловушка «последних 10 %» означает, что инструменты и платформы легко покрывают
+    80–90 % задачи, но последние 10 % остаются нереализуемыми, что ведёт к разочарованию
+    и к подчинению процессов инструменту.
+  excerpt: 'глава 7, раздел «Антипаттерн: ловушка на последних 10 %».'
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Ловушка последних 10 %
+    application: архитектор, менеджер проекта.
+  open_questions: []
+- id: EVAR-043
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: чрезмерное повторное использование кода создаёт связанность, вредящую способности
+    эволюционировать; повторное использование полезно лишь до тех пор, пока не становится
+    источником жёсткой связи.
+  excerpt: 'глава 7, раздел «Антипаттерн: неправильное повторное использование кода»,
+    практический пример PenultimateWidgets.'
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Ненадлежащее повторное использование кода
+    application: архитектор, разработчик.
+  open_questions: []
+- id: EVAR-044
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: ненадлежащее управление (избыточная стандартизация, запрет разнообразия) мешает
+    инкрементным изменениям; уместна модель управления «золотой середины», балансирующая
+    свободу команд и общие ограничения.
+  excerpt: 'глава 7, раздел «Антипаттерн: ненадлежащее управление», практический пример
+    «модель управления „золотой середины“».'
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Антипаттерн ненадлежащего управления
+    application: архитектор, менеджер проекта.
+  open_questions: []
+- id: EVAR-045
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: чрезмерно длинные горизонты планирования и крупные предварительные вложения
+    в план повышают приверженность неверным решениям; короткие итерации снижают этот
+    риск.
+  excerpt: 'глава 7, раздел «Ловушка: горизонты планирования».'
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Ловушка горизонтов планирования
+    application: менеджер проекта, архитектор.
+  open_questions: []
+- id: EVAR-046
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: 'для эволюционной архитектуры мышление «продукт» предпочтительнее мышления
+    «проект»: продукт живёт долго, имеет стабильную кросс-функциональную команду и
+    непрерывно развивается, тогда как проект завершается и распускает команду.'
+  excerpt: глава 8, раздел «Продукт важнее, чем проект».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Продукт важнее проекта
+    application: менеджер проекта, архитектор.
+  open_questions: []
+- id: EVAR-047
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: внедрение эволюционной архитектуры требует культуры эксперимента — организационной
+    готовности проверять гипотезы, учиться на результатах и безопасно ошибаться.
+  excerpt: глава 8, разделы «Культура» и «Культура эксперимента».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Культура эксперимента
+    application: менеджер проекта.
+  open_questions: []
+- id: EVAR-048
+  source_id: EVAR
+  item_id: EVAR-text
+  status: ready_for_review
+  text: эволюционная архитектура — не универсальный выбор; компания должна осознанно
+    решить строить её (когда важна способность к непрерывным изменениям) или не строить
+    (когда среда стабильна или затраты не оправданы).
+  excerpt: глава 8, разделы «Зачем это (или почему бы и нет)?» и «По какой причине
+    компания делает выбор не строить эволюционирующую архитектуру?».
+  artifact: evolutionary-architecture-ru.txt
+  checked_at: '2026-06-24'
+  scope:
+    section_title: Осознанный выбор строить или не строить
+    application: архитектор, менеджер проекта.
+  open_questions: []

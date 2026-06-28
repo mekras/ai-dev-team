@@ -1,0 +1,64 @@
+statements:
+- id: AR12-001
+  source_id: AR12
+  item_id: AR12-normalized-AR12-pages-2601.20404v2-index.md
+  status: ready_for_review
+  text: статья напрямую оценивает влияние AGENTS-механизмов на runtime и токены AI-агентов.
+  excerpt: абстракт упоминает runtime и output token metrics.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: оценка эффективности конфигурации.
+  open_questions: []
+- id: AR12-002
+  source_id: AR12
+  item_id: AR12-normalized-AR12-pages-2601.20404v2-index.md
+  status: ready_for_review
+  text: экспериментальная выборка включает 10 репозиториев и 124 pull request.
+  excerpt: абстракт и методология сравнения режимов.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: масштаб и воспроизводимость анализа.
+  open_questions: []
+- id: AR12-003
+  source_id: AR12
+  item_id: AR12-normalized-AR12-pages-2601.20404v2-index.md
+  status: ready_for_review
+  text: авторы сравнивают два условия (с AGENTS.md и без него), что фиксирует причинно-следственную
+    гипотезу относительно эффекта конфигурации.
+  excerpt: описание эксперимента в abstract.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: дизайн контрольных наборов для оценок.
+  open_questions: []
+- id: AR12-004
+  source_id: AR12
+  item_id: AR12-normalized-AR12-pages-2601.20404v2-index.md
+  status: ready_for_review
+  text: наличие `AGENTS.md` связано со снижением медианного runtime примерно на `28.64
+    %`.
+  excerpt: численные результаты в abstract.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: оценка временной эффективности агентов.
+  open_questions: []
+- id: AR12-005
+  source_id: AR12
+  item_id: AR12-normalized-AR12-pages-2601.20404v2-index.md
+  status: ready_for_review
+  text: наличие `AGENTS.md` связано со снижением потребления output token примерно
+    на `16.58 %` при сопоставимом показателе task completion.
+  excerpt: раздел результатов в abstract.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: метрики затрат на инференс.
+  open_questions: []

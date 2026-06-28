@@ -1,0 +1,55 @@
+statements:
+- id: ATCK-001
+  source_id: ATCK
+  item_id: ATCK-normalized-ATCK-source.md
+  status: ready_for_review
+  text: ATT&CK — база знаний о тактиках, техниках и процедурах (TTP) злоумышленников,
+    основанная на наблюдениях реальных атак.
+  excerpt: обзор сайта ATT&CK.
+  artifact: source.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Назначение базы знаний
+    application: специалист по безопасности.
+  open_questions: []
+- id: ATCK-002
+  source_id: ATCK
+  item_id: ATCK-normalized-ATCK-source.md
+  status: ready_for_review
+  text: ATT&CK охватывает домены Enterprise, Mobile и ICS, представленные отдельными
+    матрицами.
+  excerpt: обзор доменов.
+  artifact: source.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Домены
+    application: специалист по безопасности.
+  open_questions: []
+- id: ATCK-003
+  source_id: ATCK
+  item_id: ATCK-normalized-ATCK-source.md
+  status: ready_for_review
+  text: модель связывает тактики (цель этапа), техники и подтехники (как достигается,
+    идентификаторы `Txxxx`), меры нейтрализации, а также наблюдаемые группы и используемое
+    ПО; число тактик Enterprise (около 14) и состав сверяются по каноническому адресу.
+  excerpt: структура сущностей.
+  artifact: source.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Тактики, техники, меры, группы
+    application: специалист по безопасности.
+  open_questions: []
+- id: ATCK-004
+  source_id: ATCK
+  item_id: ATCK-normalized-ATCK-source.md
+  status: ready_for_review
+  text: ATT&CK применяется как библиотека TTP для операционных моделей угроз (что
+    может сделать злоумышленник) и связывается с шаблонами атак CAPEC`; конкретные
+    техники берутся по идентификатору с атрибуцией MITRE.
+  excerpt: назначение базы и связи.
+  artifact: source.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Применение в моделировании угроз
+    application: специалист по безопасности.
+  open_questions: []

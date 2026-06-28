@@ -1,0 +1,111 @@
+statements:
+- id: ASVS-001
+  source_id: ASVS
+  item_id: ASVS-primary-ASVS-page-index.tsv
+  status: ready_for_review
+  text: ASVS задаёт открытый каталог проверяемых требований безопасности веб-приложений
+    и сервисов и служит основой для их верификации; его можно использовать как метрику,
+    руководство и основу для контрактных требований.
+  excerpt: введение.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Назначение стандарта
+    application: специалист по безопасности, аналитик, архитектор.
+  open_questions: []
+- id: ASVS-002
+  source_id: ASVS
+  item_id: ASVS-primary-ASVS-page-index.tsv
+  status: ready_for_review
+  text: 'стандарт задаёт три уровня доверия: L1 (минимальный, полностью проверяем
+    «снаружи», в т. ч. пентестом), L2 («Standard», для приложений с чувствительными
+    данными, типичная цель), L3 («Advanced», для самых критичных приложений).'
+  excerpt: раздел «Application Security Verification Levels».
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Три уровня верификации
+    application: специалист по безопасности, project-manager.
+  open_questions: []
+- id: ASVS-003
+  source_id: ASVS
+  item_id: ASVS-primary-ASVS-page-index.tsv
+  status: ready_for_review
+  text: L1 — минимум, к которому должны стремиться все приложения, и полезен как первый
+    шаг; для приложений с ценными данными редко стоит останавливаться на L1.
+  excerpt: описание Level 1.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: L1 как минимум для всех
+    application: специалист по безопасности.
+  open_questions: []
+- id: ASVS-004
+  source_id: ASVS
+  item_id: ASVS-primary-ASVS-page-index.tsv
+  status: ready_for_review
+  text: L2 и L3 требуют доступа к коду, документации и разработчикам и более глубокого
+    анализа архитектуры, кода и тестирования, чем L1.
+  excerpt: описания Level 2 и Level 3.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Глубина проверки растёт с уровнем
+    application: специалист по безопасности, роль проверки результата.
+  open_questions: []
+- id: ASVS-005
+  source_id: ASVS
+  item_id: ASVS-primary-ASVS-page-index.tsv
+  status: ready_for_review
+  text: 'требования сгруппированы в 14 разделов (V1–V14): V1 Architecture, Design
+    and Threat Modeling; V2 Authentication; V3 Session Management; V4 Access Control;
+    V5 Validation, Sanitization and Encoding; V6 Stored Cryptography; V7 Error Handling
+    and Logging; V8 Data Protection; V9 Communication; V10 Malicious Code; V11 Business
+    Logic; V12 Files and Resources; V13 API and Web Service; V14 Configuration.'
+  excerpt: оглавление разделов.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Четырнадцать разделов требований
+    application: специалист по безопасности, разработчик.
+  open_questions: []
+- id: ASVS-006
+  source_id: ASVS
+  item_id: ASVS-primary-ASVS-page-index.tsv
+  status: ready_for_review
+  text: раздел V1 объединяет архитектуру, проектирование и моделирование угроз, связывая
+    требования безопасности с архитектурными решениями.
+  excerpt: раздел V1.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Моделирование угроз как раздел требований
+    application: специалист по безопасности, архитектор.
+  open_questions: []
+- id: ASVS-007
+  source_id: ASVS
+  item_id: ASVS-primary-ASVS-page-index.tsv
+  status: ready_for_review
+  text: каждое требование помечено применимыми уровнями (L1/L2/L3) и сопоставлено
+    с идентификатором слабости CWE, что связывает стандарт с таксономией уязвимостей
+    и делает требования проверяемыми.
+  excerpt: формат таблиц требований.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Сопоставление требований с уровнями и CWE
+    application: специалист по безопасности, разработчик, роль проверки.
+  open_questions: []
+- id: ASVS-008
+  source_id: ASVS
+  item_id: ASVS-primary-ASVS-page-index.tsv
+  status: ready_for_review
+  text: ASVS можно использовать для вывода проверяемых требований безопасности и критериев
+    приёмки приложения; L1 задуман как набор «essential» контролей.
+  excerpt: введение и описание уровней.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Связь с требованиями и приёмкой
+    application: аналитик, специалист по безопасности.
+  open_questions: []

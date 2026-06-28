@@ -1,0 +1,44 @@
+statements:
+- id: ASKL-005
+  source_id: ASKL
+  item_id: ASKL-normalized-ASKL-pages-optimizing-descriptions-index.md
+  status: ready_for_review
+  text: описание навыка является главным механизмом срабатывания и должно описывать,
+    когда навык применять, а не пересказывать его внутреннее устройство.
+  excerpt: страница `optimizing-descriptions` объясняет, что агент на старте видит
+    имя и описание навыка и по ним решает, загружать ли полный SKILL.md`.
+  artifact: index.md
+  checked_at: '2026-06-01'
+  scope:
+    section_title: ''
+    application: фронтматтер навыка и проверка маршрутизации.
+  open_questions: []
+- id: ASKL-006
+  source_id: ASKL
+  item_id: ASKL-normalized-ASKL-pages-optimizing-descriptions-index.md
+  status: ready_for_review
+  text: описание навыка нужно проверять на реалистичных положительных и отрицательных
+    запросах, включая близкие, но неподходящие случаи.
+  excerpt: страница `optimizing-descriptions` рекомендует набор проверочных запросов
+    с признаком ожидаемого срабатывания и отдельно выделяет важность близких отрицательных
+    примеров.
+  artifact: index.md
+  checked_at: '2026-06-01'
+  scope:
+    section_title: ''
+    application: проверки срабатывания навыков.
+  open_questions: []
+- id: ASKL-007
+  source_id: ASKL
+  item_id: ASKL-normalized-ASKL-pages-optimizing-descriptions-index.md
+  status: ready_for_review
+  text: при настройке описания навыка нужно избегать переобучения на проверочные запросы
+    и отделять набор для подбора формулировки от набора для проверки обобщения.
+  excerpt: страница `optimizing-descriptions` описывает разделение проверок на train
+    и validation, чтобы улучшения описания не подгонялись под конкретные формулировки.
+  artifact: index.md
+  checked_at: '2026-06-01'
+  scope:
+    section_title: ''
+    application: развитие и проверка описаний навыков.
+  open_questions: []

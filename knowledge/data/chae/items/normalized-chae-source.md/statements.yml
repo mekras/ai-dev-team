@@ -1,0 +1,55 @@
+statements:
+- id: CHAE-001
+  source_id: CHAE
+  item_id: CHAE-normalized-CHAE-source.md
+  status: ready_for_review
+  text: инженерия хаоса — дисциплина проведения экспериментов над распределённой системой
+    ради уверенности в её устойчивости к турбулентным условиям эксплуатации.
+  excerpt: введение, определение.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Определение инженерии хаоса
+    application: архитектор, security-engineer, project-manager.
+  open_questions: []
+- id: CHAE-002
+  source_id: CHAE
+  item_id: CHAE-normalized-CHAE-source.md
+  status: ready_for_review
+  text: принципы — гипотеза об устойчивом состоянии; разнообразие реальных событий;
+    эксперименты в эксплуатации; автоматизация; ограничение радиуса поражения (blast
+    radius).
+  excerpt: раздел «Principles».
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Пять принципов
+    application: архитектор, security-engineer.
+  open_questions: []
+- id: CHAE-003
+  source_id: CHAE
+  item_id: CHAE-normalized-CHAE-source.md
+  status: ready_for_review
+  text: эксперимент строится как определение устойчивого состояния, гипотеза о его
+    сохранении, внесение реальных отказов и попытка опровергнуть гипотезу по различию
+    метрик контрольной и экспериментальной групп.
+  excerpt: раздел шагов эксперимента.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Шаги эксперимента
+    application: архитектор, аналитик.
+  open_questions: []
+- id: CHAE-004
+  source_id: CHAE
+  item_id: CHAE-normalized-CHAE-source.md
+  status: ready_for_review
+  text: намеренное внесение отказов служит проверке и улучшению отказоустойчивости
+    до наступления реальных аварий.
+  excerpt: введение, мотивация.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Проактивная проверка отказоустойчивости
+    application: архитектор, project-manager.
+  open_questions: []

@@ -1,0 +1,137 @@
+statements:
+- id: ETL5-001
+  source_id: ETL5
+  item_id: ETL5-primary-ETL5-page-index.tsv
+  status: ready_for_review
+  text: ENISA Threat Landscape — ежегодный обзор ландшафта угроз агентства ЕС; издание
+    2025 года анализирует порядка 4875 инцидентов за период 2024-07`–`2025-06` и имеет
+    маркировку `TLP:CLEAR`.
+  excerpt: резюме и методология.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Что это за отчёт
+    application: специалист по безопасности.
+  open_questions: []
+- id: ETL5-002
+  source_id: ETL5
+  item_id: ETL5-primary-ETL5-page-index.tsv
+  status: ready_for_review
+  text: 'отчёт разбирает угрозы по категориям субъектов: киберпреступность, связанные
+    с государствами группы, манипуляция информацией и вмешательство (FIMI), хактивизм.'
+  excerpt: разделы 6–9.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Категории субъектов угроз
+    application: специалист по безопасности.
+  open_questions: []
+- id: ETL5-003
+  source_id: ETL5
+  item_id: ETL5-primary-ETL5-page-index.tsv
+  status: ready_for_review
+  text: социальная инженерия, прежде всего фишинг (включая vishing, malspam, malvertising),
+    остаётся основным вектором вторжения — около 60% наблюдаемых случаев.
+  excerpt: раздел 3 «Threat Landscape Overview».
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Социальная инженерия — основной вектор
+    application: специалист по безопасности, разработчик.
+  open_questions: []
+- id: ETL5-004
+  source_id: ETL5
+  item_id: ETL5-primary-ETL5-page-index.tsv
+  status: ready_for_review
+  text: эксплуатация уязвимостей — около 21,3% случаев вторжения, ботнеты — около
+    9,9%, вредоносные приложения — около 8%, инсайдерский доступ — 0,8%.
+  excerpt: раздел 3.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Эксплуатация уязвимостей и ботнеты
+    application: специалист по безопасности.
+  open_questions: []
+- id: ETL5-005
+  source_id: ETL5
+  item_id: ETL5-primary-ETL5-page-index.tsv
+  status: ready_for_review
+  text: около 70% случаев эксплуатации уязвимостей приводят к вторжению, и около 68%
+    таких инцидентов завершаются развёртыванием вредоносного кода — эксплуатация уязвимостей
+    часто прямой предшественник установки вредоноса.
+  excerpt: раздел 3.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Уязвимости как прямой путь к вредоносному коду
+    application: специалист по безопасности.
+  open_questions: []
+- id: ETL5-006
+  source_id: ETL5
+  item_id: ETL5-primary-ETL5-page-index.tsv
+  status: ready_for_review
+  text: среди типов инцидентов доминируют DDoS-атаки (около 76,7%), преимущественно
+    со стороны хактивистов; вторжения — около 17,8%, в основном киберпреступность,
+    затем связанные с государствами группы; дефейсы почти исключительно связаны с
+    хактивизмом.
+  excerpt: раздел 3.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: DDoS доминируют среди типов инцидентов
+    application: специалист по безопасности, архитектор.
+  open_questions: []
+- id: ETL5-007
+  source_id: ETL5
+  item_id: ETL5-primary-ETL5-page-index.tsv
+  status: ready_for_review
+  text: среди вредоносного кода после вторжений программы-вымогатели, банковские трояны
+    и инфостилеры суммарно составляют около 87,3%; значительная доля вторжений ведёт
+    к утечкам данных, выставляемым на продажу.
+  excerpt: раздел 3.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Полезные нагрузки вторжений
+    application: специалист по безопасности.
+  open_questions: []
+- id: ETL5-008
+  source_id: ETL5
+  item_id: ETL5-primary-ETL5-page-index.tsv
+  status: ready_for_review
+  text: программы-вымогатели остаются ядром киберпреступной активности; модель ransomware-as-a-service
+    поддерживает профессионализированную и устойчивую криминальную экосистему.
+  excerpt: резюме и раздел Cybercrime.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Программы-вымогатели и RaaS
+    application: специалист по безопасности.
+  open_questions: []
+- id: ETL5-009
+  source_id: ETL5
+  item_id: ETL5-primary-ETL5-page-index.tsv
+  status: ready_for_review
+  text: растут риски компрометации цепочки поставок (ПО и поставщики) и угрозы для
+    мобильных устройств (наибольшая доля среди категорий угроз — около 42,4%).
+  excerpt: разделы обзора и трендов.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Цепочка поставок и мобильные угрозы
+    application: специалист по безопасности, архитектор.
+  open_questions: []
+- id: ETL5-010
+  source_id: ETL5
+  item_id: ETL5-primary-ETL5-page-index.tsv
+  status: ready_for_review
+  text: распределения векторов, типов инцидентов и нагрузок дают основанный на данных
+    приоритет того, какие угрозы рассматривать в модели угроз; доли — снимок периода
+    и подлежат пересмотру в новых изданиях.
+  excerpt: обзор и методология.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Назначение данных для моделирования угроз
+    application: специалист по безопасности.
+  open_questions: []

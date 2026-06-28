@@ -1,0 +1,44 @@
+statements:
+- id: ASKL-008
+  source_id: ASKL
+  item_id: ASKL-normalized-ASKL-pages-evaluating-skills-index.md
+  status: ready_for_review
+  text: качество навыка следует проверять структурированными оценками, включая сравнение
+    выполнения с навыком и без него или с предыдущей версией.
+  excerpt: страница `evaluating-skills` описывает запуск каждого проверочного случая
+    в двух режимах и сравнение результата с базовой линией.
+  artifact: index.md
+  checked_at: '2026-06-01'
+  scope:
+    section_title: ''
+    application: оценка качества навыков и регрессионная проверка.
+  open_questions: []
+- id: ASKL-009
+  source_id: ASKL
+  item_id: ASKL-normalized-ASKL-pages-evaluating-skills-index.md
+  status: ready_for_review
+  text: проверочный случай для навыка должен включать реалистичный запрос, ожидаемый
+    результат и, при необходимости, входные файлы.
+  excerpt: страница `evaluating-skills` задаёт структуру проверочного случая через
+    prompt, expected output и optional input files.
+  artifact: index.md
+  checked_at: '2026-06-01'
+  scope:
+    section_title: ''
+    application: тестовые наборы навыков.
+  open_questions: []
+- id: ASKL-010
+  source_id: ASKL
+  item_id: ASKL-normalized-ASKL-pages-evaluating-skills-index.md
+  status: ready_for_review
+  text: оценка результата навыка должна фиксировать проверяемые утверждения о результате
+    и доказательства прохождения или непрохождения, а не ограничиваться общей оценкой
+    качества.
+  excerpt: страница `evaluating-skills` рекомендует assertions и запись PASS или FAIL
+    с конкретным свидетельством из результата.
+  artifact: index.md
+  checked_at: '2026-06-01'
+  scope:
+    section_title: ''
+    application: проверка результатов выполнения навыков.
+  open_questions: []

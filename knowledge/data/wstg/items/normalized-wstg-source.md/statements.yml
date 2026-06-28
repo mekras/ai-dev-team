@@ -1,0 +1,44 @@
+statements:
+- id: WSTG-001
+  source_id: WSTG
+  item_id: WSTG-normalized-WSTG-source.md
+  status: ready_for_review
+  text: 'WSTG — открытое руководство по тестированию безопасности веб-приложений и
+    сервисов: методология встраивания тестирования в жизненный цикл и каталог тестов
+    с устойчивыми идентификаторами WSTG-<категория>-<номер>`.'
+  excerpt: обзор проекта.
+  artifact: source.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Назначение руководства
+    application: специалист по безопасности.
+  open_questions: []
+- id: WSTG-002
+  source_id: WSTG
+  item_id: WSTG-normalized-WSTG-source.md
+  status: ready_for_review
+  text: 'тесты сгруппированы по категориям: сбор информации, конфигурация и развёртывание,
+    управление идентичностью, аутентификация, авторизация, управление сессиями, проверка
+    ввода, обработка ошибок, криптография, бизнес-логика, клиентская сторона, тестирование
+    API.'
+  excerpt: структура категорий.
+  artifact: source.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Категории тестирования
+    application: специалист по безопасности, разработчик.
+  open_questions: []
+- id: WSTG-003
+  source_id: WSTG
+  item_id: WSTG-normalized-WSTG-source.md
+  status: ready_for_review
+  text: WSTG применяется как методическая основа тестирования и пентеста в навыке
+    `security-audit`; конкретный тест берётся из первоисточника по идентификатору
+    `WSTG-*`, версия сверяется по каноническому адресу.
+  excerpt: назначение руководства.
+  artifact: source.md
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Роль в аудите
+    application: специалист по безопасности, роль проверки результата.
+  open_questions: []

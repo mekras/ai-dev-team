@@ -1,0 +1,53 @@
+statements:
+- id: HSRE-001
+  source_id: HSRE
+  item_id: HSRE-normalized-HSRE-source.md
+  status: ready_for_review
+  text: надёжность ПО можно моделировать количественно через модели роста надёжности
+    (software reliability growth models).
+  excerpt: главы 3–4 (обзор моделей, прогнозирование).
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Модели роста надёжности
+    application: аналитик, архитектор.
+  open_questions: []
+- id: HSRE-002
+  source_id: HSRE
+  item_id: HSRE-normalized-HSRE-source.md
+  status: ready_for_review
+  text: операционный профиль (operational profile) — распределение реального использования
+    — основа измеримой оценки надёжности.
+  excerpt: глава 5.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Операционный профиль
+    application: аналитик, архитектор.
+  open_questions: []
+- id: HSRE-003
+  source_id: HSRE
+  item_id: HSRE-normalized-HSRE-source.md
+  status: ready_for_review
+  text: тестирование, измерение и классификация дефектов (в т. ч. ODC) связаны с оценкой
+    надёжности ПО.
+  excerpt: главы 9, 12–13.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Связь тестирования и надёжности
+    application: аналитик, архитектор.
+  open_questions: []
+- id: HSRE-004
+  source_id: HSRE
+  item_id: HSRE-normalized-HSRE-source.md
+  status: ready_for_review
+  text: отказоустойчивость ПО и анализ деревьев отказов (fault trees) — методы повышения
+    и анализа надёжности.
+  excerpt: главы 14–15.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: Отказоустойчивое ПО и деревья отказов
+    application: архитектор, security-engineer.
+  open_questions: []

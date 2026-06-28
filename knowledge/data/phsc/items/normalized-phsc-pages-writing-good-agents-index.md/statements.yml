@@ -1,0 +1,67 @@
+statements:
+- id: PHSC-001
+  source_id: PHSC
+  item_id: PHSC-normalized-PHSC-pages-writing-good-agents-index.md
+  status: ready_for_review
+  text: AGENTS.md выступает как первичный вход в проект для кодового ассистента и
+    оказывает решающее влияние на его контекст.
+  excerpt: тезис о "single highest-leverage configuration point".
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: стартовая инициализация новых задач.
+  open_questions: []
+- id: PHSC-002
+  source_id: PHSC
+  item_id: PHSC-normalized-PHSC-pages-writing-good-agents-index.md
+  status: ready_for_review
+  text: авто-сгенерированный файл может снижать успех задач и увеличивать стоимость
+    inference по сравнению с отсутствием таких файла.
+  excerpt: разделы с цифрами снижения успеха и роста стоимости.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: выбор между ручной и LLM-генерацией правил.
+  open_questions: []
+- id: PHSC-003
+  source_id: PHSC
+  item_id: PHSC-normalized-PHSC-pages-writing-good-agents-index.md
+  status: ready_for_review
+  text: полезные файлы включают WHAT/WHY/HOW и минимум конкретной операционной информации
+    (стек, процессы сборки, тестирования).
+  excerpt: разделы What to Include и структура рекомендаций.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: шаблоны содержания AGENTS.md.
+  open_questions: []
+- id: PHSC-004
+  source_id: PHSC
+  item_id: PHSC-normalized-PHSC-pages-writing-good-agents-index.md
+  status: ready_for_review
+  text: подробный обзор дерева репозитория и избыточные обзоры не дают выигрыш навигации
+    и могут перегружать инструкцию.
+  excerpt: результат экспериментов о том, что обзоры не ускоряют поиск релевантных
+    файлов.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: борьба с лишним объёмом инструкций.
+  open_questions: []
+- id: PHSC-005
+  source_id: PHSC
+  item_id: PHSC-normalized-PHSC-pages-writing-good-agents-index.md
+  status: ready_for_review
+  text: упоминание инструментов в AGENTS.md резко повышает вероятность их использования
+    моделью.
+  excerpt: оценка, что указанные инструменты используются в десятки раз чаще.
+  artifact: index.md
+  checked_at: '2026-06-03'
+  scope:
+    section_title: ''
+    application: оптимизация перечня ключевых команд.
+  open_questions: []

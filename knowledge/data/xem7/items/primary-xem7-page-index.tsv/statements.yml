@@ -1,0 +1,69 @@
+statements:
+- id: XEM7-001
+  source_id: XEM7
+  item_id: XEM7-primary-XEM7-page-index.tsv
+  status: ready_for_review
+  text: для ИИ-результатов нужен отдельный слой контроля качества после генерации,
+    потому что улучшение промпта, модели или памяти не гарантирует стабильное качество
+    выходов.
+  excerpt: статья противопоставляет входные улучшения и выходной контроль качества.
+  artifact: page-index.tsv
+  checked_at: '2026-06-01'
+  scope:
+    section_title: ''
+    application: проверки результатов ИИ и управление качеством агентных процессов.
+  open_questions: []
+- id: XEM7-002
+  source_id: XEM7
+  item_id: XEM7-primary-XEM7-page-index.tsv
+  status: ready_for_review
+  text: eval loop должен включать тестовые случаи, метрики и порог прохождения.
+  excerpt: 'статья описывает три части benchmark: cases, metrics, threshold.'
+  artifact: page-index.tsv
+  checked_at: '2026-06-01'
+  scope:
+    section_title: ''
+    application: проектирование проверок для ИИ-выходов.
+  open_questions: []
+- id: XEM7-003
+  source_id: XEM7
+  item_id: XEM7-primary-XEM7-page-index.tsv
+  status: ready_for_review
+  text: тестовые случаи для продуктовых ИИ-функций полезно брать из реальных пользовательских
+    логов, а не только из заранее придуманных happy path-примеров.
+  excerpt: статья связывает продуктовые тестовые случаи с реальными логами и пользовательскими
+    сессиями.
+  artifact: page-index.tsv
+  checked_at: '2026-06-01'
+  scope:
+    section_title: ''
+    application: сбор данных для eval-наборов.
+  open_questions: []
+- id: XEM7-004
+  source_id: XEM7
+  item_id: XEM7-primary-XEM7-page-index.tsv
+  status: ready_for_review
+  text: при изменении промпта, модели или пайплайна нужно запускать регрессионную
+    проверку и сравнивать результат с базовой линией.
+  excerpt: статья описывает gate перед отправкой изменений и сравнение score delta
+    с baseline.
+  artifact: page-index.tsv
+  checked_at: '2026-06-01'
+  scope:
+    section_title: ''
+    application: изменение ИИ-пайплайнов и агентных правил.
+  open_questions: []
+- id: XEM7-005
+  source_id: XEM7
+  item_id: XEM7-primary-XEM7-page-index.tsv
+  status: ready_for_review
+  text: неудачный ИИ-результат должен становиться новым тестовым случаем, чтобы найденная
+    ошибка проверялась в следующих запусках.
+  excerpt: статья описывает добавление проваленного результата обратно в suite как
+    постоянную проверку.
+  artifact: page-index.tsv
+  checked_at: '2026-06-01'
+  scope:
+    section_title: ''
+    application: сопровождение eval-наборов и непрерывное улучшение качества.
+  open_questions: []

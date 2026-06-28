@@ -1,0 +1,66 @@
+statements:
+- id: WCAG-001
+  source_id: WCAG
+  item_id: WCAG-normalized-WCAG-source.md
+  status: ready_for_review
+  text: WCAG организует требования доступности вокруг четырёх принципов — воспринимаемость,
+    управляемость, понятность и надёжность.
+  excerpt: 'обзор «four principles: perceivable, operable, understandable, and robust».'
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: ''
+    application: структура проверки доступности.
+  open_questions: []
+- id: WCAG-002
+  source_id: WCAG
+  item_id: WCAG-normalized-WCAG-source.md
+  status: ready_for_review
+  text: соответствие имеет три уровня — `A`, `AA`, `AAA`; уровень `AA является распространённым
+    целевым уровнем.
+  excerpt: описание уровней соответствия.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: ''
+    application: выбор целевого уровня доступности.
+  open_questions: []
+- id: WCAG-003
+  source_id: WCAG
+  item_id: WCAG-normalized-WCAG-source.md
+  status: ready_for_review
+  text: соответствие определяется выполнением проверяемых критериев успеха, входящих
+    в руководства.
+  excerpt: «the success criteria are what determine conformance».
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: ''
+    application: проверка решений против критериев, а не общего мнения.
+  open_questions: []
+- id: WCAG-004
+  source_id: WCAG
+  item_id: WCAG-normalized-WCAG-source.md
+  status: ready_for_review
+  text: текущая версия WCAG 2.2 опубликована `2023-10-05` и обратно совместима с предыдущими
+    версиями.
+  excerpt: сведения о публикации и совместимости версии `2.2`.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: ''
+    application: указание версии при ссылке на критерии.
+  open_questions: []
+- id: WCAG-005
+  source_id: WCAG
+  item_id: WCAG-normalized-WCAG-source.md
+  status: ready_for_review
+  text: WCAG — технический стандарт оценки доступности; для реализации и проверки
+    W3C предоставляет вспомогательные материалы (Quick Reference, Understanding, Techniques).
+  excerpt: описание назначения и вспомогательных ресурсов.
+  artifact: source.md
+  checked_at: '2026-06-26'
+  scope:
+    section_title: ''
+    application: организация аудита доступности.
+  open_questions: []

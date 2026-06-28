@@ -1,0 +1,27 @@
+statements:
+- id: SPDX-001
+  source_id: SPDX
+  item_id: SPDX-licenses
+  status: ready_for_review
+  text: SPDX License List является частью спецификации SPDX и содержит короткий идентификатор,
+    полное имя, текст лицензии и постоянный URL для каждой лицензии и исключения.
+  excerpt: страница `licenses`.
+  artifact: index.html
+  checked_at: '2026-06-05'
+  scope:
+    section_title: ''
+    application: выбор канонических идентификаторов лицензий.
+  open_questions: []
+- id: SPDX-004
+  source_id: SPDX
+  item_id: SPDX-licenses
+  status: ready_for_review
+  text: правила matching SPDX выделяют omitable и replaceable фрагменты текста лицензии
+    как часть механики сопоставления.
+  excerpt: пояснение на странице `licenses` о matching guidelines.
+  artifact: index.html
+  checked_at: '2026-06-05'
+  scope:
+    section_title: ''
+    application: автоматическая проверка совпадения текстов лицензий.
+  open_questions: []

@@ -1,0 +1,58 @@
+statements:
+- id: PPRX-001
+  source_id: PPRX
+  item_id: PPRX-designing-refining-maintaining-agent-skills
+  status: ready_for_review
+  text: навык может быть не одним файлом, а каталогом с основным SKILL.md`, скриптами,
+    справочными материалами, шаблонами, данными и конфигурацией.
+  excerpt: единица источника описывает навык как директорию и перечисляет возможные
+    вспомогательные подкаталоги.
+  artifact: index.html
+  checked_at: '2026-06-01'
+  scope:
+    section_title: ''
+    application: структура переносимого навыка.
+  open_questions: []
+- id: PPRX-002
+  source_id: PPRX
+  item_id: PPRX-designing-refining-maintaining-agent-skills
+  status: ready_for_review
+  text: изменение описания навыка несёт риск нарушения маршрутизации и должно сопровождаться
+    проверками загрузки навыка на положительных, отрицательных и соседних запросах.
+  excerpt: единица источника называет описание маршрутизирующим триггером и связывает
+    его изменение с проверками загрузки навыка.
+  artifact: index.html
+  checked_at: '2026-06-01'
+  scope:
+    section_title: ''
+    application: сопровождение навыков и проверка изменений.
+  open_questions: []
+- id: PPRX-003
+  source_id: PPRX
+  item_id: PPRX-designing-refining-maintaining-agent-skills
+  status: ready_for_review
+  text: раздел с неочевидными ошибками и отрицательными примерами может быть ценным
+    механизмом сопровождения навыка, если он пополняется по реальным сбоям агента.
+  excerpt: единица источника описывает пополнение gotchas по случаям, когда агент
+    ошибся, загрузил навык не к месту или не загрузил его тогда, когда нужно.
+  artifact: index.html
+  checked_at: '2026-06-01'
+  scope:
+    section_title: ''
+    application: сопровождение навыков по результатам реального применения.
+  open_questions: []
+- id: PPRX-004
+  source_id: PPRX
+  item_id: PPRX-designing-refining-maintaining-agent-skills
+  status: ready_for_review
+  text: добавление нового навыка создаёт постоянную стоимость для системы, поэтому
+    необходимость навыка нужно проверять через задачи, где агент без навыка ошибается
+    или работает нестабильно.
+  excerpt: единица источника описывает навык как контекстную стоимость и рекомендует
+    начинать с запросов без навыка, чтобы понять, нужен ли он.
+  artifact: index.html
+  checked_at: '2026-06-01'
+  scope:
+    section_title: ''
+    application: решение о создании нового навыка.
+  open_questions: []

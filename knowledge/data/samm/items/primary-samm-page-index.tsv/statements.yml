@@ -1,0 +1,133 @@
+statements:
+- id: SAMM-001
+  source_id: SAMM
+  item_id: SAMM-primary-SAMM-page-index.tsv
+  status: ready_for_review
+  text: SAMM — открытая модель оценки и улучшения программы безопасной разработки
+    ПО; она технологически нейтральна и применяется итеративно (оценка → цели → план
+    улучшений).
+  excerpt: вводный раздел.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Назначение модели
+    application: специалист по безопасности, project-manager.
+  open_questions: []
+- id: SAMM-002
+  source_id: SAMM
+  item_id: SAMM-primary-SAMM-page-index.tsv
+  status: ready_for_review
+  text: 'модель построена вокруг пяти бизнес-функций: Governance, Design, Implementation,
+    Verification, Operations.'
+  excerpt: оглавление и обзор практик.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Пять бизнес-функций
+    application: специалист по безопасности.
+  open_questions: []
+- id: SAMM-003
+  source_id: SAMM
+  item_id: SAMM-primary-SAMM-page-index.tsv
+  status: ready_for_review
+  text: в каждой бизнес-функции по три практики безопасности (всего 15); каждая практика
+    имеет два потока (stream A/B) и три уровня зрелости.
+  excerpt: обзор практик и модель зрелости.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Пятнадцать практик безопасности
+    application: специалист по безопасности.
+  open_questions: []
+- id: SAMM-004
+  source_id: SAMM
+  item_id: SAMM-primary-SAMM-page-index.tsv
+  status: ready_for_review
+  text: функция Governance включает практики Strategy & Metrics, Policy & Compliance,
+    Education & Guidance.
+  excerpt: раздел Governance.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Governance
+    application: project-manager, специалист по безопасности.
+  open_questions: []
+- id: SAMM-005
+  source_id: SAMM
+  item_id: SAMM-primary-SAMM-page-index.tsv
+  status: ready_for_review
+  text: функция Design включает практики Threat Assessment, Security Requirements,
+    Security Architecture; Threat Assessment охватывает моделирование угроз.
+  excerpt: раздел Design.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Design
+    application: специалист по безопасности, архитектор, аналитик.
+  open_questions: []
+- id: SAMM-006
+  source_id: SAMM
+  item_id: SAMM-primary-SAMM-page-index.tsv
+  status: ready_for_review
+  text: функция Implementation включает практики Secure Build, Secure Deployment,
+    Defect Management.
+  excerpt: раздел Implementation.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Implementation
+    application: разработчик, специалист по безопасности.
+  open_questions: []
+- id: SAMM-007
+  source_id: SAMM
+  item_id: SAMM-primary-SAMM-page-index.tsv
+  status: ready_for_review
+  text: функция Verification включает практики Architecture Assessment, Requirements-driven
+    Testing, Security Testing.
+  excerpt: раздел Verification.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Verification
+    application: специалист по безопасности, роль проверки результата.
+  open_questions: []
+- id: SAMM-008
+  source_id: SAMM
+  item_id: SAMM-primary-SAMM-page-index.tsv
+  status: ready_for_review
+  text: функция Operations включает практики Incident Management, Environment Management,
+    Operational Management.
+  excerpt: раздел Operations.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Operations
+    application: специалист по безопасности.
+  open_questions: []
+- id: SAMM-009
+  source_id: SAMM
+  item_id: SAMM-primary-SAMM-page-index.tsv
+  status: ready_for_review
+  text: каждая практика имеет три уровня зрелости с растущей строгостью и охватом;
+    уровни описаны через активности, вопросы оценки и ожидаемые результаты, что позволяет
+    измерять прогресс.
+  excerpt: модель зрелости.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Три уровня зрелости
+    application: специалист по безопасности, project-manager.
+  open_questions: []
+- id: SAMM-010
+  source_id: SAMM
+  item_id: SAMM-primary-SAMM-page-index.tsv
+  status: ready_for_review
+  text: 'SAMM применяется итеративно: оценить текущее состояние, поставить достижимые
+    цели по уровням и реализовать план улучшений, повторяя цикл.'
+  excerpt: руководство по применению модели.
+  artifact: page-index.tsv
+  checked_at: '2026-06-25'
+  scope:
+    section_title: Итеративное применение
+    application: специалист по безопасности, project-manager.
+  open_questions: []
