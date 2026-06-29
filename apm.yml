@@ -1,5 +1,5 @@
 name: ai-dev-team
-version: 0.11.0
+version: 0.11.1
 description: Команда агентной разработки ПО
 author: mekras
 license: MIT
@@ -10,8 +10,8 @@ type: hybrid
 includes: auto
 dependencies:
   apm:
-    - mekras/ai-russian-language#^1.2.5
+    - mekras/ai-russian-language#^1.2.6
     - mekras/ai-agent-supervisor#^0.5.1
-    - mekras/project-knowlege-corpus#^0.6.7
+    - mekras/project-knowlege-corpus#^0.7.0
 scripts:
   tests: "sh -c 'set -e; python3 tools/validate-apm-package-structure.py; npm run lint:md; apm compile --validate --local-only --target codex; apm pack --dry-run'"
