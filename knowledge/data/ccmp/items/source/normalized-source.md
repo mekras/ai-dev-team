@@ -2,8 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/CCMP/source.md`
-- Индекс первичных артефактов: `knowledge/primary/CCMP/page-index.tsv`
+- Первичный источник: `knowledge/data/ccmp/items/source/source.md`
+- Индекс первичных артефактов: `knowledge/data/ccmp/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-25`
 - Способ нормализации: обзор локальной текстовой выгрузки PDF, выходных данных,
   содержания и выборочное чтение глав о конструировании, качестве, интеграции и
@@ -16,9 +16,8 @@
 
 ## Входной материал
 
-- Локальный PDF: `knowledge/primary/CCMP/files/code-complete-ru.pdf`
-- Локальная текстовая выгрузка:
-  `knowledge/primary/CCMP/files/code-complete-ru.txt`
+- Локальный PDF: `knowledge/.local/raw/ccmp/code-complete-ru.pdf`
+- Локальная текстовая выгрузка: `knowledge/.local/raw/ccmp/code-complete-ru.txt`
 
 ## Что удалось выделить
 

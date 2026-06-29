@@ -1,10 +1,18 @@
 id: SMFR-djvu
 source_id: SMFR
-title: 'SMFR: djvu'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/smfr/ и общие
-  ограничения в knowledge/source-attribution.md.
+title: "SMFR: djvu"
+access: "Смотри карточку единицы и связанные артефакты в knowledge/data/smfr/ и общие ограничения в knowledge/source-attribution.md."
 status: approved
 workflow_stage: statements_extracted
-files:
-  tracked:
-  - sovremennye-metody-opisaniya-funkcionalnyh-trebovanii.djvu
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+primary_file:
+  location: knowledge/.local/raw/smfr/sovremennye-metody-opisaniya-funkcionalnyh-trebovanii.djvu
+  format: djvu
+  file_size_bytes: 3054668
+  content_hash: sha256:84795c079a33f309a6d2a6c548119a82403b22ea53b88129805b3b80cfb2cb43
+  metadata_source: file
+known_limitations:
+- Полный файл хранится только в игнорируемом локальном слое
+  knowledge/.local/raw/ и не публикуется в Git.

@@ -3,10 +3,13 @@
 ## Источник и дата проверки
 
 - Источник: `WCAG` (Web Content Accessibility Guidelines 2.2)
-- Учёт: `knowledge/inventory/WCAG.md`
-- Паспорт первичных данных: `knowledge/primary/WCAG/source.md`
-- Нормализованный слой: `knowledge/normalized/WCAG/source.md`
-- Извлечённые утверждения: `knowledge/statements/WCAG.md` (`WCAG-001`–`WCAG-005`)
+- Учёт: `knowledge/data/wcag/source.yml`
+- Паспорт первичных данных: `knowledge/data/wcag/items/source/source.md`
+- Нормализованный слой:
+  `knowledge/data/wcag/items/normalized-wcag-source.md/source.md`
+- Извлечённые утверждения:
+  `knowledge/data/wcag/items/normalized-wcag-source.md/statements.yml`
+  (`WCAG-001`–`WCAG-005`)
 - Атрибуция и правовой статус: `knowledge/source-attribution.md`
 - Дата проверки: `2026-06-26`
 

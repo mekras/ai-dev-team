@@ -8,6 +8,11 @@ status: approved
 carrier_type: web_page
 source_kind: article
 adapter: manual
+storage_strategy: local_only
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+license_or_terms: "© 2004 IEEE; открытой лицензии на повторное использование полного текста нет."
 access:
   default: Смотри карточки единиц источника в knowledge/data/dsct/ и общие ограничения
     в knowledge/source-attribution.md.

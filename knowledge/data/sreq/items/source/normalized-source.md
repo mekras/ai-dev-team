@@ -2,8 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/SREQ/source.md`
-- Индекс первичных артефактов: `knowledge/primary/SREQ/page-index.tsv`
+- Первичный источник: `knowledge/data/sreq/items/source/source.md`
+- Индекс первичных артефактов: `knowledge/data/sreq/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-22`
 - Способ нормализации: обзор локальной текстовой выгрузки PDF и выборочное
   чтение ключевых глав.

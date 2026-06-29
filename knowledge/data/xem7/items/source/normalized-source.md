@@ -2,8 +2,9 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/XEM7/source.md`
-- Индекс первичных страниц: `knowledge/primary/XEM7/page-index.tsv`
+- Первичный источник: `knowledge/data/xem7/items/source/source.md`
+- Индекс первичных страниц:
+  `knowledge/data/xem7/items/primary-xem7-page-index.tsv/page-index.tsv`
 - Дата нормализации: `2026-06-01`
 - Способ нормализации:
   - извлечение объекта `window.__INITIAL_STATE__` из локально сохранённого
@@ -16,10 +17,9 @@
 Полный нормализованный слой содержит структурированное представление данных,
 доступных в локально сохранённых HTML-снимках:
 
-- `knowledge/normalized/XEM7/status.json`
-- `knowledge/normalized/XEM7/pages/status/index.md`
-- `knowledge/normalized/XEM7/pages/article/index.md`
-- `knowledge/normalized/XEM7/pages/article-body/index.md`
+- `knowledge/data/xem7/items/status`
+- `knowledge/data/xem7/items/article`
+- `knowledge/data/xem7/items/article-body/index.md`
 
 Эти полные нормализованные артефакты исключены из Git через `.gitignore`.
 
@@ -39,8 +39,8 @@
 - Нормализованный слой не заменяет локальные первичные HTML-снимки.
 - Тело связанной статьи нормализовано только как локальный текстовый снимок, без
   пересказа и без извлечения фактов.
-- Отслеживаемый файл `knowledge/primary/XEM7/pages/article-body/index.md`
-  является только манифестом локального снимка, а не его полным текстом.
+- Отслеживаемый файл `knowledge/data/xem7/items/article-body/index.md` является
+  только манифестом локального снимка, а не его полным текстом.
 - Нельзя извлекать смысловые утверждения из заголовка, ссылки или факта
   существования статьи вне сохранённого текста.
 - При спорных вопросах нужно сверяться с локальными первичными HTML-снимками и

@@ -1,10 +1,19 @@
 id: APIB-pdf
 source_id: APIB
-title: 'APIB: pdf'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/apib/ и общие
-  ограничения в knowledge/source-attribution.md.
+title: "APIB: pdf"
+access: "Смотри карточку единицы и связанные артефакты в knowledge/data/apib/ и общие ограничения в knowledge/source-attribution.md."
 status: approved
 workflow_stage: statements_extracted
-files:
-  tracked:
-  - the-api-book-ru.pdf
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+primary_file:
+  location: knowledge/.local/raw/apib/the-api-book-ru.pdf
+  format: pdf
+  file_size_bytes: 7336004
+  content_hash: sha256:f4aa1f8cc68c74d357409c906ecd84b03b4e80a7972d932e3b20d7cb10d58aac
+  page_count: 336
+  metadata_source: pdfinfo
+known_limitations:
+- Полный файл хранится только в игнорируемом локальном слое
+  knowledge/.local/raw/ и не публикуется в Git.

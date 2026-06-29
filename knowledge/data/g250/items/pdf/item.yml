@@ -1,10 +1,19 @@
 id: G250-pdf
 source_id: G250
-title: 'G250: pdf'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/g250/ и общие
-  ограничения в knowledge/source-attribution.md.
+title: "G250: pdf"
+access: "Смотри карточку единицы и связанные артефакты в knowledge/data/g250/ и общие ограничения в knowledge/source-attribution.md."
 status: approved
 workflow_stage: statements_extracted
-files:
-  tracked:
-  - gost-r-iso-iec-25010-2015.pdf
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+primary_file:
+  location: knowledge/.local/raw/g250/gost-r-iso-iec-25010-2015.pdf
+  format: pdf
+  file_size_bytes: 1525331
+  content_hash: sha256:b63ca8abfc533ad4a201a9120429dac095cee270c9a2af9bfef73acd33a92976
+  page_count: 36
+  metadata_source: pdfinfo
+known_limitations:
+- Полный файл хранится только в игнорируемом локальном слое
+  knowledge/.local/raw/ и не публикуется в Git.

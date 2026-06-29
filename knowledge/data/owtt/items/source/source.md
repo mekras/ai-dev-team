@@ -24,10 +24,12 @@
 
 ## Что сохранено в корпусе
 
-- паспорт: `knowledge/primary/OWTT/source.md`
-- нормализованный обзор: `knowledge/normalized/OWTT/source.md`
-- утверждения: `knowledge/statements/OWTT.md`
-- учёт: `knowledge/inventory/OWTT.md`
+- паспорт: `knowledge/data/owtt/items/source/source.md`
+- нормализованный обзор:
+  `knowledge/data/owtt/items/normalized-owtt-source.md/source.md`
+- утверждения:
+  `knowledge/data/owtt/items/normalized-owtt-source.md/statements.yml`
+- учёт: `knowledge/data/owtt/source.yml`
 - локальная копия не хранится
 
 ## Условия использования

@@ -23,10 +23,11 @@
 
 ## Что сохранено
 
-- паспорт: `knowledge/primary/ASVS/source.md`
-- индекс артефактов: `knowledge/primary/ASVS/page-index.tsv`
-- PDF: `knowledge/primary/ASVS/files/owasp-asvs-4.0.3.pdf`
-- текстовая выгрузка: `knowledge/primary/ASVS/files/owasp-asvs-4.0.3.txt`
+- паспорт: `knowledge/data/asvs/items/source/source.md`
+- индекс артефактов:
+  `knowledge/data/asvs/items/primary-asvs-page-index.tsv/page-index.tsv`
+- PDF: `knowledge/data/asvs/items/pdf/owasp-asvs-4.0.3.pdf`
+- текстовая выгрузка: `knowledge/data/asvs/items/text/owasp-asvs-4.0.3.txt`
 
 В Git сохраняются метаданные источника, обзорный нормализованный слой и
 извлечённые утверждения.

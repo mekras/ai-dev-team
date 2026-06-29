@@ -2,8 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/EVAR/source.md`
-- Индекс первичных артефактов: `knowledge/primary/EVAR/page-index.tsv`
+- Первичный источник: `knowledge/data/evar/items/source/source.md`
+- Индекс первичных артефактов: `knowledge/data/evar/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-24`
 - Способ нормализации: чтение локальной текстовой выгрузки PDF, извлечение
   оглавления и заголовков глав, выборочное чтение глав по ключевым понятиям

@@ -2,7 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/BSIM/source.md` (`external_reference`)
+- Первичный источник: `knowledge/data/bsim/items/source/source.md`
+  (`external_reference`)
 - Дата нормализации: `2026-06-25`
 - Способ нормализации: обзор структуры модели по публичным описаниям издателя;
   проприетарный отчёт не копировался.

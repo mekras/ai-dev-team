@@ -24,12 +24,12 @@
 
 ## Что сохранено
 
-- паспорт: `knowledge/primary/DSCT/source.md`
-- индекс артефактов: `knowledge/primary/DSCT/page-index.tsv`
+- паспорт: `knowledge/data/dsct/items/source/source.md`
+- индекс артефактов: `knowledge/data/dsct/items/source/page-index.tsv`
 - PDF:
-  `knowledge/primary/DSCT/files/avizienis-taxonomy-dependable-secure-computing.pdf`
+  `knowledge/.local/raw/dsct/avizienis-taxonomy-dependable-secure-computing.pdf`
 - текстовая выгрузка:
-  `knowledge/primary/DSCT/files/avizienis-taxonomy-dependable-secure-computing.txt`
+  `knowledge/.local/raw/dsct/avizienis-taxonomy-dependable-secure-computing.txt`
 
 В Git сохраняются метаданные источника; нормализованный слой и утверждения будут
 добавлены на отдельном шаге.

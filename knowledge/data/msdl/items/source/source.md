@@ -26,10 +26,12 @@
 
 ## Что сохранено в корпусе
 
-- паспорт: `knowledge/primary/MSDL/source.md`
-- нормализованный обзор: `knowledge/normalized/MSDL/source.md`
-- утверждения: `knowledge/statements/MSDL.md`
-- учёт: `knowledge/inventory/MSDL.md`
+- паспорт: `knowledge/data/msdl/items/source/source.md`
+- нормализованный обзор:
+  `knowledge/data/msdl/items/normalized-msdl-source.md/source.md`
+- утверждения:
+  `knowledge/data/msdl/items/normalized-msdl-source.md/statements.yml`
+- учёт: `knowledge/data/msdl/source.yml`
 - локальная копия не хранится
 
 ## Условия использования

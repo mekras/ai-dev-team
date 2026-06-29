@@ -2,8 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/LFSP/source.md`
-- Индекс первичных артефактов: `knowledge/primary/LFSP/page-index.tsv`
+- Первичный источник: `knowledge/data/lfsp/items/source/source.md`
+- Индекс первичных артефактов: `knowledge/data/lfsp/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-05`
 - Способ нормализации: обзор текстовой выгрузки PDF.
 

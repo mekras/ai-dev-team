@@ -12,8 +12,8 @@
 
 ## Что сохранено
 
-- паспорт: `knowledge/primary/SPDX/source.md`
-- индекс: `knowledge/primary/SPDX/page-index.tsv`
+- паспорт: `knowledge/data/spdx/items/source/source.md`
+- индекс: `knowledge/data/spdx/items/primary-spdx-page-index.tsv/page-index.tsv`
 - страницы:
   - `licenses`
   - `exceptions-index`

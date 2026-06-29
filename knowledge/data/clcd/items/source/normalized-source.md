@@ -2,8 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/CLCD/source.md`
-- Индекс первичных артефактов: `knowledge/primary/CLCD/page-index.tsv`
+- Первичный источник: `knowledge/data/clcd/items/source/source.md`
+- Индекс первичных артефактов: `knowledge/data/clcd/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-25`
 - Способ нормализации: обзор локальной текстовой выгрузки PDF, выходных данных,
   содержания и выборочное чтение глав о чистом коде, именах, функциях,
@@ -16,9 +16,9 @@
 
 ## Входной материал
 
-- Локальный PDF: `knowledge/primary/CLCD/files/clean-code-martin-ru.pdf`
+- Локальный PDF: `knowledge/.local/raw/clcd/clean-code-martin-ru.pdf`
 - Локальная текстовая выгрузка:
-  `knowledge/primary/CLCD/files/clean-code-martin-ru.txt`
+  `knowledge/.local/raw/clcd/clean-code-martin-ru.txt`
 
 ## Что удалось выделить
 

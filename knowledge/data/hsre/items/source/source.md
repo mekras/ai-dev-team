@@ -32,8 +32,8 @@
 
 ## Что сохранено в корпусе
 
-- паспорт: `knowledge/primary/HSRE/source.md`
-- учёт: `knowledge/inventory/HSRE.md`
+- паспорт: `knowledge/data/hsre/items/source/source.md`
+- учёт: `knowledge/data/hsre/source.yml`
 - локальная копия книги не хранится
 - нормализованный обзор и утверждения будут добавлены на отдельном шаге
 

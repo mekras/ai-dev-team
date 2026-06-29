@@ -20,17 +20,17 @@
 - Тип источника: локальная PDF-книга
 - Способ получения: по решению пользователя в проект скопирована локальная
   рабочая копия книги с хранением файла только в игнорируемом каталоге
-  `knowledge/primary/DDDE/files/`
+  `knowledge/.local/raw/ddde/`
 - Дата включения в корпус: `2026-06-23`
 
 ## Что сохранено
 
 Для локальной обработки получены следующие артефакты:
 
-- паспорт: `knowledge/primary/DDDE/source.md`
-- индекс артефактов: `knowledge/primary/DDDE/page-index.tsv`
-- PDF: `knowledge/primary/DDDE/files/ddd-evans-ru.pdf`
-- текстовая выгрузка: `knowledge/primary/DDDE/files/ddd-evans-ru.txt`
+- паспорт: `knowledge/data/ddde/items/source/source.md`
+- индекс артефактов: `knowledge/data/ddde/items/source/page-index.tsv`
+- PDF: `knowledge/.local/raw/ddde/ddd-evans-ru.pdf`
+- текстовая выгрузка: `knowledge/.local/raw/ddde/ddd-evans-ru.txt`
 
 В Git сохраняются только метаданные источника; обзорный нормализованный слой и
 извлечённые утверждения добавляются на следующих шагах без крупных дословных

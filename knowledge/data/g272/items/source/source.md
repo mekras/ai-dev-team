@@ -21,10 +21,10 @@
 
 ## Что сохранено
 
-- паспорт: `knowledge/primary/G272/source.md`
-- индекс артефактов: `knowledge/primary/G272/page-index.tsv`
-- PDF: `knowledge/primary/G272/files/gost-27.002-2015.pdf`
-- текстовая выгрузка: `knowledge/primary/G272/files/gost-27.002-2015.txt`
+- паспорт: `knowledge/data/g272/items/source/source.md`
+- индекс артефактов: `knowledge/data/g272/items/source/page-index.tsv`
+- PDF: `knowledge/.local/raw/g272/gost-27.002-2015.pdf`
+- текстовая выгрузка: `knowledge/.local/raw/g272/gost-27.002-2015.txt`
 
 В Git сохраняются метаданные источника; нормализованный слой и утверждения будут
 добавлены на отдельном шаге.

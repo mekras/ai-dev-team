@@ -1,10 +1,19 @@
 id: DSCT-pdf
 source_id: DSCT
-title: 'DSCT: pdf'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/dsct/ и общие
-  ограничения в knowledge/source-attribution.md.
+title: "DSCT: pdf"
+access: "Смотри карточку единицы и связанные артефакты в knowledge/data/dsct/ и общие ограничения в knowledge/source-attribution.md."
 status: approved
 workflow_stage: statements_extracted
-files:
-  tracked:
-  - avizienis-taxonomy-dependable-secure-computing.pdf
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+primary_file:
+  location: knowledge/.local/raw/dsct/avizienis-taxonomy-dependable-secure-computing.pdf
+  format: pdf
+  file_size_bytes: 2566859
+  content_hash: sha256:a6c1b102988b4abd5b1a1fc299cc73eeb8147b210a9e721a6111986a3fed6050
+  page_count: 23
+  metadata_source: pdfinfo
+known_limitations:
+- Полный файл хранится только в игнорируемом локальном слое
+  knowledge/.local/raw/ и не публикуется в Git.

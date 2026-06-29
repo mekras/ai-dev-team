@@ -29,10 +29,12 @@
 
 ## Что сохранено в корпусе
 
-- паспорт: `knowledge/primary/WCAG/source.md`
-- учёт: `knowledge/inventory/WCAG.md`
-- нормализованный обзор: `knowledge/normalized/WCAG/source.md`
-- утверждения: `knowledge/statements/WCAG.md`
+- паспорт: `knowledge/data/wcag/items/source/source.md`
+- учёт: `knowledge/data/wcag/source.yml`
+- нормализованный обзор:
+  `knowledge/data/wcag/items/normalized-wcag-source.md/source.md`
+- утверждения:
+  `knowledge/data/wcag/items/normalized-wcag-source.md/statements.yml`
 - локальная копия текста стандарта не хранится
 
 ## Условия использования

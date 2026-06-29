@@ -2,7 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/CVSS/source.md` (`external_reference`)
+- Первичный источник: `knowledge/data/cvss/items/source/source.md`
+  (`external_reference`)
 - Дата нормализации: `2026-06-25`
 - Способ нормализации: обзор спецификации v4.0 по каноническому адресу FIRST;
   полный текст не копировался.

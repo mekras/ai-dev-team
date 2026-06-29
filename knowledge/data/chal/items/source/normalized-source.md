@@ -2,8 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/CHAL/source.md`
-- Индекс первичных страниц: `knowledge/primary/CHAL/page-index.tsv`
+- Первичный источник: `knowledge/data/chal/items/source/source.md`
+- Индекс первичных страниц: `knowledge/data/chal/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-05`
 - Способ нормализации: обзор структуры двух связанных страниц сайта.
 

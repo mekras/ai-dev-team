@@ -1,0 +1,22 @@
+id: ADRG-source
+source_id: ADRG
+title: 'ADRG: обзор источника'
+url: https://adr.github.io/
+access: Смотри карточку единицы и связанные артефакты в knowledge/data/adrg/ и общие
+  ограничения в knowledge/source-attribution.md.
+status: approved
+workflow_stage: statements_extracted
+processing_scope: metadata_only
+retrieval_mode: on_demand
+copy_policy: fragments_only
+allowed_use: Точечная проверка с ссылкой на первоисточник и атрибуцией.
+requires_access_check: true
+files:
+  tracked:
+  - source.md
+known_limitations:
+- Живой сайт без явного версионирования; при использовании сверяться с актуальной
+  страницей и датой обращения.
+processing_notes:
+- Источник заведён навыком kc-sources-add; нормализованный обзор и утверждения
+  ведутся в единице items/normalized-adrg-source.md.

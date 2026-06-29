@@ -13,10 +13,10 @@
 
 ## Что сохранено
 
-- паспорт: `knowledge/primary/OSIL/source.md`
-- индекс: `knowledge/primary/OSIL/page-index.tsv`
-- страница: `knowledge/primary/OSIL/pages/licenses/index.html`
-- заголовки ответа: `knowledge/primary/OSIL/pages/licenses/response-headers.txt`
+- паспорт: `knowledge/data/osil/items/source/source.md`
+- индекс: `knowledge/data/osil/items/source/page-index.tsv`
+- страница: `knowledge/data/osil/items/licenses/index.html`
+- заголовки ответа: `knowledge/data/osil/items/licenses/response-headers.txt`
 
 ## Условия использования
 

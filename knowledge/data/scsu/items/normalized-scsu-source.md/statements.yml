@@ -1,0 +1,733 @@
+statements:
+- id: SCSU-001
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Scrum создан Джеффом Сазерлендом в 1993 году и формализован вместе с Кеном
+    Швабером в 1995 году как замена каскадной (водопадной) модели разработки.
+  excerpt: введение и раздел «Об авторе».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Происхождение Scrum
+    application: project-manager — обоснование выбора итеративного процесса вместо
+      каскадного.
+  open_questions: []
+- id: SCSU-002
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Scrum опирается на производственную систему Toyota и борьбу Тайити Оно с
+    потерями, на цикл Деминга PDCA и на цикл OODA из боевой авиации.
+  excerpt: глава 2 «Истоки и рождение Scrum».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Происхождение Scrum
+    application: project-manager — обоснование принципов метода ссылкой на истоки.
+  open_questions: []
+- id: SCSU-003
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Образ и название Scrum взяты из регби по статье Такэути и Нонаки 1986 года —
+    команда движется единым целым, процессы идут параллельно и итеративно, а не линейно.
+  excerpt: глава 2, раздел «Не ныряйте в водопад».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Происхождение Scrum
+    application: software-architect — обоснование параллельной итеративной работы.
+  open_questions: []
+- id: SCSU-004
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Базовый принцип Scrum — ранний работоспособный прирост, обратная связь заказчика
+    и циклическое наращивание продукта вместо планирования «от и до» с результатом
+    в конце.
+  excerpt: предисловие партнёра и введение.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Итеративность
+    application: software-architect — поставка работающего прироста на каждом этапе.
+  open_questions: []
+- id: SCSU-005
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: 'Освоение Scrum описывается ступенями сюхари: Shu — выполнять правила точно,
+    Ha — обоснованно отступать, Ri — создавать собственный путь.'
+  excerpt: глава 2, раздел «Сюхари», и глава 9.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Освоение метода
+    application: project-manager — сначала точное соблюдение правил, затем адаптация.
+  open_questions: []
+- id: SCSU-006
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: 'В Scrum предусмотрены ровно три роли: скрам-команда, скрам-мастер и владелец
+    продукта.'
+  excerpt: глава 8 «Приоритеты», раздел «Владелец продукта», и приложение.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Роли Scrum
+    application: project-manager — распределение ответственности в команде.
+  open_questions: []
+- id: SCSU-007
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Скрам-команда — малочисленная, многофункциональная и самоорганизующаяся группа,
+    которая несёт коллективную ответственность и сама решает, как выполнять работу,
+    без заданий «сверху».
+  excerpt: глава 3 «Команды», разделы об автономности и многофункциональности.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Роли Scrum
+    application: coder — самоорганизация команды вокруг общей цели.
+  open_questions: []
+- id: SCSU-008
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: 'Лучшие команды описаны тремя свойствами: устремление к совершенству, автономность
+    и самоорганизация, многофункциональность с полным набором навыков.'
+  excerpt: глава 3 «Команды», три характеристики великих команд.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Роли Scrum
+    application: project-manager — критерии формирования сильной команды.
+  open_questions: []
+- id: SCSU-009
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Скрам-мастер отвечает за вопрос «как делать»; он следит за процессом, обеспечивает
+    проведение коротких собраний, помогает устранять помехи и ведёт команду к совершенствованию,
+    но не распределяет задания.
+  excerpt: глава 3, раздел «Скрам-мастер», и глава 8.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Роли Scrum
+    application: project-manager — поддержка процесса без директивного управления.
+  open_questions: []
+- id: SCSU-010
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Скрам-мастер — лидер-слуга, ближе к тренеру и капитану команды, чем к начальнику;
+    его задача — устранять помехи и искать ответ, как делать лучше то, что уже делается
+    хорошо.
+  excerpt: глава 3, раздел «Скрам-мастер».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Роли Scrum
+    application: project-manager — модель руководства через служение команде.
+  open_questions: []
+- id: SCSU-011
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Владелец продукта отвечает за вопрос «что делать»; он формирует концепцию,
+    ведёт единый бэклог, собирает и приоритизирует требования и отвечает за превращение
+    работы команды в реальную ценность.
+  excerpt: глава 8 «Приоритеты», раздел «Владелец продукта».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Роли Scrum
+    application: analyst — сбор и приоритизация требований через бэклог.
+  open_questions: []
+- id: SCSU-012
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Владелец продукта наделён полномочиями решать о приоритетах и всегда доступен
+    команде, но не вправе давать задания отдельным участникам и вмешиваться в решения
+    команды.
+  excerpt: глава 8 «Приоритеты», четыре обязанности владельца продукта.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Роли Scrum
+    application: analyst — границы полномочий владельца продукта.
+  open_questions: []
+- id: SCSU-013
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Владелец продукта примерно половину времени проводит с заказчиками и заинтересованными
+    лицами, а половину — с командой и бэклогом, перенося обратную связь клиента в требования.
+  excerpt: глава 8 «Приоритеты», о связи владельца продукта с клиентом.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Роли Scrum
+    application: analyst — организация обратной связи заказчика через владельца продукта.
+  open_questions: []
+- id: SCSU-014
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Работа делится на спринты — короткие этапы фиксированной длительности от одной
+    недели до месяца (обычно одна или две недели), каждый из которых даёт работоспособный
+    прирост продукта.
+  excerpt: глава 4 «Время», раздел «Спринт», и приложение.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Спринты и таймбоксинг
+    application: software-architect — итеративная поставка прироста.
+  open_questions: []
+- id: SCSU-015
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Спринт — временно́й промежуток с фиксированным сроком, под который подстраивают
+    объём работы, а не наоборот.
+  excerpt: глава 4 «Время», раздел «Спринт».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Спринты и таймбоксинг
+    application: project-manager — управление сроком вместо объёма.
+  open_questions: []
+- id: SCSU-016
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Длительность спринта держат постоянной, чтобы команда знала свою скорость и
+    поддерживала ровный ритм работы.
+  excerpt: глава 4 «Время», о ритме спринтов.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Спринты и таймбоксинг
+    application: project-manager — стабильный ритм для прогнозируемости.
+  open_questions: []
+- id: SCSU-017
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Основное правило спринта — после согласования набора заданий новые в этот спринт
+    не добавляют, чтобы не дробить внимание и завершить обещанное.
+  excerpt: приложение, шаг «Планирование спринта».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Спринты и таймбоксинг
+    application: project-manager — защита спринта от расширения объёма.
+  open_questions: []
+- id: SCSU-018
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Планирование спринта — первое собрание спринта, где команда, скрам-мастер и
+    владелец продукта согласуют цель, берут задачи из верхней части бэклога и прогнозируют
+    объём по скорости прошлых спринтов.
+  excerpt: приложение, шаг «Планирование спринта».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: События спринта
+    application: project-manager — проведение планирования итерации.
+  open_questions: []
+- id: SCSU-019
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Ежедневное собрание проводят каждый день в одно и то же время, не более пятнадцати
+    минут и стоя.
+  excerpt: приложение, шаг «Ежедневный Scrum», и глава 4.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: События спринта
+    application: coder — формат и таймбокс ежедневной синхронизации.
+  open_questions: []
+- id: SCSU-020
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: 'На ежедневном собрании каждый отвечает на три вопроса: что сделал вчера для
+    завершения спринта, что сделает сегодня, какие препятствия мешают команде.'
+  excerpt: приложение, шаг «Ежедневный Scrum».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: События спринта
+    application: coder — содержание ежедневной сверки и выявление помех.
+  open_questions: []
+- id: SCSU-021
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: На ежедневном собрании задания не раздают сверху; команда самостоятельна, подробных
+    отчётов руководству не пишут, а скрам-мастер берёт на себя устранение помех.
+  excerpt: приложение, шаг «Ежедневный Scrum».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: События спринта
+    application: project-manager — самоуправление команды на ежедневном собрании.
+  open_questions: []
+- id: SCSU-022
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Обзор спринта — открытая встреча, где команда демонстрирует заказчику и заинтересованным
+    лицам сделанное за спринт.
+  excerpt: приложение, шаг «Обзор спринта», и глава 4.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: События спринта
+    application: project-manager — демонстрация результата и сбор обратной связи.
+  open_questions: []
+- id: SCSU-023
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: На обзоре спринта демонстрируют только то, что соответствует критерию «Сделано»
+    — законченный продукт или готовую функцию.
+  excerpt: приложение, шаг «Обзор спринта».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: События спринта
+    application: ait-code-testing — показ только завершённого результата.
+  open_questions: []
+- id: SCSU-024
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: 'Ретроспектива проводится в конце спринта и разбирает три вопроса: что прошло
+    хорошо, что можно было сделать лучше, что улучшить в следующем спринте.'
+  excerpt: приложение, шаг «Ретроспективное собрание».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: События спринта
+    application: project-manager — структура разбора итерации.
+  open_questions: []
+- id: SCSU-025
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Ретроспектива требует атмосферы доверия и направлена на процесс, а не на поиск
+    виноватых; ни один участник не должен занимать оборонительную позицию.
+  excerpt: приложение, шаг «Ретроспективное собрание».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: События спринта
+    application: project-manager — безопасные условия разбора без обвинений.
+  open_questions: []
+- id: SCSU-026
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: По итогам ретроспективы команда выбирает одно улучшение (кайдзен) и вносит его
+    в бэклог следующего спринта вместе с приёмочными тестами.
+  excerpt: приложение, шаг «Ретроспективное собрание».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: События спринта
+    application: project-manager — превращение улучшения в проверяемую задачу.
+  open_questions: []
+- id: SCSU-027
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Следующий спринт начинают немедленно после ретроспективы, учитывая возникшие
+    препятствия и выбранное улучшение.
+  excerpt: приложение, заключительный шаг.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: События спринта
+    application: project-manager — непрерывность цикла спринтов.
+  open_questions: []
+- id: SCSU-028
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Бэклог продукта — единый упорядоченный по приоритету список всех требований;
+    на продукт он один и существует на протяжении всей жизни продукта.
+  excerpt: приложение, шаг «Создайте бэклог продукта».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Артефакты и доска
+    application: analyst — ведение единого приоритизированного бэклога.
+  open_questions: []
+- id: SCSU-029
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: 'Прозрачность работы поддерживают доской задач с колонками «Бэклог», «В работе»,
+    «Сделано»; стикеры-требования перемещают по мере выполнения, и доска видна всем.'
+  excerpt: глава 4 «Время» и приложение, шаг «Работа должна быть видимой».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Артефакты и доска
+    application: coder — наглядный учёт состояния задач и самоорганизация.
+  open_questions: []
+- id: SCSU-030
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Диаграмма сгорания показывает остаток баллов по дням спринта; скрам-мастер ежедневно
+    отражает выполненное, и к концу спринта график в идеале падает к нулю.
+  excerpt: приложение, шаг «Работа должна быть видимой».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Артефакты и доска
+    application: ait-analysis — раннее обнаружение отставания по диаграмме сгорания.
+  open_questions: []
+- id: SCSU-031
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Скорость (динамика производительности) — объём баллов, выполненный за спринт;
+    она служит для прогноза сроков и растёт по мере устранения помех.
+  excerpt: глава 6 и приложение, шаг «Планирование спринта».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Артефакты и доска
+    application: ait-analysis — прогноз завершения по средней скорости команды.
+  open_questions: []
+- id: SCSU-032
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Задачу переносят в «Сделано» только когда результат полностью готов и опробован
+    заказчиком, а не когда исполнитель счёл её завершённой.
+  excerpt: глава 4 «Время», правило колонки «Сделано».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Критерий «Сделано»
+    application: ait-code-testing — критерий готовности через проверку заказчиком.
+  open_questions: []
+- id: SCSU-033
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Приоритизация бэклога ставит в начало задачи с наибольшей ценностью и наименьшим
+    риском, чтобы ценный продукт появлялся как можно раньше.
+  excerpt: глава 8 «Приоритеты».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Бэклог и приоритизация
+    application: ait-req-management — порядок работы по ценности и риску.
+  open_questions: []
+- id: SCSU-034
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: 'Ориентир 80/20: около 80 процентов ценности продукта дают около 20 процентов
+    функций, и эти функции находят и реализуют первыми.'
+  excerpt: глава 8 «Приоритеты», правило ценности.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Бэклог и приоритизация
+    application: ait-req-management — выделение наиболее ценных функций.
+  open_questions: []
+- id: SCSU-035
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Минимально жизнеспособный продукт выпускают рано, собирают обратную связь и
+    переприоритизируют бэклог; ранние релизы снижают рыночный, технический и финансовый
+    риск.
+  excerpt: глава 8 «Приоритеты», о MVP и рисках.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Бэклог и приоритизация
+    application: software-architect — ранняя поставка и снижение рисков.
+  open_questions: []
+- id: SCSU-036
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Состав и оценки фиксируют, но после спринта заказчик может заменить функцию
+    на другую эквивалентного объёма баллов или переставить приоритеты.
+  excerpt: глава 8 «Приоритеты», о гибкости контракта.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Бэклог и приоритизация
+    application: ait-req-management — управляемое изменение объёма без срыва ритма.
+  open_questions: []
+- id: SCSU-037
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: 'Цикл OODA описывает быстрое принятие решений: наблюдать, ориентироваться, решать,
+    действовать; преимущество получает тот, кто проходит цикл быстрее соперника.'
+  excerpt: глава 8 «Приоритеты», раздел об OODA.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Бэклог и приоритизация
+    application: project-manager — обоснование коротких циклов и быстрой обратной связи.
+  open_questions: []
+- id: SCSU-038
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Объём работы оценивают относительно, а не в точных сроках, потому что люди плохо
+    оценивают в абсолютных единицах, но хорошо сравнивают задачи между собой.
+  excerpt: глава 6, раздел «Но только относительное».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Оценка
+    application: analyst — относительная оценка усилий командой.
+  open_questions: []
+- id: SCSU-039
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: 'Баллы задач присваивают по числам Фибоначчи (1, 2, 3, 5, 8, 13, 21), так как
+    соседние значения достаточно различимы, чтобы уверенно отличать уровни сложности.'
+  excerpt: глава 6, раздел «Последовательность Фибоначчи», и приложение.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Оценка
+    application: analyst — шкала относительной оценки в баллах.
+  open_questions: []
+- id: SCSU-040
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: В покере планирования участники одновременно открывают карты с оценкой; при
+    небольшом расхождении берут среднее, при большом — носители крайних оценок объясняют
+    позицию и проводят новый раунд.
+  excerpt: глава 6, раздел «Покер планирования».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Оценка
+    application: analyst — согласование оценок без давления авторитета.
+  open_questions: []
+- id: SCSU-041
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Одновременное вскрытие карт в покере планирования гасит эффект якоря, когда
+    первая озвученная оценка смещает остальные.
+  excerpt: глава 6, раздел «Покер планирования».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Оценка
+    application: analyst — защита оценки от смещения первой репликой.
+  open_questions: []
+- id: SCSU-042
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Задания бэклога не оценивают в часах, а оценивают в относительных размерах (малый,
+    средний, большой) и баллах, и для каждого должна быть обеспечена возможность продемонстрировать
+    результат.
+  excerpt: приложение, шаг «Уточните и оцените бэклог продукта».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Оценка
+    application: analyst — правило оценки и демонстрируемости заданий бэклога.
+  open_questions: []
+- id: SCSU-043
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: 'Готовность пользовательской истории оценивают по ориентиру INVEST: независимая,
+    обсуждаемая, ценная, оцениваемая, небольшая, проверяемая.'
+  excerpt: глава 6, об оценке и готовности историй.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Оценка
+    application: ait-req-specification — критерии готовности истории к работе.
+  open_questions: []
+- id: SCSU-044
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: 'Scrum борется с тремя видами потерь по Тайити Оно: мури (неблагоразумие — абсурдные
+    цели, давление, перегрузка), мура (неравномерность ритма) и муда (потери процесса
+    — незавершённое, переделки, лишние запасы).'
+  excerpt: глава 5 «Потери — это преступление».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Устранение потерь
+    application: project-manager — выявление и устранение типов потерь.
+  open_questions: []
+- id: SCSU-045
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Многозадачность — крупный источник потерь, так как растут затраты на переключение
+    контекста; люди систематически переоценивают свою способность вести несколько дел
+    сразу.
+  excerpt: глава 5, раздел «Не беритесь за всё сразу».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Устранение потерь
+    application: coder — концентрация на одной задаче вместо параллельных.
+  open_questions: []
+- id: SCSU-046
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Сделанная наполовину работа не имеет ценности и накапливается как незавершённый
+    запас; лучше довести до конца одну задачу, чем держать пять в работе.
+  excerpt: глава 5, раздел «Сделанное наполовину».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Устранение потерь
+    application: coder — ограничение незавершённой работы.
+  open_questions: []
+- id: SCSU-047
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Дефект исправляют сразу, потому что ошибка, найденная в день её появления, обходится
+    кратно дешевле, чем отложенная на недели.
+  excerpt: глава 5, раздел «Получайте результат с первого раза».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Устранение потерь
+    application: coder — немедленное исправление найденных дефектов.
+  open_questions: []
+- id: SCSU-048
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Переработки и усталость снижают качество решений; устойчивый разумный темп продуктивнее
+    «героических» авралов, которые сами по себе указывают на плохое планирование.
+  excerpt: глава 5, раздел о напряжённом труде.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Устранение потерь
+    application: project-manager — удержание команды в устойчивом темпе.
+  open_questions: []
+- id: SCSU-049
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Любая деталь рабочего процесса должна быть прозрачна для всей команды; открытость
+    хода работ — базовое условие метода.
+  excerpt: глава 7 «Счастье», о прозрачности и доске.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Прозрачность
+    application: project-manager — открытость процесса как условие работы.
+  open_questions: []
+- id: SCSU-050
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Удовлетворённость команды («индекс счастья») измеряют в конце спринта и используют
+    как опережающий показатель — спад счастья предсказывает падение производительности
+    раньше, чем это видно по скорости.
+  excerpt: глава 7 «Счастье», об индексе счастья.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: «Счастье» как показатель
+    application: project-manager — раннее наблюдение за состоянием команды.
+  open_questions: []
+- id: SCSU-051
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: 'Источники устойчивой мотивации — автономия (право решать, как работать), мастерство
+    (способность преодолевать препятствия) и цель (служение высшему замыслу).'
+  excerpt: глава 7 «Счастье», о составляющих счастья.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: «Счастье» как показатель
+    application: project-manager — поддержка автономии, мастерства и цели команды.
+  open_questions: []
+- id: SCSU-052
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Командная динамика работает в малочисленных группах; рабочий диапазон — от трёх
+    до девяти человек, классический размер семь плюс-минус двое, а при более чем девяти
+    участниках скорость падает.
+  excerpt: глава 3 «Команды», раздел «Размер имеет значение», и приложение.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Размер команды 7±2
+    application: project-manager — ограничение размера команды.
+  open_questions: []
+- id: SCSU-053
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: 'По закону Брукса добавление людей в отстающий проект задерживает его ещё больше;
+    число каналов связи растёт как n(n-1)/2 и перегружает координацию.'
+  excerpt: глава 3 «Команды», о законе Брукса и каналах связи.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Размер команды 7±2
+    application: project-manager — отказ от наращивания команды для ускорения.
+  open_questions: []
+- id: SCSU-054
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: 'Приложение задаёт порядок запуска Scrum: выбрать владельца продукта, собрать
+    команду из трёх — девяти человек, назначить скрам-мастера, создать и оценить единый
+    бэклог, затем вести цикл спринтов с событиями.'
+  excerpt: приложение «Внедряем Scrum. С чего начать», шаги 1–5.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Как начать внедрение
+    application: project-manager — пошаговый запуск процесса Scrum на проекте.
+  open_questions: []
+- id: SCSU-055
+  source_id: SCSU
+  item_id: SCSU-normalized-SCSU-source.md
+  status: ready_for_review
+  text: Непрерывное совершенствование (кайдзен) встроено в цикл — на каждой ретроспективе
+    выбирают одно улучшение, проверяют его на следующей и так наращивают эффективность.
+  excerpt: глава 7 «Счастье» и приложение, шаги 10–11.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Как начать внедрение
+    application: project-manager — встроенное улучшение процесса от спринта к спринту.
+  open_questions: []

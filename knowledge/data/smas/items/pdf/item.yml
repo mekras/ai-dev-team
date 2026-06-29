@@ -1,10 +1,19 @@
 id: SMAS-pdf
 source_id: SMAS
-title: 'SMAS: pdf'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/smas/ и общие
-  ограничения в knowledge/source-attribution.md.
+title: "SMAS: pdf"
+access: "Смотри карточку единицы и связанные артефакты в knowledge/data/smas/ и общие ограничения в knowledge/source-attribution.md."
 status: approved
 workflow_stage: statements_extracted
-files:
-  tracked:
-  - securing-microservice-apis.pdf
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+primary_file:
+  location: knowledge/.local/raw/smas/securing-microservice-apis.pdf
+  format: pdf
+  file_size_bytes: 2970173
+  content_hash: sha256:0d8cb40081d270543e2ea16b0cf6ba4d47603a90638b464b8163bbc93a80c616
+  page_count: 51
+  metadata_source: pdfinfo
+known_limitations:
+- Полный файл хранится только в игнорируемом локальном слое
+  knowledge/.local/raw/ и не публикуется в Git.

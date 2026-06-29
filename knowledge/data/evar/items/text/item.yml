@@ -1,10 +1,18 @@
 id: EVAR-text
 source_id: EVAR
-title: 'EVAR: text'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/evar/ и общие
-  ограничения в knowledge/source-attribution.md.
+title: "EVAR: text"
+access: "Смотри карточку единицы и связанные артефакты в knowledge/data/evar/ и общие ограничения в knowledge/source-attribution.md."
 status: approved
 workflow_stage: statements_extracted
-files:
-  tracked:
-  - evolutionary-architecture-ru.txt
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+extracted_text:
+  location: knowledge/.local/raw/evar/evolutionary-architecture-ru.txt
+  format: txt
+  file_size_bytes: 818867
+  content_hash: sha256:ab665abe0a60e4d68218a273f878a116ebae3ff572ab9086ce05560e95841453
+  metadata_source: pdftotext
+known_limitations:
+- Полная текстовая выгрузка хранится только в игнорируемом локальном
+  слое knowledge/.local/raw/ и не публикуется в Git.

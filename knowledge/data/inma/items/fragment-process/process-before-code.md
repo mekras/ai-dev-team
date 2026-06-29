@@ -2,9 +2,9 @@
 
 ## Основание
 
-- Источник: `knowledge/primary/INMA/source.md`
+- Источник: `knowledge/data/inma/items/source/source.md`
 - Локальная текстовая выгрузка:
-  `knowledge/primary/INMA/files/inmates-are-running-the-asylum-ru.txt`
+  `knowledge/.local/raw/inma/inmates-are-running-the-asylum-ru.txt`
 - Проверенные диапазоны: строки `400`-`470`, `650`-`815`, `1328`-`1565`
 - Дата нормализации: `2026-06-25`
 

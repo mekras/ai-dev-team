@@ -2,8 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/DDIA/source.md`
-- Индекс первичных артефактов: `knowledge/primary/DDIA/page-index.tsv`
+- Первичный источник: `knowledge/data/ddia/items/source/source.md`
+- Индекс первичных артефактов: `knowledge/data/ddia/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-26`
 - Способ нормализации: чтение локальной текстовой выгрузки PDF (613 страниц),
   извлечение структуры и понятий надёжности из главы 1 и связанных разделов.

@@ -1,0 +1,536 @@
+# Слой согласования понятий
+#
+# Промежуточный указательный слой между корпусом знаний (`knowledge/data/`) и
+# продуктом (`.apm/skills/`). Назначение: закрепить основную форму понятия,
+# собрать синонимы по источникам и РАЗРЕШИТЬ конфликты и ложные противоречия
+# между утверждениями разных источников до того, как из них строится навык.
+#
+# Принципы:
+# - слой НЕ хранит контент (примеры, шаблоны, прозу) — только указатели и
+#   мета-синтез (согласование). Содержание живёт в навыках, обоснования — в
+#   утверждениях корпуса.
+# - основная форма выбирается по правилу: норматив (ГОСТ) > книга > решение
+#   владельца.
+# - запись заводится по требованию: понятие встречается в ≥2 источниках или
+#   вызывает коллизию.
+# Решение о слое: docs/adr/0001-concepts-reconciliation-layer.md
+#
+# Поля записи:
+#   id                 — устойчивый идентификатор (kebab-case)
+#   primary_ru         — основная русская форма
+#   definition_ru      — краткое каноническое определение с выбранными формами
+#   forms_ru/forms_en  — допустимые альтернативные формы
+#   authority          — источник основной формы и определения
+#   defined_by         — идентификаторы утверждений-обоснований
+#   cite_as            — какие источники показывать пользователю или указывать
+#                        как основание в производных материалах
+#   covered_in         — где в продукте лежит содержание
+#   synonyms_by_source — какой термин использует каждый источник
+#   reconciliation     — разрешение согласований и конфликтов между источниками
+#   collisions         — омонимы и понятия, которые нельзя путать
+#   gaps               — известные разрывы (со ссылкой на BACKLOG.md)
+
+concepts:
+  - id: architectural-decision-record
+    primary_ru: запись архитектурного решения (ADR)
+    forms_ru: [запись архитектурного решения, запись ADR, ADR]
+    forms_en: [architectural decision record, ADR]
+    authority: ADRG
+    defined_by: [ADRG-001, SAHP-007]
+    cite_as: [ADRG, SAHP]
+    covered_in:
+      - ait-architecture/references/decision-workflow.md
+      - ait-architecture/references/adr-templates.md
+    synonyms_by_source:
+      ADRG: Architectural Decision Record (ADR)
+      SAHP: запись ADR (Контекст/Решение/Последствия)
+    reconciliation:
+      - SAHP и ADRG описывают один формат; книжный — усечённый Nygard (без поля
+        статуса и без секции проверки).
+    collisions:
+      - не путать с самим решением (AD) — ADR это запись о решении.
+
+  - id: architectural-decision
+    primary_ru: архитектурное решение
+    forms_en: [architectural decision, AD]
+    authority: ADRG
+    defined_by: [ADRG-002]
+    cite_as: [ADRG]
+    covered_in:
+      - ait-architecture/references/decision-workflow.md
+    synonyms_by_source:
+      ADRG: Architectural Decision (AD)
+    collisions:
+      - не путать с записью решения (ADR) и с организационным решением (ODR в
+        decision-workflow.md).
+
+  - id: architecturally-significant-requirement
+    primary_ru: архитектурно значимое требование
+    forms_en: [architecturally significant requirement, ASR]
+    authority: ADRG
+    defined_by: [ADRG-002]
+    cite_as: [ADRG, G250]
+    covered_in:
+      - ait-architecture/references/decision-workflow.md
+    synonyms_by_source:
+      ADRG: Architecturally Significant Requirement (ASR)
+    reconciliation:
+      - ASR (ADRG) пересекается с «характеристикой качества» из G250 (G250-001) и
+        с требованиями из навыков требований; это не противоречие. В продукте ASR
+        используется как требование, влияющее на архитектуру, а измеримые
+        характеристики качества берутся из G250.
+    collisions:
+      - частичное совпадение с «характеристикой качества» — не заводить как два
+        разных понятия.
+
+  - id: nygard-adr-template
+    primary_ru: шаблон Найгарда
+    forms_ru: [шаблон Найгарда]
+    forms_en: [Nygard, Nygard ADR]
+    authority: ADRG
+    defined_by: [ADRG-005, SAHP-007]
+    cite_as: [ADRG, SAHP]
+    covered_in:
+      - ait-architecture/references/adr-templates.md (Nygard)
+    synonyms_by_source:
+      ADRG: Nygard
+      SAHP: формат ADR книги (Контекст/Решение/Последствия)
+    reconciliation:
+      - формат ADR из SAHP соответствует шаблону Nygard; ADR книги — усечённый
+        Nygard.
+
+  - id: architectural-quantum
+    primary_ru: архитектурный квант
+    forms_en: [architectural quantum]
+    authority: SAHP
+    defined_by: [SAHP-014]
+    cite_as: [SAHP]
+    covered_in:
+      - ait-architecture/references/distributed-tradeoffs.md
+    synonyms_by_source:
+      SAHP: архитектурный квант
+
+  # Простые определения ключевых понятий из SAHP, глава 1, раздел
+  # «Архитектура и проектирование: определения должны быть простыми».
+
+  - id: service
+    primary_ru: сервис
+    forms_en: [service]
+    definition_ru: связанный набор функций, развёрнутый как независимый
+      выполняемый файл.
+    authority: SAHP
+    defined_by: [SAHP-012]
+    cite_as: [SAHP]
+    synonyms_by_source:
+      SAHP: сервис
+
+  - id: coupling
+    primary_ru: сопряжение
+    forms_ru: [сопряжение]
+    forms_en: [coupling]
+    definition_ru: два артефакта сопряжены, если изменение одного может
+      потребовать изменения другого для сохранения работоспособности.
+    authority: SAHP
+    defined_by: [SAHP-012]
+    cite_as: [SAHP]
+    covered_in:
+      - ait-architecture/references/distributed-tradeoffs.md
+      - ait-architecture/references/quality-criteria.md
+      - ait-architecture/references/decision-workflow.md
+    synonyms_by_source:
+      SAHP: связанность
+    reconciliation:
+      - основная форма «сопряжение» — решение владельца (2026-06-29); источник
+        SAHP использует «связанность». Производные формы следуют выбору
+        (статическое и динамическое сопряжение).
+      - навыки ait-architecture приведены к «сопряжению» (2026-06-29); в корпусе
+        SAHP сохранена исходная форма «связанность».
+    collisions:
+      - не путать сопряжение (coupling) со связностью (cohesion) — это разные
+        свойства.
+
+  - id: component
+    primary_ru: компонент
+    forms_en: [component]
+    definition_ru: архитектурный строительный блок (пакет, пространство имён,
+      группировка файлов), решающий бизнес- или инфраструктурную задачу.
+    authority: SAHP
+    defined_by: [SAHP-012]
+    cite_as: [SAHP]
+    synonyms_by_source:
+      SAHP: компонент
+
+  - id: synchronous-interaction
+    primary_ru: синхронное взаимодействие
+    forms_en: [synchronous interaction]
+    definition_ru: вызывающая сторона ждёт ответа, прежде чем продолжить.
+    authority: SAHP
+    defined_by: [SAHP-055]
+    cite_as: [SAHP]
+    synonyms_by_source:
+      SAHP: синхронные взаимодействия
+
+  - id: asynchronous-interaction
+    primary_ru: асинхронное взаимодействие
+    forms_en: [asynchronous interaction]
+    definition_ru: вызывающая сторона не ждёт ответа; при необходимости
+      уведомляется по отдельному каналу.
+    authority: SAHP
+    defined_by: [SAHP-055]
+    cite_as: [SAHP]
+    synonyms_by_source:
+      SAHP: асинхронные взаимодействия
+
+  - id: orchestration
+    primary_ru: оркестрованная координация
+    forms_ru: [организованная координация]
+    forms_en: [orchestration]
+    definition_ru: в рабочем процессе есть сервис, чья основная обязанность —
+      координация процесса.
+    authority: SAHP
+    defined_by: [SAHP-055]
+    cite_as: [SAHP]
+    synonyms_by_source:
+      SAHP: организованная (оркестрованная) координация
+
+  - id: choreography
+    primary_ru: хореографическая координация
+    forms_en: [choreography]
+    definition_ru: координация распределена между сервисами без выделенного
+      координатора.
+    authority: SAHP
+    defined_by: [SAHP-055]
+    cite_as: [SAHP]
+    synonyms_by_source:
+      SAHP: хореографическая координация
+
+  - id: atomicity
+    primary_ru: атомарность
+    forms_en: [atomicity]
+    definition_ru: все части рабочего процесса постоянно согласованы;
+      противоположность — согласованность в конечном итоге.
+    authority: SAHP
+    defined_by: [SAHP-055]
+    cite_as: [SAHP]
+    synonyms_by_source:
+      SAHP: атомарность
+
+  - id: contract
+    primary_ru: контракт
+    forms_en: [contract]
+    definition_ru: интерфейс между двумя частями ПО (вызовы методов или функций,
+      удалённые вызовы, зависимости и подобное).
+    authority: SAHP
+    defined_by: [SAHP-040]
+    cite_as: [SAHP]
+    synonyms_by_source:
+      SAHP: контракт
+
+  - id: quality-model
+    primary_ru: модель качества (ГОСТ Р ИСО/МЭК 25010)
+    forms_en: [ISO/IEC 25010 quality model]
+    definition_ru: модель качества систем и ПО из восьми характеристик
+      (функциональная пригодность, производительность, совместимость, удобство
+      использования, надёжность, защищённость, сопровождаемость, переносимость).
+    authority: G250
+    defined_by: [G250-001, G250-004]
+    cite_as: [G250]
+    covered_in:
+      - ait-req-specification/references/quality-characteristics.md
+    synonyms_by_source:
+      G250: модель качества продукта (восемь характеристик)
+
+  - id: maintainability
+    primary_ru: сопровождаемость
+    forms_en: [maintainability]
+    definition_ru: результативность и эффективность, с которой систему можно
+      модифицировать; подхарактеристики — модульность, многократное
+      использование, анализируемость, модифицируемость, тестируемость.
+    authority: G250
+    defined_by: [G250-005, G250-001]
+    cite_as: [G250, SAHP]
+    covered_in:
+      - ait-req-specification/references/maintainability-requirements.md
+      - ait-architecture/references/quality-criteria.md (Сопровождаемость)
+    synonyms_by_source:
+      G250: сопровождаемость
+      SAHP: сопровождаемость
+    collisions:
+      - не путать с «ремонтопригодностью» (подхарактеристика надёжности и
+        оборудования, ГОСТ 27.002) и с «пригодностью решения».
+
+  - id: deployability
+    primary_ru: развёртываемость
+    forms_en: [deployability]
+    definition_ru: простота и частота независимого развёртывания (выпуск,
+      обновление, длительность цикла); измеримая архитектурная характеристика.
+    authority: SAHP
+    defined_by: [SAHP-011, EVAR-027]
+    cite_as: [SAHP, EVAR]
+    covered_in:
+      - ait-architecture/references/quality-criteria.md (Развёртываемость)
+      - ait-req-specification/references/quality-characteristics.md
+    synonyms_by_source:
+      SAHP: развёртываемость
+      EVAR: развёртываемость
+    reconciliation:
+      - SAHP и EVAR трактуют развёртываемость как самостоятельную архитектурную
+        характеристику; набор таких характеристик открыт и контекстен. В ГОСТ
+        25010 (G250) самостоятельной развёртываемости нет — ближайшее
+        «устанавливаемость» в составе переносимости, но deployability шире
+        (независимое развёртывание, частота релизов, конвейер).
+    collisions:
+      - не сводить к «устанавливаемости» (installability) — это уже понятие.
+
+  - id: scalability
+    primary_ru: масштабируемость
+    forms_en: [scalability]
+    definition_ru: способность системы оставаться отзывчивой по мере нормального
+      роста числа одновременно работающих пользователей в течение длительного
+      времени.
+    authority: SAHP
+    defined_by: [SAHP-056]
+    cite_as: [SAHP]
+    covered_in:
+      - ait-architecture/references/quality-criteria.md (Развёртываемость и
+        другие характеристики вне модели качества)
+      - ait-architecture/references/distributed-tradeoffs.md
+    synonyms_by_source:
+      SAHP: масштабируемость
+    reconciliation:
+      - самостоятельная архитектурная характеристика SAHP; в ГОСТ 25010 (G250)
+        ближайшее — «ёмкость» в составе уровня производительности.
+    collisions:
+      - не путать с адаптируемостью к пиковым нагрузкам — масштабируемость про
+        рост во времени, адаптируемость про мгновенные всплески.
+
+  - id: adaptability-peak-load
+    primary_ru: адаптируемость к пиковым нагрузкам
+    forms_en: [adaptability, elasticity]
+    definition_ru: способность системы оставаться отзывчивой при значительных
+      мгновенных всплесках нагрузки; зависит от малого среднего времени запуска
+      сервиса (MTTS) и мелкой детализации сервисов.
+    authority: SAHP
+    defined_by: [SAHP-056]
+    cite_as: [SAHP]
+    covered_in:
+      - ait-architecture/references/quality-criteria.md (Развёртываемость и
+        другие характеристики вне модели качества)
+    synonyms_by_source:
+      SAHP: адаптируемость
+    reconciliation:
+      - в SAHP «адаптируемость» — реакция на пиковые нагрузки (близко к
+        эластичности). Это НЕ «адаптируемость» из ГОСТ 25010, где она —
+        подхарактеристика переносимости (приспособление к разным средам).
+        Поэтому в продукте используется уточняющая форма «адаптируемость к
+        пиковым нагрузкам».
+    collisions:
+      - омонимия с «адаптируемостью» (переносимость, ГОСТ 25010) — это разные
+        свойства.
+
+  - id: availability
+    primary_ru: готовность (доступность)
+    forms_en: [availability]
+    definition_ru: готовность системы к корректной работе в нужный момент.
+    authority: G250
+    defined_by: [G250-002]
+    cite_as: [G250, SAHP]
+    covered_in:
+      - ait-reliability/SKILL.md
+      - ait-req-specification/references/reliability-requirements.md
+    synonyms_by_source:
+      G250: готовность (availability)
+      SAHP: доступность
+    reconciliation:
+      - подхарактеристика надёжности ГОСТ 25010; основная форма «готовность» по
+        нормативу, SAHP использует «доступность». Покрыта навыком ait-reliability.
+
+  - id: fault-tolerance
+    primary_ru: отказоустойчивость
+    forms_en: [fault tolerance]
+    definition_ru: сохранение корректной работы системы при наличии дефектов или
+      отказов.
+    authority: G250
+    defined_by: [G250-002]
+    cite_as: [G250, DSCT]
+    covered_in:
+      - ait-reliability/SKILL.md
+      - ait-reliability/references/concepts.md
+      - ait-architecture/references/reliability.md
+    synonyms_by_source:
+      G250: отказоустойчивость
+
+  - id: component-based-decomposition
+    primary_ru: декомпозиция на основе компонентов
+    forms_en: [component-based decomposition]
+    definition_ru: разделение монолита на сервисы из компонентов (строительных
+      блоков с чёткой ролью и операциями), а не из отдельных классов; выполняется
+      шестью паттернами (глава 5 SAHP).
+    authority: SAHP
+    defined_by: [SAHP-058, SAHP-059, SAHP-063]
+    cite_as: [SAHP]
+    covered_in:
+      - ait-architecture/references/decomposition.md
+    synonyms_by_source:
+      SAHP: декомпозиция на основе компонентов
+
+  - id: tactical-forking
+    primary_ru: тактическое ветвление
+    forms_en: [tactical forking]
+    definition_ru: подход к разделению слабо структурированного монолита («большой
+      ком грязи») клонированием системы и удалением ненужного вместо извлечения
+      частей; термин предложил Фаусто Де Ла Торре.
+    authority: SAHP
+    defined_by: [SAHP-058]
+    cite_as: [SAHP]
+    covered_in:
+      - ait-architecture/references/decomposition.md
+    synonyms_by_source:
+      SAHP: тактическое ветвление
+
+  - id: afferent-coupling
+    primary_ru: афферентное сопряжение
+    forms_ru: [Fan-in]
+    forms_en: [afferent coupling, Ca]
+    definition_ru: количество входящих связей с артефактом кода (компонентом,
+      классом, функцией) — сколько других артефактов зависит от него.
+    authority: SAHP
+    defined_by: [SAHP-060]
+    cite_as: [SAHP]
+    covered_in:
+      - ait-architecture/references/component-design.md (Устойчивость компонента)
+    synonyms_by_source:
+      SAHP: афферентная связанность (Ca)
+    reconciliation:
+      - в продукте обозначается как Fan-in; в SAHP «афферентная связанность»;
+        каноническая форма «афферентное сопряжение» (термин coupling сведён к
+        «сопряжению»).
+
+  - id: efferent-coupling
+    primary_ru: эфферентное сопряжение
+    forms_ru: [Fan-out]
+    forms_en: [efferent coupling, Ce]
+    definition_ru: количество исходящих связей артефакта кода с другими артефактами
+      — от скольких других он зависит; неустойчивость I = Ce / (Ce + Ca).
+    authority: SAHP
+    defined_by: [SAHP-060]
+    cite_as: [SAHP]
+    covered_in:
+      - ait-architecture/references/component-design.md (Устойчивость компонента)
+    synonyms_by_source:
+      SAHP: эфферентная связанность (Ce)
+    reconciliation:
+      - в продукте обозначается как Fan-out; в SAHP «эфферентная связанность»;
+        каноническая форма «эфферентное сопряжение».
+
+  - id: fitness-function
+    primary_ru: функция пригодности
+    forms_en: [fitness function]
+    definition_ru: любой механизм, объективно оценивающий целостность архитектурной
+      характеристики или их комбинации; превращает заявленное свойство в
+      проверяемый автоматический (или ручной) контроль.
+    authority: SAHP
+    defined_by: [SAHP-008, SAHP-061, SAHP-062]
+    cite_as: [SAHP, EVAR]
+    covered_in:
+      - ait-architecture/references/quality-criteria.md (Функции пригодности)
+      - ait-architecture/references/evolutionary-architecture.md
+      - ait-code-testing/SKILL.md (реализация как исполняемой проверки)
+    synonyms_by_source:
+      SAHP: функция пригодности
+      EVAR: функция пригодности
+    collisions:
+      - омонимия в русском — «ремонтопригодность», «пригодность решения», «оценка
+        пригодности» это НЕ функции пригодности.
+
+  - id: data-disintegration-drivers
+    primary_ru: силы дезинтеграции данных
+    forms_en: [data disintegrators]
+    definition_ru: силы, оправдывающие разделение базы данных (когда разделять) —
+      управление изменениями, управление соединениями, масштабируемость,
+      отказоустойчивость, архитектурные кванты, оптимизация типа базы данных.
+    authority: SAHP
+    defined_by: [SAHP-064]
+    cite_as: [SAHP]
+    covered_in:
+      - ait-architecture/references/distributed-tradeoffs.md (Разделение данных)
+    synonyms_by_source:
+      SAHP: движущие силы дезинтеграции данных
+    collisions:
+      - не путать с силами дезинтеграции гранулярности сервисов (глава 7) — те про
+        разделение сервисов, эти про разделение данных.
+
+  - id: data-integration-drivers
+    primary_ru: силы интеграции данных
+    forms_en: [data integrators]
+    definition_ru: силы, оправдывающие сохранение данных вместе (когда не
+      разделять) — отношения в данных (внешние ключи, триггеры, представления) и
+      транзакции базы данных.
+    authority: SAHP
+    defined_by: [SAHP-065]
+    cite_as: [SAHP]
+    covered_in:
+      - ait-architecture/references/distributed-tradeoffs.md (Разделение данных)
+    synonyms_by_source:
+      SAHP: движущие силы интеграции данных
+    collisions:
+      - не путать с силами интеграции гранулярности сервисов (глава 7).
+
+  - id: database-type-selection
+    primary_ru: выбор типа базы данных
+    forms_en: [database type selection, polyglot persistence]
+    definition_ru: выбор подходящего типа базы данных под предметную область
+      (полиглотное хранение) сравнением по семи характеристикам; типы —
+      реляционные, ключ-значение, документные, колоночные, графовые, NewSQL,
+      облачные, временных рядов.
+    authority: SAHP
+    defined_by: [SAHP-067]
+    cite_as: [SAHP]
+    covered_in:
+      - ait-architecture/references/distributed-tradeoffs.md (Выбор типа базы
+        данных)
+    synonyms_by_source:
+      SAHP: выбор типа базы данных
+
+  - id: code-reuse-patterns
+    primary_ru: паттерны повторного использования кода
+    forms_en: [code reuse patterns]
+    definition_ru: способы совместного использования кода между сервисами с их
+      компромиссами — репликация кода, разделяемая библиотека, общий сервис,
+      sidecar и сервисная сетка.
+    authority: SAHP
+    defined_by: [SAHP-068]
+    cite_as: [SAHP]
+    covered_in:
+      - ait-architecture/references/distributed-tradeoffs.md (Повторное
+        использование кода)
+    synonyms_by_source:
+      SAHP: паттерны повторного использования
+
+  - id: distributed-data-access
+    primary_ru: распределённый доступ к данным
+    forms_en: [distributed data access]
+    definition_ru: паттерны доступа к чужим данным в распределённой системе —
+      взаимодействие между сервисами, репликация схемы столбцов, реплицированный
+      кэш, предметная область данных.
+    authority: SAHP
+    defined_by: [SAHP-069]
+    cite_as: [SAHP]
+    covered_in:
+      - ait-architecture/references/distributed-tradeoffs.md (Распределённый
+        доступ к данным)
+    synonyms_by_source:
+      SAHP: распределённый доступ к данным
+
+  - id: transactional-saga
+    primary_ru: транзакционная сага
+    forms_en: [transactional saga]
+    definition_ru: паттерн координации распределённой транзакции; восемь именованных
+      паттернов по трём измерениям (взаимодействия, согласованность, координация).
+    authority: SAHP
+    defined_by: [SAHP-070]
+    cite_as: [SAHP]
+    covered_in:
+      - ait-architecture/references/distributed-tradeoffs.md (Транзакционные саги)
+    synonyms_by_source:
+      SAHP: транзакционная сага

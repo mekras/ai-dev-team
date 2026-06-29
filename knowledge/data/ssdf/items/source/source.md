@@ -26,10 +26,11 @@
 
 ## Что сохранено
 
-- паспорт: `knowledge/primary/SSDF/source.md`
-- индекс артефактов: `knowledge/primary/SSDF/page-index.tsv`
-- PDF: `knowledge/primary/SSDF/files/nist-sp-800-218.pdf`
-- текстовая выгрузка: `knowledge/primary/SSDF/files/nist-sp-800-218.txt`
+- паспорт: `knowledge/data/ssdf/items/source/source.md`
+- индекс артефактов:
+  `knowledge/data/ssdf/items/primary-ssdf-page-index.tsv/page-index.tsv`
+- PDF: `knowledge/data/ssdf/items/pdf/nist-sp-800-218.pdf`
+- текстовая выгрузка: `knowledge/data/ssdf/items/text/nist-sp-800-218.txt`
 
 В Git сохраняются метаданные источника, обзорный нормализованный слой и
 извлечённые утверждения.

@@ -2,10 +2,10 @@
 
 ## Источник и дата проверки
 
-- Источник учёта: `knowledge/inventory/INMA.md`
-- Первичный источник: `knowledge/primary/INMA/source.md`
-- Нормализованный слой: `knowledge/normalized/INMA/source.md`
-- Извлечённые утверждения: `knowledge/statements/INMA.md`
+- Источник учёта: `knowledge/data/inma/source.yml`
+- Первичный источник: `knowledge/data/inma/items/source/source.md`
+- Нормализованный слой: `knowledge/data/inma/items/source/normalized-source.md`
+- Извлечённые утверждения: `knowledge/data/inma/items/`
 - Атрибуция и правовой статус: `knowledge/source-attribution.md`
 - Дата проверки: `2026-06-25`
 
@@ -96,12 +96,13 @@
 
 ### Severity: Low — текущий способ работы с источником соответствует ограничению
 
-Документ: `knowledge/primary/INMA/.gitignore`, `knowledge/source-attribution.md`
+Документ: `knowledge/data/inma/items/source/legacy-primary.gitignore`,
+`knowledge/source-attribution.md`
 
 Источник: `INMA`, проверка `2026-06-25`
 
-Первичные данные: `knowledge/primary/INMA/source.md`,
-`knowledge/primary/INMA/page-index.tsv`
+Первичные данные: `knowledge/data/inma/items/source/source.md`,
+`knowledge/data/inma/items/source/page-index.tsv`
 
 Класс: изменение способа работы с источником
 

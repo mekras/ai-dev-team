@@ -12,30 +12,30 @@
 
 ## Что это за источник
 
-Внешний публичный веб-источник: сайт методологии `C4 model`,
-включающий главную страницу и все содержательные страницы раздела.
+Внешний публичный веб-источник: сайт методологии `C4 model`, включающий главную
+страницу и все содержательные страницы раздела.
 
 ## Почему источник относится к проекту
 
 Материал содержит структурированное описание подхода к архитектурной
-документации, уровни абстракций и типы диаграмм, что напрямую связано с
-задачами анализа архитектурной документации в текущем проекте.
+документации, уровни абстракций и типы диаграмм, что напрямую связано с задачами
+анализа архитектурной документации в текущем проекте.
 
 ## Основание в корпусе
 
-- Паспорт источника: `knowledge/primary/C4M/source.md`
-- Главная страница: `knowledge/primary/C4M/index.html`
-- Заголовки ответа для главной: `knowledge/primary/C4M/response-headers.txt`
-- Содержательные страницы раздела: `knowledge/primary/C4M/pages/**`
+- Паспорт источника: `knowledge/data/c4m/items/source/source.md`
+- Главная страница: `knowledge/data/c4m/items/source/index.html`
+- Заголовки ответа для главной:
+  `knowledge/data/c4m/items/source/response-headers.txt`
+- Содержательные страницы раздела: `knowledge/data/c4m/items/**`
 - Индекс всех страниц:
-  `knowledge/primary/C4M/page-index.tsv`
+  `knowledge/data/c4m/items/primary-c4m-page-index.tsv/page-index.tsv`
 
 ## Происхождение
 
 - Платформа: `https://c4model.com`
-- URL страницы получения:
-  `https://c4model.com/` и связанные страницы раздела `/introduction`,
-  `/history`, `/abstractions`, `/diagrams`, `/tooling`, `/faq`.
+- URL страницы получения: `https://c4model.com/` и связанные страницы раздела
+  `/introduction`, `/history`, `/abstractions`, `/diagrams`, `/tooling`, `/faq`.
 - Дата получения: `2026-06-04T07:27:02Z`
 
 ## Тип источника
@@ -46,8 +46,7 @@
 
 ## Условия использования
 
-- Лицензия: `Creative Commons Attribution 4.0 International`
-  (`CC BY 4.0`).
+- Лицензия: `Creative Commons Attribution 4.0 International` (`CC BY 4.0`).
 - URL лицензии: `https://creativecommons.org/licenses/by/4.0/`
 - Уровень уверенности: высокий (лицензия указана в подвале сайта).
 - Использование в корпусе: сохранены HTML-снимки страниц, заголовки ответа и

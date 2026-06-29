@@ -2,8 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/TODO/source.md`
-- Индекс первичных страниц: `knowledge/primary/TODO/page-index.tsv`
+- Первичный источник: `knowledge/data/todo/items/source/source.md`
+- Индекс первичных страниц: `knowledge/data/todo/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-05`
 - Способ нормализации: выделение структуры разделов одной страницы.
 

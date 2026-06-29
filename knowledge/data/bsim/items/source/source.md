@@ -27,10 +27,12 @@
 
 ## Что сохранено в корпусе
 
-- паспорт: `knowledge/primary/BSIM/source.md`
-- нормализованный обзор: `knowledge/normalized/BSIM/source.md`
-- утверждения: `knowledge/statements/BSIM.md`
-- учёт: `knowledge/inventory/BSIM.md`
+- паспорт: `knowledge/data/bsim/items/source/source.md`
+- нормализованный обзор:
+  `knowledge/data/bsim/items/normalized-bsim-source.md/source.md`
+- утверждения:
+  `knowledge/data/bsim/items/normalized-bsim-source.md/statements.yml`
+- учёт: `knowledge/data/bsim/source.yml`
 - локальная копия не хранится
 
 ## Условия использования

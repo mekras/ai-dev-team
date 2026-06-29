@@ -2,8 +2,8 @@
 
 ## Основание
 
-- Источник учёта: `knowledge/inventory/GPLQ.md`
-- Первичный источник: `knowledge/primary/GPLQ/source.md`
+- Источник учёта: `knowledge/data/gplq/source.yml`
+- Первичный источник: `knowledge/data/gplq/items/source/source.md`
 - Дата нормализации: `2026-06-05`
 - Способ нормализации: фиксация темы источника и ограничения получения.
 

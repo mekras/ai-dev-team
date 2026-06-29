@@ -14,21 +14,21 @@
 
 В корпус включены следующие первичные артефакты:
 
-- `knowledge/primary/ASKL/pages/best-practices/index.html`
-- `knowledge/primary/ASKL/pages/best-practices/response-headers.txt`
-- `knowledge/primary/ASKL/pages/optimizing-descriptions/index.html`
-- `knowledge/primary/ASKL/pages/optimizing-descriptions/response-headers.txt`
-- `knowledge/primary/ASKL/pages/evaluating-skills/index.html`
-- `knowledge/primary/ASKL/pages/evaluating-skills/response-headers.txt`
-- `knowledge/primary/ASKL/page-index.tsv`
+- `knowledge/data/askl/items/best-practices/index.html`
+- `knowledge/data/askl/items/best-practices/response-headers.txt`
+- `knowledge/data/askl/items/optimizing-descriptions/index.html`
+- `knowledge/data/askl/items/optimizing-descriptions/response-headers.txt`
+- `knowledge/data/askl/items/evaluating-skills/index.html`
+- `knowledge/data/askl/items/evaluating-skills/response-headers.txt`
+- `knowledge/data/askl/items/source/page-index.tsv`
 
 ## Страницы
 
-| Идентификатор             | URL                                                             | Файл                                                                |
-| ------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `best-practices`          | `https://agentskills.io/skill-creation/best-practices`          | `knowledge/primary/ASKL/pages/best-practices/index.html`          |
-| `optimizing-descriptions` | `https://agentskills.io/skill-creation/optimizing-descriptions` | `knowledge/primary/ASKL/pages/optimizing-descriptions/index.html` |
-| `evaluating-skills`       | `https://agentskills.io/skill-creation/evaluating-skills`       | `knowledge/primary/ASKL/pages/evaluating-skills/index.html`       |
+| Идентификатор             | URL                                                             | Файл                                                           |
+| ------------------------- | --------------------------------------------------------------- | -------------------------------------------------------------- |
+| `best-practices`          | `https://agentskills.io/skill-creation/best-practices`          | `knowledge/data/askl/items/best-practices/index.html`          |
+| `optimizing-descriptions` | `https://agentskills.io/skill-creation/optimizing-descriptions` | `knowledge/data/askl/items/optimizing-descriptions/index.html` |
+| `evaluating-skills`       | `https://agentskills.io/skill-creation/evaluating-skills`       | `knowledge/data/askl/items/evaluating-skills/index.html`       |
 
 ## Условия использования
 

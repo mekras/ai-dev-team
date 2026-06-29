@@ -1,10 +1,19 @@
 id: CHAE-pdf
 source_id: CHAE
-title: 'CHAE: pdf'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/chae/ и общие
-  ограничения в knowledge/source-attribution.md.
+title: "CHAE: pdf"
+access: "Смотри карточку единицы и связанные артефакты в knowledge/data/chae/ и общие ограничения в knowledge/source-attribution.md."
 status: approved
 workflow_stage: statements_extracted
-files:
-  tracked:
-  - basiri-chaos-engineering-arxiv-1702.05843.pdf
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+primary_file:
+  location: knowledge/.local/raw/chae/basiri-chaos-engineering-arxiv-1702.05843.pdf
+  format: pdf
+  file_size_bytes: 521779
+  content_hash: sha256:64a9380e5a5da9b0b04e1b92eaeae90adf746ba671ece57c034f85c02300b73b
+  page_count: 11
+  metadata_source: pdfinfo
+known_limitations:
+- Полный файл хранится только в игнорируемом локальном слое
+  knowledge/.local/raw/ и не публикуется в Git.

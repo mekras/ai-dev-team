@@ -2,16 +2,16 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/GHAB/source.md`
-- Индекс первичных страниц: `knowledge/primary/GHAB/page-index.tsv`
+- Первичный источник: `knowledge/data/ghab/items/source/source.md`
+- Индекс первичных страниц:
+  `knowledge/data/ghab/items/primary-ghab-page-index.tsv/page-index.tsv`
 - Дата нормализации: `2026-06-03`
-- Способ нормализации: извлечение текста из `main` и отбор ключевых
-  блоков без скриптов/стилей.
+- Способ нормализации: извлечение текста из `main` и отбор ключевых блоков без
+  скриптов/стилей.
 
 ## Что сохранено
 
-- `knowledge/normalized/GHAB/pages/
-  how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/index.md`
+- `knowledge/data/ghab/items/ how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/index.md`
 
 ## Ограничения
 

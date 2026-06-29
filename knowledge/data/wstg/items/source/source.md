@@ -28,10 +28,12 @@
 
 ## Что сохранено в корпусе
 
-- паспорт: `knowledge/primary/WSTG/source.md`
-- нормализованный обзор: `knowledge/normalized/WSTG/source.md`
-- утверждения: `knowledge/statements/WSTG.md`
-- учёт: `knowledge/inventory/WSTG.md`
+- паспорт: `knowledge/data/wstg/items/source/source.md`
+- нормализованный обзор:
+  `knowledge/data/wstg/items/normalized-wstg-source.md/source.md`
+- утверждения:
+  `knowledge/data/wstg/items/normalized-wstg-source.md/statements.yml`
+- учёт: `knowledge/data/wstg/source.yml`
 - локальная копия руководства не хранится
 
 ## Условия использования

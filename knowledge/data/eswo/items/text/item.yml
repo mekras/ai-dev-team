@@ -1,10 +1,18 @@
 id: ESWO-text
 source_id: ESWO
-title: 'ESWO: text'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/eswo/ и общие
-  ограничения в knowledge/source-attribution.md.
+title: "ESWO: text"
+access: "Смотри карточку единицы и связанные артефакты в knowledge/data/eswo/ и общие ограничения в knowledge/source-attribution.md."
 status: approved
 workflow_stage: statements_extracted
-files:
-  tracked:
-  - engineering-a-safer-world.txt
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+extracted_text:
+  location: knowledge/.local/raw/eswo/engineering-a-safer-world.txt
+  format: txt
+  file_size_bytes: 7061093
+  content_hash: sha256:994f41a3fd85d25b22194b5fe38e0290bd317e72e55848f64455d587a163b946
+  metadata_source: pdftotext
+known_limitations:
+- Полная текстовая выгрузка хранится только в игнорируемом локальном
+  слое knowledge/.local/raw/ и не публикуется в Git.

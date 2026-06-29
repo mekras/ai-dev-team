@@ -15,18 +15,18 @@
 - Тип источника: локальная PDF-книга
 - Способ получения: по решению пользователя в проект скопирована локальная
   рабочая копия книги с хранением файла только в игнорируемом каталоге
-  `knowledge/primary/SREQ/files/`
+  `knowledge/.local/raw/sreq/`
 - Дата включения в корпус: `2026-06-22`
 
 ## Что сохранено
 
 Для локальной обработки получены следующие артефакты:
 
-- паспорт: `knowledge/primary/SREQ/source.md`
-- индекс артефактов: `knowledge/primary/SREQ/page-index.tsv`
-- PDF: `knowledge/primary/SREQ/files/software-requirements-3rd-ru.pdf`
+- паспорт: `knowledge/data/sreq/items/source/source.md`
+- индекс артефактов: `knowledge/data/sreq/items/source/page-index.tsv`
+- PDF: `knowledge/.local/raw/sreq/software-requirements-3rd-ru.pdf`
 - текстовая выгрузка:
-  `knowledge/primary/SREQ/files/software-requirements-3rd-ru.txt`
+  `knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt`
 
 В Git сохраняются только метаданные источника, обзорный нормализованный слой и
 извлечённые утверждения без крупных дословных фрагментов книги.

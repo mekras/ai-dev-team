@@ -2,8 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/RTZ/source.md`
-- Индекс первичных артефактов: `knowledge/primary/RTZ/page-index.tsv`
+- Первичный источник: `knowledge/data/rtz/items/source/source.md`
+- Индекс первичных артефактов: `knowledge/data/rtz/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-23`
 - Способ нормализации: обзор локальной текстовой выгрузки PDF и выборочное
   чтение оглавления, вводных разделов, правил формулирования требований, раздела

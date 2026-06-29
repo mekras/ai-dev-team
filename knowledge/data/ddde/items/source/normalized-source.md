@@ -2,8 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/DDDE/source.md`
-- Индекс первичных артефактов: `knowledge/primary/DDDE/page-index.tsv`
+- Первичный источник: `knowledge/data/ddde/items/source/source.md`
+- Индекс первичных артефактов: `knowledge/data/ddde/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-23`
 - Способ нормализации: обзор локальной текстовой выгрузки PDF, сверка ключевых
   понятий по глоссарию книги и выборочное чтение глав.

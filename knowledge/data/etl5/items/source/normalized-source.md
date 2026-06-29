@@ -2,8 +2,9 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/ETL5/source.md`
-- Индекс первичных артефактов: `knowledge/primary/ETL5/page-index.tsv`
+- Первичный источник: `knowledge/data/etl5/items/source/source.md`
+- Индекс первичных артефактов:
+  `knowledge/data/etl5/items/primary-etl5-page-index.tsv/page-index.tsv`
 - Дата нормализации: `2026-06-25`
 - Способ нормализации: чтение локальной текстовой выгрузки PDF, извлечение
   оглавления, резюме и обзорного раздела с числовыми долями.
@@ -62,6 +63,6 @@ ENISA Threat Landscape — ежегодный отчёт агентства ЕС
 ## Связь с проектом
 
 Нормализованный слой служит картой для извлечения утверждений
-(`knowledge/statements/ETL5.md`) и для анализа влияния на навык
-`security-threat-modeling` (какие угрозы рассматривать, обоснование данными) и
-контекста для `security-audit`.
+(`knowledge/data/etl5/items/primary-etl5-page-index.tsv/statements.yml`) и для
+анализа влияния на навык `security-threat-modeling` (какие угрозы рассматривать,
+обоснование данными) и контекста для `security-audit`.

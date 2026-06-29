@@ -2,8 +2,9 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/SPDX/source.md`
-- Индекс первичных страниц: `knowledge/primary/SPDX/page-index.tsv`
+- Первичный источник: `knowledge/data/spdx/items/source/source.md`
+- Индекс первичных страниц:
+  `knowledge/data/spdx/items/primary-spdx-page-index.tsv/page-index.tsv`
 - Дата нормализации: `2026-06-05`
 - Способ нормализации: выделение состава страниц и тематических ролей источника.
 

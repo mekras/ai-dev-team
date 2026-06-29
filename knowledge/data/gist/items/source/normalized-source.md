@@ -2,17 +2,17 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/GIST/source.md`
-- Индекс первичных страниц: `knowledge/primary/GIST/page-index.tsv`
+- Первичный источник: `knowledge/data/gist/items/source/source.md`
+- Индекс первичных страниц: `knowledge/data/gist/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-03`
 - Способ нормализации: очистка HTML и отбор содержательных секций.
 
 ## Что сохранено
 
-- `knowledge/normalized/GIST/pages/7c8f65572930a21efa62623557d83f6e/index.md`
+- `knowledge/data/gist/items/7c8f65572930a21efa62623557d83f6e`
 
 ## Ограничения
 
-- Источник — пользовательский Gist и может содержать обновления вне
-  контрольного окна.
+- Источник — пользовательский Gist и может содержать обновления вне контрольного
+  окна.
 - Полный код и форматирование сохранены в виде пересказа.

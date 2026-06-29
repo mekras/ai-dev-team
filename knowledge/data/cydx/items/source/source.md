@@ -27,10 +27,12 @@
 
 ## Что сохранено в корпусе
 
-- паспорт: `knowledge/primary/CYDX/source.md`
-- нормализованный обзор: `knowledge/normalized/CYDX/source.md`
-- утверждения: `knowledge/statements/CYDX.md`
-- учёт: `knowledge/inventory/CYDX.md`
+- паспорт: `knowledge/data/cydx/items/source/source.md`
+- нормализованный обзор:
+  `knowledge/data/cydx/items/normalized-cydx-source.md/source.md`
+- утверждения:
+  `knowledge/data/cydx/items/normalized-cydx-source.md/statements.yml`
+- учёт: `knowledge/data/cydx/source.yml`
 - локальная копия не хранится
 
 ## Условия использования

@@ -24,10 +24,12 @@
 
 ## Что сохранено в корпусе
 
-- паспорт: `knowledge/primary/CVSS/source.md`
-- нормализованный обзор: `knowledge/normalized/CVSS/source.md`
-- утверждения: `knowledge/statements/CVSS.md`
-- учёт: `knowledge/inventory/CVSS.md`
+- паспорт: `knowledge/data/cvss/items/source/source.md`
+- нормализованный обзор:
+  `knowledge/data/cvss/items/normalized-cvss-source.md/source.md`
+- утверждения:
+  `knowledge/data/cvss/items/normalized-cvss-source.md/statements.yml`
+- учёт: `knowledge/data/cvss/source.yml`
 - локальная копия не хранится
 
 ## Условия использования

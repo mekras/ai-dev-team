@@ -4,9 +4,10 @@
 
 - Источники: `CHAL`, `OSIL`, `REUS`, `SPDX`, `GPLQ`, `ODCM`, `O523`, `TODO`,
   `LFSP`
-- Учёт: `knowledge/inventory/<код>.md`
-- Нормализованные слои: `knowledge/normalized/<код>/source.md`
-- Извлечённые утверждения: `knowledge/statements/<код>.md`
+- Учёт: `knowledge/data/<slug>/source.yml`
+- Нормализованные слои:
+  `knowledge/data/<slug>/items/source/normalized-source.md`
+- Извлечённые утверждения: `knowledge/data/<slug>/items/<unit>/statements.yml`
 - Атрибуция и правовой статус: `knowledge/source-attribution.md`
 - Дата проверки: `2026-06-26`
 

@@ -2470,6 +2470,54 @@ items:
   status: approved
   workflow_stage: statements_extracted
   path: data/samm/items/primary-samm-page-index.tsv/item.yml
+- id: SCCO-source
+  source_id: SCCO
+  title: 'SCCO: обзор источника'
+  access: Смотри карточку единицы и связанные артефакты в knowledge/data/scco/ и общие
+    ограничения в knowledge/source-attribution.md.
+  status: approved
+  workflow_stage: fetched
+  path: data/scco/items/source/item.yml
+- id: SCCO-normalized-SCCO-source.md
+  source_id: SCCO
+  title: 'SCCO: source.md'
+  access: Смотри карточку единицы и связанные артефакты в knowledge/data/scco/ и общие
+    ограничения в knowledge/source-attribution.md.
+  status: approved
+  workflow_stage: statements_extracted
+  path: data/scco/items/normalized-scco-source.md/item.yml
+- id: SCSU-source
+  source_id: SCSU
+  title: 'SCSU: обзор источника'
+  access: Смотри карточку единицы и связанные артефакты в knowledge/data/scsu/ и общие
+    ограничения в knowledge/source-attribution.md.
+  status: approved
+  workflow_stage: fetched
+  path: data/scsu/items/source/item.yml
+- id: SCSU-normalized-SCSU-source.md
+  source_id: SCSU
+  title: 'SCSU: source.md'
+  access: Смотри карточку единицы и связанные артефакты в knowledge/data/scsu/ и общие
+    ограничения в knowledge/source-attribution.md.
+  status: approved
+  workflow_stage: statements_extracted
+  path: data/scsu/items/normalized-scsu-source.md/item.yml
+- id: SCXP-source
+  source_id: SCXP
+  title: 'SCXP: обзор источника'
+  access: Смотри карточку единицы и связанные артефакты в knowledge/data/scxp/ и общие
+    ограничения в knowledge/source-attribution.md.
+  status: approved
+  workflow_stage: fetched
+  path: data/scxp/items/source/item.yml
+- id: SCXP-normalized-SCXP-source.md
+  source_id: SCXP
+  title: 'SCXP: source.md'
+  access: Смотри карточку единицы и связанные артефакты в knowledge/data/scxp/ и общие
+    ограничения в knowledge/source-attribution.md.
+  status: approved
+  workflow_stage: statements_extracted
+  path: data/scxp/items/normalized-scxp-source.md/item.yml
 - id: SMAS-source
   source_id: SMAS
   title: 'SMAS: обзор источника'
@@ -3043,3 +3091,19 @@ items:
   status: approved
   workflow_stage: statements_extracted
   path: data/xem7/items/primary-xem7-page-index.tsv/item.yml
+- id: ADRG-source
+  source_id: ADRG
+  title: 'ADRG: обзор источника'
+  access: Смотри карточку единицы и связанные артефакты в knowledge/data/adrg/ и общие
+    ограничения в knowledge/source-attribution.md.
+  status: approved
+  workflow_stage: statements_extracted
+  path: data/adrg/items/source/item.yml
+- id: ADRG-normalized-ADRG-source.md
+  source_id: ADRG
+  title: 'ADRG: source.md'
+  access: Смотри карточку единицы и связанные артефакты в knowledge/data/adrg/ и общие
+    ограничения в knowledge/source-attribution.md.
+  status: approved
+  workflow_stage: statements_extracted
+  path: data/adrg/items/normalized-adrg-source.md/item.yml

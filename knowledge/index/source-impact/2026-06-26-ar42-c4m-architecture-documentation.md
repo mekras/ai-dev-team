@@ -3,11 +3,11 @@
 ## Источники и дата проверки
 
 - Источники: `AR42` (шаблон arc42), `C4M` (модель C4)
-- Учёт: `knowledge/inventory/AR42.md`, `knowledge/inventory/C4M.md`
-- Нормализованные слои: `knowledge/normalized/AR42/source.md`,
-  `knowledge/normalized/C4M/source.md`
-- Извлечённые утверждения: `knowledge/statements/AR42.md`,
-  `knowledge/statements/C4M.md`
+- Учёт: `knowledge/data/ar42/source.yml`, `knowledge/data/c4m/source.yml`
+- Нормализованные слои: `knowledge/data/ar42/items/source/normalized-source.md`,
+  `knowledge/data/c4m/items/source/normalized-source.md`
+- Извлечённые утверждения: `knowledge/data/ar42/items/source/statements.yml`,
+  `knowledge/data/c4m/items/source/statements.yml`
 - Атрибуция и правовой статус: `knowledge/source-attribution.md`
 - Дата проверки: `2026-06-26`
 

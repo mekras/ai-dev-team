@@ -1,0 +1,31 @@
+id: SCXP-source
+source_id: SCXP
+title: 'SCXP: обзор источника'
+access: Смотри карточку единицы и связанные артефакты в knowledge/data/scxp/ и общие
+  ограничения в knowledge/source-attribution.md.
+status: approved
+workflow_stage: fetched
+processing_scope: metadata_only
+retrieval_mode: on_demand
+copy_policy: fragments_only
+allowed_use: Локальный анализ и извлечение кратких проверяемых утверждений со ссылкой
+  на первоисточник.
+requires_access_check: true
+files:
+  tracked:
+  - source.md
+primary_file:
+  location: knowledge/.local/raw/scxp/scrum-xp-kniberg-ru.pdf
+  format: pdf
+  file_size_bytes: 3222514
+  content_hash: sha256:32f87b178e27df6bf28a8ec0f5bf82595f24ccad69037c23d39c294e31b14533
+  page_count: 94
+  metadata_source: pdfinfo
+known_limitations:
+- Полный PDF хранится только в игнорируемом локальном слое и не публикуется в Git.
+- Текст ещё не извлечён; нормализация и утверждения выполняются на следующем шаге.
+- Условия русского перевода формально не подтверждены; оригинал свободно доступен на
+  infoq.com.
+processing_notes:
+- Источник заведён навыком kc-sources-add и остановлен перед нормализацией.
+- Следующий шаг по kc-pipeline — нормализация выбранного фрагмента и извлечение утверждений.

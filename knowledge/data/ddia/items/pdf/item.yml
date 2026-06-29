@@ -1,10 +1,19 @@
 id: DDIA-pdf
 source_id: DDIA
-title: 'DDIA: pdf'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/ddia/ и общие
-  ограничения в knowledge/source-attribution.md.
+title: "DDIA: pdf"
+access: "Смотри карточку единицы и связанные артефакты в knowledge/data/ddia/ и общие ограничения в knowledge/source-attribution.md."
 status: approved
 workflow_stage: statements_extracted
-files:
-  tracked:
-  - designing-data-intensive-applications.pdf
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+primary_file:
+  location: knowledge/.local/raw/ddia/designing-data-intensive-applications.pdf
+  format: pdf
+  file_size_bytes: 9304329
+  content_hash: sha256:b0197a781b25f5ff0b56b2eaa956232053350f27d6a5c4c0f89643d9defe45b2
+  page_count: 613
+  metadata_source: pdfinfo
+known_limitations:
+- Полный файл хранится только в игнорируемом локальном слое
+  knowledge/.local/raw/ и не публикуется в Git.

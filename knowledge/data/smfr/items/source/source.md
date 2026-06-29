@@ -18,19 +18,19 @@
 - Тип источника: локальная DjVu-книга
 - Способ получения: по запросу пользователя в проект скопирована локальная
   рабочая копия книги с хранением файла только в игнорируемом каталоге
-  `knowledge/primary/SMFR/files/`
+  `knowledge/.local/raw/smfr/`
 - Дата включения в корпус: `2026-06-22`
 
 ## Что сохранено
 
 Для локальной обработки получены следующие артефакты:
 
-- паспорт: `knowledge/primary/SMFR/source.md`
-- индекс артефактов: `knowledge/primary/SMFR/page-index.tsv`
+- паспорт: `knowledge/data/smfr/items/source/source.md`
+- индекс артефактов: `knowledge/data/smfr/items/source/page-index.tsv`
 - DjVu:
-  `knowledge/primary/SMFR/files/sovremennye-metody-opisaniya-funkcionalnyh-trebovanii.djvu`
+  `knowledge/.local/raw/smfr/sovremennye-metody-opisaniya-funkcionalnyh-trebovanii.djvu`
 - текстовая выгрузка:
-  `knowledge/primary/SMFR/files/sovremennye-metody-opisaniya-funkcionalnyh-trebovanii.txt`
+  `knowledge/.local/raw/smfr/sovremennye-metody-opisaniya-funkcionalnyh-trebovanii.txt`
 
 В Git сохраняются только метаданные источника, обзорный нормализованный слой,
 извлечённые утверждения и правовой статус. Полный DjVu и полная текстовая

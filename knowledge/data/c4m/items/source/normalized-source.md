@@ -2,8 +2,9 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/C4M/source.md`
-- Индекс первичных страниц: `knowledge/primary/C4M/page-index.tsv`
+- Первичный источник: `knowledge/data/c4m/items/source/source.md`
+- Индекс первичных страниц:
+  `knowledge/data/c4m/items/primary-c4m-page-index.tsv/page-index.tsv`
 - Дата нормализации: `2026-06-05`
 - Способ нормализации:
   - выделение покрытия страниц из `page-index.tsv`;

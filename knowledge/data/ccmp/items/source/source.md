@@ -17,17 +17,17 @@
 - Тип источника: локальная PDF-книга
 - Способ получения: по решению пользователя в проект скопирована локальная
   рабочая копия книги с хранением файла только в игнорируемом каталоге
-  `knowledge/primary/CCMP/files/`
+  `knowledge/.local/raw/ccmp/`
 - Дата включения в корпус: `2026-06-25`
 
 ## Что сохранено
 
 Для локальной обработки получены следующие артефакты:
 
-- паспорт: `knowledge/primary/CCMP/source.md`
-- индекс артефактов: `knowledge/primary/CCMP/page-index.tsv`
-- PDF: `knowledge/primary/CCMP/files/code-complete-ru.pdf`
-- текстовая выгрузка: `knowledge/primary/CCMP/files/code-complete-ru.txt`
+- паспорт: `knowledge/data/ccmp/items/source/source.md`
+- индекс артефактов: `knowledge/data/ccmp/items/source/page-index.tsv`
+- PDF: `knowledge/.local/raw/ccmp/code-complete-ru.pdf`
+- текстовая выгрузка: `knowledge/.local/raw/ccmp/code-complete-ru.txt`
 
 В Git сохраняются только метаданные источника, обзорный нормализованный слой,
 извлечённые утверждения и отчёт влияния без крупных дословных фрагментов книги.

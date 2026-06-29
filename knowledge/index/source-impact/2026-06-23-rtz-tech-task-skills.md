@@ -2,10 +2,10 @@
 
 ## Источник и дата проверки
 
-- Источник учёта: `knowledge/inventory/RTZ.md`
-- Первичный источник: `knowledge/primary/RTZ/source.md`
-- Нормализованный слой: `knowledge/normalized/RTZ/source.md`
-- Извлечённые утверждения: `knowledge/statements/RTZ.md`
+- Источник учёта: `knowledge/data/rtz/source.yml`
+- Первичный источник: `knowledge/data/rtz/items/source/source.md`
+- Нормализованный слой: `knowledge/data/rtz/items/source/normalized-source.md`
+- Извлечённые утверждения: `knowledge/data/rtz/items/text/statements.yml`
 - Атрибуция и правовой статус: `knowledge/source-attribution.md`
 - Дата проверки: `2026-06-23`
 
@@ -234,12 +234,13 @@
 
 ### Severity: Low — способ хранения источника остаётся подходящим
 
-Документ: `knowledge/primary/RTZ/.gitignore`, `knowledge/source-attribution.md`
+Документ: `knowledge/data/rtz/items/source/legacy-primary.gitignore`,
+`knowledge/source-attribution.md`
 
 Источник: `RTZ`, проверка `2026-06-23`
 
-Первичные данные: `knowledge/primary/RTZ/source.md`,
-`knowledge/primary/RTZ/page-index.tsv`
+Первичные данные: `knowledge/data/rtz/items/source/source.md`,
+`knowledge/data/rtz/items/source/page-index.tsv`
 
 Класс: изменение способа работы с источником
 

@@ -2,8 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/O523/source.md`
-- Индекс первичных страниц: `knowledge/primary/O523/page-index.tsv`
+- Первичный источник: `knowledge/data/o523/items/source/source.md`
+- Индекс первичных страниц: `knowledge/data/o523/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-05`
 - Способ нормализации: обзор структуры и ключевых тем одного Markdown-источника.
 

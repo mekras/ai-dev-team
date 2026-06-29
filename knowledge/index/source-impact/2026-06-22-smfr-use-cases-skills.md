@@ -2,10 +2,10 @@
 
 ## Источник и дата проверки
 
-- Источник учёта: `knowledge/inventory/SMFR.md`
-- Первичный источник: `knowledge/primary/SMFR/source.md`
-- Нормализованный слой: `knowledge/normalized/SMFR/source.md`
-- Извлечённые утверждения: `knowledge/statements/SMFR.md`
+- Источник учёта: `knowledge/data/smfr/source.yml`
+- Первичный источник: `knowledge/data/smfr/items/source/source.md`
+- Нормализованный слой: `knowledge/data/smfr/items/source/normalized-source.md`
+- Извлечённые утверждения: `knowledge/data/smfr/items/text/statements.yml`
 - Атрибуция и правовой статус: `knowledge/source-attribution.md`
 - Дата проверки: `2026-06-22`
 
@@ -250,12 +250,13 @@
 
 ### Severity: Low — способ хранения источника остаётся подходящим
 
-Документ: `knowledge/primary/SMFR/.gitignore`, `knowledge/source-attribution.md`
+Документ: `knowledge/data/smfr/items/source/legacy-primary.gitignore`,
+`knowledge/source-attribution.md`
 
 Источник: `SMFR`, проверка `2026-06-22`
 
-Первичные данные: `knowledge/primary/SMFR/source.md`,
-`knowledge/primary/SMFR/page-index.tsv`
+Первичные данные: `knowledge/data/smfr/items/source/source.md`,
+`knowledge/data/smfr/items/source/page-index.tsv`
 
 Класс: изменение способа работы с источником
 

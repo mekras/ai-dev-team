@@ -2,8 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/RADR/source.md`
-- Индекс первичных артефактов: `knowledge/primary/RADR/page-index.tsv`
+- Первичный источник: `knowledge/data/radr/items/source/source.md`
+- Индекс первичных артефактов: `knowledge/data/radr/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-24`
 - Способ нормализации: чтение локальной текстовой выгрузки PDF, извлечение
   оглавления, заголовков глав и перечня именованных правил, выборочное чтение
@@ -93,5 +93,5 @@ query); кросс-доменный доступ из JavaScript под same ori
 ## Связь с проектом
 
 Нормализованный слой служит картой для извлечения утверждений
-(`knowledge/statements/RADR.md`) и для анализа влияния на навык
+(`knowledge/data/radr/items/text/statements.yml`) и для анализа влияния на навык
 `software-architecture` в части проектирования веб-API.

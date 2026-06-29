@@ -1,0 +1,25 @@
+id: ADRG
+slug: adrg
+title: '`adr.github.io` — сайт организации ADR на GitHub: справочный хаб по записям
+  архитектурных решений (ADR), с разделами о практиках, шаблонах ADR и инструментах
+  фиксации решений.'
+status: approved
+carrier_type: website
+source_kind: reference
+adapter: manual
+storage_strategy: external_reference
+retrieval_mode: on_demand
+copy_policy: fragments_only
+license_or_terms: MIT (репозиторий сайта github.com/adr/adr.github.io)
+requires_access_check: true
+url: https://adr.github.io/
+locator: https://adr.github.io/
+public_reference: https://adr.github.io/
+reliability: official
+stability: mutable
+refresh_policy: manual
+retrieved_at: '2026-06-29'
+last_checked_at: '2026-06-29'
+access:
+  default: Смотри карточки единиц источника в knowledge/data/adrg/ и общие ограничения
+    в knowledge/source-attribution.md.

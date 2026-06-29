@@ -2,8 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/REUS/source.md`
-- Индекс первичных страниц: `knowledge/primary/REUS/page-index.tsv`
+- Первичный источник: `knowledge/data/reus/items/source/source.md`
+- Индекс первичных страниц: `knowledge/data/reus/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-05`
 - Способ нормализации: выделение ролей страниц спецификации и FAQ.
 

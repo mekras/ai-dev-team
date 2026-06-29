@@ -14,13 +14,13 @@
 
 ## Что сохранено
 
-- паспорт: `knowledge/primary/LFSP/source.md`
-- индекс: `knowledge/primary/LFSP/page-index.tsv`
-- PDF: `knowledge/primary/LFSP/files/spdx-oslbp-022525a.pdf`
+- паспорт: `knowledge/data/lfsp/items/source/source.md`
+- индекс: `knowledge/data/lfsp/items/source/page-index.tsv`
+- PDF: `knowledge/data/lfsp/items/spdx-oslbp-022525a/spdx-oslbp-022525a.pdf`
 - заголовки ответа:
-  `knowledge/primary/LFSP/files/spdx-oslbp-022525a.headers.txt`
+  `knowledge/data/lfsp/items/source/spdx-oslbp-022525a.headers.txt`
 - локальная текстовая выгрузка для обзора:
-  `knowledge/primary/LFSP/files/spdx-oslbp-022525a.txt`
+  `knowledge/data/lfsp/items/primary-lfsp-files-spdx-oslbp-022525a.txt/spdx-oslbp-022525a.txt`
 
 ## Условия использования
 

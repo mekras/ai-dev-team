@@ -1,10 +1,18 @@
 id: APIB-text
 source_id: APIB
-title: 'APIB: text'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/apib/ и общие
-  ограничения в knowledge/source-attribution.md.
+title: "APIB: text"
+access: "Смотри карточку единицы и связанные артефакты в knowledge/data/apib/ и общие ограничения в knowledge/source-attribution.md."
 status: approved
 workflow_stage: statements_extracted
-files:
-  tracked:
-  - the-api-book-ru.txt
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+extracted_text:
+  location: knowledge/.local/raw/apib/the-api-book-ru.txt
+  format: txt
+  file_size_bytes: 576633
+  content_hash: sha256:2f07909c00ac215979439632484d6fadc8bae6b8eedcc5eb66f56a480adcb159
+  metadata_source: pdftotext
+known_limitations:
+- Полная текстовая выгрузка хранится только в игнорируемом локальном
+  слое knowledge/.local/raw/ и не публикуется в Git.

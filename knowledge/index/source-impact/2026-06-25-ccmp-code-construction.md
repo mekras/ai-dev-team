@@ -2,10 +2,10 @@
 
 ## Источник и дата проверки
 
-- Источник учёта: `knowledge/inventory/CCMP.md`
-- Первичный источник: `knowledge/primary/CCMP/source.md`
-- Нормализованный слой: `knowledge/normalized/CCMP/source.md`
-- Извлечённые утверждения: `knowledge/statements/CCMP.md`
+- Источник учёта: `knowledge/data/ccmp/source.yml`
+- Первичный источник: `knowledge/data/ccmp/items/source/source.md`
+- Нормализованный слой: `knowledge/data/ccmp/items/source/normalized-source.md`
+- Извлечённые утверждения: `knowledge/data/ccmp/items/text/statements.yml`
 - Атрибуция и правовой статус: `knowledge/source-attribution.md`
 - Дата проверки: `2026-06-25`
 

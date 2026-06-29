@@ -25,11 +25,12 @@ Git ради опрятности репозитория; канонически
 
 ## Что сохранено
 
-- паспорт: `knowledge/primary/ETL5/source.md`
-- индекс артефактов: `knowledge/primary/ETL5/page-index.tsv`
-- PDF: `knowledge/primary/ETL5/files/enisa-threat-landscape-2025.pdf`
+- паспорт: `knowledge/data/etl5/items/source/source.md`
+- индекс артефактов:
+  `knowledge/data/etl5/items/primary-etl5-page-index.tsv/page-index.tsv`
+- PDF: `knowledge/data/etl5/items/pdf/enisa-threat-landscape-2025.pdf`
 - текстовая выгрузка:
-  `knowledge/primary/ETL5/files/enisa-threat-landscape-2025.txt`
+  `knowledge/data/etl5/items/text/enisa-threat-landscape-2025.txt`
 
 В Git сохраняются метаданные источника, обзорный нормализованный слой и
 извлечённые утверждения.

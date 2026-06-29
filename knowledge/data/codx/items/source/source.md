@@ -2,14 +2,13 @@
 
 ## Статус
 
-Источник принят в корпус знаний как внешний публичный веб-материал
-с ограничением на хранение полного HTML в Git.
+Источник принят в корпус знаний как внешний публичный веб-материал с
+ограничением на хранение полного HTML в Git.
 
 ## Происхождение
 
 - Сайт: `https://developers.openai.com`
-- URL:
-  `https://developers.openai.com/codex/guides/agents-md`
+- URL: `https://developers.openai.com/codex/guides/agents-md`
 - Дата получения: `2026-06-03T12:51:36Z`
 - Способ получения: HTTP GET с локальным сохранением raw HTML и заголовков
   ответа.
@@ -20,23 +19,21 @@
 
 В состав источника включены следующие артефакты:
 
-- passport: `knowledge/primary/CODX/source.md`
-- индекс: `knowledge/primary/CODX/page-index.tsv`
-- страница:
-  `knowledge/primary/CODX/pages/agents-md/index.html`
-- заголовки ответа:
-  `knowledge/primary/CODX/pages/agents-md/response-headers.txt`
+- passport: `knowledge/data/codx/items/source/source.md`
+- индекс: `knowledge/data/codx/items/source/page-index.tsv`
+- страница: `knowledge/data/codx/items/agents-md/index.html`
+- заголовки ответа: `knowledge/data/codx/items/agents-md/response-headers.txt`
 
 Снимок хранится локально с исключением `pages/` из Git через
-`knowledge/primary/CODX/.gitignore`.
+`knowledge/data/codx/items/source/legacy-primary.gitignore`.
 
 ## Ограничения
 
 - Источник зафиксирован одной конкретной страницей.
 - Снимок отражает только текущее состояние на момент получения.
 - Оригинальная статья может изменяться; новые версии не входят в этот снимок.
-- Полный текст страницы не должен использоваться как единственная опора без проверки
-  условий использования.
+- Полный текст страницы не должен использоваться как единственная опора без
+  проверки условий использования.
 
 ## Условия использования
 

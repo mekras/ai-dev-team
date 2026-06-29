@@ -6,6 +6,11 @@ status: approved
 carrier_type: document
 source_kind: normative
 adapter: manual
+storage_strategy: local_only
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+license_or_terms: "текст стандарта — объект авторского права Стандартинформа; открытой лицензии на повторное использование полного текста нет; копия получена с публичного зеркала."
 access:
   default: Смотри карточки единиц источника в knowledge/data/g272/ и общие ограничения
     в knowledge/source-attribution.md.

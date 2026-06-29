@@ -2,8 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/CHAE/source.md`
-- Индекс первичных артефактов: `knowledge/primary/CHAE/page-index.tsv`
+- Первичный источник: `knowledge/data/chae/items/source/source.md`
+- Индекс первичных артефактов: `knowledge/data/chae/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-26`
 - Способ нормализации: чтение локальной текстовой выгрузки PDF (11 страниц),
   извлечение определения и принципов инженерии хаоса.
