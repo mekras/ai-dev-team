@@ -2,1857 +2,2039 @@ statements:
 - id: SREQ-001
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: клиенты часто смешивают бизнес-цели проекта и собственно требования к системе,
     поэтому аналитик должен разделять бизнес-, пользовательский и функциональный уровни
     требований.
   excerpt: обсуждение разрыва ожиданий и различия уровней требований в главе 2.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 2. Требования с точки зрения клиента
     application: выявление требований и работа с ожиданиями заказчика.
   open_questions: []
 - id: SREQ-002
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: роль бизнес-аналитика включает определение бизнес-требований, планирование
     работы с требованиями, выявление, анализ, документирование, доведение до участников,
     проверку, приоритизацию и управление требованиями.
   excerpt: раздел `Задачи аналитика` в главе 4.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 4. Бизнес-аналитик
     application: проектирование ролей и обязанностей в работе с требованиями.
   open_questions: []
 - id: SREQ-003
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: при выявлении требований полезно классифицировать высказывания участников
     по типам, включая бизнес-требования, пользовательские требования, бизнес-правила,
     функциональные требования, атрибуты качества, требования к внешним интерфейсам,
     ограничения, определения данных и идеи решений.
   excerpt: классификация предоставляемой клиентом информации в главе 7.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 7. Выявление требований
     application: разбор сырого материала после интервью и семинаров.
   open_questions: []
 - id: SREQ-004
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: подразумеваемые и неявные требования нужно искать отдельно, потому что именно
     они часто создают разрыв между ожиданиями и реализованной системой; для этого
     полезны повторные вопросы, поиск парных требований, проверка границ, моделей и
     операций CRUD.
   excerpt: разделы `Подразумеваемые и неявные требования` и Поиск упущенных требований`
     в главе 7.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 7. Выявление требований
     application: снижение пропусков и недостающих требований.
   open_questions: []
 - id: SREQ-005
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: варианты использования полезны как форма пользовательских требований, но детализировать
     их надо только в горизонте ближайшей реализации, иначе команда тратит силы на
     описание сценариев, которые ещё успеют измениться.
   excerpt: завершающие замечания главы 8.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 8. Как понять требования пользователей
     application: дозирование детализации пользовательских требований.
   open_questions: []
 - id: SREQ-006
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: бизнес-правила следует хранить как отдельный массив знаний, а не смешивать
     с бизнес-требованиями и бизнес-процессами; базовая таксономия включает факты,
     ограничения, активаторы операций, выводы и вычисления.
   excerpt: главы 9, разделы `Классификация бизнес-правил` и Бизнес-правила и требования`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 9. Игра по правилам
     application: структура источников требований и вывод функциональных требований
       из правил.
   open_questions: []
 - id: SREQ-007
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: при работе с фактами как типом бизнес-правил нужно ограничивать сбор сведений
     границами проекта и по возможности связывать каждый факт с входами и выходами
     контекстной диаграммы, событиями системы, объектами данных или конкретными пользовательскими
     требованиями.
   excerpt: раздел `Факты` в главе 9.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 9. Игра по правилам
     application: отбор фактов для корпуса и анализа.
   open_questions: []
 - id: SREQ-008
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: шаблон спецификации требований к ПО рассматривается как структурированный
     и последовательный способ организации функциональных и нефункциональных требований,
     причём организация может использовать больше одного шаблона для разных типов и
     масштабов проектов.
   excerpt: раздел о шаблоне спецификации требований к ПО.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 10. Документирование требований
     application: оформление проектных шаблонов требований.
   open_questions: []
 - id: SREQ-009
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: качественное отдельное требование должно быть как минимум полным, корректным,
     осуществимым и необходимым, а его качество следует подтверждать рецензированием
     несколькими заинтересованными лицами.
-  excerpt: глава 11, раздел `Характеристики превосходных требований`.
-  artifact: software-requirements-3rd-ru.txt
+  excerpt: глава 11, подраздел `Характеристики отдельных положений спецификации требований`
+    раздела `Характеристики превосходных требований`.
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 11. Пишем идеальные требования
     application: проверка качества формулировок требований.
   open_questions: []
 - id: SREQ-010
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: требования к атрибутам качества нужно по возможности снабжать источником и
     обоснованием, а сами цели выражать измеримо; значения вроде 100%` для доступности
     или надёжности практически недостижимы и резко повышают стоимость решения.
   excerpt: глава 14, разделы `Определение требований по качеству`, Доступность` и
     `Цена качества`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: 'Глава 14. Обратная сторона функциональности: атрибуты качества
+      ПО'
     application: запись нефункциональных требований и оценка их цены.
   open_questions: []
 - id: SREQ-011
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: приоритизация требований является динамическим процессом балансировки ценности
     и ограничений проекта; для практической работы авторы предпочитают трёхуровневую
     шкалу на основе важности и срочности и прямо не рекомендуют схему MoSCoW.
   excerpt: глава 16, разделы о целях приоритизации, трёхуровневой шкале и MoSCoW.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: 'Глава 16. Сначала о главном: определение приоритетов требований'
     application: правила приоритизации требований и резерва работ.
   open_questions: []
 - id: SREQ-012
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: 'утверждение требований и верификация связаны, но не совпадают: утверждение
     проверяет, что выбраны правильные требования для потребностей клиента, а верификация
     — что требования и продукт описаны и реализованы правильно; формальные рецензии
     и экспертизы дают высокий возврат на затраченное время.'
   excerpt: глава 17, разделы `Утверждение и верификация` и Рецензирование требований`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 17. Утверждение требований
     application: организация проверки требований до реализации.
   open_questions: []
 - id: SREQ-013
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: управление версиями требований должно начинаться с ранних черновиков, обеспечивать
     уникальную идентификацию версий, историю изменений, ограниченный круг редакторов
     и явное доведение актуальной версии до всех участников.
   excerpt: глава 27, раздел `Управление версиями требований`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 27. Приемы управления требованиями к ПО
     application: процесс сопровождения документов требований.
   open_questions: []
 - id: SREQ-014
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: анализ влияния изменений обязателен даже для на первый взгляд малых запросов
     и должен охватывать бизнес-последствия, затронутые требования и артефакты, а также
     задачи и усилия на реализацию изменения.
   excerpt: глава 28, раздел `Анализ влияния изменений`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 28. Изменения случаются
     application: управление изменениями требований.
   open_questions: []
 - id: SREQ-015
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: документ о концепции и границах собирает бизнес-требования в единое основание
     для последующей разработки и фиксирует высокоуровневые границы продукта.
   excerpt: глава 5, раздел `Документ о концепции и границах`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 5. Определение бизнес-требований
     application: стартовая структура документации проекта и фиксация бизнес-основания.
   open_questions: []
 - id: SREQ-016
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: владельцем документа о концепции и границах должен быть куратор проекта или
     лицо с аналогичной ответственностью, а бизнес-аналитик может помогать в его подготовке.
   excerpt: глава 5, раздел `Документ о концепции и границах`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 5. Определение бизнес-требований
     application: распределение ответственности за бизнес-документы.
   open_questions: []
 - id: SREQ-017
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: 'рекомендуемый шаблон концепции и границ включает три крупных блока: бизнес-требования,
     рамки и ограничения проекта, бизнес-контекст.'
   excerpt: глава 5, шаблон документа о концепции и границах.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 5. Определение бизнес-требований
     application: проектирование структуры вводных документов проекта.
   open_questions: []
 - id: SREQ-018
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: 'шаблоны документов полезны не только для единообразия, но и как средство
     обнаружения пробелов: пустой раздел должен быть осознанно заполнен, удалён или
     помечен как неприменимый.'
   excerpt: глава 5, раздел об использовании шаблонов.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 5. Определение бизнес-требований
     application: техническое письмо и проектные шаблоны требований.
   open_questions: []
 - id: SREQ-019
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: бизнес-цели должны формулироваться измеримо, потому что именно они помогают
     оценивать ценность функций, границы проекта и приоритеты.
   excerpt: глава 5, раздел `Бизнес-цели`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 5. Определение бизнес-требований
     application: анализ требований и управление границами проекта.
   open_questions: []
 - id: SREQ-020
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: при появлении нового требования аналитик должен соотнести его с границами
     проекта и бизнес-целями, после чего требование можно отклонить, отложить, включить
     или пересмотреть границы проекта.
   excerpt: глава 5, разделы о границах проекта и бизнес-целях.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 5. Определение бизнес-требований
     application: управление границами и резервом требований.
   open_questions: []
 - id: SREQ-021
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: 'контекстная диаграмма, карта экосистемы и список событий дополняют друг друга:
     первая показывает внешние сущности, вторая окружение, а список событий фиксирует
     внешние триггеры поведения системы.'
   excerpt: глава 5, разделы о способах представления границ проекта.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 5. Определение бизнес-требований
     application: анализ границ продукта и проектирование документации требований.
   open_questions: []
 - id: SREQ-022
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: список событий можно использовать как средство разграничения выпусков или
     итераций, потому что каждое событие может быть связано с конкретным поведением
     системы и планом реализации.
   excerpt: глава 5, раздел `Список событий`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 5. Определение бизнес-требований
     application: планирование содержания выпусков и итераций.
   open_questions: []
 - id: SREQ-023
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: классы пользователей следует выделять по задачам, функциям, частоте использования,
     правам доступа, опыту, платформе, языку и способу доступа, а не подменять их рыночными
     сегментами.
   excerpt: глава 6, раздел `Классификация пользователей`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 6. Как отобрать пользователей для работы над проектом
     application: выявление требований и проектирование пользовательской документации.
   open_questions: []
 - id: SREQ-024
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: в проекте нужно различать привилегированные, непривилегированные, игнорируемые
     и прочие классы пользователей, потому что их вес при конфликте требований и приоритизации
     различается.
   excerpt: глава 6, раздел `Классификация пользователей`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 6. Как отобрать пользователей для работы над проектом
     application: анализ заинтересованных лиц и приоритизация требований.
   open_questions: []
 - id: SREQ-025
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: косвенные пользователи, установщики, специалисты поддержки, разработчики и
     другие неочевидные участники могут быть источниками требований, особенно по данным,
     установке, поддержке и внутренним атрибутам качества.
   excerpt: глава 6, обсуждение классов пользователей и других заинтересованных лиц.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 6. Как отобрать пользователей для работы над проектом
     application: выявление источников требований и аудит полноты документации.
   open_questions: []
 - id: SREQ-026
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: для каждого важного класса пользователей нужен представитель, который понимает
     свою роль, имеет полномочия принимать решения на уровне пользовательских требований
     и представляет класс пользователей, а не только личные предпочтения.
   excerpt: глава 6, разделы о стороннике продукта и рисках этой роли.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 6. Как отобрать пользователей для работы над проектом
     application: организация выявления требований и принятия решений.
   open_questions: []
 - id: SREQ-027
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: один владелец продукта в гибкой разработке не всегда способен заменить представительство
     всех классов пользователей; при сложной предметной области полезны несколько представителей
     и бизнес-аналитики.
   excerpt: глава 6, раздел Представительство пользователей в проектах гибкой разработки`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 6. Как отобрать пользователей для работы над проектом
     application: организация ролей в проектах и настройка процесса требований.
   open_questions: []
 - id: SREQ-028
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: выявление требований обычно требует сочетания коллективных и независимых методов,
     потому что разные методы дают разные типы информации и подходят разным заинтересованным
     лицам.
   excerpt: глава 7, раздел `Методы выявления требований`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 7. Выявление требований
     application: план выявления требований.
   open_questions: []
 - id: SREQ-029
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: интервью подходят для быстрого входа в предметную область, работы с экспертами,
     сбора бизнес-требований у руководителей и уточнения деликатных вопросов в малой
     группе.
   excerpt: глава 7, раздел `Интервью`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 7. Выявление требований
     application: выбор метода выявления требований.
   open_questions: []
 - id: SREQ-030
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: семинар по выявлению требований требует явных ролей, подготовленной повестки,
     правил обсуждения, фиксации решений и контроля границ проекта.
   excerpt: глава 7, раздел `Семинары`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 7. Выявление требований
     application: организация группового выявления требований.
   open_questions: []
 - id: SREQ-031
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: после мероприятий по выявлению требований нужно рассылать протоколы, фиксировать
     открытые вопросы и классифицировать полученную от клиента информацию по типам
     требований и смежных материалов.
   excerpt: глава 7, разделы о действиях после выявления требований и классификации
     информации.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 7. Выявление требований
     application: обработка первичных материалов аналитиком и техническим писателем.
   open_questions: []
 - id: SREQ-032
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: спецификация требований не должна быть единственным документом для всех аудиторий;
     бизнес-цели, пользовательская картина и детальные функциональные требования могут
     требовать разных материалов.
   excerpt: глава 10, предупреждение о разных аудиториях требований.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 10. Документирование требований
     application: проектирование структуры документации проекта.
   open_questions: []
 - id: SREQ-033
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: спецификация требований служит основанием для планирования, дизайна, разработки,
     тестирования, пользовательской документации, обучения, юридической проверки и
     работы подрядчиков.
   excerpt: глава 10, раздел о назначении спецификации требований.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 10. Документирование требований
     application: объяснение роли документа требований в проектной документации.
   open_questions: []
 - id: SREQ-034
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: спецификация требований должна описывать поведение системы, ограничения и
     качества, но не должна включать подробности дизайна, тестирования и управления
     проектом, кроме известных ограничений реализации.
   excerpt: глава 10, раздел `Спецификация требований к ПО`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 10. Документирование требований
     application: границы содержания спецификации требований.
   open_questions: []
 - id: SREQ-035
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: для понятной спецификации нужны шаблон, единообразные названия, оглавление,
     нумерованные рисунки и таблицы, перекрёстные ссылки, гиперссылки, визуальные представления
     и единая терминология.
   excerpt: глава 10, рекомендации по структуре спецификации.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 10. Документирование требований
     application: техническое письмо и оформление документов требований.
   open_questions: []
 - id: SREQ-036
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: каждое требование должно иметь устойчивый уникальный идентификатор, чтобы
     на него можно было ссылаться в изменениях, истории, перекрёстных ссылках и матрице
     связей.
   excerpt: глава 10, раздел `Требования к именованию`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 10. Документирование требований
     application: правила оформления и сопровождения требований.
   open_questions: []
 - id: SREQ-037
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: шаблон спецификации требований может включать введение, общее описание, функции
     системы, требования к данным, внешние интерфейсы, атрибуты качества, требования
     по интернационализации и локализации, прочие требования, словарь терминов и модели
     анализа.
   excerpt: глава 10, шаблон спецификации требований.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 10. Документирование требований
     application: структура проектного документа требований.
   open_questions: []
 - id: SREQ-038
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: 'словарь терминов и словарь данных выполняют разные функции: первый определяет
     предметные термины и сокращения, второй описывает элементы и структуры данных.'
   excerpt: главы 10 и 13, разделы о словаре терминов и словаре данных.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 10. Документирование требований
     application: структура справочной документации проекта.
   open_questions: []
 - id: SREQ-039
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: модели анализа часто удобнее размещать рядом с релевантными требованиями,
     а не собирать только в конце спецификации.
   excerpt: глава 10, приложение о моделях анализа.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 10. Документирование требований
     application: оформление больших документов требований.
   open_questions: []
 - id: SREQ-040
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: в гибких проектах знания о требованиях могут храниться не только в едином
     документе, но и в пользовательских историях, критериях приёмки, тестах, ограничениях,
     моделях анализа и словаре данных.
   excerpt: глава 10, раздел о спецификации требований в гибких проектах.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 10. Документирование требований
     application: структура документации требований в итеративных проектах.
   open_questions: []
 - id: SREQ-041
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: уровень формальности документации требований зависит от объёма неформального
     общения в команде, распределённости участников, потребности в сохранении знаний,
     проверке, аудите, сертификации и контрактных обязательств.
   excerpt: глава 10, завершающий раздел о выборе формы спецификации.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 10. Документирование требований
     application: выбор структуры и глубины проектной документации.
   open_questions: []
 - id: SREQ-042
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: модели анализа должны дополнять текстовые требования, а не заменять их; разные
     представления помогают находить пропущенные, лишние и несовместимые требования.
   excerpt: глава 12, раздел `Моделирование требований`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 12. Лучше один раз увидеть, чем 1024 раза услышать
     application: анализ требований и документирование сложных участков.
   open_questions: []
 - id: SREQ-043
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: в моделях требований следует использовать стандартные нотации и явно различать
     модели анализа, описывающие предметную область, и модели дизайна, описывающие
     планируемую реализацию.
   excerpt: глава 12, раздел `Моделирование требований`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 12. Лучше один раз увидеть, чем 1024 раза услышать
     application: правила моделирования требований.
   open_questions: []
 - id: SREQ-044
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: при переходе от слов клиента к моделям анализа существительные часто указывают
     на сущности, данные и действующих лиц, глаголы — на процессы, действия и события,
     а условия — на решения и ветвления.
   excerpt: глава 12, раздел `От желания клиента к модели анализа`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 12. Лучше один раз увидеть, чем 1024 раза услышать
     application: обработка заметок выявления и построение моделей.
   open_questions: []
 - id: SREQ-045
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: выбирать модели анализа следует по риску, сложности и вероятности неясностей,
     а не пытаться строить все возможные диаграммы для всей системы.
   excerpt: глава 12, раздел `Выбор правильного представления`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 12. Лучше один раз увидеть, чем 1024 раза услышать
     application: план анализа требований и структура документации.
   open_questions: []
 - id: SREQ-046
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: таблица событий и реакций может стать частью функциональных требований, если
     она покрывает события, состояния, реакции и исключения, но её нужно дополнять
     отдельными требованиями к деталям поведения и качества.
   excerpt: глава 12, раздел о таблицах событий и реакций.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 12. Лучше один раз увидеть, чем 1024 раза услышать
     application: спецификация событийного поведения системы.
   open_questions: []
 - id: SREQ-047
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: модель данных даёт высокоуровневое представление связей данных, а словарь
     данных фиксирует подробные определения сущностей, атрибутов, типов, допустимых
     значений и критериев проверки.
   excerpt: глава 13, разделы о моделировании данных и словаре данных.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 13. Определение требований к данным
     application: требования к данным и справочная документация проекта.
   open_questions: []
 - id: SREQ-048
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: ведение словаря данных снижает риск интеграционных ошибок, помогает разработчикам
     правильно применять данные и поддерживает повторное использование определений
     в связанных проектах.
   excerpt: глава 13, раздел `Словарь данных`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 13. Определение требований к данным
     application: требования к данным и сопровождение справочников.
   open_questions: []
 - id: SREQ-049
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: спецификация отчёта должна связывать отчёт с целью, решениями, пользователями,
     источниками данных, частотой, свежестью данных, макетом, полями, вычислениями,
     фильтрами, сортировкой, интерактивностью и ограничениями доступа.
   excerpt: глава 13, шаблон спецификации отчёта.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 13. Определение требований к данным
     application: требования к отчётности и документация аналитических функций.
   open_questions: []
 - id: SREQ-050
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: требования к панели мониторинга следует начинать с решений, которые будут
     приниматься по её данным, затем определять источники данных, типы представления,
     макет, обновление, параметры, детализацию и прототип.
   excerpt: глава 13, раздел `Панели мониторинга`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 13. Определение требований к данным
     application: требования к информационным панелям и проектная документация данных.
   open_questions: []
 - id: SREQ-051
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: 'прототип должен иметь заранее объявленную цель: уточнить и проверить требования,
     исследовать альтернативные решения или эволюционно вырасти в часть продукта.'
   excerpt: глава 15, раздел `Что такое прототип и для чего он нужен`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 15. Прототипы как средство снижения риска
     application: выявление требований и управление ожиданиями заинтересованных лиц.
   open_questions: []
 - id: SREQ-052
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: прототипы следует применять прежде всего для высокорисковых, сложных или неясных
     частей системы, а не для моделирования всего продукта.
   excerpt: глава 15, разделы о назначении и рисках прототипов.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 15. Прототипы как средство снижения риска
     application: план выявления требований и управление рисками.
   open_questions: []
 - id: SREQ-053
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: прототип не заменяет спецификацию требований, потому что скрытая функциональность,
     проверки данных, исключения, бизнес-правила и связи между полями должны быть документированы
     отдельно.
   excerpt: глава 15, раздел Факторы успеха использования прототипов`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 15. Прототипы как средство снижения риска
     application: связь прототипов и текстовой документации требований.
   open_questions: []
 - id: SREQ-054
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: повторное использование требований может охватывать не только формулировку
     требования, но и атрибуты, контекст, определения данных, термины, приёмочные тесты,
     ограничения и бизнес-правила.
   excerpt: глава 18, разделы о видах повторного использования.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 18. Повторное использование требований
     application: организация библиотеки требований и проектных шаблонов.
   open_questions: []
 - id: SREQ-055
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: повторное использование требований требует доступного хранилища, качества
     исходных требований, единой терминологии, понимания зависимостей и культуры, в
     которой аналитик сначала ищет существующее основание.
   excerpt: глава 18, разделы о препятствиях и факторах успеха повторного использования.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 18. Повторное использование требований
     application: корпус знаний, библиотека требований и структура повторно используемых
       материалов.
   open_questions: []
 - id: SREQ-056
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: при повторном использовании требований ссылка на исходный источник часто предпочтительнее
     копирования, потому что копирование создаёт дублирование и риск потери исходного
     контекста.
   excerpt: глава 18, раздел `Механизм повторного использования`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 18. Повторное использование требований
     application: правила ссылок на требования и материалы корпуса.
   open_questions: []
 - id: SREQ-057
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: планы, сметы и графики проекта должны строиться на основе требований, а сами
     оценки нужно уточнять по мере появления новых знаний и завершения части работы.
   excerpt: глава 19, разделы об оценке работ и переходе к планам.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 19. От разработки требований — к следующим этапам
     application: связь требований и управления проектом.
   open_questions: []
 - id: SREQ-058
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: тестирование должно строиться на требованиях, а тестировщиков нужно подключать
     к рецензированию требований, чтобы проверить их пригодность как основы для системных
     и приёмочных тестов.
   excerpt: глава 19, раздел `От требований — к тестированию`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 19. От разработки требований — к следующим этапам
     application: проверка требований и план тестирования.
   open_questions: []
 - id: SREQ-059
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: приёмочные тесты должны покрывать нормальное поведение, ожидаемые ошибки и
     сценарии отказа, а также ожидания по качеству.
   excerpt: глава 19, раздел `От требований — к тестированию`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 19. От разработки требований — к следующим этапам
     application: критерии приёмки и проверка пользовательских историй.
   open_questions: []
 - id: SREQ-060
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: каждое функциональное требование должно прослеживаться хотя бы до одного системного
     теста, чтобы ожидаемая реакция системы не осталась без проверки.
   excerpt: глава 19, раздел `От требований — к тестированию`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 19. От разработки требований — к следующим этапам
     application: проверка требований и матрица связей.
   open_questions: []
 - id: SREQ-061
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: процесс управления требованиями включает управление версиями, управление изменениями,
     отслеживание состояния и отслеживание связей требований.
   excerpt: глава 27, раздел `Процесс управления требованиями`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 27. Приемы управления требованиями к ПО
     application: структура процесса управления требованиями.
   open_questions: []
 - id: SREQ-062
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: описание процесса управления требованиями должно определять роли, ответственных,
     порядок исключений, передачу вопросов вверх по ответственности и используемые
     инструменты.
   excerpt: глава 27, раздел `Процесс управления требованиями`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 27. Приемы управления требованиями к ПО
     application: проектирование правил работы с требованиями.
   open_questions: []
 - id: SREQ-063
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: базовая версия требований — это утверждённый набор требований для выпуска
     или итерации; после принятия она должна изменяться только через согласованный
     процесс управления изменениями.
   excerpt: глава 27, раздел `Базовое соглашение о требованиях`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 27. Приемы управления требованиями к ПО
     application: управление базовой версией требований.
   open_questions: []
 - id: SREQ-064
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: атрибуты требований могут включать дату создания, версию, автора, приоритет,
     состояние, источник, обоснование, выпуск, ответственного за изменения и метод
     проверки или критерий приёмки.
   excerpt: глава 27, раздел `Атрибуты требований`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 27. Приемы управления требованиями к ПО
     application: структура хранилища требований и спецификаций.
   open_questions: []
 - id: SREQ-065
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: проблемы с требованиями нужно фиксировать в отслеживаемом хранилище, иначе
     открытые вопросы легко теряются и возвращаются как срочные доработки позднее.
   excerpt: глава 27, раздел о разрешении проблем с требованиями.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 27. Приемы управления требованиями к ПО
     application: управление открытыми вопросами и журнал проблем.
   open_questions: []
 - id: SREQ-066
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: изменение требований должно проходить через процесс предложения, анализа влияния,
     принятия решения, обновления требований, обновления планов и сообщения заинтересованным
     лицам.
   excerpt: главы 27 и 28, разделы об управлении изменениями.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 27. Приемы управления требованиями к ПО
     application: процесс управления изменениями требований.
   open_questions: []
 - id: SREQ-067
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: анализ влияния изменения включает понимание последствий, определение затронутых
     требований и артефактов, а также оценку задач и усилий на реализацию.
   excerpt: глава 28, раздел `Процедура анализа влияния изменения`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 28. Изменения случаются
     application: изменение требований и оценка последствий.
   open_questions: []
 - id: SREQ-068
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: связи требований должны поддерживать движение от потребностей к требованиям
     и рабочим продуктам, а также обратный путь от реализации к исходным основаниям.
   excerpt: глава 29, раздел `Отслеживание связей требований`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 29. Связи в цепи требований
     application: матрица связей и анализ происхождения требований.
   open_questions: []
 - id: SREQ-069
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: отслеживаемость помогает находить пропущенные и ненужные требования, поддерживать
     соответствие нормативам, проводить анализ влияния, сопровождать продукт, отслеживать
     состояние проекта, повторно использовать материалы и связывать тесты с требованиями.
   excerpt: глава 29, раздел Мотивация для отслеживаемости требований`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 29. Связи в цепи требований
     application: обоснование матрицы связей и правил трассировки.
   open_questions: []
 - id: SREQ-070
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: проект должен выбирать только те связи требований, которые имеют понятную
     пользу, назначать ответственных за их поддержку и обновлять связи по мере создания
     или изменения артефактов.
   excerpt: глава 29, процедура отслеживания требований.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 29. Связи в цепи требований
     application: правила сопровождения матрицы связей.
   open_questions: []
 - id: SREQ-071
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: набор документов процесса требований может включать процесс разработки требований,
     процедуру назначения требований, процедуру приоритизации, шаблон концепции и границ,
     шаблон вариантов использования, шаблон спецификации и контрольный список рецензирования.
   excerpt: глава 31, раздел о документах процесса разработки требований.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 31. Совершенствование процессов работы с требованиями
     application: структура документации процесса требований.
   open_questions: []
 - id: SREQ-072
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: набор документов процесса управления требованиями может включать процесс управления
     требованиями, процедуру отслеживания состояния, процесс управления изменениями,
     устав совета по управлению изменениями, контрольный список анализа влияния и процедуру
     отслеживаемости.
   excerpt: глава 31, раздел о документах процесса управления требованиями.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 31. Совершенствование процессов работы с требованиями
     application: структура документации управления требованиями.
   open_questions: []
 - id: SREQ-073
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: документы процесса требований должны быть настолько короткими, насколько позволяет
     последовательное выполнение работы, и могут быть объединены в один общий процесс,
     если отдельные документы не нужны.
   excerpt: глава 31, раздел о документах процесса.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 31. Совершенствование процессов работы с требованиями
     application: проектирование лёгкой, сопровождаемой документации.
   open_questions: []
 - id: SREQ-074
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: документы процесса требований стоит хранить в общей библиотеке с доступным
     механизмом улучшения по мере накопления опыта.
   excerpt: глава 31, раздел о документах процесса.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 31. Совершенствование процессов работы с требованиями
     application: организация проектной и процессной документации.
   open_questions: []
 - id: SREQ-075
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: улучшение процесса требований должно иметь измеримую цель и показатели, иначе
     команда не сможет определить прогресс, расставить приоритеты улучшений и понять,
     достигнут ли результат.
   excerpt: глава 31, раздел `Достигнута ли цель?`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 31. Совершенствование процессов работы с требованиями
     application: сопровождение процесса требований и оценка улучшений.
   open_questions: []
 - id: SREQ-076
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: в проектах гибкой разработки требования не становятся особым типом требований;
     меняются глубина проработки, момент документирования и объём письменных материалов.
   excerpt: глава 20, раздел `Гибкие требования?`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 20. Проекты гибкой разработки (agile)
     application: выбор формы работы с требованиями в гибких проектах.
   open_questions: []
 - id: SREQ-077
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: в гибких проектах клиент или владелец продукта должен быть доступен на протяжении
     итераций, чтобы уточнять пользовательские истории, давать обратную связь и участвовать
     в проверке результата.
   excerpt: глава 20, раздел `Вовлечение клиентов`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 20. Проекты гибкой разработки (agile)
     application: требования к участию владельца продукта.
   open_questions: []
 - id: SREQ-078
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: пользовательские истории, написанные участниками без опыта требований, следует
     редактировать или проверять человеком с навыками бизнес-анализа до передачи команде
     разработки.
   excerpt: глава 20, обсуждение качества пользовательских историй.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 20. Проекты гибкой разработки (agile)
     application: подготовка резерва продукта и контроль качества историй.
   open_questions: []
 - id: SREQ-079
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: в гибкой разработке минимальная документация требований должна сохранять сведения,
     которые нужны разработчикам, тестировщикам, соблюдению норм и работе с рискованной
     функциональностью.
   excerpt: глава 20, раздел `Подробнее о документации`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 20. Проекты гибкой разработки (agile)
     application: выбор минимального, но достаточного набора документации.
   open_questions: []
 - id: SREQ-080
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: в проекте должен быть единый резерв работ, в котором можно сопоставлять и
     приоритизировать пользовательские истории, дефекты, процессы и другие элементы,
     требующие выполнения.
   excerpt: глава 20, раздел Резерв проекта и расстановка приоритетов`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 20. Проекты гибкой разработки (agile)
     application: управление резервом продукта и приоритетами.
   open_questions: []
 - id: SREQ-081
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: в гибком проекте операции выявления, анализа, спецификации и проверки требований
     повторяются на каждой итерации, а не выполняются один раз перед разработкой.
   excerpt: глава 20, схема операций с требованиями на итерации.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 20. Проекты гибкой разработки (agile)
     application: маршрут требований в гибких проектах.
   open_questions: []
 - id: SREQ-082
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: нефункциональные требования в гибком проекте нужно выявлять как можно раньше,
     если они влияют на архитектуру, производительность, удобство использования, доступность
     или другие качества системы.
   excerpt: глава 20, обсуждение планирования времени и нефункциональных требований.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 20. Проекты гибкой разработки (agile)
     application: ранний анализ качественных атрибутов.
   open_questions: []
 - id: SREQ-083
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: пользовательскую историю следует ограничивать объёмом, который можно реализовать
     в одной итерации; слишком крупные истории нужно разбивать на меньшие истории или
     эпики.
   excerpt: глава 20, раздел Эпики, пользовательские истории и функции`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 20. Проекты гибкой разработки (agile)
     application: декомпозиция пользовательских требований.
   open_questions: []
 - id: SREQ-084
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: 'при работе с гибкими требованиями важнее качество требований, позволяющее
     удовлетворить потребности клиентов, чем спор о названии элемента: история, эпик
     или функция.'
   excerpt: глава 20, предупреждение о терминологии историй и эпиков.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 20. Проекты гибкой разработки (agile)
     application: терминологическая дисциплина и качество требований.
   open_questions: []
 - id: SREQ-085
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: гибкий проект должен рассчитывать на изменения, но управлять ими через приоритизацию,
     оценку влияния и установленный порядок, а не через неконтролируемое добавление
     работы.
   excerpt: глава 20, раздел `Расчёт на неизбежные изменения`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 20. Проекты гибкой разработки (agile)
     application: управление изменениями в гибком проекте.
   open_questions: []
 - id: SREQ-086
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: удаление элементов из проекта является обычной частью управления изменениями
     и может быть нужно из-за проблем реализации, замечаний владельца продукта или
     замены менее важных элементов.
   excerpt: глава 20, обсуждение удаления элементов из проекта.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 20. Проекты гибкой разработки (agile)
     application: управление объёмом и резервом продукта.
   open_questions: []
 - id: SREQ-087
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: в проектах доработки или замены системы полезны дерево функций, анализ влияния,
     модели процессов, бизнес-правила, варианты использования, контекстная диаграмма,
     карты интерфейсов, модели данных и анализ связей.
   excerpt: глава 21, таблица ценных приёмов для доработки и замены.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 21. Проекты по доработке или замене систем
     application: маршрут анализа существующей системы.
   open_questions: []
 - id: SREQ-088
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: проекты доработки дают безопасную возможность внедрять новые приёмы работы
     с требованиями малыми шагами, потому что изменения ограничены меньшим объёмом,
     чем крупная замена системы.
   excerpt: глава 21, вывод после таблицы приёмов.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 21. Проекты по доработке или замене систем
     application: постепенное улучшение процесса требований.
   open_questions: []
 - id: SREQ-089
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: новые функции в проекте доработки нужно связывать с бизнес-целями и приоритетами,
     чтобы не добавлять в зрелый продукт необязательные возможности.
   excerpt: глава 21, раздел о расстановке приоритетов.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 21. Проекты по доработке или замене систем
     application: отбор функций для доработки существующего продукта.
   open_questions: []
 - id: SREQ-090
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: при замене системы нельзя автоматически переносить функцию только потому,
     что она есть в старой системе; нужно проверять её текущую или будущую бизнес-ценность.
   excerpt: глава 21, раздел о проектах замены.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 21. Проекты по доработке или замене систем
     application: анализ наследуемой функциональности.
   open_questions: []
 - id: SREQ-091
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: анализ расхождений в проекте замены должен выявлять функции существующей системы,
     которые нужны в новой системе, и потребности, которым старая система не удовлетворяет.
   excerpt: глава 21, раздел `Осторожно с пробелами`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 21. Проекты по доработке или замене систем
     application: gap-анализ при замене системы.
   open_questions: []
 - id: SREQ-092
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: при доработке или замене системы требования к данным должны учитывать достаточность
     существующей модели, миграцию, преобразование, исправление, архивирование и удаление
     данных.
   excerpt: глава 21, таблица приёмов для моделей данных.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 21. Проекты по доработке или замене систем
     application: анализ данных при замене и развитии системы.
   open_questions: []
 - id: SREQ-093
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: в проектах с серийным продуктом требования нужны не только для разработки,
     но и для выбора продукта, оценки соответствия, настройки, интеграции и принятия
     компромиссов.
   excerpt: глава 22, разделы о проектах с серийным продуктом.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 22. Проекты с серийным продуктом
     application: выбор и внедрение готовых продуктов.
   open_questions: []
 - id: SREQ-094
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: оценка серийного продукта должна строиться на приоритетных требованиях и анализе
     соответствия, а не на демонстрации поставщика или общем впечатлении о продукте.
   excerpt: глава 22, обсуждение выбора серийного продукта.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 22. Проекты с серийным продуктом
     application: сравнительная оценка готовых решений.
   open_questions: []
 - id: SREQ-095
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: требования к серийному продукту должны учитывать ограничения настройки, интеграции,
     миграции данных, внешних интерфейсов, лицензирования и будущего сопровождения.
   excerpt: глава 22, разделы о применении требований к готовым продуктам.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 22. Проекты с серийным продуктом
     application: внедрение и сопровождение готовых решений.
   open_questions: []
 - id: SREQ-096
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: в проектах, выполняемых сторонними организациями, особенно важны ясные требования,
     критерии приёмки, порядок коммуникации и процесс управления изменениями.
   excerpt: глава 23, рекомендации для подрядных проектов.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 23. Проекты, выполняемые сторонними организациями
     application: заказная и подрядная разработка.
   open_questions: []
 - id: SREQ-097
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: подрядчик может помогать уточнять требования, но ответственность за бизнес-потребности,
     приоритеты и принятие результата остаётся у заказчика или его представителей.
   excerpt: глава 23, обсуждение взаимодействия с внешними исполнителями.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 23. Проекты, выполняемые сторонними организациями
     application: распределение ответственности в подрядных проектах.
   open_questions: []
 - id: SREQ-098
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: в проектах автоматизации бизнес-процессов требования нужно выводить из текущих
     и целевых процессов, ролей, передач ответственности, исключений, бизнес-правил
     и показателей процесса.
   excerpt: глава 24, разделы о проектах автоматизации бизнес-процессов.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 24. Проекты автоматизации бизнес-процессов
     application: анализ процессов перед автоматизацией.
   open_questions: []
 - id: SREQ-099
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: модели бизнес-процессов помогают выявлять требования, потому что показывают
     участников, шаги, входы, выходы, решения, исключения и точки взаимодействия с
     системой.
   excerpt: глава 24, обсуждение моделей процессов.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 24. Проекты автоматизации бизнес-процессов
     application: выявление требований из процессов.
   open_questions: []
 - id: SREQ-100
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: в проектах бизнес-аналитики требования должны описывать решения, показатели,
     источники данных, преобразования, отчёты, панели и качество данных.
   excerpt: глава 25, разделы о проектах бизнес-аналитики.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 25. Проекты бизнес-аналитики
     application: требования к аналитическим и отчётным системам.
   open_questions: []
 - id: SREQ-101
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: для аналитических систем нужно фиксировать смысл данных, периодичность обновления,
     права доступа, качество, происхождение и правила преобразования данных.
   excerpt: глава 25, обсуждение требований к данным в проектах бизнес-аналитики.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 25. Проекты бизнес-аналитики
     application: требования к данным, отчётам и панелям.
   open_questions: []
 - id: SREQ-102
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: для встроенных систем и систем реального времени особенно важны события, состояния,
     временные ограничения, внешние интерфейсы и взаимодействие программной части с
     оборудованием.
   excerpt: глава 26, разделы о моделировании систем реального времени.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 26. Проекты встроенных и других систем реального времени
     application: анализ требований к embedded и real-time системам.
   open_questions: []
 - id: SREQ-103
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
-  text: таблицы событий и реакций, модели состояний и диаграммы взаимодействий помогают
-    описывать поведение систем, зависящих от внешних событий и временных условий.
+  status: verified
+  text: таблицы событий и реакций, диаграммы переходов состояний и таблицы состояний
+    помогают описывать поведение систем, зависящих от внешних событий и временных условий.
   excerpt: главы 12 и 26, обсуждение моделей для систем реального времени.
-  artifact: software-requirements-3rd-ru.txt
-  checked_at: '2026-06-22'
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
+  checked_at: '2026-06-29'
   scope:
-    section_title: ''
+    section_title: Глава 12. Лучше один раз увидеть, чем 1024 раза услышать
     application: моделирование поведения сложных систем.
   open_questions: []
 - id: SREQ-104
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: для встроенных систем особенно значимы атрибуты качества, связанные с безопасностью,
     надёжностью, производительностью, пригодностью к эксплуатации и ограничениями
     рабочей среды.
   excerpt: глава 26, раздел об атрибутах качества встроенных систем.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 26. Проекты встроенных и других систем реального времени
     application: качественные требования к embedded-системам.
   open_questions: []
 - id: SREQ-105
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: в системах с аппаратной частью требования могут влиять на распределение функций
     между программным обеспечением, оборудованием и внешними устройствами.
   excerpt: главы 19 и 26, обсуждение связи требований с дизайном и встроенными системами.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 19. От разработки требований — к следующим этапам
     application: архитектурный анализ систем с аппаратной частью.
   open_questions: []
 - id: SREQ-106
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: управление требованиями не предназначено для предотвращения изменений; его
     задача — сделать изменения ожидаемыми, оценёнными и управляемыми.
-  excerpt: глава 27, раздел о процессе управления требованиями.
-  artifact: software-requirements-3rd-ru.txt
-  checked_at: '2026-06-22'
+  excerpt: глава 28 (управление изменениями — не барьер) и глава 31 (процесс изменений
+    как структура, а не препятствие).
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
+  checked_at: '2026-06-29'
   scope:
-    section_title: ''
+    section_title: Глава 28. Изменения случаются
     application: назначение управления требованиями.
   open_questions: []
 - id: SREQ-107
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: план управления требованиями должен описывать роли, процесс, инструменты,
     атрибуты требований, базовые версии, статусы, изменения и отслеживаемость.
   excerpt: глава 27, разделы о процессе управления требованиями.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 27. Приемы управления требованиями к ПО
     application: проектирование процесса управления требованиями.
   open_questions: []
 - id: SREQ-108
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: 'управление конфигурацией применимо к требованиям так же, как к коду: команде
     нужно знать версии требований, утверждённые наборы и порядок внесения изменений.'
   excerpt: глава 27, обсуждение управления конфигурацией требований.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 27. Приемы управления требованиями к ПО
     application: версионирование и базовые версии требований.
   open_questions: []
 - id: SREQ-109
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: полезные атрибуты требования могут включать статус, приоритет, источник, основание,
     владельца, версию, дату изменения и связи с другими артефактами.
   excerpt: глава 27, разделы об атрибутах требований.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 27. Приемы управления требованиями к ПО
     application: схема карточки требования.
   open_questions: []
 - id: SREQ-110
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: отслеживание состояния требований помогает менеджеру проекта понимать, выполняются
     ли проектирование, реализация и проверка согласно принятому плану.
   excerpt: глава 31, раздел о роли требований в отслеживании проекта.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 31. Совершенствование процессов работы с требованиями
     application: управление состоянием требований и проектным планом.
   open_questions: []
 - id: SREQ-111
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: базовая версия требований фиксирует утверждённый набор, после которого изменения
     должны проходить через согласованный процесс управления изменениями.
   excerpt: главы 27 и 28, обсуждение базовой версии и изменений.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 27. Приемы управления требованиями к ПО
     application: контроль объёма и обязательств.
   open_questions: []
 - id: SREQ-112
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: запрос на изменение должен содержать сведения, достаточные для анализа, решения
     и последующего отслеживания, включая описание, причину, источник, приоритет, статус
     и влияние.
   excerpt: глава 28 и приложение об атрибутах запросов на изменение.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 28. Изменения случаются
     application: карточка запроса на изменение.
   open_questions: []
 - id: SREQ-113
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: решение о существенном изменении требований должно принимать определённое
     лицо или группа, которые имеют полномочия оценить ценность, стоимость, сроки,
     риски и обязательства.
   excerpt: глава 28, обсуждение процесса управления изменениями.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 28. Изменения случаются
     application: порядок принятия запросов на изменение.
   open_questions: []
 - id: SREQ-114
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: анализ влияния изменения требований должен рассматривать требования, дизайн,
     код, тесты, пользовательскую документацию, планы, стоимость, сроки, качество и
     риски.
   excerpt: глава 28, раздел об анализе влияния.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 28. Изменения случаются
     application: проверка последствий изменения требований.
   open_questions: []
 - id: SREQ-115
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: в гибкой разработке управление изменениями обычно выражается через переупорядочивание
     резерва и перенос низкоприоритетных элементов, но это не отменяет необходимости
     оценивать последствия изменения.
   excerpt: главы 20 и 28, разделы об изменениях в гибких проектах.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 20. Проекты гибкой разработки (agile)
     application: управление изменениями в резерве продукта.
   open_questions: []
 - id: SREQ-116
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: отслеживаемость требований должна связывать требования назад к источникам
     и целям, вперёд к реализации и тестам, а также вбок к связанным требованиям и
     бизнес-правилам.
   excerpt: глава 29, разделы о связях требований.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 29. Связи в цепи требований
     application: проектирование трассировки требований.
   open_questions: []
 - id: SREQ-117
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: связи требований полезны для анализа влияния, проверки покрытия, поиска пропусков,
     контроля объёма и понимания, какие артефакты затронет изменение.
   excerpt: глава 29, обсуждение преимуществ отслеживаемости.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 29. Связи в цепи требований
     application: обоснование трассировки требований.
   open_questions: []
 - id: SREQ-118
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: полный набор связей требований не всегда оправдан; команда должна поддерживать
     только те связи, которые реально помогают принимать решения и снижать риск.
   excerpt: глава 29, рекомендации по выбору связей.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 29. Связи в цепи требований
     application: экономичная отслеживаемость.
   open_questions: []
 - id: SREQ-119
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: специализированное средство управления требованиями особенно полезно, когда
     требований много, они часто меняются, распределены между участниками, имеют много
     атрибутов, связей или повторно используются.
   excerpt: глава 30, разделы о средствах управления требованиями.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 30. Инструментальные средства разработки требований
     application: выбор инструмента управления требованиями.
   open_questions: []
 - id: SREQ-120
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: инструмент управления требованиями нужно выбирать под процесс, масштаб, участников
     и дисциплину сопровождения требований, а не под список функций инструмента сам
     по себе.
   excerpt: глава 30, раздел о выборе и внедрении инструмента.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 30. Инструментальные средства разработки требований
     application: оценка инструментов требований.
   open_questions: []
 - id: SREQ-121
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: типичные функции средства управления требованиями включают хранение требований,
     атрибуты, состояния, версии, базовые версии, связи, отчёты, доступ, рецензирование
     и поиск.
   excerpt: глава 30, раздел о возможностях средств управления требованиями.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 30. Инструментальные средства разработки требований
     application: требования к инструменту управления требованиями.
   open_questions: []
 - id: SREQ-122
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: внедрение средства управления требованиями требует процесса, обучения, миграции
     существующих материалов и правил сопровождения, иначе инструмент не обеспечит
     ожидаемого улучшения.
   excerpt: глава 30, раздел о выборе и реализации средства.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 30. Инструментальные средства разработки требований
     application: внедрение инструментов требований.
   open_questions: []
 - id: SREQ-123
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: совершенствование процесса требований должно быть эволюционным и непрерывным,
     а не попыткой сразу достичь идеального процесса.
   excerpt: глава 31, раздел `Основы совершенствования процессов`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 31. Совершенствование процессов работы с требованиями
     application: изменение процесса требований.
   open_questions: []
 - id: SREQ-124
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: 'улучшение процесса требований нужно начинать с наблюдаемых проблем: переделок,
     сорванного графика, потерянных изменений, неясных требований, лишних затрат на
     тестирование или неудовлетворённости пользователей.'
   excerpt: глава 31, перечень симптомов проблем процесса.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 31. Совершенствование процессов работы с требованиями
     application: диагностика процесса требований.
   open_questions: []
 - id: SREQ-125
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: при улучшении процесса требований нужно объяснять каждой группе заинтересованных
     лиц, какую информацию и поддержку она должна дать команде и что получит от улучшенного
     процесса.
   excerpt: глава 31, раздел `Требования и различные группы`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 31. Совершенствование процессов работы с требованиями
     application: внедрение процесса требований в организации.
   open_questions: []
 - id: SREQ-126
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: сопротивление изменениям процесса требований нужно снижать через объяснение
     проблем, выгод для участников и практической ценности требований, а не только
     через административное требование следовать процессу.
   excerpt: глава 31, раздел `Как добиться готовности к изменениям`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 31. Совершенствование процессов работы с требованиями
     application: управление изменениями процесса.
   open_questions: []
 - id: SREQ-127
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: приверженность руководства улучшению процесса проявляется в выделении времени,
     ресурсов, полномочий и личной поддержке действий по улучшению.
   excerpt: глава 31, признаки приверженности руководства.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 31. Совершенствование процессов работы с требованиями
     application: организационная поддержка процесса требований.
   open_questions: []
 - id: SREQ-128
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: процессные документы требований должны описывать не только порядок работы
     аналитика, но и взаимодействие с маркетингом, поддержкой, юридической функцией,
     руководством, поставщиками, пользователями и другими группами.
   excerpt: глава 31, схема взаимодействия групп с процессом требований.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 31. Совершенствование процессов работы с требованиями
     application: проектирование процесса требований для нескольких ролей.
   open_questions: []
 - id: SREQ-129
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: риск — это условие, которое ещё не стало проблемой, но может привести к потерям
     или поставить под угрозу успех проекта.
   excerpt: глава 32, начало раздела о рисках.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 32. Требования к ПО и управление рисками
     application: терминология управления рисками.
   open_questions: []
 - id: SREQ-130
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: распространённые риски требований включают неверное понимание, недостаточное
     вовлечение пользователей, неточность целей и объёма проекта, а также постоянные
     изменения требований.
   excerpt: глава 32, вводный раздел о рисках требований.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 32. Требования к ПО и управление рисками
     application: выявление рисков требований.
   open_questions: []
 - id: SREQ-131
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: управление рисками включает выявление, оценку, анализ, приоритизацию, планирование
     действий, смягчение, контроль, разрешение и мониторинг рисков.
   excerpt: глава 32, схема составляющих управления рисками.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 32. Требования к ПО и управление рисками
     application: процесс управления рисками требований.
   open_questions: []
 - id: SREQ-132
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: риск полезно документировать в формате причины и следствия, дополняя его вероятностью,
     влиянием, подверженностью, планом управления, резервным планом, владельцем и сроком.
   excerpt: глава 32, шаблон отслеживания риска.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 32. Требования к ПО и управление рисками
     application: карточка риска требований.
   open_questions: []
 - id: SREQ-133
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: обнаружение риска и выбор действий по его смягчению недостаточны; действия
     нужно запланировать, выполнить и регулярно отслеживать в ходе проекта.
   excerpt: глава 32, предупреждение о контроле рисков.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 32. Требования к ПО и управление рисками
     application: сопровождение рисков требований.
   open_questions: []
 - id: SREQ-134
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: 'масштаб управления рисками должен соответствовать масштабу проекта: небольшому
     проекту может хватить простого списка рисков, а крупному нужен более формальный
     план.'
   excerpt: глава 32, раздел Основы управления рисками при создании ПО`.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 32. Требования к ПО и управление рисками
     application: дозирование процесса управления рисками.
   open_questions: []
 - id: SREQ-135
   source_id: SREQ
   item_id: SREQ-text
-  status: ready_for_review
+  status: verified
   text: требования создают рабочие входы не только для аналитиков, но и для менеджеров
     проекта, архитекторов, разработчиков, тестировщиков, технических писателей, маркетинга,
     поддержки, юридической функции, поставщиков и пользователей.
   excerpt: главы 19 и 31, разделы о следующих этапах и взаимодействии групп вокруг
     требований.
-  artifact: software-requirements-3rd-ru.txt
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
   checked_at: '2026-06-22'
   scope:
-    section_title: ''
+    section_title: Глава 19. От разработки требований — к следующим этапам
     application: распределение ролей и потребителей требований.
+  open_questions: []
+- id: SREQ-136
+  source_id: SREQ
+  item_id: SREQ-text
+  status: verified
+  text: 'слабая работа с требованиями проявляется повторяющимися симптомами: неясные
+    границы проекта, нехватка времени у клиентов, отсутствие прямого контакта с пользователями,
+    отсутствие приоритизации, многозначность, потерянные изменения и несоответствие
+    между выполненной спецификацией и бизнес-результатом.'
+  excerpt: глава 1, раздел `Проверка текущего состояния дел с требованиями`.
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Глава 1. Основы разработки требований к ПО
+    application: диагностика проблем процесса требований и выбор направлений улучшения.
+  open_questions: []
+- id: SREQ-137
+  source_id: SREQ
+  item_id: SREQ-text
+  status: verified
+  text: для требований полезно заранее договориться о рабочей терминологии и разделении
+    типов требований; бизнес-правила, ограничения, внешние интерфейсы, функциональные
+    и нефункциональные требования нужно различать, иначе команда смешивает уровни
+    обсуждения и теряет источник проектных решений.
+  excerpt: глава 1, разделы `Особенности интерпретации требований`, `Уровни и типы
+    требований` и `Три уровня требований`.
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Глава 1. Основы разработки требований к ПО
+    application: нормализация терминологии требований и разбор уровней требований
+      в проекте.
+  open_questions: []
+- id: SREQ-138
+  source_id: SREQ
+  item_id: SREQ-text
+  status: verified
+  text: универсального линейного процесса разработки требований не существует; полезнее
+    опираться на набор рекомендуемых приёмов и выбирать их по ситуации, а не пытаться
+    внедрить один шаблонный сценарий для всех проектов.
+  excerpt: глава 3, вводный раздел о рекомендуемых приёмах формулирования требований.
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Глава 3. Рекомендуемые приемы формирования требований
+    application: выбор режима работы с требованиями и адаптация практик под тип проекта.
+  open_questions: []
+- id: SREQ-139
+  source_id: SREQ
+  item_id: SREQ-text
+  status: verified
+  text: 'разработка требований идёт итеративно: выявление, анализ, спецификация и
+    проверка многократно возвращают команду к уточнению, закрытию пробелов и исправлению
+    ошибок; поэтому набор требований надо развивать порциями, а не ожидать полного
+    результата за один проход.'
+  excerpt: глава 3, раздел `Каркас процесса создания требований`.
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Глава 3. Рекомендуемые приемы формирования требований
+    application: проектирование итеративного процесса требований и планирование рабочих
+      циклов.
+  open_questions: []
+- id: SREQ-140
+  source_id: SREQ
+  item_id: SREQ-text
+  status: verified
+  text: приложение А даёт самооценку зрелости работы с требованиями из 20 вопросов,
+    каждый из которых привязан к главе книги и предлагает четыре варианта ответа от
+    наименее к наиболее зрелому приёму.
+  excerpt: приложение А, перечень из 20 вопросов с привязками к главам и вариантами
+    `а`-`г`.
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Приложение А. Самооценка процессов работы с требованиями
+    application: оценка текущих приёмов проекта и выбор областей совершенствования.
+  open_questions: []
+- id: SREQ-141
+  source_id: SREQ
+  item_id: SREQ-text
+  status: verified
+  text: на достоверность самооценки влияет подбор респондентов; независимое прохождение
+    несколькими людьми снижает тенденциозность и выявляет расхождения в понимании того,
+    как процессы выполняются на самом деле.
+  excerpt: приложение А, вступительные указания о выборе респондентов и независимой
+    оценке.
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Приложение А. Самооценка процессов работы с требованиями
+    application: организация честной оценки процессов и снятие смещения ответов.
+  open_questions: []
+- id: SREQ-142
+  source_id: SREQ
+  item_id: SREQ-text
+  status: verified
+  text: приложение Б перечисляет общие симптомы проблем с требованиями — продукт не
+    удовлетворяет нужд, ранние исправления и заплаты, недостижение бизнес-целей, срыв
+    графика и бюджета, массовые переделки и неприятие продукта рынком — как признаки
+    для диагностики.
+  excerpt: приложение Б, раздел `Общие симптомы проблем, связанных с требованиями`.
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Приложение Б. Руководство по устранению проблем
+    application: диагностика проблем процесса требований по наблюдаемым симптомам.
+  open_questions: []
+- id: SREQ-143
+  source_id: SREQ
+  item_id: SREQ-text
+  status: verified
+  text: руководство по устранению проблем построено как таблица `симптом или проблема
+    -> возможные первопричины -> возможные решения`, сгруппированная по видам деятельности
+    (процессы, продукт, планирование, обмен информацией, выявление, анализ, спецификация,
+    утверждение, управление требованиями и изменениями); применять его нужно от выявленного
+    симптома к первопричинам и затем к приёмам решения.
+  excerpt: приложение Б, разделы `Руководство по устранению проблем` и таблицы по областям.
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Приложение Б. Руководство по устранению проблем
+    application: переход от симптома к первопричине и подбору корректирующих приёмов.
+  open_questions: []
+- id: SREQ-144
+  source_id: SREQ
+  item_id: SREQ-text
+  status: verified
+  text: при внедрении изменений в приёмы работы с требованиями нужно заранее учитывать
+    типичные препятствия — нехватку времени, давление рынка, скептицизм к ценности
+    требований и устоявшуюся культуру — и планировать пути их обхода.
+  excerpt: приложение Б, раздел `Стандартные препятствия для реализации решений`.
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Приложение Б. Руководство по устранению проблем
+    application: планирование внедрения улучшений процесса требований.
+  open_questions: []
+- id: SREQ-145
+  source_id: SREQ
+  item_id: SREQ-text
+  status: verified
+  text: приложение В даёт сквозной образец комплекта документов требований на одном
+    примере (Cafeteria Ordering System) — документ о концепции и границах, варианты
+    использования, спецификацию требований к ПО, словарь данных и модели анализа.
+  excerpt: приложение В, набор связанных образцов документов для одной системы.
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Приложение В. Образцы документов требований
+    application: образец структуры и связности проектного комплекта документов требований.
+  open_questions: []
+- id: SREQ-146
+  source_id: SREQ
+  item_id: SREQ-text
+  status: verified
+  text: образец документа о концепции и границах показывает измеримые бизнес-цели и
+    критерии успеха с устойчивыми идентификаторами (`BO`, `SM`) и бизнес-риски с явной
+    оценкой вероятности и ущерба.
+  excerpt: приложение В, разделы образца `Критерии успеха`, `Видение решения` и `Бизнес-риски`.
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Приложение В. Образцы документов требований
+    application: образец измеримых целей, критериев успеха и оценки рисков.
+  open_questions: []
+- id: SREQ-147
+  source_id: SREQ
+  item_id: SREQ-text
+  status: verified
+  text: в образце варианты использования намеренно описаны с разной глубиной — от подробного
+    до сжатого, что показывает допустимость дозировать детализацию, а не описывать все
+    сценарии одинаково полно.
+  excerpt: приложение В, примечания к вариантам использования о разной степени детализации.
+  artifact: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Приложение В. Образцы документов требований
+    application: дозирование детализации вариантов использования по необходимости.
   open_questions: []
