@@ -16,17 +16,16 @@
 
 В корпус включены следующие артефакты источника:
 
-- сырой HTML обзорной страницы: `knowledge/primary/WTDG/index.html`
+- сырой HTML обзорной страницы: `knowledge/data/wtdg/items/source/index.html`
 - заголовки HTTP-ответа для обзорной страницы:
-  `knowledge/primary/WTDG/response-headers.txt`
+  `knowledge/data/wtdg/items/source/response-headers.txt`
 - вспомогательная очищенная копия обзорной страницы:
-  `knowledge/normalized/WTDG/legacy-source.md`
-- снимки внутренних страниц этого же источника:
-  `knowledge/primary/WTDG/pages`
+  `knowledge/data/wtdg/items/normalized-wtdg-legacy-source.md/legacy-source.md`
+- снимки внутренних страниц этого же источника: `knowledge/data/wtdg/items/`
 - вспомогательные очищенные копии внутренних страниц:
-  `knowledge/normalized/WTDG/pages`
+  `knowledge/data/wtdg/items/`
 - индекс полученных внутренних страниц:
-  `knowledge/primary/WTDG/page-index.tsv`
+  `knowledge/data/wtdg/items/source/page-index.tsv`
 
 ## Ограничения
 

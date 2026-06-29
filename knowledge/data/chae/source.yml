@@ -8,6 +8,11 @@ status: approved
 carrier_type: web_page
 source_kind: research
 adapter: manual
+storage_strategy: local_only
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+license_or_terms: "требуется отдельная проверка лицензии конкретной версии arXiv; опубликованная версия — © IEEE."
 access:
   default: Смотри карточки единиц источника в knowledge/data/chae/ и общие ограничения
     в knowledge/source-attribution.md.

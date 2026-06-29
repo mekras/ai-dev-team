@@ -2,11 +2,10 @@
 
 ## Основание
 
-- Источник учёта: `knowledge/inventory/HWD.md`
-- Паспорт источника: `knowledge/primary/HWD/source.md`
-- Индекс первичных артефактов: `knowledge/primary/HWD/page-index.tsv`
-- Снимок материала:
-  `knowledge/primary/HWD/287c3b86170f56b163dc65eeaaf3678c3cefb25c/pages`
+- Источник учёта: `knowledge/data/hwd/source.yml`
+- Паспорт источника: `knowledge/data/hwd/items/source/source.md`
+- Индекс первичных артефактов: `knowledge/data/hwd/items/source/page-index.tsv`
+- Снимок материала: `knowledge/data/hwd/items/`
 - Commit снимка: `287c3b86170f56b163dc65eeaaf3678c3cefb25c`
 
 ## Назначение нормализации

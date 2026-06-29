@@ -22,18 +22,18 @@ Git.
 - Тип источника: локальная PDF-книга
 - Способ получения: по решению пользователя в проект скопирована локальная
   рабочая копия книги с хранением файла только в игнорируемом каталоге
-  `knowledge/primary/SAHP/files/`
+  `knowledge/.local/raw/sahp/`
 - Дата включения в корпус: `2026-06-24`
 
 ## Что сохранено
 
 Для локальной обработки получены следующие артефакты:
 
-- паспорт: `knowledge/primary/SAHP/source.md`
-- индекс артефактов: `knowledge/primary/SAHP/page-index.tsv`
-- PDF: `knowledge/primary/SAHP/files/software-architecture-hard-parts-ru.pdf`
+- паспорт: `knowledge/data/sahp/items/source/source.md`
+- индекс артефактов: `knowledge/data/sahp/items/source/page-index.tsv`
+- PDF: `knowledge/.local/raw/sahp/software-architecture-hard-parts-ru.pdf`
 - текстовая выгрузка:
-  `knowledge/primary/SAHP/files/software-architecture-hard-parts-ru.txt`
+  `knowledge/.local/raw/sahp/software-architecture-hard-parts-ru.txt`
 
 В Git сохраняются только метаданные источника; обзорный нормализованный слой и
 извлечённые утверждения добавляются на следующих шагах без крупных дословных

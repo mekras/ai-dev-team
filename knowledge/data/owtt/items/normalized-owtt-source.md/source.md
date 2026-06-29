@@ -2,7 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/OWTT/source.md` (`external_reference`)
+- Первичный источник: `knowledge/data/owtt/items/source/source.md`
+  (`external_reference`)
 - Дата нормализации: `2026-06-25`
 - Способ нормализации: обзор перечня по каноническому адресу OWASP; полный текст
   не копировался.

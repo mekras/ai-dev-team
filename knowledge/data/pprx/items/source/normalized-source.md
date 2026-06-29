@@ -2,8 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/PPRX/source.md`
-- Индекс первичных страниц: `knowledge/primary/PPRX/page-index.tsv`
+- Первичный источник: `knowledge/data/pprx/items/source/source.md`
+- Индекс первичных страниц: `knowledge/data/pprx/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-01`
 - Способ нормализации: извлечение основного содержимого из локально сохранённого
   HTML-снимка
@@ -13,7 +13,7 @@
 Полное очищенное Markdown-представление сохранённой единицы источника
 используется как локальный неотслеживаемый слой:
 
-- `knowledge/normalized/PPRX/pages/designing-refining-maintaining-agent-skills/index.md`
+- `knowledge/data/pprx/items/designing-refining-maintaining-agent-skills`
 
 В Git сохраняются только метаданные нормализации и производные утверждения без
 крупных дословных фрагментов.

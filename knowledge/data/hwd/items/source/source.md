@@ -17,16 +17,15 @@
 
 В корпус включён файловый снимок каталога `src/pages` по указанному commit:
 
-- путь в корпусе:
-  `knowledge/primary/HWD/287c3b86170f56b163dc65eeaaf3678c3cefb25c/pages`
+- путь в корпусе: `knowledge/data/hwd/items/`
 - тип материала: первичные данные
 - форма хранения: сохранённый файловый срез каталога с исключением явно
   служебных файлов сборки и отслеживания
 
 Дополнительно сохранён сырой ответ GitHub API по ветке `master`:
 
-- `knowledge/primary/HWD/branch-master.json`
-- `knowledge/primary/HWD/page-index.tsv`
+- `knowledge/data/hwd/items/source/branch-master.json`
+- `knowledge/data/hwd/items/source/page-index.tsv`
 
 ## Ограничения
 

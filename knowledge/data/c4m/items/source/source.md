@@ -17,30 +17,25 @@
 
 В источник включены следующие артефакты:
 
-- главная страница:
-  `knowledge/primary/C4M/index.html`
+- главная страница: `knowledge/data/c4m/items/source/index.html`
 - заголовки главной страницы:
-  `knowledge/primary/C4M/response-headers.txt`
-- страницы раздела методологии:
-  `knowledge/primary/C4M/pages/**/index.html`
-- заголовки страниц раздела:
-  `knowledge/primary/C4M/pages/**/response-headers.txt`
+  `knowledge/data/c4m/items/source/response-headers.txt`
+- страницы раздела методологии: `knowledge/data/c4m/items/**/index.html`
+- заголовки страниц раздела: `knowledge/data/c4m/items/**/response-headers.txt`
 - индекс сохранённых страниц:
-  `knowledge/primary/C4M/page-index.tsv`
+  `knowledge/data/c4m/items/primary-c4m-page-index.tsv/page-index.tsv`
 
 ## Формат и ограничения
 
 - Формат загрузки: `text/html`
 - Формат сохранения: сырой HTML по каждой сохранённой странице.
 - Язык: `EN`
-- Покрытие: главная страница и страницы методологии:
-  `/introduction`, `/history`, `/abstractions/*`,
-  `/diagrams/*`, `/tooling`, `/faq`.
+- Покрытие: главная страница и страницы методологии: `/introduction`,
+  `/history`, `/abstractions/*`, `/diagrams/*`, `/tooling`, `/faq`.
 
 ## Условия использования
 
-- Лицензия: `CC BY 4.0` по
-  `https://creativecommons.org/licenses/by/4.0/`.
+- Лицензия: `CC BY 4.0` по `https://creativecommons.org/licenses/by/4.0/`.
 - Полные условия использования: требуется указание авторства при производном
   использовании.
 - Атрибуция и правовой статус: `knowledge/source-attribution.md`.

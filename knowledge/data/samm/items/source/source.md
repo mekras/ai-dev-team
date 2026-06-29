@@ -24,10 +24,11 @@
 
 ## Что сохранено
 
-- паспорт: `knowledge/primary/SAMM/source.md`
-- индекс артефактов: `knowledge/primary/SAMM/page-index.tsv`
-- PDF: `knowledge/primary/SAMM/files/owasp-samm-v2.pdf`
-- текстовая выгрузка: `knowledge/primary/SAMM/files/owasp-samm-v2.txt`
+- паспорт: `knowledge/data/samm/items/source/source.md`
+- индекс артефактов:
+  `knowledge/data/samm/items/primary-samm-page-index.tsv/page-index.tsv`
+- PDF: `knowledge/data/samm/items/pdf/owasp-samm-v2.pdf`
+- текстовая выгрузка: `knowledge/data/samm/items/text/owasp-samm-v2.txt`
 
 В Git сохраняются метаданные источника, обзорный нормализованный слой и
 извлечённые утверждения.

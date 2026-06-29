@@ -1,10 +1,19 @@
 id: CCMP-pdf
 source_id: CCMP
-title: 'CCMP: pdf'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/ccmp/ и общие
-  ограничения в knowledge/source-attribution.md.
+title: "CCMP: pdf"
+access: "Смотри карточку единицы и связанные артефакты в knowledge/data/ccmp/ и общие ограничения в knowledge/source-attribution.md."
 status: approved
 workflow_stage: statements_extracted
-files:
-  tracked:
-  - code-complete-ru.pdf
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+primary_file:
+  location: knowledge/.local/raw/ccmp/code-complete-ru.pdf
+  format: pdf
+  file_size_bytes: 6162075
+  content_hash: sha256:32dcc2364481460484068e23d0c1414800ff05b0add06010f965ebca3c8923dd
+  page_count: 889
+  metadata_source: pdfinfo
+known_limitations:
+- Полный файл хранится только в игнорируемом локальном слое
+  knowledge/.local/raw/ и не публикуется в Git.

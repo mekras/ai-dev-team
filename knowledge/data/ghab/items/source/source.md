@@ -2,8 +2,8 @@
 
 ## Статус
 
-Источник принят в корпус знаний как внешний публичный веб-материал
-с ограничением на хранение полного HTML в Git.
+Источник принят в корпус знаний как внешний публичный веб-материал с
+ограничением на хранение полного HTML в Git.
 
 ## Происхождение
 
@@ -20,15 +20,15 @@
 
 В состав источника включены следующие артефакты:
 
-- passport: `knowledge/primary/GHAB/source.md`
-- индекс: `knowledge/primary/GHAB/page-index.tsv`
+- passport: `knowledge/data/ghab/items/source/source.md`
+- индекс: `knowledge/data/ghab/items/primary-ghab-page-index.tsv/page-index.tsv`
 - страница:
-  `knowledge/primary/GHAB/pages/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/index.html`
+  `knowledge/data/ghab/items/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/index.html`
 - заголовки ответа:
-  `knowledge/primary/GHAB/pages/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/response-headers.txt`
+  `knowledge/data/ghab/items/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/response-headers.txt`
 
 Снимок хранится локально с исключением `pages/` из Git через
-`knowledge/primary/GHAB/.gitignore`.
+`knowledge/data/ghab/items/source/legacy-primary.gitignore`.
 
 ## Ограничения
 

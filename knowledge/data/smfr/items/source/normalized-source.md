@@ -2,8 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/SMFR/source.md`
-- Индекс первичных артефактов: `knowledge/primary/SMFR/page-index.tsv`
+- Первичный источник: `knowledge/data/smfr/items/source/source.md`
+- Индекс первичных артефактов: `knowledge/data/smfr/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-22`
 - Способ нормализации: обзор локальной текстовой выгрузки DjVu и выборочное
   чтение разделов о шаблонах, сценариях, расширениях, качестве и роли вариантов
@@ -17,9 +17,9 @@
 ## Входной материал
 
 - Локальный DjVu:
-  `knowledge/primary/SMFR/files/sovremennye-metody-opisaniya-funkcionalnyh-trebovanii.djvu`
+  `knowledge/.local/raw/smfr/sovremennye-metody-opisaniya-funkcionalnyh-trebovanii.djvu`
 - Локальная текстовая выгрузка:
-  `knowledge/primary/SMFR/files/sovremennye-metody-opisaniya-funkcionalnyh-trebovanii.txt`
+  `knowledge/.local/raw/smfr/sovremennye-metody-opisaniya-funkcionalnyh-trebovanii.txt`
 
 ## Что удалось выделить
 

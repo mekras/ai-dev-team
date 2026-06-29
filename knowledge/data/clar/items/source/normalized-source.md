@@ -2,8 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/CLAR/source.md`
-- Индекс первичных артефактов: `knowledge/primary/CLAR/page-index.tsv`
+- Первичный источник: `knowledge/data/clar/items/source/source.md`
+- Индекс первичных артефактов: `knowledge/data/clar/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-24`
 - Способ нормализации: чтение локальной текстовой выгрузки EPUB, извлечение
   заголовков глав из текста и выборочное чтение глав по ключевым понятиям.

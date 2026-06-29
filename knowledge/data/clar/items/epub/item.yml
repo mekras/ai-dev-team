@@ -1,10 +1,18 @@
 id: CLAR-epub
 source_id: CLAR
-title: 'CLAR: epub'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/clar/ и общие
-  ограничения в knowledge/source-attribution.md.
+title: "CLAR: epub"
+access: "Смотри карточку единицы и связанные артефакты в knowledge/data/clar/ и общие ограничения в knowledge/source-attribution.md."
 status: approved
 workflow_stage: statements_extracted
-files:
-  tracked:
-  - clean-architecture-martin-ru.epub
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+primary_file:
+  location: knowledge/.local/raw/clar/clean-architecture-martin-ru.epub
+  format: epub
+  file_size_bytes: 13409973
+  content_hash: sha256:c908087fde4407de4fd3097df8431f6e443a8f30c6d5631b30493b3b68ee6cc2
+  metadata_source: file
+known_limitations:
+- Полный файл хранится только в игнорируемом локальном слое
+  knowledge/.local/raw/ и не публикуется в Git.

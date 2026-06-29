@@ -23,16 +23,17 @@
 
 Для обработки локально получены следующие первичные артефакты:
 
-- очищенный HTML-снимок поста: `knowledge/primary/XEM7/pages/status/index.html`
+- очищенный HTML-снимок поста: `knowledge/data/xem7/items/status/index.html`
 - очищенные заголовки ответа поста:
-  `knowledge/primary/XEM7/pages/status/response-headers.txt`
+  `knowledge/data/xem7/items/status/response-headers.txt`
 - очищенный HTML-снимок связанной статьи:
-  `knowledge/primary/XEM7/pages/article/index.html`
+  `knowledge/data/xem7/items/article/index.html`
 - очищенные заголовки ответа связанной статьи:
-  `knowledge/primary/XEM7/pages/article/response-headers.txt`
+  `knowledge/data/xem7/items/article/response-headers.txt`
 - отслеживаемый манифест локального снимка тела статьи:
-  `knowledge/primary/XEM7/pages/article-body/index.md`
-- индекс сохранённых страниц: `knowledge/primary/XEM7/page-index.tsv`
+  `knowledge/data/xem7/items/article-body/index.md`
+- индекс сохранённых страниц:
+  `knowledge/data/xem7/items/primary-xem7-page-index.tsv/page-index.tsv`
 
 В Git сохраняются только метаданные источника, индекс с хэшами, карточка
 источника, пересказ, извлечённые утверждения и производные выводы без крупных

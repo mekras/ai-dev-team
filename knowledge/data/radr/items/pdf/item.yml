@@ -1,10 +1,19 @@
 id: RADR-pdf
 source_id: RADR
-title: 'RADR: pdf'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/radr/ и общие
-  ограничения в knowledge/source-attribution.md.
+title: "RADR: pdf"
+access: "Смотри карточку единицы и связанные артефакты в knowledge/data/radr/ и общие ограничения в knowledge/source-attribution.md."
 status: approved
 workflow_stage: statements_extracted
-files:
-  tracked:
-  - rest-api-design-rulebook.pdf
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+primary_file:
+  location: knowledge/.local/raw/radr/rest-api-design-rulebook.pdf
+  format: pdf
+  file_size_bytes: 5585557
+  content_hash: sha256:46a5a6ff201aa570bdc8d34be24a081c05b1c06a86a50431404f9dbd076720e3
+  page_count: 114
+  metadata_source: pdfinfo
+known_limitations:
+- Полный файл хранится только в игнорируемом локальном слое
+  knowledge/.local/raw/ и не публикуется в Git.

@@ -1,10 +1,18 @@
 id: CCMP-text
 source_id: CCMP
-title: 'CCMP: text'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/ccmp/ и общие
-  ограничения в knowledge/source-attribution.md.
+title: "CCMP: text"
+access: "Смотри карточку единицы и связанные артефакты в knowledge/data/ccmp/ и общие ограничения в knowledge/source-attribution.md."
 status: approved
 workflow_stage: statements_extracted
-files:
-  tracked:
-  - code-complete-ru.txt
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+extracted_text:
+  location: knowledge/.local/raw/ccmp/code-complete-ru.txt
+  format: txt
+  file_size_bytes: 3818779
+  content_hash: sha256:9aa8b91e18a19fbaed55a7a82a185808cb7d2afd76d1c48a2338fa8dcd164459
+  metadata_source: pdftotext
+known_limitations:
+- Полная текстовая выгрузка хранится только в игнорируемом локальном
+  слое knowledge/.local/raw/ и не публикуется в Git.

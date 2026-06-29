@@ -16,20 +16,20 @@
 - Тип источника: локальная PDF-книга
 - Способ получения: пользователь указал локальный файл с исходным именем
   `Психбольница в руках пациентов.pdf`; для корпуса создана рабочая копия в
-  игнорируемом каталоге `knowledge/primary/INMA/files/`
+  игнорируемом каталоге `knowledge/.local/raw/inma/`
 - Дата включения в корпус: `2026-06-25`
 
 ## Что сохранено
 
 Для локальной обработки получены следующие артефакты:
 
-- паспорт: `knowledge/primary/INMA/source.md`
-- индекс артефактов: `knowledge/primary/INMA/page-index.tsv`
-- PDF: `knowledge/primary/INMA/files/inmates-are-running-the-asylum-ru.pdf`
+- паспорт: `knowledge/data/inma/items/source/source.md`
+- индекс артефактов: `knowledge/data/inma/items/source/page-index.tsv`
+- PDF: `knowledge/.local/raw/inma/inmates-are-running-the-asylum-ru.pdf`
 - текстовая выгрузка:
-  `knowledge/primary/INMA/files/inmates-are-running-the-asylum-ru.txt`
-- нормализованный обзор: `knowledge/normalized/INMA/source.md`
-- нормализованные фрагменты: `knowledge/normalized/INMA/fragments/`
+  `knowledge/.local/raw/inma/inmates-are-running-the-asylum-ru.txt`
+- нормализованный обзор: `knowledge/data/inma/items/source/normalized-source.md`
+- нормализованные фрагменты: `knowledge/data/inma/items/`
 
 В Git сохраняются только метаданные источника, нормализованные краткие
 фрагменты, извлечённые утверждения и отчёт влияния без крупных дословных

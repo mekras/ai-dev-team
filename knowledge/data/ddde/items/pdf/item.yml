@@ -1,10 +1,19 @@
 id: DDDE-pdf
 source_id: DDDE
-title: 'DDDE: pdf'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/ddde/ и общие
-  ограничения в knowledge/source-attribution.md.
+title: "DDDE: pdf"
+access: "Смотри карточку единицы и связанные артефакты в knowledge/data/ddde/ и общие ограничения в knowledge/source-attribution.md."
 status: approved
 workflow_stage: statements_extracted
-files:
-  tracked:
-  - ddd-evans-ru.pdf
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+primary_file:
+  location: knowledge/.local/raw/ddde/ddd-evans-ru.pdf
+  format: pdf
+  file_size_bytes: 22728322
+  content_hash: sha256:8ef1848bedec791ddbf6409674b8b3a5f20b259912fa6636c76d762a6c22f86c
+  page_count: 444
+  metadata_source: pdfinfo
+known_limitations:
+- Полный файл хранится только в игнорируемом локальном слое
+  knowledge/.local/raw/ и не публикуется в Git.

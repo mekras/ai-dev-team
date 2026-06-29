@@ -2,8 +2,8 @@
 
 ## Основание
 
-- Источник учёта: `knowledge/inventory/WCAG.md`
-- Паспорт источника: `knowledge/primary/WCAG/source.md`
+- Источник учёта: `knowledge/data/wcag/source.yml`
+- Паспорт источника: `knowledge/data/wcag/items/source/source.md`
 - Канонический адрес: `https://www.w3.org/TR/WCAG22/`
 - Способ получения: точечное чтение из первоисточника (`external_reference`)
 - Атрибуция и правовой статус: `knowledge/source-attribution.md`
@@ -16,8 +16,8 @@
 
 ## Структура стандарта
 
-- _Принципы_ (4): воспринимаемость, управляемость, понятность, надёжность
-  (англ. perceivable, operable, understandable, robust — POUR).
+- _Принципы_ (4): воспринимаемость, управляемость, понятность, надёжность (англ.
+  perceivable, operable, understandable, robust — POUR).
 - _Руководства_ (guidelines): задают цели под каждым принципом.
 - _Критерии успеха_ (success criteria): проверяемые требования; именно их
   выполнение определяет соответствие.

@@ -27,10 +27,12 @@
 
 ## Что сохранено в корпусе
 
-- паспорт: `knowledge/primary/MWAT/source.md`
-- нормализованный обзор: `knowledge/normalized/MWAT/source.md`
-- утверждения: `knowledge/statements/MWAT.md`
-- учёт: `knowledge/inventory/MWAT.md`
+- паспорт: `knowledge/data/mwat/items/source/source.md`
+- нормализованный обзор:
+  `knowledge/data/mwat/items/normalized-mwat-source.md/source.md`
+- утверждения:
+  `knowledge/data/mwat/items/normalized-mwat-source.md/statements.yml`
+- учёт: `knowledge/data/mwat/source.yml`
 - локальная копия не хранится
 
 ## Условия использования

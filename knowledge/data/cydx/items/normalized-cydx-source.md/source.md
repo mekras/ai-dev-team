@@ -2,7 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/CYDX/source.md` (`external_reference`)
+- Первичный источник: `knowledge/data/cydx/items/source/source.md`
+  (`external_reference`)
 - Дата нормализации: `2026-06-25`
 - Способ нормализации: обзор спецификации по каноническому адресу
   `cyclonedx.org/specification/overview/`; полный текст не копировался.

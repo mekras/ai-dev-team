@@ -4,10 +4,10 @@
 
 - Источники (все `external_reference`): `WSTG`, `OWTT`, `CYDX`, `ATCK`, `MWAT`
   (CWE+CAPEC), `CVSS`, `MSDL`, `BSIM`
-- Учёт: `knowledge/inventory/<ID>.md`; паспорта:
-  `knowledge/primary/<ID>/source.md`; обзоры:
-  `knowledge/normalized/<ID>/source.md`; утверждения:
-  `knowledge/statements/<ID>.md`
+- Учёт: `knowledge/data/<slug>/source.yml`; паспорта:
+  `knowledge/data/<slug>/items/source/source.md`; обзоры:
+  `knowledge/data/<slug>/items/source/normalized-source.md`; утверждения:
+  `knowledge/data/<slug>/items/<unit>/statements.yml`
 - Атрибуция и правовой статус: `knowledge/source-attribution.md`
 - Дата проверки: `2026-06-25`
 

@@ -1,10 +1,19 @@
 id: SREQ-pdf
 source_id: SREQ
-title: 'SREQ: pdf'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/sreq/ и общие
-  ограничения в knowledge/source-attribution.md.
+title: "SREQ: pdf"
+access: "Смотри карточку единицы и связанные артефакты в knowledge/data/sreq/ и общие ограничения в knowledge/source-attribution.md."
 status: approved
 workflow_stage: statements_extracted
-files:
-  tracked:
-  - software-requirements-3rd-ru.pdf
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+primary_file:
+  location: knowledge/.local/raw/sreq/software-requirements-3rd-ru.pdf
+  format: pdf
+  file_size_bytes: 8603950
+  content_hash: sha256:683e8428a367aac1b0da65dce1f1aab407171a79dc427224bbf681582490a380
+  page_count: 737
+  metadata_source: pdfinfo
+known_limitations:
+- Полный файл хранится только в игнорируемом локальном слое
+  knowledge/.local/raw/ и не публикуется в Git.

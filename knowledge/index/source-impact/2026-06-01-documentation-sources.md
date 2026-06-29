@@ -3,11 +3,11 @@
 ## Источники и дата проверки
 
 - Источники учёта:
-  - `knowledge/inventory/HWD.md`
-  - `knowledge/inventory/WTDG.md`
+  - `knowledge/data/hwd/source.yml`
+  - `knowledge/data/wtdg/source.yml`
 - Извлечённые утверждения:
-  - `knowledge/statements/HWD.md`
-  - `knowledge/statements/WTDG.md`
+  - `knowledge/data/hwd/items/`
+  - `knowledge/data/wtdg/items/normalized-wtdg-source.md/statements.yml`
 - Атрибуция и правовой статус:
   - `knowledge/source-attribution.md`
 - Дата проверки: `2026-06-01`
@@ -98,8 +98,9 @@
 
 ### Severity: Medium — нет отдельного правила для корпуса документации
 
-Документы: `skills/technical-writing/SKILL.md`, `skills/technical-writing/assets/document-design-template.md`,
-возможно отдельный будущий навык
+Документы: `skills/technical-writing/SKILL.md`,
+`skills/technical-writing/assets/document-design-template.md`, возможно
+отдельный будущий навык
 
 Источники: `HWD-001`, `HWD-003`, `HWD-006`, `HWD-012`, `HWD-013`, `HWD-022`,
 `WTDG-003`, `WTDG-009`, `WTDG-011`, `WTDG-017`
@@ -119,7 +120,8 @@
 подходящую структуру документационного корпуса под проект, аудиторию, типы
 документов и способ сопровождения.
 
-Что сделать: усилить `skills/technical-writing/assets/document-design-template.md` вопросами о месте
+Что сделать: усилить
+`skills/technical-writing/assets/document-design-template.md` вопросами о месте
 документа в корпусе, перекрытии с соседними материалами, маршрутах поиска и
 связанных входных точках. После этого слой ИИ должен оценить, нужен ли отдельный
 навык сопровождения корпуса документации.
@@ -139,8 +141,9 @@
 но больше похож на обзор состояния каркаса, чем на пользовательскую точку входа.
 В нём нет короткого порядка первого применения каркаса в проекте.
 
-Вывод: `README.md` нужно будет переработать через `skills/project-readme/SKILL.md`.
-Первый практический сценарий для `README.md` — подключение каркаса к проекту.
+Вывод: `README.md` нужно будет переработать через
+`skills/project-readme/SKILL.md`. Первый практический сценарий для `README.md` —
+подключение каркаса к проекту.
 
 Что сделать: подготовить отдельную правку `README.md`, которая ставит сценарий
 подключения каркаса к проекту выше обзора внутреннего устройства репозитория.
@@ -163,12 +166,14 @@
 Вывод: шаблон стоит усилить точечной проверкой соседних документов и перекрытия
 содержания.
 
-Что сделать: добавить в `skills/technical-writing/assets/document-design-template.md` вопрос о
+Что сделать: добавить в
+`skills/technical-writing/assets/document-design-template.md` вопрос о
 существующих местах, где уже описана тема, и о допустимости повторения.
 
 ### Severity: Low — доступность и нейтральность уже присутствуют, но без связи с проверкой результата
 
-Документы: `skills/technical-writing/assets/document-design-template.md`, `skills/technical-writing/SKILL.md`
+Документы: `skills/technical-writing/assets/document-design-template.md`,
+`skills/technical-writing/SKILL.md`
 
 Источники: `WTDG-020`, `WTDG-023`, `WTDG-024`
 
@@ -177,15 +182,16 @@
 Факт источника: доступность и снижение предвзятости относятся к качеству
 документации, а не только к стилю.
 
-Текущее состояние: в `skills/technical-writing/assets/document-design-template.md` уже есть раздел
-«Доступность и нейтральность», а в `skills/technical-writing/SKILL.md` есть требования
-к понятности и удобству чтения.
+Текущее состояние: в
+`skills/technical-writing/assets/document-design-template.md` уже есть раздел
+«Доступность и нейтральность», а в `skills/technical-writing/SKILL.md` есть
+требования к понятности и удобству чтения.
 
 Вывод: отдельный новый навык сейчас не нужен. Достаточно при будущей проверке
 документа явно учитывать доступность и нейтральность как критерии пригодности.
 
-Что сделать: при следующем изменении `skills/technical-writing/SKILL.md` добавить
-проверку доступности и нейтральности в критерий готовности результата.
+Что сделать: при следующем изменении `skills/technical-writing/SKILL.md`
+добавить проверку доступности и нейтральности в критерий готовности результата.
 
 ## Предлагаемые изменения
 
@@ -224,8 +230,8 @@
 ## Открытые вопросы для слоя ИИ
 
 - Достаточно ли усилить `skills/technical-writing/SKILL.md` и
-  `skills/technical-writing/assets/document-design-template.md`, или нужен отдельный навык сопровождения
-  корпуса документации?
+  `skills/technical-writing/assets/document-design-template.md`, или нужен
+  отдельный навык сопровождения корпуса документации?
 - Какие критерии должны определять подходящую структуру документационного
   корпуса: аудитория, типы документов, способ поиска, близость к коду,
   сопровождение, объём проекта и риски перекрытия содержания?

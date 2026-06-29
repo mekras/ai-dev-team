@@ -31,8 +31,8 @@
 
 ## Что сохранено в корпусе
 
-- паспорт: `knowledge/primary/GSRE/source.md`
-- учёт: `knowledge/inventory/GSRE.md`
+- паспорт: `knowledge/data/gsre/items/source/source.md`
+- учёт: `knowledge/data/gsre/source.yml`
 - локальная копия книг не хранится
 - нормализованный обзор и утверждения будут добавлены на отдельном шаге
 

@@ -26,10 +26,12 @@
 
 ## Что сохранено в корпусе
 
-- паспорт: `knowledge/primary/ATCK/source.md`
-- нормализованный обзор: `knowledge/normalized/ATCK/source.md`
-- утверждения: `knowledge/statements/ATCK.md`
-- учёт: `knowledge/inventory/ATCK.md`
+- паспорт: `knowledge/data/atck/items/source/source.md`
+- нормализованный обзор:
+  `knowledge/data/atck/items/normalized-atck-source.md/source.md`
+- утверждения:
+  `knowledge/data/atck/items/normalized-atck-source.md/statements.yml`
+- учёт: `knowledge/data/atck/source.yml`
 - локальная копия не хранится
 
 ## Условия использования

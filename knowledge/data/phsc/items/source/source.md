@@ -2,8 +2,8 @@
 
 ## Статус
 
-Источник принят в корпус знаний как внешний публичный веб-материал
-с ограничением на хранение полного HTML в Git.
+Источник принят в корпус знаний как внешний публичный веб-материал с
+ограничением на хранение полного HTML в Git.
 
 ## Происхождение
 
@@ -19,15 +19,14 @@
 
 В состав источника включены следующие артефакты:
 
-- passport: `knowledge/primary/PHSC/source.md`
-- индекс: `knowledge/primary/PHSC/page-index.tsv`
-- страница:
-  `knowledge/primary/PHSC/pages/writing-good-agents/index.html`
+- passport: `knowledge/data/phsc/items/source/source.md`
+- индекс: `knowledge/data/phsc/items/source/page-index.tsv`
+- страница: `knowledge/data/phsc/items/writing-good-agents/index.html`
 - заголовки ответа:
-  `knowledge/primary/PHSC/pages/writing-good-agents/response-headers.txt`
+  `knowledge/data/phsc/items/writing-good-agents/response-headers.txt`
 
 Снимок хранится локально с исключением `pages/` из Git через
-`knowledge/primary/PHSC/.gitignore`.
+`knowledge/data/phsc/items/source/legacy-primary.gitignore`.
 
 ## Ограничения
 
@@ -39,8 +38,8 @@
 
 ## Условия использования
 
-- Публичная лицензия для полного переиспользования текста страницы в этом
-  снимке не зафиксирована.
+- Публичная лицензия для полного переиспользования текста страницы в этом снимке
+  не зафиксирована.
 - Уровень уверенности: средний.
 - Хранение полного HTML-артефакта в Git публичного проекта не допускается без
   отдельного подтверждения условий.

@@ -13,11 +13,11 @@
 
 ## Что сохранено
 
-- паспорт: `knowledge/primary/TODO/source.md`
-- индекс: `knowledge/primary/TODO/page-index.tsv`
-- страница: `knowledge/primary/TODO/pages/using-open-source-code/index.html`
+- паспорт: `knowledge/data/todo/items/source/source.md`
+- индекс: `knowledge/data/todo/items/source/page-index.tsv`
+- страница: `knowledge/data/todo/items/using-open-source-code/index.html`
 - заголовки ответа:
-  `knowledge/primary/TODO/pages/using-open-source-code/response-headers.txt`
+  `knowledge/data/todo/items/using-open-source-code/response-headers.txt`
 
 ## Условия использования
 

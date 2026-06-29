@@ -1,0 +1,595 @@
+statements:
+- id: SCXP-001
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: product backlog — упорядоченный по важности список историй (user story),
+    описанных на понятном заказчику языке; у продукта один backlog и один владелец
+    продукта.
+  excerpt: глава о работе с product backlog.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Ведение product backlog
+    application: аналитик, владелец продукта — единый приоритизированный источник
+      работ для ведения и обоснования спринтов.
+  open_questions: []
+- id: SCXP-002
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: 'история в практике команды описывается шестью прижившимися полями: ID, название
+    (2–10 слов), важность, предварительная оценка в story point, «как продемонстрировать»
+    и примечания.'
+  excerpt: раздел про поля user story.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Ведение product backlog
+    application: аналитик — единый формат истории для записи и проверки требований.
+  open_questions: []
+- id: SCXP-003
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: поле «как продемонстрировать» — краткий тестовый сценарий «сделай это —
+    должно получиться то», а при TDD оно служит основой приёмочного теста истории.
+  excerpt: раздел про поля user story.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Ведение product backlog
+    application: тестировщик, аналитик — превращение истории в проверяемый критерий
+      приёмки.
+  open_questions: []
+- id: SCXP-004
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: важность задаёт только относительный порядок историй, а не кратность; между
+    значениями оставляют целочисленные промежутки, а важнейшие истории получают
+    уникальные значения.
+  excerpt: разделы про важность и подготовку к планированию.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Ведение product backlog
+    application: владелец продукта — устойчивая приоритизация с возможностью
+      вставлять новые истории.
+  open_questions: []
+- id: SCXP-005
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: важность и объём истории определяет владелец продукта, оценку трудозатрат
+    — только команда; заинтересованные лица могут добавлять истории, но не назначать
+    важность и оценку.
+  excerpt: разделы про подготовку и планирование спринта.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Ведение product backlog
+    application: менеджер проекта — разграничение полномочий при ведении backlog.
+  open_questions: []
+- id: SCXP-006
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: backlog ведётся в редактируемом общем формате (чаще Excel на сетевом диске
+    с совместным доступом), а не в системе контроля версий, чтобы избежать блокировок
+    и конфликтов синхронизации.
+  excerpt: раздел про хранение product backlog.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Ведение product backlog
+    application: менеджер проекта — выбор места хранения backlog вне VCS.
+  open_questions: []
+- id: SCXP-007
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: технические истории владельца продукта переводят в бизнес-цель вопросом
+    «зачем?», пока не проявится реальная причина, а исходную техническую формулировку
+    переносят в примечания.
+  excerpt: раздел про ориентацию backlog на бизнес.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Ориентация backlog на бизнес
+    application: аналитик — формулирование историй в терминах бизнес-ценности.
+  open_questions: []
+- id: SCXP-008
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: 'итог планирования спринта — цель спринта, список участников с долей занятости,
+    sprint backlog, дата демонстрации, время и место ежедневного Scrum.'
+  excerpt: раздел про итоги планирования спринта.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Планирование спринта
+    application: ScrumMaster — проверяемый перечень результатов планирования.
+  open_questions: []
+- id: SCXP-009
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: планирование спринта автор считает важнейшей частью Scrum, а участие
+    владельца продукта обязательным, потому что объём, важность и оценка балансируются
+    только во взаимодействии команды и владельца.
+  excerpt: разделы про важность планирования и роль владельца.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Планирование спринта
+    application: менеджер проекта — обоснование обязательного участия владельца
+      продукта.
+  open_questions: []
+- id: SCXP-010
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: встреча планирования ограничена по времени (типично 2–8 часов); при
+    нехватке времени встречу лучше оборвать, чем продлевать, так как продление
+    упирается в усталость участников.
+  excerpt: раздел про затянувшееся планирование.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Планирование спринта
+    application: ScrumMaster — соблюдение таймбокса встречи планирования.
+  open_questions: []
+- id: SCXP-011
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: 'при нехватке времени на планировании жертвуют по приоритету: цель и дата
+    демо → список историй → оценки → «как продемонстрировать» → расчёты
+    производительности → время и место Scrum → разбиение на задачи.'
+  excerpt: раздел «Когда пора остановиться».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Планирование спринта
+    application: ScrumMaster — порядок сокращения повестки планирования.
+  open_questions: []
+- id: SCXP-012
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: цель спринта формулируется в терминах бизнеса, отвечает на вопрос «зачем
+    этот спринт» и должна быть ещё не достигнутой.
+  excerpt: раздел про определение цели спринта.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Планирование спринта
+    application: владелец продукта — постановка осмысленной цели спринта.
+  open_questions: []
+- id: SCXP-013
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: сколько историй взять в спринт, решает команда, а не владелец продукта;
+    владелец влияет на состав спринта тремя способами — меняет приоритет, уменьшает
+    объём истории или разбивает историю на части с разным приоритетом.
+  excerpt: разделы про выбор историй и влияние владельца.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Планирование спринта
+    application: менеджер проекта — разграничение решений о наполнении спринта.
+  open_questions: []
+- id: SCXP-014
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: внутреннее качество (дизайн, покрытие тестами, читаемость, рефакторинг)
+    не обсуждается как переменная, а внешнее качество входит в объём работ и
+    решается владельцем продукта.
+  excerpt: раздел «Почему качество не обсуждается».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Планирование спринта
+    application: разработчик — защита внутреннего качества при переговорах об
+      объёме.
+  open_questions: []
+- id: SCXP-015
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: единица оценки — story point, приблизительно равный «идеальному
+    человеко-дню»; важна не точность, а верное соотношение трудоёмкости историй.
+  excerpt: разделы про предварительную оценку и производительность.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Оценка
+    application: разработчик — относительная оценка объёма работ.
+  open_questions: []
+- id: SCXP-016
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: команда отказалась от оценки в человеко-часах (формула 1 человеко-день ≈ 6
+    человеко-часов) в пользу человеко-дней ради борьбы с микроменеджментом, наименьшее
+    значение оценки — 0.5.
+  excerpt: 'раздел «Как мы оцениваем: в днях или часах?».'
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Оценка
+    application: разработчик — выбор единицы и гранулярности оценки.
+  open_questions: []
+- id: SCXP-017
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: оценивают всей командой через planning poker — каждый кладёт карту скрытно,
+    карты вскрывают одновременно, при большом разбросе обсуждают и переоценивают,
+    пока оценки не сойдутся.
+  excerpt: раздел про planning poker.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Оценка
+    application: разработчик — процедура совместной оценки без влияния первого
+      голоса.
+  open_questions: []
+- id: SCXP-018
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: шкала карт planning poker нелинейна (между 40 и 100 значений нет), чтобы
+    избежать ложной точности крупных оценок; крупную историю вместо точной
+    переоценки разбивают на части.
+  excerpt: раздел про planning poker.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Оценка
+    application: разработчик — обращение с неточностью крупных оценок.
+  open_questions: []
+- id: SCXP-019
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: 'прогнозируемая производительность спринта вычисляется как доступные
+    человеко-дни умножить на фокус-фактор; фокус-фактор берут из прошлых спринтов,
+    а для новых команд по умолчанию — 70 %.'
+  excerpt: раздел про фокус-фактор и прогноз производительности.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Оценка
+    application: ScrumMaster — расчёт объёма, который команда может взять в спринт.
+  open_questions: []
+- id: SCXP-020
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: объём спринта оценивают двумя способами, обычно совмещая — интуитивно (с
+    порогом уверенности 90 %/50 %) и через подсчёт производительности, включая
+    технику «вчерашняя погода».
+  excerpt: разделы про интуитивное планирование и подсчёт производительности.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Оценка
+    application: ScrumMaster — выбор техники определения объёма спринта.
+  open_questions: []
+- id: SCXP-021
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: реальная производительность считается по начальным оценкам только полностью
+    завершённых историй; частично готовые истории и изменения оценок в ходе спринта
+    игнорируются.
+  excerpt: раздел про подсчёт реальной производительности.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Оценка
+    application: ScrumMaster — корректный подсчёт производительности команды.
+  open_questions: []
+- id: SCXP-022
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: история ценна владельцу и может быть продемонстрирована, задача — нет;
+    истории держат в диапазоне примерно 2–8 человеко-дней, крупные разбивают,
+    сохраняя бизнес-ценность каждой части.
+  excerpt: разделы про разбиение историй на истории и задачи.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Истории и задачи
+    application: аналитик — нарезка работ на проверяемые единицы нужного размера.
+  open_questions: []
+- id: SCXP-023
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: при TDD первой задачей почти каждой истории является написание приёмочного
+    теста, а последней — рефакторинг; предварительное разбиение на задачи повышает
+    эффективность ежедневного Scrum.
+  excerpt: раздел про разбиение историй на задачи.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Истории и задачи
+    application: разработчик — порядок декомпозиции истории на задачи.
+  open_questions: []
+- id: SCXP-024
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: критерий готовности определяют совместно владелец и команда; предпочтительно
+    «готово к развёртыванию на живом сервере», при путанице вводят отдельное поле
+    «критерий готовности» для истории.
+  excerpt: раздел «Критерий готовности».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Определение «готово»
+    application: тестировщик — фиксация и проверка критерия готовности истории.
+  open_questions: []
+- id: SCXP-025
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: учётные карточки на стене на планировании эффективнее проектора с Excel —
+    люди стоят и вовлечены, можно править несколько историй сразу и менять приоритеты
+    перестановкой карточек.
+  excerpt: раздел «Почему мы используем учётные карточки».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Истории и задачи
+    application: ScrumMaster — выбор формата работы с историями на планировании.
+  open_questions: []
+- id: SCXP-026
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: наиболее эффективный формат sprint backlog — физическая бумажная доска
+    задач на стене (а не электронная), где задачи представлены стикерами под
+    историями; простота ценится выше лишних колонок.
+  excerpt: разделы про формат sprint backlog и доску задач.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Sprint backlog и доска задач
+    application: ScrumMaster — выбор формата визуализации работы спринта.
+  open_questions: []
+- id: SCXP-027
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: burndown-диаграмма показывает остаток работы в story point по дням (выходные
+    по оси X пропускают); после каждого ежедневного Scrum суммируют оценки
+    незавершённых задач и ставят новую точку.
+  excerpt: раздел про burndown-диаграмму.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Доска задач и диаграмма сгорания
+    application: ScrumMaster — отслеживание хода спринта по остатку работы.
+  open_questions: []
+- id: SCXP-028
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: ежедневный Scrum проводят каждый день в одно время и место, стоя, у доски
+    задач, не дольше 15 минут; доску обновляет вся команда во время встречи.
+  excerpt: глава про ежедневный Scrum.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Ежедневный Scrum
+    application: ScrumMaster — формат и таймбокс ежедневного стендапа.
+  open_questions: []
+- id: SCXP-029
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: команду следует усадить вместе — в пределах слышимости, видимости и
+    автономно; владельца продукта держат близко, но не в одной комнате, а менеджеров
+    и тренеров на дистанции, чтобы не подавлять самоорганизацию.
+  excerpt: глава про комнату команды.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Совместное размещение
+    application: менеджер проекта — организация рабочего пространства команды.
+  open_questions: []
+- id: SCXP-030
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: каждый спринт обязан заканчиваться демонстрацией, потому что она даёт
+    обратную связь, информирует компанию и принуждает доводить истории до
+    готовности вместо «почти готовых» задач.
+  excerpt: глава про демо.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Демонстрации
+    application: менеджер проекта — обоснование обязательной демонстрации спринта.
+  open_questions: []
+- id: SCXP-031
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: 'памятка по демо: озвучить цель спринта, не тратить время на презентацию,
+    держать быстрый темп, показывать работающий код, ориентироваться на бизнес и
+    не демонстрировать мелкие багфиксы; недемонстрируемое показывают отчётом.'
+  excerpt: разделы памятки демо и недемонстрируемого.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Демонстрации
+    application: ScrumMaster — подготовка и проведение демонстрации.
+  open_questions: []
+- id: SCXP-032
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: 'ретроспективу проводят в три колонки — «хорошо», «могло бы быть лучше»,
+    «улучшения»; точечным голосованием выбирают около пяти улучшений на следующий
+    спринт, участвуют команда, владелец и ScrumMaster.'
+  excerpt: глава про ретроспективы.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Ретроспективы
+    application: ScrumMaster — формат проведения ретроспективы и отбора улучшений.
+  open_questions: []
+- id: SCXP-033
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: ретроспектива — второе по значимости событие Scrum после планирования;
+    не каждую найденную проблему нужно решать — иногда лучше чётко её назвать и
+    ничего не делать.
+  excerpt: разделы про важность ретроспектив и «изменения. быть или не быть».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Ретроспективы
+    application: менеджер проекта — приоритет ретроспективы и сдержанность в
+      изменениях.
+  open_questions: []
+- id: SCXP-034
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: полностью избежать отдельной фазы приёмочного тестирования обычно не
+    удаётся, и её определяют как тестирование, отладку и перевыпуск выделенными
+    тестировщиками вне команды до приемлемого качества.
+  excerpt: глава про тестирование.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Тестирование
+    application: тестировщик — планирование приёмочной фазы как отдельного периода.
+  open_questions: []
+- id: SCXP-035
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: фазу приёмочного тестирования минимизируют двумя главными приёмами —
+    включить тестировщика-специалиста в Scrum-команду как «последнюю инстанцию»
+    готовности и делать меньше историй за спринт.
+  excerpt: разделы про минимизацию приёмки и тестировщика в команде.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Тестирование
+    application: тестировщик — повышение качества и сокращение приёмочной фазы.
+  open_questions: []
+- id: SCXP-036
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: предпочтительный подход к багам прошлого спринта — начинать новые истории,
+    но наивысшим приоритетом доводить старые до готовности; «клепать новые истории»
+    без доведения старых считается антипаттерном.
+  excerpt: разделы про соотношение спринтов и фаз приёмки.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Тестирование
+    application: менеджер проекта — политика обработки дефектов между спринтами.
+  open_questions: []
+- id: SCXP-037
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: Scrum закрывает управление и организацию, XP — инженерные практики, поэтому
+    они дополняют друг друга; команда применяет парное программирование, TDD,
+    непрерывную интеграцию, совместное владение кодом, стандарты кода, инкрементный
+    дизайн и устойчивый темп.
+  excerpt: глава «Как мы сочетаем Scrum с XP».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Сочетание Scrum с XP
+    application: разработчик — набор инженерных практик поверх Scrum.
+  open_questions: []
+- id: SCXP-038
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: 'TDD означает цикл «сначала падающий тест → минимум кода → рефакторинг»;
+    его применяют для всего нового кода, обзор кода считают альтернативой парному
+    программированию, а переработки снижают продуктивность и качество.'
+  excerpt: разделы про TDD, парное программирование и устойчивый темп.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Сочетание Scrum с XP
+    application: разработчик, обзорщик кода — порядок разработки и проверки кода.
+  open_questions: []
+- id: SCXP-039
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: при нескольких командах над одним продуктом оптимальный размер команды —
+    5–9 человек (автор предпочитает 3–8), спринты синхронизируют, предпочитают
+    универсальные команды компонентным и любимый подход — один владелец и один
+    backlog.
+  excerpt: глава про несколько Scrum-команд.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Несколько Scrum-команд
+    application: менеджер проекта — масштабирование Scrum на несколько команд.
+  open_questions: []
+- id: SCXP-040
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: Scrum-of-Scrums уровня продукта проводят не реже раза в неделю (около 30
+    минут), а уровня компании («Пульс») — 15 минут со всем коллективом для
+    отчётности; ежедневные Scrum разных команд разносят по времени.
+  excerpt: разделы про Scrum-of-Scrums и чередование ежедневных Scrum.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Синхронизация нескольких команд
+    application: менеджер проекта — регулярные точки синхронизации между командами.
+  open_questions: []
+- id: SCXP-041
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: совместное размещение — сильный фактор эффективности; для распределённых и
+    оффшорных команд максимизируют «пропускную способность связи», а для оффшора
+    начинают со стратегии «удалённые участники», позже переходя к «удалённым
+    командам».
+  excerpt: глава про распределённые команды.
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Распределённые и офшорные команды
+    application: менеджер проекта — организация работы географически разнесённых
+      участников.
+  open_questions: []
+- id: SCXP-042
+  source_id: SCXP
+  item_id: SCXP-normalized-SCXP-source.md
+  status: ready_for_review
+  text: длина спринта — компромисс между гибкостью коротких и темпом длинных
+    спринтов; команда автора выбрала 3 недели и рекомендует поэкспериментировать
+    в начале, а затем зафиксировать длину ради корпоративного ритма.
+  excerpt: раздел «Определяем длину спринта».
+  artifact: source.md
+  checked_at: '2026-06-29'
+  scope:
+    section_title: Выбор длины спринта
+    application: менеджер проекта — выбор и фиксация длины спринта.
+  open_questions: []

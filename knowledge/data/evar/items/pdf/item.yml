@@ -1,10 +1,19 @@
 id: EVAR-pdf
 source_id: EVAR
-title: 'EVAR: pdf'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/evar/ и общие
-  ограничения в knowledge/source-attribution.md.
+title: "EVAR: pdf"
+access: "Смотри карточку единицы и связанные артефакты в knowledge/data/evar/ и общие ограничения в knowledge/source-attribution.md."
 status: approved
 workflow_stage: statements_extracted
-files:
-  tracked:
-  - evolutionary-architecture-ru.pdf
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+primary_file:
+  location: knowledge/.local/raw/evar/evolutionary-architecture-ru.pdf
+  format: pdf
+  file_size_bytes: 8166679
+  content_hash: sha256:e249dd177595bd9edfde6d176022deddbc0f719c3ceeaf88717a8daa20cef2ff
+  page_count: 272
+  metadata_source: pdfinfo
+known_limitations:
+- Полный файл хранится только в игнорируемом локальном слое
+  knowledge/.local/raw/ и не публикуется в Git.

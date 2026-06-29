@@ -21,9 +21,9 @@
 
 ## Основание в корпусе
 
-- Паспорт источника: `knowledge/primary/GPLQ/source.md`
-- Индекс страниц: `knowledge/primary/GPLQ/page-index.tsv`
-- Нормализованный слой: `knowledge/normalized/GPLQ/source.md`
+- Паспорт источника: `knowledge/data/gplq/items/source/source.md`
+- Индекс страниц: `knowledge/data/gplq/items/source/page-index.tsv`
+- Нормализованный слой: `knowledge/data/gplq/items/source/normalized-source.md`
 
 ## Происхождение
 

@@ -15,8 +15,8 @@
 
 ## Что сохранено
 
-- паспорт: `knowledge/primary/GPLQ/source.md`
-- индекс: `knowledge/primary/GPLQ/page-index.tsv`
+- паспорт: `knowledge/data/gplq/items/source/source.md`
+- индекс: `knowledge/data/gplq/items/source/page-index.tsv`
 
 ## Ограничения
 

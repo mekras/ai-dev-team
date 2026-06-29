@@ -2,8 +2,9 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/AR42/source.md`
-- Индекс первичных артефактов: `knowledge/primary/AR42/page-index.tsv`
+- Первичный источник: `knowledge/data/ar42/items/source/source.md`
+- Индекс первичных артефактов:
+  `knowledge/data/ar42/items/primary-ar42-page-index.tsv/page-index.tsv`
 - Дата нормализации: `2026-06-05`
 - Способ нормализации:
   - выделение состава распакованного архива из `page-index.tsv`;

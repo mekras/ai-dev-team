@@ -4,9 +4,10 @@
 
 - Источники: `DSCT`, `ESWO`, `CHAE`, `G272`, `G250`, `CHEN`, `DDIA`, `GSRE`,
   `HSRE`
-- Первичные слои: `knowledge/primary/<ID>/source.md`
-- Нормализованные слои: `knowledge/normalized/<ID>/source.md`
-- Извлечённые утверждения: `knowledge/statements/<ID>.md`
+- Первичные слои: `knowledge/data/<slug>/items/source/source.md`
+- Нормализованные слои:
+  `knowledge/data/<slug>/items/source/normalized-source.md`
+- Извлечённые утверждения: `knowledge/data/<slug>/items/<unit>/statements.yml`
 - Атрибуция и правовой статус: `knowledge/source-attribution.md`
 - Дата проверки: `2026-06-26`
 
@@ -180,7 +181,8 @@
 
 ### Severity: Low — способ работы с источниками соответствует ограничениям
 
-Документ: `knowledge/primary/<ID>/.gitignore`, `knowledge/source-attribution.md`
+Документ: `knowledge/data/<slug>/items/source/legacy-primary.gitignore`,
+`knowledge/source-attribution.md`
 
 Источник: все 9, проверка `2026-06-26`
 

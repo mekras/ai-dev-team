@@ -2,7 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/MSDL/source.md` (`external_reference`)
+- Первичный источник: `knowledge/data/msdl/items/source/source.md`
+  (`external_reference`)
 - Дата нормализации: `2026-06-25`
 - Способ нормализации: обзор практик по каноническому адресу Microsoft и по
   конспекту в личных заметках пользователя; крупные дословные фрагменты не

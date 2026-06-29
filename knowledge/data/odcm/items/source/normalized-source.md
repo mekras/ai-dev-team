@@ -2,8 +2,9 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/ODCM/source.md`
-- Индекс первичных страниц: `knowledge/primary/ODCM/page-index.tsv`
+- Первичный источник: `knowledge/data/odcm/items/source/source.md`
+- Индекс первичных страниц:
+  `knowledge/data/odcm/items/primary-odcm-page-index.tsv/page-index.tsv`
 - Дата нормализации: `2026-06-05`
 - Способ нормализации: выделение состава лицензий и роли FAQ.
 

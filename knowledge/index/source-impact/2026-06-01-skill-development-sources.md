@@ -3,17 +3,17 @@
 ## Источники и дата проверки
 
 - Источники учёта:
-  - `knowledge/inventory/ASKL.md`
-  - `knowledge/inventory/PPRX.md`
+  - `knowledge/data/askl/source.yml`
+  - `knowledge/data/pprx/source.yml`
 - Первичные источники:
-  - `knowledge/primary/ASKL/source.md`
-  - `knowledge/primary/PPRX/source.md`
+  - `knowledge/data/askl/items/source/source.md`
+  - `knowledge/data/pprx/items/source/source.md`
 - Нормализованные слои:
-  - `knowledge/normalized/ASKL/source.md`
-  - `knowledge/normalized/PPRX/source.md`
+  - `knowledge/data/askl/items/source/normalized-source.md`
+  - `knowledge/data/pprx/items/source/normalized-source.md`
 - Извлечённые утверждения:
-  - `knowledge/statements/ASKL.md`
-  - `knowledge/statements/PPRX.md`
+  - `knowledge/data/askl/items/`
+  - `knowledge/data/pprx/items/designing-refining-maintaining-agent-skills/statements.yml`
 - Дата проверки: `2026-06-01`
 
 ## Границы аудита
@@ -62,12 +62,12 @@
 
 Первичные данные:
 
-- `knowledge/statements/ASKL.md`
-- `knowledge/statements/PPRX.md`
-- `knowledge/primary/ASKL/pages/best-practices/index.html`
-- `knowledge/primary/ASKL/pages/optimizing-descriptions/index.html`
-- `knowledge/primary/ASKL/pages/evaluating-skills/index.html`
-- `knowledge/primary/PPRX/pages/designing-refining-maintaining-agent-skills/index.html`
+- `knowledge/data/askl/items/`
+- `knowledge/data/pprx/items/designing-refining-maintaining-agent-skills/statements.yml`
+- `knowledge/data/askl/items/best-practices/index.html`
+- `knowledge/data/askl/items/optimizing-descriptions/index.html`
+- `knowledge/data/askl/items/evaluating-skills/index.html`
+- `knowledge/data/pprx/items/designing-refining-maintaining-agent-skills/index.html`
 
 Класс: новое существенное сведение
 

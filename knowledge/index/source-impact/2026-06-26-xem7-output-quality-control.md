@@ -3,9 +3,10 @@
 ## Источник и дата проверки
 
 - Источник: `XEM7`
-- Учёт: `knowledge/inventory/XEM7.md`
-- Нормализованный слой: `knowledge/normalized/XEM7/source.md`
-- Извлечённые утверждения: `knowledge/statements/XEM7.md`
+- Учёт: `knowledge/data/xem7/source.yml`
+- Нормализованный слой: `knowledge/data/xem7/items/source/normalized-source.md`
+- Извлечённые утверждения:
+  `knowledge/data/xem7/items/primary-xem7-page-index.tsv/statements.yml`
   (`XEM7-001`–`XEM7-005`)
 - Атрибуция и правовой статус: `knowledge/source-attribution.md`
 - Дата проверки: `2026-06-26`
@@ -94,7 +95,8 @@
 
 ### Severity: Low — правовой режим источника
 
-Документ: `knowledge/source-attribution.md`, `knowledge/statements/XEM7.md`
+Документ: `knowledge/source-attribution.md`,
+`knowledge/data/xem7/items/primary-xem7-page-index.tsv/statements.yml`
 
 Источник: `XEM7`, проверка `2026-06-26`
 

@@ -2,17 +2,17 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/VSCD/source.md`
-- Индекс первичных страниц: `knowledge/primary/VSCD/page-index.tsv`
+- Первичный источник: `knowledge/data/vscd/items/source/source.md`
+- Индекс первичных страниц: `knowledge/data/vscd/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-03`
 - Способ нормализации: извлечение текста из `main` и очистка от скриптов.
 
 ## Что сохранено
 
-- `knowledge/normalized/VSCD/pages/custom-instructions/index.md`
+- `knowledge/data/vscd/items/custom-instructions`
 
 ## Ограничения
 
-- Источник — справка VS Code, часть контента относится к UI-веткам,
-  убрана в нормализации.
+- Источник — справка VS Code, часть контента относится к UI-веткам, убрана в
+  нормализации.
 - Не включены детали интерфейсов конкретных плагинов и версий.

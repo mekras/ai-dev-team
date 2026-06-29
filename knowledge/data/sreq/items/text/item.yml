@@ -1,10 +1,18 @@
 id: SREQ-text
 source_id: SREQ
-title: 'SREQ: text'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/sreq/ и общие
-  ограничения в knowledge/source-attribution.md.
+title: "SREQ: text"
+access: "Смотри карточку единицы и связанные артефакты в knowledge/data/sreq/ и общие ограничения в knowledge/source-attribution.md."
 status: approved
 workflow_stage: statements_extracted
-files:
-  tracked:
-  - software-requirements-3rd-ru.txt
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+extracted_text:
+  location: knowledge/.local/raw/sreq/software-requirements-3rd-ru.txt
+  format: txt
+  file_size_bytes: 3206454
+  content_hash: sha256:5b75bbfcbdfaef1ee9050d0c5bfc9d42bac1ecabeb2331a93552fbb61b377f24
+  metadata_source: pdftotext
+known_limitations:
+- Полная текстовая выгрузка хранится только в игнорируемом локальном
+  слое knowledge/.local/raw/ и не публикуется в Git.

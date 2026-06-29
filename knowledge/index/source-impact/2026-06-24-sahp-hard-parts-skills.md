@@ -2,10 +2,10 @@
 
 ## Источник и дата проверки
 
-- Источник учёта: `knowledge/inventory/SAHP.md`
-- Первичный источник: `knowledge/primary/SAHP/source.md`
-- Нормализованный слой: `knowledge/normalized/SAHP/source.md`
-- Извлечённые утверждения: `knowledge/statements/SAHP.md`
+- Источник учёта: `knowledge/data/sahp/source.yml`
+- Первичный источник: `knowledge/data/sahp/items/source/source.md`
+- Нормализованный слой: `knowledge/data/sahp/items/source/normalized-source.md`
+- Извлечённые утверждения: `knowledge/data/sahp/items/text/statements.yml`
   (`SAHP-001`–`SAHP-054`)
 - Атрибуция и правовой статус: `knowledge/source-attribution.md`
 - Дата проверки: `2026-06-24`
@@ -166,12 +166,13 @@
 
 ### Severity: Low — способ работы с источником соответствует ограничению
 
-Документ: `knowledge/primary/SAHP/.gitignore`, `knowledge/source-attribution.md`
+Документ: `knowledge/data/sahp/items/source/legacy-primary.gitignore`,
+`knowledge/source-attribution.md`
 
 Источник: `SAHP`, проверка `2026-06-24`
 
-Первичные данные: `knowledge/primary/SAHP/source.md`,
-`knowledge/primary/SAHP/page-index.tsv`
+Первичные данные: `knowledge/data/sahp/items/source/source.md`,
+`knowledge/data/sahp/items/source/page-index.tsv`
 
 Класс: изменение способа работы с источником
 
@@ -220,6 +221,6 @@ PDF и текстовая выгрузка хранятся локально и 
   публикуются.
 - Таблицы компромиссов и диаграммы книги попали в выгрузку с искажениями;
   находки, опирающиеся на их содержание, отмечены в
-  `knowledge/statements/SAHP.md`.
+  `knowledge/data/sahp/items/text/statements.yml`.
 - Аудит затронул только переносимый слой `.apm/`; копии `.claude/` и `.agents/`
   обновляются регенерацией APM (`apm install`).

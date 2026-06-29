@@ -2,15 +2,15 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/AR12/source.md`
-- Индекс первичных страниц: `knowledge/primary/AR12/page-index.tsv`
+- Первичный источник: `knowledge/data/ar12/items/source/source.md`
+- Индекс первичных страниц: `knowledge/data/ar12/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-03`
-- Способ нормализации: извлечение текста из `article` сохранённой страницы
-  arXiv HTML.
+- Способ нормализации: извлечение текста из `article` сохранённой страницы arXiv
+  HTML.
 
 ## Что сохранено
 
-- `knowledge/normalized/AR12/pages/2601.20404v2/index.md`
+- `knowledge/data/ar12/items/2601.20404v2`
 
 ## Ограничения
 

@@ -1,10 +1,18 @@
 id: DDDE-text
 source_id: DDDE
-title: 'DDDE: text'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/ddde/ и общие
-  ограничения в knowledge/source-attribution.md.
+title: "DDDE: text"
+access: "Смотри карточку единицы и связанные артефакты в knowledge/data/ddde/ и общие ограничения в knowledge/source-attribution.md."
 status: approved
 workflow_stage: statements_extracted
-files:
-  tracked:
-  - ddd-evans-ru.txt
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+extracted_text:
+  location: knowledge/.local/raw/ddde/ddd-evans-ru.txt
+  format: txt
+  file_size_bytes: 2001013
+  content_hash: sha256:cd6e437c52fbfdfe064da9b97b0f0a73eef9b384e45ec7194d81cbce30c22773
+  metadata_source: pdftotext
+known_limitations:
+- Полная текстовая выгрузка хранится только в игнорируемом локальном
+  слое knowledge/.local/raw/ и не публикуется в Git.

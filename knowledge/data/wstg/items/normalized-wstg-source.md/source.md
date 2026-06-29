@@ -2,7 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/WSTG/source.md` (`external_reference`)
+- Первичный источник: `knowledge/data/wstg/items/source/source.md`
+  (`external_reference`)
 - Дата нормализации: `2026-06-25`
 - Способ нормализации: обзор структуры руководства по каноническому адресу и
   репозиторию OWASP; полный текст не копировался.

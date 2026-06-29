@@ -17,17 +17,17 @@
 - Тип источника: локальная PDF-книга
 - Способ получения: по решению пользователя в проект скопирована локальная
   рабочая копия книги с хранением файла только в игнорируемом каталоге
-  `knowledge/primary/CLCD/files/`
+  `knowledge/.local/raw/clcd/`
 - Дата включения в корпус: `2026-06-25`
 
 ## Что сохранено
 
 Для локальной обработки получены следующие артефакты:
 
-- паспорт: `knowledge/primary/CLCD/source.md`
-- индекс артефактов: `knowledge/primary/CLCD/page-index.tsv`
-- PDF: `knowledge/primary/CLCD/files/clean-code-martin-ru.pdf`
-- текстовая выгрузка: `knowledge/primary/CLCD/files/clean-code-martin-ru.txt`
+- паспорт: `knowledge/data/clcd/items/source/source.md`
+- индекс артефактов: `knowledge/data/clcd/items/source/page-index.tsv`
+- PDF: `knowledge/.local/raw/clcd/clean-code-martin-ru.pdf`
+- текстовая выгрузка: `knowledge/.local/raw/clcd/clean-code-martin-ru.txt`
 
 В Git сохраняются только метаданные источника, обзорный нормализованный слой,
 извлечённые утверждения и отчёт влияния без крупных дословных фрагментов книги.

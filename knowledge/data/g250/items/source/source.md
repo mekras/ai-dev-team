@@ -20,16 +20,15 @@
 - Тип источника: нормативный документ (стандарт, PDF)
 - Способ получения: по решению владельца проекта скопирована локальная рабочая
   копия PDF с хранением файла только в игнорируемом каталоге
-  `knowledge/primary/G250/files/`
+  `knowledge/.local/raw/g250/`
 - Дата включения в корпус: `2026-06-26`
 
 ## Что сохранено
 
-- паспорт: `knowledge/primary/G250/source.md`
-- индекс артефактов: `knowledge/primary/G250/page-index.tsv`
-- PDF: `knowledge/primary/G250/files/gost-r-iso-iec-25010-2015.pdf`
-- текстовая выгрузка:
-  `knowledge/primary/G250/files/gost-r-iso-iec-25010-2015.txt`
+- паспорт: `knowledge/data/g250/items/source/source.md`
+- индекс артефактов: `knowledge/data/g250/items/source/page-index.tsv`
+- PDF: `knowledge/.local/raw/g250/gost-r-iso-iec-25010-2015.pdf`
+- текстовая выгрузка: `knowledge/.local/raw/g250/gost-r-iso-iec-25010-2015.txt`
 
 В Git сохраняются метаданные источника; нормализованный слой и утверждения будут
 добавлены на отдельном шаге.

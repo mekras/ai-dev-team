@@ -2,8 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/ESWO/source.md`
-- Индекс первичных артефактов: `knowledge/primary/ESWO/page-index.tsv`
+- Первичный источник: `knowledge/data/eswo/items/source/source.md`
+- Индекс первичных артефактов: `knowledge/data/eswo/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-26`
 - Способ нормализации: чтение локальной текстовой выгрузки PDF (463 страницы),
   извлечение опорных понятий системного подхода к безопасности; выгрузка местами

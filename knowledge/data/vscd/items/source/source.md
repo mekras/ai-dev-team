@@ -2,8 +2,8 @@
 
 ## Статус
 
-Источник принят в корпус знаний как внешний публичный веб-материал
-с ограничением на хранение полного HTML в Git.
+Источник принят в корпус знаний как внешний публичный веб-материал с
+ограничением на хранение полного HTML в Git.
 
 ## Происхождение
 
@@ -20,15 +20,14 @@
 
 В состав источника включены следующие артефакты:
 
-- passport: `knowledge/primary/VSCD/source.md`
-- индекс: `knowledge/primary/VSCD/page-index.tsv`
-- страница:
-  `knowledge/primary/VSCD/pages/custom-instructions/index.html`
+- passport: `knowledge/data/vscd/items/source/source.md`
+- индекс: `knowledge/data/vscd/items/source/page-index.tsv`
+- страница: `knowledge/data/vscd/items/custom-instructions/index.html`
 - заголовки ответа:
-  `knowledge/primary/VSCD/pages/custom-instructions/response-headers.txt`
+  `knowledge/data/vscd/items/custom-instructions/response-headers.txt`
 
 Снимок хранится локально с исключением `pages/` из Git через
-`knowledge/primary/VSCD/.gitignore`.
+`knowledge/data/vscd/items/source/legacy-primary.gitignore`.
 
 ## Ограничения
 
@@ -40,8 +39,8 @@
 
 ## Условия использования
 
-- Явная публичная лицензия документа на переиспользование полного исходного
-  HTML не зафиксирована.
+- Явная публичная лицензия документа на переиспользование полного исходного HTML
+  не зафиксирована.
 - Уровень уверенности: средний.
 - Хранение полного HTML-артефакта в Git публичного проекта не допускается без
   отдельного подтверждения условий.

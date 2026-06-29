@@ -2,15 +2,15 @@
 
 ## Основание
 
-- Источник учёта: `knowledge/inventory/WTDG.md`
-- Паспорт источника: `knowledge/primary/WTDG/source.md`
+- Источник учёта: `knowledge/data/wtdg/source.yml`
+- Паспорт источника: `knowledge/data/wtdg/items/source/source.md`
 - Первичный снимок обзорной страницы:
-  `knowledge/primary/WTDG/index.html`
-- Первичные снимки внутренних страниц: `knowledge/primary/WTDG/pages`
-- Индекс внутренних страниц: `knowledge/primary/WTDG/page-index.tsv`
+  `knowledge/data/wtdg/items/source/index.html`
+- Первичные снимки внутренних страниц: `knowledge/data/wtdg/items/`
+- Индекс внутренних страниц: `knowledge/data/wtdg/items/source/page-index.tsv`
 - Вспомогательные очищенные копии:
-  `knowledge/normalized/WTDG/legacy-source.md`,
-  `knowledge/normalized/WTDG/pages`
+  `knowledge/data/wtdg/items/normalized-wtdg-legacy-source.md/legacy-source.md`,
+  `knowledge/data/wtdg/items/`
 - Дата получения: `2026-05-29T12:35:22Z`
 
 ## Назначение нормализации

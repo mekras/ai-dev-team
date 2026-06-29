@@ -2,8 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/DSCT/source.md`
-- Индекс первичных артефактов: `knowledge/primary/DSCT/page-index.tsv`
+- Первичный источник: `knowledge/data/dsct/items/source/source.md`
+- Индекс первичных артефактов: `knowledge/data/dsct/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-26`
 - Способ нормализации: чтение локальной текстовой выгрузки PDF (23 страницы),
   извлечение структуры разделов и опорных определений таксономии.

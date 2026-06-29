@@ -13,8 +13,8 @@
 
 ## Что сохранено
 
-- паспорт: `knowledge/primary/CHAL/source.md`
-- индекс: `knowledge/primary/CHAL/page-index.tsv`
+- паспорт: `knowledge/data/chal/items/source/source.md`
+- индекс: `knowledge/data/chal/items/source/page-index.tsv`
 - страницы: `home`, `licenses`
 - заголовки ответа для каждой страницы
 

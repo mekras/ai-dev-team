@@ -2,15 +2,15 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/PHSC/source.md`
-- Индекс первичных страниц: `knowledge/primary/PHSC/page-index.tsv`
+- Первичный источник: `knowledge/data/phsc/items/source/source.md`
+- Индекс первичных страниц: `knowledge/data/phsc/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-03`
 - Способ нормализации: извлечение текста из `main` с исключением служебных
   блоков.
 
 ## Что сохранено
 
-- `knowledge/normalized/PHSC/pages/writing-good-agents/index.md`
+- `knowledge/data/phsc/items/writing-good-agents`
 
 ## Ограничения
 

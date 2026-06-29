@@ -2,7 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/ATCK/source.md` (`external_reference`)
+- Первичный источник: `knowledge/data/atck/items/source/source.md`
+  (`external_reference`)
 - Дата нормализации: `2026-06-25`
 - Способ нормализации: обзор структуры базы знаний по каноническому адресу
   `attack.mitre.org`; полный текст техник не копировался.

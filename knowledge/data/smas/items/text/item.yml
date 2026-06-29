@@ -1,10 +1,18 @@
 id: SMAS-text
 source_id: SMAS
-title: 'SMAS: text'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/smas/ и общие
-  ограничения в knowledge/source-attribution.md.
+title: "SMAS: text"
+access: "Смотри карточку единицы и связанные артефакты в knowledge/data/smas/ и общие ограничения в knowledge/source-attribution.md."
 status: approved
 workflow_stage: statements_extracted
-files:
-  tracked:
-  - securing-microservice-apis.txt
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+extracted_text:
+  location: knowledge/.local/raw/smas/securing-microservice-apis.txt
+  format: txt
+  file_size_bytes: 81356
+  content_hash: sha256:ef9e736a77adc39f5444635f130382fac39531c8e6be6317318dea49deba52ee
+  metadata_source: pdftotext
+known_limitations:
+- Полная текстовая выгрузка хранится только в игнорируемом локальном
+  слое knowledge/.local/raw/ и не публикуется в Git.

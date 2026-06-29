@@ -2,11 +2,11 @@
 
 ## Основание
 
-- Источник учёта: `knowledge/inventory/INMA.md`
-- Первичный источник: `knowledge/primary/INMA/source.md`
-- Индекс первичных артефактов: `knowledge/primary/INMA/page-index.tsv`
+- Источник учёта: `knowledge/data/inma/source.yml`
+- Первичный источник: `knowledge/data/inma/items/source/source.md`
+- Индекс первичных артефактов: `knowledge/data/inma/items/source/page-index.tsv`
 - Локальный PDF и текстовая выгрузка: игнорируемые артефакты в
-  `knowledge/primary/INMA/files/`
+  `knowledge/.local/raw/inma/`
 - Дата нормализации: `2026-06-25`
 - Способ нормализации: обзор локальной текстовой выгрузки PDF, выборочное чтение
   первых страниц и глав о функциях, персонажах, целях и сценариях.
@@ -15,9 +15,9 @@
 
 - Этот файл как обзорная карта основных тем книги.
 - Нормализованные фрагменты:
-  - `knowledge/normalized/INMA/fragments/process-before-code.md`
-  - `knowledge/normalized/INMA/fragments/features-vs-goals.md`
-  - `knowledge/normalized/INMA/fragments/personas-goals-scenarios.md`
+  - `knowledge/data/inma/items/fragment-process/process-before-code.md`
+  - `knowledge/data/inma/items/fragment-features/features-vs-goals.md`
+  - `knowledge/data/inma/items/fragment-personas/personas-goals-scenarios.md`
 
 ## Что удалось выделить
 

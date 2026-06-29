@@ -12,8 +12,8 @@
 
 ## Что сохранено
 
-- паспорт: `knowledge/primary/REUS/source.md`
-- индекс: `knowledge/primary/REUS/page-index.tsv`
+- паспорт: `knowledge/data/reus/items/source/source.md`
+- индекс: `knowledge/data/reus/items/source/page-index.tsv`
 - страницы: `spec-3-3`, `spec`, `faq`, `specifications`
 - заголовки ответа для каждой страницы
 

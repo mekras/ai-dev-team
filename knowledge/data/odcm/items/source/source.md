@@ -13,8 +13,8 @@
 
 ## Что сохранено
 
-- паспорт: `knowledge/primary/ODCM/source.md`
-- индекс: `knowledge/primary/ODCM/page-index.tsv`
+- паспорт: `knowledge/data/odcm/items/source/source.md`
+- индекс: `knowledge/data/odcm/items/primary-odcm-page-index.tsv/page-index.tsv`
 - страницы: `licenses`, `odbl`, `by`, `pddl`, `faq-licenses`
 - заголовки ответа для каждой страницы
 

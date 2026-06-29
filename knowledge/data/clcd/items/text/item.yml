@@ -1,10 +1,18 @@
 id: CLCD-text
 source_id: CLCD
-title: 'CLCD: text'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/clcd/ и общие
-  ограничения в knowledge/source-attribution.md.
+title: "CLCD: text"
+access: "Смотри карточку единицы и связанные артефакты в knowledge/data/clcd/ и общие ограничения в knowledge/source-attribution.md."
 status: approved
 workflow_stage: statements_extracted
-files:
-  tracked:
-  - clean-code-martin-ru.txt
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+extracted_text:
+  location: knowledge/.local/raw/clcd/clean-code-martin-ru.txt
+  format: txt
+  file_size_bytes: 1446197
+  content_hash: sha256:8c7d946908751d600d0a8bb5ddca92a04a15068636c070b7cfdc73013c9bda5f
+  metadata_source: pdftotext
+known_limitations:
+- Полная текстовая выгрузка хранится только в игнорируемом локальном
+  слое knowledge/.local/raw/ и не публикуется в Git.

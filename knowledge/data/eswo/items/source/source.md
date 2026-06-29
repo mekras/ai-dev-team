@@ -22,11 +22,10 @@
 
 ## Что сохранено
 
-- паспорт: `knowledge/primary/ESWO/source.md`
-- индекс артефактов: `knowledge/primary/ESWO/page-index.tsv`
-- PDF: `knowledge/primary/ESWO/files/engineering-a-safer-world.pdf`
-- текстовая выгрузка:
-  `knowledge/primary/ESWO/files/engineering-a-safer-world.txt`
+- паспорт: `knowledge/data/eswo/items/source/source.md`
+- индекс артефактов: `knowledge/data/eswo/items/source/page-index.tsv`
+- PDF: `knowledge/.local/raw/eswo/engineering-a-safer-world.pdf`
+- текстовая выгрузка: `knowledge/.local/raw/eswo/engineering-a-safer-world.txt`
 
 В Git сохраняются метаданные источника; нормализованный слой и утверждения будут
 добавлены на отдельном шаге.

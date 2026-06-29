@@ -2,8 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/OSIL/source.md`
-- Индекс первичных страниц: `knowledge/primary/OSIL/page-index.tsv`
+- Первичный источник: `knowledge/data/osil/items/source/source.md`
+- Индекс первичных страниц: `knowledge/data/osil/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-05`
 - Способ нормализации: обзор структуры и назначения страницы OSI.
 

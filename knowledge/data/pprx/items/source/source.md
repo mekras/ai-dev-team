@@ -21,9 +21,9 @@
 Для обработки локально получены следующие первичные артефакты одной единицы
 источника:
 
-- `knowledge/primary/PPRX/pages/designing-refining-maintaining-agent-skills/index.html`
-- `knowledge/primary/PPRX/pages/designing-refining-maintaining-agent-skills/response-headers.txt`
-- `knowledge/primary/PPRX/page-index.tsv`
+- `knowledge/data/pprx/items/designing-refining-maintaining-agent-skills/index.html`
+- `knowledge/data/pprx/items/designing-refining-maintaining-agent-skills/response-headers.txt`
+- `knowledge/data/pprx/items/source/page-index.tsv`
 
 В Git сохраняются только метаданные источника, индекс с хэшами, карточка
 источника, извлечённые утверждения и производные выводы без крупных дословных

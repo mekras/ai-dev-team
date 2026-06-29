@@ -2,14 +2,13 @@
 
 ## Статус
 
-Источник принят в корпус знаний как внешний публичный веб-материал
-с ограничением на хранение полного HTML в Git.
+Источник принят в корпус знаний как внешний публичный веб-материал с
+ограничением на хранение полного HTML в Git.
 
 ## Происхождение
 
 - Платформа: `https://gist.github.com`
-- URL:
-  `https://gist.github.com/0xfauzi/7c8f65572930a21efa62623557d83f6e`
+- URL: `https://gist.github.com/0xfauzi/7c8f65572930a21efa62623557d83f6e`
 - Дата получения: `2026-06-03T12:51:36Z`
 - Способ получения: HTTP GET с локальным сохранением raw HTML и заголовков
   ответа.
@@ -20,15 +19,15 @@
 
 В состав источника включены следующие артефакты:
 
-- passport: `knowledge/primary/GIST/source.md`
-- индекс: `knowledge/primary/GIST/page-index.tsv`
+- passport: `knowledge/data/gist/items/source/source.md`
+- индекс: `knowledge/data/gist/items/source/page-index.tsv`
 - страница:
-  `knowledge/primary/GIST/pages/7c8f65572930a21efa62623557d83f6e/index.html`
+  `knowledge/data/gist/items/7c8f65572930a21efa62623557d83f6e/index.html`
 - заголовки ответа:
-  `knowledge/primary/GIST/pages/7c8f65572930a21efa62623557d83f6e/response-headers.txt`
+  `knowledge/data/gist/items/7c8f65572930a21efa62623557d83f6e/response-headers.txt`
 
 Снимок хранится локально с исключением `pages/` из Git через
-`knowledge/primary/GIST/.gitignore`.
+`knowledge/data/gist/items/source/legacy-primary.gitignore`.
 
 ## Ограничения
 

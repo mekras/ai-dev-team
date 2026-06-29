@@ -2,8 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/CHEN/source.md`
-- Индекс первичных артефактов: `knowledge/primary/CHEN/page-index.tsv`
+- Первичный источник: `knowledge/data/chen/items/source/source.md`
+- Индекс первичных артефактов: `knowledge/data/chen/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-26`
 - Способ нормализации: чтение локальной текстовой выгрузки PDF (285 страниц),
   извлечение оглавления, принципов и модели зрелости инженерии хаоса.

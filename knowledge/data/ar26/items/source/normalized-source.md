@@ -2,16 +2,16 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/AR26/source.md`
-- Индекс первичных страниц: `knowledge/primary/AR26/page-index.tsv`
+- Первичный источник: `knowledge/data/ar26/items/source/source.md`
+- Индекс первичных страниц: `knowledge/data/ar26/items/source/page-index.tsv`
 - Дата нормализации: `2026-06-03`
 - Способ нормализации: извлечение текста из `article` сохранённого HTML.
 
 ## Что сохранено
 
-- `knowledge/normalized/AR26/pages/2602.11988v1/index.md`
+- `knowledge/data/ar26/items/2602.11988v1`
 
 ## Ограничения
 
-- Это артефакт версии preprint; содержимое и формулировки могут
-  измениться в финальной публикации.
+- Это артефакт версии preprint; содержимое и формулировки могут измениться в
+  финальной публикации.

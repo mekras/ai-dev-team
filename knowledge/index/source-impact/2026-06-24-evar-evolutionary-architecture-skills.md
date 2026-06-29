@@ -2,10 +2,10 @@
 
 ## Источник и дата проверки
 
-- Источник учёта: `knowledge/inventory/EVAR.md`
-- Первичный источник: `knowledge/primary/EVAR/source.md`
-- Нормализованный слой: `knowledge/normalized/EVAR/source.md`
-- Извлечённые утверждения: `knowledge/statements/EVAR.md`
+- Источник учёта: `knowledge/data/evar/source.yml`
+- Первичный источник: `knowledge/data/evar/items/source/source.md`
+- Нормализованный слой: `knowledge/data/evar/items/source/normalized-source.md`
+- Извлечённые утверждения: `knowledge/data/evar/items/text/statements.yml`
   (`EVAR-001`–`EVAR-048`)
 - Атрибуция и правовой статус: `knowledge/source-attribution.md`
 - Дата проверки: `2026-06-24`
@@ -148,12 +148,13 @@
 
 ### Severity: Low — способ работы с источником соответствует ограничению
 
-Документ: `knowledge/primary/EVAR/.gitignore`, `knowledge/source-attribution.md`
+Документ: `knowledge/data/evar/items/source/legacy-primary.gitignore`,
+`knowledge/source-attribution.md`
 
 Источник: `EVAR`, проверка `2026-06-24`
 
-Первичные данные: `knowledge/primary/EVAR/source.md`,
-`knowledge/primary/EVAR/page-index.tsv`
+Первичные данные: `knowledge/data/evar/items/source/source.md`,
+`knowledge/data/evar/items/source/page-index.tsv`
 
 Класс: изменение способа работы с источником
 

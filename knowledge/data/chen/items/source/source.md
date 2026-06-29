@@ -20,15 +20,15 @@
 - Тип источника: локальная PDF-книга
 - Способ получения: по решению владельца проекта скопирована локальная рабочая
   копия книги с хранением файла только в игнорируемом каталоге
-  `knowledge/primary/CHEN/files/`
+  `knowledge/.local/raw/chen/`
 - Дата включения в корпус: `2026-06-26`
 
 ## Что сохранено
 
-- паспорт: `knowledge/primary/CHEN/source.md`
-- индекс артефактов: `knowledge/primary/CHEN/page-index.tsv`
-- PDF: `knowledge/primary/CHEN/files/chaos-engineering-ru.pdf`
-- текстовая выгрузка: `knowledge/primary/CHEN/files/chaos-engineering-ru.txt`
+- паспорт: `knowledge/data/chen/items/source/source.md`
+- индекс артефактов: `knowledge/data/chen/items/source/page-index.tsv`
+- PDF: `knowledge/.local/raw/chen/chaos-engineering-ru.pdf`
+- текстовая выгрузка: `knowledge/.local/raw/chen/chaos-engineering-ru.txt`
 
 В Git сохраняются только метаданные источника; нормализованный слой и
 утверждения будут добавлены на отдельном шаге без крупных дословных фрагментов

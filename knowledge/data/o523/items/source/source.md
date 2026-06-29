@@ -15,11 +15,11 @@
 
 ## Что сохранено
 
-- паспорт: `knowledge/primary/O523/source.md`
-- индекс: `knowledge/primary/O523/page-index.tsv`
-- текст: `knowledge/primary/O523/pages/iso-5230-2020/index.md`
+- паспорт: `knowledge/data/o523/items/source/source.md`
+- индекс: `knowledge/data/o523/items/source/page-index.tsv`
+- текст: `knowledge/data/o523/items/iso-5230-2020/index.md`
 - заголовки ответа:
-  `knowledge/primary/O523/pages/iso-5230-2020/response-headers.txt`
+  `knowledge/data/o523/items/iso-5230-2020/response-headers.txt`
 
 ## Условия использования
 

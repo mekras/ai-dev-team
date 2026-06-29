@@ -7,6 +7,11 @@ status: approved
 carrier_type: document
 source_kind: book
 adapter: manual
+storage_strategy: local_only
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+license_or_terms: "`Creative Commons Attribution-NonCommercial 4.0 International` (`CC BY-NC 4.0`), заявлена автором на титульной странице книги."
 access:
   default: Смотри карточки единиц источника в knowledge/data/apib/ и общие ограничения
     в knowledge/source-attribution.md.

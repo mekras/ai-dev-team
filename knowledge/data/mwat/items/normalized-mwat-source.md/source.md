@@ -2,7 +2,8 @@
 
 ## Основание
 
-- Первичный источник: `knowledge/primary/MWAT/source.md` (`external_reference`)
+- Первичный источник: `knowledge/data/mwat/items/source/source.md`
+  (`external_reference`)
 - Дата нормализации: `2026-06-25`
 - Способ нормализации: обзор структуры каталогов по каноническим адресам
   `cwe.mitre.org` и `capec.mitre.org`; полный текст записей не копировался.

@@ -1,10 +1,18 @@
 id: SAHP-text
 source_id: SAHP
-title: 'SAHP: text'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/sahp/ и общие
-  ограничения в knowledge/source-attribution.md.
+title: "SAHP: text"
+access: "Смотри карточку единицы и связанные артефакты в knowledge/data/sahp/ и общие ограничения в knowledge/source-attribution.md."
 status: approved
 workflow_stage: statements_extracted
-files:
-  tracked:
-  - software-architecture-hard-parts-ru.txt
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+extracted_text:
+  location: knowledge/.local/raw/sahp/software-architecture-hard-parts-ru.txt
+  format: txt
+  file_size_bytes: 1460158
+  content_hash: sha256:51bccf7e89f7a1484e552c8419fe2b9785e0ef8af1616b8ac912d854ca48628e
+  metadata_source: pdftotext
+known_limitations:
+- Полная текстовая выгрузка хранится только в игнорируемом локальном
+  слое knowledge/.local/raw/ и не публикуется в Git.

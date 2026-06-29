@@ -2,10 +2,10 @@
 
 ## Источник и дата проверки
 
-- Источник учёта: `knowledge/inventory/SREQ.md`
-- Первичный источник: `knowledge/primary/SREQ/source.md`
-- Нормализованный слой: `knowledge/normalized/SREQ/source.md`
-- Извлечённые утверждения: `knowledge/statements/SREQ.md`
+- Источник учёта: `knowledge/data/sreq/source.yml`
+- Первичный источник: `knowledge/data/sreq/items/source/source.md`
+- Нормализованный слой: `knowledge/data/sreq/items/source/normalized-source.md`
+- Извлечённые утверждения: `knowledge/data/sreq/items/text/statements.yml`
 - Атрибуция и правовой статус: `knowledge/source-attribution.md`
 - Дата проверки: `2026-06-22`
 
@@ -202,12 +202,13 @@ real-time, интеграциями и качественными атрибут
 
 ### Severity: Low — текущий способ работы с источником соответствует ограничению
 
-Документ: `knowledge/primary/SREQ/.gitignore`, `knowledge/source-attribution.md`
+Документ: `knowledge/data/sreq/items/source/legacy-primary.gitignore`,
+`knowledge/source-attribution.md`
 
 Источник: `SREQ`, проверка `2026-06-22`
 
-Первичные данные: `knowledge/primary/SREQ/source.md`,
-`knowledge/primary/SREQ/page-index.tsv`
+Первичные данные: `knowledge/data/sreq/items/source/source.md`,
+`knowledge/data/sreq/items/source/page-index.tsv`
 
 Класс: изменение способа работы с источником
 

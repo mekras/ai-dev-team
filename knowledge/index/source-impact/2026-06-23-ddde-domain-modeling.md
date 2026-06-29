@@ -2,10 +2,10 @@
 
 ## Источник и дата проверки
 
-- Источник учёта: `knowledge/inventory/DDDE.md`
-- Первичный источник: `knowledge/primary/DDDE/source.md`
-- Нормализованный слой: `knowledge/normalized/DDDE/source.md`
-- Извлечённые утверждения: `knowledge/statements/DDDE.md`
+- Источник учёта: `knowledge/data/ddde/source.yml`
+- Первичный источник: `knowledge/data/ddde/items/source/source.md`
+- Нормализованный слой: `knowledge/data/ddde/items/source/normalized-source.md`
+- Извлечённые утверждения: `knowledge/data/ddde/items/text/statements.yml`
 - Атрибуция и правовой статус: `knowledge/source-attribution.md`
 - Дата проверки: `2026-06-23`
 
@@ -166,12 +166,13 @@
 
 ### Severity: Low — текущий способ работы с источником соответствует ограничению
 
-Документ: `knowledge/primary/DDDE/.gitignore`, `knowledge/source-attribution.md`
+Документ: `knowledge/data/ddde/items/source/legacy-primary.gitignore`,
+`knowledge/source-attribution.md`
 
 Источник: `DDDE`, проверка `2026-06-23`
 
-Первичные данные: `knowledge/primary/DDDE/source.md`,
-`knowledge/primary/DDDE/page-index.tsv`
+Первичные данные: `knowledge/data/ddde/items/source/source.md`,
+`knowledge/data/ddde/items/source/page-index.tsv`
 
 Класс: изменение способа работы с источником
 

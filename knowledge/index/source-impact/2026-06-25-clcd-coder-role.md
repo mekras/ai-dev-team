@@ -2,10 +2,10 @@
 
 ## Источник и дата проверки
 
-- Источник учёта: `knowledge/inventory/CLCD.md`
-- Первичный источник: `knowledge/primary/CLCD/source.md`
-- Нормализованный слой: `knowledge/normalized/CLCD/source.md`
-- Извлечённые утверждения: `knowledge/statements/CLCD.md`
+- Источник учёта: `knowledge/data/clcd/source.yml`
+- Первичный источник: `knowledge/data/clcd/items/source/source.md`
+- Нормализованный слой: `knowledge/data/clcd/items/source/normalized-source.md`
+- Извлечённые утверждения: `knowledge/data/clcd/items/source/statements.yml`
 - Атрибуция и правовой статус: `knowledge/source-attribution.md`
 - Дата проверки: `2026-06-25`
 

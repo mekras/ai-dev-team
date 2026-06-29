@@ -13,22 +13,20 @@
 - Способ получения: HTTP GET с локальным сохранением raw HTML и заголовков
   ответа.
 - HTTP статус: `200`
-- `Last-Modified` по ответу сервера:
-  `Thu, 26 Feb 2026 21:55:39 GMT`
+- `Last-Modified` по ответу сервера: `Thu, 26 Feb 2026 21:55:39 GMT`
 
 ## Что сохранено
 
 В состав источника включены следующие артефакты:
 
-- passport: `knowledge/primary/AR26/source.md`
-- индекс: `knowledge/primary/AR26/page-index.tsv`
-- страница:
-  `knowledge/primary/AR26/pages/2602.11988v1/index.html`
+- passport: `knowledge/data/ar26/items/source/source.md`
+- индекс: `knowledge/data/ar26/items/source/page-index.tsv`
+- страница: `knowledge/data/ar26/items/2602.11988v1/index.html`
 - заголовки ответа:
-  `knowledge/primary/AR26/pages/2602.11988v1/response-headers.txt`
+  `knowledge/data/ar26/items/2602.11988v1/response-headers.txt`
 
 Снимок хранится локально с исключением `pages/` из Git через
-`knowledge/primary/AR26/.gitignore`.
+`knowledge/data/ar26/items/source/legacy-primary.gitignore`.
 
 ## Ограничения
 

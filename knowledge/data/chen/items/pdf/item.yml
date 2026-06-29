@@ -1,10 +1,19 @@
 id: CHEN-pdf
 source_id: CHEN
-title: 'CHEN: pdf'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/chen/ и общие
-  ограничения в knowledge/source-attribution.md.
+title: "CHEN: pdf"
+access: "Смотри карточку единицы и связанные артефакты в knowledge/data/chen/ и общие ограничения в knowledge/source-attribution.md."
 status: approved
 workflow_stage: statements_extracted
-files:
-  tracked:
-  - chaos-engineering-ru.pdf
+retrieval_mode: on_demand
+copy_policy: fragments_only
+requires_access_check: true
+primary_file:
+  location: knowledge/.local/raw/chen/chaos-engineering-ru.pdf
+  format: pdf
+  file_size_bytes: 7191550
+  content_hash: sha256:383fbd953271ece8ca694f9e615e21a5ce0118c361b81b5084f0b8eafd427efe
+  page_count: 285
+  metadata_source: pdfinfo
+known_limitations:
+- Полный файл хранится только в игнорируемом локальном слое
+  knowledge/.local/raw/ и не публикуется в Git.
