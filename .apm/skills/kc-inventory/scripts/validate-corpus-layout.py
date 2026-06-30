@@ -67,6 +67,13 @@ DEFAULT_ALLOWED_STAGES = {
     "rejected",
 }
 
+DEFAULT_STATEMENT_KINDS = {
+    "fact",
+    "observation",
+    "inference",
+    "limitation",
+}
+
 LEGACY_ROOT_DIRS = {
     "inventory",
     "normalized",
@@ -164,6 +171,9 @@ class Validator:
         self.allowed_stages = set(DEFAULT_ALLOWED_STAGES)
         self.allowed_carrier_types = load_classifier_values("source-carrier-types.yml")
         self.allowed_source_kinds = load_classifier_values("source-kinds.yml")
+        self.allowed_statement_kinds = (
+            load_classifier_values("statement-kinds.yml") or set(DEFAULT_STATEMENT_KINDS)
+        )
         self.source_ids: set[str] = set()
         self.item_ids: set[str] = set()
 
@@ -549,6 +559,20 @@ class Validator:
                 self.errors.append(f"{prefix}: source_id does not match {source_id}")
             if item_id and statement.get("item_id") != item_id:
                 self.errors.append(f"{prefix}: item_id does not match {item_id}")
+
+            status = statement.get("status")
+            if status in self.allowed_statement_kinds:
+                self.errors.append(
+                    f"{prefix}: status contains statement kind {status}; use kind instead"
+                )
+
+            kind = statement.get("kind")
+            if kind is not None:
+                if not isinstance(kind, str):
+                    self.errors.append(f"{prefix}: kind must be a string")
+                elif kind not in self.allowed_statement_kinds:
+                    allowed = ", ".join(sorted(self.allowed_statement_kinds))
+                    self.errors.append(f"{prefix}: kind must be one of: {allowed}")
 
             text = statement.get("text")
             if isinstance(text, str):

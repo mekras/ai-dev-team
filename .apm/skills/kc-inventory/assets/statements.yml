@@ -8,6 +8,7 @@ statements:
     source_id: SOURCE-ID
     item_id: SOURCE-ID-ITEM
     status: candidate # candidate | confirmed | blocked | rejected
+    kind: fact # fact | observation | inference | limitation
     text: "Краткое проверяемое утверждение без расширения смысла источника."
     excerpt: "Короткий проверяемый фрагмент источника."
     artifact: message.md

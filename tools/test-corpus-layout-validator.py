@@ -82,6 +82,39 @@ def write_minimal_corpus(root: Path, corpus_yml: str | None = None) -> None:
     )
 
 
+def write_statement(root: Path, status: str = "ready_for_review", kind: str | None = None) -> None:
+    kind_line = f"kind: {kind}\n            " if kind is not None else ""
+    write_text(root / "data" / "test-source" / "documents" / "item-001" / "artifact.md", "Fact.")
+    write_text(
+        root / "data" / "test-source" / "documents" / "item-001" / "item.yml",
+        """
+        id: TEST-ITEM-001
+        title: "Test item"
+        access: "Same as source."
+        status: active
+        workflow_stage: indexed
+        """,
+    )
+    write_text(
+        root / "data" / "test-source" / "documents" / "item-001" / "statements.yml",
+        f"""
+        source_id: TEST
+        item_id: TEST-ITEM-001
+        statements:
+          - id: TEST-001
+            source_id: TEST
+            item_id: TEST-ITEM-001
+            status: {status}
+            {kind_line}text: "Fact."
+            excerpt: "Fact."
+            artifact: artifact.md
+            checked_at: 2026-06-30
+            scope: {{}}
+            open_questions: []
+        """,
+    )
+
+
 def run_validator(root: Path) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
         [sys.executable, str(VALIDATOR), str(root)],
@@ -112,6 +145,24 @@ def main() -> int:
         root = Path(tmp)
         write_minimal_corpus(root)
         assert_passes(root)
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_statement(root)
+        assert_passes(root)
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_statement(root, kind="invalid_kind")
+        assert_fails_with(root, "kind must be one of:")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_statement(root, status="fact")
+        assert_fails_with(root, "status contains statement kind fact")
 
     with tempfile.TemporaryDirectory() as tmp:
         root = Path(tmp)
