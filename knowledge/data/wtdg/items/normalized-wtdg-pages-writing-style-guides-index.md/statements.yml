@@ -2,13 +2,12 @@ statements:
 - id: WTDG-018
   source_id: WTDG
   item_id: WTDG-normalized-WTDG-pages-writing-style-guides-index.md
-  status: факт
-  text: источник рассматривает стайлгайд как средство поддержания единого стиля, голоса
-    и тона документации и как способ снижения когнитивной нагрузки читателя.
-  excerpt: источник рассматривает стайлгайд как средство поддержания единого стиля,
-    голоса и тона документации и как способ снижения когнитивной нагрузки читателя.
+  kind: fact
+  status: verified
+  text: источник рассматривает стайлгайд как средство поддержания единого стиля, голоса и тона документации и как способ снижения когнитивной нагрузки читателя.
+  excerpt: It helps maintain a consistent style, voice, and tone across your documentation, whether you’re a lone writer or part of a huge docs team.
   artifact: index.md
-  checked_at: '2026-06-28'
+  checked_at: 2026-06-30
   scope:
     section_title: ''
     application: ''
@@ -16,15 +15,12 @@ statements:
 - id: WTDG-019
   source_id: WTDG
   item_id: WTDG-normalized-WTDG-pages-writing-style-guides-index.md
-  status: факт
-  text: стайлгайд может быть как коротким списком локальных проектных решений, так
-    и более формальным сводом правил, при этом полезно опираться на уже существующие
-    руководства.
-  excerpt: стайлгайд может быть как коротким списком локальных проектных решений,
-    так и более формальным сводом правил, при этом полезно опираться на уже существующие
-    руководства.
+  kind: fact
+  status: verified
+  text: стайлгайд может быть как коротким списком локальных проектных решений, так и более формальным сводом правил, при этом полезно опираться на уже существующие руководства.
+  excerpt: A style guide can be something as simple as a list of decisions you’ve made about how to refer to different items you frequently write about.
   artifact: index.md
-  checked_at: '2026-06-28'
+  checked_at: 2026-06-30
   scope:
     section_title: ''
     application: ''
@@ -32,13 +28,12 @@ statements:
 - id: WTDG-020
   source_id: WTDG
   item_id: WTDG-normalized-WTDG-pages-writing-style-guides-index.md
-  status: факт
-  text: источник считает доступность и снижение предвзятости обязательными темами
-    для стайлгайда и документационной практики.
-  excerpt: источник считает доступность и снижение предвзятости обязательными темами
-    для стайлгайда и документационной практики.
+  kind: fact
+  status: verified
+  text: источник считает доступность и снижение предвзятости обязательными темами для стайлгайда и документационной практики.
+  excerpt: It’s important to consider accessibility and biases in your style guide to ensure that all readers can understand the content you produce.
   artifact: index.md
-  checked_at: '2026-06-28'
+  checked_at: 2026-06-30
   scope:
     section_title: ''
     application: ''
@@ -46,15 +41,12 @@ statements:
 - id: WTDG-021
   source_id: WTDG
   item_id: WTDG-normalized-WTDG-pages-writing-style-guides-index.md
-  status: факт
-  text: документация API рассматривается как отдельная область, для которой полезно
-    проектировать API и документацию одновременно, а иногда и проектировать API через
-    документацию.
-  excerpt: документация API рассматривается как отдельная область, для которой полезно
-    проектировать API и документацию одновременно, а иногда и проектировать API через
-    документацию.
+  kind: fact
+  status: verified
+  text: документация API рассматривается как отдельная область, для которой полезно проектировать API и документацию одновременно, а иногда и проектировать API через документацию.
+  excerpt: It is best to work on developing the API and the documentation concurrently.
   artifact: index.md
-  checked_at: '2026-06-28'
+  checked_at: 2026-06-30
   scope:
     section_title: ''
     application: ''
@@ -62,13 +54,12 @@ statements:
 - id: WTDG-022
   source_id: WTDG
   item_id: WTDG-normalized-WTDG-pages-writing-style-guides-index.md
-  status: факт
-  text: источник описывает тесто-ориентированную документацию как способ сочетать
-    ручное написание документации с автоматической проверкой её точности через тесты.
-  excerpt: источник описывает тесто-ориентированную документацию как способ сочетать
-    ручное написание документации с автоматической проверкой её точности через тесты.
+  kind: fact
+  status: verified
+  text: источник описывает тесто-ориентированную документацию как способ сочетать ручное написание документации с автоматической проверкой её точности через тесты.
+  excerpt: It allows you to write the bulk of the documentation by hand while also ensuring its accuracy by using your API’s tests to generate some content.
   artifact: index.md
-  checked_at: '2026-06-28'
+  checked_at: 2026-06-30
   scope:
     section_title: ''
     application: ''

@@ -2,6 +2,7 @@ statements:
 - id: ESWO-001
   source_id: ESWO
   item_id: ESWO-normalized-ESWO-source.md
+  kind: fact
   status: ready_for_review
   text: безопасность и надёжность — эмерджентные свойства системы, возникающие из
     взаимодействия компонентов, а не сводимые к надёжности отдельных частей.
@@ -15,6 +16,7 @@ statements:
 - id: ESWO-002
   source_id: ESWO
   item_id: ESWO-normalized-ESWO-source.md
+  kind: fact
   status: ready_for_review
   text: аварии возникают из-за нарушения ограничений безопасности (safety constraints)
     в управляющей структуре, а не только из-за отказа компонентов.
@@ -28,6 +30,7 @@ statements:
 - id: ESWO-003
   source_id: ESWO
   item_id: ESWO-normalized-ESWO-source.md
+  kind: fact
   status: ready_for_review
   text: STAMP` объясняет причины аварий через нарушение ограничений безопасности в
     иерархической управляющей структуре.
@@ -41,6 +44,7 @@ statements:
 - id: ESWO-004
   source_id: ESWO
   item_id: ESWO-normalized-ESWO-source.md
+  kind: fact
   status: ready_for_review
   text: STPA` выявляет небезопасные управляющие воздействия (unsafe control actions)
     и переформулирует их в ограничения безопасности.
@@ -55,6 +59,7 @@ statements:
 - id: ESWO-005
   source_id: ESWO
   item_id: ESWO-normalized-ESWO-source.md
+  kind: limitation
   status: ready_for_review
   text: подход разработан для систем с риском для жизни и критичной инфраструктуры;
     перенос на обычное ПО требует отдельного обоснования.

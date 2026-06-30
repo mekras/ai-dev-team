@@ -2,6 +2,7 @@ statements:
 - id: XEM7-001
   source_id: XEM7
   item_id: XEM7-primary-XEM7-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: для ИИ-результатов нужен отдельный слой контроля качества после генерации,
     потому что улучшение промпта, модели или памяти не гарантирует стабильное качество
@@ -16,6 +17,7 @@ statements:
 - id: XEM7-002
   source_id: XEM7
   item_id: XEM7-primary-XEM7-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: eval loop должен включать тестовые случаи, метрики и порог прохождения.
   excerpt: 'статья описывает три части benchmark: cases, metrics, threshold.'
@@ -28,6 +30,7 @@ statements:
 - id: XEM7-003
   source_id: XEM7
   item_id: XEM7-primary-XEM7-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: тестовые случаи для продуктовых ИИ-функций полезно брать из реальных пользовательских
     логов, а не только из заранее придуманных happy path-примеров.
@@ -42,6 +45,7 @@ statements:
 - id: XEM7-004
   source_id: XEM7
   item_id: XEM7-primary-XEM7-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: при изменении промпта, модели или пайплайна нужно запускать регрессионную
     проверку и сравнивать результат с базовой линией.
@@ -56,6 +60,7 @@ statements:
 - id: XEM7-005
   source_id: XEM7
   item_id: XEM7-primary-XEM7-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: неудачный ИИ-результат должен становиться новым тестовым случаем, чтобы найденная
     ошибка проверялась в следующих запусках.

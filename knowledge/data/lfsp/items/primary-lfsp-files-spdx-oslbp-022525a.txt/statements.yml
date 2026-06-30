@@ -2,6 +2,7 @@ statements:
 - id: LFSP-001
   source_id: LFSP
   item_id: LFSP-primary-LFSP-files-spdx-oslbp-022525a.txt
+  kind: fact
   status: ready_for_review
   text: документ рекомендует добавлять SPDX License ID в каждый файл, где это возможно.
   excerpt: блок `Important Tips`.
@@ -14,6 +15,7 @@ statements:
 - id: LFSP-002
   source_id: LFSP
   item_id: LFSP-primary-LFSP-files-spdx-oslbp-022525a.txt
+  kind: fact
   status: ready_for_review
   text: для кода, документации, спецификаций и данных следует подбирать разные типы
     лицензий, а исходная лицензия кода не должна автоматически переноситься на остальные
@@ -28,6 +30,7 @@ statements:
 - id: LFSP-003
   source_id: LFSP
   item_id: LFSP-primary-LFSP-files-spdx-oslbp-022525a.txt
+  kind: fact
   status: ready_for_review
   text: среди базовых практик названы поиск и учёт всех лицензий через SCA-инструмент
     и соблюдение всех обязанностей по лицензии, включая атрибуцию.
@@ -41,6 +44,7 @@ statements:
 - id: LFSP-004
   source_id: LFSP
   item_id: LFSP-primary-LFSP-files-spdx-oslbp-022525a.txt
+  kind: fact
   status: ready_for_review
   text: документ прямо различает copyright notice и собственно лицензию, не сводя
     одно к другому.

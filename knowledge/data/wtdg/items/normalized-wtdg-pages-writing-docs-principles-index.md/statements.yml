@@ -2,13 +2,12 @@ statements:
 - id: WTDG-004
   source_id: WTDG
   item_id: WTDG-normalized-WTDG-pages-writing-docs-principles-index.md
-  status: факт
-  text: источник рассматривает документацию как часть разработки ПО, а не как вторичный
-    внешний артефакт.
-  excerpt: источник рассматривает документацию как часть разработки ПО, а не как вторичный
-    внешний артефакт.
+  kind: fact
+  status: verified
+  text: источник рассматривает документацию как часть разработки ПО, а не как вторичный внешний артефакт.
+  excerpt: These principles also apply to software _documentation_ to foster clean and intuitive content that delights and empowers readers with easy-to-find information.
   artifact: index.md
-  checked_at: '2026-06-28'
+  checked_at: 2026-06-30
   scope:
     section_title: ''
     application: ''
@@ -16,13 +15,12 @@ statements:
 - id: WTDG-005
   source_id: WTDG
   item_id: WTDG-normalized-WTDG-pages-writing-docs-principles-index.md
-  status: факт
-  text: источник рекомендует начинать документирование до начала разработки как минимум
-    на уровне требований и спецификаций.
-  excerpt: источник рекомендует начинать документирование до начала разработки как
-    минимум на уровне требований и спецификаций.
+  kind: fact
+  status: verified
+  text: источник рекомендует начинать документирование до начала разработки как минимум на уровне требований и спецификаций.
+  excerpt: Before coding, write requirements and specifications that serve as the first draft of documentation.
   artifact: index.md
-  checked_at: '2026-06-28'
+  checked_at: 2026-06-30
   scope:
     section_title: ''
     application: ''
@@ -30,13 +28,12 @@ statements:
 - id: WTDG-006
   source_id: WTDG
   item_id: WTDG-normalized-WTDG-pages-writing-docs-principles-index.md
-  status: факт
-  text: документационный процесс должен включать не только авторов документации, но
-    и разработчиков и читателей.
-  excerpt: документационный процесс должен включать не только авторов документации,
-    но и разработчиков и читателей.
+  kind: fact
+  status: verified
+  text: документационный процесс должен включать не только авторов документации, но и разработчиков и читателей.
+  excerpt: In the documentation process, include everyone from developers to end users.
   artifact: index.md
-  checked_at: '2026-06-28'
+  checked_at: 2026-06-30
   scope:
     section_title: ''
     application: ''
@@ -44,15 +41,12 @@ statements:
 - id: WTDG-007
   source_id: WTDG
   item_id: WTDG-normalized-WTDG-pages-writing-docs-principles-index.md
-  status: факт
-  text: источник допускает ограничённое повторение в документации, если оно необходимо
-    для качественного объяснения и не может быть полностью заменено автоматической
-    генерацией.
-  excerpt: источник допускает ограничённое повторение в документации, если оно необходимо
-    для качественного объяснения и не может быть полностью заменено автоматической
-    генерацией.
+  kind: fact
+  status: verified
+  text: источник допускает ограничённое повторение в документации, если оно необходимо для качественного объяснения и не может быть полностью заменено автоматической генерацией.
+  excerpt: Some_ amount of business logic described by your code must be described _again_ in your documentation.
   artifact: index.md
-  checked_at: '2026-06-28'
+  checked_at: 2026-06-30
   scope:
     section_title: ''
     application: ''
@@ -60,13 +54,12 @@ statements:
 - id: WTDG-008
   source_id: WTDG
   item_id: WTDG-normalized-WTDG-pages-writing-docs-principles-index.md
-  status: факт
-  text: хорошая документация должна быть удобной для беглого просмотра, содержать
-    примеры, быть последовательной и поддерживаться в актуальном состоянии.
-  excerpt: хорошая документация должна быть удобной для беглого просмотра, содержать
-    примеры, быть последовательной и поддерживаться в актуальном состоянии.
+  kind: fact
+  status: verified
+  text: хорошая документация должна быть удобной для беглого просмотра, содержать примеры, быть последовательной и поддерживаться в актуальном состоянии.
+  excerpt: Save your readers’ time by writing like a newspaper instead of a novel.
   artifact: index.md
-  checked_at: '2026-06-28'
+  checked_at: 2026-06-30
   scope:
     section_title: ''
     application: ''
@@ -74,13 +67,12 @@ statements:
 - id: WTDG-009
   source_id: WTDG
   item_id: WTDG-normalized-WTDG-pages-writing-docs-principles-index.md
-  status: факт
-  text: источник рекомендует хранить источники документации как можно ближе к коду
-    и избегать перекрытия содержания между разными хранилищами.
-  excerpt: источник рекомендует хранить источники документации как можно ближе к коду
-    и избегать перекрытия содержания между разными хранилищами.
+  kind: fact
+  status: verified
+  text: источник рекомендует хранить источники документации как можно ближе к коду и избегать перекрытия содержания между разными хранилищами.
+  excerpt: Store sources as close as possible to the code which they document.
   artifact: index.md
-  checked_at: '2026-06-28'
+  checked_at: 2026-06-30
   scope:
     section_title: ''
     application: ''
@@ -88,13 +80,12 @@ statements:
 - id: WTDG-010
   source_id: WTDG
   item_id: WTDG-normalized-WTDG-pages-writing-docs-principles-index.md
-  status: факт
-  text: публикации документации должны быть находимыми, адресуемыми, достаточно полными
-    в границах своей области и визуально продуманными.
-  excerpt: публикации документации должны быть находимыми, адресуемыми, достаточно
-    полными в границах своей области и визуально продуманными.
+  kind: fact
+  status: verified
+  text: публикации документации должны быть находимыми, адресуемыми, достаточно полными в границах своей области и визуально продуманными.
+  excerpt: Funnel users intuitively towards publications through all likely pathways.
   artifact: index.md
-  checked_at: '2026-06-28'
+  checked_at: 2026-06-30
   scope:
     section_title: ''
     application: ''
@@ -102,13 +93,12 @@ statements:
 - id: WTDG-011
   source_id: WTDG
   item_id: WTDG-normalized-WTDG-pages-writing-docs-principles-index.md
-  status: факт
-  text: совокупный корпус документации должен стремиться покрывать вероятные вопросы
-    пользователей.
-  excerpt: совокупный корпус документации должен стремиться покрывать вероятные вопросы
-    пользователей.
+  kind: fact
+  status: verified
+  text: совокупный корпус документации должен стремиться покрывать вероятные вопросы пользователей.
+  excerpt: Ensure that together, all the publications in the body of documentation can answer all questions the user is likely to have.
   artifact: index.md
-  checked_at: '2026-06-28'
+  checked_at: 2026-06-30
   scope:
     section_title: ''
     application: ''

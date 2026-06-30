@@ -2,6 +2,7 @@ statements:
 - id: CVSS-001
   source_id: CVSS
   item_id: CVSS-normalized-CVSS-source.md
+  kind: fact
   status: ready_for_review
   text: CVSS — открытая методика оценки технической серьёзности уязвимостей, принадлежащая
     FIRST и предоставляемая свободно при атрибуции.
@@ -15,6 +16,7 @@ statements:
 - id: CVSS-002
   source_id: CVSS
   item_id: CVSS-normalized-CVSS-source.md
+  kind: fact
   status: ready_for_review
   text: CVSS v4.0 включает группы метрик Base (постоянные характеристики), Threat
     (эксплуатируемость), Environmental (факторы развёртывания) и Supplemental (контекст,
@@ -29,6 +31,7 @@ statements:
 - id: CVSS-003
   source_id: CVSS
   item_id: CVSS-normalized-CVSS-source.md
+  kind: fact
   status: ready_for_review
   text: 'базовая группа делится на метрики эксплуатируемости (Attack Vector, Attack
     Complexity, Attack Requirements, Privileges Required, User Interaction) и влияния
@@ -44,6 +47,7 @@ statements:
 - id: CVSS-004
   source_id: CVSS
   item_id: CVSS-normalized-CVSS-source.md
+  kind: fact
   status: ready_for_review
   text: балл помечается по использованным группам (`CVSS-B`, `CVSS-BT`, CVSS-BE`,
     `CVSS-BTE`); CVSS оценивает техническую серьёзность, а не риск конкретной организации,

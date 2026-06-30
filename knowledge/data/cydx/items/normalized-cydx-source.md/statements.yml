@@ -2,6 +2,7 @@ statements:
 - id: CYDX-001
   source_id: CYDX
   item_id: CYDX-normalized-CYDX-source.md
+  kind: fact
   status: ready_for_review
   text: CycloneDX — полнофункциональный стандарт Bill of Materials (BOM) для управления
     рисками цепочки поставок ПО; на дату включения актуальна версия 1.7`, стандарт
@@ -16,6 +17,7 @@ statements:
 - id: CYDX-002
   source_id: CYDX
   item_id: CYDX-normalized-CYDX-source.md
+  kind: fact
   status: ready_for_review
   text: 'стандарт поддерживает несколько видов BOM: SBOM (состав ПО), SaaSBOM (сервисы),
     HBOM (аппаратура), ML-BOM (модели ML), CBOM (криптография) и другие.'
@@ -29,6 +31,7 @@ statements:
 - id: CYDX-003
   source_id: CYDX
   item_id: CYDX-normalized-CYDX-source.md
+  kind: fact
   status: ready_for_review
   text: документ BOM описывает компоненты (с лицензией и происхождением), сервисы,
     прямые и транзитивные зависимости, известные уязвимости с поддержкой VEX и процессы
@@ -43,6 +46,7 @@ statements:
 - id: CYDX-004
   source_id: CYDX
   item_id: CYDX-normalized-CYDX-source.md
+  kind: inference
   status: ready_for_review
   text: CycloneDX служит основанием для SCA и SBOM в навыке security-tooling` и связан
     с практикой проверки компонентов SSDF (`PW.4`); он дополняет учтённый в корпусе

@@ -2,6 +2,7 @@ statements:
 - id: BSIM-001
   source_id: BSIM
   item_id: BSIM-normalized-BSIM-source.md
+  kind: fact
   status: ready_for_review
   text: BSIMM — модель зрелости, построенная на наблюдении того, что реально делают
     организации в программах безопасности ПО; это описательный ориентир для сравнения,
@@ -16,6 +17,7 @@ statements:
 - id: BSIM-002
   source_id: BSIM
   item_id: BSIM-normalized-BSIM-source.md
+  kind: fact
   status: ready_for_review
   text: BSIMM организован по четырём доменам — Governance, Intelligence, SSDL Touchpoints,
     Deployment — с двенадцатью практиками; каждая практика содержит наблюдаемые активности
@@ -30,6 +32,7 @@ statements:
 - id: BSIM-003
   source_id: BSIM
   item_id: BSIM-normalized-BSIM-source.md
+  kind: fact
   status: ready_for_review
   text: 'BSIMM описывает, что организации делают (наблюдение), тогда как SAMM` предписывает
     целевые уровни; их уместно использовать вместе: SAMM — для целей, BSIMM — для
@@ -44,6 +47,7 @@ statements:
 - id: BSIM-004
   source_id: BSIM
   item_id: BSIM-normalized-BSIM-source.md
+  kind: limitation
   status: ready_for_review
   text: отчёт обновляется ежегодно (на дату — `BSIMM16`, анализ практик 111 организаций)
     и доступен бесплатно по регистрации; числа и тренды — снимок издания, сверять

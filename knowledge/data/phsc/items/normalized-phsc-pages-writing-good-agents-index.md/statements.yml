@@ -2,6 +2,7 @@ statements:
 - id: PHSC-001
   source_id: PHSC
   item_id: PHSC-normalized-PHSC-pages-writing-good-agents-index.md
+  kind: fact
   status: ready_for_review
   text: AGENTS.md выступает как первичный вход в проект для кодового ассистента и
     оказывает решающее влияние на его контекст.
@@ -15,6 +16,7 @@ statements:
 - id: PHSC-002
   source_id: PHSC
   item_id: PHSC-normalized-PHSC-pages-writing-good-agents-index.md
+  kind: fact
   status: ready_for_review
   text: авто-сгенерированный файл может снижать успех задач и увеличивать стоимость
     inference по сравнению с отсутствием таких файла.
@@ -28,6 +30,7 @@ statements:
 - id: PHSC-003
   source_id: PHSC
   item_id: PHSC-normalized-PHSC-pages-writing-good-agents-index.md
+  kind: fact
   status: ready_for_review
   text: полезные файлы включают WHAT/WHY/HOW и минимум конкретной операционной информации
     (стек, процессы сборки, тестирования).
@@ -41,6 +44,7 @@ statements:
 - id: PHSC-004
   source_id: PHSC
   item_id: PHSC-normalized-PHSC-pages-writing-good-agents-index.md
+  kind: fact
   status: ready_for_review
   text: подробный обзор дерева репозитория и избыточные обзоры не дают выигрыш навигации
     и могут перегружать инструкцию.
@@ -55,6 +59,7 @@ statements:
 - id: PHSC-005
   source_id: PHSC
   item_id: PHSC-normalized-PHSC-pages-writing-good-agents-index.md
+  kind: fact
   status: ready_for_review
   text: упоминание инструментов в AGENTS.md резко повышает вероятность их использования
     моделью.

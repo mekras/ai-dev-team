@@ -2,6 +2,7 @@ statements:
 - id: CODX-001
   source_id: CODX
   item_id: CODX-normalized-CODX-pages-agents-md-index.md
+  kind: fact
   status: ready_for_review
   text: Codex строит цепочку инструкций при старте и применяет их к каждому сеансу.
   excerpt: в разделе описания объясняется порядок формирование guidance-сцепочки при
@@ -15,6 +16,7 @@ statements:
 - id: CODX-002
   source_id: CODX
   item_id: CODX-normalized-CODX-pages-agents-md-index.md
+  kind: fact
   status: ready_for_review
   text: глобальный уровень `~/.codex` имеет приоритет над локальными до тех пор, пока
     не будет найден более специфичный override.
@@ -28,6 +30,7 @@ statements:
 - id: CODX-003
   source_id: CODX
   item_id: CODX-normalized-CODX-pages-agents-md-index.md
+  kind: fact
   status: ready_for_review
   text: проектный уровень просматривает все каталоги от корня до текущего и для каждого
     пытается применить до одного файла (`AGENTS.override.md`, затем `AGENTS.md`, затем
@@ -42,6 +45,7 @@ statements:
 - id: CODX-004
   source_id: CODX
   item_id: CODX-normalized-CODX-pages-agents-md-index.md
+  kind: fact
   status: ready_for_review
   text: порядок объединения — от корня вниз, более глубокие файлы идут позже и имеют
     больший вес.
@@ -56,6 +60,7 @@ statements:
 - id: CODX-005
   source_id: CODX
   item_id: CODX-normalized-CODX-pages-agents-md-index.md
+  kind: fact
   status: ready_for_review
   text: Codex прекращает добавление файлов инструкций по лимиту размера контекста
     (`project_doc_max_bytes`, по умолчанию 32 KiB).
@@ -69,6 +74,7 @@ statements:
 - id: CODX-006
   source_id: CODX
   item_id: CODX-normalized-CODX-pages-agents-md-index.md
+  kind: fact
   status: ready_for_review
   text: для повышения надёжности рекомендуют увеличивать лимит или делить соглашения
     на вложенные файлы при переполнении.

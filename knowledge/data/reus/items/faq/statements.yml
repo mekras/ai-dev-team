@@ -2,6 +2,7 @@ statements:
 - id: REUS-001
   source_id: REUS
   item_id: REUS-faq
+  kind: fact
   status: ready_for_review
   text: REUSE связывает выбор лицензии проекта с использованием SPDX License List
     и хранением текстов лицензий в каталоге `LICENSES/`.
@@ -15,6 +16,7 @@ statements:
 - id: REUS-002
   source_id: REUS
   item_id: REUS-faq
+  kind: observation
   status: ready_for_review
   text: REUSE уделяет отдельное внимание лицензионной информации в заголовках файлов
     и объясняет, зачем она нужна даже при наличии VCS.
@@ -28,6 +30,7 @@ statements:
 - id: REUS-003
   source_id: REUS
   item_id: REUS-faq
+  kind: observation
   status: ready_for_review
   text: FAQ REUSE рассматривает лицензии зависимостей, нестандартные лицензии и исключения
     как отдельные практические случаи, требующие явной обработки.
@@ -41,6 +44,7 @@ statements:
 - id: REUS-004
   source_id: REUS
   item_id: REUS-faq
+  kind: fact
   status: ready_for_review
   text: REUSE не предлагает создавать custom exception отдельно, а советует оформлять
     такой случай как custom license, встраивающую исключение.
@@ -54,6 +58,7 @@ statements:
 - id: REUS-005
   source_id: REUS
   item_id: REUS-faq
+  kind: observation
   status: ready_for_review
   text: FAQ REUSE отдельно объясняет, почему история VCS не считается заменой файловых
     сведений о copyright и лицензии.

@@ -2,6 +2,7 @@ statements:
 - id: EVAR-001
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: архитектура с эволюционным развитием поддерживает управляемые, инкрементные
     изменения в нескольких измерениях.
@@ -17,6 +18,7 @@ statements:
 - id: EVAR-002
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: эволюционная архитектура отвечает на вопрос, как вести долгосрочное планирование,
     когда всё постоянно меняется, — за счёт проектирования способности к изменению,
@@ -32,6 +34,7 @@ statements:
 - id: EVAR-003
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: со временем архитектура деградирует («гниёт») по мере непредвиденных изменений;
     эволюционная архитектура защищает важные характеристики, делая их проверяемыми,
@@ -47,6 +50,7 @@ statements:
 - id: EVAR-004
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: инкрементное изменение означает, что архитектура должна способствовать изменению
     небольшими приращениями как на этапе разработки, так и на этапе развёртывания.
@@ -60,6 +64,7 @@ statements:
 - id: EVAR-005
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: слово «управляемое» в определении означает, что существует цель, к которой
     архитектура должна двигаться; механизм управления — функции пригодности, а ограничения
@@ -74,6 +79,7 @@ statements:
 - id: EVAR-006
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: архитектура существует во многих измерениях (техническом, данных, безопасности,
     операционном и др.); эволюционная архитектура должна поддерживать изменение во
@@ -88,6 +94,7 @@ statements:
 - id: EVAR-007
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: организации, проектирующие системы, ограничены дизайном, копирующим структуру
     их коммуникаций; функциональное разделение команд («анклавы») повышает затраты
@@ -102,6 +109,7 @@ statements:
 - id: EVAR-008
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: команды стоит организовывать вокруг целевых границ архитектуры (например,
     границ сервисов), чтобы структура команд напоминала желаемую архитектуру; ThoughtWorks
@@ -116,6 +124,7 @@ statements:
 - id: EVAR-009
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: вместо разделения по техническим слоям (UI, бэкенд, базы данных) эффективнее
     межфункциональные команды вокруг бизнес-области, включающие все нужные роли, чтобы
@@ -131,6 +140,7 @@ statements:
 - id: EVAR-010
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: архитектурная функция пригодности предоставляет оценку целостности некоторых
     архитектурных характеристик; понятие заимствовано из эволюционных вычислений,
@@ -145,6 +155,7 @@ statements:
 - id: EVAR-011
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: функция пригодности всей системы — это набор частных функций пригодности;
     её не «оценивают», она служит основой для приоритезации будущих решений и понимания
@@ -159,6 +170,7 @@ statements:
 - id: EVAR-012
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: функции пригодности объединяют разнородные ранее «нефункциональные требования»
     в один механизм (тесты, мониторинг, метрики), делая размытые субъективные критерии
@@ -173,6 +185,7 @@ statements:
 - id: EVAR-013
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: не все тесты относятся к функциям пригодности; тест является функцией пригодности,
     только если он проверяет целостность характеристики архитектуры.
@@ -186,6 +199,7 @@ statements:
 - id: EVAR-014
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: атомарная функция пригодности проверяет один аспект архитектуры в единичном
     контексте (например, модульный тест связанности модулей); комплексная функция
@@ -201,6 +215,7 @@ statements:
 - id: EVAR-015
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: триггерные функции запускаются по событию (модульный тест, запуск конвейера),
     непрерывные функции постоянно проверяют параметры в эксплуатации (например, время
@@ -215,6 +230,7 @@ statements:
 - id: EVAR-016
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: статическая функция имеет фиксированный результат (двоичный, диапазон, включение
     в множество), динамическая опирается на изменяющийся контекст (например, допустимая
@@ -229,6 +245,7 @@ statements:
 - id: EVAR-017
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: большинство функций пригодности следует автоматизировать в конвейере, но некоторые
     аспекты (юридические требования, отдельные процессы обеспечения качества) не поддаются
@@ -243,6 +260,7 @@ statements:
 - id: EVAR-018
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: временная функция пригодности встраивает компонент времени (например, напоминание
     проверить обновление библиотеки шифрования или тест «повреждение при обновлении»
@@ -257,6 +275,7 @@ statements:
 - id: EVAR-019
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: не все функции пригодности известны в начале проекта; часть из них выявляется
     по мере эволюции системы («неизвестное неизвестное»), поэтому набор функций пригодности
@@ -271,6 +290,7 @@ statements:
 - id: EVAR-020
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: команды должны идентифицировать функции пригодности на ранней стадии как часть
     понимания важных характеристик; их отсутствие ведёт к рискам неверного дизайна,
@@ -285,6 +305,7 @@ statements:
 - id: EVAR-021
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: эволюционная архитектура предполагает практики непрерывной поставки (Хамбл
     и Фарлей) как предварительное условие проектирования программного обеспечения
@@ -299,6 +320,7 @@ statements:
 - id: EVAR-022
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: реализация инкрементного изменения охватывает два этапа — разработку (как
     создают ПО) и эксплуатацию (как команды развёртывают ПО).
@@ -312,6 +334,7 @@ statements:
 - id: EVAR-023
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: тестопригодность — один из строительных блоков эволюционной архитектуры; функции
     пригодности на основе тестов позволяют проверять целостность характеристик при
@@ -326,6 +349,7 @@ statements:
 - id: EVAR-024
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: конвейер развёртывания применяет функции пригодности к каждому изменению,
     в отличие от случайной (несистематической) проверки важных характеристик.
@@ -339,6 +363,7 @@ statements:
 - id: EVAR-025
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: цели функций пригодности могут конфликтовать (например, скорость против стабильности),
     и комбинирование категорий функций требует осознанного баланса.
@@ -353,6 +378,7 @@ statements:
 - id: EVAR-026
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: 'эволюционная архитектура поддерживает разработку, основанную на гипотезах
     и данных: функции выпускаются как проверяемые гипотезы, а решения о развитии опираются
@@ -367,6 +393,7 @@ statements:
 - id: EVAR-027
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: квант архитектуры — независимо развёртываемый компонент с высокой степенью
     функциональной связности, включающий все структурные элементы, нужные системе
@@ -381,6 +408,7 @@ statements:
 - id: EVAR-028
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: ограниченный контекст из предметно-ориентированного проектирования (DDD) локализует
     модель в своих границах; архитектура микросервисов делает ограниченный контекст
@@ -396,6 +424,7 @@ statements:
 - id: EVAR-029
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: большой размер кванта затрудняет инкрементные изменения; контроль размера
     кванта (мелкая гранулярность, отсутствие циклов компонентов) повышает способность
@@ -411,6 +440,7 @@ statements:
 - id: EVAR-030
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: 'архитектурные стили различаются по способности к эволюции: «большой комок
     грязи» эволюционирует плохо, монолит — ограниченно, событийно-ориентированная
@@ -426,6 +456,7 @@ statements:
 - id: EVAR-031
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: данные должны эволюционировать вместе с кодом; инструменты миграций вносят
     небольшие инкрементные изменения схемы, автоматически применяемые как часть конвейера
@@ -440,6 +471,7 @@ statements:
 - id: EVAR-032
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: интеграция через общую базу данных и двухфазная фиксация транзакций создают
     ненадлежащую связанность, затрудняющую эволюцию; на способность к изменению влияют
@@ -455,6 +487,7 @@ statements:
 - id: EVAR-033
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: 'построение эволюционной архитектуры опирается на три техники: определить
     измерения, затрагиваемые развитием; определить для каждого измерения функцию(-и)
@@ -469,6 +502,7 @@ statements:
 - id: EVAR-034
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: следует выявлять и удалять ненужные переменные (неиспользуемый код, забытые
     переключатели функций, «серверы-снежинки»), так как неконтролируемая изменчивость
@@ -483,6 +517,7 @@ statements:
 - id: EVAR-035
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: следует делать как можно больше решений обратимыми с помощью практик DevOps
     (сине-зелёные развёртывания, переключатели функций, канареечный релиз), чтобы
@@ -497,6 +532,7 @@ statements:
 - id: EVAR-036
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: 'предпочтение следует отдавать эволюционированию, а не предсказуемости: вместо
     попытки предсказать будущее нужно снижать стоимость изменения.'
@@ -511,6 +547,7 @@ statements:
 - id: EVAR-037
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: между приложением и внешней библиотекой или инструментом стоит строить уровень
     защиты от повреждений (anticorruption layer) «точно в срок», чтобы изолировать
@@ -525,6 +562,7 @@ statements:
 - id: EVAR-038
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: жертвенная архитектура (по Фаулеру) — архитектура, заведомо предназначенная
     к замене после подтверждения концепции; примеры eBay и Twitter показывают её оправданность
@@ -540,6 +578,7 @@ statements:
 - id: EVAR-039
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: для внешних зависимостей следует предпочитать непрерывную поставку снимкам
     состояния (snapshots); вводятся обозначения зависимостей «подвижная» (обновляется
@@ -555,6 +594,7 @@ statements:
 - id: EVAR-040
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: антипаттерн «король-поставщик» (Vendor King) — построение всей архитектуры
     вокруг продукта поставщика (например, ERP), что патологически привязывает организацию
@@ -569,6 +609,7 @@ statements:
 - id: EVAR-041
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: все нетривиальные абстракции в какой-то степени дырявые (Спольски); рост сложности
     стека увеличивает риск утечки деталей нижних уровней и усложняет диагностику.
@@ -582,6 +623,7 @@ statements:
 - id: EVAR-042
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: ловушка «последних 10 %» означает, что инструменты и платформы легко покрывают
     80–90 % задачи, но последние 10 % остаются нереализуемыми, что ведёт к разочарованию
@@ -596,6 +638,7 @@ statements:
 - id: EVAR-043
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: чрезмерное повторное использование кода создаёт связанность, вредящую способности
     эволюционировать; повторное использование полезно лишь до тех пор, пока не становится
@@ -611,6 +654,7 @@ statements:
 - id: EVAR-044
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: ненадлежащее управление (избыточная стандартизация, запрет разнообразия) мешает
     инкрементным изменениям; уместна модель управления «золотой середины», балансирующая
@@ -626,6 +670,7 @@ statements:
 - id: EVAR-045
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: чрезмерно длинные горизонты планирования и крупные предварительные вложения
     в план повышают приверженность неверным решениям; короткие итерации снижают этот
@@ -640,6 +685,7 @@ statements:
 - id: EVAR-046
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: 'для эволюционной архитектуры мышление «продукт» предпочтительнее мышления
     «проект»: продукт живёт долго, имеет стабильную кросс-функциональную команду и
@@ -654,6 +700,7 @@ statements:
 - id: EVAR-047
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: внедрение эволюционной архитектуры требует культуры эксперимента — организационной
     готовности проверять гипотезы, учиться на результатах и безопасно ошибаться.
@@ -667,6 +714,7 @@ statements:
 - id: EVAR-048
   source_id: EVAR
   item_id: EVAR-text
+  kind: fact
   status: ready_for_review
   text: эволюционная архитектура — не универсальный выбор; компания должна осознанно
     решить строить её (когда важна способность к непрерывным изменениям) или не строить

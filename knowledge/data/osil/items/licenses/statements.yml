@@ -2,6 +2,7 @@ statements:
 - id: OSIL-001
   source_id: OSIL
   item_id: OSIL-licenses
+  kind: fact
   status: ready_for_review
   text: OSI описывает открытые лицензии как лицензии, соответствующие Open Source
     Definition и проходящие license review process.
@@ -15,6 +16,7 @@ statements:
 - id: OSIL-002
   source_id: OSIL
   item_id: OSIL-licenses
+  kind: observation
   status: ready_for_review
   text: страница группирует лицензии по навигационным категориям, включая International`,
     `Popular / Strong Community` и `Special Purpose`.
@@ -28,6 +30,7 @@ statements:
 - id: OSIL-003
   source_id: OSIL
   item_id: OSIL-licenses
+  kind: fact
   status: ready_for_review
   text: сайт OSI отделяет свои авторские материалы сайта от текстов самих лицензий
     и указывает, что вопросы copyright по тексту лицензии нужно направлять соответствующему

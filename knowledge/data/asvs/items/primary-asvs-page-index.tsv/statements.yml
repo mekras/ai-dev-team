@@ -2,6 +2,7 @@ statements:
 - id: ASVS-001
   source_id: ASVS
   item_id: ASVS-primary-ASVS-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: ASVS задаёт открытый каталог проверяемых требований безопасности веб-приложений
     и сервисов и служит основой для их верификации; его можно использовать как метрику,
@@ -16,6 +17,7 @@ statements:
 - id: ASVS-002
   source_id: ASVS
   item_id: ASVS-primary-ASVS-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: 'стандарт задаёт три уровня доверия: L1 (минимальный, полностью проверяем
     «снаружи», в т. ч. пентестом), L2 («Standard», для приложений с чувствительными
@@ -30,6 +32,7 @@ statements:
 - id: ASVS-003
   source_id: ASVS
   item_id: ASVS-primary-ASVS-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: L1 — минимум, к которому должны стремиться все приложения, и полезен как первый
     шаг; для приложений с ценными данными редко стоит останавливаться на L1.
@@ -43,6 +46,7 @@ statements:
 - id: ASVS-004
   source_id: ASVS
   item_id: ASVS-primary-ASVS-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: L2 и L3 требуют доступа к коду, документации и разработчикам и более глубокого
     анализа архитектуры, кода и тестирования, чем L1.
@@ -56,6 +60,7 @@ statements:
 - id: ASVS-005
   source_id: ASVS
   item_id: ASVS-primary-ASVS-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: 'требования сгруппированы в 14 разделов (V1–V14): V1 Architecture, Design
     and Threat Modeling; V2 Authentication; V3 Session Management; V4 Access Control;
@@ -72,6 +77,7 @@ statements:
 - id: ASVS-006
   source_id: ASVS
   item_id: ASVS-primary-ASVS-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: раздел V1 объединяет архитектуру, проектирование и моделирование угроз, связывая
     требования безопасности с архитектурными решениями.
@@ -85,6 +91,7 @@ statements:
 - id: ASVS-007
   source_id: ASVS
   item_id: ASVS-primary-ASVS-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: каждое требование помечено применимыми уровнями (L1/L2/L3) и сопоставлено
     с идентификатором слабости CWE, что связывает стандарт с таксономией уязвимостей
@@ -99,6 +106,7 @@ statements:
 - id: ASVS-008
   source_id: ASVS
   item_id: ASVS-primary-ASVS-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: ASVS можно использовать для вывода проверяемых требований безопасности и критериев
     приёмки приложения; L1 задуман как набор «essential» контролей.
