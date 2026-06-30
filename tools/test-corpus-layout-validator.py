@@ -82,6 +82,54 @@ def write_minimal_corpus(root: Path, corpus_yml: str | None = None) -> None:
     )
 
 
+def write_external_corpus_source(root: Path, with_items: bool = False) -> None:
+    write_text(
+        root / "catalog.yml",
+        """
+        sources:
+          - id: TEST
+            title: "Test source"
+            path: data/test-source
+          - id: EXT
+            title: "External corpus"
+            path: data/external-corpus
+        """,
+    )
+    write_text(
+        root / "data" / "external-corpus" / "source.yml",
+        """
+        id: EXT
+        slug: external-corpus
+        title: "External corpus"
+        access:
+          default: "Access follows the connected project or local checkout."
+        status: active
+        carrier_type: repository
+        source_kind: knowledge_corpus
+        adapter: builtin.git
+        reliability: working
+        refresh_policy: manual
+        locator: "ssh://git@example.org/team/corpus.git#knowledge"
+        external_corpus:
+          contract: portable_v1
+          use_as: peer
+          local_checkout: .local/external-corpora/external-corpus
+        """,
+    )
+    if with_items:
+        write_text(
+            root / "data" / "external-corpus" / "items.yml",
+            """
+            items:
+              - id: EXT-CATALOG
+                title: "External catalog"
+                access: "Same as source."
+                status: active
+                workflow_stage: indexed
+            """,
+        )
+
+
 def write_statement(root: Path, status: str = "ready_for_review", kind: str | None = None) -> None:
     kind_line = f"kind: {kind}\n            " if kind is not None else ""
     write_text(root / "data" / "test-source" / "documents" / "item-001" / "artifact.md", "Fact.")
@@ -163,6 +211,43 @@ def main() -> int:
         write_minimal_corpus(root)
         write_statement(root, status="fact")
         assert_fails_with(root, "status contains statement kind fact")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_external_corpus_source(root)
+        assert_passes(root)
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_text(
+            root / "catalog.yml",
+            """
+            sources:
+              - id: EXT
+                title: "External corpus"
+                path: data/external-corpus
+            """,
+        )
+        write_text(
+            root / "data" / "external-corpus" / "source.yml",
+            """
+            id: EXT
+            slug: external-corpus
+            title: "External corpus"
+            access:
+              default: "Access follows the connected project."
+            status: active
+            carrier_type: repository
+            source_kind: knowledge_corpus
+            adapter: builtin.git
+            reliability: working
+            refresh_policy: manual
+            locator: "ssh://git@example.org/team/corpus.git#knowledge"
+            """,
+        )
+        assert_fails_with(root, "knowledge_corpus source requires external_corpus block")
 
     with tempfile.TemporaryDirectory() as tmp:
         root = Path(tmp)

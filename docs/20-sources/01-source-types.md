@@ -43,6 +43,7 @@
 | Скан книги | `media` | `book` |
 | Статья на сайте | `web_page` | `article` |
 | Раздел базы знаний | `website` | `knowledge_base` |
+| Внешний корпус знаний в другом репозитории | `repository` | `knowledge_corpus` |
 | CSV из CRM | `data_export` | `dataset` или `operational_record` |
 | Репозиторий Git | `repository` | `source_code` |
 | Тема форума | `external_system` или `website` | `discussion` |

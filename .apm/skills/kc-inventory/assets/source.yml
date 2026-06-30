@@ -34,6 +34,13 @@ checked_by:
 content_hash:
 content_hash_algorithm:
 
+# Для внешнего корпуса знаний без полной локальной копии.
+# Используйте вместе с source_kind: knowledge_corpus.
+external_corpus:
+  contract: # portable_v1
+  use_as: # peer
+  local_checkout: # .local/external-corpora/source-slug
+
 # Для локальных книг и длинных документов.
 original_filename:
 format: # pdf | djvu | epub | scan | other

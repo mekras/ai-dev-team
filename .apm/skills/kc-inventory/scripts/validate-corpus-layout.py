@@ -74,6 +74,8 @@ DEFAULT_STATEMENT_KINDS = {
     "limitation",
 }
 
+PEER_EXTERNAL_CORPUS_USE_AS = {"peer"}
+
 LEGACY_ROOT_DIRS = {
     "inventory",
     "normalized",
@@ -415,14 +417,48 @@ class Validator:
         if self.allowed_source_kinds and source_kind not in self.allowed_source_kinds:
             self.errors.append(f"{rel}: unknown source_kind: {source_kind}")
 
+        self.validate_external_corpus_source(source, rel)
         self.add_value_errors(rel, source)
-        self.validate_items(source_dir, source_id)
+        self.validate_items(source_dir, source_id, source)
         self.validate_unit_dirs(source_dir, source_id)
 
-    def validate_items(self, source_dir: Path, source_id: Any) -> None:
+    def validate_external_corpus_source(self, source: dict[str, Any], rel: str) -> None:
+        source_kind = source.get("source_kind")
+        external_corpus = source.get("external_corpus")
+
+        if external_corpus is None:
+            if source_kind == "knowledge_corpus":
+                self.errors.append(f"{rel}: knowledge_corpus source requires external_corpus block")
+            return
+
+        if source_kind != "knowledge_corpus":
+            self.errors.append(
+                f"{rel}: external_corpus block is allowed only for source_kind knowledge_corpus"
+            )
+            return
+
+        if not isinstance(external_corpus, dict):
+            self.errors.append(f"{rel}: external_corpus must be a mapping")
+            return
+
+        if not nonempty_string(source.get("locator")):
+            self.errors.append(f"{rel}: knowledge_corpus source requires non-empty locator")
+
+        contract = external_corpus.get("contract")
+        if not nonempty_string(contract):
+            self.errors.append(f"{rel}: external_corpus.contract must be non-empty text")
+
+        use_as = external_corpus.get("use_as")
+        if use_as not in PEER_EXTERNAL_CORPUS_USE_AS:
+            allowed = ", ".join(sorted(PEER_EXTERNAL_CORPUS_USE_AS))
+            self.errors.append(f"{rel}: external_corpus.use_as must be one of: {allowed}")
+
+    def validate_items(self, source_dir: Path, source_id: Any, source: dict[str, Any]) -> None:
         path = source_dir / "items.yml"
         rel = self.rel(path)
         if not path.exists():
+            if self.is_peer_external_corpus(source):
+                return
             self.errors.append(f"{rel}: missing items.yml")
             return
 
@@ -434,6 +470,14 @@ class Validator:
 
         for index, item in enumerate(items, start=1):
             self.validate_item(source_dir, item, source_id, f"{rel}: item #{index}")
+
+    def is_peer_external_corpus(self, source: dict[str, Any]) -> bool:
+        if source.get("source_kind") != "knowledge_corpus":
+            return False
+        external_corpus = source.get("external_corpus")
+        return isinstance(external_corpus, dict) and external_corpus.get("use_as") in (
+            PEER_EXTERNAL_CORPUS_USE_AS
+        )
 
     def validate_item(self, source_dir: Path, item: Any, source_id: Any, prefix: str) -> None:
         if not isinstance(item, dict):
