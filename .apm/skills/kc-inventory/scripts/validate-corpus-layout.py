@@ -164,9 +164,14 @@ def contains_redaction_placeholder(value: str) -> bool:
     return any(pattern in lowered for pattern in REDACTION_PLACEHOLDER_PATTERNS)
 
 
+def normalize_text(value: str) -> str:
+    return " ".join(value.split()).casefold()
+
+
 class Validator:
-    def __init__(self, root: Path) -> None:
+    def __init__(self, root: Path, *, strict_statements: bool = False) -> None:
         self.root = root.resolve()
+        self.strict_statements = strict_statements
         self.contract_path = self.root / "corpus.yml"
         self.catalog_path = self.root / "catalog.yml"
         self.errors: list[str] = []
@@ -611,7 +616,10 @@ class Validator:
                 )
 
             kind = statement.get("kind")
-            if kind is not None:
+            if kind is None:
+                if self.strict_statements:
+                    self.errors.append(f"{prefix}: missing kind in strict statement validation")
+            else:
                 if not isinstance(kind, str):
                     self.errors.append(f"{prefix}: kind must be a string")
                 elif kind not in self.allowed_statement_kinds:
@@ -629,12 +637,60 @@ class Validator:
                 self.errors.append(f"{prefix}: text must be a string")
 
             excerpt = statement.get("excerpt")
-            if isinstance(excerpt, str) and contains_redaction_placeholder(excerpt):
-                self.errors.append(f"{prefix}: excerpt contains inline redaction placeholder")
+            if isinstance(excerpt, str):
+                if contains_redaction_placeholder(excerpt):
+                    self.errors.append(f"{prefix}: excerpt contains inline redaction placeholder")
+                if self.strict_statements and not excerpt.strip():
+                    self.errors.append(f"{prefix}: excerpt must be non-empty text")
+                if (
+                    self.strict_statements
+                    and isinstance(text, str)
+                    and len(normalize_text(text)) > 20
+                    and normalize_text(excerpt) == normalize_text(text)
+                ):
+                    self.errors.append(
+                        f"{prefix}: excerpt duplicates statement text; use a source fragment"
+                    )
+            elif "excerpt" in statement:
+                self.errors.append(f"{prefix}: excerpt must be a string")
 
             artifact = statement.get("artifact")
-            if artifact and not (path.parent / artifact).exists():
-                self.errors.append(f"{prefix}: artifact does not exist: {artifact}")
+            artifact_path: Path | None = None
+            if isinstance(artifact, str) and artifact.strip():
+                artifact_path = path.parent / artifact
+                if not artifact_path.exists():
+                    self.errors.append(f"{prefix}: artifact does not exist: {artifact}")
+            elif "artifact" in statement:
+                self.errors.append(f"{prefix}: artifact must be non-empty text")
+
+            if (
+                self.strict_statements
+                and artifact_path is not None
+                and artifact_path.exists()
+                and artifact_path.suffix in {".md", ".txt"}
+                and isinstance(excerpt, str)
+                and excerpt.strip()
+            ):
+                artifact_text = artifact_path.read_text(encoding="utf-8")
+                if normalize_text(excerpt) not in normalize_text(artifact_text):
+                    self.errors.append(
+                        f"{prefix}: excerpt is not found in referenced text artifact"
+                    )
+
+            scope = statement.get("scope")
+            if scope is not None and not isinstance(scope, dict):
+                self.errors.append(f"{prefix}: scope must be a mapping")
+            if (
+                self.strict_statements
+                and isinstance(scope, dict)
+                and "section_title" in scope
+                and not nonempty_string(scope.get("section_title"))
+            ):
+                self.errors.append(f"{prefix}: scope.section_title must be non-empty")
+
+            open_questions = statement.get("open_questions")
+            if open_questions is not None and not isinstance(open_questions, list):
+                self.errors.append(f"{prefix}: open_questions must be a list")
 
             self.add_value_errors(prefix, statement)
 
@@ -647,12 +703,20 @@ def parse_args() -> argparse.Namespace:
         default=".",
         help="Project root containing corpus.yml, catalog.yml and data/.",
     )
+    parser.add_argument(
+        "--strict-statements",
+        action="store_true",
+        help=(
+            "Treat statement quality gaps as validation errors: missing kind, "
+            "duplicated text/excerpt, broken excerpt traceability and empty section titles."
+        ),
+    )
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
-    return Validator(Path(args.root)).validate()
+    return Validator(Path(args.root), strict_statements=args.strict_statements).validate()
 
 
 if __name__ == "__main__":

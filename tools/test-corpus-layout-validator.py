@@ -130,9 +130,17 @@ def write_external_corpus_source(root: Path, with_items: bool = False) -> None:
         )
 
 
-def write_statement(root: Path, status: str = "ready_for_review", kind: str | None = None) -> None:
+def write_statement(
+    root: Path,
+    status: str = "ready_for_review",
+    kind: str | None = None,
+    text: str = "Fact.",
+    excerpt: str = "Fact.",
+    artifact_text: str = "Fact.",
+    scope: str = "{}",
+) -> None:
     kind_line = f"kind: {kind}\n            " if kind is not None else ""
-    write_text(root / "data" / "test-source" / "documents" / "item-001" / "artifact.md", "Fact.")
+    write_text(root / "data" / "test-source" / "documents" / "item-001" / "artifact.md", artifact_text)
     write_text(
         root / "data" / "test-source" / "documents" / "item-001" / "item.yml",
         """
@@ -153,19 +161,23 @@ def write_statement(root: Path, status: str = "ready_for_review", kind: str | No
             source_id: TEST
             item_id: TEST-ITEM-001
             status: {status}
-            {kind_line}text: "Fact."
-            excerpt: "Fact."
+            {kind_line}text: "{text}"
+            excerpt: "{excerpt}"
             artifact: artifact.md
             checked_at: 2026-06-30
-            scope: {{}}
+            scope: {scope}
             open_questions: []
         """,
     )
 
 
-def run_validator(root: Path) -> subprocess.CompletedProcess[str]:
+def run_validator(root: Path, *, strict_statements: bool = False) -> subprocess.CompletedProcess[str]:
+    command = [sys.executable, str(VALIDATOR)]
+    if strict_statements:
+        command.append("--strict-statements")
+    command.append(str(root))
     return subprocess.run(
-        [sys.executable, str(VALIDATOR), str(root)],
+        command,
         cwd=REPO_ROOT,
         text=True,
         stdout=subprocess.PIPE,
@@ -180,8 +192,8 @@ def assert_passes(root: Path) -> None:
         raise AssertionError(f"expected validator to pass, got:\n{result.stdout}")
 
 
-def assert_fails_with(root: Path, expected: str) -> None:
-    result = run_validator(root)
+def assert_fails_with(root: Path, expected: str, *, strict_statements: bool = False) -> None:
+    result = run_validator(root, strict_statements=strict_statements)
     if result.returncode == 0:
         raise AssertionError("expected validator to fail")
     if expected not in result.stdout:
@@ -199,6 +211,53 @@ def main() -> int:
         write_minimal_corpus(root)
         write_statement(root)
         assert_passes(root)
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_statement(root)
+        assert_fails_with(root, "missing kind in strict statement validation", strict_statements=True)
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_statement(
+            root,
+            kind="fact",
+            text="The validator should not accept copied statement text as evidence.",
+            excerpt="The validator should not accept copied statement text as evidence.",
+            artifact_text="The source contains the original evidence.",
+        )
+        assert_fails_with(root, "excerpt duplicates statement text", strict_statements=True)
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_statement(
+            root,
+            kind="fact",
+            text="The source says the corpus needs traceable excerpts.",
+            excerpt="traceable excerpt missing from artifact",
+            artifact_text="The source says another fragment.",
+        )
+        assert_fails_with(
+            root,
+            "excerpt is not found in referenced text artifact",
+            strict_statements=True,
+        )
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_statement(
+            root,
+            kind="fact",
+            text="The source says section metadata must stay useful.",
+            excerpt="section metadata",
+            artifact_text="The source says section metadata must stay useful.",
+            scope="{section_title: ''}",
+        )
+        assert_fails_with(root, "scope.section_title must be non-empty", strict_statements=True)
 
     with tempfile.TemporaryDirectory() as tmp:
         root = Path(tmp)
