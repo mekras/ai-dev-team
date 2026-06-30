@@ -2,6 +2,7 @@ statements:
 - id: ATCK-001
   source_id: ATCK
   item_id: ATCK-normalized-ATCK-source.md
+  kind: fact
   status: ready_for_review
   text: ATT&CK — база знаний о тактиках, техниках и процедурах (TTP) злоумышленников,
     основанная на наблюдениях реальных атак.
@@ -15,6 +16,7 @@ statements:
 - id: ATCK-002
   source_id: ATCK
   item_id: ATCK-normalized-ATCK-source.md
+  kind: fact
   status: ready_for_review
   text: ATT&CK охватывает домены Enterprise, Mobile и ICS, представленные отдельными
     матрицами.
@@ -28,6 +30,7 @@ statements:
 - id: ATCK-003
   source_id: ATCK
   item_id: ATCK-normalized-ATCK-source.md
+  kind: fact
   status: ready_for_review
   text: модель связывает тактики (цель этапа), техники и подтехники (как достигается,
     идентификаторы `Txxxx`), меры нейтрализации, а также наблюдаемые группы и используемое
@@ -42,6 +45,7 @@ statements:
 - id: ATCK-004
   source_id: ATCK
   item_id: ATCK-normalized-ATCK-source.md
+  kind: fact
   status: ready_for_review
   text: ATT&CK применяется как библиотека TTP для операционных моделей угроз (что
     может сделать злоумышленник) и связывается с шаблонами атак CAPEC`; конкретные

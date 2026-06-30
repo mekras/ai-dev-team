@@ -2,6 +2,7 @@ statements:
 - id: AR26-001
   source_id: AR26
   item_id: AR26-normalized-AR26-pages-2602.11988v1-index.md
+  kind: fact
   status: ready_for_review
   text: исследование сравнивает LLM-генерируемые и developer-written контекстные файлы
     на разных наборах задач.
@@ -15,6 +16,7 @@ statements:
 - id: AR26-002
   source_id: AR26
   item_id: AR26-normalized-AR26-pages-2602.11988v1-index.md
+  kind: fact
   status: ready_for_review
   text: по результатам нескольких агентов и LLM использование context-файлов снижает
     вероятность успешного завершения по сравнению с отсутствием контекста.
@@ -28,6 +30,7 @@ statements:
 - id: AR26-003
   source_id: AR26
   item_id: AR26-normalized-AR26-pages-2602.11988v1-index.md
+  kind: fact
   status: ready_for_review
   text: использование контекстных файлов увеличивает инференс-кост на более чем 20%.
   excerpt: абстракт указывает рост inference cost.
@@ -40,6 +43,7 @@ statements:
 - id: AR26-004
   source_id: AR26
   item_id: AR26-normalized-AR26-pages-2602.11988v1-index.md
+  kind: fact
   status: ready_for_review
   text: контекстные файлы увеличивают глубину изучения репозитория (широкая проверка,
     большее файловое исследование), и агенты в целом следуют заданным инструкциям.
@@ -53,6 +57,7 @@ statements:
 - id: AR26-005
   source_id: AR26
   item_id: AR26-normalized-AR26-pages-2602.11988v1-index.md
+  kind: fact
   status: ready_for_review
   text: итоговый вывод статьи — оставлять только минимально необходимые требования
     во избежание усложнения задач.
@@ -66,6 +71,7 @@ statements:
 - id: AR26-006
   source_id: AR26
   item_id: AR26-normalized-AR26-pages-2602.11988v1-index.md
+  kind: fact
   status: ready_for_review
   text: в введении указано, что на момент публикации практику используют десятки тысяч
     репозиториев.

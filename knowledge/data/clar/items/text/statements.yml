@@ -2,6 +2,7 @@ statements:
 - id: CLAR-001
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: между понятиями «дизайн» и «архитектура» нет принципиальной разницы; низкоуровневые
     детали и высокоуровневая структура образуют единое непрерывное полотно решений
@@ -17,6 +18,7 @@ statements:
 - id: CLAR-002
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: цель архитектуры программного обеспечения — уменьшить человеческие трудозатраты
     на создание и сопровождение системы; мерой качества служат трудозатраты на удовлетворение
@@ -31,6 +33,7 @@ statements:
 - id: CLAR-003
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: вера в то, что грязный код ускоряет выход на рынок, ложна; создание беспорядка
     всегда медленнее неуклонного соблюдения чистоты в любом масштабе времени, а продуктивность
@@ -46,6 +49,7 @@ statements:
 - id: CLAR-004
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: та же самонадеянность, что привела к беспорядку, приведёт к такому же беспорядку
     при полном перепроектировании системы; «начать всё заново» само по себе не решает
@@ -61,6 +65,7 @@ statements:
 - id: CLAR-005
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: всякая программная система имеет две ценности — поведение (что система делает)
     и структуру (насколько легко её менять); разработчики отвечают за обе, но часто
@@ -75,6 +80,7 @@ statements:
 - id: CLAR-006
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: правильно работающая, но неизменяемая программа в итоге становится бесполезной
     при изменении требований; неправильно работающая, но легко изменяемая программа
@@ -89,6 +95,7 @@ statements:
 - id: CLAR-007
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: в хорошей системе сложность изменения пропорциональна масштабу изменения,
     а не его форме; рост стоимости из-за несоответствия формы системы форме запроса
@@ -105,6 +112,7 @@ statements:
 - id: CLAR-008
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: поведение срочно, но не всегда важно; архитектура важна, но не всегда срочна;
     ошибка руководителей и разработчиков — поднимать срочное и не важное (поведение)
@@ -121,6 +129,7 @@ statements:
 - id: CLAR-009
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: 'существуют три парадигмы — структурная, объектно-ориентированная и функциональная;
     каждая не добавляет возможностей, а отнимает: накладывает ограничение соответственно
@@ -136,6 +145,7 @@ statements:
 - id: CLAR-010
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: 'полиморфизм (ОО) используется для преодоления архитектурных границ, функциональное
     программирование — для ограничений на расположение и доступ к данным, структурное
@@ -151,6 +161,7 @@ statements:
 - id: CLAR-011
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: ограничение управления тремя структурами (последовательность, выбор, итерация)
     позволяет рекурсивно разлагать программу на доказуемые единицы и применять функциональную
@@ -167,6 +178,7 @@ statements:
 - id: CLAR-012
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: правильность программы нельзя доказать, как теорему; тестирование показывает
     присутствие ошибок, а не их отсутствие; мы считаем код достаточно правильным,
@@ -182,6 +194,7 @@ statements:
 - id: CLAR-013
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: для архитектора ценность объектно-ориентированного программирования сводится
     к надёжному полиморфизму, дающему абсолютный контроль над направлением зависимостей
@@ -196,6 +209,7 @@ statements:
 - id: CLAR-014
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: полиморфизм позволяет обратить любую зависимость исходного кода, направив
     её против потока управления (добавлением интерфейса); это делает возможным архитектуру
@@ -210,6 +224,7 @@ statements:
 - id: CLAR-015
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: возможность обращать зависимости позволяет компилировать бизнес-правила, интерфейс
     и базу данных в независимо развёртываемые компоненты и, как следствие, разрабатывать
@@ -224,6 +239,7 @@ statements:
 - id: CLAR-016
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: все состояния гонки, взаимоблокировки и проблемы одновременного обновления
     обусловлены изменяемостью переменных; разумно помещать как можно больше кода в
@@ -239,6 +255,7 @@ statements:
 - id: CLAR-017
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: регистрация событий (event sourcing) сохраняет транзакции, а не состояние,
     и вычисляет состояние применением транзакций; при достаточных ресурсах это делает
@@ -254,6 +271,7 @@ statements:
 - id: CLAR-018
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: принципы SOLID определяют, как объединять функции и данные в классы и как
     классы должны сочетаться; цель — структуры среднего уровня, терпимые к изменениям,
@@ -269,6 +287,7 @@ statements:
 - id: CLAR-019
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: принцип единственной ответственности (SRP) гласит, что модуль должен иметь
     одну причину для изменения, то есть отвечать за одного и только одного актора
@@ -284,6 +303,7 @@ statements:
 - id: CLAR-020
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: объединение кода разных акторов в одном модуле ведёт к непреднамеренному дублированию
     (изменение для одного актора ломает работу другого) и к рискованным слияниям;
@@ -300,6 +320,7 @@ statements:
 - id: CLAR-021
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: на уровне функций и классов это SRP, на уровне компонентов он превращается
     в принцип согласованного изменения (CCP), а на архитектурном уровне — в принцип
@@ -314,6 +335,7 @@ statements:
 - id: CLAR-022
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: принцип открытости/закрытости (OCP) требует, чтобы поведение можно было расширять
     без изменения существующего кода; если простое расширение требований ведёт к большим
@@ -328,6 +350,7 @@ statements:
 - id: CLAR-023
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: на архитектурном уровне OCP достигается разделением функциональностей по причинам
     изменения и организацией их в иерархию компонентов так, что компоненты верхнего
@@ -344,6 +367,7 @@ statements:
 - id: CLAR-024
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: транзитивные зависимости нарушают принцип «не зависеть от того, что не используешь
     непосредственно»; интерфейсы нужны не только чтобы защитить высокоуровневый компонент,
@@ -358,6 +382,7 @@ statements:
 - id: CLAR-025
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: принцип подстановки Барбары Лисков (LSP) требует, чтобы объекты подтипа можно
     было подставить вместо базового типа без изменения поведения программы; классический
@@ -372,6 +397,7 @@ statements:
 - id: CLAR-026
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: LSP применим не только к наследованию, но и к интерфейсам и службам (например,
     REST); нарушение взаимозаменяемости заставляет добавлять особые случаи (условия
@@ -386,6 +412,7 @@ statements:
 - id: CLAR-027
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: принцип разделения интерфейсов (ISP) предписывает не создавать зависимостей
     от модулей, содержащих больше, чем требуется; в статически типизированных языках
@@ -400,6 +427,7 @@ statements:
 - id: CLAR-028
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: 'вредно зависеть от модуля, несущего ненужные функции: изменение или ошибка
     в неиспользуемой части (например, в БД, от которой зависит фреймворк, от которого
@@ -415,6 +443,7 @@ statements:
 - id: CLAR-029
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: принцип инверсии зависимостей (DIP) утверждает, что наиболее гибкие системы
     зависят от абстракций (интерфейсов, абстрактных классов), а не от конкретных изменчивых
@@ -430,6 +459,7 @@ statements:
 - id: CLAR-030
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: для соблюдения DIP не ссылаются на изменчивые конкретные классы, не наследуют
     их и не переопределяют конкретные функции; создание изменчивых объектов выносят
@@ -445,6 +475,7 @@ statements:
 - id: CLAR-031
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: при инверсии зависимости поток управления пересекает границу в одном направлении,
     а зависимость исходного кода — в противоположном, в сторону абстракции; эта «извилистая
@@ -460,6 +491,7 @@ statements:
 - id: CLAR-032
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: компоненты — наименьшие сущности, которые можно развернуть в составе системы
     (jar, gem, DLL); правильно спроектированные компоненты сохраняют возможность независимого
@@ -474,6 +506,7 @@ statements:
 - id: CLAR-033
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: принцип эквивалентности повторного использования и выпусков (REP) гласит,
     что повторно используемые компоненты должны выпускаться и версионироваться; классы
@@ -489,6 +522,7 @@ statements:
 - id: CLAR-034
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: 'принцип согласованного изменения (CCP) — это SRP для компонентов: классы,
     изменяющиеся по одним причинам и в одно время, собираются в один компонент, а
@@ -505,6 +539,7 @@ statements:
 - id: CLAR-035
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: 'принцип совместного повторного использования (CRP) — обобщение ISP для компонентов:
     в компонент включают классы, используемые совместно, и не объединяют слабо связанные;
@@ -520,6 +555,7 @@ statements:
 - id: CLAR-036
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: REP и CCP включительны (укрупняют компоненты), CRP исключителен (измельчает);
     задача архитектора — найти баланс под текущие нужды; на ранних этапах важнее CCP
@@ -536,6 +572,7 @@ statements:
 - id: CLAR-037
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: принцип ацикличности зависимостей (ADP) требует, чтобы граф зависимостей компонентов
     был ориентированным ациклическим (DAG); циклы вызывают «синдром следующего утра»,
@@ -551,6 +588,7 @@ statements:
 - id: CLAR-038
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: цикл разрывают двумя способами — применением DIP (ввести интерфейс и обратить
     зависимость) или созданием нового компонента, от которого зависят оба исходных;
@@ -565,6 +603,7 @@ statements:
 - id: CLAR-039
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: граф зависимостей компонентов отражает не функции, а удобство сборки и сопровождения,
     поэтому он не проектируется заранее; он растёт и меняется вместе с системой, а
@@ -579,6 +618,7 @@ statements:
 - id: CLAR-040
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: принцип устойчивых зависимостей (SDP) требует, чтобы зависимости были направлены
     в сторону более устойчивых компонентов; устойчивость измеряют метрикой I = Fan-out
@@ -594,6 +634,7 @@ statements:
 - id: CLAR-041
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: 'принцип устойчивости абстракций (SAP) связывает устойчивость и абстрактность:
     устойчивый компонент должен быть абстрактным (чтобы расширяться без изменения),
@@ -610,6 +651,7 @@ statements:
 - id: CLAR-042
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: метрика абстрактности A = Na / Nc; «хорошие» компоненты лежат на главной последовательности
     (прямая между точками (1,0) и (0,1)); зона боли (устойчивый и конкретный, например
@@ -627,6 +669,7 @@ statements:
 - id: CLAR-043
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: архитектор программного обеспечения — это программист, который продолжает
     программировать; он направляет команду к дизайну, максимизирующему продуктивность,
@@ -641,6 +684,7 @@ statements:
 - id: CLAR-044
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: архитектура слабо влияет на работу системы, но решающе влияет на разработку,
     развёртывание, эксплуатацию и сопровождение; её цель — минимизировать затраты
@@ -657,6 +701,7 @@ statements:
 - id: CLAR-045
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: главная стратегия хорошей архитектуры — как можно дольше иметь как можно больше
     открытых вариантов; «варианты» — это детали (тип БД, веб-сервер, фреймворк, интерфейс),
@@ -672,6 +717,7 @@ statements:
 - id: CLAR-046
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: систему можно разложить на политику (бизнес-правила и процедуры — истинную
     ценность) и детали (ввод/вывод, БД, веб, серверы, фреймворки, протоколы); хорошие
@@ -688,6 +734,7 @@ statements:
 - id: CLAR-047
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: хорошая архитектура поддерживает разнообразие вариантов использования и делает
     их видимыми в структуре системы; влияние архитектуры на эффективную работу менее
@@ -703,6 +750,7 @@ statements:
 - id: CLAR-048
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: по закону Конвея структура системы повторяет структуру взаимодействий организации;
     архитектура должна делить систему на изолированные компоненты, чтобы команды могли
@@ -717,6 +765,7 @@ statements:
 - id: CLAR-049
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: систему делят на горизонтальные уровни (UI, прикладные бизнес-правила, бизнес-правила
     предметной области, БД) по SRP и CCP и одновременно на вертикальные срезы по вариантам
@@ -731,6 +780,7 @@ statements:
 - id: CLAR-050
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: следует различать истинное дублирование (изменения всегда синхронны) и случайное
     (фрагменты схожи сейчас, но изменяются по разным причинам); объединять случайное
@@ -746,6 +796,7 @@ statements:
 - id: CLAR-051
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: разделение на уровни и варианты возможно в трёх режимах — на уровне исходного
     кода (монолит), развёртывания (jar/DLL) и служб (сетевые пакеты); лучший режим
@@ -761,6 +812,7 @@ statements:
 - id: CLAR-052
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: архитектура — это искусство проведения границ, отделяющих элементы и избавляющих
     их от знания о другой стороне; границы откладывают преждевременные решения (о
@@ -776,6 +828,7 @@ statements:
 - id: CLAR-053
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: примеры компаний P и W показывают, что преждевременный выбор тяжёлой топологии
     (трёхуровневой, SOA/микрослужб) резко увеличивает трудозатраты; ошибка не в службах
@@ -791,6 +844,7 @@ statements:
 - id: CLAR-054
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: база данных — инструмент, который бизнес-правила используют опосредованно
     через интерфейс доступа к данным; компонент БД зависит от компонента бизнес-правил,
@@ -807,6 +861,7 @@ statements:
 - id: CLAR-055
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: GUI и ввод/вывод — детали; за интерфейсом находится модель (бизнес-правила),
     которая не нуждается в интерфейсе; менее важный компонент (GUI) должен зависеть
@@ -821,6 +876,7 @@ statements:
 - id: CLAR-056
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: границы проводят там, где есть ось изменения — между компонентами, меняющимися
     с разной скоростью и по разным причинам; это снова применение SRP; архитектура
@@ -835,6 +891,7 @@ statements:
 - id: CLAR-057
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: 'границы бывают разной «прочности»: организационное разделение в монолите
     и компонентах развёртывания (вызовы функций, дёшево), локальные процессы (умеренно
@@ -850,6 +907,7 @@ statements:
 - id: CLAR-058
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: «уровень» имеет строгое определение — удалённость от ввода и вывода; чем дальше
     политика от ввода/вывода, тем выше её уровень, тем реже и по более важным причинам
@@ -865,6 +923,7 @@ statements:
 - id: CLAR-059
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: критические бизнес-правила делают или экономят деньги независимо от автоматизации
     и работают с критическими бизнес-данными; объект, связывающий критические правила
@@ -880,6 +939,7 @@ statements:
 - id: CLAR-060
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: 'вариант использования описывает бизнес-правила, характерные для приложения:
     что вводит пользователь, что выводится и какие действия выполняются; он управляет
@@ -895,6 +955,7 @@ statements:
 - id: CLAR-061
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: сущности обобщены и применимы во многих приложениях, поэтому относятся к высокому
     уровню; варианты использования характерны для одного приложения и ближе к вводу/выводу,
@@ -909,6 +970,7 @@ statements:
 - id: CLAR-062
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: объект варианта использования принимает и возвращает простые структуры данных,
     не связанные с фреймворками (HttpRequest и т.п.) и не содержащие ссылок на сущности;
@@ -924,6 +986,7 @@ statements:
 - id: CLAR-063
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: высокоуровневая структура системы должна «кричать» о её назначении (предметной
     области), а не о применённых фреймворках; архитектура должна поддерживать варианты
@@ -939,6 +1002,7 @@ statements:
 - id: CLAR-064
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: к фреймворкам следует относиться скептически и держать их на расстоянии, продумывая,
     как защититься от них; архитектура, основанная на вариантах использования и независимая
@@ -955,6 +1019,7 @@ statements:
 - id: CLAR-065
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: гексагональная архитектура (порты и адаптеры), DCI и BCE похожи и преследуют
     одну цель — разделение задач через уровни; они дают независимость от фреймворков,
@@ -969,6 +1034,7 @@ statements:
 - id: CLAR-066
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: главное правило чистой архитектуры — зависимости в исходном коде направлены
     только внутрь, в сторону высокоуровневых политик; имена и форматы данных из внешних
@@ -985,6 +1051,7 @@ statements:
 - id: CLAR-067
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: типичные уровни — сущности (критические правила предприятия), варианты использования
     (правила приложения), адаптеры интерфейсов (презентаторы, представления, контроллеры,
@@ -1001,6 +1068,7 @@ statements:
 - id: CLAR-068
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: при пересечении границы поток управления может идти наружу, но зависимость
     обращают через DIP (порт вывода — интерфейс во внутреннем круге, реализуемый снаружи);
@@ -1017,6 +1085,7 @@ statements:
 - id: CLAR-069
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: шаблон «Скромный объект» делит поведение на трудно тестируемый «скромный»
     модуль (например, Представление, переносящее данные на экран) и легко тестируемый
@@ -1033,6 +1102,7 @@ statements:
 - id: CLAR-070
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: 'шаблон «Скромный объект» применим на многих границах: шлюзы к БД (полиморфные
     интерфейсы CRUD, реализуемые скромными классами с SQL), преобразователи данных
@@ -1049,6 +1119,7 @@ statements:
 - id: CLAR-071
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: 'полноценные границы дороги, поэтому архитектор может реализовать неполную
     границу: оставить парные интерфейсы в одном компоненте, применить шаблон «Стратегия»
@@ -1065,6 +1136,7 @@ statements:
 - id: CLAR-072
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: архитектурные границы возникают по многим осям изменения (язык, механизм ввода,
     сеть, уровни политик); архитектор должен предвидеть, какие границы реализовать
@@ -1080,6 +1152,7 @@ statements:
 - id: CLAR-073
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: компонент Main — точка входа и политика самого низкого уровня; он создаёт
     фабрики, стратегии и глобальные средства, внедряет зависимости и передаёт управление
@@ -1095,6 +1168,7 @@ statements:
 - id: CLAR-074
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: использование служб не является архитектурой; архитектуру задают границы между
     политикой и деталями и правило зависимостей; службы — это лишь дорогие вызовы
@@ -1109,6 +1183,7 @@ statements:
 - id: CLAR-075
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: 'предполагаемые независимость и возможность независимой разработки служб верны
     лишь отчасти: службы связаны общими данными (изменение поля записи затрагивает
@@ -1125,6 +1200,7 @@ statements:
 - id: CLAR-076
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: службы должны иметь внутреннюю компонентную архитектуру по SOLID и правилу
     зависимостей, чтобы новые возможности добавлялись новыми компонентами (по OCP)
@@ -1141,6 +1217,7 @@ statements:
 - id: CLAR-077
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: тесты — компонент системы, следующий правилу зависимостей и расположенный
     в самом внешнем круге; ничто в системе не зависит от тестов, а тесты зависят от
@@ -1156,6 +1233,7 @@ statements:
 - id: CLAR-078
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: тесно связанные со структурой системы тесты хрупки и делают систему жёсткой
     («проблема хрупких тестов»); первое правило — не зависеть от того, что часто меняется
@@ -1172,6 +1250,7 @@ statements:
 - id: CLAR-079
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: «микропрограмма» — это не код в ПЗУ, а код, который сложно изменять при совершенствовании
     оборудования; код становится микропрограммой, когда смешивает бизнес-логику с
@@ -1186,6 +1265,7 @@ statements:
 - id: CLAR-080
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: чистая встраиваемая архитектура отделяет ПО от оборудования слоем аппаратных
     абстракций (HAL), от процессора — слоем абстракции процессора (PAL) и от ОС —
@@ -1202,6 +1282,7 @@ statements:
 - id: CLAR-081
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: многоуровневая архитектура строится на программировании через интерфейсы (заголовочные
     файлы как определения интерфейсов), что даёт взаимозаменяемость поставщиков услуг;
@@ -1219,6 +1300,7 @@ statements:
 - id: CLAR-082
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: с архитектурной точки зрения база данных — низкоуровневая деталь (механизм
     доступа к данным), а не сущность; архитектурно значимы модель данных и её организация,
@@ -1234,6 +1316,7 @@ statements:
 - id: CLAR-083
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: доминирование реляционных БД объясняется медленностью вращающихся дисков,
     для которых нужны индексы, кэши и схемы запросов; данные в ОЗУ организуют в списки,
@@ -1251,6 +1334,7 @@ statements:
 - id: CLAR-084
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: Веб — это устройство ввода/вывода и пользовательский интерфейс, то есть деталь;
     «маятник» централизации и распределения вычислений колеблется десятилетиями и
@@ -1266,6 +1350,7 @@ statements:
 - id: CLAR-085
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: 'отношения с автором фреймворка асимметричны: вы привязываетесь, а он не несёт
     обязательств; фреймворки склонны нарушать правило зависимостей и проникать во
@@ -1281,6 +1366,7 @@ statements:
 - id: CLAR-086
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: 'в учебном примере (продажа видео) архитектура строится в два измерения: разделение
     по действующим лицам (SRP) и по правилу зависимостей (уровни политик); это позволяет
@@ -1297,6 +1383,7 @@ statements:
 - id: CLAR-087
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: рассматриваются упаковка по уровням, по особенностям, порты и адаптеры и упаковка
     по компонентам; многоуровневая упаковка не «кричит» о назначении и провоцирует
@@ -1313,6 +1400,7 @@ statements:
 - id: CLAR-088
   source_id: CLAR
   item_id: CLAR-text
+  kind: fact
   status: ready_for_review
   text: злоупотребление модификатором public превращает пакеты в простую группировку
     и делает все архитектурные стили неотличимыми; правильное ограничение видимости

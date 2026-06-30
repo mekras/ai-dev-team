@@ -2,6 +2,7 @@ statements:
 - id: SPDX-001
   source_id: SPDX
   item_id: SPDX-licenses
+  kind: fact
   status: ready_for_review
   text: SPDX License List является частью спецификации SPDX и содержит короткий идентификатор,
     полное имя, текст лицензии и постоянный URL для каждой лицензии и исключения.
@@ -15,6 +16,7 @@ statements:
 - id: SPDX-004
   source_id: SPDX
   item_id: SPDX-licenses
+  kind: fact
   status: ready_for_review
   text: правила matching SPDX выделяют omitable и replaceable фрагменты текста лицензии
     как часть механики сопоставления.

@@ -2,6 +2,7 @@ statements:
 - id: SMAS-001
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: микросервис обычно реализует одну функциональную ответственность и обладает
     свойствами независимой развёртываемости и управляемости, а также эфемерности и
@@ -16,6 +17,7 @@ statements:
 - id: SMAS-002
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: типичные для микросервисов веб-API (HTTP/JSON) и контейнерные развёртывания
     должны учитываться в любом решении по контролю доступа к API.
@@ -29,6 +31,7 @@ statements:
 - id: SMAS-003
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: отчёт фиксирует понятия — сервис, экземпляр сервиса, интерфейс/веб-API, эндпойнт
     API, запрос и ответ API, потребитель и поставщик API, посредник API (шлюз, сервисный
@@ -43,6 +46,7 @@ statements:
 - id: SMAS-004
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: контроль доступа к веб-API описывается рамкой `IAAA` — идентификация, аутентификация,
     авторизация и учёт/аудит (accountability).
@@ -56,6 +60,7 @@ statements:
 - id: SMAS-005
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: сообщения API могут запускаться действиями пользователя или автоматическими
     событиями и проходить через посредников, поэтому участники должны уметь передавать
@@ -70,6 +75,7 @@ statements:
 - id: SMAS-006
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: в распределённой микросервисной архитектуре один запрос может пройти через
     несколько решений об авторизации по мере передачи от компонента к компоненту;
@@ -84,6 +90,7 @@ statements:
 - id: SMAS-007
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: важно фиксировать активность, вызванную запросами API, с максимально полным
     контекстом сообщения, чтобы иметь данные для расследования намеренных и непреднамеренных
@@ -98,6 +105,7 @@ statements:
 - id: SMAS-008
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: решение по контролю доступа в микросервисной архитектуре должно удовлетворять
     нефункциональным качествам — управляемости/операбельности (машинные интерфейсы
@@ -113,6 +121,7 @@ statements:
 - id: SMAS-009
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: безопасность строится на доверии, у которого нет точной меры; хорошая архитектура
     безопасности прозрачна относительно того, куда вложено доверие, и представляет
@@ -127,6 +136,7 @@ statements:
 - id: SMAS-010
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: сетевая сегментация — базовый механизм; сегменты следует держать как можно
     меньше, а пересечение границы зоны должно требовать более строгой проверки (например,
@@ -141,6 +151,7 @@ statements:
 - id: SMAS-011
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: SSL/TLS даёт конфиденциальность и целостность данных в передаче, аутентификацию
     сервера и опционально клиента; на современных CPU влияние на производительность
@@ -155,6 +166,7 @@ statements:
 - id: SMAS-012
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: SPIFFE упрощает аутентификацию сервисов и выдаёт `SVID` — сертификаты, уникально
     идентифицирующие компоненты в микросервисной инфраструктуре, что полезно в динамичной
@@ -169,6 +181,7 @@ statements:
 - id: SMAS-013
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: прикладные сущности устанавливают доверие через обмен токенами безопасности;
     доверенная третья сторона выпускает токены и применяет криптографию, позволяя
@@ -183,6 +196,7 @@ statements:
 - id: SMAS-014
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: идентификатор сессии привязан к акту аутентификации и служит заменой первичных
     факторов пользователя, поэтому угон сессии (session hijacking) даёт атакующему
@@ -197,6 +211,7 @@ statements:
 - id: SMAS-015
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: SAML ввёл важные паттерны контроля доступа — разделение клиентов, защищаемых
     ресурсов и провайдеров идентичности и различие между точкой принятия решения (PDP)
@@ -211,6 +226,7 @@ statements:
 - id: SMAS-016
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: SAML сложен, опирается на централизованное администрирование доверия и XML/SOAP
     и не помогает пользователю делегировать авторизацию между приложениями, поэтому
@@ -225,6 +241,7 @@ statements:
 - id: SMAS-017
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: современная модель токенов исходит из того, что клиентскому или серверному
     приложению нельзя доверять первичный фактор аутентификации (пароль); следует выдавать
@@ -239,6 +256,7 @@ statements:
 - id: SMAS-018
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: API-ключ — непрозрачный токен, идентифицирующий приложение, а не пользователя;
     он встроен в бинарный образ, может быть извлечён атакующим и поэтому не должен
@@ -253,6 +271,7 @@ statements:
 - id: SMAS-019
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: OAuth 2.0 — предпочтительный фреймворк делегированной авторизации; это не
     протокол аутентификации, а способ для владельца ресурса дать приложению ограниченный
@@ -267,6 +286,7 @@ statements:
 - id: SMAS-020
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: 'OpenID Connect добавляет к OAuth аутентификацию: через доверенный канал (например,
     нативный браузер) пользователь аутентифицируется у провайдера идентичности, а
@@ -282,6 +302,7 @@ statements:
 - id: SMAS-021
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: непрозрачный (by-reference) токен индексирует состояние на централизованном
     сервере и требует валидации у эмитента (простое отзывание, но узкое место); прозрачный
@@ -297,6 +318,7 @@ statements:
 - id: SMAS-022
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: JWT — JSON-формат для обмена утверждениями (claims) с заголовком, телом, подписью
     (JWS) и опциональным шифрованием (JWE); утверждения позволяют применять локальную
@@ -312,6 +334,7 @@ statements:
 - id: SMAS-023
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: отчёт рекомендует использовать JWT для авторизации, но избегать его для управления
     пользовательскими сессиями, и отмечает выявленные проблемы стека JOSE (ранние
@@ -327,6 +350,7 @@ statements:
 - id: SMAS-024
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: прокси и шлюзы — обратные прокси между клиентом и сервером; шлюзы работают
     на более высоком уровне, программируемы и обычно отвечают за аутентификацию, авторизацию,
@@ -341,6 +365,7 @@ statements:
 - id: SMAS-025
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: платформы (Kubernetes, Cloud Foundry, AWS) дают абстракции контроля доступа,
     но их использование требует доверия к самой платформе, что нельзя принимать легкомысленно;
@@ -356,6 +381,7 @@ statements:
 - id: SMAS-026
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: контроль доступа всё больше уходит в платформу и выражается политиками высокого
     уровня (Open Policy Agent) и через service mesh (например, Istio с Envoy и взаимным
@@ -370,6 +396,7 @@ statements:
 - id: SMAS-027
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: проверка доверия в рантайме обычно эффективнее аутентификации недоверенного
     источника, поэтому различие доверенных и недоверенных запросов можно использовать
@@ -384,6 +411,7 @@ statements:
 - id: SMAS-028
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: DHARMA` вводит трастовый домен (группа привилегированно взаимодействующих
     сервисов), доменное отношение (причина группировки), механизм доверия (проверка
@@ -399,6 +427,7 @@ statements:
 - id: SMAS-029
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: внутренний (interior) эндпойнт доступен сервисам внутри домена через механизм
     доверия, граничный (boundary) — внешним сервисам через механизм доступа; граничный
@@ -414,6 +443,7 @@ statements:
 - id: SMAS-030
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: 'методология DHARMA: (1) выявить трастовые домены, (2) определить механизмы
     доверия и доступа для каждого домена, (3) определить внутренние и граничные эндпойнты,
@@ -428,6 +458,7 @@ statements:
 - id: SMAS-031
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: 'предложенная реализация — три уровня: внешняя область (внешние сущности),
     внешний домен (грубозернистые переиспользуемые сервисы) и внутренние домены (самые
@@ -442,6 +473,7 @@ statements:
 - id: SMAS-032
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: для внешнего домена доступ — OAuth 2.0 с непрозрачным токеном; для внешнего
     домена доверие (и доступ внутренних доменов) — доверие на основе сертификатов
@@ -457,6 +489,7 @@ statements:
 - id: SMAS-033
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: реализация требует удостоверяющего центра для выдачи сертификатов (как минимум
     по одному на внутренний домен) и комплексного управления токенами (валидация,
@@ -472,6 +505,7 @@ statements:
 - id: SMAS-034
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: внутри доменов ожидаются короткоживущие JWT (срок жизни менее часа), возможно
     одноразовые; области OAuth (scopes) и утверждения JWT (claims) несут информацию
@@ -486,6 +520,7 @@ statements:
 - id: SMAS-035
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: в распределённой архитектуре один запрос пользователя порождает несколько
     записей аудита; все операции с токенами (выпуск, обмен, распространение) и все
@@ -501,6 +536,7 @@ statements:
 - id: SMAS-036
   source_id: SMAS
   item_id: SMAS-text
+  kind: fact
   status: ready_for_review
   text: чтобы изменение политики доступа не затрагивало всех разработчиков, логику
     применения политик следует изолировать в посредниках под управлением централизованных
@@ -517,6 +553,7 @@ statements:
 - id: SMAS-037
   source_id: SMAS
   item_id: SMAS-text
+  kind: limitation
   status: ready_for_review
   text: отчёт ограничен HTTP-API, но авторы считают, что абстрактная модель DHARMA
     может быть обобщена на контроль плоскости данных для других протоколов (gRPC,

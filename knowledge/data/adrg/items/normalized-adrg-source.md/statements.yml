@@ -2,6 +2,7 @@ statements:
 - id: ADRG-001
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
+  kind: fact
   status: ready_for_review
   text: 'Architectural Decision Record (ADR) — запись, фиксирующая одно архитектурное
     решение (AD) вместе с его обоснованием, компромиссами и последствиями.'
@@ -15,6 +16,7 @@ statements:
 - id: ADRG-002
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
+  kind: fact
   status: ready_for_review
   text: Architectural Decision (AD) — обоснованный проектный выбор, отвечающий на функциональное
     или нефункциональное требование, значимое для архитектуры; Architecturally Significant
@@ -29,6 +31,7 @@ statements:
 - id: ADRG-003
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
+  kind: fact
   status: ready_for_review
   text: формат ADR впервые предложил Майкл Найгард в статье «Documenting Architecture
     Decisions» (`2011`).
@@ -42,6 +45,7 @@ statements:
 - id: ADRG-004
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
+  kind: fact
   status: ready_for_review
   text: сайт adr.github.io ставит три цели — обосновать пользу фиксации архитектурных
     решений и закрепить единую терминологию, развивать инструменты поддержки ADR и
@@ -56,6 +60,7 @@ statements:
 - id: ADRG-005
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
+  kind: fact
   status: ready_for_review
   text: классический шаблон Nygard ADR состоит из разделов title, status, context,
     decision, consequences.
@@ -69,6 +74,7 @@ statements:
 - id: ADRG-006
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
+  kind: fact
   status: ready_for_review
   text: 'шаблон MADR (Markdown Architectural Decision Records) делает упор на анализ
     компромиссов: рассмотренные варианты с плюсами и минусами и метаданные (статус,
@@ -83,6 +89,7 @@ statements:
 - id: ADRG-007
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
+  kind: fact
   status: ready_for_review
   text: 'формат Y-Statement задаёт краткую запись решения по схеме: «in the context
     of … facing … we decided for … to achieve … accepting …».'
@@ -96,6 +103,7 @@ statements:
 - id: ADRG-008
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
+  kind: fact
   status: ready_for_review
   text: среди шаблонов перечислен шаблон международного стандарта ISO/IEC/IEEE 42010:2011
     (девять информационных элементов в приложении A); сайт не предписывает один шаблон,
@@ -110,6 +118,7 @@ statements:
 - id: ADRG-009
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
+  kind: fact
   status: ready_for_review
   text: раздел практик вводит тест архитектурной значимости (Architectural Significance
     Test) для определения того, какие решения заслуживают оформления как ADR.
@@ -123,6 +132,7 @@ statements:
 - id: ADRG-010
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
+  kind: fact
   status: ready_for_review
   text: раздел практик описывает критерии готовности решения (Definition of Ready)
     и завершённости (Definition of Done — доказательства, критерии и альтернативы,
@@ -137,6 +147,7 @@ statements:
 - id: ADRG-011
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
+  kind: fact
   status: ready_for_review
   text: 'жизненный цикл решения проходит статусы: proposed, accepted, deprecated, superseded.'
   excerpt: раздел AD Practices.
@@ -149,6 +160,7 @@ statements:
 - id: ADRG-012
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
+  kind: fact
   status: ready_for_review
   text: раздел практик рекомендует рецензирование решений с чек-листами и каталогом
     антипаттернов, а также модель постепенного внедрения практики (adoption model).
@@ -162,6 +174,7 @@ statements:
 - id: ADRG-013
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
+  kind: fact
   status: ready_for_review
   text: сайт ведёт каталог инструментов фиксации решений по категориям — создание
     и сопровождение файлов решений (например `adr-tools`, `Log4brains`, `dotnet-adr`,
@@ -177,6 +190,7 @@ statements:
 - id: ADRG-014
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
+  kind: fact
   status: ready_for_review
   text: подход ADR в материалах сайта допускает расширение с архитектурных решений
     на любые организационные решения.
@@ -190,6 +204,7 @@ statements:
 - id: ADRG-015
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
+  kind: fact
   status: ready_for_review
   text: 'формат Y-Statement задаёт слоты: «в контексте <сценарий или пользовательская
     история>, сталкиваясь с <проблема>, мы выбрали <вариант>, чтобы достичь <качество>,

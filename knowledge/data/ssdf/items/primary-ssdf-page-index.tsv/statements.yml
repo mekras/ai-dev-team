@@ -2,6 +2,7 @@ statements:
 - id: SSDF-001
   source_id: SSDF
   item_id: SSDF-primary-SSDF-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: SSDF — набор практик безопасной разработки ПО высокого уровня, которые можно
     интегрировать в любой жизненный цикл разработки; цель — снизить число уязвимостей,
@@ -16,6 +17,7 @@ statements:
 - id: SSDF-002
   source_id: SSDF
   item_id: SSDF-primary-SSDF-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: SSDF не привязан к конкретной методологии, языку, инструменту или платформе
     и описывает, что делать, а не как именно реализовать; практики снабжены примерами
@@ -30,6 +32,7 @@ statements:
 - id: SSDF-003
   source_id: SSDF
   item_id: SSDF-primary-SSDF-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: 'практики сгруппированы в четыре группы: Prepare the Organization (PO), Protect
     the Software (PS), Produce Well-Secured Software (PW), Respond to Vulnerabilities
@@ -44,6 +47,7 @@ statements:
 - id: SSDF-004
   source_id: SSDF
   item_id: SSDF-primary-SSDF-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: организация должна определить требования безопасности для разработки (PO.1),
     назначить роли и ответственность с обучением и поддержкой руководства (PO.2).
@@ -57,6 +61,7 @@ statements:
 - id: SSDF-005
   source_id: SSDF
   item_id: SSDF-primary-SSDF-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: организация должна внедрить поддерживающие цепочки инструментов (PO.3), определить
     и использовать критерии проверок безопасности ПО (PO.4) и поддерживать защищённые
@@ -71,6 +76,7 @@ statements:
 - id: SSDF-006
   source_id: SSDF
   item_id: SSDF-primary-SSDF-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: нужно защищать все формы кода от несанкционированного доступа и изменения
     (PS.1) и обеспечить механизм проверки целостности выпуска (PS.2).
@@ -84,6 +90,7 @@ statements:
 - id: SSDF-007
   source_id: SSDF
   item_id: SSDF-primary-SSDF-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: каждый выпуск ПО нужно архивировать и защищать, включая данные о происхождении
     (provenance), доступные приобретателям ПО (PS.3).
@@ -97,6 +104,7 @@ statements:
 - id: SSDF-008
   source_id: SSDF
   item_id: SSDF-primary-SSDF-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: ПО следует проектировать под требования безопасности и снижение рисков (PW.1,
     включая моделирование угроз) и рецензировать проект на соответствие требованиям
@@ -111,6 +119,7 @@ statements:
 - id: SSDF-009
   source_id: SSDF
   item_id: SSDF-primary-SSDF-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: следует переиспользовать существующее защищённое ПО и регулярно проверять
     сторонние, open-source и коммерческие компоненты на известные уязвимости (PW.4).
@@ -124,6 +133,7 @@ statements:
 - id: SSDF-010
   source_id: SSDF
   item_id: SSDF-primary-SSDF-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: исходный код пишут по практикам безопасного программирования (PW.5), а процессы
     компиляции, сборки и конфигурации настраивают на безопасность, включая предупреждения
@@ -138,6 +148,7 @@ statements:
 - id: SSDF-011
   source_id: SSDF
   item_id: SSDF-primary-SSDF-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: код следует рецензировать и/или анализировать (PW.7), тестировать исполняемый
     код, включая поиск уязвимостей (PW.8), и настраивать безопасные параметры по умолчанию
@@ -152,6 +163,7 @@ statements:
 - id: SSDF-012
   source_id: SSDF
   item_id: SSDF-primary-SSDF-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: уязвимости нужно выявлять и подтверждать, включая автоматический анализ, и
     иметь политику раскрытия уязвимостей (RV.1).
@@ -165,6 +177,7 @@ statements:
 - id: SSDF-013
   source_id: SSDF
   item_id: SSDF-primary-SSDF-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: по каждой уязвимости принимается риск-ориентированное решение об устранении;
     уязвимости оценивают, приоритизируют и устраняют (RV.2).
@@ -178,6 +191,7 @@ statements:
 - id: SSDF-014
   source_id: SSDF
   item_id: SSDF-primary-SSDF-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: уязвимости анализируют для выявления первопричин, проверяют ПО на схожие дефекты
     и при необходимости обновляют сам процесс разработки (RV.3).

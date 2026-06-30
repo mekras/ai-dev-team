@@ -2,6 +2,7 @@ statements:
 - id: SAMM-001
   source_id: SAMM
   item_id: SAMM-primary-SAMM-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: SAMM — открытая модель оценки и улучшения программы безопасной разработки
     ПО; она технологически нейтральна и применяется итеративно (оценка → цели → план
@@ -16,6 +17,7 @@ statements:
 - id: SAMM-002
   source_id: SAMM
   item_id: SAMM-primary-SAMM-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: 'модель построена вокруг пяти бизнес-функций: Governance, Design, Implementation,
     Verification, Operations.'
@@ -29,6 +31,7 @@ statements:
 - id: SAMM-003
   source_id: SAMM
   item_id: SAMM-primary-SAMM-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: в каждой бизнес-функции по три практики безопасности (всего 15); каждая практика
     имеет два потока (stream A/B) и три уровня зрелости.
@@ -42,6 +45,7 @@ statements:
 - id: SAMM-004
   source_id: SAMM
   item_id: SAMM-primary-SAMM-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: функция Governance включает практики Strategy & Metrics, Policy & Compliance,
     Education & Guidance.
@@ -55,6 +59,7 @@ statements:
 - id: SAMM-005
   source_id: SAMM
   item_id: SAMM-primary-SAMM-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: функция Design включает практики Threat Assessment, Security Requirements,
     Security Architecture; Threat Assessment охватывает моделирование угроз.
@@ -68,6 +73,7 @@ statements:
 - id: SAMM-006
   source_id: SAMM
   item_id: SAMM-primary-SAMM-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: функция Implementation включает практики Secure Build, Secure Deployment,
     Defect Management.
@@ -81,6 +87,7 @@ statements:
 - id: SAMM-007
   source_id: SAMM
   item_id: SAMM-primary-SAMM-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: функция Verification включает практики Architecture Assessment, Requirements-driven
     Testing, Security Testing.
@@ -94,6 +101,7 @@ statements:
 - id: SAMM-008
   source_id: SAMM
   item_id: SAMM-primary-SAMM-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: функция Operations включает практики Incident Management, Environment Management,
     Operational Management.
@@ -107,6 +115,7 @@ statements:
 - id: SAMM-009
   source_id: SAMM
   item_id: SAMM-primary-SAMM-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: каждая практика имеет три уровня зрелости с растущей строгостью и охватом;
     уровни описаны через активности, вопросы оценки и ожидаемые результаты, что позволяет
@@ -121,6 +130,7 @@ statements:
 - id: SAMM-010
   source_id: SAMM
   item_id: SAMM-primary-SAMM-page-index.tsv
+  kind: fact
   status: ready_for_review
   text: 'SAMM применяется итеративно: оценить текущее состояние, поставить достижимые
     цели по уровням и реализовать план улучшений, повторяя цикл.'

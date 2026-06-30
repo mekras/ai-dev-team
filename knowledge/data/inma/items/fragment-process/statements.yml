@@ -2,6 +2,7 @@ statements:
 - id: INMA-001
   source_id: INMA
   item_id: INMA-fragment-process
+  kind: fact
   status: ready_for_review
   text: проектирование взаимодействия продукта с пользователем должно предшествовать
     программированию, потому что поздняя проверка удобства не заменяет раннее проектное
@@ -16,6 +17,7 @@ statements:
 - id: INMA-002
   source_id: INMA
   item_id: INMA-fragment-process
+  kind: fact
   status: ready_for_review
   text: проектирование взаимодействия является отдельной специализацией, отличной
     от программирования и внутреннего проектирования кода.
@@ -29,6 +31,7 @@ statements:
 - id: INMA-003
   source_id: INMA
   item_id: INMA-fragment-process
+  kind: fact
   status: ready_for_review
   text: пользовательская пригодность продукта является бизнес-вопросом процесса и
     организации разработки, а не только технической или косметической проблемой интерфейса.

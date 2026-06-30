@@ -2,6 +2,7 @@ statements:
 - id: DSCT-001
   source_id: DSCT
   item_id: DSCT-normalized-DSCT-source.md
+  kind: fact
   status: ready_for_review
   text: надёжность (dependability) — способность системы предоставлять сервис, которому
     можно обоснованно доверять; это обобщающее понятие.
@@ -15,6 +16,7 @@ statements:
 - id: DSCT-002
   source_id: DSCT
   item_id: DSCT-normalized-DSCT-source.md
+  kind: fact
   status: ready_for_review
   text: надёжность объединяет свойства — готовность (availability), безотказность
     (reliability), безопасность (safety), целостность (integrity), ремонтопригодность
@@ -29,6 +31,7 @@ statements:
 - id: DSCT-003
   source_id: DSCT
   item_id: DSCT-normalized-DSCT-source.md
+  kind: fact
   status: ready_for_review
   text: угрозы надёжности образуют причинную цепочку дефект (fault) → ошибка (error)
     → отказ (failure).
@@ -42,6 +45,7 @@ statements:
 - id: DSCT-004
   source_id: DSCT
   item_id: DSCT-normalized-DSCT-source.md
+  kind: fact
   status: ready_for_review
   text: средства делятся на предотвращение дефектов, отказоустойчивость, устранение
     дефектов и прогнозирование дефектов.
@@ -55,6 +59,7 @@ statements:
 - id: DSCT-005
   source_id: DSCT
   item_id: DSCT-normalized-DSCT-source.md
+  kind: fact
   status: ready_for_review
   text: дефект, ошибка и отказ — разные состояния; не каждый дефект приводит к отказу
     (зависит от активации и распространения ошибки).

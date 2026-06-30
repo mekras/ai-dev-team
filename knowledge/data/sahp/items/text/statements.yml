@@ -2,6 +2,7 @@ statements:
 - id: SAHP-001
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: в архитектуре программного обеспечения существуют целые классы задач без универсальных
     и надёжных решений; для архитектора почти каждая задача уникальна, и серебряных
@@ -17,6 +18,7 @@ statements:
 - id: SAHP-002
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: работа архитектора — объективно определить, оценить и выбрать компромиссы;
     «лучшего» решения, как правило, нет, есть наименее худший набор компромиссов,
@@ -31,6 +33,7 @@ statements:
 - id: SAHP-003
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: слово «сложный» в названии двойственно — «трудный» и «неподатливый, образующий
     основу»; архитектура — это структурное понятие, «то, что потом сложно изменить»,
@@ -46,6 +49,7 @@ statements:
 - id: SAHP-004
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: чтобы выводы не устаревали вместе с экосистемой, книга сосредоточена на том,
     как архитекторы принимают решения и объективно оценивают компромиссы, а не на
@@ -62,6 +66,7 @@ statements:
 - id: SAHP-005
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: данные обычно живут дольше систем и архитектуры; многие сложные компромиссы
     современной архитектуры возникают из противоречия между данными и архитектурой,
@@ -77,6 +82,7 @@ statements:
 - id: SAHP-006
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: операционные данные (OLTP) используются для ведения бизнеса в реальном времени;
     аналитические данные используются для прогнозов, выявления тенденций и стратегических
@@ -92,6 +98,7 @@ statements:
 - id: SAHP-007
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'один из эффективных способов документировать архитектурное решение — запись
     ADR: короткий документ с разделами «Контекст» (задача и альтернативы), «Решение»
@@ -107,6 +114,7 @@ statements:
 - id: SAHP-008
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: функция пригодности — любой механизм, объективно оценивающий целостность архитектурной
     характеристики или их комбинации; она автоматизирует управление архитектурой так
@@ -122,6 +130,7 @@ statements:
 - id: SAHP-009
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: атомарная функция пригодности оценивает одну характеристику (например, отсутствие
     циклических зависимостей), комплексная — комбинацию взаимосвязанных характеристик;
@@ -137,6 +146,7 @@ statements:
 - id: SAHP-010
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'разделить функцию пригодности и модульный тест помогает вопрос «Требуются
     ли знания предметной области для этой проверки?»: если да — это модульный/приёмочный
@@ -151,6 +161,7 @@ statements:
 - id: SAHP-011
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: расплывчатые характеристики («гибкость») следует раскладывать на измеримые
     (развёртываемость, тестируемость, длительность цикла); функции пригодности следует
@@ -166,6 +177,7 @@ statements:
 - id: SAHP-012
   source_id: SAHP
   item_id: SAHP-text
+  kind: observation
   status: ready_for_review
   text: 'книга использует упрощённые определения: сервис — связанный набор функций
     как независимый выполняемый файл; компонент — архитектурный строительный блок
@@ -181,6 +193,7 @@ statements:
 - id: SAHP-013
   source_id: SAHP
   item_id: SAHP-text
+  kind: observation
   status: ready_for_review
   text: абстрактные идеи иллюстрируются вымышленной историей команды поддержки Sysops
     Squad; история начинается с существующей системы, а не с нового проекта, и в каждой
@@ -196,6 +209,7 @@ statements:
 - id: SAHP-014
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: архитектурный квант — независимо развёртываемый артефакт с высокой функциональной
     связностью и синхронной связанностью во время выполнения; он включает не только
@@ -210,6 +224,7 @@ statements:
 - id: SAHP-015
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'статическая связанность кванта — это зависимости, необходимые для запуска
     сервиса; вопрос проверки: «Необходима ли эта зависимость, чтобы данный сервис
@@ -225,6 +240,7 @@ statements:
 - id: SAHP-016
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: любая монолитная архитектура или распределённая система с единой общей базой
     данных образует один квант; общая точка сопряжения (база данных, оркестратор,
@@ -241,6 +257,7 @@ statements:
 - id: SAHP-017
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'динамическая связанность описывает поведение квантов при синхронных взаимодействиях
     во время выполнения и определяется тремя взаимосвязанными силами: взаимодействия
@@ -256,6 +273,7 @@ statements:
 - id: SAHP-018
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: взаимодействия, согласованность и координация нельзя выбирать изолированно
     — каждая сила оказывает «гравитационное» воздействие на другие; например, поддержку
@@ -271,6 +289,7 @@ statements:
 - id: SAHP-019
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: при синхронном взаимодействии отправитель блокируется до ответа получателя;
     при асинхронном — продолжает работу после подтверждения приёма, часто через очередь
@@ -286,6 +305,7 @@ statements:
 - id: SAHP-020
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: согласованность — строгость требований к целостности данных при межсервисных
     транзакциях; на одном краю спектра атомарные транзакции «всё или ничего», на другом
@@ -302,6 +322,7 @@ statements:
 - id: SAHP-021
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: модульность — это разделение системы на части, а гранулярность (детализация)
     — размер этих частей; большинство сложностей распределённых систем связано не
@@ -316,6 +337,7 @@ statements:
 - id: SAHP-022
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: правильная гранулярность сервиса достигается уравновешиванием сил дезинтеграции
     (повод разделить сервис) и сил интеграции (повод объединить сервисы); частая ошибка
@@ -330,6 +352,7 @@ statements:
 - id: SAHP-023
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'разделение сервиса на более мелкие части обосновывают шесть сил, каждая со
     своим вопросом-критерием: область действия и функциональность (много ли действий,
@@ -348,6 +371,7 @@ statements:
 - id: SAHP-024
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'объединение сервисов (или нежелательность их разделения) обосновывают четыре
     силы интеграции, каждая со своим вопросом: транзакции базы данных (нужны ли ACID-транзакции
@@ -365,6 +389,7 @@ statements:
 - id: SAHP-025
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: гранулярность определяется выполняемыми сервисом функциями, а не числом классов
     или строк кода; более объективными метриками служат количество инструкций и число
@@ -379,6 +404,7 @@ statements:
 - id: SAHP-026
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'общую функциональность в распределённой архитектуре реализуют четырьмя паттернами:
     репликация кода, разделяемая библиотека, общий сервис и Sidecar-компонент с сервисной
@@ -394,6 +420,7 @@ statements:
 - id: SAHP-027
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: паттерн Sidecar выносит общую операционную (инфраструктурную) логику в отдельный
     компонент, присоединяемый к сервису, и опирается на ту же идею разделения, что
@@ -408,6 +435,7 @@ statements:
 - id: SAHP-028
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: после разделения данных нужно определить владельца каждой таблицы; различают
     единоличное владение (один сервис пишет в таблицу), общее (пишут большинство или
@@ -423,6 +451,7 @@ statements:
 - id: SAHP-029
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: в общем случае таблицей владеет сервис, выполняющий запись в неё; это правило
     просто для единоличного владения, но усложняется при совместном и общем владении,
@@ -437,6 +466,7 @@ statements:
 - id: SAHP-030
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: общее владение разрешают назначением одного выделенного сервиса-владельца
     таблицы, которому остальные сервисы передают данные на запись — асинхронно «запустил
@@ -452,6 +482,7 @@ statements:
 - id: SAHP-031
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'в книге зафиксировано правило: нормально, когда несколько сервисов подключаются
     к одной схеме базы данных, но недопустимо, когда один сервис подключается к нескольким
@@ -466,6 +497,7 @@ statements:
 - id: SAHP-032
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: атомарные транзакции, пересекающие сервисы, в распределённых архитектурах
     сложны; вместо них применяют паттерны согласованности в конечном счёте — фоновую
@@ -481,6 +513,7 @@ statements:
 - id: SAHP-033
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'в распределённых архитектурах существуют два основных паттерна координации
     рабочих процессов: оркестрация (есть выделенный оркестратор, медиатор) и хореография
@@ -496,6 +529,7 @@ statements:
 - id: SAHP-034
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: убеждение «всегда использовать хореографию ради самой слабой связанности»
     ошибочно; в архитектуре нет решений, о которых уместно «всегда» или «никогда»,
@@ -510,6 +544,7 @@ statements:
 - id: SAHP-035
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: при хореографии состояние рабочего процесса можно восстанавливать без состояния
     (опрашивая сервисы — высокая нагрузка на сеть) или передавать в структуре сообщений
@@ -525,6 +560,7 @@ statements:
 - id: SAHP-036
   source_id: SAHP
   item_id: SAHP-text
+  kind: observation
   status: ready_for_review
   text: 'книга описывает восемь паттернов саг по комбинации трёх сил (взаимодействия,
     согласованность, координация): Эпическая сага, Переписка, Сказка, Путешествие
@@ -540,6 +576,7 @@ statements:
 - id: SAHP-037
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: Эпическая сага (синхронные взаимодействия, атомарная согласованность, оркестрация)
     — «традиционная» сага оркестрации, имитирующая поведение монолитной транзакции
@@ -555,6 +592,7 @@ statements:
 - id: SAHP-038
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: наличие паттерна для задачи означает общность похожих задач, но не их разрешимость;
     распределённые транзакции — пример того, как возможность нераспределённых систем
@@ -570,6 +608,7 @@ statements:
 - id: SAHP-039
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'сравнение паттернов саг показало линейную обратную корреляцию между уровнем
     связанности и масштабируемостью/адаптируемостью, а также рост риска отказа отзывчивости/доступности
@@ -586,6 +625,7 @@ statements:
 - id: SAHP-040
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: контракт — интерфейс между двумя частями ПО; контракты бывают строгими и свободными,
     и выбор между ними — компромисс; для микросервисов применяют в том числе контракты,
@@ -600,6 +640,7 @@ statements:
 - id: SAHP-041
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'чрезмерно сильное связывание по структурированным данным (единый большой
     контракт для всех потребителей) создаёт непреднамеренную точку сопряжения: изменение
@@ -615,6 +656,7 @@ statements:
 - id: SAHP-042
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: управление аналитическими данными прошло через хранилище данных (Data Warehouse)
     и озеро данных (Data Lake) к сетке данных (Data Mesh); каждый подход имеет свою
@@ -629,6 +671,7 @@ statements:
 - id: SAHP-043
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: сетка данных опирается на квант продукта данных — функционально независимый,
     но сильно связанный со своим сервисом компонент с кодом и данными, служащий интерфейсом
@@ -645,6 +688,7 @@ statements:
 - id: SAHP-044
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: взаимодействие операционного кванта с квантом продукта данных всегда должно
     быть асинхронным и потенциально согласованным (например, паттерны Параллельная
@@ -661,6 +705,7 @@ statements:
 - id: SAHP-045
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'анализ компромиссов состоит из трёх этапов: найти, какие части перепутаны
     между собой; проанализировать, как они связаны; оценить компромиссы, определив
@@ -675,6 +720,7 @@ statements:
 - id: SAHP-046
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: чтобы найти запутанные измерения, строят диаграмму статической связанности
     квантов (зависимости ОС/контейнеров, транзитивные зависимости, зависимости от
@@ -690,6 +736,7 @@ statements:
 - id: SAHP-047
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: таблицы компромиссов в книге качественные, а не количественные, поскольку
     две архитектуры всегда различаются слишком сильно для количественного сравнения;
@@ -705,6 +752,7 @@ statements:
 - id: SAHP-048
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: сравнивать следует соизмеримые понятия; принцип MECE (взаимоисключающие, совместно
     исчерпывающие) помогает не сравнивать разные по составу вещи (очередь сообщений
@@ -719,6 +767,7 @@ statements:
 - id: SAHP-049
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: обобщённые компромиссы без учёта конкретного контекста редко полезны; добавление
     контекста меняет критерии решения, поэтому архитектор должен уравновешивать не
@@ -734,6 +783,7 @@ statements:
 - id: SAHP-050
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: вместо построения целых систем архитектор моделирует вероятные сценарии предметной
     области («что, если»), чтобы увидеть реальные компромиссы; ни один архитектор
@@ -748,6 +798,7 @@ statements:
 - id: SAHP-051
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: логика рабочего процесса должна где-то находиться; реализация может только
     увеличить семантическую связанность, но не уменьшить её — например, отказ от оркестратора
@@ -763,6 +814,7 @@ statements:
 - id: SAHP-052
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: архитектор должен сводить анализ к нескольким ключевым компромиссам и формулировать
     выбор понятным заинтересованным лицам языком (что важнее — гарантия немедленного
@@ -779,6 +831,7 @@ statements:
 - id: SAHP-053
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: архитектор должен опасаться пропаганды инструментов и методов, преувеличивающей
     плюсы и скрывающей минусы; в архитектуре ничто не бывает только хорошим, решение
@@ -795,6 +848,7 @@ statements:
 - id: SAHP-054
   source_id: SAHP
   item_id: SAHP-text
+  kind: observation
   status: ready_for_review
   text: книга сводит в приложениях ссылки на все записи ADR (приложение Б) и на все
     таблицы и рисунки компромиссов (приложение В), а приложение A перечисляет понятия,
@@ -809,6 +863,7 @@ statements:
 - id: SAHP-055
   source_id: SAHP
   item_id: SAHP-text
+  kind: observation
   status: ready_for_review
   text: 'книга использует упрощённые определения взаимодействий и координации: синхронное
     взаимодействие — вызывающая сторона ждёт ответа, прежде чем продолжить; асинхронное
@@ -827,6 +882,7 @@ statements:
 - id: SAHP-056
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'книга различает масштабируемость и адаптируемость как операционные характеристики:
     масштабируемость — способность системы оставаться отзывчивой по мере нормального
@@ -844,6 +900,7 @@ statements:
 - id: SAHP-057
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'выбор метода декомпозиции монолита книга задаёт деревом решений: сначала определить,
     поддаётся ли база кода декомпозиции вообще; затем оценить структурированность кода
@@ -860,6 +917,7 @@ statements:
 - id: SAHP-058
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'книга описывает два распространённых подхода к разделению монолита. Декомпозиция
     на основе компонентов — создавать сервисы из компонентов (строительных блоков с
@@ -880,6 +938,7 @@ statements:
 - id: SAHP-059
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'декомпозиция на основе компонентов выполняется шестью паттернами (глава 5):
     идентификация компонентов и их размеров (применяется первым); объединение общих
@@ -900,6 +959,7 @@ statements:
 - id: SAHP-060
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'афферентная и эфферентная связанность (показатели Юрдона и Константина, 1979):
     афферентная связанность (Ca) оценивается по количеству входящих связей с артефактом
@@ -917,6 +977,7 @@ statements:
 - id: SAHP-061
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'функции пригодности реализуются кодом или готовыми инструментами (JDepend
     для циклических зависимостей, ArchUnit и NetArchTest для границ уровней, SonarQube
@@ -936,6 +997,7 @@ statements:
 - id: SAHP-062
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'функции пригодности для управления автоматизируют контроль за дрейфом архитектуры
     при сопровождении и обычно запускаются при развёртывании в конвейере CI/CD; примеры:
@@ -955,6 +1017,7 @@ statements:
 - id: SAHP-063
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'детали применения паттернов декомпозиции на основе компонентов (глава 5).
     Идентификация компонентов и их размеров: выявить компоненты и оценить размер числом
@@ -983,6 +1046,7 @@ statements:
 - id: SAHP-064
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'движущие силы дезинтеграции данных отвечают на вопрос «когда разделять данные»;
     книга называет шесть: управление изменениями (на сколько сервисов повлияет изменение
@@ -1002,6 +1066,7 @@ statements:
 - id: SAHP-065
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'движущие силы интеграции данных отвечают на вопрос «когда сохранять данные вместе»
     и уравновешивают силы дезинтеграции; книга называет две: отношения в данных (внешние
@@ -1019,6 +1084,7 @@ statements:
 - id: SAHP-066
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'декомпозиция монолитных данных выполняется пятью этапами: этап 1 — анализ базы
     данных и создание предметных областей данных (отход от стиля «общая база данных»,
@@ -1040,6 +1106,7 @@ statements:
 - id: SAHP-067
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'для выбора типа базы данных книга сравнивает типы по семи характеристикам: кривая
     обучения; простота моделирования данных; масштабируемость и пропускная способность;
@@ -1063,6 +1130,7 @@ statements:
 - id: SAHP-068
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'паттерны повторного использования кода между сервисами (глава 8) и их компромиссы:
     репликация кода — копирование общего кода в каждый сервис (без совместного кода),
@@ -1087,6 +1155,7 @@ statements:
 - id: SAHP-069
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'паттерны распределённого доступа к данным (глава 10) и их компромиссы: взаимодействие
     между сервисами — сервис запрашивает данные у владельца удалённым вызовом; самый распространённый,
@@ -1109,6 +1178,7 @@ statements:
 - id: SAHP-070
   source_id: SAHP
   item_id: SAHP-text
+  kind: fact
   status: ready_for_review
   text: 'транзакционные саги (глава 12) различаются по трём измерениям — взаимодействия
     (синхронные или асинхронные), согласованность (атомарная или потенциальная), координация

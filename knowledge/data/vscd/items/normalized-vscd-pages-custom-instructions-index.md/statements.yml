@@ -2,6 +2,7 @@ statements:
 - id: VSCD-001
   source_id: VSCD
   item_id: VSCD-normalized-VSCD-pages-custom-instructions-index.md
+  kind: fact
   status: ready_for_review
   text: VS Code поддерживает как глобальные, так и файловые инструкции для чат-ассистента,
     включая scoped-подход по шаблонам.
@@ -15,6 +16,7 @@ statements:
 - id: VSCD-002
   source_id: VSCD
   item_id: VSCD-normalized-VSCD-pages-custom-instructions-index.md
+  kind: fact
   status: ready_for_review
   text: AGENTS.md`, `.github/copilot-instructions.md`, .instructions.md` и `CLAUDE.md`
     рассматриваются как легитимные точки хранения правил.
@@ -28,6 +30,7 @@ statements:
 - id: VSCD-003
   source_id: VSCD
   item_id: VSCD-normalized-VSCD-pages-custom-instructions-index.md
+  kind: fact
   status: ready_for_review
   text: если инструкций несколько, их контент может комбинироваться без строгой гарантии
     порядка.
@@ -41,6 +44,7 @@ statements:
 - id: VSCD-004
   source_id: VSCD
   item_id: VSCD-normalized-VSCD-pages-custom-instructions-index.md
+  kind: fact
   status: ready_for_review
   text: inline suggestions в редакторе не обрабатываются через custom instructions
     чата.
@@ -54,6 +58,7 @@ statements:
 - id: VSCD-005
   source_id: VSCD
   item_id: VSCD-normalized-VSCD-pages-custom-instructions-index.md
+  kind: fact
   status: ready_for_review
   text: scoped подход через паттерны файлов повышает точность применения инструкций
     для частей репозитория.

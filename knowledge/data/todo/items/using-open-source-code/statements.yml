@@ -2,6 +2,7 @@ statements:
 - id: TODO-001
   source_id: TODO
   item_id: TODO-using-open-source-code
+  kind: fact
   status: ready_for_review
   text: guide связывает отсутствие учёта происхождения и лицензий открытого кода с
     риском несоответствия лицензионным требованиям, дополнительными расходами и репутационными
@@ -16,6 +17,7 @@ statements:
 - id: TODO-002
   source_id: TODO
   item_id: TODO-using-open-source-code
+  kind: fact
   status: ready_for_review
   text: guide выделяет явные разделы про роли и ответственность, простую политику
     использования открытого кода и пятиэтапный процесс обзора.
@@ -29,6 +31,7 @@ statements:
 - id: TODO-003
   source_id: TODO
   item_id: TODO-using-open-source-code
+  kind: fact
   status: ready_for_review
   text: материал включает пример формы запроса на использование компонента и шаблон
     архитектурной диаграммы как часть практического процесса.
@@ -43,6 +46,7 @@ statements:
 - id: TODO-004
   source_id: TODO
   item_id: TODO-using-open-source-code
+  kind: fact
   status: ready_for_review
   text: guide описывает ядро compliance-команды как OSRB или auditing team с участием
     инженерии, продукта, юриста и compliance officer.
@@ -56,6 +60,7 @@ statements:
 - id: TODO-005
   source_id: TODO
   item_id: TODO-using-open-source-code
+  kind: fact
   status: ready_for_review
   text: guide предлагает шесть простых правил usage policy, включая обязательное одобрение
     до интеграции, аудит стороннего ПО и повторное согласование изменений компонентов.
@@ -69,6 +74,7 @@ statements:
 - id: TODO-006
   source_id: TODO
   item_id: TODO-using-open-source-code
+  kind: fact
   status: ready_for_review
   text: после выпуска версии `1.0` guide рекомендует поддерживать incremental compliance
     и использовать BOM diff tool для различий между релизами.

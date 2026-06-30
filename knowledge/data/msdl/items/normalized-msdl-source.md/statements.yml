@@ -2,6 +2,7 @@ statements:
 - id: MSDL-001
   source_id: MSDL
   item_id: MSDL-normalized-MSDL-source.md
+  kind: fact
   status: ready_for_review
   text: Microsoft SDL — методология встраивания безопасности и конфиденциальности
     в процесс разработки; в основе — обучение, непрерывное улучшение процесса и отчётность.
@@ -15,6 +16,7 @@ statements:
 - id: MSDL-002
   source_id: MSDL
   item_id: MSDL-normalized-MSDL-source.md
+  kind: fact
   status: ready_for_review
   text: 'современная редакция выражена набором практик: обучение, требования безопасности,
     метрики и отчётность о соответствии, моделирование угроз, требования к проектированию
@@ -31,6 +33,7 @@ statements:
 - id: MSDL-003
   source_id: MSDL
   item_id: MSDL-normalized-MSDL-source.md
+  kind: fact
   status: ready_for_review
   text: моделирование угроз выполняется на этапе проектирования и в основе использует
     классификацию `STRIDE`; это согласуется с навыком security-threat-modeling` и
@@ -45,6 +48,7 @@ statements:
 - id: MSDL-004
   source_id: MSDL
   item_id: MSDL-normalized-MSDL-source.md
+  kind: limitation
   status: ready_for_review
   text: MSDL — авторитетный отраслевой пример SDL, тема которого в значительной мере
     покрыта `TMDS`, `SSDF` и `SAMM`; используется как пример, а не как предписывающий

@@ -2,6 +2,7 @@ statements:
 - id: CHAL-003
   source_id: CHAL
   item_id: CHAL-licenses
+  kind: fact
   status: ready_for_review
   text: страница `licenses/` сортирует лицензии по числу условий и показывает более
     широкий спектр вариантов, чем вводная главная страница.
@@ -15,6 +16,7 @@ statements:
 - id: CHAL-004
   source_id: CHAL
   item_id: CHAL-licenses
+  kind: fact
   status: ready_for_review
   text: каталог `licenses/` описывает спектр лицензий от наиболее условных до вариантов
     без условий, связывая популярные примеры MIT и GPLv3 с этим диапазоном.

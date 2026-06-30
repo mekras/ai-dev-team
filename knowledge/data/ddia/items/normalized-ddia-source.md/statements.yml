@@ -2,6 +2,7 @@ statements:
 - id: DDIA-001
   source_id: DDIA
   item_id: DDIA-normalized-DDIA-source.md
+  kind: fact
   status: ready_for_review
   text: надёжность — продолжение корректной работы с нужной функцией и производительностью
     при возникновении неблагоприятных условий.
@@ -15,6 +16,7 @@ statements:
 - id: DDIA-002
   source_id: DDIA
   item_id: DDIA-normalized-DDIA-source.md
+  kind: fact
   status: ready_for_review
   text: дефект (fault) — отклонение компонента от спецификации; отказ (failure) —
     прекращение работы системы; отказоустойчивые системы спроектированы справляться
@@ -29,6 +31,7 @@ statements:
 - id: DDIA-003
   source_id: DDIA
   item_id: DDIA-normalized-DDIA-source.md
+  kind: fact
   status: ready_for_review
   text: типичные источники отказов — аппаратные дефекты, программные ошибки (часто
     систематические и коррелированные) и человеческие ошибки.
@@ -42,6 +45,7 @@ statements:
 - id: DDIA-004
   source_id: DDIA
   item_id: DDIA-normalized-DDIA-source.md
+  kind: fact
   status: ready_for_review
   text: намеренное внесение дефектов проверяет механизмы отказоустойчивости и повышает
     уверенность в них (смыкается с инженерией хаоса).
@@ -55,6 +59,7 @@ statements:
 - id: DDIA-005
   source_id: DDIA
   item_id: DDIA-normalized-DDIA-source.md
+  kind: fact
   status: ready_for_review
   text: репликация, согласованность и отказоустойчивый консенсус — основа надёжности
     распределённых систем хранения и обработки данных.

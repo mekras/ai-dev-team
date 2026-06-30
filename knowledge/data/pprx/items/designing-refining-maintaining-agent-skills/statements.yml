@@ -2,6 +2,7 @@ statements:
 - id: PPRX-001
   source_id: PPRX
   item_id: PPRX-designing-refining-maintaining-agent-skills
+  kind: fact
   status: ready_for_review
   text: навык может быть не одним файлом, а каталогом с основным SKILL.md`, скриптами,
     справочными материалами, шаблонами, данными и конфигурацией.
@@ -16,6 +17,7 @@ statements:
 - id: PPRX-002
   source_id: PPRX
   item_id: PPRX-designing-refining-maintaining-agent-skills
+  kind: fact
   status: ready_for_review
   text: изменение описания навыка несёт риск нарушения маршрутизации и должно сопровождаться
     проверками загрузки навыка на положительных, отрицательных и соседних запросах.
@@ -30,6 +32,7 @@ statements:
 - id: PPRX-003
   source_id: PPRX
   item_id: PPRX-designing-refining-maintaining-agent-skills
+  kind: fact
   status: ready_for_review
   text: раздел с неочевидными ошибками и отрицательными примерами может быть ценным
     механизмом сопровождения навыка, если он пополняется по реальным сбоям агента.
@@ -44,6 +47,7 @@ statements:
 - id: PPRX-004
   source_id: PPRX
   item_id: PPRX-designing-refining-maintaining-agent-skills
+  kind: fact
   status: ready_for_review
   text: добавление нового навыка создаёт постоянную стоимость для системы, поэтому
     необходимость навыка нужно проверять через задачи, где агент без навыка ошибается
