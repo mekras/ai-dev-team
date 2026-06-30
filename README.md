@@ -16,7 +16,7 @@
 Установка:
 
 ```bash
-apm install github.com/mekras/project-knowlege-corpus#^0.7.0
+apm install github.com/mekras/project-knowlege-corpus#^0.7.1
 ```
 
 Обновление:
