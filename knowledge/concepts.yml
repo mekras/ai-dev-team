@@ -149,6 +149,51 @@ concepts:
       - не путать сопряжение (coupling) со связностью (cohesion) — это разные
         свойства.
 
+  - id: cohesion
+    primary_ru: связность
+    forms_ru: [связность, высокая связность]
+    forms_en: [cohesion]
+    definition_ru: мера того, насколько логически связанные элементы модуля
+      держатся вместе и относятся к одной ответственности; высокая связность —
+      цель организации на всех уровнях.
+    authority: CCMP
+    defined_by: [CCMP-005, CLCD-015, DDDE-045]
+    cite_as: [CCMP, CLCD, DDDE]
+    covered_in:
+      - ait-architecture/references/organization-principles.md
+    synonyms_by_source:
+      CCMP: связность
+      CLCD: связность
+      DDDE: связность
+    reconciliation:
+      - связность и сопряжение — парные, но разные свойства; высокая связность
+        внутри модуля и слабое сопряжение между модулями достигаются вместе
+        (CCMP-005, DDDE-045).
+    collisions:
+      - не путать связность (cohesion) с сопряжением (coupling).
+
+  - id: single-source-of-truth
+    primary_ru: единственное авторитетное представление знания (DRY)
+    forms_ru: [единственное авторитетное представление знания, единый источник
+        истины, принцип DRY]
+    forms_en: [single source of truth, DRY, don't repeat yourself]
+    definition_ru: у каждого знания должно быть одно авторитетное представление;
+      различают истинное дублирование (элементы меняются всегда синхронно) и
+      внешне похожие, но независимые элементы, которые опасно объединять.
+    authority: CLAR
+    defined_by: [CLAR-050, CLAR-020]
+    cite_as: [CLAR]
+    covered_in:
+      - ait-architecture/references/organization-principles.md
+    synonyms_by_source:
+      CLAR: DRY
+    reconciliation:
+      - устранение дублирования применяется осторожно — объединять случайное
+        (ложное) дублирование опасно, его потом трудно разделить (CLAR-050).
+    collisions:
+      - не считать любое внешнее сходство поводом к объединению; истинное
+        дублирование определяется синхронностью изменений, а не похожестью.
+
   - id: component
     primary_ru: компонент
     forms_en: [component]
