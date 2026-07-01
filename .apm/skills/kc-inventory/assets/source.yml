@@ -39,7 +39,7 @@ content_hash_algorithm:
 external_corpus:
   contract: # portable_v1
   use_as: # peer
-  local_checkout: # .local/external-corpora/source-slug
+  local_checkout: # data/<source-slug>/.local/external-corpus
 
 # Для локальных книг и длинных документов.
 original_filename:
