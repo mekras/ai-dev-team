@@ -8,7 +8,7 @@ retrieval_mode: on_demand
 copy_policy: fragments_only
 requires_access_check: true
 primary_file:
-  location: knowledge/.local/raw/inma/inmates-are-running-the-asylum-ru.pdf
+  location: knowledge/data/inma/local/raw/inmates-are-running-the-asylum-ru.pdf
   format: pdf
   file_size_bytes: 2700338
   content_hash: sha256:3fa271b514b631c6bc7ce0d9d0bac1923caa01ac9955a9686190ffc7174fe2d2
@@ -16,4 +16,4 @@ primary_file:
   metadata_source: pdfinfo
 known_limitations:
 - Полный файл хранится только в игнорируемом локальном слое
-  knowledge/.local/raw/ и не публикуется в Git.
+  knowledge/data/inma/local/raw/ и не публикуется в Git.

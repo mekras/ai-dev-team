@@ -19,7 +19,7 @@ Media. Полный PDF и текстовая выгрузка хранятся 
 - Тип источника: локальная PDF-копия отчёта O’Reilly
 - Способ получения: по решению пользователя в проект скопирована локальная
   рабочая копия отчёта с хранением файла только в игнорируемом каталоге
-  `knowledge/.local/raw/smas/`
+  `knowledge/data/smas/local/raw/`
 - Дата включения в корпус: `2026-06-24`
 - Отдельное замечание: отчёт подготовлен в сотрудничестве O’Reilly и CA
   Technologies; модель `DHARMA` предложена авторами как платформонезависимый
@@ -31,8 +31,8 @@ Media. Полный PDF и текстовая выгрузка хранятся 
 
 - паспорт: `knowledge/data/smas/items/source/source.md`
 - индекс артефактов: `knowledge/data/smas/items/source/page-index.tsv`
-- PDF: `knowledge/.local/raw/smas/securing-microservice-apis.pdf`
-- текстовая выгрузка: `knowledge/.local/raw/smas/securing-microservice-apis.txt`
+- PDF: `knowledge/data/smas/local/raw/securing-microservice-apis.pdf`
+- текстовая выгрузка: `knowledge/data/smas/local/raw/securing-microservice-apis.txt`
 
 В Git сохраняются метаданные источника, обзорный нормализованный слой и
 извлечённые утверждения; крупные дословные фрагменты отчёта не публикуются.

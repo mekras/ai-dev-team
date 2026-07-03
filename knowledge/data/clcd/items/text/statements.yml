@@ -6,7 +6,7 @@ statements:
   status: verified
   text: 'Чистота кода влияет на скорость развития продукта: работающий, но грязный код постепенно повышает стоимость изменений и сопровождения.'
   excerpt: 'чистота кода влияет на скорость развития продукта: работающий, но грязный код постепенно повышает стоимость изменений и сопровождения'
-  artifact: clean-code-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: 2026-06-30
   scope:
     section_title: ''
@@ -19,7 +19,7 @@ statements:
   status: verified
   text: Профессиональная обязанность программиста включает сопротивление давлению, которое ведёт к ухудшению кода ради краткосрочной скорости.
   excerpt: профессиональная обязанность программиста включает сопротивление давлению, которое ведёт к ухудшению кода ради краткосрочной скорости
-  artifact: clean-code-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: 2026-06-30
   scope:
     section_title: ''
@@ -32,7 +32,7 @@ statements:
   status: verified
   text: Код следует оставлять чище, чем он был до изменения; небольшие локальные улучшения являются частью нормальной работы с кодом.
   excerpt: код следует оставлять чище, чем он был до изменения, и небольшие локальные улучшения являются частью нормальной работы с кодом
-  artifact: clean-code-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: 2026-06-30
   scope:
     section_title: ''
@@ -45,7 +45,7 @@ statements:
   status: verified
   text: Имена должны передавать намерение, избегать дезинформации, быть удобными для поиска и использовать одно слово для одной концепции.
   excerpt: имена должны передавать намерение, избегать дезинформации, быть удобными для поиска и использовать одно слово для одной концепции
-  artifact: clean-code-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: 2026-06-30
   scope:
     section_title: ''
@@ -58,7 +58,7 @@ statements:
   status: verified
   text: Функция должна быть компактной, выполнять одну операцию, работать на одном уровне абстракции и иметь содержательное имя.
   excerpt: функция должна быть компактной, выполнять одну операцию, работать на одном уровне абстракции и иметь содержательное имя
-  artifact: clean-code-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: 2026-06-30
   scope:
     section_title: ''
@@ -71,7 +71,7 @@ statements:
   status: verified
   text: Большое число аргументов, аргументы-флаги и смешение команд с запросами ухудшают понятность функции и повышают риск ошибки.
   excerpt: большое число аргументов, аргументы-флаги и смешение команд с запросами ухудшают понятность функции и повышают риск ошибки
-  artifact: clean-code-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: 2026-06-30
   scope:
     section_title: ''
@@ -84,7 +84,7 @@ statements:
   status: verified
   text: Комментарии не должны компенсировать плохой код; если смысл можно выразить именем, функцией или структурой, предпочтительно улучшить код.
   excerpt: комментарии не должны компенсировать плохой код; если смысл можно выразить именем, функцией или структурой, предпочтительно улучшить код
-  artifact: clean-code-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: 2026-06-30
   scope:
     section_title: ''
@@ -97,7 +97,7 @@ statements:
   status: verified
   text: Полезный комментарий объясняет намерение, предупреждает о последствиях или фиксирует контекст, который нельзя ясно выразить самим кодом.
   excerpt: полезный комментарий объясняет намерение, предупреждает о последствиях или фиксирует контекст, который нельзя ясно выразить самим кодом
-  artifact: clean-code-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: 2026-06-30
   scope:
     section_title: ''
@@ -110,7 +110,7 @@ statements:
   status: verified
   text: 'Форматирование кода должно помогать чтению: связанные элементы должны быть близко, уровни вложенности видимы, а структура файла предсказуема.'
   excerpt: 'форматирование кода должно помогать чтению: связанные элементы должны быть близко, уровни вложенности видимы, а структура файла предсказуема'
-  artifact: clean-code-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: 2026-06-30
   scope:
     section_title: ''
@@ -123,7 +123,7 @@ statements:
   status: verified
   text: 'Объекты и структуры данных имеют разные цели: объект скрывает данные за поведением, а структура данных открывает данные без значимого поведения.'
   excerpt: 'объекты и структуры данных имеют разные цели: объект скрывает данные за поведением, а структура данных открывает данные без значимого поведения'
-  artifact: clean-code-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: 2026-06-30
   scope:
     section_title: ''
@@ -136,7 +136,7 @@ statements:
   status: verified
   text: Обработка ошибок должна сохранять основной путь выполнения читаемым, передавать контекст исключения и избегать возврата или передачи `null`.
   excerpt: обработка ошибок должна сохранять основной путь выполнения читаемым, передавать контекст исключения и избегать возврата или передачи `null`
-  artifact: clean-code-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: 2026-06-30
   scope:
     section_title: ''
@@ -149,7 +149,7 @@ statements:
   status: verified
   text: Границы со сторонним кодом нужно изолировать так, чтобы детали чужого API не распространялись по системе.
   excerpt: границы со сторонним кодом нужно изолировать так, чтобы детали чужого API не распространялись по системе
-  artifact: clean-code-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: 2026-06-30
   scope:
     section_title: ''
@@ -162,7 +162,7 @@ statements:
   status: verified
   text: Учебные тесты помогают проверить понимание стороннего API и защитить проект от изменений этого API.
   excerpt: учебные тесты помогают проверить понимание стороннего API и защитить проект от изменений этого API
-  artifact: clean-code-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: 2026-06-30
   scope:
     section_title: ''
@@ -175,7 +175,7 @@ statements:
   status: verified
   text: Модульные тесты должны быть читаемыми, быстрыми, независимыми, повторяемыми и достаточно точными, чтобы поддерживать безопасный рефакторинг.
   excerpt: модульные тесты должны быть читаемыми, быстрыми, независимыми, повторяемыми и достаточно точными, чтобы поддерживать безопасный рефакторинг
-  artifact: clean-code-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: 2026-06-30
   scope:
     section_title: ''
@@ -188,7 +188,7 @@ statements:
   status: verified
   text: Класс должен быть небольшим по ответственности, иметь высокую связность и понятную причину для изменения.
   excerpt: класс должен быть небольшим по ответственности, иметь высокую связность и понятную причину для изменения
-  artifact: clean-code-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: 2026-06-30
   scope:
     section_title: ''
@@ -201,7 +201,7 @@ statements:
   status: verified
   text: Система должна отделять создание объектов и связывание зависимостей от прикладной логики.
   excerpt: система должна отделять создание объектов и связывание зависимостей от прикладной логики
-  artifact: clean-code-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: 2026-06-30
   scope:
     section_title: ''
@@ -214,7 +214,7 @@ statements:
   status: verified
   text: Архитектуру и систему нужно развивать через разделение уровней абстракции, модульность и контролируемые границы.
   excerpt: архитектуру и систему нужно развивать через разделение уровней абстракции, модульность и контролируемые границы
-  artifact: clean-code-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: 2026-06-30
   scope:
     section_title: ''
@@ -227,7 +227,7 @@ statements:
   status: verified
   text: 'Многопоточный код требует отдельной осторожности: нужно разделять многопоточность и прикладную логику, ограничивать общие данные и проверять сценарии выполнения.'
   excerpt: 'многопоточный код требует отдельной осторожности: нужно разделять многопоточность и прикладную логику, ограничивать общие данные и проверять сценарии выполнения'
-  artifact: clean-code-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: 2026-06-30
   scope:
     section_title: ''
@@ -240,7 +240,7 @@ statements:
   status: verified
   text: Последовательное очищение кода должно идти маленькими проверяемыми шагами, где каждое улучшение сохраняет работоспособность.
   excerpt: последовательное очищение кода должно идти маленькими проверяемыми шагами, где каждое улучшение сохраняет работоспособность
-  artifact: clean-code-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: 2026-06-30
   scope:
     section_title: ''
@@ -253,7 +253,7 @@ statements:
   status: verified
   text: Запахи кода и эвристические правила нужны как практический список сигналов при чтении, анализе и рефакторинге, а не как механическая замена инженерного суждения.
   excerpt: запахи кода и эвристические правила нужны как практический список сигналов при чтении, анализе и рефакторинге, а не как механическая замена инженерного суждения
-  artifact: clean-code-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: 2026-06-30
   scope:
     section_title: ''

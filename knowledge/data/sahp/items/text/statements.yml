@@ -8,7 +8,7 @@ statements:
     и надёжных решений; для архитектора почти каждая задача уникальна, и серебряных
     пуль — универсальных решений — не существует.
   excerpt: глава 1, вводный раздел.
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: В архитектуре нет «передового опыта»
@@ -24,7 +24,7 @@ statements:
     «лучшего» решения, как правило, нет, есть наименее худший набор компромиссов,
     при котором баланс конкурирующих характеристик способствует успеху проекта.
   excerpt: глава 1, вводный раздел.
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Цель — «наименее худшее» сочетание компромиссов
@@ -39,7 +39,7 @@ statements:
     основу»; архитектура — это структурное понятие, «то, что потом сложно изменить»,
     в отличие от более податливого проектирования.
   excerpt: глава 1, раздел «Почему „сложные компромиссы“?».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Книга об «основополагающих» (сложных) частях архитектуры
@@ -56,7 +56,7 @@ statements:
     конкретных технологиях; «почему» важнее, чем «как» (второй закон архитектуры из
     `Fundamentals of Software Architecture`).
   excerpt: глава 1, разделы «Советы… неподвластные времени», «Архитектура и проектирование».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Принципы важнее технологий и деталей реализации
@@ -72,7 +72,7 @@ statements:
     современной архитектуры возникают из противоречия между данными и архитектурой,
     особенно из привычки хранить все данные в одной реляционной базе.
   excerpt: глава 1, раздел «Важность данных в архитектуре».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Данные переживают системы и определяют архитектуру
@@ -88,7 +88,7 @@ statements:
     аналитические данные используются для прогнозов, выявления тенденций и стратегических
     решений, часто нереляционны и не критичны для повседневной работы.
   excerpt: глава 1, раздел «Важность данных в архитектуре».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Разделение операционных и аналитических данных
@@ -104,7 +104,7 @@ statements:
     ADR: короткий документ с разделами «Контекст» (задача и альтернативы), «Решение»
     (выбор и обоснование) и «Последствия» (эффекты и рассмотренные компромиссы).'
   excerpt: глава 1, раздел «Запись архитектурных решений».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Запись архитектурных решений (ADR)
@@ -120,7 +120,7 @@ statements:
     характеристики или их комбинации; она автоматизирует управление архитектурой так
     же, как модульные тесты проверяют предметную логику.
   excerpt: глава 1, раздел «Функции пригодности».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Функции пригодности как объективная проверка архитектуры
@@ -137,7 +137,7 @@ statements:
     характеристики часто конфликтуют (безопасность и производительность, масштабируемость
     и адаптируемость).
   excerpt: глава 1, раздел «Функции пригодности».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Атомарные и комплексные функции пригодности
@@ -152,7 +152,7 @@ statements:
     ли знания предметной области для этой проверки?»: если да — это модульный/приёмочный
     тест, если нет — функция пригодности.'
   excerpt: глава 1, раздел «Функции пригодности».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Граница между функцией пригодности и модульным тестом
@@ -168,7 +168,7 @@ statements:
     запускать как можно чаще, обычно в конвейере непрерывной интеграции, иначе непроверяемое
     не контролируется.
   excerpt: глава 1, раздел «Функции пригодности».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Измеримость характеристики и непрерывность проверок
@@ -184,7 +184,7 @@ statements:
     (пакет, пространство имён, каталог); связанность — изменение одного артефакта
     может потребовать изменения другого.'
   excerpt: глава 1, раздел «Архитектура и проектирование».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Простые определения ключевых понятий
@@ -199,7 +199,7 @@ statements:
     Squad; история начинается с существующей системы, а не с нового проекта, и в каждой
     главе сопровождает обсуждаемые методы и компромиссы.
   excerpt: глава 1, раздел «Введение в сагу о Sysops Squad».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Сквозной пример — сага о Sysops Squad
@@ -215,7 +215,7 @@ statements:
     связностью и синхронной связанностью во время выполнения; он включает не только
     код, но и операционные зависимости (базу данных, брокер, оркестратор контейнеров).
   excerpt: глава 2, разделы «Архитектурные кванты», «Тесная статическая связанность».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Архитектурный квант
@@ -230,7 +230,7 @@ statements:
     сервиса; вопрос проверки: «Необходима ли эта зависимость, чтобы данный сервис
     заработал?». Она строится на максимально строгих контрактах.'
   excerpt: глава 2, раздел «Тесная статическая связанность».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Статическая связанность
@@ -247,7 +247,7 @@ statements:
     общий пользовательский интерфейс) связывает систему в единый квант, даже если
     стиль распределённый.
   excerpt: глава 2, раздел «Тесная статическая связанность».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Единая точка сопряжения объединяет систему в один квант
@@ -264,7 +264,7 @@ statements:
     (синхронные/асинхронные), согласованность (атомарная/потенциальная) и координация
     (оркестрация/ хореография).'
   excerpt: глава 2, раздел «Динамическая связанность квантов».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Динамическая связанность и три силы
@@ -280,7 +280,7 @@ statements:
     транзакций проще обеспечить в синхронных решениях с посредником, а большую масштабируемость
     дают асинхронные системы с потенциальной согласованностью и хореографией.
   excerpt: глава 2, раздел «Динамическая связанность квантов».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Три силы влияют друг на друга
@@ -295,7 +295,7 @@ statements:
     при асинхронном — продолжает работу после подтверждения приёма, часто через очередь
     сообщений, и при необходимости получает результат через отдельный канал.
   excerpt: глава 2, раздел «Взаимодействия».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Синхронные и асинхронные взаимодействия
@@ -312,7 +312,7 @@ statements:
     — разные виды потенциальной согласованности; транзакции, пересекающие границы
     сервисов, рекомендуется избегать.
   excerpt: глава 2, раздел «Согласованность».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Согласованность как спектр
@@ -328,7 +328,7 @@ statements:
     — размер этих частей; большинство сложностей распределённых систем связано не
     с модульностью, а с гранулярностью.
   excerpt: глава 7, вводный раздел.
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Модульность и гранулярность — разные вещи
@@ -343,7 +343,7 @@ statements:
     (повод разделить сервис) и сил интеграции (повод объединить сервисы); частая ошибка
     — учитывать только силы дезинтеграции.
   excerpt: глава 7, разделы «Силы дезинтеграции гранулярности», «Силы интеграции гранулярности».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Гранулярность определяется балансом сил
@@ -362,7 +362,7 @@ statements:
     части роняет критичные функции?), безопасность (части требуют разного уровня защиты?),
     расширяемость (функции часто добавляют только в одну часть?).'
   excerpt: глава 7, раздел «Силы дезинтеграции гранулярности».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-29'
   scope:
     section_title: Шесть сил дезинтеграции гранулярности
@@ -380,7 +380,7 @@ statements:
     код?), отношения в данных (можно ли разделить данные одновременно с разделением сервиса?).
     Правильная гранулярность — это анализ компромиссов между силами дезинтеграции и интеграции.'
   excerpt: глава 7, раздел «Силы интеграции гранулярности».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-29'
   scope:
     section_title: Силы интеграции гранулярности
@@ -395,7 +395,7 @@ statements:
     или строк кода; более объективными метриками служат количество инструкций и число
     общедоступных интерфейсов или операций сервиса.
   excerpt: глава 7, вводный раздел.
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Размер сервиса измеряют функциями, а не строками
@@ -411,7 +411,7 @@ statements:
     сеткой; каждый имеет свою таблицу компромиссов.'
   excerpt: глава 8, разделы «Репликация кода», «Разделяемая библиотека», «Общий сервис»,
     «Sidecar-компоненты и сервисная сетка».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Четыре паттерна повторного использования кода
@@ -426,7 +426,7 @@ statements:
     компонент, присоединяемый к сервису, и опирается на ту же идею разделения, что
     и гексагональная архитектура; совокупность Sidecar образует сервисную сетку.
   excerpt: глава 8, раздел «Sidecar-компоненты и сервисная сетка».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Sidecar и сервисная сетка для сквозной логики
@@ -442,7 +442,7 @@ statements:
     все сервисы) и совместное (пишут несколько сервисов одной предметной области).
   excerpt: глава 9, разделы «Владение данными», «Единоличное владение», «Общее владение»,
     «Совместное владение».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Три сценария владения данными
@@ -457,7 +457,7 @@ statements:
     просто для единоличного владения, но усложняется при совместном и общем владении,
     когда в таблицу пишут несколько или все сервисы.
   excerpt: глава 9, раздел «Владение данными».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Эмпирическое правило владения таблицей
@@ -473,7 +473,7 @@ statements:
     и забыл» через постоянную очередь или псевдосинхронно «запрос — ответ», если нужен
     результат.
   excerpt: глава 9, раздел «Общее владение».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Решение общего владения — выделенный сервис-владелец
@@ -488,7 +488,7 @@ statements:
     к одной схеме базы данных, но недопустимо, когда один сервис подключается к нескольким
     базам данных или схемам.'
   excerpt: глава 9, раздел-диалог «Владение данными и распределённые транзакции».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Сервис не должен подключаться к нескольким схемам
@@ -504,7 +504,7 @@ statements:
     синхронизацию, оркестрацию запроса и паттерн на основе событий.
   excerpt: глава 9, разделы «Распределённые транзакции», «Паттерны согласованности
     в конечном счёте».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Распределённые транзакции и потенциальная согласованность
@@ -520,7 +520,7 @@ statements:
     (оркестратора нет, координация распределена между сервисами).'
   excerpt: глава 11, разделы «Организация взаимодействий с оркестрацией», «Организация
     взаимодействий с хореографией».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Оркестрация и хореография — два паттерна координации
@@ -535,7 +535,7 @@ statements:
     ошибочно; в архитектуре нет решений, о которых уместно «всегда» или «никогда»,
     и выбор между оркестрацией и хореографией — это компромисс.
   excerpt: глава 11, раздел-диалог в начале главы.
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Хореография не всегда лучше из-за слабой связанности
@@ -551,7 +551,7 @@ statements:
     через связывание по структурированным данным (stamp coupling), что даёт каждому
     сервису полезный контекст, но не единое место чтения состояния.
   excerpt: глава 11, раздел «Организация взаимодействий с хореографией».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Управление состоянием рабочего процесса в хореографии
@@ -567,7 +567,7 @@ statements:
     во времени, Фантастика, Ужасы, Параллельная сага и Антология; имена и верхние
     индексы кодируют значения трёх измерений.'
   excerpt: глава 12, разделы «Паттерны транзакционных саг» и одноимённые подразделы.
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Восемь именованных паттернов транзакционных саг
@@ -583,7 +583,7 @@ statements:
     «всё или ничего»; такие транзакции сложно реализуются и ограничивают выбор баз
     данных.
   excerpt: глава 12, подраздел «Паттерн Эпическая сага (Epic Saga)».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Эпическая сага имитирует монолит
@@ -599,7 +599,7 @@ statements:
     не переносится автоматически и порождает проблемы по мере роста семантической
     связи.
   excerpt: глава 12, подраздел «Паттерн Эпическая сага (Epic Saga)».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Паттерн не гарантирует разрешимости задачи
@@ -615,7 +615,7 @@ statements:
     при высокой связанности: чем больше сервисов в рабочем процессе, тем выше вероятность
     общего сбоя.'
   excerpt: глава 15, раздел «Анализ точек сопряжения», таблица 15.2.
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Обратная корреляция связанности и масштабируемости
@@ -631,7 +631,7 @@ statements:
     и выбор между ними — компромисс; для микросервисов применяют в том числе контракты,
     ориентированные на потребителя.
   excerpt: глава 13, разделы «Строгие и свободные контракты», «Контракты в микросервисах».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Строгие и свободные контракты
@@ -647,7 +647,7 @@ statements:
     у одного потребителя вынуждает меняться всех; умеренное связывание полезно для
     передачи состояния рабочего процесса.'
   excerpt: глава 13, раздел «Связывание по структурированным данным».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Опасность связывания по структурированным данным
@@ -662,7 +662,7 @@ statements:
     и озеро данных (Data Lake) к сетке данных (Data Mesh); каждый подход имеет свою
     таблицу компромиссов.
   excerpt: глава 14, разделы «Предыдущие подходы», «Озеро данных», «Сетка данных».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Три предшественника сетки данных
@@ -678,7 +678,7 @@ statements:
     к аналитической части; различают согласованный с источником, агрегированный и
     целевой DPQ.
   excerpt: глава 14, раздел «Квант продукта данных».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Квант продукта данных (DPQ)
@@ -696,7 +696,7 @@ statements:
     недопустимо.
   excerpt: глава 14, разделы «Квант продукта данных», «Сетка данных, связанность и
     квантовая архитектура».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: DPQ требует асинхронности и потенциальной согласованности
@@ -711,7 +711,7 @@ statements:
     между собой; проанализировать, как они связаны; оценить компромиссы, определив
     влияние изменений на взаимозависимые системы.'
   excerpt: глава 15, вводный раздел.
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Трёхэтапный процесс анализа компромиссов
@@ -727,7 +727,7 @@ statements:
     баз и инфраструктуры, точки интеграции, обмен сообщениями); сервисы, связанные
     только в рамках рабочего процесса, статически независимы.
   excerpt: глава 15, разделы «Поиск запутанных измерений», «Связанность».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Диаграмма статической связанности как первый шаг
@@ -743,7 +743,7 @@ statements:
     в архитектуре мало возможностей для настоящего количественного анализа, и стоит
     оттачивать качественный.
   excerpt: глава 15, раздел «Качественный и количественный анализ».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Качественный анализ важнее количественного
@@ -758,7 +758,7 @@ statements:
     исчерпывающие) помогает не сравнивать разные по составу вещи (очередь сообщений
     и сервисную шину) и охватить всё пространство вариантов без пропусков и наложений.
   excerpt: глава 15, раздел «Списки МЕСЕ».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Списки MECE для сопоставимости сравнения
@@ -773,7 +773,7 @@ statements:
     контекста меняет критерии решения, поэтому архитектор должен уравновешивать не
     все, а только правильный для ситуации набор компромиссов.
   excerpt: глава 15, раздел «Ловушка „выпадения из контекста“».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Ловушка «выпадения из контекста»
@@ -789,7 +789,7 @@ statements:
     области («что, если»), чтобы увидеть реальные компромиссы; ни один архитектор
     не получает идеальную схему с первой попытки — проектирование итеративно.
   excerpt: глава 15, разделы «Модели релевантных предметных случаев», «Оценка компромиссов».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Моделирование сценариев и итеративность
@@ -804,7 +804,7 @@ statements:
     увеличить семантическую связанность, но не уменьшить её — например, отказ от оркестратора
     не убирает необходимость координации.
   excerpt: глава 15, раздел «Модели релевантных предметных случаев».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Семантическую связанность можно увеличить, но не уменьшить реализацией
@@ -821,7 +821,7 @@ statements:
     действия или отзывчивость и отказоустойчивость), а не топить их в технических
     деталях.
   excerpt: глава 15, раздел «Практический результат важнее неопровержимых доказательств».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Практический результат важнее исчерпывающих доказательств
@@ -838,7 +838,7 @@ statements:
     редко эффективно за пределами узкого пространства своей задачи, и от пропагандистов
     нужно требовать честной оценки сильных и слабых сторон.
   excerpt: глава 15, раздел «Избегайте панацеи и пропаганды».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Избегать «панацеи» и пропаганды
@@ -854,7 +854,7 @@ statements:
     таблицы и рисунки компромиссов (приложение В), а приложение A перечисляет понятия,
     подробно разобранные в Fundamentals of Software Architecture`.
   excerpt: приложения A, Б, В.
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: ADR и таблицы компромиссов собраны в приложениях
@@ -873,7 +873,7 @@ statements:
     координатора; атомарность — все части рабочего процесса постоянно согласованы (противоположность
     — согласованность в конечном итоге).'
   excerpt: глава 1, раздел «Архитектура и проектирование».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-29'
   scope:
     section_title: Простые определения ключевых понятий (взаимодействия и координация)
@@ -891,7 +891,7 @@ statements:
     всплесках нагрузки; адаптируемость зависит от малого среднего времени запуска сервиса
     (MTTS) и достигается мелкой детализацией сервисов.'
   excerpt: глава 3, раздел «Различия между масштабируемостью и адаптируемостью».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-29'
   scope:
     section_title: Масштабируемость и адаптируемость
@@ -908,7 +908,7 @@ statements:
     тактическое ветвление; если код структурирован по функциональности с (чётко или
     нечётко) определёнными компонентами, предпочтительнее декомпозиция на основе компонентов.'
   excerpt: глава 4, раздел «Архитектурная декомпозиция», рис. 4.1.
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-29'
   scope:
     section_title: Выбор метода декомпозиции
@@ -929,7 +929,7 @@ statements:
     в сравнении с извлечением; недостатки — в сервисах остаётся лишний код от монолита,
     качество кода само не улучшается, возможны конфликты общего кода.'
   excerpt: глава 4, разделы «Декомпозиция на основе компонентов», «Тактическое ветвление».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-29'
   scope:
     section_title: Подходы к декомпозиции монолита
@@ -950,7 +950,7 @@ statements:
     рефакторинг пространств имён или каталогов); создание предметных сервисов (физически
     вынести логические группы из монолита в отдельно развёртываемые предметные сервисы).'
   excerpt: глава 5, «Паттерны декомпозиции на основе компонентов».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-29'
   scope:
     section_title: Паттерны декомпозиции на основе компонентов
@@ -968,7 +968,7 @@ statements:
     Ca). Эти показатели особенно ценны при изменении структуры системы, например при
     декомпозиции монолита.'
   excerpt: глава 4, раздел «Афферентная и эфферентная связанность», уравнение 4.2.
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-29'
   scope:
     section_title: Афферентная и эфферентная связанность
@@ -988,7 +988,7 @@ statements:
     как ручная функция пригодности на отдельном этапе конвейера; запускать функции
     следует как можно чаще, так как невыполняемая проверка ничего не контролирует.'
   excerpt: глава 1, раздел «Функции пригодности», примеры 1.1–1.3.
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-29'
   scope:
     section_title: Реализация и запуск функций пригодности
@@ -1008,7 +1008,7 @@ statements:
     сервиса (для каждого сервиса своя функция); типичные реализации — псевдокод-алгоритм
     с уведомлением архитектора или проверка через ArchUnit.'
   excerpt: глава 5, разделы «Функции пригодности для управления», примеры 5.1–5.11.
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-29'
   scope:
     section_title: Функции пригодности для управления
@@ -1037,7 +1037,7 @@ statements:
     развёртываемые крупномодульные предметные сервисы (архитектура на основе сервисов
     как промежуточный шаг перед более мелким дроблением).'
   excerpt: глава 5, разделы по паттернам, примеры 5.1–5.20.
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-29'
   scope:
     section_title: Применение паттернов декомпозиции на основе компонентов
@@ -1057,7 +1057,7 @@ statements:
     с единственным квантом), оптимизация типа базы данных (можно ли оптимизировать доступ,
     используя несколько типов баз данных).'
   excerpt: глава 6, раздел «Движущие силы дезинтеграции данных».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-29'
   scope:
     section_title: Движущие силы дезинтеграции данных
@@ -1075,7 +1075,7 @@ statements:
     выполняется итеративно — на отдельные предметные области, схемы и при необходимости
     отдельные базы данных.'
   excerpt: глава 6, разделы «Движущие силы интеграции данных», «Разделение данных».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-29'
   scope:
     section_title: Движущие силы интеграции данных
@@ -1097,7 +1097,7 @@ statements:
     серверы: после репликации перенастроить соединения и удалить связи и схемы со старых
     серверов.'
   excerpt: глава 6, раздел «Декомпозиция монолитных данных», этапы 1–5.
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-29'
   scope:
     section_title: Декомпозиция монолитных данных
@@ -1121,7 +1121,7 @@ statements:
     Каждый продукт оптимизирован под свои компромиссы, поэтому тип выбирают под предметную
     область («парадокс выбора»).'
   excerpt: глава 6, раздел «Выбор типа базы данных».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-29'
   scope:
     section_title: Выбор типа базы данных
@@ -1146,7 +1146,7 @@ statements:
     связанности в микросервисах часто предпочитают дублирование, а не зависимость.'
   excerpt: глава 8, разделы «Репликация кода», «Разделяемая библиотека», «Общий сервис»,
     «Sidecar-компоненты и сервисная сетка».
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-29'
   scope:
     section_title: Паттерны повторного использования кода
@@ -1169,7 +1169,7 @@ statements:
     ценой более широкого ограниченного контекста и совместного владения; применяют, когда
     другие паттерны не подходят.'
   excerpt: глава 10, разделы по четырём паттернам доступа к данным.
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-29'
   scope:
     section_title: Паттерны распределённого доступа к данным
@@ -1189,7 +1189,7 @@ statements:
     Антология (Anthology, апх). Каждый паттерн предлагает свой набор компромиссов; выбор
     — по нужному сочетанию трёх сил.'
   excerpt: глава 12, раздел «Паттерны транзакционных саг», таблица 12.1.
-  artifact: software-architecture-hard-parts-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-29'
   scope:
     section_title: Паттерны транзакционных саг

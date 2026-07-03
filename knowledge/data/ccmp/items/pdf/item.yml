@@ -8,7 +8,7 @@ retrieval_mode: on_demand
 copy_policy: fragments_only
 requires_access_check: true
 primary_file:
-  location: knowledge/.local/raw/ccmp/code-complete-ru.pdf
+  location: knowledge/data/ccmp/local/raw/code-complete-ru.pdf
   format: pdf
   file_size_bytes: 6162075
   content_hash: sha256:32dcc2364481460484068e23d0c1414800ff05b0add06010f965ebca3c8923dd
@@ -16,4 +16,4 @@ primary_file:
   metadata_source: pdfinfo
 known_limitations:
 - Полный файл хранится только в игнорируемом локальном слое
-  knowledge/.local/raw/ и не публикуется в Git.
+  knowledge/data/ccmp/local/raw/ и не публикуется в Git.

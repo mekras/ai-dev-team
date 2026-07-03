@@ -8,7 +8,7 @@ statements:
     собой различные программируемые контексты, а не просто как «программный интерфейс
     приложений».
   excerpt: глава 2 «Определение API».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: API как обязательство
@@ -22,7 +22,7 @@ statements:
   text: потребителями API являются разработчики, поэтому поставщик не контролирует
     качество чужих инженерных решений, но проблемы будут приписывать ему.
   excerpt: глава 2 «Определение API».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Пользователи API — инженеры
@@ -36,7 +36,7 @@ statements:
   text: API одновременно мультиплицирует и возможности, и ошибки разработчика, что
     налагает повышенную ответственность.
   excerpt: глава 2 «Определение API».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: API — мультипликатор ошибок
@@ -50,7 +50,7 @@ statements:
   text: базовые критерии хорошего API — очевидность (как решить задачу), читаемость
     (правильный код по номенклатуре) и консистентность (действие по аналогии).
   excerpt: глава 3 «Критерии качества API».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Три критерия качества
@@ -64,7 +64,7 @@ statements:
   text: нелогичность и неконсистентность возникают не в начальном ядре API, а при
     его развитии и попытках сохранить совместимость.
   excerpt: глава 3 «Критерии качества API».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Главные проблемы — при развитии
@@ -78,7 +78,7 @@ statements:
   text: проектирование «на будущее» означает избыточность интерфейсов и абстрагирования
     и оправдано, только если у API это будущее есть, иначе это оверинжиниринг.
   excerpt: глава 3 «Критерии качества API».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Закладывание на будущее небесплатно
@@ -92,7 +92,7 @@ statements:
   text: обратная совместимость — временно́е свойство качества, которое отличает разработку
     API от разработки ПО вообще.
   excerpt: глава 4 «Обратная совместимость».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Совместимость как временна́я характеристика
@@ -106,7 +106,7 @@ statements:
   text: выпуск обратно несовместимых версий — «налог» на потребителей; не следует
     ломать совместимость, если это возможно.
   excerpt: глава 4 «Обратная совместимость».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Слом совместимости — скрытый налог
@@ -120,7 +120,7 @@ statements:
   text: книга принимает версионирование semver и устанавливает эквивалентность «мажорная
     версия» = «обратно несовместимое изменение функциональности».
   excerpt: глава 5 «О версионировании».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Принятие semver
@@ -134,7 +134,7 @@ statements:
   text: книга намеренно избегает слов «метод», «объект», «функция» в пользу нейтрального
     термина «сущность» как атомарной единицы функциональности.
   excerpt: глава 6 «Условные обозначения и терминология».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Нейтральный термин «сущность»
@@ -149,7 +149,7 @@ statements:
     применения, разделение уровней абстракции, разграничение областей ответственности,
     описание конечных интерфейсов.'
   excerpt: глава 7 «Пирамида контекстов API».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Алгоритм проектирования из четырёх шагов
@@ -163,7 +163,7 @@ statements:
   text: 'цена ошибки различна по уровням: плохое именование исправить просто, а неверное
     понимание назначения API — практически невозможно.'
   excerpt: глава 7 «Пирамида контекстов API».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Цена ошибки растёт к вершине
@@ -177,7 +177,7 @@ statements:
   text: книга предлагает четыре раза задать вопрос «какую проблему мы решаем?» с ударением
     на каждом слове, чтобы проверить нужность, компетентность и адекватность решения.
   excerpt: глава 8 «Определение области применения».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Четырёхкратный вопрос о проблеме
@@ -191,7 +191,7 @@ statements:
   text: выделение уровней абстракции преследует три цели — упрощение работы разработчика,
     поддержку обратной совместимости и интероперабельность.
   excerpt: глава 9 «Разделение уровней абстракции».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Цели уровней абстракции
@@ -205,7 +205,7 @@ statements:
   text: одно и то же поле, означающее разное в разных интерфейсах, — признак смешения
     уровней абстракции.
   excerpt: глава 9 «Разделение уровней абстракции».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Смешение уровней через общее поле
@@ -219,7 +219,7 @@ statements:
   text: соблюдение изоляции уровней усложняет интерфейс, но никакая гибкость и расширяемость
     не бывают бесплатными.
   excerpt: глава 9 «Разделение уровней абстракции».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Изоляция уровней небесплатна
@@ -233,7 +233,7 @@ statements:
   text: дерево потоков данных — способ проверить разделение уровней и развивать большие
     API, которые невозможно удержать в памяти целиком.
   excerpt: глава 9 «Разделение уровней абстракции», раздел о потоках данных.
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Дерево потоков данных
@@ -247,7 +247,7 @@ statements:
   text: каждый уровень иерархии — самостоятельная промежуточная предметная область,
     через которую задача переводится из одного контекста в другой.
   excerpt: глава 10 «Разграничение областей ответственности».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Каждый уровень — своя предметная область
@@ -261,7 +261,7 @@ statements:
   text: модифицирующие операции (например, отмена заказа) на каждом уровне абстракции
     переформулируются и не должны «перепрыгивать» уровни.
   excerpt: глава 10 «Разграничение областей ответственности».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Переформулирование операций по уровням
@@ -275,7 +275,7 @@ statements:
   text: на этапе спроектированной номенклатуры следует встать на место разработчика
     и попробовать написать код, чтобы обнаружить неудобства API.
   excerpt: глава 10 «Разграничение областей ответственности», раздел о сценариях использования.
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Проверка через сценарии использования
@@ -289,7 +289,7 @@ statements:
   text: «нулевое правило» гласит, что правила — обобщение опыта и не должны применяться
     бездумно, если нет причины им следовать.
   excerpt: глава 11 «Описание конечных интерфейсов», правило 0.
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Правила применять осмысленно
@@ -303,7 +303,7 @@ statements:
   text: из названия сущности должно быть очевидно, что она делает и к каким побочным
     эффектам приводит; модифицирующих операций за GET быть не может.
   excerpt: глава 11 «Описание конечных интерфейсов», правило явности.
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Явное лучше неявного
@@ -317,7 +317,7 @@ statements:
   text: если сигнатуру можно понять неправильно, то по мере роста популярности API
     её неизбежно будет понимать неправильно всё больше партнёров.
   excerpt: глава 11 «Описание конечных интерфейсов», раздел о читабельности.
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Закон больших чисел против вас
@@ -331,7 +331,7 @@ statements:
   text: сущности следует именовать конкретно, не экономить буквы и делать тип поля
     ясным из названия для лучшей читаемости.
   excerpt: глава 11 «Описание конечных интерфейсов», правила именования.
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Не экономить на именах
@@ -345,7 +345,7 @@ statements:
   text: ошибки должны быть информативными; из интерфейса должны быть понятны не только
     решение задачи, но и возможные ошибки и исключения.
   excerpt: глава 11 «Описание конечных интерфейсов», правило об ошибках.
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Информативные ошибки
@@ -360,7 +360,7 @@ statements:
     неатомарных операций.
   excerpt: глава 11 «Описание конечных интерфейсов», правила об идемпотентности и
     атомарности.
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Идемпотентность операций
@@ -374,7 +374,7 @@ statements:
   text: не следует изобретать собственную безопасность; технические ограничения API
     нужно явно декларировать.
   excerpt: глава 11 «Описание конечных интерфейсов», правила о безопасности.
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Не изобретать безопасность
@@ -388,7 +388,7 @@ statements:
   text: локализация и интернационализация продуктовых данных вынесены в отдельное
     правило проектирования интерфейсов.
   excerpt: глава 11 «Описание конечных интерфейсов», правило о локализации.
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Локализация продуктовых данных
@@ -402,7 +402,7 @@ statements:
   text: обратная совместимость — свойство системы оставаться функционально корректной
     во времени, то есть код потребителей продолжает решать свою задачу.
   excerpt: глава 13 «Постановка проблемы обратной совместимости».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Совместимость = функциональная стабильность
@@ -416,7 +416,7 @@ statements:
   text: срок поддержки совместимости следует увязывать с жизненными циклами приложений
     и LTS-периодами платформ (обычно несколько лет).
   excerpt: глава 13 «Постановка проблемы обратной совместимости».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Длительность увязана с жизненным циклом платформ
@@ -430,7 +430,7 @@ statements:
   text: 'совместимость подрывают три процесса: фрагментация клиентов, размывание предметной
     области и нижележащей платформы.'
   excerpt: глава 13 «Постановка проблемы обратной совместимости».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Три процесса размывания
@@ -444,7 +444,7 @@ statements:
   text: в хорошем API документированная и недокументированная части соотносятся примерно
     как 1 к 10, и наружу нужно выставлять минимум функциональности.
   excerpt: глава 14 «О ватерлинии айсберга».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Правило айсберга 1:10
@@ -458,7 +458,7 @@ statements:
   text: каждое публичное поле, метод и сущность — продуктовое решение, которое должно
     иметь веские причины для документирования.
   excerpt: глава 14 «О ватерлинии айсберга».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Каждая публичная сущность — продуктовое решение
@@ -473,7 +473,7 @@ statements:
     непубличных особенностей в примерах): либо функциональность гарантируется всегда,
     либо на её существование не намекают.'
   excerpt: глава 14 «О ватерлинии айсберга».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Нельзя принять обязательства наполовину
@@ -487,7 +487,7 @@ statements:
   text: неявные договорённости (например, о модели консистентности) нужно явно фиксировать
     в документации.
   excerpt: глава 14 «О ватерлинии айсберга».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Фиксировать неявные договорённости
@@ -502,7 +502,7 @@ statements:
     частным упрощённым случаем более общего интерфейса.
   excerpt: глава 15 «Расширение через абстрагирование»; глава 18 «Интерфейсы как универсальный
     паттерн».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Расширение через абстрагирование
@@ -516,7 +516,7 @@ statements:
   text: попытка модифицировать базовую функциональность (например, авторские рецепты
     партнёров) порождает проблемы сильной связности.
   excerpt: глава 16 «Сильная связность и сопутствующие проблемы».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Сильная связность схлопывает интерфейсы
@@ -530,7 +530,7 @@ statements:
   text: 'вышестоящие сущности должны быть информационными контекстами для нижестоящих:
     сообщать о состоянии и давать средства его менять, а не предписывать поведение.'
   excerpt: глава 18 «Интерфейсы как универсальный паттерн».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Вышестоящие сущности — информационные контексты
@@ -544,7 +544,7 @@ statements:
   text: правила расширения узнаются как принципы SOLID, поскольку API по определению
     является контрактом; книга добавляет к ним понятие уровней абстракции.
   excerpt: глава 18 «Интерфейсы как универсальный паттерн».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Связь с принципами SOLID
@@ -558,7 +558,7 @@ statements:
   text: каждую сущность стоит изначально рассматривать как частную реализацию более
     общего интерфейса, даже если альтернатив пока не предвидится.
   excerpt: глава 18 «Интерфейсы как универсальный паттерн».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Сущность как реализация общего интерфейса
@@ -572,7 +572,7 @@ statements:
   text: даже исправление ошибки может сломать чужой код, и иногда приходится эмулировать
     ошибочное поведение до мажорного релиза.
   excerpt: глава 19 «Блокнот душевного покоя».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Даже исправление ошибки ломает код
@@ -586,7 +586,7 @@ statements:
   text: тестировать нужно именно формальные интерфейсы API, включая «самоочевидные»
     инварианты и проверку абстрактных интерфейсов отдельной реализацией.
   excerpt: глава 19 «Блокнот душевного покоя».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Тестировать формальные интерфейсы
@@ -600,7 +600,7 @@ statements:
   text: не следует проксировать чужой API «как есть»; сторонние зависимости нужно
     изолировать программной обвязкой с точками расширения.
   excerpt: глава 19 «Блокнот душевного покоя».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Изолировать сторонние зависимости
@@ -614,7 +614,7 @@ statements:
   text: API — полноценный продукт, к которому применимы принципы продакт-менеджмента,
     и одновременно очень специфический продукт.
   excerpt: глава 20 «Продукт API».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: API — полноценный, но специфический продукт
@@ -628,7 +628,7 @@ statements:
   text: 'аудитория API образует пирамиду: пользователи (основание), бизнес-заказчики
     (середина) и разработчики (вершина), интересы которых не всегда совпадают.'
   excerpt: глава 20 «Продукт API».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Пирамида аудитории API
@@ -642,7 +642,7 @@ statements:
   text: самая большая проблема развития API — отсутствие у руководителей продукта
     и маркетологов экспертизы в работе с API.
   excerpt: глава 20 «Продукт API».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Главная проблема развития — отсутствие API-экспертизы
@@ -657,7 +657,7 @@ statements:
     с ограничениями, платная поддержка, спонсирование владельцем платформы, тарификация
     доступа к сервису).
   excerpt: глава 21 «Бизнес-модели API».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Модели монетизации API
@@ -671,7 +671,7 @@ statements:
   text: для API недоступен дешёвый MVP, так как для проверки гипотезы партнёры должны
     вложить деньги в написание кода; решением служат компенсации или референсное приложение.
   excerpt: глава 22 «Формирование продуктового видения».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Недоступность дешёвого MVP
@@ -685,7 +685,7 @@ statements:
   text: разработчики — рациональная аудитория, скептичная к рекламе и мнениям инфлюэнсеров,
     требующая цифр и примеров кода.
   excerpt: глава 23 «Взаимодействие с разработчиками».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Рациональность аудитории разработчиков
@@ -699,7 +699,7 @@ statements:
   text: до разработчиков информацию доносят через специфические каналы (коллективные
     блоги, Q&A-сайты, обучающие сервисы, конференции), а прямая реклама там малоэффективна.
   excerpt: глава 23 «Взаимодействие с разработчиками».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Специфические каналы технопиара
@@ -713,7 +713,7 @@ statements:
   text: потребители делятся на профессиональных и начинающих/полупрофессиональных
     разработчиков; один API не может одинаково хорошо подходить обоим.
   excerpt: глава 23 «Взаимодействие с разработчиками».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Две категории потребителей
@@ -727,7 +727,7 @@ statements:
   text: бизнес лояльнее к предложениям, особенно бесплатным, но ему гораздо сложнее
     объяснить преимущества API как концепции.
   excerpt: глава 24 «Взаимодействие с бизнес-аудиторией».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Парадокс работы с бизнесом
@@ -741,7 +741,7 @@ statements:
   text: нет смысла поставлять один API; следует говорить о наборе продуктов сразу
     в двух измерениях (горизонтальном и вертикальном).
   excerpt: глава 25 «Линейка сервисов API».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Нужна линейка, а не один API
@@ -755,7 +755,7 @@ statements:
   text: сырое число пользователей и партнёров — необходимый минимум, но не KPI; KPI
     следует выставлять по количеству целевых действий, коррелирующих с монетизацией.
   excerpt: глава 26 «Ключевые показатели эффективности API».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: KPI — целевые действия, а не сырые цифры
@@ -770,7 +770,7 @@ statements:
     повысить), поэтому запас прочности API должен быть существенно выше, чем у пользовательских
     сервисов.
   excerpt: глава 26 «Ключевые показатели эффективности API», раздел о SLA.
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Запас прочности API выше обычного
@@ -784,7 +784,7 @@ statements:
   text: уязвимость в API фактически создаёт дыру в безопасности в каждом приложении
     партнёра, поэтому требуются максимальные меры защиты и оперативная реакция.
   excerpt: глава 26 «Ключевые показатели эффективности API», раздел о SLA.
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Уязвимость API тиражируется на потребителей
@@ -798,7 +798,7 @@ statements:
   text: API-ключи не позволяют надёжно идентифицировать ни приложение, ни владельца
     и не освобождают от перепроверки соблюдения правил.
   excerpt: глава 27 «Идентификация пользователей и борьба с фродом».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Ненадёжность API-ключей
@@ -813,7 +813,7 @@ statements:
     /24, автономным системам) и мониторить публичные прокси и TOR, особенно после
     распространения IPv6.
   excerpt: глава 27 «Идентификация пользователей и борьба с фродом».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Подсчёт по IP и подсетям
@@ -828,7 +828,7 @@ statements:
     пользователей, запрос дополнительного фактора аутентификации, вынесение и применение
     решения об ограничении.'
   excerpt: глава 28 «Технические способы борьбы с несанкционированным доступом к API».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Три шага антифрода
@@ -843,7 +843,7 @@ statements:
     ложный ответ, административные методы), а бан по cookie/Referer/User-Agent почти
     не работает, так как эти данные подменяет клиент.
   excerpt: глава 28 «Технические способы борьбы с несанкционированным доступом к API».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Скудость средств ограничения доступа
@@ -858,7 +858,7 @@ statements:
     может понять только программист; при этом большинство запросов исходят от новичков
     и не касаются работы API.
   excerpt: глава 29 «Поддержка пользователей API».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Высокая планка к специалистам поддержки
@@ -873,7 +873,7 @@ statements:
     удалённая отладка незнакомого кода крайне трудозатратны и растут с числом платформ
     и функциональности.
   excerpt: глава 29 «Поддержка пользователей API».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Время на поддержку нужно планировать
@@ -887,7 +887,7 @@ statements:
   text: документация — лицо продукта и точка входа в него; пользователи работают со
     справкой не так, как представляет автор API.
   excerpt: глава 30 «Документация».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Документация — лицо продукта
@@ -902,7 +902,7 @@ statements:
     по себе не является документацией; документация — это словесные описания в поле
     description.
   excerpt: глава 30 «Документация».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Спецификация — не документация
@@ -916,7 +916,7 @@ statements:
   text: примеры кода — важнейший инструмент привлечения новых пользователей; они должны
     быть лаконичными, атомарными и близкими к реальному приложению.
   excerpt: глава 30 «Документация».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Примеры кода — главный инструмент
@@ -930,7 +930,7 @@ statements:
   text: quick start длиной более десятка строк кода — признак того, что в определении
     частотных кейсов и хелперных методов что-то сделано не так.
   excerpt: глава 30 «Документация», раздел о руководстве.
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Quick start как индикатор
@@ -944,7 +944,7 @@ statements:
   text: для API, чьи операции имеют последствия для пользователей (в том числе стоят
     денег), необходима тестовая версия с симуляцией реальных действий.
   excerpt: глава 31 «Тестовая среда».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Необходимость тестовой среды
@@ -959,7 +959,7 @@ statements:
     (хелперные методы) и симулятор предопределённых сценариев; у каждого свои плюсы
     и минусы.
   excerpt: глава 31 «Тестовая среда».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Два подхода к тестовой среде
@@ -974,7 +974,7 @@ statements:
     в том числе симулировать сценарии (например, 3-D Secure) в ускоренном масштабе
     времени.
   excerpt: глава 31 «Тестовая среда».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Цель тестовой среды — автоматизация
@@ -988,7 +988,7 @@ statements:
   text: период, после которого партнёру потребуется переписать код, должен совпадать
     с жизненным циклом приложений в предметной области.
   excerpt: глава 32 «Управление ожиданиями».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Золотое правило выпуска версий
@@ -1002,7 +1002,7 @@ statements:
   text: следует публиковать (пусть условные, без дат) роадмапы, особенно при прекращении
     поддержки функциональности; это важное конкурентное преимущество.
   excerpt: глава 32 «Управление ожиданиями».
-  artifact: the-api-book-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Публичные роадмапы как преимущество

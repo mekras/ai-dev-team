@@ -20,7 +20,7 @@
 - Тип источника: локальная EPUB-книга
 - Способ получения: по решению пользователя в проект скопирована локальная
   рабочая копия книги с хранением файла только в игнорируемом каталоге
-  `knowledge/.local/raw/clar/`
+  `knowledge/data/clar/local/raw/`
 - Дата включения в корпус: `2026-06-24`
 
 ## Что сохранено
@@ -29,9 +29,9 @@
 
 - паспорт: `knowledge/data/clar/items/source/source.md`
 - индекс артефактов: `knowledge/data/clar/items/source/page-index.tsv`
-- EPUB: `knowledge/.local/raw/clar/clean-architecture-martin-ru.epub`
+- EPUB: `knowledge/data/clar/local/raw/clean-architecture-martin-ru.epub`
 - текстовая выгрузка:
-  `knowledge/.local/raw/clar/clean-architecture-martin-ru.txt`
+  `knowledge/data/clar/local/raw/clean-architecture-martin-ru.txt`
 
 В Git сохраняются только метаданные источника; обзорный нормализованный слой и
 извлечённые утверждения добавляются на следующих шагах без крупных дословных

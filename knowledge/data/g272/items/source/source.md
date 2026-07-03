@@ -23,8 +23,8 @@
 
 - паспорт: `knowledge/data/g272/items/source/source.md`
 - индекс артефактов: `knowledge/data/g272/items/source/page-index.tsv`
-- PDF: `knowledge/.local/raw/g272/gost-27.002-2015.pdf`
-- текстовая выгрузка: `knowledge/.local/raw/g272/gost-27.002-2015.txt`
+- PDF: `knowledge/data/g272/local/raw/gost-27.002-2015.pdf`
+- текстовая выгрузка: `knowledge/data/g272/local/raw/gost-27.002-2015.txt`
 
 В Git сохраняются метаданные источника; нормализованный слой и утверждения будут
 добавлены на отдельном шаге.

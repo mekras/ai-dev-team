@@ -8,7 +8,7 @@ statements:
     изменения в нескольких измерениях.
   excerpt: глава 1, раздел «Архитектура с эволюционным развитием»; повторяется как
     авторское определение в главах 2 и 3.
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Определение архитектуры с эволюционным развитием
@@ -25,7 +25,7 @@ statements:
     а не предсказания конечного состояния.
   excerpt: глава 1, раздел «Как можно осуществлять долгосрочное планирование, если
     всё постоянно меняется?».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Долгосрочное планирование при постоянных изменениях
@@ -41,7 +41,7 @@ statements:
     а не полагаясь на надежду.
   excerpt: глава 1, раздел «Как можно защитить созданную архитектуру от постепенной
     деградации?».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Защита от постепенной деградации архитектуры
@@ -55,7 +55,7 @@ statements:
   text: инкрементное изменение означает, что архитектура должна способствовать изменению
     небольшими приращениями как на этапе разработки, так и на этапе развёртывания.
   excerpt: глава 1, раздел «Инкрементные изменения»; глава 3, вводный раздел.
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Инкрементное изменение
@@ -70,7 +70,7 @@ statements:
     архитектура должна двигаться; механизм управления — функции пригодности, а ограничения
     исключают нежелательные направления эволюции.
   excerpt: глава 1, раздел «Управляемое изменение»; глава 2, вводный раздел.
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Управляемое изменение
@@ -85,7 +85,7 @@ statements:
     операционном и др.); эволюционная архитектура должна поддерживать изменение во
     всех важных измерениях одновременно, а не только в техническом коде.
   excerpt: глава 1, раздел «Многочисленные области архитектуры».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Многочисленные измерения архитектуры
@@ -100,7 +100,7 @@ statements:
     их коммуникаций; функциональное разделение команд («анклавы») повышает затраты
     на координацию и снижает гибкость.
   excerpt: глава 1, раздел «Закон Конвея» (цитата Мелвина Конвея).
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Закон Конвея
@@ -115,7 +115,7 @@ statements:
     границ сервисов), чтобы структура команд напоминала желаемую архитектуру; ThoughtWorks
     называет этот подход обратным маневром Конвея.
   excerpt: глава 1, раздел «Закон Конвея».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Обратный маневр Конвея
@@ -131,7 +131,7 @@ statements:
     сократить координацию между анклавами.
   excerpt: глава 1, врезка «Знакомство с PenultimateWidgets и с их обратным законом
     Конвея».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Кросс-функциональные команды против анклавов
@@ -146,7 +146,7 @@ statements:
     архитектурных характеристик; понятие заимствовано из эволюционных вычислений,
     где функция пригодности оценивает приближение решения к цели.
   excerpt: глава 2, вводный раздел (авторское определение).
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Определение функции пригодности
@@ -161,7 +161,7 @@ statements:
     её не «оценивают», она служит основой для приоритезации будущих решений и понимания
     компромиссов, когда отдельные характеристики конфликтуют.
   excerpt: глава 2, вводный раздел.
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Функция пригодности всей системы
@@ -176,7 +176,7 @@ statements:
     в один механизм (тесты, мониторинг, метрики), делая размытые субъективные критерии
     конкретными и проверяемыми.
   excerpt: глава 2, раздел «Что собой представляет функция пригодности?».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Функции пригодности как объединяющий механизм
@@ -190,7 +190,7 @@ statements:
   text: не все тесты относятся к функциям пригодности; тест является функцией пригодности,
     только если он проверяет целостность характеристики архитектуры.
   excerpt: глава 2, раздел «Категории».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Не каждый тест — функция пригодности
@@ -206,7 +206,7 @@ statements:
     проверяет комбинацию аспектов (например, безопасность и масштабируемость вместе),
     так как взаимодействие характеристик может нарушать каждую по отдельности корректную.
   excerpt: глава 2, раздел «Атомарная и комплексная функции».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Атомарная и комплексная функции
@@ -221,7 +221,7 @@ statements:
     непрерывные функции постоянно проверяют параметры в эксплуатации (например, время
     транзакций); разработка на основе мониторинга (MDD) — пример непрерывной проверки.
   excerpt: глава 2, раздел «Триггерные и непрерывные функции».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Триггерные и непрерывные функции
@@ -236,7 +236,7 @@ statements:
     в множество), динамическая опирается на изменяющийся контекст (например, допустимая
     производительность зависит от масштаба).
   excerpt: глава 2, раздел «Статические и динамические функции».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Статические и динамические функции
@@ -251,7 +251,7 @@ statements:
     аспекты (юридические требования, отдельные процессы обеспечения качества) не поддаются
     автоматизации и проверяются вручную.
   excerpt: глава 2, раздел «Автоматизированная и ручная функции».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Автоматизированная и ручная функции
@@ -266,7 +266,7 @@ statements:
     проверить обновление библиотеки шифрования или тест «повреждение при обновлении»
     для возврата бэкпортированных функций).
   excerpt: глава 2, раздел «Временная функция».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Временная функция пригодности
@@ -281,7 +281,7 @@ statements:
     по мере эволюции системы («неизвестное неизвестное»), поэтому набор функций пригодности
     развивается.
   excerpt: глава 2, раздел «Функция с преднамеренным развитием».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Функция с преднамеренным развитием
@@ -296,7 +296,7 @@ statements:
     понимания важных характеристик; их отсутствие ведёт к рискам неверного дизайна,
     лишних затрат и неспособности системы эволюционировать.
   excerpt: глава 2, раздел «Ранняя идентификация функций пригодности».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Ранняя идентификация функций пригодности
@@ -311,7 +311,7 @@ statements:
     и Фарлей) как предварительное условие проектирования программного обеспечения
     с возможностью эволюции.
   excerpt: глава 3, вводный раздел.
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Непрерывная поставка как предпосылка
@@ -325,7 +325,7 @@ statements:
   text: реализация инкрементного изменения охватывает два этапа — разработку (как
     создают ПО) и эксплуатацию (как команды развёртывают ПО).
   excerpt: глава 3, вводный раздел.
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Два этапа инкрементного изменения
@@ -340,7 +340,7 @@ statements:
     пригодности на основе тестов позволяют проверять целостность характеристик при
     каждом изменении.
   excerpt: глава 3, раздел «Тестопригодность».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Тестопригодность как строительный блок
@@ -354,7 +354,7 @@ statements:
   text: конвейер развёртывания применяет функции пригодности к каждому изменению,
     в отличие от случайной (несистематической) проверки важных характеристик.
   excerpt: глава 3, раздел «Конвейеры развёртывания»; глава 6, шаг 3 техник.
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Конвейер развёртывания автоматизирует функции пригодности
@@ -369,7 +369,7 @@ statements:
     и комбинирование категорий функций требует осознанного баланса.
   excerpt: глава 3, разделы «Комбинирование категорий функций пригодности» и «Конфликтующие
     цели».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Конфликтующие цели
@@ -384,7 +384,7 @@ statements:
     и данных: функции выпускаются как проверяемые гипотезы, а решения о развитии опираются
     на собранные данные.'
   excerpt: глава 3, раздел «Разработка, основанная на гипотезах и на данных».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Разработка на основе гипотез и данных
@@ -399,7 +399,7 @@ statements:
     функциональной связности, включающий все структурные элементы, нужные системе
     для работы; в монолите квантом является всё приложение.
   excerpt: глава 4, раздел «Квант и гранулярность архитектуры» (авторское определение).
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Квант архитектуры
@@ -415,7 +415,7 @@ statements:
     физическим квантом, что облегчает инкрементные изменения.
   excerpt: глава 4, врезка «Ограниченный контекст, определяемый предметной областью
     проектирования».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Ограниченный контекст и эволюция
@@ -431,7 +431,7 @@ statements:
     к эволюции.
   excerpt: 'глава 4, разделы «Контроль размера кванта» и «Практический пример: предотвращение
     циклов компонентов».'
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Размер кванта и способность к изменению
@@ -447,7 +447,7 @@ statements:
     и сервис-ориентированные стили и микросервисы — лучше при правильной модульности
     и низкой связанности.'
   excerpt: глава 4, раздел «Эволюция архитектурных стилей».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Стили архитектуры различаются эволюционируемостью
@@ -462,7 +462,7 @@ statements:
     небольшие инкрементные изменения схемы, автоматически применяемые как часть конвейера
     развёртывания.
   excerpt: глава 5, разделы «Эволюционные схемы» и практический пример маршрутизации.
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Эволюционные схемы и миграции
@@ -478,7 +478,7 @@ statements:
     также возраст и качество данных.
   excerpt: глава 5, разделы «Интеграция базы данных общего использования», «Ненадлежащая
     связанность данных», «Возраст и качество данных».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Ненадлежащая связанность данных
@@ -493,7 +493,7 @@ statements:
     измерения, затрагиваемые развитием; определить для каждого измерения функцию(-и)
     пригодности; использовать конвейер развёртывания для их автоматизации.'
   excerpt: глава 6, раздел «Техники».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Три техники построения
@@ -508,7 +508,7 @@ statements:
     переключатели функций, «серверы-снежинки»), так как неконтролируемая изменчивость
     повышает риск; иллюстрируется историей «Knightmare» с потерей свыше 400 млн долларов.
   excerpt: глава 6, раздел «Удаление ненужной изменчивости», врезка «Опасности снежинок».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Удаление ненужной изменчивости
@@ -523,7 +523,7 @@ statements:
     (сине-зелёные развёртывания, переключатели функций, канареечный релиз), чтобы
     снизить риск и быстро восстанавливаться после сбоев.
   excerpt: глава 6, раздел «Сделайте решения обратимыми».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Делайте решения обратимыми
@@ -538,7 +538,7 @@ statements:
     попытки предсказать будущее нужно снижать стоимость изменения.'
   excerpt: глава 6, раздел «Предпочтение следует отдавать эволюционированию, а не
     предсказуемости».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Эволюция важнее предсказуемости
@@ -553,7 +553,7 @@ statements:
     защиты от повреждений (anticorruption layer) «точно в срок», чтобы изолировать
     изменения зависимости и снизить затраты на её замену.
   excerpt: глава 6, раздел «Построение уровня защиты от повреждений».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Уровень защиты от повреждений
@@ -569,7 +569,7 @@ statements:
     для быстрого выхода на рынок.
   excerpt: глава 6, раздел «Построение жертвенной архитектуры», практический пример
     «Шаблоны сервисов».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Жертвенная архитектура
@@ -585,7 +585,7 @@ statements:
     автоматически через конвейер) и «охраняемая».
   excerpt: глава 6, раздел «Отдавайте предпочтение непрерывной поставке, а не снимкам
     состояния системы».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Непрерывная поставка вместо снимков состояния
@@ -600,7 +600,7 @@ statements:
     вокруг продукта поставщика (например, ERP), что патологически привязывает организацию
     к инструменту; продукт поставщика стоит рассматривать как ещё одну точку интеграции.
   excerpt: 'глава 7, раздел «Антипаттерн: Vendor King».'
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Антипаттерн Vendor King
@@ -614,7 +614,7 @@ statements:
   text: все нетривиальные абстракции в какой-то степени дырявые (Спольски); рост сложности
     стека увеличивает риск утечки деталей нижних уровней и усложняет диагностику.
   excerpt: 'глава 7, раздел «Ловушка: дырявая абстракция».'
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Ловушка дырявой абстракции
@@ -629,7 +629,7 @@ statements:
     80–90 % задачи, но последние 10 % остаются нереализуемыми, что ведёт к разочарованию
     и к подчинению процессов инструменту.
   excerpt: 'глава 7, раздел «Антипаттерн: ловушка на последних 10 %».'
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Ловушка последних 10 %
@@ -645,7 +645,7 @@ statements:
     источником жёсткой связи.
   excerpt: 'глава 7, раздел «Антипаттерн: неправильное повторное использование кода»,
     практический пример PenultimateWidgets.'
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Ненадлежащее повторное использование кода
@@ -661,7 +661,7 @@ statements:
     свободу команд и общие ограничения.
   excerpt: 'глава 7, раздел «Антипаттерн: ненадлежащее управление», практический пример
     «модель управления „золотой середины“».'
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Антипаттерн ненадлежащего управления
@@ -676,7 +676,7 @@ statements:
     в план повышают приверженность неверным решениям; короткие итерации снижают этот
     риск.
   excerpt: 'глава 7, раздел «Ловушка: горизонты планирования».'
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Ловушка горизонтов планирования
@@ -691,7 +691,7 @@ statements:
     «проект»: продукт живёт долго, имеет стабильную кросс-функциональную команду и
     непрерывно развивается, тогда как проект завершается и распускает команду.'
   excerpt: глава 8, раздел «Продукт важнее, чем проект».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Продукт важнее проекта
@@ -705,7 +705,7 @@ statements:
   text: внедрение эволюционной архитектуры требует культуры эксперимента — организационной
     готовности проверять гипотезы, учиться на результатах и безопасно ошибаться.
   excerpt: глава 8, разделы «Культура» и «Культура эксперимента».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Культура эксперимента
@@ -721,7 +721,7 @@ statements:
     (когда среда стабильна или затраты не оправданы).
   excerpt: глава 8, разделы «Зачем это (или почему бы и нет)?» и «По какой причине
     компания делает выбор не строить эволюционирующую архитектуру?».
-  artifact: evolutionary-architecture-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Осознанный выбор строить или не строить

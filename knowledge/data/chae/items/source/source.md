@@ -24,9 +24,9 @@
 
 - паспорт: `knowledge/data/chae/items/source/source.md`
 - индекс артефактов: `knowledge/data/chae/items/source/page-index.tsv`
-- PDF: `knowledge/.local/raw/chae/basiri-chaos-engineering-arxiv-1702.05843.pdf`
+- PDF: `knowledge/data/chae/local/raw/basiri-chaos-engineering-arxiv-1702.05843.pdf`
 - текстовая выгрузка:
-  `knowledge/.local/raw/chae/basiri-chaos-engineering-arxiv-1702.05843.txt`
+  `knowledge/data/chae/local/raw/basiri-chaos-engineering-arxiv-1702.05843.txt`
 
 В Git сохраняются метаданные источника; нормализованный слой и утверждения будут
 добавлены на отдельном шаге.

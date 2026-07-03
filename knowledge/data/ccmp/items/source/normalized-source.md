@@ -16,8 +16,8 @@
 
 ## Входной материал
 
-- Локальный PDF: `knowledge/.local/raw/ccmp/code-complete-ru.pdf`
-- Локальная текстовая выгрузка: `knowledge/.local/raw/ccmp/code-complete-ru.txt`
+- Локальный PDF: `knowledge/data/ccmp/local/raw/code-complete-ru.pdf`
+- Локальная текстовая выгрузка: `knowledge/data/ccmp/local/raw/code-complete-ru.txt`
 
 ## Статус слоя
 

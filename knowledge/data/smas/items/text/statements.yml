@@ -8,7 +8,7 @@ statements:
     свойствами независимой развёртываемости и управляемости, а также эфемерности и
     эластичности (экземпляры короткоживущие, число масштабируется под нагрузку).
   excerpt: глава 1, вводный раздел.
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Характеристики микросервиса
@@ -22,7 +22,7 @@ statements:
   text: типичные для микросервисов веб-API (HTTP/JSON) и контейнерные развёртывания
     должны учитываться в любом решении по контролю доступа к API.
   excerpt: глава 1, вводный раздел.
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Типичные технологии микросервисов влияют на безопасность
@@ -37,7 +37,7 @@ statements:
     API, запрос и ответ API, потребитель и поставщик API, посредник API (шлюз, сервисный
     прокси); один сервис может быть и потребителем, и поставщиком.
   excerpt: глава 1, раздел «The Microservice API Landscape».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Базовый словарь API
@@ -51,7 +51,7 @@ statements:
   text: контроль доступа к веб-API описывается рамкой `IAAA` — идентификация, аутентификация,
     авторизация и учёт/аудит (accountability).
   excerpt: глава 1, раздел «API Access Control for Microservices».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Рамка управления доступом IAAA
@@ -66,7 +66,7 @@ statements:
     событиями и проходить через посредников, поэтому участники должны уметь передавать
     и принимать в запросе несколько идентичностей с их атрибутами.
   excerpt: глава 1, подраздел «Identification».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Множественные идентичности в одном запросе
@@ -81,7 +81,7 @@ statements:
     несколько решений об авторизации по мере передачи от компонента к компоненту;
     любой аутентифицировавший идентичность компонент может принять решение об авторизации.
   excerpt: глава 1, подраздел «Authorization».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Множественные решения об авторизации на пути запроса
@@ -96,7 +96,7 @@ statements:
     контекстом сообщения, чтобы иметь данные для расследования намеренных и непреднамеренных
     нарушений.
   excerpt: глава 1, подраздел «Accountability».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Ценность аудита для расследования инцидентов
@@ -112,7 +112,7 @@ statements:
     для автоматизации), производительности (минимум добавленной задержки) и удобству
     для разработчика.
   excerpt: глава 1, раздел «Microservice Architecture Qualities».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Нефункциональные качества решения доступа
@@ -127,7 +127,7 @@ statements:
     безопасности прозрачна относительно того, куда вложено доверие, и представляет
     собой настройку баланса доверия и принятия риска.
   excerpt: глава 2, раздел «Establishing Trust».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Вся безопасность основана на доверии
@@ -142,7 +142,7 @@ statements:
     меньше, а пересечение границы зоны должно требовать более строгой проверки (например,
     валидации токена безопасности).
   excerpt: глава 2, раздел «Network-Level Controls».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Сетевая сегментация и зоны
@@ -157,7 +157,7 @@ statements:
     сервера и опционально клиента; на современных CPU влияние на производительность
     незначительно, поэтому все API должны использовать SSL/TLS повсеместно.
   excerpt: глава 2, раздел «SSL/TLS».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: SSL/TLS для всех API
@@ -172,7 +172,7 @@ statements:
     идентифицирующие компоненты в микросервисной инфраструктуре, что полезно в динамичной
     среде с традиционно сложным управлением PKI.
   excerpt: глава 2, врезка «SPIFFE».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: SPIFFE для идентичности сервисов
@@ -187,7 +187,7 @@ statements:
     доверенная третья сторона выпускает токены и применяет криптографию, позволяя
     сторонам без предварительных отношений установить доверие.
   excerpt: глава 2, раздел «Application-Level Controls».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Прикладной контроль через обмен токенами
@@ -202,7 +202,7 @@ statements:
     факторов пользователя, поэтому угон сессии (session hijacking) даёт атакующему
     все права валидных учётных данных.
   excerpt: глава 2, раздел «The Problem with Traditional Web Tokens».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Ограничения веб-сессий и угон сессии
@@ -217,7 +217,7 @@ statements:
     ресурсов и провайдеров идентичности и различие между точкой принятия решения (PDP)
     и точкой его применения (PEP), которые могут быть централизованы или распределены.
   excerpt: глава 2, раздел «The Problem with Traditional Web Tokens».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: 'Вклад SAML: PDP и PEP'
@@ -232,7 +232,7 @@ statements:
     и не помогает пользователю делегировать авторизацию между приложениями, поэтому
     он плохо подходит для API и микросервисов.
   excerpt: глава 2, раздел «The Problem with Traditional Web Tokens».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: SAML не подходит для API и микросервисов
@@ -247,7 +247,7 @@ statements:
     приложению нельзя доверять первичный фактор аутентификации (пароль); следует выдавать
     короткоживущие токены с ограниченными возможностями.
   excerpt: глава 2, раздел «Modern Tokens For APIs».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Принцип недоверия приложениям
@@ -262,7 +262,7 @@ statements:
     он встроен в бинарный образ, может быть извлечён атакующим и поэтому не должен
     считаться авторитетным и заменять аутентификацию пользователя.
   excerpt: глава 2, раздел «API keys» и врезка «API Keys or OAuth».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: API-ключи идентифицируют приложение, а не пользователя
@@ -277,7 +277,7 @@ statements:
     протокол аутентификации, а способ для владельца ресурса дать приложению ограниченный
     по времени и области доступ к ресурсу от своего имени.
   excerpt: глава 2, раздел «OAuth 2.0».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: OAuth 2.0 — протокол авторизации, не аутентификации
@@ -293,7 +293,7 @@ statements:
     приложению выдаётся ограниченный по области и времени ID-токен, что выводит приложения
     из «бизнеса аутентификации».'
   excerpt: глава 2, раздел «OpenID Connect».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: OpenID Connect — слой аутентификации поверх OAuth
@@ -309,7 +309,7 @@ statements:
     (by-value) токен интерпретируется локально в точке принятия решения и лучше масштабируется;
     ID-токен OIDC — прозрачный.
   excerpt: глава 2, раздел «Opaque tokens versus transparent tokens».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Непрозрачные и прозрачные токены
@@ -325,7 +325,7 @@ statements:
     политику и лежат в основе ABAC — авторизации по атрибутам, а не по индивидуальной
     идентичности.
   excerpt: глава 2, раздел «JWT».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: JWT и ABAC
@@ -341,7 +341,7 @@ statements:
     реализации позволяли подделывать токены, нет механизма версионирования для исключения
     слабых алгоритмов).
   excerpt: глава 2, врезка «JWT Sessions and JOSE Issues».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Осторожность с JWT для сессий и стеком JOSE
@@ -356,7 +356,7 @@ statements:
     на более высоком уровне, программируемы и обычно отвечают за аутентификацию, авторизацию,
     обнаружение угроз и управление трафиком.
   excerpt: глава 2, раздел «Proxy/Gateway».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Различие прокси и API-шлюза
@@ -372,7 +372,7 @@ statements:
     ответственность за доступ к веб-API часто всё равно остаётся за сервисом или делегированным
     посредником (например, шлюзом).
   excerpt: глава 2, разделы «PaaS», «Kubernetes».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Доверие к PaaS как осознанное решение
@@ -387,7 +387,7 @@ statements:
     уровня (Open Policy Agent) и через service mesh (например, Istio с Envoy и взаимным
     TLS), что отделяет безопасность от отдельных сервисов.
   excerpt: глава 2, разделы «Emerging Approaches», «Service Mesh».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: 'Развивающиеся подходы: OPA и service mesh'
@@ -402,7 +402,7 @@ statements:
     источника, поэтому различие доверенных и недоверенных запросов можно использовать
     для оптимизации общего решения безопасности.
   excerpt: глава 3, раздел «Common Patterns…».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Дуальность «доверенный/недоверенный» как приём оптимизации
@@ -418,7 +418,7 @@ statements:
     источника внутри домена) и механизм доступа (аутентификация и авторизация внешних
     запросов).
   excerpt: глава 3, раздел «DHARMA».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Базовые понятия DHARMA
@@ -434,7 +434,7 @@ statements:
     эндпойнт одного домена может быть внутренним для внешнего домена, образуя доменную
     иерархию.
   excerpt: глава 3, раздел «DHARMA».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Внутренние и граничные эндпойнты, доменная иерархия
@@ -449,7 +449,7 @@ statements:
     доверия и доступа для каждого домена, (3) определить внутренние и граничные эндпойнты,
     (4) выбрать платформы реализации эндпойнтов.'
   excerpt: глава 3, раздел «DHARMA Design Methodology».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Методология проектирования DHARMA из четырёх шагов
@@ -464,7 +464,7 @@ statements:
     внешний домен (грубозернистые переиспользуемые сервисы) и внутренние домены (самые
     гранулярные сервисы), с разными механизмами для каждого уровня.'
   excerpt: глава 3, разделы «Domain Hierarchy», «Trust and Access Mechanisms».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Платформонезависимая реализация в три уровня
@@ -480,7 +480,7 @@ statements:
     и подписанных JWT; для внутренних доменов доверие смещено к производительности
     (изоляция сети, коллокация), но JWT может передаваться для учёта и наблюдаемости.
   excerpt: глава 3, раздел «Trust and Access Mechanisms».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Выбор механизмов по уровням
@@ -496,7 +496,7 @@ statements:
     выпуск, обмен, разыменование), желательно с распределёнными защищёнными токен-сервисами
     для снижения задержки.
   excerpt: глава 3, разделы «Certificate management», «Token management».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: 'Соображения реализации: управление сертификатами и токенами'
@@ -511,7 +511,7 @@ statements:
     одноразовые; области OAuth (scopes) и утверждения JWT (claims) несут информацию
     для решений об авторизации.
   excerpt: глава 3, раздел «Token management».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Короткоживущие токены и их область
@@ -527,7 +527,7 @@ statements:
     решения об авторизации должны логироваться, обычно посредниками (шлюз, сервисный
     прокси).
   excerpt: глава 3, раздел «Microservice API accountability».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Аудит операций с токенами и решений об авторизации
@@ -544,7 +544,7 @@ statements:
     через OpenAPI.
   excerpt: глава 3, разделы «Publishing… Policies», «Access Control Policy Change
     Management».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Изоляция логики политик в посредниках
@@ -559,7 +559,7 @@ statements:
     может быть обобщена на контроль плоскости данных для других протоколов (gRPC,
     асинхронные сообщения), где зрелых механизмов доступа пока меньше.
   excerpt: глава 4, разделы «Applying DHARMA», «Extending DHARMA».
-  artifact: securing-microservice-apis.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Граница применимости и расширение DHARMA

@@ -28,7 +28,7 @@
 - паспорт: `knowledge/data/scco/items/source/source.md`
 - карточка источника: `knowledge/data/scco/source.yml`
 - индекс единиц: `knowledge/data/scco/items.yml`
-- PDF (вне Git): `knowledge/.local/raw/scco/scrum-cohn-ru.pdf`
+- PDF (вне Git): `knowledge/data/scco/local/raw/scrum-cohn-ru.pdf`
 
 В Git сохраняются только метаданные источника; полный PDF, текстовая выгрузка и
 крупные дословные фрагменты не публикуются.

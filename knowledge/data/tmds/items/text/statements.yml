@@ -8,7 +8,7 @@ statements:
     (2) что может пойти не так с этим после постройки, (3) что с этим делать, (4)
     достаточно ли хорошо вы выполнили анализ.'
   excerpt: введение, раздел «The Four-Step Framework».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Рамка из четырёх вопросов
@@ -23,7 +23,7 @@ statements:
     угрозы → устранить угрозы → проверить работу на полноту и результативность; рамка
     согласована с жизненным циклом разработки и эксплуатации.'
   excerpt: введение, раздел «The Four-Step Framework», рис. I-1.
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Четырёхэтапная рамка и её этапы
@@ -38,7 +38,7 @@ statements:
     подключать и заменять, не меняя всю рамку (например, заменить STRIDE деревьями
     атак), но не все методики совместимы между собой.'
   excerpt: введение, раздел «The Four-Step Framework».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Методики как взаимозаменяемые «блоки»
@@ -53,7 +53,7 @@ statements:
     использовать STRIDE для поиска того, что может пойти не так, устранить каждую
     угрозу и проверить работу чек-листом.'
   excerpt: глава 1 «Dive In and Threat Model!».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Учебный проход по рамке
@@ -67,7 +67,7 @@ statements:
   text: при путанице в процессе следует возвращаться к четырём базовым вопросам как
     к опоре.
   excerpt: глава 1, раздел «Learning to Threat Model».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Возврат к четырём вопросам при затруднении
@@ -82,7 +82,7 @@ statements:
     на атакующих или на ПО; книга рекомендует начинать с модели ПО как более продуктивной
     отправной точки, чем активы или атакующие.
   excerpt: глава 2, разделы «Structured Approaches…», «Models of Software».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Три стратегии фокуса
@@ -97,7 +97,7 @@ statements:
     диаграммы потоков данных, DFD), отражающие процессы, хранилища, потоки данных
     и внешние сущности.
   excerpt: глава 2, разделы «Models of Software», «Types of Diagrams».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Диаграммы потоков данных как модель системы
@@ -111,7 +111,7 @@ statements:
   text: границы доверия (trust boundaries) на диаграмме отмечают места, где меняется
     уровень доверия или контроля; они особенно важны для поиска угроз.
   excerpt: глава 2, раздел «Trust Boundaries».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Границы доверия
@@ -125,7 +125,7 @@ statements:
   text: на диаграмме важно отмечать точки входа и проверять её адекватность (соответствие
     реальной системе) перед поиском угроз.
   excerpt: глава 2, разделы «Entry Points», «Validating Diagrams».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Точки входа и валидация диаграммы
@@ -141,7 +141,7 @@ statements:
     Disclosure (раскрытие информации), Denial of Service (отказ в обслуживании), Elevation
     of Privilege (повышение привилегий).'
   excerpt: глава 1, раздел «Using the STRIDE Mnemonic»; глава 3.
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: STRIDE как мнемоника угроз
@@ -155,7 +155,7 @@ statements:
   text: STRIDE как фреймворк и мнемоника изобретён Loren Kohnfelder и Praerit Garg
     (1999) для помощи разработчикам в выявлении типов атак на ПО.
   excerpt: глава 3, вводный раздел.
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Происхождение STRIDE
@@ -170,7 +170,7 @@ statements:
     проходит по модели и находит угрозы; «поиск угроз» в книге — надмножество терминов
     enumeration, analysis, elicitation, discovery.'
   excerpt: глава 3, вводный раздел.
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: STRIDE как техника элиситации угроз
@@ -184,7 +184,7 @@ statements:
   text: существуют варианты применения — STRIDE-per-Element (по элементам диаграммы),
     STRIDE-per-Interaction (по взаимодействиям) и DESIST как альтернативная мнемоника.
   excerpt: глава 3, раздел «STRIDE Variants».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Варианты STRIDE
@@ -198,7 +198,7 @@ statements:
   text: для этапа поиска угроз задаются критерии выхода (exit criteria), показывающие,
     когда поиск можно считать достаточным.
   excerpt: глава 3, раздел «Exit Criteria».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Критерии выхода и чек-листы
@@ -213,7 +213,7 @@ statements:
     а ветви — способы её достижения; деревья атак можно использовать как альтернативу
     STRIDE на этапе поиска угроз, оставляя остальную рамку прежней.
   excerpt: глава 4 «Attack Trees».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Деревья атак
@@ -227,7 +227,7 @@ statements:
   text: библиотеки атак систематизируют известные угрозы; книга рассматривает CAPEC
     и OWASP Top Ten и отличает библиотеки от чек-листов и литературных обзоров.
   excerpt: глава 5 «Attack Libraries».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Библиотеки атак
@@ -242,7 +242,7 @@ statements:
     Солова, оценки влияния на приватность (PIA), Nymity Slider, контекстная целостность
     и методика LINDDUN.
   excerpt: глава 6 «Privacy Tools».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Инструменты приватности
@@ -257,7 +257,7 @@ statements:
     и изменениях), и должно завершаться определёнными артефактами; важно зафиксировать,
     с чего начать и чем закончить.
   excerpt: глава 7, раздел «Starting the Threat Modeling Project».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Когда моделировать угрозы
@@ -271,7 +271,7 @@ statements:
   text: найденные угрозы следует отслеживать таблицами и списками, фиксируя допущения
     и внешние заметки по безопасности (external security notes).
   excerpt: глава 7, раздел «Tracking with Tables and Lists».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Отслеживание угроз таблицами и списками
@@ -286,7 +286,7 @@ statements:
     «заказчик/поставщик» и новых технологий как отдельные сценарии.
   excerpt: глава 7, раздел «Scenario-Specific Elements…», подраздел «Threat Modeling
     an API».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Моделирование угроз для API
@@ -302,7 +302,7 @@ statements:
     от авторства, конфиденциальность против раскрытия, доступность против отказа в
     обслуживании, авторизация против повышения привилегий.'
   excerpt: глава 8, раздел «Tactics and Technologies for Mitigating Threats».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Привязка свойств безопасности к STRIDE
@@ -316,7 +316,7 @@ statements:
   text: угрозы приватности нейтрализуются минимизацией данных, криптографией и мерами
     соответствия и политики (compliance and policy).
   excerpt: глава 8, раздел «Mitigating Privacy Threats».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Нейтрализация угроз приватности
@@ -331,7 +331,7 @@ statements:
     избежать риск, устранить/снизить (address), принять, передать (transfer) и игнорировать
     риск.'
   excerpt: глава 9, раздел «Classic Strategies for Risk Management».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Пять классических стратегий работы с риском
@@ -346,7 +346,7 @@ statements:
     нейтрализации или проектированием собственной меры; фаззинг сам по себе не является
     мерой нейтрализации.
   excerpt: глава 9, раздел «Selecting Mitigations for Risk Management».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Способы устранения угроз
@@ -362,7 +362,7 @@ statements:
     пользовательское принятие (acceptance).
   excerpt: глава 9, разделы «Threat-Specific Prioritization…», «Mitigation via Risk
     Acceptance».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Приоритизация и bug bar
@@ -377,7 +377,7 @@ statements:
     кода, контроль соответствия модели реальности и полноты процесса; моделирование
     угроз и тестирование усиливают друг друга.'
   excerpt: глава 10 «Validating That Threats Are Addressed».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Проверка устранения угроз
@@ -391,7 +391,7 @@ statements:
   text: допущения следует документировать по мере работы, так как они влияют на корректность
     модели и проверку.
   excerpt: глава 10, раздел «Document Assumptions as You Go».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Документирование допущений по ходу работы
@@ -406,7 +406,7 @@ statements:
     пакеты, баг-трекеры), так и специализированные открытые и коммерческие инструменты,
     включая игру Elevation of Privilege и Microsoft SDL Threat Modeling Tool.
   excerpt: глава 11 «Threat Modeling Tools».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Инструменты моделирования угроз
@@ -420,7 +420,7 @@ statements:
   text: требования, угрозы и меры взаимосвязаны и уточняют друг друга; «поваренная
     книга требований» помогает выводить требования безопасности.
   excerpt: глава 12, раздел «The Interplay of Requirements, Threats, and Mitigations».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Взаимосвязь требований, угроз и мер
@@ -434,7 +434,7 @@ statements:
   text: требования безопасности удобно структурировать рамкой «предотвращение/обнаружение/реагирование»
     (Prevent/Detect/Respond) и рамкой «люди/процессы/технологии» (People/Process/Technology).
   excerpt: глава 12, соответствующие разделы.
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Рамки Prevent/Detect/Respond и People/Process/Technology
@@ -449,7 +449,7 @@ statements:
     NIST Publication 200, PCI-DSS — а также требования приватности (Fair Information
     Practices, Privacy by Design).
   excerpt: глава 12, разделы «Compliance-Driven Requirements», «Privacy Requirements».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Требования соответствия
@@ -464,7 +464,7 @@ statements:
     неотказуемость, конфиденциальность, доступность, авторизация); книга также выделяет
     «не-требования».
   excerpt: глава 12, разделы «The STRIDE Requirements», «Non-Requirements».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: STRIDE как источник требований
@@ -479,7 +479,7 @@ statements:
     облака (инсайдерские, со-арендаторы, соответствие, правовые, криминалистические)
     и угрозы провайдера, а также мобильные угрозы.
   excerpt: глава 13 «Web and Cloud Threats».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Угрозы веба и облака
@@ -494,7 +494,7 @@ statements:
     прекращение), аутентификацию по факторам «что знаете/имеете/чем являетесь», восстановление
     доступа и угрозы кражи личности.
   excerpt: глава 14 «Accounts and Identity».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Учётные записи и идентичность
@@ -509,7 +509,7 @@ statements:
     (ceremony) — взаимодействия людей и систем — и юзабилити интегрируется в четырёхэтапную
     рамку.
   excerpt: глава 15 «Human Factors and Usability».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Человеческий фактор и церемонии
@@ -525,7 +525,7 @@ statements:
     исходить из того, что всё станет публичным; управлять ключами; следовать принципу
     Керкгоффса.'
   excerpt: глава 16, раздел «Things to Remember about Crypto».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Правила работы с криптографией
@@ -540,7 +540,7 @@ statements:
     распределения ролей и ответственности и встраивания в жизненный цикл разработки;
     книга разбирает типовые возражения (ресурсы, ценность, план).
   excerpt: глава 17 «Bringing Threat Modeling to Your Organization».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Внедрение моделирования угроз в организацию
@@ -554,7 +554,7 @@ statements:
   text: качество моделирования угроз растёт при разнообразии команды и правильном
     групповом взаимодействии; роли и ответственность должны быть определены явно.
   excerpt: глава 17, разделы «Who Does What?», «Diversity in Threat Modeling Teams».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Моделирование угроз — командная работа с разнообразием
@@ -569,7 +569,7 @@ statements:
     chains, таксономия «Broad Street»); сами подходы моделирования тоже имеют угрозы
     (опасные результаты, неучтённые допущения).
   excerpt: глава 18 «Experimental Approaches».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Экспериментальные подходы и kill chains
@@ -584,7 +584,7 @@ statements:
     нагрузки, избегания «слепоты создателя», знания участников и принципа «лучшее
     — враг хорошего».
   excerpt: глава 19 «Architecting for Success».
-  artifact: threat-modeling.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Проектирование процесса под успех

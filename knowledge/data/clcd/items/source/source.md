@@ -17,7 +17,7 @@
 - Тип источника: локальная PDF-книга
 - Способ получения: по решению пользователя в проект скопирована локальная
   рабочая копия книги с хранением файла только в игнорируемом каталоге
-  `knowledge/.local/raw/clcd/`
+  `knowledge/data/clcd/local/raw/`
 - Дата включения в корпус: `2026-06-25`
 
 ## Что сохранено
@@ -26,8 +26,8 @@
 
 - паспорт: `knowledge/data/clcd/items/source/source.md`
 - индекс артефактов: `knowledge/data/clcd/items/source/page-index.tsv`
-- PDF: `knowledge/.local/raw/clcd/clean-code-martin-ru.pdf`
-- текстовая выгрузка: `knowledge/.local/raw/clcd/clean-code-martin-ru.txt`
+- PDF: `knowledge/data/clcd/local/raw/clean-code-martin-ru.pdf`
+- текстовая выгрузка: `knowledge/data/clcd/local/raw/clean-code-martin-ru.txt`
 
 В Git сохраняются только метаданные источника, обзорный нормализованный слой,
 извлечённые утверждения и отчёт влияния без крупных дословных фрагментов книги.

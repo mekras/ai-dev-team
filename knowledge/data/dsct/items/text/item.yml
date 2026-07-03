@@ -8,11 +8,11 @@ retrieval_mode: on_demand
 copy_policy: fragments_only
 requires_access_check: true
 extracted_text:
-  location: knowledge/.local/raw/dsct/avizienis-taxonomy-dependable-secure-computing.txt
+  location: knowledge/data/dsct/local/raw/avizienis-taxonomy-dependable-secure-computing.txt
   format: txt
   file_size_bytes: 155187
   content_hash: sha256:8a96d3a50dc7db0a9894b1d86d6ff0d3fe865a1cbf4a8977ad816b60e7da44c4
   metadata_source: pdftotext
 known_limitations:
 - Полная текстовая выгрузка хранится только в игнорируемом локальном
-  слое knowledge/.local/raw/ и не публикуется в Git.
+  слое knowledge/data/dsct/local/raw/ и не публикуется в Git.

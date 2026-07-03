@@ -22,7 +22,7 @@ Git.
 - Тип источника: локальная PDF-книга
 - Способ получения: по решению пользователя в проект скопирована локальная
   рабочая копия книги с хранением файла только в игнорируемом каталоге
-  `knowledge/.local/raw/sahp/`
+  `knowledge/data/sahp/local/raw/`
 - Дата включения в корпус: `2026-06-24`
 
 ## Что сохранено
@@ -31,9 +31,9 @@ Git.
 
 - паспорт: `knowledge/data/sahp/items/source/source.md`
 - индекс артефактов: `knowledge/data/sahp/items/source/page-index.tsv`
-- PDF: `knowledge/.local/raw/sahp/software-architecture-hard-parts-ru.pdf`
+- PDF: `knowledge/data/sahp/local/raw/software-architecture-hard-parts-ru.pdf`
 - текстовая выгрузка:
-  `knowledge/.local/raw/sahp/software-architecture-hard-parts-ru.txt`
+  `knowledge/data/sahp/local/raw/software-architecture-hard-parts-ru.txt`
 
 В Git сохраняются только метаданные источника; обзорный нормализованный слой и
 извлечённые утверждения добавляются на следующих шагах без крупных дословных

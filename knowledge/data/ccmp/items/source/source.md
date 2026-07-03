@@ -17,7 +17,7 @@
 - Тип источника: локальная PDF-книга
 - Способ получения: по решению пользователя в проект скопирована локальная
   рабочая копия книги с хранением файла только в игнорируемом каталоге
-  `knowledge/.local/raw/ccmp/`
+  `knowledge/data/ccmp/local/raw/`
 - Дата включения в корпус: `2026-06-25`
 
 ## Что сохранено
@@ -26,8 +26,8 @@
 
 - паспорт: `knowledge/data/ccmp/items/source/source.md`
 - индекс артефактов: `knowledge/data/ccmp/items/source/page-index.tsv`
-- PDF: `knowledge/.local/raw/ccmp/code-complete-ru.pdf`
-- текстовая выгрузка: `knowledge/.local/raw/ccmp/code-complete-ru.txt`
+- PDF: `knowledge/data/ccmp/local/raw/code-complete-ru.pdf`
+- текстовая выгрузка: `knowledge/data/ccmp/local/raw/code-complete-ru.txt`
 
 В Git сохраняются только метаданные источника, обзорный нормализованный слой,
 извлечённые утверждения и отчёт влияния без крупных дословных фрагментов книги.

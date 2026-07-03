@@ -8,7 +8,7 @@ statements:
     детали и высокоуровневая структура образуют единое непрерывное полотно решений
     разного уровня детализации, и чёткой линии между ними нет.
   excerpt: глава 1, разделы «Что такое дизайн и архитектура?», «Цель?».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Дизайн и архитектура — одно и то же
@@ -24,7 +24,7 @@ statements:
     на создание и сопровождение системы; мерой качества служат трудозатраты на удовлетворение
     потребностей клиента на протяжении жизни системы.
   excerpt: глава 1, раздел «Цель?».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Цель архитектуры — минимизировать трудозатраты
@@ -39,7 +39,7 @@ statements:
     всегда медленнее неуклонного соблюдения чистоты в любом масштабе времени, а продуктивность
     при накоплении беспорядка стремится к нулю.
   excerpt: глава 1, разделы «Что не так?», «Пример из практики».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Беспорядок замедляет сильнее, чем дисциплина
@@ -55,7 +55,7 @@ statements:
     при полном перепроектировании системы; «начать всё заново» само по себе не решает
     проблему.
   excerpt: глава 1, раздел «Что не так?».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Перепроектирование с нуля не спасает
@@ -71,7 +71,7 @@ statements:
     и структуру (насколько легко её менять); разработчики отвечают за обе, но часто
     жертвуют структурой ради поведения.
   excerpt: глава 2, разделы «Поведение», «Архитектура».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: 'Две ценности ПО: поведение и структура'
@@ -86,7 +86,7 @@ statements:
     при изменении требований; неправильно работающая, но легко изменяемая программа
     остаётся полезной — поэтому в долгосрочной перспективе структура важнее поведения.
   excerpt: глава 2, раздел «Наибольшая ценность».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Структура важнее поведения в долгую
@@ -102,7 +102,7 @@ statements:
     — признак архитектурной проблемы, поэтому архитектура должна быть максимально
     независимой от формы.
   excerpt: глава 2, раздел «Архитектура».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Сложность изменения должна зависеть от масштаба, а не от формы
@@ -119,7 +119,7 @@ statements:
     над важным и не срочным (архитектурой); защита приоритета архитектуры — обязанность
     команды разработки как заинтересованной стороны.
   excerpt: глава 2, разделы «Матрица Эйзенхауэра», «Битва за архитектуру».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Матрица важности и срочности
@@ -136,7 +136,7 @@ statements:
     на прямую передачу управления, косвенную передачу управления и присваивание; новых
     парадигм такого рода ожидать не стоит.'
   excerpt: глава 3, разделы «Обзор парадигм», «Пища для ума».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Три парадигмы только ограничивают
@@ -152,7 +152,7 @@ statements:
     — как алгоритмическая основа модулей; это соответствует трём аспектам: функциональности,
     разделению компонентов и управлению данными.'
   excerpt: глава 3, раздел «Заключение».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Связь парадигм с тремя аспектами архитектуры
@@ -168,7 +168,7 @@ statements:
     декомпозицию; главная ценность — возможность создавать единицы, неправильность
     которых можно доказать (протестировать).
   excerpt: глава 4, разделы «Функциональная декомпозиция», «Заключение».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Структурное программирование делает модули доказуемыми
@@ -185,7 +185,7 @@ statements:
     потерпев неудачу в попытке доказать его неправильность, — это научный, а не математический
     метод.
   excerpt: глава 4, разделы «Наука во спасение», «Тестирование».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Разработка ПО ближе к науке, чем к математике
@@ -200,7 +200,7 @@ statements:
     к надёжному полиморфизму, дающему абсолютный контроль над направлением зависимостей
     в исходном коде; инкапсуляция и наследование не уникальны для ОО.
   excerpt: глава 5, разделы «Инкапсуляция?», «Наследование?», «Заключение».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: ОО — это абсолютный контроль над направлением зависимостей
@@ -215,7 +215,7 @@ statements:
     её против потока управления (добавлением интерфейса); это делает возможным архитектуру
     плагинов, где база данных и интерфейс зависят от бизнес-правил, а не наоборот.
   excerpt: глава 5, разделы «Инверсия зависимости» (опирается на рис. 5.1–5.3).
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Инверсия зависимости через полиморфизм
@@ -230,7 +230,7 @@ statements:
     и базу данных в независимо развёртываемые компоненты и, как следствие, разрабатывать
     их независимыми командами.
   excerpt: глава 5, раздел «Заключение».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Независимость развёртывания и разработки через ОО
@@ -246,7 +246,7 @@ statements:
     неизменяемые компоненты и как можно меньше — в изменяемые, защищённые транзакционной
     памятью.
   excerpt: глава 6, разделы «Неизменяемость и архитектура», «Ограничение изменяемости».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Неизменяемость устраняет проблемы конкуренции
@@ -262,7 +262,7 @@ statements:
     приложение полностью неизменяемым и функциональным, устраняя проблемы конкурирующих
     обновлений.
   excerpt: глава 6, раздел «Регистрация событий».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Регистрация событий как функциональный подход к хранению
@@ -278,7 +278,7 @@ statements:
     понятные и пригодные для повторного использования; «класс» здесь — любой механизм
     группировки, не только ОО-класс.
   excerpt: глава III (вступление «Принципы дизайна»).
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Назначение SOLID
@@ -294,7 +294,7 @@ statements:
     (группу заинтересованных лиц); это не то же самое, что «функция делает что-то
     одно».
   excerpt: глава 7, разделы «Принцип единственной ответственности».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: 'SRP: одна причина для изменения — один актор'
@@ -311,7 +311,7 @@ statements:
     классов и применением «Фасада»).
   excerpt: 'глава 7, разделы «Признак 1: непреднамеренное дублирование», «Признак
     2: слияния», «Решения».'
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Признаки нарушения SRP
@@ -326,7 +326,7 @@ statements:
     в принцип согласованного изменения (CCP), а на архитектурном уровне — в принцип
     оси изменения, отвечающий за границы.
   excerpt: глава 7, раздел «Заключение».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: SRP проявляется на трёх уровнях
@@ -341,7 +341,7 @@ statements:
     без изменения существующего кода; если простое расширение требований ведёт к большим
     изменениям, архитекторы потерпели неудачу.
   excerpt: глава 8, разделы «Принцип открытости/закрытости».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: 'OCP: открытость для расширения, закрытость для изменения'
@@ -358,7 +358,7 @@ statements:
     в B, B должен зависеть от A.
   excerpt: глава 8, разделы «Мысленный эксперимент», «Заключение» (опирается на рис.
     8.2–8.3).
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: 'OCP на уровне архитектуры: иерархия защиты по уровням'
@@ -373,7 +373,7 @@ statements:
     непосредственно»; интерфейсы нужны не только чтобы защитить высокоуровневый компонент,
     но и чтобы скрыть его детали от низкоуровневого.
   excerpt: глава 8, разделы «Сокрытие информации».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Сокрытие информации защищает и в обратную сторону
@@ -388,7 +388,7 @@ statements:
     было подставить вместо базового типа без изменения поведения программы; классический
     контрпример — квадрат как подтип прямоугольника.
   excerpt: глава 9, разделы «Принцип подстановки Барбары Лисков», «Проблема квадрат/прямоугольник».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: 'LSP: взаимозаменяемость подтипов'
@@ -403,7 +403,7 @@ statements:
     REST); нарушение взаимозаменяемости заставляет добавлять особые случаи (условия
     if) и засоряет архитектуру дополнительными механизмами.
   excerpt: глава 9, разделы «LSP и архитектура», «Пример нарушения LSP», «Заключение».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: LSP распространяется до уровня архитектуры
@@ -418,7 +418,7 @@ statements:
     от модулей, содержащих больше, чем требуется; в статически типизированных языках
     лишние зависимости вызывают ненужные перекомпиляцию и развёртывание.
   excerpt: глава 10, разделы «Принцип разделения интерфейсов».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: 'ISP: не зависеть от неиспользуемого'
@@ -434,7 +434,7 @@ statements:
     зависит система) может вынудить повторное развёртывание и спровоцировать ошибки
     выше по цепочке.'
   excerpt: глава 10, разделы «Принцип разделения интерфейсов и архитектура».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Опасность зависимости от лишнего — архитектурная
@@ -450,7 +450,7 @@ statements:
     реализаций; стабильный фундамент (например, String, ОС) из этого правила разумно
     исключать.
   excerpt: глава 11, разделы «Принцип инверсии зависимости», «Стабильные абстракции».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: 'DIP: зависеть от абстракций, а не от деталей'
@@ -466,7 +466,7 @@ statements:
     в фабрики (например, «Абстрактная фабрика»), а неустранимые нарушения сосредотачивают
     в узком конкретном компоненте (часто Main).
   excerpt: глава 11, разделы «Стабильные абстракции», «Фабрики», «Конкретные компоненты».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Практические правила DIP
@@ -482,7 +482,7 @@ statements:
     линия» и есть архитектурная граница, а правило её пересечения — будущее правило
     зависимостей.
   excerpt: глава 11, разделы «Фабрики», «Заключение» (опирается на рис. 11.1).
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Поток управления и зависимости противоположны на границе
@@ -497,7 +497,7 @@ statements:
     (jar, gem, DLL); правильно спроектированные компоненты сохраняют возможность независимого
     развёртывания и, значит, независимой разработки.
   excerpt: глава 12, разделы «Компоненты», «Заключение».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Компоненты — единицы развёртывания
@@ -513,7 +513,7 @@ statements:
     и модули компонента должны принадлежать связной группе с общей темой и выпускаться
     вместе.
   excerpt: глава 13, разделы «Принцип эквивалентности повторного использования и выпусков».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: 'REP: единица повторного использования есть единица выпуска'
@@ -530,7 +530,7 @@ statements:
     изменением.'
   excerpt: глава 13, разделы «Принцип согласованного изменения», «Сходство с принципом
     единственной ответственности».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: 'CCP: вместе изменяемое — в один компонент'
@@ -546,7 +546,7 @@ statements:
     общая формула CRP и ISP — «не создавайте зависимостей от чего-либо неиспользуемого».'
   excerpt: глава 13, разделы «Принцип совместного повторного использования», «Связь
     с принципом разделения интерфейсов».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: 'CRP: не вынуждать зависеть от ненужного'
@@ -563,7 +563,7 @@ statements:
     поэтому состав компонентов меняется со временем.
   excerpt: глава 13, разделы «Диаграмма противоречий для определения связности компонентов»,
     «Заключение».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Диаграмма противоречий связности (REP, CCP, CRP)
@@ -579,7 +579,7 @@ statements:
     затрудняют тестирование, выпуск и определение порядка сборки.
   excerpt: глава 14, разделы «Принцип ацикличности зависимостей», «Влияние циклов
     в графе зависимостей компонентов».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: 'ADP: циклы зависимостей недопустимы'
@@ -594,7 +594,7 @@ statements:
     зависимость) или созданием нового компонента, от которого зависят оба исходных;
     структуру компонентов нужно постоянно проверять на циклы по мере роста системы.
   excerpt: глава 14, разделы «Разрыв цикла», «"Изменчивость"».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Способы разрыва цикла зависимостей
@@ -609,7 +609,7 @@ statements:
     поэтому он не проектируется заранее; он растёт и меняется вместе с системой, а
     его задача — изолировать изменчивость и защищать стабильные ценные компоненты.
   excerpt: глава 14, разделы «Проектирование сверху вниз».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Структуру компонентов нельзя проектировать сверху вниз
@@ -625,7 +625,7 @@ statements:
     / (Fan-in + Fan-out), и I должна уменьшаться в направлении зависимости; компоненты,
     спроектированные изменчивыми, не должны быть целью зависимостей устойчивых.
   excerpt: глава 14, разделы «Принцип устойчивых зависимостей», «Метрики устойчивости».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: 'SDP: зависимости направлены в сторону устойчивости'
@@ -642,7 +642,7 @@ statements:
     направлены в сторону абстрактности.'
   excerpt: глава 14, разделы «Принцип устойчивости абстракций», «Введение в принцип
     устойчивости абстракций».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: 'SAP: устойчивость пропорциональна абстрактности'
@@ -659,7 +659,7 @@ statements:
     расстояния D = |A + I − 1| оценивает удалённость от идеала.
   excerpt: глава 14, разделы «Главная последовательность», «Зона боли», «Зона бесполезности»,
     «Расстояние до главной последовательности».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Главная последовательность и зоны исключения
@@ -675,7 +675,7 @@ statements:
     программировать; он направляет команду к дизайну, максимизирующему продуктивность,
     и не может делать это, не испытывая на себе проблем, которые создаёт другим.
   excerpt: глава 15, раздел «Что такое архитектура».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Архитектор остаётся программистом
@@ -692,7 +692,7 @@ statements:
     части открытым.
   excerpt: глава 15, разделы «Что такое архитектура», «Разработка», «Развёртывание»,
     «Эффективность работы», «Сопровождение».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Назначение архитектуры — поддержка жизненного цикла
@@ -708,7 +708,7 @@ statements:
     не имеющие значения для высокоуровневой политики; хороший архитектор максимизирует
     количество непринятых решений.
   excerpt: глава 15, разделы «Сохранение разнообразия вариантов».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Главная стратегия — держать варианты открытыми
@@ -725,7 +725,7 @@ statements:
     от деталей и решения о деталях можно было откладывать.
   excerpt: глава 15, разделы «Сохранение разнообразия вариантов», «Заключение»; глава
     19.
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Разделение политики и деталей
@@ -741,7 +741,7 @@ statements:
     драматично, так как производительность чаще решается добавлением оборудования,
     которое дешевле труда.
   excerpt: глава 16, разделы «Варианты использования», «Эффективность работы».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Архитектура должна поддерживать варианты использования
@@ -756,7 +756,7 @@ statements:
     архитектура должна делить систему на изолированные компоненты, чтобы команды могли
     работать независимо и не мешать друг другу.
   excerpt: глава 16, разделы «Разработка».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Закон Конвея и независимость команд
@@ -771,7 +771,7 @@ statements:
     предметной области, БД) по SRP и CCP и одновременно на вертикальные срезы по вариантам
     использования; такое разделение позволяет добавлять варианты, не затрагивая существующие.
   excerpt: глава 16, разделы «Разделение уровней», «Разделение вариантов использования».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Разделение на горизонтальные уровни и вертикальные варианты
@@ -787,7 +787,7 @@ statements:
     дублирование (похожие экраны, запись БД и модель представления) опасно — потом
     их трудно разделить.
   excerpt: глава 16, разделы «Дублирование».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Истинное и ложное дублирование
@@ -803,7 +803,7 @@ statements:
     заранее неизвестен и может меняться со временем, поэтому хорошая архитектура оставляет
     режим разделения открытым.
   excerpt: глава 16, разделы «Режимы разделения», «Какой режим лучше?», «Заключение».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: 'Режимы разделения: исходный код, развёртывание, службы'
@@ -819,7 +819,7 @@ statements:
     фреймворке, БД, веб-сервере) и предотвращают загрязнение ими бизнес-логики; враг
     цели архитектуры — зависимость от преждевременных решений.
   excerpt: 'глава 17, разделы «Границы: проведение разделяющих линий».'
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Границы откладывают и изолируют решения
@@ -834,7 +834,7 @@ statements:
     (трёхуровневой, SOA/микрослужб) резко увеличивает трудозатраты; ошибка не в службах
     как таковых, а в раннем обязательстве перед инфраструктурой.
   excerpt: глава 17, разделы «Пара печальных историй».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Преждевременные решения дорого обходятся
@@ -852,7 +852,7 @@ statements:
     FitNesse — 18 месяцев без БД).
   excerpt: глава 17, разделы «FitNesse», «Какие границы проводить и когда?» (опирается
     на рис. 17.1–17.3).
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Граница между бизнес-правилами и БД через интерфейс
@@ -867,7 +867,7 @@ statements:
     которая не нуждается в интерфейсе; менее важный компонент (GUI) должен зависеть
     от более важного (бизнес-правил).
   excerpt: глава 17, разделы «О вводе и выводе» (опирается на рис. 17.4).
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Ввод/вывод и интерфейс не важны для модели
@@ -882,7 +882,7 @@ statements:
     с разной скоростью и по разным причинам; это снова применение SRP; архитектура
     плагинов создаёт асимметричную защиту (пример ReSharper — Visual Studio).
   excerpt: глава 17, разделы «Аргумент в пользу плагинов», «Заключение».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Граница проходит по оси изменения
@@ -898,7 +898,7 @@ statements:
     дорого) и службы по сети (очень дорого, десятки миллисекунд — секунды); число
     дорогих пересечений нужно ограничивать.'
   excerpt: глава 18, разделы «Ужасный монолит», «Локальные процессы», «Службы», «Заключение».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Виды границ и стоимость их пересечения
@@ -914,7 +914,7 @@ statements:
     она меняется; зависимости в исходном коде нужно отделять от потоков данных и направлять
     в сторону высокоуровневых политик.
   excerpt: глава 19, разделы «Уровень», «Политика и уровень» (опирается на рис. 19.1–19.3).
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Уровень — это удалённость от ввода и вывода
@@ -930,7 +930,7 @@ statements:
     и данные, называется сущностью; сущность — бизнес в чистом виде, не зависящий
     от БД, UI и фреймворков.
   excerpt: глава 20, разделы «Бизнес-правила», «Сущности».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Критические бизнес-правила и сущности
@@ -946,7 +946,7 @@ statements:
     действиями сущностей, но не описывает пользовательский интерфейс и не зависит
     от способа ввода/вывода.'
   excerpt: глава 20, разделы «Варианты использования».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Варианты использования — прикладные бизнес-правила
@@ -961,7 +961,7 @@ statements:
     уровню; варианты использования характерны для одного приложения и ближе к вводу/выводу,
     поэтому ниже; варианты использования зависят от сущностей, но не наоборот (DIP).
   excerpt: глава 20, разделы «Варианты использования».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Сущности — высокий уровень, варианты использования — ниже
@@ -977,7 +977,7 @@ statements:
     иначе варианты использования косвенно получают чужие зависимости и нарушаются
     CCP и SRP.
   excerpt: глава 20, разделы «Модели запросов и ответов».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Модели запросов и ответов без зависимостей
@@ -992,7 +992,7 @@ statements:
     области), а не о применённых фреймворках; архитектура должна поддерживать варианты
     использования и не определяться фреймворками, Веб или инструментами.
   excerpt: глава 21, разделы «Тема архитектуры», «Цель архитектуры», «Заключение».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Кричащая архитектура
@@ -1010,7 +1010,7 @@ statements:
     БД.
   excerpt: глава 21, разделы «Фреймворки — это инструменты, а не образ жизни», «Тестируемые
     архитектуры».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Фреймворки — инструменты, а не образ жизни; архитектура тестируема
@@ -1025,7 +1025,7 @@ statements:
     одну цель — разделение задач через уровни; они дают независимость от фреймворков,
     простоту тестирования и независимость от UI, БД и любых внешних агентов.
   excerpt: глава 22, разделы «Чистая архитектура» (вступление).
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Чистая архитектура объединяет известные подходы
@@ -1042,7 +1042,7 @@ statements:
     к центру.
   excerpt: глава 22, разделы «Правило зависимостей», «Толька четыре круга?» (опирается
     на рис. 22.1).
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Правило зависимостей
@@ -1059,7 +1059,7 @@ statements:
     обязательно ровно четыре, но правило зависимостей действует всегда.
   excerpt: глава 22, разделы «Сущности», «Варианты использования», «Адаптеры интерфейсов»,
     «Фреймворки и драйверы».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Четыре уровня чистой архитектуры
@@ -1076,7 +1076,7 @@ statements:
     сущностей или представления записей БД.
   excerpt: глава 22, разделы «Пересечение границ», «Какие данные пересекают границы»,
     «Типичный сценарий».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Пересечение границ и данные через границы
@@ -1093,7 +1093,7 @@ statements:
     с архитектурной границей.
   excerpt: глава 23, разделы «Шаблон "Скромный объект"», «Презентаторы и представления»,
     «Тестирование и архитектура».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Шаблон «Скромный объект» и тестируемость
@@ -1110,7 +1110,7 @@ statements:
     тестируемость всей системы.'
   excerpt: глава 23, разделы «Шлюзы к базам данных», «Преобразователи данных», «Службы»,
     «Заключение».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Скромные объекты у разных границ
@@ -1127,7 +1127,7 @@ statements:
     если граница так и не материализуется.'
   excerpt: глава 24, разделы «Пропустить последний шаг», «Одномерные границы», «Фасады»,
     «Заключение».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Неполные границы как компромисс
@@ -1143,7 +1143,7 @@ statements:
     полностью, какие частично, а какие игнорировать, и проводить границу в «точке
     перегиба», когда её реализация дешевле игнорирования.
   excerpt: глава 25, разделы «Уровни и границы», «Заключение» (пример «Охота на Вампуса»).
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Границы существуют повсюду; решать, какие реализовать
@@ -1159,7 +1159,7 @@ statements:
     высокоуровневым абстракциям; Main можно считать плагином, и для разных конфигураций
     (разработка, тест, эксплуатация, страна, клиент) может быть несколько Main.
   excerpt: глава 26, разделы «Конечная деталь», «Заключение».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Главный компонент (Main) — самая грязная деталь
@@ -1174,7 +1174,7 @@ statements:
     политикой и деталями и правило зависимостей; службы — это лишь дорогие вызовы
     функций через границы процессов, и не все они архитектурно значимы.
   excerpt: глава 27, разделы «Сервисная архитектура?».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Службы сами по себе не определяют архитектуру
@@ -1191,7 +1191,7 @@ statements:
     сквозная функция затрагивает все службы, делённые по функциям.'
   excerpt: глава 27, разделы «Заблуждение о независимости», «Заблуждение о возможности
     независимой разработки и развёртывания», «Проблема с животными».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Заблуждения о независимости служб
@@ -1208,7 +1208,7 @@ statements:
     а не между службами.
   excerpt: глава 27, разделы «Спасение в объектах», «Службы на основе компонентов»,
     «Сквозные задачи», «Заключение».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Службы на основе компонентов
@@ -1224,7 +1224,7 @@ statements:
     внутренних компонентов; тесты развёртываются независимо и служат разработке, а
     не работе.
   excerpt: глава 28, разделы «Тесты как компоненты системы».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Тесты — часть системы и самый внешний круг
@@ -1241,7 +1241,7 @@ statements:
     тестирования, скрывающий структуру приложения от тестов.
   excerpt: глава 28, разделы «Проектирование для простоты тестирования», «Программный
     интерфейс для тестирования», «Структурная зависимость».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Проблема хрупких тестов и API тестирования
@@ -1256,7 +1256,7 @@ statements:
     оборудования; код становится микропрограммой, когда смешивает бизнес-логику с
     деталями оборудования, SQL или платформы, что лишает его шанса на долгую жизнь.
   excerpt: глава 29, разделы (вступление), «Привязка к оборудованию — узкое место».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Микропрограмма определяется зависимостью от оборудования
@@ -1273,7 +1273,7 @@ statements:
     эти слои дают «швы» (точки подстановки) для тестирования вне целевого оборудования.
   excerpt: глава 29, разделы «Уровни», «Оборудование — это деталь», «Процессор — это
     деталь», «Операционная система — это деталь».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Слои абстракции оборудования и ОС (HAL, OSAL)
@@ -1291,7 +1291,7 @@ statements:
     не нарушать DRY.
   excerpt: глава 29, разделы «Программирование с применением интерфейсов и возможность
     подстановки», «Принцип DRY и директивы условной компиляции».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Программирование через интерфейсы и подстановка
@@ -1307,7 +1307,7 @@ statements:
     но не технология хранения; передача записей и таблиц БД как объектов через всю
     систему — архитектурная ошибка.
   excerpt: глава 30, разделы (вступление), «Реляционные базы данных», «Заключение».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: База данных — это деталь
@@ -1324,7 +1324,7 @@ statements:
     и не имеет технического обоснования.
   excerpt: глава 30, разделы «Почему системы баз данных настолько распространены?»,
     «Сохранятся ли диски?», «История».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Реляционные БД распространены из-за дисков
@@ -1341,7 +1341,7 @@ statements:
     не должен проникать в ядро бизнес-правил; границу между UI и приложением можно
     абстрагировать через варианты использования с входными и выходными структурами.
   excerpt: глава 31, разделы «Бесконечный маятник», «Вывод», «Заключение».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Веб (и любой UI) — это деталь
@@ -1357,7 +1357,7 @@ statements:
     внутренние круги; их следует использовать через прокси-классы и держать во внешних
     кругах (например, внедрять зависимости Spring только в Main, не аннотируя бизнес-объекты).'
   excerpt: глава 32, разделы «Неравный брак», «Риски», «Решение», «Объявляю вас».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Фреймворки — деталь; не вступать с ними в союз
@@ -1374,7 +1374,7 @@ statements:
     по мере развития.'
   excerpt: глава 33, разделы «Анализ вариантов использования», «Компонентная архитектура»,
     «Заключение».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: 'Учебный пример: разделение по акторам и по уровням'
@@ -1391,7 +1391,7 @@ statements:
     и доступ к данным компонента вместе за чистым интерфейсом.
   excerpt: глава 34, разделы «Упаковка по уровням», «Упаковка по особенностям», «Порты
     и адаптеры», «Упаковка по компонентам».
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: 'Способы упаковки кода: по уровням, особенностям, компонентам'
@@ -1409,7 +1409,7 @@ statements:
     и постпроверки.
   excerpt: 'глава 34, разделы «Дьявол в деталях реализации», «Организация и инкапсуляция»,
     «Другие режимы разделения», «Заключение: недостающий совет».'
-  artifact: clean-architecture-martin-ru.txt
+  artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
     section_title: Инкапсуляция на уровне пакетов и роль компилятора

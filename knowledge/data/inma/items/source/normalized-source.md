@@ -6,7 +6,7 @@
 - Первичный источник: `knowledge/data/inma/items/source/source.md`
 - Индекс первичных артефактов: `knowledge/data/inma/items/source/page-index.tsv`
 - Локальный PDF и текстовая выгрузка: игнорируемые артефакты в
-  `knowledge/.local/raw/inma/`
+  `knowledge/data/inma/local/raw/`
 - Дата нормализации: `2026-06-25`
 - Способ нормализации: обзор локальной текстовой выгрузки PDF, выборочное чтение
   первых страниц и глав о функциях, персонажах, целях и сценариях.

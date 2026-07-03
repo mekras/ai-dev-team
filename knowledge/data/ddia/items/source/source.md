@@ -17,16 +17,16 @@
 - Тип источника: локальная PDF-книга
 - Способ получения: по решению владельца проекта скопирована локальная рабочая
   копия книги с хранением файла только в игнорируемом каталоге
-  `knowledge/.local/raw/ddia/`
+  `knowledge/data/ddia/local/raw/`
 - Дата включения в корпус: `2026-06-26`
 
 ## Что сохранено
 
 - паспорт: `knowledge/data/ddia/items/source/source.md`
 - индекс артефактов: `knowledge/data/ddia/items/source/page-index.tsv`
-- PDF: `knowledge/.local/raw/ddia/designing-data-intensive-applications.pdf`
+- PDF: `knowledge/data/ddia/local/raw/designing-data-intensive-applications.pdf`
 - текстовая выгрузка:
-  `knowledge/.local/raw/ddia/designing-data-intensive-applications.txt`
+  `knowledge/data/ddia/local/raw/designing-data-intensive-applications.txt`
 
 В Git сохраняются только метаданные источника; нормализованный слой и
 утверждения будут добавлены на отдельном шаге без крупных дословных фрагментов

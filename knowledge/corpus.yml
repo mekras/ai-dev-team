@@ -5,9 +5,9 @@ tracked_data:
   source_unit_pattern: data/<source>/<units>/<unit>/item.yml
   statement_pattern: data/<source>/<units>/<unit>/statements.yml
 local_data:
-  raw: .local/raw
-  private: .local/private
-  cache: .local/cache
+  source_local_pattern: data/<source>/local
+  source_local_subdirs: [raw, private, cache]
+  gitignore_rules: [knowledge/data/*/local/]
   temporary_file_pattern: "*.tmp.*"
 artifact_storage:
   tracked:
@@ -104,7 +104,8 @@ sensitive_data_policy:
   rules:
     - Не добавлять в Git токены, cookies, сессии, пароли и закрытые ссылки.
     - Хранить пути в отслеживаемых файлах только в репо-относительном виде.
-    - Тяжёлые медиа и другие рабочие файлы хранить как *.tmp.* или в .local/.
+    - Тяжёлые медиа и другие рабочие файлы хранить как *.tmp.* или в видимом
+      локальном слое источника data/<source>/local/.
     - Не добавлять в Git полные локальные книги, полные текстовые выгрузки и личные
       абсолютные пути без явного разрешения.
     - Не переносить сведения в проект-потребитель без проверки источника, области применения,
