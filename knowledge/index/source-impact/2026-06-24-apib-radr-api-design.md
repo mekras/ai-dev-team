@@ -156,8 +156,8 @@ API (сверху вниз, обратная совместимость, API к�
 
 ### Severity: Low — способ работы с источниками соответствует ограничениям
 
-Документ: `knowledge/data/apib/items/source/legacy-primary.gitignore`,
-`knowledge/data/radr/items/source/legacy-primary.gitignore`,
+Документ: `knowledge/data/apib/items/source/source.md`,
+`knowledge/data/radr/items/source/source.md`,
 `knowledge/source-attribution.md`
 
 Источники: `APIB`, `RADR`, проверка `2026-06-24`

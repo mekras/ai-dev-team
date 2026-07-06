@@ -24,8 +24,9 @@
 
 - паспорт: `knowledge/data/eswo/items/source/source.md`
 - индекс артефактов: `knowledge/data/eswo/items/source/page-index.tsv`
-- PDF: `knowledge/data/eswo/local/raw/engineering-a-safer-world.pdf`
-- текстовая выгрузка: `knowledge/data/eswo/local/raw/engineering-a-safer-world.txt`
+- PDF: `knowledge/data/eswo/items/pdf/engineering-a-safer-world.local.pdf`
+- текстовая выгрузка:
+  `knowledge/data/eswo/items/text/engineering-a-safer-world.local.txt`
 
 В Git сохраняются метаданные источника; нормализованный слой и утверждения будут
 добавлены на отдельном шаге.

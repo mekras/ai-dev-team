@@ -25,7 +25,8 @@
 - паспорт: `knowledge/data/scxp/items/source/source.md`
 - карточка источника: `knowledge/data/scxp/source.yml`
 - индекс единиц: `knowledge/data/scxp/items.yml`
-- PDF (вне Git): `knowledge/data/scxp/local/raw/scrum-xp-kniberg-ru.pdf`
+- PDF (вне Git):
+  `knowledge/data/scxp/items/source/scrum-xp-kniberg-ru.local.pdf`
 
 В Git сохраняются только метаданные источника; полный PDF, текстовая выгрузка и
 крупные дословные фрагменты не публикуются.

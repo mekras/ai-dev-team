@@ -19,16 +19,16 @@
 - ISBN оригинального издания: `978-1-492-04386-7`
 - Тип источника: локальная PDF-книга
 - Способ получения: по решению владельца проекта скопирована локальная рабочая
-  копия книги с хранением файла только в игнорируемом каталоге
-  `knowledge/data/chen/local/raw/`
+  копия книги с хранением файла только в игнорируемом каталоге `*.local.*`
 - Дата включения в корпус: `2026-06-26`
 
 ## Что сохранено
 
 - паспорт: `knowledge/data/chen/items/source/source.md`
 - индекс артефактов: `knowledge/data/chen/items/source/page-index.tsv`
-- PDF: `knowledge/data/chen/local/raw/chaos-engineering-ru.pdf`
-- текстовая выгрузка: `knowledge/data/chen/local/raw/chaos-engineering-ru.txt`
+- PDF: `knowledge/data/chen/items/pdf/chaos-engineering-ru.local.pdf`
+- текстовая выгрузка:
+  `knowledge/data/chen/items/text/chaos-engineering-ru.local.txt`
 
 В Git сохраняются только метаданные источника; нормализованный слой и
 утверждения будут добавлены на отдельном шаге без крупных дословных фрагментов

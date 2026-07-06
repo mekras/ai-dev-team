@@ -8,11 +8,10 @@ retrieval_mode: on_demand
 copy_policy: fragments_only
 requires_access_check: true
 primary_file:
-  location: knowledge/data/smfr/local/raw/sovremennye-metody-opisaniya-funkcionalnyh-trebovanii.djvu
+  location: knowledge/data/smfr/items/djvu/sovremennye-metody-opisaniya-funkcionalnyh-trebovanii.local.djvu
   format: djvu
   file_size_bytes: 3054668
   content_hash: sha256:84795c079a33f309a6d2a6c548119a82403b22ea53b88129805b3b80cfb2cb43
   metadata_source: file
 known_limitations:
-- Полный файл хранится только в игнорируемом локальном слое
-  knowledge/data/smfr/local/raw/ и не публикуется в Git.
+- Полный файл хранится только рядом с единицей под маркером `*.local.*` и не публикуется в Git.

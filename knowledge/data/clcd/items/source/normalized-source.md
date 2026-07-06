@@ -16,9 +16,9 @@
 
 ## Входной материал
 
-- Локальный PDF: `knowledge/data/clcd/local/raw/clean-code-martin-ru.pdf`
+- Локальный PDF: `knowledge/data/clcd/items/pdf/clean-code-martin-ru.local.pdf`
 - Локальная текстовая выгрузка:
-  `knowledge/data/clcd/local/raw/clean-code-martin-ru.txt`
+  `knowledge/data/clcd/items/text/clean-code-martin-ru.local.txt`
 
 ## Что удалось выделить
 

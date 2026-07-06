@@ -8,11 +8,10 @@ retrieval_mode: on_demand
 copy_policy: fragments_only
 requires_access_check: true
 extracted_text:
-  location: knowledge/data/smfr/local/raw/sovremennye-metody-opisaniya-funkcionalnyh-trebovanii.txt
+  location: knowledge/data/smfr/items/text/sovremennye-metody-opisaniya-funkcionalnyh-trebovanii.local.txt
   format: txt
   file_size_bytes: 1020416
   content_hash: sha256:7096e1f3aebb5ee0b9d005f9fbbdee0a18ed6fb3977e133a830f86f12c3496a3
   metadata_source: pdftotext
 known_limitations:
-- Полная текстовая выгрузка хранится только в игнорируемом локальном
-  слое knowledge/data/smfr/local/raw/ и не публикуется в Git.
+- Полная текстовая выгрузка хранится только рядом с единицей под маркером `*.local.*` и не публикуется в Git.

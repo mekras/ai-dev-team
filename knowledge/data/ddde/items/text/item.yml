@@ -8,11 +8,10 @@ retrieval_mode: on_demand
 copy_policy: fragments_only
 requires_access_check: true
 extracted_text:
-  location: knowledge/data/ddde/local/raw/ddd-evans-ru.txt
+  location: knowledge/data/ddde/items/text/ddd-evans-ru.local.txt
   format: txt
   file_size_bytes: 2001013
   content_hash: sha256:cd6e437c52fbfdfe064da9b97b0f0a73eef9b384e45ec7194d81cbce30c22773
   metadata_source: pdftotext
 known_limitations:
-- Полная текстовая выгрузка хранится только в игнорируемом локальном
-  слое knowledge/data/ddde/local/raw/ и не публикуется в Git.
+- Полная текстовая выгрузка хранится только рядом с единицей под маркером `*.local.*` и не публикуется в Git.

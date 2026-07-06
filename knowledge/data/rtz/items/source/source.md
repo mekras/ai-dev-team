@@ -14,7 +14,7 @@
 - Тип источника: локальная PDF-книга
 - Способ получения: по решению пользователя в проект скопирована локальная
   рабочая копия документа с хранением файла только в игнорируемом каталоге
-  `knowledge/data/rtz/local/raw/`
+  `*.local.*`
 - Дата включения в корпус: `2026-06-23`
 
 ## Что сохранено
@@ -23,8 +23,9 @@
 
 - паспорт: `knowledge/data/rtz/items/source/source.md`
 - индекс артефактов: `knowledge/data/rtz/items/source/page-index.tsv`
-- PDF: `knowledge/data/rtz/local/raw/po-ksis-tech-task.pdf`
-- текстовая выгрузка: `knowledge/data/rtz/local/raw/po-ksis-tech-task.txt`
+- PDF: `knowledge/data/rtz/items/pdf/po-ksis-tech-task.local.pdf`
+- текстовая выгрузка:
+  `knowledge/data/rtz/items/text/po-ksis-tech-task.local.txt`
 
 В Git сохраняются только метаданные источника. Обзорный нормализованный слой и
 извлечённые утверждения готовятся отдельным шагом и без крупных дословных

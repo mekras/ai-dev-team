@@ -15,7 +15,7 @@
 - Тип источника: локальная PDF-книга
 - Способ получения: по решению пользователя в проект скопирована локальная
   рабочая копия книги с хранением файла только в игнорируемом каталоге
-  `knowledge/data/sreq/local/raw/`
+  `*.local.*`
 - Дата включения в корпус: `2026-06-22`
 
 ## Что сохранено
@@ -24,9 +24,9 @@
 
 - паспорт: `knowledge/data/sreq/items/source/source.md`
 - индекс артефактов: `knowledge/data/sreq/items/source/page-index.tsv`
-- PDF: `knowledge/data/sreq/local/raw/software-requirements-3rd-ru.pdf`
+- PDF: `knowledge/data/sreq/items/pdf/software-requirements-3rd-ru.local.pdf`
 - текстовая выгрузка:
-  `knowledge/data/sreq/local/raw/software-requirements-3rd-ru.txt`
+  `knowledge/data/sreq/items/text/software-requirements-3rd-ru.local.txt`
 
 В Git сохраняются только метаданные источника, обзорный нормализованный слой и
 извлечённые утверждения без крупных дословных фрагментов книги.

@@ -18,7 +18,7 @@
 - Тип источника: локальная PDF-копия книги
 - Способ получения: по решению пользователя в проект скопирована локальная
   рабочая копия книги с хранением файла только в игнорируемом каталоге
-  `knowledge/data/tmds/local/raw/`
+  `*.local.*`
 - Дата включения в корпус: `2026-06-24`
 
 ## Замечание о происхождении файла
@@ -42,8 +42,8 @@ Git как локальные неотслеживаемые артефакты.
 
 - паспорт: `knowledge/data/tmds/items/source/source.md`
 - индекс артефактов: `knowledge/data/tmds/items/source/page-index.tsv`
-- PDF: `knowledge/data/tmds/local/raw/threat-modeling.pdf`
-- текстовая выгрузка: `knowledge/data/tmds/local/raw/threat-modeling.txt`
+- PDF: `knowledge/data/tmds/items/pdf/threat-modeling.local.pdf`
+- текстовая выгрузка: `knowledge/data/tmds/items/text/threat-modeling.local.txt`
 
 В Git сохраняются метаданные источника, обзорный нормализованный слой и
 извлечённые утверждения; крупные дословные фрагменты книги не публикуются.

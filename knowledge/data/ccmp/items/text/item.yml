@@ -8,11 +8,10 @@ retrieval_mode: on_demand
 copy_policy: fragments_only
 requires_access_check: true
 extracted_text:
-  location: knowledge/data/ccmp/local/raw/code-complete-ru.txt
+  location: knowledge/data/ccmp/items/text/code-complete-ru.local.txt
   format: txt
   file_size_bytes: 3818779
   content_hash: sha256:9aa8b91e18a19fbaed55a7a82a185808cb7d2afd76d1c48a2338fa8dcd164459
   metadata_source: pdftotext
 known_limitations:
-- Полная текстовая выгрузка хранится только в игнорируемом локальном
-  слое knowledge/data/ccmp/local/raw/ и не публикуется в Git.
+- Полная текстовая выгрузка хранится только рядом с единицей под маркером `*.local.*` и не публикуется в Git.

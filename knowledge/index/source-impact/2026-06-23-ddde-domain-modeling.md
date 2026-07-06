@@ -166,7 +166,7 @@
 
 ### Severity: Low — текущий способ работы с источником соответствует ограничению
 
-Документ: `knowledge/data/ddde/items/source/legacy-primary.gitignore`,
+Документ: `knowledge/data/ddde/items/source/source.md`,
 `knowledge/source-attribution.md`
 
 Источник: `DDDE`, проверка `2026-06-23`

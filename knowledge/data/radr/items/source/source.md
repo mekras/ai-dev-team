@@ -16,7 +16,7 @@ Git.
 - Тип источника: локальная PDF-книга (англоязычная)
 - Способ получения: по решению пользователя в проект скопирована локальная
   рабочая копия книги с хранением файла только в игнорируемом каталоге
-  `knowledge/data/radr/local/raw/`
+  `*.local.*`
 - Дата включения в корпус: `2026-06-24`
 
 ## Что сохранено
@@ -25,8 +25,9 @@ Git.
 
 - паспорт: `knowledge/data/radr/items/source/source.md`
 - индекс артефактов: `knowledge/data/radr/items/source/page-index.tsv`
-- PDF: `knowledge/data/radr/local/raw/rest-api-design-rulebook.pdf`
-- текстовая выгрузка: `knowledge/data/radr/local/raw/rest-api-design-rulebook.txt`
+- PDF: `knowledge/data/radr/items/pdf/rest-api-design-rulebook.local.pdf`
+- текстовая выгрузка:
+  `knowledge/data/radr/items/text/rest-api-design-rulebook.local.txt`
 
 В Git сохраняются только метаданные источника, обзорный нормализованный слой и
 извлечённые утверждения без крупных дословных фрагментов книги.

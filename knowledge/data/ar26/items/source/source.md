@@ -25,8 +25,8 @@
 - заголовки ответа:
   `knowledge/data/ar26/items/2602.11988v1/response-headers.txt`
 
-Снимок хранится локально с исключением `pages/` из Git через
-`knowledge/data/ar26/items/source/legacy-primary.gitignore`.
+Снимок страницы (HTML и заголовки ответа) отслеживается в Git в папке единицы
+источника.
 
 ## Ограничения
 

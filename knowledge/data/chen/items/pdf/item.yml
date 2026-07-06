@@ -8,12 +8,11 @@ retrieval_mode: on_demand
 copy_policy: fragments_only
 requires_access_check: true
 primary_file:
-  location: knowledge/data/chen/local/raw/chaos-engineering-ru.pdf
+  location: knowledge/data/chen/items/pdf/chaos-engineering-ru.local.pdf
   format: pdf
   file_size_bytes: 7191550
   content_hash: sha256:383fbd953271ece8ca694f9e615e21a5ce0118c361b81b5084f0b8eafd427efe
   page_count: 285
   metadata_source: pdfinfo
 known_limitations:
-- Полный файл хранится только в игнорируемом локальном слое
-  knowledge/data/chen/local/raw/ и не публикуется в Git.
+- Полный файл хранится только рядом с единицей под маркером `*.local.*` и не публикуется в Git.

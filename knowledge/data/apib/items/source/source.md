@@ -19,7 +19,7 @@
 - Тип источника: локальная PDF-книга (русскоязычная сборка)
 - Способ получения: по решению пользователя в проект скопирована локальная
   рабочая копия книги с хранением файла только в игнорируемом каталоге
-  `knowledge/data/apib/local/raw/`
+  `*.local.*`
 - Дата включения в корпус: `2026-06-24`
 
 ## Что сохранено
@@ -28,8 +28,8 @@
 
 - паспорт: `knowledge/data/apib/items/source/source.md`
 - индекс артефактов: `knowledge/data/apib/items/source/page-index.tsv`
-- PDF: `knowledge/data/apib/local/raw/the-api-book-ru.pdf`
-- текстовая выгрузка: `knowledge/data/apib/local/raw/the-api-book-ru.txt`
+- PDF: `knowledge/data/apib/items/pdf/the-api-book-ru.local.pdf`
+- текстовая выгрузка: `knowledge/data/apib/items/text/the-api-book-ru.local.txt`
 
 В Git сохраняются метаданные источника, обзорный нормализованный слой и
 извлечённые утверждения; крупные дословные фрагменты книги не публикуются.

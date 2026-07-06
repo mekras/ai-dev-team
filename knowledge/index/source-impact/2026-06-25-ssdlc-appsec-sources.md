@@ -130,8 +130,7 @@ SSDF, уровни и каталог ASVS, зрелость SAMM) и добав�
 
 ### Severity: Low — способ работы с источниками соответствует ограничениям
 
-Документы:
-`knowledge/data/{ssdf,samm,asvs,etl5}/items/source/legacy-primary.gitignore`,
+Документы: `knowledge/data/{ssdf,samm,asvs,etl5}/items/source/source.md`,
 `knowledge/source-attribution.md`
 
 Источники: все четыре, проверка `2026-06-25`

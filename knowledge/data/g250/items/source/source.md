@@ -19,16 +19,16 @@
   `https://protect.gost.ru/document.aspx?control=7&id=200427`
 - Тип источника: нормативный документ (стандарт, PDF)
 - Способ получения: по решению владельца проекта скопирована локальная рабочая
-  копия PDF с хранением файла только в игнорируемом каталоге
-  `knowledge/data/g250/local/raw/`
+  копия PDF с хранением файла только в игнорируемом каталоге `*.local.*`
 - Дата включения в корпус: `2026-06-26`
 
 ## Что сохранено
 
 - паспорт: `knowledge/data/g250/items/source/source.md`
 - индекс артефактов: `knowledge/data/g250/items/source/page-index.tsv`
-- PDF: `knowledge/data/g250/local/raw/gost-r-iso-iec-25010-2015.pdf`
-- текстовая выгрузка: `knowledge/data/g250/local/raw/gost-r-iso-iec-25010-2015.txt`
+- PDF: `knowledge/data/g250/items/pdf/gost-r-iso-iec-25010-2015.local.pdf`
+- текстовая выгрузка:
+  `knowledge/data/g250/items/text/gost-r-iso-iec-25010-2015.local.txt`
 
 В Git сохраняются метаданные источника; нормализованный слой и утверждения будут
 добавлены на отдельном шаге.

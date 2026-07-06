@@ -96,7 +96,7 @@
 
 ### Severity: Low — текущий способ работы с источником соответствует ограничению
 
-Документ: `knowledge/data/inma/items/source/legacy-primary.gitignore`,
+Документ: `knowledge/data/inma/items/source/source.md`,
 `knowledge/source-attribution.md`
 
 Источник: `INMA`, проверка `2026-06-25`

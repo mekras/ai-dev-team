@@ -24,8 +24,8 @@
 - страница: `knowledge/data/codx/items/agents-md/index.html`
 - заголовки ответа: `knowledge/data/codx/items/agents-md/response-headers.txt`
 
-Снимок хранится локально с исключением `pages/` из Git через
-`knowledge/data/codx/items/source/legacy-primary.gitignore`.
+Снимок страницы (HTML и заголовки ответа) отслеживается в Git в папке единицы
+источника.
 
 ## Ограничения
 

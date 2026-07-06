@@ -234,7 +234,7 @@
 
 ### Severity: Low — способ хранения источника остаётся подходящим
 
-Документ: `knowledge/data/rtz/items/source/legacy-primary.gitignore`,
+Документ: `knowledge/data/rtz/items/source/source.md`,
 `knowledge/source-attribution.md`
 
 Источник: `RTZ`, проверка `2026-06-23`

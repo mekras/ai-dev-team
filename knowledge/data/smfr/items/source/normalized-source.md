@@ -17,9 +17,9 @@
 ## Входной материал
 
 - Локальный DjVu:
-  `knowledge/data/smfr/local/raw/sovremennye-metody-opisaniya-funkcionalnyh-trebovanii.djvu`
+  `knowledge/data/smfr/items/djvu/sovremennye-metody-opisaniya-funkcionalnyh-trebovanii.local.djvu`
 - Локальная текстовая выгрузка:
-  `knowledge/data/smfr/local/raw/sovremennye-metody-opisaniya-funkcionalnyh-trebovanii.txt`
+  `knowledge/data/smfr/items/text/sovremennye-metody-opisaniya-funkcionalnyh-trebovanii.local.txt`
 
 ## Что удалось выделить
 

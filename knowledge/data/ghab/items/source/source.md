@@ -27,8 +27,8 @@
 - заголовки ответа:
   `knowledge/data/ghab/items/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/response-headers.txt`
 
-Снимок хранится локально с исключением `pages/` из Git через
-`knowledge/data/ghab/items/source/legacy-primary.gitignore`.
+Снимок страницы (HTML и заголовки ответа) отслеживается в Git в папке единицы
+источника.
 
 ## Ограничения
 

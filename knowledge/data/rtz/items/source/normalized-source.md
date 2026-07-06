@@ -16,7 +16,7 @@
 ## Входной материал
 
 - Локальная текстовая выгрузка PDF:
-  `knowledge/data/rtz/local/raw/po-ksis-tech-task.txt`
+  `knowledge/data/rtz/items/text/po-ksis-tech-task.local.txt`
 
 ## Что удалось выделить
 

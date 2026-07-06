@@ -16,7 +16,7 @@
 - Тип источника: локальная PDF-книга
 - Способ получения: пользователь указал локальный файл с исходным именем
   `Психбольница в руках пациентов.pdf`; для корпуса создана рабочая копия в
-  игнорируемом каталоге `knowledge/data/inma/local/raw/`
+  игнорируемом каталоге `*.local.*`
 - Дата включения в корпус: `2026-06-25`
 
 ## Что сохранено
@@ -25,9 +25,10 @@
 
 - паспорт: `knowledge/data/inma/items/source/source.md`
 - индекс артефактов: `knowledge/data/inma/items/source/page-index.tsv`
-- PDF: `knowledge/data/inma/local/raw/inmates-are-running-the-asylum-ru.pdf`
+- PDF:
+  `knowledge/data/inma/items/pdf/inmates-are-running-the-asylum-ru.local.pdf`
 - текстовая выгрузка:
-  `knowledge/data/inma/local/raw/inmates-are-running-the-asylum-ru.txt`
+  `knowledge/data/inma/items/text/inmates-are-running-the-asylum-ru.local.txt`
 - нормализованный обзор: `knowledge/data/inma/items/source/normalized-source.md`
 - нормализованные фрагменты: `knowledge/data/inma/items/`
 

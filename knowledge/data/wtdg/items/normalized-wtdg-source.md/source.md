@@ -9,7 +9,7 @@
 - Первичные снимки внутренних страниц: `knowledge/data/wtdg/items/`
 - Индекс внутренних страниц: `knowledge/data/wtdg/items/source/page-index.tsv`
 - Вспомогательные очищенные копии:
-  `knowledge/data/wtdg/items/normalized-wtdg-legacy-source.md/legacy-source.md`,
+  `knowledge/data/wtdg/items/normalized-wtdg-overview-source.md/overview-source.md`,
   `knowledge/data/wtdg/items/`
 - Дата получения: `2026-05-29T12:35:22Z`
 

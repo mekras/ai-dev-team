@@ -148,7 +148,7 @@
 
 ### Severity: Low — способ работы с источником соответствует ограничению
 
-Документ: `knowledge/data/evar/items/source/legacy-primary.gitignore`,
+Документ: `knowledge/data/evar/items/source/source.md`,
 `knowledge/source-attribution.md`
 
 Источник: `EVAR`, проверка `2026-06-24`

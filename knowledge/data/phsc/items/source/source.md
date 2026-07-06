@@ -25,8 +25,8 @@
 - заголовки ответа:
   `knowledge/data/phsc/items/writing-good-agents/response-headers.txt`
 
-Снимок хранится локально с исключением `pages/` из Git через
-`knowledge/data/phsc/items/source/legacy-primary.gitignore`.
+Снимок страницы (HTML и заголовки ответа) отслеживается в Git в папке единицы
+источника.
 
 ## Ограничения
 

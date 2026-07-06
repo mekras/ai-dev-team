@@ -20,7 +20,7 @@
 - заголовки HTTP-ответа для обзорной страницы:
   `knowledge/data/wtdg/items/source/response-headers.txt`
 - вспомогательная очищенная копия обзорной страницы:
-  `knowledge/data/wtdg/items/normalized-wtdg-legacy-source.md/legacy-source.md`
+  `knowledge/data/wtdg/items/normalized-wtdg-overview-source.md/overview-source.md`
 - снимки внутренних страниц этого же источника: `knowledge/data/wtdg/items/`
 - вспомогательные очищенные копии внутренних страниц:
   `knowledge/data/wtdg/items/`

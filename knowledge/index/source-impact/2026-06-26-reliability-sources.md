@@ -181,7 +181,7 @@
 
 ### Severity: Low — способ работы с источниками соответствует ограничениям
 
-Документ: `knowledge/data/<slug>/items/source/legacy-primary.gitignore`,
+Документ: `knowledge/data/<slug>/items/source/source.md`,
 `knowledge/source-attribution.md`
 
 Источник: все 9, проверка `2026-06-26`

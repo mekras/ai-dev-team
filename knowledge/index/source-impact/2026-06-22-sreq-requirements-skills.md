@@ -202,7 +202,7 @@ real-time, интеграциями и качественными атрибут
 
 ### Severity: Low — текущий способ работы с источником соответствует ограничению
 
-Документ: `knowledge/data/sreq/items/source/legacy-primary.gitignore`,
+Документ: `knowledge/data/sreq/items/source/source.md`,
 `knowledge/source-attribution.md`
 
 Источник: `SREQ`, проверка `2026-06-22`

@@ -166,7 +166,7 @@
 
 ### Severity: Low — способ работы с источником соответствует ограничению
 
-Документ: `knowledge/data/sahp/items/source/legacy-primary.gitignore`,
+Документ: `knowledge/data/sahp/items/source/source.md`,
 `knowledge/source-attribution.md`
 
 Источник: `SAHP`, проверка `2026-06-24`

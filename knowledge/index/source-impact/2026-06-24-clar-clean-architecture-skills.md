@@ -179,7 +179,7 @@ REP/CCP/CRP и ADP/SDP/SAP с метриками I/A/D и зонами риск�
 
 ### Severity: Low — способ работы с источником соответствует ограничению
 
-Документ: `knowledge/data/clar/items/source/legacy-primary.gitignore`,
+Документ: `knowledge/data/clar/items/source/source.md`,
 `knowledge/source-attribution.md`
 
 Источник: `CLAR`, проверка `2026-06-24`

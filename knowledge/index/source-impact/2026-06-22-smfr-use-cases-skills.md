@@ -250,7 +250,7 @@
 
 ### Severity: Low — способ хранения источника остаётся подходящим
 
-Документ: `knowledge/data/smfr/items/source/legacy-primary.gitignore`,
+Документ: `knowledge/data/smfr/items/source/source.md`,
 `knowledge/source-attribution.md`
 
 Источник: `SMFR`, проверка `2026-06-22`

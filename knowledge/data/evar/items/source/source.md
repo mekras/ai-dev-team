@@ -19,7 +19,7 @@
 - Тип источника: локальная PDF-книга
 - Способ получения: по решению пользователя в проект скопирована локальная
   рабочая копия книги с хранением файла только в игнорируемом каталоге
-  `knowledge/data/evar/local/raw/`
+  `*.local.*`
 - Дата включения в корпус: `2026-06-24`
 
 ## Что сохранено
@@ -28,9 +28,9 @@
 
 - паспорт: `knowledge/data/evar/items/source/source.md`
 - индекс артефактов: `knowledge/data/evar/items/source/page-index.tsv`
-- PDF: `knowledge/data/evar/local/raw/evolutionary-architecture-ru.pdf`
+- PDF: `knowledge/data/evar/items/pdf/evolutionary-architecture-ru.local.pdf`
 - текстовая выгрузка:
-  `knowledge/data/evar/local/raw/evolutionary-architecture-ru.txt`
+  `knowledge/data/evar/items/text/evolutionary-architecture-ru.local.txt`
 
 В Git сохраняются только метаданные источника; обзорный нормализованный слой и
 извлечённые утверждения добавляются на следующих шагах без крупных дословных

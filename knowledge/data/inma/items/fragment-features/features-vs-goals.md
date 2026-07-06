@@ -4,7 +4,7 @@
 
 - Источник: `knowledge/data/inma/items/source/source.md`
 - Локальная текстовая выгрузка:
-  `knowledge/data/inma/local/raw/inmates-are-running-the-asylum-ru.txt`
+  `knowledge/data/inma/items/text/inmates-are-running-the-asylum-ru.local.txt`
 - Проверенный диапазон: строки `2360`-`2480`
 - Дата нормализации: `2026-06-25`
 

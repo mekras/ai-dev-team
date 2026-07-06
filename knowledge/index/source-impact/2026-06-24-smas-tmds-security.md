@@ -187,8 +187,8 @@ mesh). Навык `software-architecture` уже работает с грани�
 
 ### Severity: Low — способ работы с источниками соответствует ограничениям
 
-Документы: `knowledge/data/smas/items/source/legacy-primary.gitignore`,
-`knowledge/data/tmds/items/source/legacy-primary.gitignore`,
+Документы: `knowledge/data/smas/items/source/source.md`,
+`knowledge/data/tmds/items/source/source.md`,
 `knowledge/source-attribution.md`
 
 Источники: `SMAS`, `TMDS`, проверка `2026-06-24`

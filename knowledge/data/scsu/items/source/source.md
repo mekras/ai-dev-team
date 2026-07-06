@@ -26,7 +26,8 @@ Git.
 - паспорт: `knowledge/data/scsu/items/source/source.md`
 - карточка источника: `knowledge/data/scsu/source.yml`
 - индекс единиц: `knowledge/data/scsu/items.yml`
-- PDF (вне Git): `knowledge/data/scsu/local/raw/scrum-sutherland-ru.pdf`
+- PDF (вне Git):
+  `knowledge/data/scsu/items/source/scrum-sutherland-ru.local.pdf`
 
 В Git сохраняются только метаданные источника; полный PDF, текстовая выгрузка и
 крупные дословные фрагменты не публикуются.
