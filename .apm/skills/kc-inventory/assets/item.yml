@@ -15,10 +15,15 @@ copy_policy: no_bulk_copy # full_copy_allowed | fragments_only | metadata_only |
 allowed_use: "Точечная проверка с ссылкой на первоисточник."
 requires_access_check: true
 
+# files.local — неотслеживаемые файлы этой единицы рядом с её артефактами.
+# Маркер в имени: постоянное сырьё — *.local.* (запись.local.mp4),
+# временный рабочий файл — *.tmp.*. Оба исключены из Git и не требуют
+# вложенной папки.
 files:
   tracked:
     - message.md
   local:
+    - запись.local.mp4
     - attachment.tmp.bin
 
 known_limitations: []

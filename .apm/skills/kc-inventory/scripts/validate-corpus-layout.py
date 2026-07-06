@@ -272,7 +272,8 @@ class Validator:
             if path.exists():
                 self.errors.append(
                     f"{name}/: legacy corpus layer remains outside data/; "
-                    "migrate it into data/ or .local/ before declaring portable layout complete"
+                    "migrate it into data/ (untracked material as a *.local.* file "
+                    "beside its source or unit) before declaring portable layout complete"
                 )
 
     def source_dirs(self) -> list[Path]:
@@ -563,8 +564,10 @@ class Validator:
             if not (path.parent / artifact).exists():
                 self.errors.append(f"{rel}: tracked file does not exist: {artifact}")
         for artifact in files.get("local", []):
-            if ".tmp." not in artifact:
-                self.errors.append(f"{rel}: local file must use *.tmp.* name: {artifact}")
+            if ".local." not in artifact and ".tmp." not in artifact:
+                self.errors.append(
+                    f"{rel}: local file must use *.local.* or *.tmp.* name: {artifact}"
+                )
 
     def validate_unit_artifacts(self, unit_dir: Path) -> None:
         for artifact_path in sorted(unit_dir.iterdir()):
