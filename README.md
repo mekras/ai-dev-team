@@ -16,7 +16,7 @@
 Установка:
 
 ```bash
-apm install mekras/project-knowlege-corpus#^0.10.0
+apm install mekras/project-knowlege-corpus#^0.11.0
 ```
 
 Обновление:
