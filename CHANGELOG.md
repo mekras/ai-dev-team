@@ -11,6 +11,35 @@
 
 ## [Невыпущено]
 
+### Добавлено
+
+- Навык `ait-decisions`: единая дисциплина записей значимых решений любого вида
+  (ADR, ODR, DDR и другие) — журналы, шаблоны, статусная модель, контрольный
+  список качества, проверка существующих записей и журналов, инициативное
+  предложение записей и протокол «решение до действия» (решение `ADR-0002`).
+
+### Изменено
+
+- Справки `decision-workflow.md` и `adr-templates.md` перенесены из
+  `ait-architecture` в `ait-decisions` (`decision-workflow.md`,
+  `decision-templates.md`) и обобщены на все виды решений. В `ait-architecture`
+  осталась предметная ось — справка `architectural-decisions.md`: тест
+  архитектурной значимости, вопросы для ADR, анализ компромиссов, сложность
+  переходов.
+- `ait-setup` и `ait-docs-structure-design` при настройке проекта и
+  проектировании структуры документации предлагают завести журналы решений;
+  `ait-routing` включает `ait-decisions` в маршрут задач со значимым выбором.
+
+### Действия при обновлении
+
+- Если правила или документы проекта-потребителя ссылаются на справки
+  `ait-architecture/references/decision-workflow.md` или
+  `ait-architecture/references/adr-templates.md`, замени ссылки: общая
+  дисциплина и шаблоны — `ait-decisions/references/decision-workflow.md` и
+  `ait-decisions/references/decision-templates.md`, архитектурная ось —
+  `ait-architecture/references/architectural-decisions.md`. Проектам без таких
+  ссылок действий не требуется.
+
 ## [0.13.0] - 2026-07-06
 
 ### Изменено

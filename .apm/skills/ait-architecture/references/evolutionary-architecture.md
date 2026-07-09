@@ -120,5 +120,5 @@
   `distributed-tradeoffs.md`.
 - Предметный предохранительный уровень и ограниченные контексты —
   `domain-modeling.md`.
-- Обратимость и условия закрытия вариантов — `decision-workflow.md`,
-  `system-complexity.md`.
+- Обратимость и условия закрытия вариантов — навык `ait-decisions` (матрица
+  развилки), `system-complexity.md`.

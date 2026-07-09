@@ -32,6 +32,7 @@ REQUIRED_SKILLS = {
     "ait-req-specification",
     "ait-req-validation",
     "ait-architecture",
+    "ait-decisions",
     "ait-writing",
 }
 

@@ -31,6 +31,33 @@
 #   gaps               — известные разрывы (со ссылкой на BACKLOG.md)
 
 concepts:
+  - id: decision-record
+    primary_ru: запись решения
+    forms_ru: [запись проектного решения]
+    forms_en: [decision record]
+    definition_ru: запись, фиксирующая одно значимое проектное решение любого
+      вида (архитектурное — ADR, организационное — ODR, по документации — DDR и
+      другие; набор видов открытый) с контекстом и проблемой, рассмотренными
+      вариантами, решением с обоснованием, последствиями и способом проверки.
+    authority: ADRG
+    defined_by: [ADRG-014, ADRG-001]
+    cite_as: [ADRG]
+    covered_in:
+      - ait-decisions/SKILL.md
+      - ait-decisions/references/decision-workflow.md
+      - ait-decisions/references/decision-templates.md
+    synonyms_by_source:
+      ADRG: ADR, расширенный с архитектурных на любые организационные решения
+    reconciliation:
+      - обобщённая форма «запись решения» введена решением владельца
+        (ADR-0002, 2026-07-09) на основании ADRG-014; общая дисциплина записи
+        (тест значимости, пространство вариантов, статусная модель, минимум
+        секций) едина для всех видов и живёт в сквозном навыке ait-decisions,
+        профильные навыки задают только предметную ось своего вида.
+    collisions:
+      - не путать с записью архитектурного решения (ADR) — это один из видов
+        записи решения; см. architectural-decision-record.
+
   - id: architectural-decision-record
     primary_ru: запись архитектурного решения (ADR)
     forms_ru: [запись архитектурного решения, запись ADR, ADR]
@@ -39,8 +66,9 @@ concepts:
     defined_by: [ADRG-001, SAHP-007]
     cite_as: [ADRG, SAHP]
     covered_in:
-      - ait-architecture/references/decision-workflow.md
-      - ait-architecture/references/adr-templates.md
+      - ait-decisions/references/decision-workflow.md
+      - ait-decisions/references/decision-templates.md
+      - ait-architecture/SKILL.md (предметная ось архитектурных решений)
     synonyms_by_source:
       ADRG: Architectural Decision Record (ADR)
       SAHP: запись ADR (Контекст/Решение/Последствия)
@@ -49,6 +77,8 @@ concepts:
         статуса и без секции проверки).
     collisions:
       - не путать с самим решением (AD) — ADR это запись о решении.
+      - вид обобщённого понятия «запись решения» (decision-record); общая
+        дисциплина записи — в ait-decisions.
 
   - id: architectural-decision
     primary_ru: архитектурное решение
@@ -57,7 +87,7 @@ concepts:
     defined_by: [ADRG-002]
     cite_as: [ADRG]
     covered_in:
-      - ait-architecture/references/decision-workflow.md
+      - ait-decisions/references/decision-workflow.md
     synonyms_by_source:
       ADRG: Architectural Decision (AD)
     collisions:
@@ -71,7 +101,7 @@ concepts:
     defined_by: [ADRG-002]
     cite_as: [ADRG, G250]
     covered_in:
-      - ait-architecture/references/decision-workflow.md
+      - ait-decisions/references/decision-workflow.md
     synonyms_by_source:
       ADRG: Architecturally Significant Requirement (ASR)
     reconciliation:
@@ -91,7 +121,7 @@ concepts:
     defined_by: [ADRG-005, SAHP-007]
     cite_as: [ADRG, SAHP]
     covered_in:
-      - ait-architecture/references/adr-templates.md (Nygard)
+      - ait-decisions/references/decision-templates.md (Nygard)
     synonyms_by_source:
       ADRG: Nygard
       SAHP: формат ADR книги (Контекст/Решение/Последствия)
@@ -136,7 +166,7 @@ concepts:
     covered_in:
       - ait-architecture/references/distributed-tradeoffs.md
       - ait-architecture/references/quality-criteria.md
-      - ait-architecture/references/decision-workflow.md
+      - ait-decisions/references/decision-workflow.md
     synonyms_by_source:
       SAHP: связанность
     reconciliation:

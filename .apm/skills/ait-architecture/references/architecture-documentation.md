@@ -66,4 +66,5 @@
 
 - структуру и представления проверяй вместе с `quality-criteria.md` и
   `component-design.md`;
-- решения оформляй как ADR по `decision-workflow.md`.
+- решения оформляй как ADR по общей дисциплине навыка `ait-decisions` и
+  архитектурной оси `architectural-decisions.md`.

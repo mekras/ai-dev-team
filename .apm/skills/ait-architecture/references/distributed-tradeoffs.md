@@ -9,8 +9,8 @@
 
 Основание — источник `SAHP`
 (`knowledge/data/sahp/items/source/legacy-statements.md`). Для общего метода
-анализа компромиссов используй `decision-workflow.md`, для понятия проверяемого
-управления — функции пригодности в `quality-criteria.md`.
+анализа компромиссов используй `architectural-decisions.md`, для понятия
+проверяемого управления — функции пригодности в `quality-criteria.md`.
 
 ## Архитектурный квант и сопряжение
 
