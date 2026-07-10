@@ -1,0 +1,39 @@
+id: MD3
+slug: md3
+title: "`Material Design 3` — открытая дизайн-система Google для
+  пользовательских интерфейсов, включая Android."
+status: candidate
+priority: high
+carrier_type: website
+source_kind: reference
+adapter: manual
+storage_strategy: external_reference
+processing_scope: metadata_only
+retrieval_mode: on_demand
+copy_policy: no_bulk_copy
+allowed_use: "Точечная проверка платформенных правил Android, компонентов,
+  стилей и состояний со ссылкой на первоисточник."
+requires_access_check: true
+url: "https://m3.material.io/"
+locator: "https://m3.material.io/"
+public_reference: "https://developer.android.com/develop/ui/compose/designsystems/material3"
+license_or_terms: "Условия Google и Android Developers проверять перед
+  копированием фрагментов."
+access:
+  default: "Внешний публичный источник. Использовать как платформенный
+    справочник без локальной полной копии."
+reliability: official
+stability: mutable
+refresh_policy: manual
+last_checked_at: "2026-07-10"
+scope:
+  includes:
+    - "платформенные соглашения Android"
+    - "цвет, типографика, компоненты, формы, движение и состояния"
+    - "связь с реализацией через Material 3"
+  excludes:
+    - "обязательное применение Material к не-Android платформам"
+known_limitations:
+  - "Версии Material и Android меняются; перед применением нужна проверка
+    актуальной страницы."
+processing_notes: []

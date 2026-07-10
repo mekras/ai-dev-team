@@ -1,9 +1,9 @@
 id: ESWO-text
 source_id: ESWO
-title: "ESWO: text"
-access: "Смотри карточку единицы и связанные артефакты в knowledge/data/eswo/ и общие ограничения в knowledge/source-attribution.md."
+title: 'ESWO: text'
+access: Смотри карточку единицы и связанные артефакты в knowledge/data/eswo/ и общие ограничения в knowledge/source-attribution.md.
 status: approved
-workflow_stage: statements_extracted
+workflow_stage: raw_transcribed
 retrieval_mode: on_demand
 copy_policy: fragments_only
 requires_access_check: true
@@ -14,4 +14,5 @@ extracted_text:
   content_hash: sha256:994f41a3fd85d25b22194b5fe38e0290bd317e72e55848f64455d587a163b946
   metadata_source: pdftotext
 known_limitations:
-- Полная текстовая выгрузка хранится только рядом с единицей под маркером `*.local.*` и не публикуется в Git.
+- Полная текстовая выгрузка хранится только рядом с единицей под маркером `*.local.*` и не публикуется
+  в Git.

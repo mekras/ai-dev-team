@@ -4,13 +4,13 @@ statements:
   item_id: AR26-normalized-AR26-pages-2602.11988v1-index.md
   kind: fact
   status: ready_for_review
-  text: исследование сравнивает LLM-генерируемые и developer-written контекстные файлы
-    на разных наборах задач.
-  excerpt: описание методики с SWE-bench и issue-коллекцией.
+  text: исследование сравнивает LLM-генерируемые и developer-written контекстные файлы на разных наборах
+    задач.
+  excerpt: реальные issues из репозиториев с developer-written контекстом.
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Ключевые положения
     application: дизайн методик оценки контекста.
   open_questions: []
 - id: AR26-002
@@ -18,13 +18,13 @@ statements:
   item_id: AR26-normalized-AR26-pages-2602.11988v1-index.md
   kind: fact
   status: ready_for_review
-  text: по результатам нескольких агентов и LLM использование context-файлов снижает
-    вероятность успешного завершения по сравнению с отсутствием контекста.
-  excerpt: абстракт.
+  text: по результатам нескольких агентов и LLM использование context-файлов снижает вероятность успешного
+    завершения по сравнению с отсутствием контекста.
+  excerpt: использовании context files относительно отсутствия репозиторного контекста.
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Ключевые положения
     application: риск оценки избыточных требований.
   open_questions: []
 - id: AR26-003
@@ -33,11 +33,11 @@ statements:
   kind: fact
   status: ready_for_review
   text: использование контекстных файлов увеличивает инференс-кост на более чем 20%.
-  excerpt: абстракт указывает рост inference cost.
+  excerpt: Исследуется эффективность контекстных файлов (AGENTS.md и аналоги).
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Ключевые положения
     application: оценка производительности и стоимости.
   open_questions: []
 - id: AR26-004
@@ -45,13 +45,13 @@ statements:
   item_id: AR26-normalized-AR26-pages-2602.11988v1-index.md
   kind: fact
   status: ready_for_review
-  text: контекстные файлы увеличивают глубину изучения репозитория (широкая проверка,
-    большее файловое исследование), и агенты в целом следуют заданным инструкциям.
-  excerpt: абстракт о behavioral effects и "coding agents tend to respect their instructions".
+  text: контекстные файлы увеличивают глубину изучения репозитория (широкая проверка, большее файловое
+    исследование), и агенты в целом следуют заданным инструкциям.
+  excerpt: Контентные файлы повышают поведение исследования (широкая проверка,
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Ключевые положения
     application: баланс полезности и риска.
   open_questions: []
 - id: AR26-005
@@ -59,13 +59,13 @@ statements:
   item_id: AR26-normalized-AR26-pages-2602.11988v1-index.md
   kind: fact
   status: ready_for_review
-  text: итоговый вывод статьи — оставлять только минимально необходимые требования
-    во избежание усложнения задач.
-  excerpt: заключение абстракта.
+  text: итоговый вывод статьи — оставлять только минимально необходимые требования во избежание усложнения
+    задач.
+  excerpt: 'Вывод: требования должны быть минимальными и не перегружать контекст.'
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Ключевые положения
     application: стратегия компоновки `AGENTS.md`.
   open_questions: []
 - id: AR26-006
@@ -73,12 +73,11 @@ statements:
   item_id: AR26-normalized-AR26-pages-2602.11988v1-index.md
   kind: fact
   status: ready_for_review
-  text: в введении указано, что на момент публикации практику используют десятки тысяч
-    репозиториев.
-  excerpt: упоминание более 60 000 репозиториев с такими файлами.
+  text: в введении указано, что на момент публикации практику используют десятки тысяч репозиториев.
+  excerpt: Вступление указывает, что практику используют многие репозитории
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Ключевые положения
     application: оценка практической распространенности подхода.
   open_questions: []

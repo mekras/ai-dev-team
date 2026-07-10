@@ -4,13 +4,13 @@ statements:
   item_id: O523-iso-5230-2020
   kind: fact
   status: ready_for_review
-  text: спецификация требует наличия письменной политики, управляющей соблюдением
-    лицензионных обязательств для поставляемого ПО.
-  excerpt: раздел `3.1.1 - Policy`.
+  text: спецификация требует наличия письменной политики, управляющей соблюдением лицензионных обязательств
+    для поставляемого ПО.
+  excerpt: The open source policy;
   artifact: index.md
   checked_at: '2026-06-05'
   scope:
-    section_title: ''
+    section_title: 3.1.3 - Awareness
     application: формализация правил работы с открытыми лицензиями.
   open_questions: []
 - id: O523-002
@@ -18,13 +18,13 @@ statements:
   item_id: O523-iso-5230-2020
   kind: fact
   status: ready_for_review
-  text: программа должна иметь процесс обзора выявленных лицензий для определения
-    обязанностей, ограничений и предоставленных прав.
-  excerpt: раздел `3.1.5 - License obligations`.
+  text: программа должна иметь процесс обзора выявленных лицензий для определения обязанностей, ограничений
+    и предоставленных прав.
+  excerpt: 3.1.5 - License obligations
   artifact: index.md
   checked_at: '2026-06-05'
   scope:
-    section_title: ''
+    section_title: 3 - Requirements
     application: проверка лицензий и формирование правил использования.
   open_questions: []
 - id: O523-003
@@ -32,13 +32,13 @@ statements:
   item_id: O523-iso-5230-2020
   kind: fact
   status: ready_for_review
-  text: спецификация требует процесса создания и сопровождения BOM, включающего компоненты
-    открытого ПО и их лицензии.
-  excerpt: раздел `3.3.1 - Bill of materials`.
+  text: спецификация требует процесса создания и сопровождения BOM, включающего компоненты открытого ПО
+    и их лицензии.
+  excerpt: 3.3.1 - Bill of materials
   artifact: index.md
   checked_at: '2026-06-05'
   scope:
-    section_title: ''
+    section_title: 3 - Requirements
     application: учёт состава поставляемого ПО и его лицензий.
   open_questions: []
 - id: O523-004
@@ -46,13 +46,12 @@ statements:
   item_id: O523-iso-5230-2020
   kind: fact
   status: ready_for_review
-  text: программа должна поддерживать типовые лицензионные сценарии и выпускать требуемые
-    артефакты соответствия.
-  excerpt: разделы `3.3.2 - License compliance` и 3.4.1 - Compliance artifacts`.
+  text: программа должна поддерживать типовые лицензионные сценарии и выпускать требуемые артефакты соответствия.
+  excerpt: 3.3.2 - License compliance
   artifact: index.md
   checked_at: '2026-06-05'
   scope:
-    section_title: ''
+    section_title: 3 - Requirements
     application: практическая обработка кейсов лицензирования и поставки.
   open_questions: []
 - id: O523-005
@@ -60,12 +59,12 @@ statements:
   item_id: O523-iso-5230-2020
   kind: fact
   status: ready_for_review
-  text: спецификация требует публично видимого способа для приёма запросов третьих
-    лиц по вопросам лицензионного соответствия.
-  excerpt: пункт `3.2.1.1`.
+  text: спецификация требует публично видимого способа для приёма запросов третьих лиц по вопросам лицензионного
+    соответствия.
+  excerpt: 'This Specification is functionally identical to:'
   artifact: index.md
   checked_at: '2026-06-05'
   scope:
-    section_title: ''
+    section_title: Version 2.1
     application: внешняя коммуникация и обработка compliance-запросов.
   open_questions: []

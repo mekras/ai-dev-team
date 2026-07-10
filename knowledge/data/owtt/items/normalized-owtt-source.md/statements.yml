@@ -4,9 +4,9 @@ statements:
   item_id: OWTT-normalized-OWTT-source.md
   kind: fact
   status: ready_for_review
-  text: OWASP Top 10 — перечень наиболее критичных рисков безопасности веб-приложений
-    для повышения осведомлённости, а не полный стандарт требований.
-  excerpt: обзор проекта.
+  text: OWASP Top 10 — перечень наиболее критичных рисков безопасности веб-приложений для повышения осведомлённости,
+    а не полный стандарт требований.
+  excerpt: Перечень — инструмент осведомлённости о рисках, а не полный стандарт
   artifact: source.md
   checked_at: '2026-06-25'
   scope:
@@ -18,12 +18,11 @@ statements:
   item_id: OWTT-normalized-OWTT-source.md
   kind: fact
   status: ready_for_review
-  text: редакция 2021 включает A01 Broken Access Control, A02 Cryptographic Failures,
-    A03 Injection, A04 Insecure Design, A05 Security Misconfiguration, A06 Vulnerable
-    and Outdated Components, A07 Identification and Authentication Failures, A08 Software
-    and Data Integrity Failures, A09 Security Logging and Monitoring Failures, A10
-    Server-Side Request Forgery (SSRF).
-  excerpt: перечень категорий.
+  text: редакция 2021 включает A01 Broken Access Control, A02 Cryptographic Failures, A03 Injection, A04
+    Insecure Design, A05 Security Misconfiguration, A06 Vulnerable and Outdated Components, A07 Identification
+    and Authentication Failures, A08 Software and Data Integrity Failures, A09 Security Logging and Monitoring
+    Failures, A10 Server-Side Request Forgery (SSRF).
+  excerpt: A10 Server-Side Request Forgery (SSRF) — подделка запросов на стороне сервера.
   artifact: source.md
   checked_at: '2026-06-25'
   scope:
@@ -35,10 +34,9 @@ statements:
   item_id: OWTT-normalized-OWTT-source.md
   kind: fact
   status: ready_for_review
-  text: категория A04 «Insecure Design» подчёркивает моделирование угроз и безопасное
-    проектирование; категории связаны со слабостями `CWE`; для проверяемых требований
-    используется `ASVS`.
-  excerpt: описание категорий и связей.
+  text: категория A04 «Insecure Design» подчёркивает моделирование угроз и безопасное проектирование;
+    категории связаны со слабостями `CWE`; для проверяемых требований используется `ASVS`.
+  excerpt: A04 Insecure Design — небезопасный дизайн (новая категория про моделирование
   artifact: source.md
   checked_at: '2026-06-25'
   scope:
@@ -50,10 +48,9 @@ statements:
   item_id: OWTT-normalized-OWTT-source.md
   kind: limitation
   status: ready_for_review
-  text: перечень обновляется раз в несколько лет, состав и порядок категорий меняются
-    — при использовании указывать редакцию и сверяться с актуальной по каноническому
-    адресу.
-  excerpt: история редакций.
+  text: перечень обновляется раз в несколько лет, состав и порядок категорий меняются — при использовании
+    указывать редакцию и сверяться с актуальной по каноническому адресу.
+  excerpt: Категории связаны со слабостями `CWE`; редакция и порядок меняются между
   artifact: source.md
   checked_at: '2026-06-25'
   scope:

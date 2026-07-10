@@ -4,9 +4,9 @@ statements:
   item_id: ATCK-normalized-ATCK-source.md
   kind: fact
   status: ready_for_review
-  text: ATT&CK — база знаний о тактиках, техниках и процедурах (TTP) злоумышленников,
-    основанная на наблюдениях реальных атак.
-  excerpt: обзор сайта ATT&CK.
+  text: ATT&CK — база знаний о тактиках, техниках и процедурах (TTP) злоумышленников, основанная на наблюдениях
+    реальных атак.
+  excerpt: ATT&CK — база знаний о тактиках, техниках и процедурах (TTP) злоумышленников,
   artifact: source.md
   checked_at: '2026-06-25'
   scope:
@@ -18,9 +18,8 @@ statements:
   item_id: ATCK-normalized-ATCK-source.md
   kind: fact
   status: ready_for_review
-  text: ATT&CK охватывает домены Enterprise, Mobile и ICS, представленные отдельными
-    матрицами.
-  excerpt: обзор доменов.
+  text: ATT&CK охватывает домены Enterprise, Mobile и ICS, представленные отдельными матрицами.
+  excerpt: Enterprise — корпоративные ИТ-среды (ОС, облака, сети, контейнеры).
   artifact: source.md
   checked_at: '2026-06-25'
   scope:
@@ -32,10 +31,10 @@ statements:
   item_id: ATCK-normalized-ATCK-source.md
   kind: fact
   status: ready_for_review
-  text: модель связывает тактики (цель этапа), техники и подтехники (как достигается,
-    идентификаторы `Txxxx`), меры нейтрализации, а также наблюдаемые группы и используемое
-    ПО; число тактик Enterprise (около 14) и состав сверяются по каноническому адресу.
-  excerpt: структура сущностей.
+  text: модель связывает тактики (цель этапа), техники и подтехники (как достигается, идентификаторы `Txxxx`),
+    меры нейтрализации, а также наблюдаемые группы и используемое ПО; число тактик Enterprise (около 14)
+    и состав сверяются по каноническому адресу.
+  excerpt: Techniques и Sub-techniques — техники и подтехники (как достигается тактика),
   artifact: source.md
   checked_at: '2026-06-25'
   scope:
@@ -47,10 +46,9 @@ statements:
   item_id: ATCK-normalized-ATCK-source.md
   kind: fact
   status: ready_for_review
-  text: ATT&CK применяется как библиотека TTP для операционных моделей угроз (что
-    может сделать злоумышленник) и связывается с шаблонами атак CAPEC`; конкретные
-    техники берутся по идентификатору с атрибуцией MITRE.
-  excerpt: назначение базы и связи.
+  text: ATT&CK применяется как библиотека TTP для операционных моделей угроз (что может сделать злоумышленник)
+    и связывается с шаблонами атак CAPEC`; конкретные техники берутся по идентификатору с атрибуцией MITRE.
+  excerpt: идентификатору `Txxxx` с атрибуцией MITRE.
   artifact: source.md
   checked_at: '2026-06-25'
   scope:

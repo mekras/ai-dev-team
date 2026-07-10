@@ -1,0 +1,37 @@
+id: NFRM
+slug: nfrm
+title: "`Neuform` — генератор HTML-страниц, шаблонов и файлов `DESIGN.md` для
+  дизайн-систем, читаемых агентами ИИ."
+status: candidate
+priority: normal
+carrier_type: website
+source_kind: knowledge_base
+adapter: manual
+storage_strategy: external_reference
+processing_scope: metadata_only
+retrieval_mode: on_demand
+copy_policy: no_bulk_copy
+allowed_use: "Точечная проверка формата и практики `DESIGN.md` со ссылкой на
+  первоисточник."
+requires_access_check: true
+url: "https://neuform.ai/"
+locator: "https://neuform.ai/"
+public_reference: "https://neuform.ai/"
+license_or_terms: "Открытая лицензия на копирование материалов сайта не
+  установлена."
+access:
+  default: "Внешний публичный сайт. Не копировать полный каталог и шаблоны."
+reliability: working
+stability: mutable
+refresh_policy: manual
+last_checked_at: "2026-07-10"
+scope:
+  includes:
+    - "генерация HTML-страниц и шаблонов"
+    - "создание повторно используемых файлов `DESIGN.md`"
+  excludes:
+    - "обязательный инструмент продукта"
+known_limitations:
+  - "Источник ориентирован на HTML и лендинги; переносимость к мобильным
+    интерфейсам требует осторожности."
+processing_notes: []

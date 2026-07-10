@@ -1,0 +1,41 @@
+id: IMPD
+slug: impd
+title: "`Impeccable` — открытый набор инструкций, команд и проверок для
+  улучшения интерфейсов, создаваемых агентами ИИ."
+status: candidate
+priority: high
+carrier_type: repository
+source_kind: knowledge_base
+adapter: manual
+storage_strategy: external_reference
+processing_scope: metadata_only
+retrieval_mode: on_demand
+copy_policy: no_bulk_copy
+allowed_use: "Точечная проверка подходов, команд и проверок со ссылкой на
+  первоисточник."
+requires_access_check: true
+url: "https://github.com/pbakaus/impeccable"
+locator: "https://github.com/pbakaus/impeccable"
+public_reference: "https://impeccable.style/"
+license_or_terms: "Apache-2.0 для репозитория; условия сайта проверять перед
+  копированием фрагментов."
+access:
+  default: "Внешний публичный источник. Не копировать полный репозиторий или
+    сайт в корпус без отдельной проверки лицензии и объёма."
+reliability: working
+stability: mutable
+refresh_policy: manual
+last_checked_at: "2026-07-10"
+scope:
+  includes:
+    - "инструкции и команды для дизайна интерфейсов агентами ИИ"
+    - "антишаблоны и детерминированные проверки интерфейсного результата"
+    - "подход к живой итерации через браузер и скриншоты"
+  excludes:
+    - "обязательная зависимость продукта от CLI Impeccable"
+known_limitations:
+  - "Источник ориентирован прежде всего на фронтенд; применение к мобильным и
+    нативным интерфейсам требует отдельной адаптации."
+processing_notes:
+  - "Использовать как источник идей для процедуры и проверок
+    `ait-interface-design`, а не как готовую замену навыкам продукта."

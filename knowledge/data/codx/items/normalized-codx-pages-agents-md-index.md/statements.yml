@@ -5,12 +5,11 @@ statements:
   kind: fact
   status: ready_for_review
   text: Codex строит цепочку инструкций при старте и применяет их к каждому сеансу.
-  excerpt: в разделе описания объясняется порядок формирование guidance-сцепочки при
-    старте.
+  excerpt: Источник описывает формирование цепочки инструкций, которую Codex строит
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Основные тезисы
     application: процессы инициализации.
   open_questions: []
 - id: CODX-002
@@ -18,13 +17,13 @@ statements:
   item_id: CODX-normalized-CODX-pages-agents-md-index.md
   kind: fact
   status: ready_for_review
-  text: глобальный уровень `~/.codex` имеет приоритет над локальными до тех пор, пока
-    не будет найден более специфичный override.
-  excerpt: указана очередь чтения в глобальном скоупе и правило "первый непустой файл".
+  text: глобальный уровень `~/.codex` имеет приоритет над локальными до тех пор, пока не будет найден
+    более специфичный override.
+  excerpt: 'Сначала берётся глобальный уровень в `~/.codex`:'
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Последовательность приоритетов
     application: глобальные соглашения между проектами.
   open_questions: []
 - id: CODX-003
@@ -32,14 +31,13 @@ statements:
   item_id: CODX-normalized-CODX-pages-agents-md-index.md
   kind: fact
   status: ready_for_review
-  text: проектный уровень просматривает все каталоги от корня до текущего и для каждого
-    пытается применить до одного файла (`AGENTS.override.md`, затем `AGENTS.md`, затем
-    fallback).
-  excerpt: описание процесса Discovery по пути от root до cwd.
+  text: проектный уровень просматривает все каталоги от корня до текущего и для каждого пытается применить
+    до одного файла (`AGENTS.override.md`, затем `AGENTS.md`, затем fallback).
+  excerpt: 'Затем проектный уровень: путь от корня проекта к текущей директории.'
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Последовательность приоритетов
     application: локальные правила в многоуровневых репозиториях.
   open_questions: []
 - id: CODX-004
@@ -47,14 +45,12 @@ statements:
   item_id: CODX-normalized-CODX-pages-agents-md-index.md
   kind: fact
   status: ready_for_review
-  text: порядок объединения — от корня вниз, более глубокие файлы идут позже и имеют
-    больший вес.
-  excerpt: описан порядок конкатенации с пустыми строками и правило override для closer
-    scope.
+  text: порядок объединения — от корня вниз, более глубокие файлы идут позже и имеют больший вес.
+  excerpt: Файлы closer-to-workdir объединяются позже и перекрывают ранние.
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Последовательность приоритетов
     application: маршрутизация конфликтов между файлами инструкций.
   open_questions: []
 - id: CODX-005
@@ -62,13 +58,13 @@ statements:
   item_id: CODX-normalized-CODX-pages-agents-md-index.md
   kind: fact
   status: ready_for_review
-  text: Codex прекращает добавление файлов инструкций по лимиту размера контекста
-    (`project_doc_max_bytes`, по умолчанию 32 KiB).
-  excerpt: источник прямо указывает на лимит и возможный срез при сборе инструкций.
+  text: Codex прекращает добавление файлов инструкций по лимиту размера контекста (`project_doc_max_bytes`,
+    по умолчанию 32 KiB).
+  excerpt: Наконец, выполняется лимит по объёму (`project_doc_max_bytes`,
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Основные тезисы
     application: контроль размера цепочки инструкций.
   open_questions: []
 - id: CODX-006
@@ -76,13 +72,12 @@ statements:
   item_id: CODX-normalized-CODX-pages-agents-md-index.md
   kind: fact
   status: ready_for_review
-  text: для повышения надёжности рекомендуют увеличивать лимит или делить соглашения
-    на вложенные файлы при переполнении.
-  excerpt: указание "Raise the limit or split instructions across nested directories
-    when you hit the cap."
+  text: для повышения надёжности рекомендуют увеличивать лимит или делить соглашения на вложенные файлы
+    при переполнении.
+  excerpt: или переносить соглашения в вложенные директории.
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Что добавить в практику проекта
     application: устойчивость конфигурации для длинных правил.
   open_questions: []

@@ -68,6 +68,12 @@
       "rationale": "Вопрос о стартовых файлах и правилах проекта относится к настройке через ait-setup."
     },
     {
+      "id": "ait-setup-positive-decision-priorities",
+      "prompt": "Настрой проект и уточни, какие факторы важнее при принятии решений.",
+      "should_trigger": true,
+      "rationale": "Приоритеты проектных решений собираются при настройке проекта и закрепляются в AGENTS.md."
+    },
+    {
       "id": "ait-setup-negative-readme-only",
       "prompt": "Обнови README.md: добавь команду установки и ссылку на документацию.",
       "should_trigger": false,

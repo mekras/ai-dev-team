@@ -5,11 +5,11 @@ statements:
   kind: fact
   status: ready_for_review
   text: документ рекомендует добавлять SPDX License ID в каждый файл, где это возможно.
-  excerpt: блок `Important Tips`.
+  excerpt: Uses the SPDX License List
   artifact: spdx-oslbp-022525a.txt
   checked_at: '2026-06-05'
   scope:
-    section_title: ''
+    section_title: spdx-oslbp-022525a
     application: маркировка файлов и автоматизация проверки.
   open_questions: []
 - id: LFSP-002
@@ -17,14 +17,13 @@ statements:
   item_id: LFSP-primary-LFSP-files-spdx-oslbp-022525a.txt
   kind: fact
   status: ready_for_review
-  text: для кода, документации, спецификаций и данных следует подбирать разные типы
-    лицензий, а исходная лицензия кода не должна автоматически переноситься на остальные
-    артефакты.
-  excerpt: блок `Choose Your License`.
+  text: для кода, документации, спецификаций и данных следует подбирать разные типы лицензий, а исходная
+    лицензия кода не должна автоматически переноситься на остальные артефакты.
+  excerpt: No License Specified
   artifact: spdx-oslbp-022525a.txt
   checked_at: '2026-06-05'
   scope:
-    section_title: ''
+    section_title: 'SPDX-License-Identifier: GPL-2.0-only'
     application: выбор лицензии по типу материала.
   open_questions: []
 - id: LFSP-003
@@ -32,13 +31,13 @@ statements:
   item_id: LFSP-primary-LFSP-files-spdx-oslbp-022525a.txt
   kind: fact
   status: ready_for_review
-  text: среди базовых практик названы поиск и учёт всех лицензий через SCA-инструмент
-    и соблюдение всех обязанностей по лицензии, включая атрибуцию.
-  excerpt: блоки `Common License Conflicts` и `Attributions`.
+  text: среди базовых практик названы поиск и учёт всех лицензий через SCA-инструмент и соблюдение всех
+    обязанностей по лицензии, включая атрибуцию.
+  excerpt: Common License Conflicts
   artifact: spdx-oslbp-022525a.txt
   checked_at: '2026-06-05'
   scope:
-    section_title: ''
+    section_title: 'SPDX-License-Identifier: GPL-2.0-only'
     application: проверки соответствия и сопровождение процессов.
   open_questions: []
 - id: LFSP-004
@@ -46,12 +45,11 @@ statements:
   item_id: LFSP-primary-LFSP-files-spdx-oslbp-022525a.txt
   kind: fact
   status: ready_for_review
-  text: документ прямо различает copyright notice и собственно лицензию, не сводя
-    одно к другому.
-  excerpt: строка `Copyright Notice ≠ License`.
+  text: документ прямо различает copyright notice и собственно лицензию, не сводя одно к другому.
+  excerpt: Copyright Notice ≠ License
   artifact: spdx-oslbp-022525a.txt
   checked_at: '2026-06-05'
   scope:
-    section_title: ''
+    section_title: 'SPDX-License-Identifier: GPL-2.0-only'
     application: анализ полноты лицензионной информации в артефактах.
   open_questions: []

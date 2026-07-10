@@ -4,10 +4,9 @@ statements:
   item_id: CYDX-normalized-CYDX-source.md
   kind: fact
   status: ready_for_review
-  text: CycloneDX — полнофункциональный стандарт Bill of Materials (BOM) для управления
-    рисками цепочки поставок ПО; на дату включения актуальна версия 1.7`, стандарт
-    опубликован как `ECMA-424`.
-  excerpt: обзор спецификации.
+  text: CycloneDX — полнофункциональный стандарт Bill of Materials (BOM) для управления рисками цепочки
+    поставок ПО; на дату включения актуальна версия 1.7`, стандарт опубликован как `ECMA-424`.
+  excerpt: рисками цепочки поставок ПО. На дату включения актуальна версия `1.7`; стандарт
   artifact: source.md
   checked_at: '2026-06-25'
   scope:
@@ -19,9 +18,9 @@ statements:
   item_id: CYDX-normalized-CYDX-source.md
   kind: fact
   status: ready_for_review
-  text: 'стандарт поддерживает несколько видов BOM: SBOM (состав ПО), SaaSBOM (сервисы),
-    HBOM (аппаратура), ML-BOM (модели ML), CBOM (криптография) и другие.'
-  excerpt: обзор видов BOM.
+  text: 'стандарт поддерживает несколько видов BOM: SBOM (состав ПО), SaaSBOM (сервисы), HBOM (аппаратура),
+    ML-BOM (модели ML), CBOM (криптография) и другие.'
+  excerpt: SBOM (состав ПО), SaaSBOM (сервисы), HBOM (аппаратура), ML-BOM (модели ML),
   artifact: source.md
   checked_at: '2026-06-25'
   scope:
@@ -33,10 +32,9 @@ statements:
   item_id: CYDX-normalized-CYDX-source.md
   kind: fact
   status: ready_for_review
-  text: документ BOM описывает компоненты (с лицензией и происхождением), сервисы,
-    прямые и транзитивные зависимости, известные уязвимости с поддержкой VEX и процессы
-    сборки/развёртывания (formulation).
-  excerpt: содержимое спецификации.
+  text: документ BOM описывает компоненты (с лицензией и происхождением), сервисы, прямые и транзитивные
+    зависимости, известные уязвимости с поддержкой VEX и процессы сборки/развёртывания (formulation).
+  excerpt: Formulation — процессы сборки и развёртывания (workflows, tasks).
   artifact: source.md
   checked_at: '2026-06-25'
   scope:
@@ -48,10 +46,10 @@ statements:
   item_id: CYDX-normalized-CYDX-source.md
   kind: inference
   status: ready_for_review
-  text: CycloneDX служит основанием для SCA и SBOM в навыке security-tooling` и связан
-    с практикой проверки компонентов SSDF (`PW.4`); он дополняет учтённый в корпусе
-    стандарт `SPDX`, не заменяя его. Версию сверять по каноническому адресу.
-  excerpt: назначение и сопоставление.
+  text: CycloneDX служит основанием для SCA и SBOM в навыке security-tooling` и связан с практикой проверки
+    компонентов SSDF (`PW.4`); он дополняет учтённый в корпусе стандарт `SPDX`, не заменяя его. Версию
+    сверять по каноническому адресу.
+  excerpt: (`PW.4`). Дополняет учтённый `SPDX`, не заменяя его. Версию сверять по адресу.
   artifact: source.md
   checked_at: '2026-06-25'
   scope:

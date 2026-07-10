@@ -4,10 +4,9 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: 'моделирование угроз строится вокруг четырёх вопросов: (1) что вы строите,
-    (2) что может пойти не так с этим после постройки, (3) что с этим делать, (4)
-    достаточно ли хорошо вы выполнили анализ.'
-  excerpt: введение, раздел «The Four-Step Framework».
+  text: 'моделирование угроз строится вокруг четырёх вопросов: (1) что вы строите, (2) что может пойти
+    не так с этим после постройки, (3) что с этим делать, (4) достаточно ли хорошо вы выполнили анализ.'
+  excerpt: строите → что может пойти не так → что с этим делать → достаточно ли хорошо вы
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -19,10 +18,10 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: 'четырём вопросам соответствуют четыре шага: смоделировать систему → найти
-    угрозы → устранить угрозы → проверить работу на полноту и результативность; рамка
-    согласована с жизненным циклом разработки и эксплуатации.'
-  excerpt: введение, раздел «The Four-Step Framework», рис. I-1.
+  text: 'четырём вопросам соответствуют четыре шага: смоделировать систему → найти угрозы → устранить
+    угрозы → проверить работу на полноту и результативность; рамка согласована с жизненным циклом разработки
+    и эксплуатации.'
+  excerpt: результативность. Рамка согласована с жизненным циклом разработки и
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -34,10 +33,10 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: 'методики внутри каждого этапа сравниваются с блоками конструктора: их можно
-    подключать и заменять, не меняя всю рамку (например, заменить STRIDE деревьями
-    атак), но не все методики совместимы между собой.'
-  excerpt: введение, раздел «The Four-Step Framework».
+  text: 'методики внутри каждого этапа сравниваются с блоками конструктора: их можно подключать и заменять,
+    не меняя всю рамку (например, заменить STRIDE деревьями атак), но не все методики совместимы между
+    собой.'
+  excerpt: их можно подключать и заменять, не меняя всю рамку. Книга движется от обучения
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -49,10 +48,9 @@ statements:
   item_id: TMDS-text
   kind: observation
   status: ready_for_review
-  text: 'глава 1 проводит читателя по рамке на примере: построить диаграмму системы,
-    использовать STRIDE для поиска того, что может пойти не так, устранить каждую
-    угрозу и проверить работу чек-листом.'
-  excerpt: глава 1 «Dive In and Threat Model!».
+  text: 'глава 1 проводит читателя по рамке на примере: построить диаграмму системы, использовать STRIDE
+    для поиска того, что может пойти не так, устранить каждую угрозу и проверить работу чек-листом.'
+  excerpt: 'Глава 1 «Dive In and Threat Model!»: учебный проход по рамке на примере;'
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -64,9 +62,8 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: при путанице в процессе следует возвращаться к четырём базовым вопросам как
-    к опоре.
-  excerpt: глава 1, раздел «Learning to Threat Model».
+  text: при путанице в процессе следует возвращаться к четырём базовым вопросам как к опоре.
+  excerpt: 'Глава 1 «Dive In and Threat Model!»: учебный проход по рамке на примере;'
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -78,10 +75,10 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: к структурированному моделированию угроз можно подходить через фокус на активах,
-    на атакующих или на ПО; книга рекомендует начинать с модели ПО как более продуктивной
-    отправной точки, чем активы или атакующие.
-  excerpt: глава 2, разделы «Structured Approaches…», «Models of Software».
+  text: к структурированному моделированию угроз можно подходить через фокус на активах, на атакующих
+    или на ПО; книга рекомендует начинать с модели ПО как более продуктивной отправной точки, чем активы
+    или атакующие.
+  excerpt: атакующих или на ПО (автор рекомендует фокус на ПО); модели ПО, типы диаграмм,
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -93,10 +90,9 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: для ответа на вопрос «что вы строите» используются диаграммы (прежде всего
-    диаграммы потоков данных, DFD), отражающие процессы, хранилища, потоки данных
-    и внешние сущности.
-  excerpt: глава 2, разделы «Models of Software», «Types of Diagrams».
+  text: для ответа на вопрос «что вы строите» используются диаграммы (прежде всего диаграммы потоков данных,
+    DFD), отражающие процессы, хранилища, потоки данных и внешние сущности.
+  excerpt: Таблицы примеров угроз STRIDE, деревья атак и диаграммы потоков данных в
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -108,9 +104,9 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: границы доверия (trust boundaries) на диаграмме отмечают места, где меняется
-    уровень доверия или контроля; они особенно важны для поиска угроз.
-  excerpt: глава 2, раздел «Trust Boundaries».
+  text: границы доверия (trust boundaries) на диаграмме отмечают места, где меняется уровень доверия или
+    контроля; они особенно важны для поиска угроз.
+  excerpt: границы доверия (trust boundaries), точки входа, валидация диаграмм.
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -122,9 +118,9 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: на диаграмме важно отмечать точки входа и проверять её адекватность (соответствие
-    реальной системе) перед поиском угроз.
-  excerpt: глава 2, разделы «Entry Points», «Validating Diagrams».
+  text: на диаграмме важно отмечать точки входа и проверять её адекватность (соответствие реальной системе)
+    перед поиском угроз.
+  excerpt: 'Глава 10 «Validating That Threats Are Addressed»: тестирование мер, пентест,'
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -136,11 +132,10 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: 'STRIDE — мнемоника для типов того, что идёт не так в безопасности: Spoofing
-    (подмена), Tampering (фальсификация), Repudiation (отказ от авторства), Information
-    Disclosure (раскрытие информации), Denial of Service (отказ в обслуживании), Elevation
-    of Privilege (повышение привилегий).'
-  excerpt: глава 1, раздел «Using the STRIDE Mnemonic»; глава 3.
+  text: 'STRIDE — мнемоника для типов того, что идёт не так в безопасности: Spoofing (подмена), Tampering
+    (фальсификация), Repudiation (отказ от авторства), Information Disclosure (раскрытие информации),
+    Denial of Service (отказ в обслуживании), Elevation of Privilege (повышение привилегий).'
+  excerpt: Information Disclosure, Denial of Service, Elevation of Privilege; авторы
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -152,9 +147,9 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: STRIDE как фреймворк и мнемоника изобретён Loren Kohnfelder и Praerit Garg
-    (1999) для помощи разработчикам в выявлении типов атак на ПО.
-  excerpt: глава 3, вводный раздел.
+  text: STRIDE как фреймворк и мнемоника изобретён Loren Kohnfelder и Praerit Garg (1999) для помощи разработчикам
+    в выявлении типов атак на ПО.
+  excerpt: мнемоники — Loren Kohnfelder и Praerit Garg (1999); варианты
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -166,10 +161,10 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: 'использование STRIDE — это техника элиситации: команда, знающая фреймворк,
-    проходит по модели и находит угрозы; «поиск угроз» в книге — надмножество терминов
-    enumeration, analysis, elicitation, discovery.'
-  excerpt: глава 3, вводный раздел.
+  text: 'использование STRIDE — это техника элиситации: команда, знающая фреймворк, проходит по модели
+    и находит угрозы; «поиск угроз» в книге — надмножество терминов enumeration, analysis, elicitation,
+    discovery.'
+  excerpt: 'Глава 18 «Experimental Approaches»: операционные модели угроз, kill chains,'
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -181,9 +176,9 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: существуют варианты применения — STRIDE-per-Element (по элементам диаграммы),
-    STRIDE-per-Interaction (по взаимодействиям) и DESIST как альтернативная мнемоника.
-  excerpt: глава 3, раздел «STRIDE Variants».
+  text: существуют варианты применения — STRIDE-per-Element (по элементам диаграммы), STRIDE-per-Interaction
+    (по взаимодействиям) и DESIST как альтернативная мнемоника.
+  excerpt: STRIDE-per-Element, STRIDE-per-Interaction, DESIST; критерии выхода.
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -195,9 +190,9 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: для этапа поиска угроз задаются критерии выхода (exit criteria), показывающие,
-    когда поиск можно считать достаточным.
-  excerpt: глава 3, раздел «Exit Criteria».
+  text: для этапа поиска угроз задаются критерии выхода (exit criteria), показывающие, когда поиск можно
+    считать достаточным.
+  excerpt: STRIDE-per-Element, STRIDE-per-Interaction, DESIST; критерии выхода.
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -209,10 +204,10 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: дерево атак — модель «что может пойти не так», где корень — цель атакующего,
-    а ветви — способы её достижения; деревья атак можно использовать как альтернативу
-    STRIDE на этапе поиска угроз, оставляя остальную рамку прежней.
-  excerpt: глава 4 «Attack Trees».
+  text: дерево атак — модель «что может пойти не так», где корень — цель атакующего, а ветви — способы
+    её достижения; деревья атак можно использовать как альтернативу STRIDE на этапе поиска угроз, оставляя
+    остальную рамку прежней.
+  excerpt: 'Глава 4 «Attack Trees»: деревья атак как модель «что может пойти не так»;'
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -224,9 +219,9 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: библиотеки атак систематизируют известные угрозы; книга рассматривает CAPEC
-    и OWASP Top Ten и отличает библиотеки от чек-листов и литературных обзоров.
-  excerpt: глава 5 «Attack Libraries».
+  text: библиотеки атак систематизируют известные угрозы; книга рассматривает CAPEC и OWASP Top Ten и
+    отличает библиотеки от чек-листов и литературных обзоров.
+  excerpt: 'Глава 5 «Attack Libraries»: библиотеки атак, чек-листы; CAPEC, OWASP Top Ten.'
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -238,10 +233,9 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: для угроз приватности применяются отдельные инструменты — таксономия приватности
-    Солова, оценки влияния на приватность (PIA), Nymity Slider, контекстная целостность
-    и методика LINDDUN.
-  excerpt: глава 6 «Privacy Tools».
+  text: для угроз приватности применяются отдельные инструменты — таксономия приватности Солова, оценки
+    влияния на приватность (PIA), Nymity Slider, контекстная целостность и методика LINDDUN.
+  excerpt: 'Глава 6 «Privacy Tools»: таксономия приватности Солова, оценки влияния на'
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -253,10 +247,9 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: моделирование угроз даёт наибольшую отдачу, когда начато рано (при проектировании
-    и изменениях), и должно завершаться определёнными артефактами; важно зафиксировать,
-    с чего начать и чем закончить.
-  excerpt: глава 7, раздел «Starting the Threat Modeling Project».
+  text: моделирование угроз даёт наибольшую отдачу, когда начато рано (при проектировании и изменениях),
+    и должно завершаться определёнными артефактами; важно зафиксировать, с чего начать и чем закончить.
+  excerpt: 'Глава 17 «Bringing Threat Modeling to Your Organization»: внедрение в'
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -268,9 +261,9 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: найденные угрозы следует отслеживать таблицами и списками, фиксируя допущения
-    и внешние заметки по безопасности (external security notes).
-  excerpt: глава 7, раздел «Tracking with Tables and Lists».
+  text: найденные угрозы следует отслеживать таблицами и списками, фиксируя допущения и внешние заметки
+    по безопасности (external security notes).
+  excerpt: начинать, отслеживание угроз таблицами и списками, допущения, внешние заметки
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -282,10 +275,9 @@ statements:
   item_id: TMDS-text
   kind: observation
   status: ready_for_review
-  text: книга выделяет специфику моделирования угроз для API и для границ доверия
-    «заказчик/поставщик» и новых технологий как отдельные сценарии.
-  excerpt: глава 7, раздел «Scenario-Specific Elements…», подраздел «Threat Modeling
-    an API».
+  text: книга выделяет специфику моделирования угроз для API и для границ доверия «заказчик/поставщик»
+    и новых технологий как отдельные сценарии.
+  excerpt: 'Глава 17 «Bringing Threat Modeling to Your Organization»: внедрение в'
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -297,11 +289,10 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: 'каждому типу угроз STRIDE соответствует защитное свойство и тактика: аутентификация
-    против спуфинга, целостность против фальсификации, неотказуемость против отказа
-    от авторства, конфиденциальность против раскрытия, доступность против отказа в
-    обслуживании, авторизация против повышения привилегий.'
-  excerpt: глава 8, раздел «Tactics and Technologies for Mitigating Threats».
+  text: 'каждому типу угроз STRIDE соответствует защитное свойство и тактика: аутентификация против спуфинга,
+    целостность против фальсификации, неотказуемость против отказа от авторства, конфиденциальность против
+    раскрытия, доступность против отказа в обслуживании, авторизация против повышения привилегий.'
+  excerpt: раскрытия, доступность против отказа в обслуживании, авторизация против
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -313,9 +304,9 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: угрозы приватности нейтрализуются минимизацией данных, криптографией и мерами
-    соответствия и политики (compliance and policy).
-  excerpt: глава 8, раздел «Mitigating Privacy Threats».
+  text: угрозы приватности нейтрализуются минимизацией данных, криптографией и мерами соответствия и политики
+    (compliance and policy).
+  excerpt: 'Глава 6 «Privacy Tools»: таксономия приватности Солова, оценки влияния на'
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -327,10 +318,9 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: 'при устранении угроз применяются классические стратегии управления риском:
-    избежать риск, устранить/снизить (address), принять, передать (transfer) и игнорировать
-    риск.'
-  excerpt: глава 9, раздел «Classic Strategies for Risk Management».
+  text: 'при устранении угроз применяются классические стратегии управления риском: избежать риск, устранить/снизить
+    (address), принять, передать (transfer) и игнорировать риск.'
+  excerpt: риском — избежать, снизить/устранить, принять, передать, игнорировать; выбор
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -342,10 +332,9 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: меры можно реализовать изменением дизайна, применением стандартных технологий
-    нейтрализации или проектированием собственной меры; фаззинг сам по себе не является
-    мерой нейтрализации.
-  excerpt: глава 9, раздел «Selecting Mitigations for Risk Management».
+  text: меры можно реализовать изменением дизайна, применением стандартных технологий нейтрализации или
+    проектированием собственной меры; фаззинг сам по себе не является мерой нейтрализации.
+  excerpt: 'Глава 14 «Accounts and Identity»: жизненный цикл учётной записи,'
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -357,11 +346,9 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: для приоритизации угроз используются простые подходы, ранжирование по «планке
-    дефектов» (bug bar) и оценка стоимости; риск можно закрыть и через бизнес- или
-    пользовательское принятие (acceptance).
-  excerpt: глава 9, разделы «Threat-Specific Prioritization…», «Mitigation via Risk
-    Acceptance».
+  text: для приоритизации угроз используются простые подходы, ранжирование по «планке дефектов» (bug bar)
+    и оценка стоимости; риск можно закрыть и через бизнес- или пользовательское принятие (acceptance).
+  excerpt: мер; приоритизация (в том числе bug bar и оценка стоимости).
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -373,10 +360,10 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: 'четвёртый этап — проверка: тестирование мер (включая пентест), проверка приобретённого
-    кода, контроль соответствия модели реальности и полноты процесса; моделирование
-    угроз и тестирование усиливают друг друга.'
-  excerpt: глава 10 «Validating That Threats Are Addressed».
+  text: 'четвёртый этап — проверка: тестирование мер (включая пентест), проверка приобретённого кода,
+    контроль соответствия модели реальности и полноты процесса; моделирование угроз и тестирование усиливают
+    друг друга.'
+  excerpt: 'Глава 10 «Validating That Threats Are Addressed»: тестирование мер, пентест,'
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -388,9 +375,9 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: допущения следует документировать по мере работы, так как они влияют на корректность
-    модели и проверку.
-  excerpt: глава 10, раздел «Document Assumptions as You Go».
+  text: допущения следует документировать по мере работы, так как они влияют на корректность модели и
+    проверку.
+  excerpt: 'Глава 18 «Experimental Approaches»: операционные модели угроз, kill chains,'
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -402,10 +389,10 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: для моделирования угроз применяются как общие инструменты (доски, офисные
-    пакеты, баг-трекеры), так и специализированные открытые и коммерческие инструменты,
-    включая игру Elevation of Privilege и Microsoft SDL Threat Modeling Tool.
-  excerpt: глава 11 «Threat Modeling Tools».
+  text: для моделирования угроз применяются как общие инструменты (доски, офисные пакеты, баг-трекеры),
+    так и специализированные открытые и коммерческие инструменты, включая игру Elevation of Privilege
+    и Microsoft SDL Threat Modeling Tool.
+  excerpt: 'Глава 11 «Threat Modeling Tools»: общие, открытые и коммерческие инструменты,'
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -417,9 +404,9 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: требования, угрозы и меры взаимосвязаны и уточняют друг друга; «поваренная
-    книга требований» помогает выводить требования безопасности.
-  excerpt: глава 12, раздел «The Interplay of Requirements, Threats, and Mitigations».
+  text: требования, угрозы и меры взаимосвязаны и уточняют друг друга; «поваренная книга требований» помогает
+    выводить требования безопасности.
+  excerpt: 'Глава 13 «Web and Cloud Threats»: угрозы веба, угрозы арендатора и провайдера'
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -433,7 +420,7 @@ statements:
   status: ready_for_review
   text: требования безопасности удобно структурировать рамкой «предотвращение/обнаружение/реагирование»
     (Prevent/Detect/Respond) и рамкой «люди/процессы/технологии» (People/Process/Technology).
-  excerpt: глава 12, соответствующие разделы.
+  excerpt: Prevent/Detect/Respond и People/Process/Technology; требования соответствия
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -445,10 +432,9 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: источником требований служат стандарты соответствия — Cloud Security Alliance,
-    NIST Publication 200, PCI-DSS — а также требования приватности (Fair Information
-    Practices, Privacy by Design).
-  excerpt: глава 12, разделы «Compliance-Driven Requirements», «Privacy Requirements».
+  text: источником требований служат стандарты соответствия — Cloud Security Alliance, NIST Publication
+    200, PCI-DSS — а также требования приватности (Fair Information Practices, Privacy by Design).
+  excerpt: (PCI-DSS, NIST 200, Cloud Security Alliance); требования приватности; STRIDE
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -460,10 +446,9 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: каждому типу STRIDE соответствует категория требований (аутентификация, целостность,
-    неотказуемость, конфиденциальность, доступность, авторизация); книга также выделяет
-    «не-требования».
-  excerpt: глава 12, разделы «The STRIDE Requirements», «Non-Requirements».
+  text: каждому типу STRIDE соответствует категория требований (аутентификация, целостность, неотказуемость,
+    конфиденциальность, доступность, авторизация); книга также выделяет «не-требования».
+  excerpt: STRIDE — аутентификация против спуфинга, целостность против фальсификации,
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -475,10 +460,10 @@ statements:
   item_id: TMDS-text
   kind: observation
   status: ready_for_review
-  text: книга систематизирует угрозы веба (сайты, браузеры и плагины), угрозы арендатора
-    облака (инсайдерские, со-арендаторы, соответствие, правовые, криминалистические)
-    и угрозы провайдера, а также мобильные угрозы.
-  excerpt: глава 13 «Web and Cloud Threats».
+  text: книга систематизирует угрозы веба (сайты, браузеры и плагины), угрозы арендатора облака (инсайдерские,
+    со-арендаторы, соответствие, правовые, криминалистические) и угрозы провайдера, а также мобильные
+    угрозы.
+  excerpt: 'Глава 13 «Web and Cloud Threats»: угрозы веба, угрозы арендатора и провайдера'
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -490,10 +475,10 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: моделирование угроз учитывает жизненный цикл учётной записи (создание, сопровождение,
-    прекращение), аутентификацию по факторам «что знаете/имеете/чем являетесь», восстановление
-    доступа и угрозы кражи личности.
-  excerpt: глава 14 «Accounts and Identity».
+  text: моделирование угроз учитывает жизненный цикл учётной записи (создание, сопровождение, прекращение),
+    аутентификацию по факторам «что знаете/имеете/чем являетесь», восстановление доступа и угрозы кражи
+    личности.
+  excerpt: 'Глава 14 «Accounts and Identity»: жизненный цикл учётной записи,'
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -505,10 +490,9 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: безопасность зависит от человеческого фактора; для этого моделируются «церемонии»
-    (ceremony) — взаимодействия людей и систем — и юзабилити интегрируется в четырёхэтапную
-    рамку.
-  excerpt: глава 15 «Human Factors and Usability».
+  text: безопасность зависит от человеческого фактора; для этого моделируются «церемонии» (ceremony) —
+    взаимодействия людей и систем — и юзабилити интегрируется в четырёхэтапную рамку.
+  excerpt: 'Глава 15 «Human Factors and Usability»: модели человека, церемонии (ceremony'
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -520,11 +504,10 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: 'книга формулирует правила: использовать криптосистему и код, созданные и
-    проверенные профессионалами; криптография — «не волшебная пыль безопасности»;
-    исходить из того, что всё станет публичным; управлять ключами; следовать принципу
-    Керкгоффса.'
-  excerpt: глава 16, раздел «Things to Remember about Crypto».
+  text: 'книга формулирует правила: использовать криптосистему и код, созданные и проверенные профессионалами;
+    криптография — «не волшебная пыль безопасности»; исходить из того, что всё станет публичным; управлять
+    ключами; следовать принципу Керкгоффса.'
+  excerpt: работы с криптографией (использовать проверенные системы, управлять ключами,
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -536,10 +519,10 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: внедрение требует убеждения как отдельных исполнителей, так и менеджмента,
-    распределения ролей и ответственности и встраивания в жизненный цикл разработки;
-    книга разбирает типовые возражения (ресурсы, ценность, план).
-  excerpt: глава 17 «Bringing Threat Modeling to Your Organization».
+  text: внедрение требует убеждения как отдельных исполнителей, так и менеджмента, распределения ролей
+    и ответственности и встраивания в жизненный цикл разработки; книга разбирает типовые возражения (ресурсы,
+    ценность, план).
+  excerpt: 'Глава 17 «Bringing Threat Modeling to Your Organization»: внедрение в'
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -551,9 +534,9 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: качество моделирования угроз растёт при разнообразии команды и правильном
-    групповом взаимодействии; роли и ответственность должны быть определены явно.
-  excerpt: глава 17, разделы «Who Does What?», «Diversity in Threat Modeling Teams».
+  text: качество моделирования угроз растёт при разнообразии команды и правильном групповом взаимодействии;
+    роли и ответственность должны быть определены явно.
+  excerpt: 'Глава 17 «Bringing Threat Modeling to Your Organization»: внедрение в'
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -565,10 +548,9 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: помимо проектных моделей существуют операционные модели угроз (например, kill
-    chains, таксономия «Broad Street»); сами подходы моделирования тоже имеют угрозы
-    (опасные результаты, неучтённые допущения).
-  excerpt: глава 18 «Experimental Approaches».
+  text: помимо проектных моделей существуют операционные модели угроз (например, kill chains, таксономия
+    «Broad Street»); сами подходы моделирования тоже имеют угрозы (опасные результаты, неучтённые допущения).
+  excerpt: 'Глава 18 «Experimental Approaches»: операционные модели угроз, kill chains,'
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:
@@ -580,10 +562,9 @@ statements:
   item_id: TMDS-text
   kind: fact
   status: ready_for_review
-  text: успешность моделирования угроз зависит от «потока» (flow), контроля когнитивной
-    нагрузки, избегания «слепоты создателя», знания участников и принципа «лучшее
-    — враг хорошего».
-  excerpt: глава 19 «Architecting for Success».
+  text: успешность моделирования угроз зависит от «потока» (flow), контроля когнитивной нагрузки, избегания
+    «слепоты создателя», знания участников и принципа «лучшее — враг хорошего».
+  excerpt: 'Глава 19 «Architecting for Success»: поток (flow), когнитивная нагрузка,'
   artifact: ../source/normalized-source.md
   checked_at: '2026-06-24'
   scope:

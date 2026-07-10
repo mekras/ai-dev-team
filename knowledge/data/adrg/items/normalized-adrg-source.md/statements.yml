@@ -6,7 +6,8 @@ statements:
   status: ready_for_review
   text: 'Architectural Decision Record (ADR) — запись, фиксирующая одно архитектурное
     решение (AD) вместе с его обоснованием, компромиссами и последствиями.'
-  excerpt: домашняя страница, раздел определений.
+  excerpt: Architectural Decision Record (ADR) — запись, фиксирующая одно AD вместе
+    с его обоснованием, компромиссами и последствиями.
   artifact: source.md
   checked_at: '2026-06-29'
   scope:
@@ -21,7 +22,8 @@ statements:
   text: Architectural Decision (AD) — обоснованный проектный выбор, отвечающий на функциональное
     или нефункциональное требование, значимое для архитектуры; Architecturally Significant
     Requirement (ASR) — требование, измеримо влияющее на архитектуру и качество системы.
-  excerpt: домашняя страница, раздел определений.
+  excerpt: Architecturally Significant Requirement (ASR) — требование, измеримо влияющее
+    на архитектуру и качество системы.
   artifact: source.md
   checked_at: '2026-06-29'
   scope:
@@ -35,7 +37,7 @@ statements:
   status: ready_for_review
   text: формат ADR впервые предложил Майкл Найгард в статье «Documenting Architecture
     Decisions» (`2011`).
-  excerpt: домашняя страница и раздел шаблонов.
+  excerpt: Майкл Найгард в статье «Documenting Architecture Decisions» (`2011`)
   artifact: source.md
   checked_at: '2026-06-29'
   scope:
@@ -50,7 +52,10 @@ statements:
   text: сайт adr.github.io ставит три цели — обосновать пользу фиксации архитектурных
     решений и закрепить единую терминологию, развивать инструменты поддержки ADR и
     собирать общедоступные ресурсы по управлению архитектурными знаниями (AKM) и ADR.
-  excerpt: домашняя страница, цели организации.
+  excerpt: 'Сайт ставит три цели: обосновать необходимость и пользу фиксации архитектурных
+    решений и закрепить единую терминологию; развивать инструменты поддержки ADR для
+    гибкой итеративной разработки; собирать общедоступные ресурсы по управлению архитектурными
+    знаниями (AKM) и ADR.'
   artifact: source.md
   checked_at: '2026-06-29'
   scope:
@@ -64,7 +69,8 @@ statements:
   status: ready_for_review
   text: классический шаблон Nygard ADR состоит из разделов title, status, context,
     decision, consequences.
-  excerpt: раздел ADR Templates.
+  excerpt: 'Nygard ADR — классическая структура: title, status, context, decision,
+    consequences;'
   artifact: source.md
   checked_at: '2026-06-29'
   scope:
@@ -79,7 +85,8 @@ statements:
   text: 'шаблон MADR (Markdown Architectural Decision Records) делает упор на анализ
     компромиссов: рассмотренные варианты с плюсами и минусами и метаданные (статус,
     участники).'
-  excerpt: раздел ADR Templates.
+  excerpt: 'MADR (Markdown Architectural Decision Records) — упор на анализ компромиссов:
+    рассмотренные варианты с плюсами и минусами, метаданные (статус, участники);'
   artifact: source.md
   checked_at: '2026-06-29'
   scope:
@@ -93,7 +100,8 @@ statements:
   status: ready_for_review
   text: 'формат Y-Statement задаёт краткую запись решения по схеме: «in the context
     of … facing … we decided for … to achieve … accepting …».'
-  excerpt: раздел ADR Templates.
+  excerpt: 'Y-Statement — краткий формат: «in the context of … facing … we decided
+    for … to achieve … accepting …»;'
   artifact: source.md
   checked_at: '2026-06-29'
   scope:
@@ -108,7 +116,8 @@ statements:
   text: среди шаблонов перечислен шаблон международного стандарта ISO/IEC/IEEE 42010:2011
     (девять информационных элементов в приложении A); сайт не предписывает один шаблон,
     а перечисляет варианты и отмечает существование других форматов.
-  excerpt: раздел ADR Templates.
+  excerpt: Каталог шаблонов ADR; сайт не предписывает один шаблон, а перечисляет варианты
+    и отмечает существование других форматов
   artifact: source.md
   checked_at: '2026-06-29'
   scope:
@@ -122,7 +131,8 @@ statements:
   status: ready_for_review
   text: раздел практик вводит тест архитектурной значимости (Architectural Significance
     Test) для определения того, какие решения заслуживают оформления как ADR.
-  excerpt: раздел AD Practices.
+  excerpt: тест архитектурной значимости (Architectural Significance Test) — какие
+    решения заслуживают оформления как ADR;
   artifact: source.md
   checked_at: '2026-06-29'
   scope:
@@ -137,7 +147,8 @@ statements:
   text: раздел практик описывает критерии готовности решения (Definition of Ready)
     и завершённости (Definition of Done — доказательства, критерии и альтернативы,
     согласие, документирование, план реализации или пересмотра).
-  excerpt: раздел AD Practices.
+  excerpt: 'завершённости (Definition of Done: доказательства, критерии и альтернативы,
+    согласие, документирование, план реализации или пересмотра);'
   artifact: source.md
   checked_at: '2026-06-29'
   scope:
@@ -150,7 +161,7 @@ statements:
   kind: fact
   status: ready_for_review
   text: 'жизненный цикл решения проходит статусы: proposed, accepted, deprecated, superseded.'
-  excerpt: раздел AD Practices.
+  excerpt: 'статусы решения: proposed, accepted, deprecated, superseded;'
   artifact: source.md
   checked_at: '2026-06-29'
   scope:
@@ -164,7 +175,7 @@ statements:
   status: ready_for_review
   text: раздел практик рекомендует рецензирование решений с чек-листами и каталогом
     антипаттернов, а также модель постепенного внедрения практики (adoption model).
-  excerpt: раздел AD Practices.
+  excerpt: рецензирование решений с чек-листами и каталогом антипаттернов;
   artifact: source.md
   checked_at: '2026-06-29'
   scope:
@@ -180,7 +191,7 @@ statements:
     и сопровождение файлов решений (например `adr-tools`, `Log4brains`, `dotnet-adr`,
     `ADR Manager`, `pyadr`), инструменты рядом с кодом и инструменты управления архитектурой
     (`ArchUnit`, `docToolchain`, `Structurizr`); отдельно помечены неподдерживаемые.
-  excerpt: раздел Decision Capturing Tools.
+  excerpt: Каталог инструментов фиксации решений, сгруппированных по категориям
   artifact: source.md
   checked_at: '2026-06-29'
   scope:
@@ -194,7 +205,7 @@ statements:
   status: ready_for_review
   text: подход ADR в материалах сайта допускает расширение с архитектурных решений
     на любые организационные решения.
-  excerpt: раздел AD Practices.
+  excerpt: расширение подхода с архитектурных решений на любые организационные.
   artifact: source.md
   checked_at: '2026-06-29'
   scope:
@@ -210,7 +221,8 @@ statements:
     история>, сталкиваясь с <проблема>, мы выбрали <вариант>, чтобы достичь <качество>,
     принимая <недостаток>»; расширенная форма добавляет «отвергнув <другие варианты>»
     и «потому что <дополнительное обоснование>».'
-  excerpt: раздел ADR Templates, описание Y-Statement.
+  excerpt: 'Y-Statement — краткий формат: «in the context of … facing … we decided
+    for … to achieve … accepting …»;'
   artifact: source.md
   checked_at: '2026-06-29'
   scope:

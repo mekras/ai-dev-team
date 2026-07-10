@@ -14,6 +14,7 @@ REQUIRED_SKILLS = {
     "ait-docs-concept",
     "ait-setup",
     "ait-analysis",
+    "ait-interface-design",
     "ait-code-construction",
     "ait-code-review",
     "ait-code-testing",

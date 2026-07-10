@@ -68,7 +68,7 @@ concepts:
     covered_in:
       - ait-decisions/references/decision-workflow.md
       - ait-decisions/references/decision-templates.md
-      - ait-architecture/SKILL.md (предметная ось архитектурных решений)
+      - ait-architecture/SKILL.md
     synonyms_by_source:
       ADRG: Architectural Decision Record (ADR)
       SAHP: запись ADR (Контекст/Решение/Последствия)
@@ -121,7 +121,7 @@ concepts:
     defined_by: [ADRG-005, SAHP-007]
     cite_as: [ADRG, SAHP]
     covered_in:
-      - ait-decisions/references/decision-templates.md (Nygard)
+      - ait-decisions/references/decision-templates.md
     synonyms_by_source:
       ADRG: Nygard
       SAHP: формат ADR книги (Контекст/Решение/Последствия)
@@ -326,7 +326,7 @@ concepts:
     cite_as: [G250, SAHP]
     covered_in:
       - ait-req-specification/references/maintainability-requirements.md
-      - ait-architecture/references/quality-criteria.md (Сопровождаемость)
+      - ait-architecture/references/quality-criteria.md
     synonyms_by_source:
       G250: сопровождаемость
       SAHP: сопровождаемость
@@ -343,7 +343,7 @@ concepts:
     defined_by: [SAHP-011, EVAR-027]
     cite_as: [SAHP, EVAR]
     covered_in:
-      - ait-architecture/references/quality-criteria.md (Развёртываемость)
+      - ait-architecture/references/quality-criteria.md
       - ait-req-specification/references/quality-characteristics.md
     synonyms_by_source:
       SAHP: развёртываемость
@@ -367,8 +367,7 @@ concepts:
     defined_by: [SAHP-056]
     cite_as: [SAHP]
     covered_in:
-      - ait-architecture/references/quality-criteria.md (Развёртываемость и
-        другие характеристики вне модели качества)
+      - ait-architecture/references/quality-criteria.md
       - ait-architecture/references/distributed-tradeoffs.md
     synonyms_by_source:
       SAHP: масштабируемость
@@ -389,8 +388,7 @@ concepts:
     defined_by: [SAHP-056]
     cite_as: [SAHP]
     covered_in:
-      - ait-architecture/references/quality-criteria.md (Развёртываемость и
-        другие характеристики вне модели качества)
+      - ait-architecture/references/quality-criteria.md
     synonyms_by_source:
       SAHP: адаптируемость
     reconciliation:
@@ -473,7 +471,7 @@ concepts:
     defined_by: [SAHP-060]
     cite_as: [SAHP]
     covered_in:
-      - ait-architecture/references/component-design.md (Устойчивость компонента)
+      - ait-architecture/references/component-design.md
     synonyms_by_source:
       SAHP: афферентная связанность (Ca)
     reconciliation:
@@ -491,7 +489,7 @@ concepts:
     defined_by: [SAHP-060]
     cite_as: [SAHP]
     covered_in:
-      - ait-architecture/references/component-design.md (Устойчивость компонента)
+      - ait-architecture/references/component-design.md
     synonyms_by_source:
       SAHP: эфферентная связанность (Ce)
     reconciliation:
@@ -508,9 +506,9 @@ concepts:
     defined_by: [SAHP-008, SAHP-061, SAHP-062]
     cite_as: [SAHP, EVAR]
     covered_in:
-      - ait-architecture/references/quality-criteria.md (Функции пригодности)
+      - ait-architecture/references/quality-criteria.md
       - ait-architecture/references/evolutionary-architecture.md
-      - ait-code-testing/SKILL.md (реализация как исполняемой проверки)
+      - ait-code-testing/SKILL.md
     synonyms_by_source:
       SAHP: функция пригодности
       EVAR: функция пригодности
@@ -528,7 +526,7 @@ concepts:
     defined_by: [SAHP-064]
     cite_as: [SAHP]
     covered_in:
-      - ait-architecture/references/distributed-tradeoffs.md (Разделение данных)
+      - ait-architecture/references/distributed-tradeoffs.md
     synonyms_by_source:
       SAHP: движущие силы дезинтеграции данных
     collisions:
@@ -545,7 +543,7 @@ concepts:
     defined_by: [SAHP-065]
     cite_as: [SAHP]
     covered_in:
-      - ait-architecture/references/distributed-tradeoffs.md (Разделение данных)
+      - ait-architecture/references/distributed-tradeoffs.md
     synonyms_by_source:
       SAHP: движущие силы интеграции данных
     collisions:
@@ -562,8 +560,7 @@ concepts:
     defined_by: [SAHP-067]
     cite_as: [SAHP]
     covered_in:
-      - ait-architecture/references/distributed-tradeoffs.md (Выбор типа базы
-        данных)
+      - ait-architecture/references/distributed-tradeoffs.md
     synonyms_by_source:
       SAHP: выбор типа базы данных
 
@@ -577,8 +574,7 @@ concepts:
     defined_by: [SAHP-068]
     cite_as: [SAHP]
     covered_in:
-      - ait-architecture/references/distributed-tradeoffs.md (Повторное
-        использование кода)
+      - ait-architecture/references/distributed-tradeoffs.md
     synonyms_by_source:
       SAHP: паттерны повторного использования
 
@@ -592,8 +588,7 @@ concepts:
     defined_by: [SAHP-069]
     cite_as: [SAHP]
     covered_in:
-      - ait-architecture/references/distributed-tradeoffs.md (Распределённый
-        доступ к данным)
+      - ait-architecture/references/distributed-tradeoffs.md
     synonyms_by_source:
       SAHP: распределённый доступ к данным
 
@@ -606,6 +601,6 @@ concepts:
     defined_by: [SAHP-070]
     cite_as: [SAHP]
     covered_in:
-      - ait-architecture/references/distributed-tradeoffs.md (Транзакционные саги)
+      - ait-architecture/references/distributed-tradeoffs.md
     synonyms_by_source:
       SAHP: транзакционная сага

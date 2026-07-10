@@ -4,14 +4,12 @@ statements:
   item_id: GIST-normalized-GIST-pages-7c8f65572930a21efa62623557d83f6e-index.md
   kind: fact
   status: ready_for_review
-  text: в источнике AGENTS.md описывается как документ машинного входа, дополняющий
-    human-oriented README.
-  excerpt: раздел "AGENTS.md has emerged as the de facto open standard... for AI coding
-    assistants" и сравнение с README.
+  text: в источнике AGENTS.md описывается как документ машинного входа, дополняющий human-oriented README.
+  excerpt: AGENTS.md позиционируется как "README for machines" для AI-ассистентов.
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: О чём текст
     application: разделение человеческой и машинной документации.
   open_questions: []
 - id: GIST-002
@@ -19,14 +17,13 @@ statements:
   item_id: GIST-normalized-GIST-pages-7c8f65572930a21efa62623557d83f6e-index.md
   kind: fact
   status: ready_for_review
-  text: практика формализации AGENTS.md связывается с широким распространением стандарта
-    и использованием несколькими вендорами.
-  excerpt: упоминание формализации в сотрудничестве OpenAI/Google/Cursor/Sourcegraph
-    и массового adoption.
+  text: практика формализации AGENTS.md связывается с широким распространением стандарта и использованием
+    несколькими вендорами.
+  excerpt: 'Практика file layout:'
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Концепты
     application: обоснование поддержки cross-tool форматов.
   open_questions: []
 - id: GIST-003
@@ -34,13 +31,12 @@ statements:
   item_id: GIST-normalized-GIST-pages-7c8f65572930a21efa62623557d83f6e-index.md
   kind: fact
   status: ready_for_review
-  text: рекомендуемый фокус — внятные команды, шаблоны и секции по стеку, а не абстрактные
-    инструкции.
-  excerpt: разделы "What is AGENTS.md..." и "Template structures".
+  text: рекомендуемый фокус — внятные команды, шаблоны и секции по стеку, а не абстрактные инструкции.
+  excerpt: 'Рекомендуются шаблоны:'
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Концепты
     application: шаблоны содержания AGENTS.md.
   open_questions: []
 - id: GIST-004
@@ -48,13 +44,13 @@ statements:
   item_id: GIST-normalized-GIST-pages-7c8f65572930a21efa62623557d83f6e-index.md
   kind: fact
   status: ready_for_review
-  text: в разделе про критические ошибки указывается запрет секретов, опасность раздувания
-    документа и неактуальность устаревших файлов.
-  excerpt: список "Critical mistake X" в тексте.
+  text: в разделе про критические ошибки указывается запрет секретов, опасность раздувания документа и
+    неактуальность устаревших файлов.
+  excerpt: правила про переменные окружения, критические ошибки.
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Концепты
     application: эксплуатационные риски AGENTS.md.
   open_questions: []
 - id: GIST-005
@@ -62,12 +58,12 @@ statements:
   item_id: GIST-normalized-GIST-pages-7c8f65572930a21efa62623557d83f6e-index.md
   kind: fact
   status: ready_for_review
-  text: для больших проектов рекомендуются шаблоны с уровнями детализации и отдельными
-    секциями под технологический стек.
-  excerpt: раздел "Template structures", "Python + AWS + Terraform".
+  text: для больших проектов рекомендуются шаблоны с уровнями детализации и отдельными секциями под технологический
+    стек.
+  excerpt: 'Рекомендуются шаблоны:'
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Концепты
     application: масштабирование AGENTS.md в монорепозитории.
   open_questions: []

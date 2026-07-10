@@ -1,9 +1,9 @@
 id: G250-text
 source_id: G250
-title: "G250: text"
-access: "Смотри карточку единицы и связанные артефакты в knowledge/data/g250/ и общие ограничения в knowledge/source-attribution.md."
+title: 'G250: text'
+access: Смотри карточку единицы и связанные артефакты в knowledge/data/g250/ и общие ограничения в knowledge/source-attribution.md.
 status: approved
-workflow_stage: statements_extracted
+workflow_stage: raw_transcribed
 retrieval_mode: on_demand
 copy_policy: fragments_only
 requires_access_check: true
@@ -14,4 +14,5 @@ extracted_text:
   content_hash: sha256:5dfcd27f568664d30cf93b584dd944f02e993daa9a01c08089c2090123536dfe
   metadata_source: pdftotext
 known_limitations:
-- Полная текстовая выгрузка хранится только рядом с единицей под маркером `*.local.*` и не публикуется в Git.
+- Полная текстовая выгрузка хранится только рядом с единицей под маркером `*.local.*` и не публикуется
+  в Git.

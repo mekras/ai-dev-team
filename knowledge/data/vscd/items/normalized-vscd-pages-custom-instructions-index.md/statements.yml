@@ -4,13 +4,13 @@ statements:
   item_id: VSCD-normalized-VSCD-pages-custom-instructions-index.md
   kind: fact
   status: ready_for_review
-  text: VS Code поддерживает как глобальные, так и файловые инструкции для чат-ассистента,
-    включая scoped-подход по шаблонам.
-  excerpt: разделы про Always-on instructions и File-based instructions.
+  text: VS Code поддерживает как глобальные, так и файловые инструкции для чат-ассистента, включая scoped-подход
+    по шаблонам.
+  excerpt: Предпочтение гибкости через scoped инструкции для конкретных областей
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Особенности применения
     application: политика конфигурации ассистента в проекте.
   open_questions: []
 - id: VSCD-002
@@ -18,13 +18,13 @@ statements:
   item_id: VSCD-normalized-VSCD-pages-custom-instructions-index.md
   kind: fact
   status: ready_for_review
-  text: AGENTS.md`, `.github/copilot-instructions.md`, .instructions.md` и `CLAUDE.md`
-    рассматриваются как легитимные точки хранения правил.
-  excerpt: перечислены типы поддерживаемых файловых инструкций.
+  text: AGENTS.md`, `.github/copilot-instructions.md`, .instructions.md` и `CLAUDE.md` рассматриваются
+    как легитимные точки хранения правил.
+  excerpt: '`.github/copilot-instructions.md`'
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Ключевое содержимое
     application: выбор формата для внутренних и общих правил.
   open_questions: []
 - id: VSCD-003
@@ -32,13 +32,12 @@ statements:
   item_id: VSCD-normalized-VSCD-pages-custom-instructions-index.md
   kind: fact
   status: ready_for_review
-  text: если инструкций несколько, их контент может комбинироваться без строгой гарантии
-    порядка.
-  excerpt: раздел об условиях слияния нескольких instruction-файлов.
+  text: если инструкций несколько, их контент может комбинироваться без строгой гарантии порядка.
+  excerpt: Несколько файлов для workspace могут комбинироваться.
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Ключевое содержимое
     application: риск конфликтов при дублирующих правилах.
   open_questions: []
 - id: VSCD-004
@@ -46,13 +45,12 @@ statements:
   item_id: VSCD-normalized-VSCD-pages-custom-instructions-index.md
   kind: fact
   status: ready_for_review
-  text: inline suggestions в редакторе не обрабатываются через custom instructions
-    чата.
-  excerpt: заметка о том, что custom instructions не применяются к предложениям inline.
+  text: inline suggestions в редакторе не обрабатываются через custom instructions чата.
+  excerpt: Inline suggestions (встроенные автодополнения в редакторе) в базовом
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Ключевое содержимое
     application: ожидания от поведения автодополнений.
   open_questions: []
 - id: VSCD-005
@@ -60,12 +58,11 @@ statements:
   item_id: VSCD-normalized-VSCD-pages-custom-instructions-index.md
   kind: fact
   status: ready_for_review
-  text: scoped подход через паттерны файлов повышает точность применения инструкций
-    для частей репозитория.
-  excerpt: раздел про file-based instructions и match по описанию/файлу.
+  text: scoped подход через паттерны файлов повышает точность применения инструкций для частей репозитория.
+  excerpt: '`.github/copilot-instructions.md`'
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Ключевое содержимое
     application: модульная маршрутизация правил.
   open_questions: []

@@ -1,0 +1,41 @@
+id: OPDS
+slug: opds
+title: "`Open Design` — открытое локальное рабочее место для генерации и
+  проверки дизайн-артефактов агентами ИИ."
+status: candidate
+priority: high
+carrier_type: repository
+source_kind: knowledge_base
+adapter: manual
+storage_strategy: external_reference
+processing_scope: metadata_only
+retrieval_mode: on_demand
+copy_policy: no_bulk_copy
+allowed_use: "Точечная проверка процесса, структуры `DESIGN.md` и примеров
+  дизайн-систем со ссылкой на первоисточник."
+requires_access_check: true
+url: "https://github.com/nexu-io/open-design"
+locator: "https://github.com/nexu-io/open-design"
+public_reference: "https://open-design.ai/"
+license_or_terms: "Внешний репозиторий заявляет открытые лицензии; конкретные
+  файлы и дизайн-системы проверять перед переносом."
+access:
+  default: "Внешний публичный источник. Не копировать полный каталог навыков,
+    дизайн-систем или артефактов."
+reliability: working
+stability: mutable
+refresh_policy: manual
+last_checked_at: "2026-07-10"
+scope:
+  includes:
+    - "локальное рабочее место для дизайна с агентами ИИ"
+    - "каталог `DESIGN.md` и дизайн-систем"
+    - "прототипы для веба, мобильных и настольных интерфейсов"
+  excludes:
+    - "обязательное внедрение Open Design в продукт"
+known_limitations:
+  - "Источник быстро развивается; конкретные возможности нужно проверять перед
+    использованием."
+processing_notes:
+  - "Использовать как внешний ориентир для рекомендуемого `DESIGN.md` и
+    процесса работы со стилем."

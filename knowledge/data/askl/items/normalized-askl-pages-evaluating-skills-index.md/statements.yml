@@ -4,14 +4,13 @@ statements:
   item_id: ASKL-normalized-ASKL-pages-evaluating-skills-index.md
   kind: fact
   status: ready_for_review
-  text: качество навыка следует проверять структурированными оценками, включая сравнение
-    выполнения с навыком и без него или с предыдущей версией.
-  excerpt: страница `evaluating-skills` описывает запуск каждого проверочного случая
-    в двух режимах и сравнение результата с базовой линией.
+  text: качество навыка следует проверять структурированными оценками, включая сравнение выполнения с
+    навыком и без него или с предыдущей версией.
+  excerpt: Grading means evaluating each assertion against the actual outputs and recording
   artifact: index.md
   checked_at: '2026-06-01'
   scope:
-    section_title: ''
+    section_title: Grading outputs
     application: оценка качества навыков и регрессионная проверка.
   open_questions: []
 - id: ASKL-009
@@ -19,14 +18,13 @@ statements:
   item_id: ASKL-normalized-ASKL-pages-evaluating-skills-index.md
   kind: fact
   status: ready_for_review
-  text: проверочный случай для навыка должен включать реалистичный запрос, ожидаемый
-    результат и, при необходимости, входные файлы.
-  excerpt: страница `evaluating-skills` задаёт структуру проверочного случая через
-    prompt, expected output и optional input files.
+  text: проверочный случай для навыка должен включать реалистичный запрос, ожидаемый результат и, при
+    необходимости, входные файлы.
+  excerpt: '**Input files** (optional): files the skill needs to work with.'
   artifact: index.md
   checked_at: '2026-06-01'
   scope:
-    section_title: ''
+    section_title: Designing test cases
     application: тестовые наборы навыков.
   open_questions: []
 - id: ASKL-010
@@ -34,14 +32,12 @@ statements:
   item_id: ASKL-normalized-ASKL-pages-evaluating-skills-index.md
   kind: fact
   status: ready_for_review
-  text: оценка результата навыка должна фиксировать проверяемые утверждения о результате
-    и доказательства прохождения или непрохождения, а не ограничиваться общей оценкой
-    качества.
-  excerpt: страница `evaluating-skills` рекомендует assertions и запись PASS или FAIL
-    с конкретным свидетельством из результата.
+  text: оценка результата навыка должна фиксировать проверяемые утверждения о результате и доказательства
+    прохождения или непрохождения, а не ограничиваться общей оценкой качества.
+  excerpt: '**Study assertions that pass with the skill but fail without.** This is where'
   artifact: index.md
   checked_at: '2026-06-01'
   scope:
-    section_title: ''
+    section_title: Analyzing patterns
     application: проверка результатов выполнения навыков.
   open_questions: []

@@ -4,14 +4,13 @@ statements:
   item_id: ASKL-normalized-ASKL-pages-optimizing-descriptions-index.md
   kind: fact
   status: ready_for_review
-  text: описание навыка является главным механизмом срабатывания и должно описывать,
-    когда навык применять, а не пересказывать его внутреннее устройство.
-  excerpt: страница `optimizing-descriptions` объясняет, что агент на старте видит
-    имя и описание навыка и по ним решает, загружать ли полный SKILL.md`.
+  text: описание навыка является главным механизмом срабатывания и должно описывать, когда навык применять,
+    а не пересказывать его внутреннее устройство.
+  excerpt: descriptions tend to grow during optimization.
   artifact: index.md
   checked_at: '2026-06-01'
   scope:
-    section_title: ''
+    section_title: The optimization loop
     application: фронтматтер навыка и проверка маршрутизации.
   open_questions: []
 - id: ASKL-006
@@ -19,15 +18,13 @@ statements:
   item_id: ASKL-normalized-ASKL-pages-optimizing-descriptions-index.md
   kind: fact
   status: ready_for_review
-  text: описание навыка нужно проверять на реалистичных положительных и отрицательных
-    запросах, включая близкие, но неподходящие случаи.
-  excerpt: страница `optimizing-descriptions` рекомендует набор проверочных запросов
-    с признаком ожидаемого срабатывания и отдельно выделяет важность близких отрицательных
-    примеров.
+  text: описание навыка нужно проверять на реалистичных положительных и отрицательных запросах, включая
+    близкие, но неподходящие случаи.
+  excerpt: descriptions tend to grow during optimization.
   artifact: index.md
   checked_at: '2026-06-01'
   scope:
-    section_title: ''
+    section_title: The optimization loop
     application: проверки срабатывания навыков.
   open_questions: []
 - id: ASKL-007
@@ -35,13 +32,12 @@ statements:
   item_id: ASKL-normalized-ASKL-pages-optimizing-descriptions-index.md
   kind: fact
   status: ready_for_review
-  text: при настройке описания навыка нужно избегать переобучения на проверочные запросы
-    и отделять набор для подбора формулировки от набора для проверки обобщения.
-  excerpt: страница `optimizing-descriptions` описывает разделение проверок на train
-    и validation, чтобы улучшения описания не подгонялись под конкретные формулировки.
+  text: при настройке описания навыка нужно избегать переобучения на проверочные запросы и отделять набор
+    для подбора формулировки от набора для проверки обобщения.
+  excerpt: train results guide your changes; the validation results tell you whether
   artifact: index.md
   checked_at: '2026-06-01'
   scope:
-    section_title: ''
+    section_title: The optimization loop
     application: развитие и проверка описаний навыков.
   open_questions: []

@@ -1,0 +1,38 @@
+id: AFDS
+slug: afds
+title: "`frontend-design` из публичного репозитория Anthropic Skills — готовый
+  навык для создания и улучшения визуального качества фронтенд-интерфейсов."
+status: candidate
+priority: normal
+carrier_type: repository
+source_kind: knowledge_base
+adapter: manual
+storage_strategy: external_reference
+processing_scope: metadata_only
+retrieval_mode: on_demand
+copy_policy: no_bulk_copy
+allowed_use: "Точечная проверка подходов к эстетике фронтенд-интерфейсов и
+  антишаблонам со ссылкой на первоисточник."
+requires_access_check: true
+url: "https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md"
+locator: "https://github.com/anthropics/skills"
+public_reference: "https://github.com/anthropics/skills"
+license_or_terms: "Условия репозитория и конкретного навыка проверять перед
+  копированием."
+access:
+  default: "Внешний публичный репозиторий. Не копировать навык целиком без
+    проверки лицензии и применимости."
+reliability: working
+stability: mutable
+refresh_policy: manual
+last_checked_at: "2026-07-10"
+scope:
+  includes:
+    - "эстетика и визуальное качество фронтенд-интерфейсов"
+    - "борьба с шаблонным видом интерфейсов, созданных ИИ"
+  excludes:
+    - "мобильные платформенные правила Android и iOS"
+known_limitations:
+  - "Источник ориентирован на фронтенд; перенос к мобильным интерфейсам требует
+    отдельной адаптации."
+processing_notes: []

@@ -1,4 +1,118 @@
 items:
+- id: AFDS-source
+  source_id: AFDS
+  title: "AFDS: обзор источника"
+  access: "Смотри карточку источника и ограничения в knowledge/source-attribution.md."
+  status: candidate
+  workflow_stage: indexed
+  path: data/afds/items/source/item.yml
+- id: AFDS-skill
+  source_id: AFDS
+  title: "AFDS: frontend-design SKILL.md"
+  access: "Внешний публичный файл; получать точечно по запросу."
+  status: candidate
+  workflow_stage: indexed
+  url: "https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md"
+  path: data/afds/items/skill/item.yml
+- id: APHG-source
+  source_id: APHG
+  title: "APHG: обзор источника"
+  access: "Смотри карточку источника и ограничения в knowledge/source-attribution.md."
+  status: candidate
+  workflow_stage: indexed
+  path: data/aphg/items/source/item.yml
+- id: APHG-hig
+  source_id: APHG
+  title: "APHG: Human Interface Guidelines"
+  access: "Внешний публичный сайт; получать точечно по запросу."
+  status: candidate
+  workflow_stage: indexed
+  url: "https://developer.apple.com/design/human-interface-guidelines"
+  path: data/aphg/items/hig/item.yml
+- id: DTCG-source
+  source_id: DTCG
+  title: "DTCG: обзор источника"
+  access: "Смотри карточку источника и ограничения в knowledge/source-attribution.md."
+  status: candidate
+  workflow_stage: indexed
+  path: data/dtcg/items/source/item.yml
+- id: DTCG-format
+  source_id: DTCG
+  title: "DTCG: спецификация формата дизайн-токенов"
+  access: "Внешний публичный документ; получать точечно по запросу."
+  status: candidate
+  workflow_stage: indexed
+  url: "https://www.designtokens.org/tr/drafts/format/"
+  path: data/dtcg/items/format/item.yml
+- id: IMPD-source
+  source_id: IMPD
+  title: "IMPD: обзор источника"
+  access: "Смотри карточку источника и ограничения в knowledge/source-attribution.md."
+  status: candidate
+  workflow_stage: indexed
+  path: data/impd/items/source/item.yml
+- id: IMPD-repository
+  source_id: IMPD
+  title: "IMPD: репозиторий Impeccable"
+  access: "Внешний публичный репозиторий; получать точечно по запросу."
+  status: candidate
+  workflow_stage: indexed
+  url: "https://github.com/pbakaus/impeccable"
+  path: data/impd/items/repository/item.yml
+- id: IMPD-docs
+  source_id: IMPD
+  title: "IMPD: документация Impeccable"
+  access: "Внешний публичный сайт; получать точечно по запросу."
+  status: candidate
+  workflow_stage: indexed
+  url: "https://impeccable.style/docs/impeccable/"
+  path: data/impd/items/docs/item.yml
+- id: MD3-source
+  source_id: MD3
+  title: "MD3: обзор источника"
+  access: "Смотри карточку источника и ограничения в knowledge/source-attribution.md."
+  status: candidate
+  workflow_stage: indexed
+  path: data/md3/items/source/item.yml
+- id: MD3-guidelines
+  source_id: MD3
+  title: "MD3: Material Design 3"
+  access: "Внешний публичный сайт; получать точечно по запросу."
+  status: candidate
+  workflow_stage: indexed
+  url: "https://m3.material.io/"
+  path: data/md3/items/guidelines/item.yml
+- id: NFRM-source
+  source_id: NFRM
+  title: "NFRM: обзор источника"
+  access: "Смотри карточку источника и ограничения в knowledge/source-attribution.md."
+  status: candidate
+  workflow_stage: indexed
+  url: "https://neuform.ai/"
+  path: data/nfrm/items/source/item.yml
+- id: OPDS-source
+  source_id: OPDS
+  title: "OPDS: обзор источника"
+  access: "Смотри карточку источника и ограничения в knowledge/source-attribution.md."
+  status: candidate
+  workflow_stage: indexed
+  path: data/opds/items/source/item.yml
+- id: OPDS-repository
+  source_id: OPDS
+  title: "OPDS: репозиторий Open Design"
+  access: "Внешний публичный репозиторий; получать точечно по запросу."
+  status: candidate
+  workflow_stage: indexed
+  url: "https://github.com/nexu-io/open-design"
+  path: data/opds/items/repository/item.yml
+- id: OPDS-quickstart
+  source_id: OPDS
+  title: "OPDS: быстрый старт Open Design"
+  access: "Внешний публичный файл; получать точечно по запросу."
+  status: candidate
+  workflow_stage: indexed
+  url: "https://github.com/nexu-io/open-design/blob/main/QUICKSTART.md"
+  path: data/opds/items/quickstart/item.yml
 - id: APIB-source
   source_id: APIB
   title: 'APIB: обзор источника'

@@ -5,11 +5,11 @@ statements:
   kind: fact
   status: ready_for_review
   text: статья напрямую оценивает влияние AGENTS-механизмов на runtime и токены AI-агентов.
-  excerpt: абстракт упоминает runtime и output token metrics.
+  excerpt: Исследуется влияние `AGENTS.md` на эффективность AI-агентов.
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Содержание статьи
     application: оценка эффективности конфигурации.
   open_questions: []
 - id: AR12-002
@@ -18,11 +18,11 @@ statements:
   kind: fact
   status: ready_for_review
   text: экспериментальная выборка включает 10 репозиториев и 124 pull request.
-  excerpt: абстракт и методология сравнения режимов.
+  excerpt: 'База эксперимента: 10 репозиториев и 124 pull request.'
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Содержание статьи
     application: масштаб и воспроизводимость анализа.
   open_questions: []
 - id: AR12-003
@@ -30,13 +30,13 @@ statements:
   item_id: AR12-normalized-AR12-pages-2601.20404v2-index.md
   kind: fact
   status: ready_for_review
-  text: авторы сравнивают два условия (с AGENTS.md и без него), что фиксирует причинно-следственную
-    гипотезу относительно эффекта конфигурации.
-  excerpt: описание эксперимента в abstract.
+  text: авторы сравнивают два условия (с AGENTS.md и без него), что фиксирует причинно-следственную гипотезу
+    относительно эффекта конфигурации.
+  excerpt: 'База эксперимента: 10 репозиториев и 124 pull request.'
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Содержание статьи
     application: дизайн контрольных наборов для оценок.
   open_questions: []
 - id: AR12-004
@@ -44,13 +44,12 @@ statements:
   item_id: AR12-normalized-AR12-pages-2601.20404v2-index.md
   kind: fact
   status: ready_for_review
-  text: наличие `AGENTS.md` связано со снижением медианного runtime примерно на `28.64
-    %`.
-  excerpt: численные результаты в abstract.
+  text: наличие `AGENTS.md` связано со снижением медианного runtime примерно на `28.64 %`.
+  excerpt: снижение медианного времени выполнения примерно на `28.64 %`;
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Содержание статьи
     application: оценка временной эффективности агентов.
   open_questions: []
 - id: AR12-005
@@ -58,12 +57,12 @@ statements:
   item_id: AR12-normalized-AR12-pages-2601.20404v2-index.md
   kind: fact
   status: ready_for_review
-  text: наличие `AGENTS.md` связано со снижением потребления output token примерно
-    на `16.58 %` при сопоставимом показателе task completion.
-  excerpt: раздел результатов в abstract.
+  text: наличие `AGENTS.md` связано со снижением потребления output token примерно на `16.58 %` при сопоставимом
+    показателе task completion.
+  excerpt: 'Метрики: wall-clock runtime и output token consumption.'
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Содержание статьи
     application: метрики затрат на инференс.
   open_questions: []

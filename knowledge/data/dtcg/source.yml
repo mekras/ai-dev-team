@@ -1,0 +1,37 @@
+id: DTCG
+slug: dtcg
+title: "`Design Tokens Community Group` — спецификация формата дизайн-токенов
+  для обмена стилевыми решениями между инструментами."
+status: candidate
+priority: high
+carrier_type: document
+source_kind: reference
+adapter: manual
+storage_strategy: external_reference
+processing_scope: metadata_only
+retrieval_mode: on_demand
+copy_policy: no_bulk_copy
+allowed_use: "Точечная проверка формата дизайн-токенов со ссылкой на
+  первоисточник."
+requires_access_check: true
+url: "https://www.designtokens.org/tr/drafts/format/"
+locator: "https://www.designtokens.org/"
+public_reference: "https://www.w3.org/community/design-tokens/"
+license_or_terms: "Условия конкретных документов проверять перед
+  копированием."
+access:
+  default: "Внешний публичный источник. Использовать как ссылочный стандарт,
+    не хранить полный текст без проверки условий."
+reliability: working
+stability: mutable
+refresh_policy: manual
+last_checked_at: "2026-07-10"
+scope:
+  includes:
+    - "формат дизайн-токенов"
+    - "переносимость цветовых, типографических и размерных решений"
+  excludes:
+    - "полный стандарт как обязательное требование для всех проектов"
+known_limitations:
+  - "Спецификация развивается; дату и версию нужно проверять при применении."
+processing_notes: []

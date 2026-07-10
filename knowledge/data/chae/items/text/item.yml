@@ -1,9 +1,9 @@
 id: CHAE-text
 source_id: CHAE
-title: "CHAE: text"
-access: "Смотри карточку единицы и связанные артефакты в knowledge/data/chae/ и общие ограничения в knowledge/source-attribution.md."
+title: 'CHAE: text'
+access: Смотри карточку единицы и связанные артефакты в knowledge/data/chae/ и общие ограничения в knowledge/source-attribution.md.
 status: approved
-workflow_stage: statements_extracted
+workflow_stage: raw_transcribed
 retrieval_mode: on_demand
 copy_policy: fragments_only
 requires_access_check: true
@@ -14,4 +14,5 @@ extracted_text:
   content_hash: sha256:cc854d2c5df4676c195a143c072afb54b181fb021f64e14f797e9ad8f7498ca6
   metadata_source: pdftotext
 known_limitations:
-- Полная текстовая выгрузка хранится только рядом с единицей под маркером `*.local.*` и не публикуется в Git.
+- Полная текстовая выгрузка хранится только рядом с единицей под маркером `*.local.*` и не публикуется
+  в Git.

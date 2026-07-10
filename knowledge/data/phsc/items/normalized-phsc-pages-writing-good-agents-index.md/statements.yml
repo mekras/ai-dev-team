@@ -4,13 +4,13 @@ statements:
   item_id: PHSC-normalized-PHSC-pages-writing-good-agents-index.md
   kind: fact
   status: ready_for_review
-  text: AGENTS.md выступает как первичный вход в проект для кодового ассистента и
-    оказывает решающее влияние на его контекст.
-  excerpt: тезис о "single highest-leverage configuration point".
+  text: AGENTS.md выступает как первичный вход в проект для кодового ассистента и оказывает решающее влияние
+    на его контекст.
+  excerpt: '`https://www.philschmid.de/writing-good-agents`'
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: URL
     application: стартовая инициализация новых задач.
   open_questions: []
 - id: PHSC-002
@@ -18,13 +18,13 @@ statements:
   item_id: PHSC-normalized-PHSC-pages-writing-good-agents-index.md
   kind: fact
   status: ready_for_review
-  text: авто-сгенерированный файл может снижать успех задач и увеличивать стоимость
-    inference по сравнению с отсутствием таких файла.
-  excerpt: разделы с цифрами снижения успеха и роста стоимости.
+  text: авто-сгенерированный файл может снижать успех задач и увеличивать стоимость inference по сравнению
+    с отсутствием таких файла.
+  excerpt: Авто-сгенерированные файлы в среднем снижали успех задач и увеличивали
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Ключевые тезисы
     application: выбор между ручной и LLM-генерацией правил.
   open_questions: []
 - id: PHSC-003
@@ -32,13 +32,13 @@ statements:
   item_id: PHSC-normalized-PHSC-pages-writing-good-agents-index.md
   kind: fact
   status: ready_for_review
-  text: полезные файлы включают WHAT/WHY/HOW и минимум конкретной операционной информации
-    (стек, процессы сборки, тестирования).
-  excerpt: разделы What to Include и структура рекомендаций.
+  text: полезные файлы включают WHAT/WHY/HOW и минимум конкретной операционной информации (стек, процессы
+    сборки, тестирования).
+  excerpt: дополнительная структура для работы модели.
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Ключевые тезисы
     application: шаблоны содержания AGENTS.md.
   open_questions: []
 - id: PHSC-004
@@ -46,14 +46,13 @@ statements:
   item_id: PHSC-normalized-PHSC-pages-writing-good-agents-index.md
   kind: fact
   status: ready_for_review
-  text: подробный обзор дерева репозитория и избыточные обзоры не дают выигрыш навигации
-    и могут перегружать инструкцию.
-  excerpt: результат экспериментов о том, что обзоры не ускоряют поиск релевантных
-    файлов.
+  text: подробный обзор дерева репозитория и избыточные обзоры не дают выигрыш навигации и могут перегружать
+    инструкцию.
+  excerpt: Полный кодовый обзор дерева репозитория как не приоритетный источник.
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: Рекомендуемые исключения
     application: борьба с лишним объёмом инструкций.
   open_questions: []
 - id: PHSC-005
@@ -61,12 +60,11 @@ statements:
   item_id: PHSC-normalized-PHSC-pages-writing-good-agents-index.md
   kind: fact
   status: ready_for_review
-  text: упоминание инструментов в AGENTS.md резко повышает вероятность их использования
-    моделью.
-  excerpt: оценка, что указанные инструменты используются в десятки раз чаще.
+  text: упоминание инструментов в AGENTS.md резко повышает вероятность их использования моделью.
+  excerpt: '`https://www.philschmid.de/writing-good-agents`'
   artifact: index.md
   checked_at: '2026-06-03'
   scope:
-    section_title: ''
+    section_title: URL
     application: оптимизация перечня ключевых команд.
   open_questions: []

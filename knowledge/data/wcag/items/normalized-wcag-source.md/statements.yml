@@ -4,13 +4,13 @@ statements:
   item_id: WCAG-normalized-WCAG-source.md
   kind: fact
   status: ready_for_review
-  text: WCAG организует требования доступности вокруг четырёх принципов — воспринимаемость,
-    управляемость, понятность и надёжность.
-  excerpt: 'обзор «four principles: perceivable, operable, understandable, and robust».'
+  text: WCAG организует требования доступности вокруг четырёх принципов — воспринимаемость, управляемость,
+    понятность и надёжность.
+  excerpt: '_Принципы_ (4): воспринимаемость, управляемость, понятность, надёжность (англ.'
   artifact: source.md
   checked_at: '2026-06-26'
   scope:
-    section_title: ''
+    section_title: Структура стандарта
     application: структура проверки доступности.
   open_questions: []
 - id: WCAG-002
@@ -18,13 +18,13 @@ statements:
   item_id: WCAG-normalized-WCAG-source.md
   kind: fact
   status: ready_for_review
-  text: соответствие имеет три уровня — `A`, `AA`, `AAA`; уровень `AA является распространённым
-    целевым уровнем.
-  excerpt: описание уровней соответствия.
+  text: соответствие имеет три уровня — `A`, `AA`, `AAA`; уровень `AA является распространённым целевым
+    уровнем.
+  excerpt: уровень), `AAA` (высший).
   artifact: source.md
   checked_at: '2026-06-26'
   scope:
-    section_title: ''
+    section_title: Структура стандарта
     application: выбор целевого уровня доступности.
   open_questions: []
 - id: WCAG-003
@@ -32,13 +32,12 @@ statements:
   item_id: WCAG-normalized-WCAG-source.md
   kind: fact
   status: ready_for_review
-  text: соответствие определяется выполнением проверяемых критериев успеха, входящих
-    в руководства.
-  excerpt: «the success criteria are what determine conformance».
+  text: соответствие определяется выполнением проверяемых критериев успеха, входящих в руководства.
+  excerpt: '_Критерии успеха_ (success criteria): проверяемые требования; именно их'
   artifact: source.md
   checked_at: '2026-06-26'
   scope:
-    section_title: ''
+    section_title: Структура стандарта
     application: проверка решений против критериев, а не общего мнения.
   open_questions: []
 - id: WCAG-004
@@ -46,13 +45,12 @@ statements:
   item_id: WCAG-normalized-WCAG-source.md
   kind: fact
   status: ready_for_review
-  text: текущая версия WCAG 2.2 опубликована `2023-10-05` и обратно совместима с предыдущими
-    версиями.
-  excerpt: сведения о публикации и совместимости версии `2.2`.
+  text: текущая версия WCAG 2.2 опубликована `2023-10-05` и обратно совместима с предыдущими версиями.
+  excerpt: Версия `2.2` опубликована `2023-10-05`, с обновлениями в декабре `2024`.
   artifact: source.md
   checked_at: '2026-06-26'
   scope:
-    section_title: ''
+    section_title: Версия и совместимость
     application: указание версии при ссылке на критерии.
   open_questions: []
 - id: WCAG-005
@@ -60,12 +58,12 @@ statements:
   item_id: WCAG-normalized-WCAG-source.md
   kind: fact
   status: ready_for_review
-  text: WCAG — технический стандарт оценки доступности; для реализации и проверки
-    W3C предоставляет вспомогательные материалы (Quick Reference, Understanding, Techniques).
-  excerpt: описание назначения и вспомогательных ресурсов.
+  text: WCAG — технический стандарт оценки доступности; для реализации и проверки W3C предоставляет вспомогательные
+    материалы (Quick Reference, Understanding, Techniques).
+  excerpt: реализации и проверки соответствия W3C предоставляет вспомогательные материалы
   artifact: source.md
   checked_at: '2026-06-26'
   scope:
-    section_title: ''
+    section_title: Применение
     application: организация аудита доступности.
   open_questions: []

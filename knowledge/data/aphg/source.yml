@@ -1,0 +1,38 @@
+id: APHG
+slug: aphg
+title: "`Apple Human Interface Guidelines` — официальные рекомендации Apple по
+  проектированию интерфейсов для платформ Apple."
+status: candidate
+priority: high
+carrier_type: website
+source_kind: reference
+adapter: manual
+storage_strategy: external_reference
+processing_scope: metadata_only
+retrieval_mode: on_demand
+copy_policy: no_bulk_copy
+allowed_use: "Точечная проверка платформенных правил iOS и других платформ
+  Apple со ссылкой на первоисточник."
+requires_access_check: true
+url: "https://developer.apple.com/design/human-interface-guidelines"
+locator: "https://developer.apple.com/design/human-interface-guidelines"
+public_reference: "https://developer.apple.com/design/"
+license_or_terms: "Условия Apple Developer проверять перед копированием
+  фрагментов."
+access:
+  default: "Внешний публичный источник. Использовать как платформенный
+    справочник без локальной полной копии."
+reliability: official
+stability: mutable
+refresh_policy: manual
+last_checked_at: "2026-07-10"
+scope:
+  includes:
+    - "платформенные соглашения iOS и других платформ Apple"
+    - "качество интерфейсов, нативность, компоненты и состояния"
+  excludes:
+    - "обязательное применение к не-Apple платформам"
+known_limitations:
+  - "Источник меняется вместе с платформами Apple; перед применением нужна
+    проверка актуальной страницы."
+processing_notes: []
