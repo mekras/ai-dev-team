@@ -373,6 +373,77 @@
       "required_corpus_claims": [
         "KCVALIDATION-1"
       ]
+    },
+    {
+      "id": "kc-validation-result-source-map-integrity",
+      "prompt": "Проверь длинный источник после нормализации: source-map.yml обязан существовать, содержать extraction_passport и structure.units, карта охвата не должна терять статусы, а tracked-слой не должен хранить полную локальную выгрузку или абсолютные пути.",
+      "input_files": [
+        {
+          "path": ".apm/skills/kc-validation/SKILL.md",
+          "purpose": "порядок комплексной проверки source-map"
+        },
+        {
+          "path": ".apm/skills/kc-inventory/scripts/validate-corpus-layout.py",
+          "purpose": "переносимый валидатор source-map"
+        },
+        {
+          "path": ".apm/skills/kc-inventory/assets/source-map.yml",
+          "purpose": "минимальный формат source-map"
+        }
+      ],
+      "expected_output": {
+        "report_structure": [
+          "наличие source-map.yml",
+          "паспорт извлечения и структура",
+          "карта охвата и статусы",
+          "безопасность tracked-слоя",
+          "первая точка исправления"
+        ],
+        "findings": [
+          {
+            "severity": "high",
+            "observed_problem": "После нормализации длинного источника корпус может выглядеть работоспособным, но оставаться без source-map.yml, с битой картой структуры или с признаками полной tracked-выгрузки текста.",
+            "expected_conclusion": "Проверка должна считать это формальными проблемами готовности длинного источника, а не мягкими замечаниями.",
+            "acceptable_fix_direction": "Требовать source-map.yml, дополнять extraction_passport и structure.units, затем закрывать coverage и убирать полную tracked-выгрузку.",
+            "corpus_claims": [
+              "KCVALIDATION-1"
+            ]
+          }
+        ]
+      },
+      "negative_control": {
+        "description": "Ответ без навыка ограничивается проверкой statements.yml или карточки источника и не проверяет source-map.yml как отдельный tracked-слой.",
+        "expected_failure": "Такой ответ не должен одновременно выполнить expected_output, assertions и must_not."
+      },
+      "oracle": {
+        "success_criteria": [
+          "результат требует source-map.yml после нормализации длинного источника",
+          "результат проверяет extraction_passport, structure.units и coverage",
+          "результат ловит абсолютные пути и признаки полной tracked-выгрузки"
+        ],
+        "failure_indicators": [
+          "ответ не проверяет source-map.yml",
+          "ответ принимает структурные единицы без статуса",
+          "ответ допускает абсолютные локальные пути или full_text-поля в tracked-слое"
+        ]
+      },
+      "application_evidence": [
+        "результат перечисляет отдельные проверки source-map.yml",
+        "результат отделяет раннюю причину отсутствия coverage от дефекта поздней стадии"
+      ],
+      "evaluation_surface": "качество результата, обязательный шаг и формальная безопасность",
+      "assertions": [
+        "Результат проверяет source-map.yml как обязательный tracked-артефакт длинного источника.",
+        "Результат не допускает полную tracked-выгрузку текста при ограничивающей copy_policy."
+      ],
+      "must_not": [
+        "не считать source.yml достаточной заменой source-map.yml",
+        "не принимать карту охвата со структурными единицами без статуса",
+        "не допускать абсолютные локальные пути в source-map.yml"
+      ],
+      "required_corpus_claims": [
+        "KCVALIDATION-1"
+      ]
     }
   ]
 }

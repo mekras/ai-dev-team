@@ -26,6 +26,12 @@
       "rationale": "Запрос касается комплексной проверки качества и прослеживаемости утверждений корпуса."
     },
     {
+      "id": "kc-validation-positive-source-map",
+      "prompt": "Проверь корпус после нормализации длинного источника: source-map.yml должен быть целостным, без абсолютных путей и без полной tracked-выгрузки текста.",
+      "should_trigger": true,
+      "rationale": "Запрос касается комплексной проверки source-map и безопасности длинного источника."
+    },
+    {
       "id": "kc-validation-negative-one-file",
       "prompt": "Проверь синтаксис одного файла JSON в primary-слое.",
       "should_trigger": false,

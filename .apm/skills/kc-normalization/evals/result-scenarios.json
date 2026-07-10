@@ -133,6 +133,72 @@
       "required_corpus_claims": [
         "KCNORMALIZATION-1"
       ]
+    },
+    {
+      "id": "kc-normalization-result-source-map-created",
+      "prompt": "Нормализуй длинный источник после локального извлечения текста: нужно создать или обновить source-map.yml с паспортом извлечения, картой структуры, ограничениями публикации и причиной, если карта охвата ещё не заполнена.",
+      "input_files": [
+        {
+          "path": ".apm/skills/kc-normalization/SKILL.md",
+          "purpose": "порядок нормализации и source-map"
+        },
+        {
+          "path": ".apm/skills/kc-inventory/assets/source-map.yml",
+          "purpose": "консервативный шаблон source-map"
+        }
+      ],
+      "expected_output": {
+        "report_structure": [
+          "что нормализовано",
+          "паспорт извлечения",
+          "структура source-map",
+          "ограничения и tracked-фрагменты",
+          "почему карта охвата готова или отложена"
+        ],
+        "findings": [
+          {
+            "severity": "medium",
+            "observed_problem": "Сценарий проверяет, что нормализация длинного источника создаёт source-map.yml как tracked-артефакт, а не ограничивается фрагментом текста.",
+            "expected_conclusion": "Ответ должен зафиксировать source-map.yml с паспортом и структурой, не публикуя полную выгрузку.",
+            "acceptable_fix_direction": "Обновить source-map.yml, указать локальное сырьё и tracked-фрагменты, а при ранней стадии оставить причину отсутствия coverage.",
+            "corpus_claims": [
+              "KCNORMALIZATION-1"
+            ]
+          }
+        ]
+      },
+      "negative_control": {
+        "description": "Ответ без навыка оставляет только normalized.md, не создаёт source-map.yml или переносит в tracked-слой полную текстовую выгрузку.",
+        "expected_failure": "Такой ответ не должен одновременно выполнить expected_output, assertions и must_not."
+      },
+      "oracle": {
+        "success_criteria": [
+          "результат создаёт или обновляет source-map.yml",
+          "результат фиксирует extraction_passport и structure.units",
+          "результат не публикует полный текст источника"
+        ],
+        "failure_indicators": [
+          "ответ не создаёт source-map.yml",
+          "ответ не фиксирует инструмент или статус извлечения",
+          "ответ заменяет карту структуры полным текстом"
+        ]
+      },
+      "application_evidence": [
+        "результат явно называет source-map.yml tracked-выходом нормализации",
+        "результат отделяет coverage_absence_reason от будущей карты охвата"
+      ],
+      "evaluation_surface": "изменение артефакта и ограничение",
+      "assertions": [
+        "Результат создаёт source-map.yml после нормализации длинного источника.",
+        "Результат не превращает source-map.yml в хранилище полного текста."
+      ],
+      "must_not": [
+        "не ограничиваться одним normalized.md без source-map.yml",
+        "не публиковать полную текстовую выгрузку при ограничивающей политике копирования"
+      ],
+      "required_corpus_claims": [
+        "KCNORMALIZATION-1"
+      ]
     }
   ]
 }

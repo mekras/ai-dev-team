@@ -262,6 +262,71 @@
       "required_corpus_claims": [
         "KCPIPELINE-1"
       ]
+    },
+    {
+      "id": "kc-pipeline-result-long-source-source-map-gate",
+      "prompt": "Продолжи полный проход по длинному источнику: отдельные normalized.md уже есть, но source-map.yml ещё не создан. Нужно решить, готов ли источник к kc-statements и какой ближайший безопасный шаг обязателен.",
+      "input_files": [
+        {
+          "path": ".apm/skills/kc-pipeline/SKILL.md",
+          "purpose": "шлюзы стадий конвейера"
+        },
+        {
+          "path": ".apm/skills/kc-normalization/SKILL.md",
+          "purpose": "требования к source-map на стадии нормализации"
+        }
+      ],
+      "expected_output": {
+        "report_structure": [
+          "текущая стадия источника",
+          "почему source-map.yml обязателен",
+          "возврат на kc-normalization",
+          "следующий безопасный шаг"
+        ],
+        "findings": [
+          {
+            "severity": "high",
+            "observed_problem": "Конвейер может ошибочно считать длинный источник готовым к утверждениям только по появлению нормализованных фрагментов.",
+            "expected_conclusion": "Без source-map.yml длинный источник не проходит шлюз между нормализацией и kc-statements и должен быть возвращён на предыдущую стадию.",
+            "acceptable_fix_direction": "Вернуть источник на kc-normalization, создать source-map.yml и только потом переходить к coverage и statements.",
+            "corpus_claims": [
+              "KCPIPELINE-1"
+            ]
+          }
+        ]
+      },
+      "negative_control": {
+        "description": "Ответ без навыка считает несколько normalized.md достаточным основанием для перехода к утверждениям или объявляет источник заблокированным без попытки создать source-map.",
+        "expected_failure": "Такой ответ не должен одновременно выполнить expected_output, assertions и must_not."
+      },
+      "oracle": {
+        "success_criteria": [
+          "результат возвращает источник на kc-normalization",
+          "результат называет source-map.yml обязательным шлюзом",
+          "результат не считает отсутствие source-map формальным блокером полного прохода при доступном безопасном следующем шаге"
+        ],
+        "failure_indicators": [
+          "ответ запускает kc-statements без source-map.yml",
+          "ответ останавливает конвейер без выполнения безопасного шага",
+          "ответ не различает отсутствие normalized.md и отсутствие source-map.yml"
+        ]
+      },
+      "application_evidence": [
+        "результат явно называет source-map.yml обязательным артефактом длинного источника",
+        "результат указывает ближайший безопасный шаг вместо ложного блокера"
+      ],
+      "evaluation_surface": "маршрутизация, обязательный шаг и качество результата",
+      "assertions": [
+        "Результат не переводит длинный источник к kc-statements без source-map.yml.",
+        "Результат возвращает источник на ближайшую незавершённую стадию."
+      ],
+      "must_not": [
+        "не считать отдельные normalized.md достаточным шлюзом к утверждениям",
+        "не объявлять блокер, если source-map.yml можно безопасно создать сейчас"
+      ],
+      "required_corpus_claims": [
+        "KCPIPELINE-1"
+      ]
     }
   ]
 }

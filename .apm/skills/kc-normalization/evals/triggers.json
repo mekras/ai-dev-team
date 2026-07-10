@@ -20,6 +20,12 @@
       "rationale": "Запрос касается нормализации выбранного фрагмента локальной книги."
     },
     {
+      "id": "kc-normalization-positive-source-map",
+      "prompt": "Нормализуй длинный стандарт в PDF: обнови структуру источника, зафиксируй инструмент извлечения и создай source-map.yml без полной текстовой выгрузки в Git.",
+      "should_trigger": true,
+      "rationale": "Запрос касается нормализации длинного источника с обязательным source-map.yml."
+    },
+    {
       "id": "kc-normalization-negative-intake",
       "prompt": "Сначала реши, можно ли принять этот файл в корпус знаний и хранить его в Git.",
       "should_trigger": false,

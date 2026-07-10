@@ -26,6 +26,12 @@
       "rationale": "Запрос касается извлечения утверждений из уже подготовленного фрагмента локальной книги."
     },
     {
+      "id": "kc-statements-positive-source-map-coverage",
+      "prompt": "Извлеки утверждения из длинного документа по уже подготовленному source-map.yml и обнови карту охвата по его структуре.",
+      "should_trigger": true,
+      "rationale": "Запрос касается извлечения утверждений из длинного источника с опорой на source-map."
+    },
+    {
       "id": "kc-statements-negative-pipeline-unready-normalization",
       "prompt": "В рамках конвейера создай statements-файл по источнику, у которого normalized/source.md пишет, что нормализация ожидается, а страницы отсутствуют.",
       "should_trigger": false,

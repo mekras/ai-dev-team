@@ -259,6 +259,71 @@
       "required_corpus_claims": [
         "KCSOURCES-1"
       ]
+    },
+    {
+      "id": "kc-sources-add-result-long-source-expectation",
+      "prompt": "Добавь в публичный корпус длинный стандарт в PDF: полный файл нельзя публиковать, нужно завести карточку источника, отметить long_source и подготовить ожидание source-map.yml для следующей стадии.",
+      "input_files": [
+        {
+          "path": ".apm/skills/kc-sources-add/SKILL.md",
+          "purpose": "порядок технического добавления источника"
+        },
+        {
+          "path": ".apm/skills/kc-inventory/references/local-book-source.md",
+          "purpose": "профиль длинного локального документа"
+        }
+      ],
+      "expected_output": {
+        "report_structure": [
+          "решение о новизне источника",
+          "признак long_source и стратегия хранения",
+          "ожидание source-map.yml на стадии нормализации",
+          "локальные и tracked-артефакты"
+        ],
+        "findings": [
+          {
+            "severity": "medium",
+            "observed_problem": "Сценарий проверяет, что intake для длинного источника готовит source-map как следующий артефакт, но не требует готовую карту преждевременно.",
+            "expected_conclusion": "Ответ должен отметить длинный источник, оставить полный файл вне Git и перенести создание source-map.yml на kc-normalization.",
+            "acceptable_fix_direction": "Зафиксировать long_source, copy_policy и ожидаемый source-map.yml как следующий tracked-артефакт без аналитики по содержанию.",
+            "corpus_claims": [
+              "KCSOURCES-1"
+            ]
+          }
+        ]
+      },
+      "negative_control": {
+        "description": "Ответ без навыка требует немедленно подготовить source-map.yml, предлагает новую папку data/<source>/local/ или начинает извлекать утверждения.",
+        "expected_failure": "Такой ответ не должен одновременно выполнить expected_output, assertions и must_not."
+      },
+      "oracle": {
+        "success_criteria": [
+          "результат фиксирует long_source и ожидание source-map.yml как следующий этап",
+          "результат оставляет полный файл в локальном слое под *.local.*",
+          "результат не требует готовую карту на этапе добавления"
+        ],
+        "failure_indicators": [
+          "ответ требует source-map.yml до нормализации",
+          "ответ предлагает data/<source>/local/ как новую раскладку",
+          "ответ переходит к извлечению утверждений"
+        ]
+      },
+      "application_evidence": [
+        "результат явно связывает source-map.yml со следующей стадией",
+        "результат не возвращает проект к устаревшей папке local/"
+      ],
+      "evaluation_surface": "ограничение, изменение артефакта и остановка по правилу",
+      "assertions": [
+        "Результат готовит source-map.yml как следующий tracked-артефакт длинного источника.",
+        "Результат не требует source-map.yml на этапе intake."
+      ],
+      "must_not": [
+        "не предлагать data/<source>/local/ как новую раскладку",
+        "не извлекать утверждения или summaries на этапе добавления"
+      ],
+      "required_corpus_claims": [
+        "KCSOURCES-1"
+      ]
     }
   ]
 }

@@ -3,6 +3,7 @@ contract_version: 1
 tracked_data:
   root: data
   source_pattern: data/<source>/source.yml
+  source_map_pattern: data/<source>/source-map.yml
   source_unit_pattern: data/<source>/<units>/<unit>/item.yml
   statement_pattern: data/<source>/<units>/<unit>/statements.yml
 
@@ -23,6 +24,7 @@ local_data:
 
 artifact_storage:
   tracked:
+    - "source-map.yml для длинного источника: паспорт извлечения, структура, карта охвата, ограничения и ссылки на фрагменты."
     - "Нормализованные тексты и стенограммы, если их можно хранить в проекте."
     - "Небольшие полезные вложения источника, если они нужны в исходном виде."
   local_or_temporary:

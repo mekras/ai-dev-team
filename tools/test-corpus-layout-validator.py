@@ -19,6 +19,10 @@ def write_text(path: Path, text: str) -> None:
     path.write_text(dedent(text).lstrip(), encoding="utf-8")
 
 
+def indented_yaml_fragment(text: str) -> str:
+    return "\n".join(f"        {line}" if line else "" for line in dedent(text).lstrip().splitlines())
+
+
 def write_minimal_corpus(root: Path, corpus_yml: str | None = None) -> None:
     write_text(
         root / "corpus.yml",
@@ -41,6 +45,9 @@ def write_minimal_corpus(root: Path, corpus_yml: str | None = None) -> None:
             path_pattern: data/<source>/documents/<slug>
         workflow_stages:
           - indexed
+          - normalized
+          - statements_extracted
+          - source_checked
           - blocked
         """,
     )
@@ -78,6 +85,103 @@ def write_minimal_corpus(root: Path, corpus_yml: str | None = None) -> None:
             access: "Same as source."
             status: active
             workflow_stage: indexed
+        """,
+    )
+
+
+def write_long_source(root: Path, *, stage: str = "normalized") -> None:
+    write_text(
+        root / "data" / "test-source" / "source.yml",
+        """
+        id: TEST
+        slug: test-source
+        title: "Test source"
+        access:
+          default: "Open test fixture."
+        status: active
+        carrier_type: document
+        source_kind: book
+        long_source: true
+        adapter: manual
+        storage_strategy: local_only
+        copy_policy: metadata_only
+        reliability: test fixture
+        refresh_policy: manual
+        extraction_status: normalized_fragments_ready
+        """,
+    )
+    write_text(
+        root / "data" / "test-source" / "items.yml",
+        f"""
+        items:
+          - id: TEST-ITEM-001
+            title: "Chapter 1"
+            access: "Same as source."
+            status: active
+            workflow_stage: {stage}
+        """,
+    )
+
+
+def write_long_source_item(root: Path, *, stage: str = "normalized") -> None:
+    write_text(
+        root / "data" / "test-source" / "source.yml",
+        """
+        id: TEST
+        slug: test-source
+        title: "Test source"
+        access:
+          default: "Open test fixture."
+        status: active
+        carrier_type: document
+        source_kind: reference
+        long_source: false
+        adapter: manual
+        storage_strategy: local_only
+        copy_policy: metadata_only
+        reliability: test fixture
+        refresh_policy: manual
+        """,
+    )
+    write_text(
+        root / "data" / "test-source" / "items.yml",
+        f"""
+        items:
+          - id: TEST-ITEM-001
+            title: "Long appendix"
+            access: "Same as source."
+            status: active
+            workflow_stage: {stage}
+            long_source: true
+        """,
+    )
+
+
+def write_source_map(root: Path, *, coverage: str | None = None, extra: str = "") -> None:
+    coverage_text = indented_yaml_fragment(
+        coverage if coverage is not None else "coverage_absence_reason: Not started."
+    )
+    extra_text = indented_yaml_fragment(extra) if extra else ""
+    write_text(
+        root / "data" / "test-source" / "source-map.yml",
+        f"""
+        source_map_version: 1
+        source_id: TEST
+        long_source: true
+        extraction_passport:
+          format: pdf
+          file_size_bytes: 123
+          content_hash_absence_reason: "Test fixture has no source file."
+          metadata_source: manual
+          extraction_tool: manual
+          extraction_status: normalized_fragments_ready
+        structure:
+          units:
+            - id: chapter-1
+              title: "Chapter 1"
+              order: 1
+{coverage_text}
+{extra_text}
         """,
     )
 
@@ -334,6 +438,46 @@ def main() -> int:
             """,
         )
         assert_fails_with(root, "corpus.yml: legacy layer remains active outside portable layout")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_long_source(root)
+        assert_fails_with(root, "long source reached normalization or statements without source-map.yml")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_long_source_item(root)
+        assert_fails_with(root, "long source reached normalization or statements without source-map.yml")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_long_source(root)
+        write_source_map(root)
+        assert_passes(root)
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_long_source(root, stage="statements_extracted")
+        write_source_map(
+            root,
+            coverage="""
+            coverage:
+              units:
+                - unit_id: chapter-1
+            """,
+        )
+        assert_fails_with(root, "status must be non-empty text")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_long_source(root)
+        write_source_map(root, extra='full_text: "Complete tracked text is not allowed."')
+        assert_fails_with(root, "source-map.yml contains full-text-like fields")
 
     return 0
 

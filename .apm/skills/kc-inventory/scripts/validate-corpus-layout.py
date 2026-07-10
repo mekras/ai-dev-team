@@ -67,6 +67,17 @@ DEFAULT_ALLOWED_STAGES = {
     "rejected",
 }
 
+NORMALIZED_OR_LATER_STAGES = {
+    "normalized",
+    "statements_extracted",
+    "source_checked",
+}
+
+STATEMENTS_OR_LATER_STAGES = {
+    "statements_extracted",
+    "source_checked",
+}
+
 DEFAULT_STATEMENT_KINDS = {
     "fact",
     "observation",
@@ -82,6 +93,37 @@ LEGACY_ROOT_DIRS = {
     "primary",
     "reports",
     "statements",
+}
+
+SOURCE_MAP_REQUIRED_PASSPORT_FIELDS = {
+    "format",
+    "file_size_bytes",
+    "metadata_source",
+    "extraction_tool",
+    "extraction_status",
+}
+
+SOURCE_MAP_POSTPONED_STATUSES = {"postponed", "отложено"}
+
+RESTRICTED_SOURCE_MAP_COPY_POLICIES = {
+    "local_only",
+    "metadata_only",
+    "fragments_only",
+}
+
+FULL_TEXT_SOURCE_MAP_KEYS = {
+    "body",
+    "complete_text",
+    "content",
+    "extracted_text",
+    "full_markdown",
+    "full_text",
+    "html_dump",
+    "markdown_dump",
+    "ocr_text",
+    "raw_text",
+    "summary",
+    "text_dump",
 }
 
 
@@ -166,6 +208,10 @@ def contains_redaction_placeholder(value: str) -> bool:
 
 def normalize_text(value: str) -> str:
     return " ".join(value.split()).casefold()
+
+
+def has_any_stage(stages: set[str], allowed: set[str]) -> bool:
+    return not stages.isdisjoint(allowed)
 
 
 class Validator:
@@ -423,10 +469,15 @@ class Validator:
         if self.allowed_source_kinds and source_kind not in self.allowed_source_kinds:
             self.errors.append(f"{rel}: unknown source_kind: {source_kind}")
 
+        long_source = source.get("long_source")
+        if long_source is not None and not isinstance(long_source, bool):
+            self.errors.append(f"{rel}: long_source must be boolean when present")
+
         self.validate_external_corpus_source(source, rel)
         self.add_value_errors(rel, source)
         self.validate_items(source_dir, source_id, source)
         self.validate_unit_dirs(source_dir, source_id)
+        self.validate_long_source(source_dir, source_id, source)
 
     def validate_external_corpus_source(self, source: dict[str, Any], rel: str) -> None:
         source_kind = source.get("source_kind")
@@ -511,6 +562,10 @@ class Validator:
         if stage and stage not in self.allowed_stages:
             self.errors.append(f"{prefix}: unknown workflow_stage: {stage}")
 
+        long_source = item.get("long_source")
+        if long_source is not None and not isinstance(long_source, bool):
+            self.errors.append(f"{prefix}: long_source must be boolean when present")
+
         item_path = item.get("path")
         if isinstance(item_path, str) and not (source_dir / item_path).exists():
             self.errors.append(f"{prefix}: item path does not exist: {item_path}")
@@ -553,6 +608,10 @@ class Validator:
         if stage and stage not in self.allowed_stages:
             self.errors.append(f"{rel}: unknown workflow_stage: {stage}")
 
+        long_source = item.get("long_source")
+        if long_source is not None and not isinstance(long_source, bool):
+            self.errors.append(f"{rel}: long_source must be boolean when present")
+
         self.add_value_errors(rel, item)
 
         files = item.get("files", {})
@@ -579,6 +638,332 @@ class Validator:
                 self.errors.append(
                     f"{rel}: inline redaction placeholder found; describe restrictions in metadata"
                 )
+
+    def validate_long_source(
+        self, source_dir: Path, source_id: Any, source: dict[str, Any]
+    ) -> None:
+        source_map_path = source_dir / "source-map.yml"
+        long_source = source.get("long_source") is True
+        source_stages = self.collect_source_stages(source_dir)
+        long_unit_stages = self.collect_long_source_unit_stages(source_dir)
+        extraction_status = source.get("extraction_status")
+        reached_normalization = (
+            long_source
+            and (
+                has_any_stage(source_stages, NORMALIZED_OR_LATER_STAGES)
+                or extraction_status == "normalized_fragments_ready"
+            )
+        ) or has_any_stage(long_unit_stages, NORMALIZED_OR_LATER_STAGES)
+
+        source_map_stages = source_stages | long_unit_stages
+
+        if long_unit_stages and not isinstance(source.get("long_source"), bool):
+            self.errors.append(
+                f"{self.rel(source_dir / 'source.yml')}: source has long source units; "
+                "set long_source explicitly to true or false"
+            )
+
+        if reached_normalization and not source_map_path.exists():
+            self.errors.append(
+                f"{self.rel(source_dir / 'source.yml')}: long source reached normalization "
+                "or statements without source-map.yml"
+            )
+            return
+
+        if source_map_path.exists():
+            self.validate_source_map(source_map_path, source_dir, source_id, source, source_map_stages)
+
+    def collect_source_stages(self, source_dir: Path) -> set[str]:
+        stages: set[str] = set()
+        items_path = source_dir / "items.yml"
+        if items_path.exists():
+            items_data = load_yaml(items_path)
+            items = items_data.get("items") if isinstance(items_data, dict) else None
+            if isinstance(items, list):
+                for item in items:
+                    if isinstance(item, dict) and isinstance(item.get("workflow_stage"), str):
+                        stages.add(item["workflow_stage"])
+
+        for units_dir in sorted(path for path in source_dir.iterdir() if path.is_dir()):
+            for unit_dir in sorted(path for path in units_dir.iterdir() if path.is_dir()):
+                item_path = unit_dir / "item.yml"
+                if item_path.exists():
+                    item = load_yaml(item_path)
+                    if isinstance(item, dict) and isinstance(item.get("workflow_stage"), str):
+                        stages.add(item["workflow_stage"])
+                if (unit_dir / "statements.yml").exists():
+                    stages.add("statements_extracted")
+
+        return stages
+
+    def collect_long_source_unit_stages(self, source_dir: Path) -> set[str]:
+        stages: set[str] = set()
+        items_path = source_dir / "items.yml"
+        if items_path.exists():
+            items_data = load_yaml(items_path)
+            items = items_data.get("items") if isinstance(items_data, dict) else None
+            if isinstance(items, list):
+                for item in items:
+                    if (
+                        isinstance(item, dict)
+                        and item.get("long_source") is True
+                        and isinstance(item.get("workflow_stage"), str)
+                    ):
+                        stages.add(item["workflow_stage"])
+
+        for units_dir in sorted(path for path in source_dir.iterdir() if path.is_dir()):
+            for unit_dir in sorted(path for path in units_dir.iterdir() if path.is_dir()):
+                item_path = unit_dir / "item.yml"
+                if not item_path.exists():
+                    continue
+                item = load_yaml(item_path)
+                if (
+                    isinstance(item, dict)
+                    and item.get("long_source") is True
+                    and isinstance(item.get("workflow_stage"), str)
+                ):
+                    stages.add(item["workflow_stage"])
+
+        return stages
+
+    def validate_source_map(
+        self,
+        path: Path,
+        source_dir: Path,
+        source_id: Any,
+        source: dict[str, Any],
+        source_stages: set[str],
+    ) -> None:
+        rel = self.rel(path)
+        data = load_yaml(path)
+        if not isinstance(data, dict):
+            self.errors.append(f"{rel}: source-map.yml must be a mapping")
+            return
+
+        self.add_value_errors(rel, data)
+
+        map_source_id = data.get("source_id")
+        if source_id and map_source_id not in (None, source_id):
+            self.errors.append(f"{rel}: source_id does not match {source_id}")
+
+        map_long_source = data.get("long_source")
+        if map_long_source is not None and map_long_source is not True:
+            self.errors.append(f"{rel}: long_source must be true when present")
+
+        passport = data.get("extraction_passport")
+        if not isinstance(passport, dict):
+            self.errors.append(f"{rel}: extraction_passport must be a mapping")
+        else:
+            self.validate_source_map_passport(rel, passport)
+
+        structure = data.get("structure")
+        structure_ids: set[str] = set()
+        if not isinstance(structure, dict):
+            self.errors.append(f"{rel}: structure must be a mapping")
+        else:
+            units = structure.get("units")
+            if not isinstance(units, list) or not units:
+                self.errors.append(f"{rel}: structure.units must be a non-empty list")
+            else:
+                structure_ids = self.validate_source_map_structure(rel, units)
+
+        coverage_required = has_any_stage(source_stages, STATEMENTS_OR_LATER_STAGES)
+        coverage = data.get("coverage")
+        coverage_absence_reason = data.get("coverage_absence_reason")
+        if coverage is None:
+            if coverage_required or not nonempty_string(coverage_absence_reason):
+                self.errors.append(
+                    f"{rel}: coverage.units is required or coverage_absence_reason must explain "
+                    "its absence on early normalization stage"
+                )
+        elif not isinstance(coverage, dict):
+            self.errors.append(f"{rel}: coverage must be a mapping")
+        else:
+            self.validate_source_map_coverage(rel, source_dir, coverage, structure_ids)
+
+        if (
+            source.get("copy_policy") in RESTRICTED_SOURCE_MAP_COPY_POLICIES
+            and self.source_map_contains_full_text_dump(data)
+        ):
+            policies = ", ".join(sorted(RESTRICTED_SOURCE_MAP_COPY_POLICIES))
+            self.errors.append(
+                f"{rel}: source-map.yml contains full-text-like fields for restricted copy_policy "
+                f"({policies})"
+            )
+
+        local_inputs = data.get("local_inputs")
+        if local_inputs is not None:
+            if not isinstance(local_inputs, list):
+                self.errors.append(f"{rel}: local_inputs must be a list")
+            else:
+                for index, entry in enumerate(local_inputs, start=1):
+                    if not isinstance(entry, str) or not entry.strip():
+                        self.errors.append(f"{rel}: local_inputs #{index} must be non-empty text")
+                        continue
+                    if is_bad_absolute_path(entry):
+                        self.errors.append(f"{rel}: local_inputs #{index} must be relative: {entry}")
+                    if ".local." not in entry and ".tmp." not in entry:
+                        self.errors.append(
+                            f"{rel}: local_inputs #{index} must use *.local.* or *.tmp.* marker: "
+                            f"{entry}"
+                        )
+
+    def validate_source_map_passport(self, rel: str, passport: dict[str, Any]) -> None:
+        missing = sorted(SOURCE_MAP_REQUIRED_PASSPORT_FIELDS - passport.keys())
+        if missing:
+            self.errors.append(
+                f"{rel}: extraction_passport missing fields: {', '.join(missing)}"
+            )
+
+        hash_value = passport.get("content_hash")
+        hash_absence_reason = passport.get("content_hash_absence_reason")
+        if not nonempty_string(hash_value) and not nonempty_string(hash_absence_reason):
+            self.errors.append(
+                f"{rel}: extraction_passport requires content_hash or "
+                "content_hash_absence_reason"
+            )
+
+        file_size_bytes = passport.get("file_size_bytes")
+        if not isinstance(file_size_bytes, int) or file_size_bytes <= 0:
+            self.errors.append(f"{rel}: extraction_passport.file_size_bytes must be positive integer")
+
+        for field in (
+            "format",
+            "metadata_source",
+            "extraction_tool",
+            "extraction_status",
+        ):
+            if field in passport and not nonempty_string(passport.get(field)):
+                self.errors.append(f"{rel}: extraction_passport.{field} must be non-empty text")
+
+    def validate_source_map_structure(self, rel: str, units: list[Any]) -> set[str]:
+        unit_ids: set[str] = set()
+        for index, unit in enumerate(units, start=1):
+            prefix = f"{rel}: structure.units #{index}"
+            if not isinstance(unit, dict):
+                self.errors.append(f"{prefix}: unit must be a mapping")
+                continue
+            unit_id = unit.get("id")
+            if not nonempty_string(unit_id):
+                self.errors.append(f"{prefix}: id must be non-empty text")
+                continue
+            if unit_id in unit_ids:
+                self.errors.append(f"{prefix}: duplicate structure unit id: {unit_id}")
+            unit_ids.add(unit_id)
+            if not (nonempty_string(unit.get("title")) or nonempty_string(unit.get("heading"))):
+                self.errors.append(f"{prefix}: title or heading is required")
+            has_order = isinstance(unit.get("order"), int)
+            locator = unit.get("locator")
+            has_locator = isinstance(locator, (str, dict)) and (
+                nonempty_string(locator) if isinstance(locator, str) else bool(locator)
+            )
+            if not has_order and not has_locator:
+                self.errors.append(f"{prefix}: order or locator is required")
+        return unit_ids
+
+    def validate_source_map_coverage(
+        self,
+        rel: str,
+        source_dir: Path,
+        coverage: dict[str, Any],
+        structure_ids: set[str],
+    ) -> None:
+        units = coverage.get("units")
+        if not isinstance(units, list):
+            self.errors.append(f"{rel}: coverage.units must be a list")
+            return
+
+        seen_unit_ids: set[str] = set()
+        for index, unit in enumerate(units, start=1):
+            prefix = f"{rel}: coverage.units #{index}"
+            if not isinstance(unit, dict):
+                self.errors.append(f"{prefix}: unit must be a mapping")
+                continue
+            unit_id = unit.get("unit_id")
+            if not nonempty_string(unit_id):
+                self.errors.append(f"{prefix}: unit_id must be non-empty text")
+                continue
+            seen_unit_ids.add(unit_id)
+            if structure_ids and unit_id not in structure_ids:
+                self.errors.append(f"{prefix}: unit_id is not declared in structure.units: {unit_id}")
+            status = unit.get("status")
+            if not nonempty_string(status):
+                self.errors.append(f"{prefix}: status must be non-empty text")
+            elif status in SOURCE_MAP_POSTPONED_STATUSES and not nonempty_string(unit.get("reason")):
+                self.errors.append(f"{prefix}: postponed status requires reason")
+
+            self.validate_source_map_artifact_links(prefix, source_dir, unit.get("artifacts"))
+            self.validate_source_map_statement_links(prefix, source_dir, unit.get("statements"))
+
+        missing_ids = sorted(structure_ids - seen_unit_ids)
+        if missing_ids:
+            self.errors.append(
+                f"{rel}: coverage.units missing statuses for structure units: "
+                f"{', '.join(missing_ids)}"
+            )
+
+    def validate_source_map_artifact_links(
+        self, prefix: str, source_dir: Path, artifacts: Any
+    ) -> None:
+        if artifacts is None:
+            return
+        if not isinstance(artifacts, list):
+            self.errors.append(f"{prefix}: artifacts must be a list")
+            return
+        for index, artifact in enumerate(artifacts, start=1):
+            if not isinstance(artifact, str) or not artifact.strip():
+                self.errors.append(f"{prefix}: artifacts #{index} must be non-empty text")
+                continue
+            if is_bad_absolute_path(artifact):
+                self.errors.append(f"{prefix}: artifacts #{index} must be relative: {artifact}")
+                continue
+            if not (source_dir / artifact).exists():
+                self.errors.append(f"{prefix}: artifact link does not exist: {artifact}")
+
+    def validate_source_map_statement_links(
+        self, prefix: str, source_dir: Path, statements: Any
+    ) -> None:
+        if statements is None:
+            return
+        if not isinstance(statements, list):
+            self.errors.append(f"{prefix}: statements must be a list")
+            return
+        for index, entry in enumerate(statements, start=1):
+            if not isinstance(entry, str) or not entry.strip():
+                self.errors.append(f"{prefix}: statements #{index} must be non-empty text")
+                continue
+            if is_bad_absolute_path(entry):
+                self.errors.append(f"{prefix}: statements #{index} must be relative: {entry}")
+                continue
+            statement_path_text, _, statement_id = entry.partition("#")
+            statement_path = source_dir / statement_path_text
+            if not statement_path.exists():
+                self.errors.append(
+                    f"{prefix}: statement link file does not exist: {statement_path_text}"
+                )
+                continue
+            if statement_id:
+                data = load_yaml(statement_path)
+                statement_list = data.get("statements") if isinstance(data, dict) else None
+                if not isinstance(statement_list, list) or not any(
+                    isinstance(item, dict) and item.get("id") == statement_id
+                    for item in statement_list
+                ):
+                    self.errors.append(
+                        f"{prefix}: statement link target is missing in file: {entry}"
+                    )
+
+    def source_map_contains_full_text_dump(self, value: Any) -> bool:
+        if isinstance(value, dict):
+            for key, child in value.items():
+                if isinstance(key, str) and key.casefold() in FULL_TEXT_SOURCE_MAP_KEYS:
+                    return True
+                if self.source_map_contains_full_text_dump(child):
+                    return True
+            return False
+        if isinstance(value, list):
+            return any(self.source_map_contains_full_text_dump(child) for child in value)
+        return False
 
     def validate_statements(self, path: Path, source_id: Any, item_id: Any) -> None:
         rel = self.rel(path)

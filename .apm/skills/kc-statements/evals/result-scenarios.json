@@ -133,6 +133,72 @@
       "required_corpus_claims": [
         "KCSTATEMENTS-1"
       ]
+    },
+    {
+      "id": "kc-statements-result-source-map-coverage",
+      "prompt": "Продолжи извлечение по длинному источнику: structure.units уже зафиксированы в source-map.yml, нужно обновить coverage.units, связать фрагменты и statements.yml и не строить новую карту структуры.",
+      "input_files": [
+        {
+          "path": ".apm/skills/kc-statements/SKILL.md",
+          "purpose": "правила извлечения и карты охвата"
+        },
+        {
+          "path": ".apm/skills/kc-inventory/assets/source-map.yml",
+          "purpose": "формат source-map"
+        }
+      ],
+      "expected_output": {
+        "report_structure": [
+          "основание извлечения",
+          "использование structure.units из source-map",
+          "обновление coverage.units",
+          "ссылки на artifacts и statements",
+          "ограничения и отложенные единицы"
+        ],
+        "findings": [
+          {
+            "severity": "medium",
+            "observed_problem": "Сценарий проверяет, что карта охвата длинного источника обновляется по source-map.yml, а не создаётся заново в несовместимом виде.",
+            "expected_conclusion": "Ответ должен использовать существующую структуру source-map и синхронно обновлять coverage.units.",
+            "acceptable_fix_direction": "Обновить coverage.units, выставить статусы по всем структурным единицам и привязать их к tracked-фрагментам и statements.yml.",
+            "corpus_claims": [
+              "KCSTATEMENTS-1"
+            ]
+          }
+        ]
+      },
+      "negative_control": {
+        "description": "Ответ без навыка строит новую ad hoc-карту, не обновляет source-map.yml или оставляет структурные единицы без статуса.",
+        "expected_failure": "Такой ответ не должен одновременно выполнить expected_output, assertions и must_not."
+      },
+      "oracle": {
+        "success_criteria": [
+          "результат использует source-map.yml как канонический список структуры",
+          "результат обновляет coverage.units по всем unit_id",
+          "для отложенных единиц указана причина"
+        ],
+        "failure_indicators": [
+          "ответ строит новую карту структуры вне source-map",
+          "часть структурных единиц остаётся без статуса",
+          "ссылки на фрагменты или statements не прослеживаются"
+        ]
+      },
+      "application_evidence": [
+        "результат явно ссылается на structure.units из source-map.yml",
+        "результат обновляет coverage.units вместо отдельного списка"
+      ],
+      "evaluation_surface": "изменение артефакта и качество результата",
+      "assertions": [
+        "Результат обновляет карту охвата по структуре из source-map.yml.",
+        "Результат не строит несовместимую карту заново."
+      ],
+      "must_not": [
+        "не оставлять структурные единицы без статуса",
+        "не вести карту охвата отдельно от source-map.yml"
+      ],
+      "required_corpus_claims": [
+        "KCSTATEMENTS-1"
+      ]
     }
   ]
 }
