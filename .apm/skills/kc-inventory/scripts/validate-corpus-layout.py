@@ -10,9 +10,13 @@ project that owns the corpus.
 from __future__ import annotations
 
 import argparse
+import fnmatch
+import json
 import re
+import subprocess
 import sys
 from datetime import date
+from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
 from typing import Any
 
@@ -207,6 +211,28 @@ REDACTION_PLACEHOLDER_PATTERNS = (
     "[редактировано:",
 )
 
+SECRET_ASSIGNMENT_PATTERN = re.compile(
+    r"(?i)\b(?:api[_-]?key|access[_-]?token|auth(?:orization)?|bearer|password|passwd|secret|cookie|session(?:[_-]?id)?)\b\s*[:=]\s*\S+"
+)
+CREDENTIALLED_URL_PATTERN = re.compile(
+    r"(?i)\b(?:https?|ssh)://[^\s/@:]+:[^\s/@]+@|[?&](?:access_token|api[_-]?key|token|signature|x-amz-signature)=[^\s&#]+"
+)
+CONTACT_PATTERN = re.compile(
+    r"(?i)(?:\b[\w.+-]+@[\w.-]+\.[a-z]{2,}\b|\+\d[\d\s().-]{7,}\d|\b(?:\d[\s().-]?){10,}\d\b)"
+)
+METADATA_CONTACT_FILES = {"catalog.yml", "source.yml", "items.yml", "item.yml"}
+
+
+@dataclass(frozen=True)
+class OperationalFinding:
+    """A redacted operational finding; it must never retain matched content."""
+
+    kind: str
+    path: str
+    line: int
+    classification: str
+    reason: str
+
 
 def load_yaml(path: Path) -> Any:
     if yaml is None:
@@ -253,12 +279,24 @@ def has_any_stage(stages: set[str], allowed: set[str]) -> bool:
 
 
 class Validator:
-    def __init__(self, root: Path, *, strict_statements: bool = False) -> None:
+    def __init__(
+        self,
+        root: Path,
+        *,
+        strict_statements: bool = False,
+        operational: bool = False,
+        operational_policy: Path | None = None,
+    ) -> None:
         self.root = root.resolve()
         self.strict_statements = strict_statements
+        self.operational = operational
+        self.operational_policy = operational_policy
         self.contract_path = self.root / "corpus.yml"
         self.catalog_path = self.root / "catalog.yml"
         self.errors: list[str] = []
+        self.warnings: list[OperationalFinding] = []
+        self.blockers: list[OperationalFinding] = []
+        self.suppressed: list[OperationalFinding] = []
         self.allowed_stages = set(DEFAULT_ALLOWED_STAGES)
         self.allowed_carrier_types = load_classifier_values("source-carrier-types.yml")
         self.allowed_source_kinds = load_classifier_values("source-kinds.yml")
@@ -279,7 +317,7 @@ class Validator:
             if is_bad_absolute_path(item):
                 self.errors.append(f"{path_label}: absolute local path is not allowed: {item}")
 
-    def validate(self) -> int:
+    def validate(self, *, output: str = "text") -> int:
         try:
             self.validate_contract()
             self.validate_no_legacy_roots()
@@ -289,14 +327,49 @@ class Validator:
             self.validate_catalog(source_dirs)
             self.validate_global_items_index(source_dirs)
             self.validate_derived_statements()
+            if self.operational:
+                self.validate_operational_safety()
         except RuntimeError as exc:
             self.errors.append(str(exc))
+
+        exit_code = 1 if self.errors or self.blockers else 0
+        if output == "json":
+            print(
+                json.dumps(
+                    {
+                        "contract_errors": self.errors,
+                        "blockers": [finding.__dict__ for finding in self.blockers],
+                        "quality_warnings": [finding.__dict__ for finding in self.warnings],
+                        "suppressed": [finding.__dict__ for finding in self.suppressed],
+                        "counts": {
+                            "contract_errors": len(self.errors),
+                            "blockers": len(self.blockers),
+                            "quality_warnings": len(self.warnings),
+                            "suppressed": len(self.suppressed),
+                        },
+                    },
+                    ensure_ascii=False,
+                    sort_keys=True,
+                )
+            )
+            return exit_code
 
         if self.errors:
             print("Corpus validation failed:")
             for error in self.errors:
                 print(f"- {error}")
-            return 1
+        if self.blockers:
+            print("Operational blockers:")
+            for finding in self.blockers:
+                print(f"- {finding.path}:{finding.line}: {finding.kind}")
+        if self.warnings:
+            print("Quality warnings:")
+            for finding in self.warnings:
+                print(f"- {finding.path}:{finding.line}: {finding.kind}")
+        if self.suppressed:
+            print(f"Operational findings suppressed by policy or metadata: {len(self.suppressed)}.")
+        if exit_code:
+            return exit_code
 
         print(
             "Corpus validation passed: "
@@ -304,6 +377,151 @@ class Validator:
             f"{self.derived_statement_count} derived statement(s) checked."
         )
         return 0
+
+    def validate_operational_safety(self) -> None:
+        """Inspect only Git-tracked corpus files and retain no matched values."""
+        policy = self.load_operational_policy()
+        for relative_path in self.tracked_corpus_paths():
+            if self.is_local_path(relative_path):
+                continue
+            path = self.root / relative_path
+            if not path.is_file():
+                continue
+            try:
+                lines = path.read_text(encoding="utf-8").splitlines()
+            except UnicodeDecodeError:
+                continue
+            for line_number, line in enumerate(lines, start=1):
+                kind = self.operational_kind(relative_path, line)
+                if kind is None:
+                    continue
+                classification, reason = self.classify_operational_finding(
+                    policy, kind, relative_path
+                )
+                finding = OperationalFinding(kind, relative_path, line_number, classification, reason)
+                if classification == "blocker":
+                    self.blockers.append(finding)
+                elif classification == "warning":
+                    self.warnings.append(finding)
+                else:
+                    self.suppressed.append(finding)
+
+    def tracked_corpus_paths(self) -> list[str]:
+        prefix_result = subprocess.run(
+            ["git", "rev-parse", "--show-prefix"],
+            cwd=self.root,
+            capture_output=True,
+            text=True,
+        )
+        result = subprocess.run(
+            ["git", "ls-files", "-z", "--full-name"],
+            cwd=self.root,
+            capture_output=True,
+            text=False,
+        )
+        if prefix_result.returncode != 0 or result.returncode != 0:
+            raise RuntimeError(
+                "operational check requires a Git worktree; it scans only files returned by git ls-files"
+            )
+        corpus_prefix = prefix_result.stdout.strip()
+        if corpus_prefix:
+            corpus_prefix = f"{corpus_prefix.rstrip('/')}/"
+        paths: list[str] = []
+        for raw_path in result.stdout.split(b"\0"):
+            if not raw_path:
+                continue
+            repository_path = raw_path.decode("utf-8", errors="strict")
+            if corpus_prefix:
+                if not repository_path.startswith(corpus_prefix):
+                    continue
+                relative_path = repository_path[len(corpus_prefix) :]
+            else:
+                relative_path = repository_path
+            candidate = (self.root / relative_path).resolve()
+            try:
+                candidate.relative_to(self.root)
+            except ValueError:
+                self.errors.append(f"operational check: tracked path leaves corpus: {relative_path}")
+                continue
+            paths.append(relative_path)
+        return sorted(paths)
+
+    @staticmethod
+    def is_local_path(relative_path: str) -> bool:
+        parts = PurePosixPath(relative_path).parts
+        return any(
+            part == ".local"
+            or part == "local"
+            or part.endswith(".local")
+            or ".local." in part
+            or ".tmp." in part
+            for part in parts
+        )
+
+    @staticmethod
+    def operational_kind(relative_path: str, line: str) -> str | None:
+        if SECRET_ASSIGNMENT_PATTERN.search(line):
+            return "access-secret"
+        if CREDENTIALLED_URL_PATTERN.search(line):
+            return "credentialed-url"
+        if CONTACT_PATTERN.search(line):
+            if PurePosixPath(relative_path).name in METADATA_CONTACT_FILES:
+                return "public-contact"
+            return "personal-data"
+        return None
+
+    def load_operational_policy(self) -> list[dict[str, str]]:
+        if self.operational_policy is None:
+            return []
+        path = self.operational_policy
+        if not path.is_absolute():
+            path = self.root / path
+        path = path.resolve()
+        try:
+            path.relative_to(self.root)
+        except ValueError as exc:
+            raise RuntimeError("operational policy must be inside the corpus") from exc
+        data = load_yaml(path)
+        rules = data.get("rules") if isinstance(data, dict) else None
+        if not isinstance(rules, list):
+            raise RuntimeError("operational policy must contain a rules list")
+        parsed: list[dict[str, str]] = []
+        for position, rule in enumerate(rules, start=1):
+            if not isinstance(rule, dict):
+                raise RuntimeError(f"operational policy rule #{position} must be a mapping")
+            kind, path_pattern, action, reason = (
+                rule.get("kind"),
+                rule.get("path"),
+                rule.get("action"),
+                rule.get("reason"),
+            )
+            if (
+                not nonempty_string(kind)
+                or not nonempty_string(path_pattern)
+                or action not in {"suppress", "warning", "blocker"}
+                or not nonempty_string(reason)
+            ):
+                raise RuntimeError(
+                    f"operational policy rule #{position} requires kind, path, action and reason"
+                )
+            parsed.append(
+                {"kind": kind, "path": path_pattern, "action": action, "reason": reason}
+            )
+        return parsed
+
+    @staticmethod
+    def classify_operational_finding(
+        policy: list[dict[str, str]], kind: str, relative_path: str
+    ) -> tuple[str, str]:
+        for rule in policy:
+            if rule["kind"] == kind and fnmatch.fnmatchcase(relative_path, rule["path"]):
+                classification = "suppressed" if rule["action"] == "suppress" else rule["action"]
+                return classification, rule["reason"]
+        if kind in {"access-secret", "credentialed-url"}:
+            return "blocker", "похоже на секрет доступа или закрытый локатор"
+        if kind == "personal-data":
+            return "warning", "похоже на содержательные персональные сведения; нужна проверка публикации"
+        return "suppressed", "открытый контакт в метаданных источника не является блокером"
 
     def validate_contract(self) -> None:
         if not self.contract_path.exists():
@@ -1397,12 +1615,38 @@ def parse_args() -> argparse.Namespace:
             "duplicated text/excerpt, broken excerpt traceability and empty section titles."
         ),
     )
+    parser.add_argument(
+        "--operational",
+        action="store_true",
+        help=(
+            "Scan Git-tracked corpus files for access secrets, credentialed URLs and "
+            "possible personal data without printing matched values."
+        ),
+    )
+    parser.add_argument(
+        "--operational-policy",
+        type=Path,
+        help="Optional corpus-relative YAML rules for documented operational suppressions.",
+    )
+    parser.add_argument(
+        "--output",
+        choices=("text", "json"),
+        default="text",
+        help="Report format; JSON contains only paths, lines and finding types.",
+    )
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
-    return Validator(Path(args.root), strict_statements=args.strict_statements).validate()
+    if args.operational_policy and not args.operational:
+        raise RuntimeError("--operational-policy requires --operational")
+    return Validator(
+        Path(args.root),
+        strict_statements=args.strict_statements,
+        operational=args.operational,
+        operational_policy=args.operational_policy,
+    ).validate(output=args.output)
 
 
 if __name__ == "__main__":

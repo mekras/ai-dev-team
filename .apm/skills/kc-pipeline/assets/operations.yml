@@ -1,0 +1,48 @@
+# Необязательные настройки операционного контура корпуса.
+# Скопируйте в проект, например в knowledge/operations.yml, и укажите путь
+# параметром --operations средства run-corpus-operations.py.
+
+operations_version: 1
+
+# Отчёт описывает конкретный запуск, поэтому должен находиться вне Git.
+report:
+  path: .local/reports/corpus-operations.md
+
+# Имена подготовленных артефактов единицы. Их наличие переводит единицу
+# из очереди нормализации в очередь извлечения утверждений.
+normalized_artifacts:
+  - normalized.md
+  - message.md
+  - stenogram.txt
+
+# Команды являются проектными деталями. Средство запуска не выполняет их без
+# явного параметра --run-commands. argv передаётся без оболочки.
+stages:
+  source_sync:
+    commands:
+      - id: example-source-sync
+        argv:
+          - python3
+          - tools/sync-example-source.py
+        working_directory: .
+        write_paths:
+          - knowledge/data/example-source
+        required: true
+
+# Реестр исполняемых адаптеров. Имя совпадает с полем adapter в source.yml.
+# Команда получает только безопасные подстановки {source_id}, {source_dir} и
+# {locator}, а в stdout печатает один JSON-объект по договору адаптера.
+# Не храните здесь токены, cookies, пароли и закрытые адреса.
+adapters:
+  builtin.local-file:
+    argv: [python3, tools/adapter-local-file.py, --source-id, "{source_id}", --source-dir, "{source_dir}", --locator, "{locator}"]
+    working_directory: .
+    write_paths: [knowledge/data]
+  project.web-index:
+    argv: [python3, tools/adapter-web-index.py, --source-id, "{source_id}", --locator, "{locator}"]
+    working_directory: .
+    write_paths: [knowledge/data]
+
+# Для предзапусковой проверки можно передать отдельный файл:
+# --operational-check --operational-policy knowledge/operational-check.yml.
+# Само правило хранит только вид находки, путь и причину, но не значение секрета.

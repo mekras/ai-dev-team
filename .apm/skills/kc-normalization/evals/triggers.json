@@ -44,6 +44,12 @@
       "rationale": "Это локальная редактура стенограммы, её должен покрывать transcript-analysis."
     },
     {
+      "id": "kc-normalization-boundary-kc-transcription",
+      "prompt": "Из локального recording.tmp.mp4 получи сырой transcript.txt, сначала проверь место и память, но текст пока не редактируй.",
+      "should_trigger": false,
+      "rationale": "Это получение расшифровки, его покрывает kc-transcription."
+    },
+    {
       "id": "kc-normalization-boundary-pipeline",
       "prompt": "Продолжи конвейер по текущему источнику и сам выбери, нужно ли сейчас нормализовать, извлечь утверждения или проверить влияние.",
       "should_trigger": false,
