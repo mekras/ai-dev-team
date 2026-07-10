@@ -275,6 +275,61 @@ def write_statement(
     )
 
 
+def write_derived_statement(
+    root: Path,
+    *,
+    analysis_id: str = "NIGHT",
+    statement_id: str = "DRV-NIGHT-001",
+    kind: str = "observation",
+    status: str = "candidate",
+    statement_ids: str = "[TEST-001]",
+    item_ids: str = "[]",
+    artifacts: str = "[]",
+    external_references: str = "[]",
+    derivation_type: str = "aggregation",
+    derivation_artifact: str | None = "analysis/night-starts/calculate.sql",
+    checked_by: str = "",
+) -> None:
+    write_text(
+        root / "analysis" / "night-starts" / "calculate.sql",
+        "SELECT COUNT(*) FROM searches;\n",
+    )
+    artifact_line = (
+        f'artifact: "{derivation_artifact}"' if derivation_artifact is not None else ""
+    )
+    write_text(
+        root / "analysis" / "night-starts" / "derived-statements.yml",
+        f"""
+        analysis_id: {analysis_id}
+        title: "Night search starts"
+        derived_statements:
+          - id: {statement_id}
+            kind: {kind}
+            status: {status}
+            text: "Most headquarters in the sample started at night."
+            derived_from:
+              statement_ids: {statement_ids}
+              item_ids: {item_ids}
+              artifacts: {artifacts}
+              external_references: {external_references}
+            derivation:
+              type: {derivation_type}
+              method: "Count starts between 22:00 and 06:00."
+              {artifact_line}
+              parameters:
+                night_interval: "22:00-06:00"
+            checked_at: 2026-07-10
+            checked_by: "{checked_by}"
+            scope:
+              applies_to: ["test sample"]
+              does_not_apply_to: []
+            limitations:
+              - "Start time does not describe search duration."
+            open_questions: []
+        """,
+    )
+
+
 def run_validator(root: Path, *, strict_statements: bool = False) -> subprocess.CompletedProcess[str]:
     command = [sys.executable, str(VALIDATOR)]
     if strict_statements:
@@ -374,6 +429,124 @@ def main() -> int:
         write_minimal_corpus(root)
         write_statement(root, status="fact")
         assert_fails_with(root, "status contains statement kind fact")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_statement(root, kind="fact")
+        write_derived_statement(root)
+        assert_passes(root)
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_statement(root, kind="fact")
+        write_derived_statement(root, kind="fact")
+        assert_fails_with(root, "fact is direct only")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_statement(root, kind="fact")
+        write_derived_statement(root, statement_id="NIGHT-001")
+        assert_fails_with(root, "id must match DRV-NIGHT-NNN")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_statement(root, kind="fact")
+        write_derived_statement(root, statement_ids="[]")
+        assert_fails_with(root, "derived_from must contain at least one input")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_statement(root, kind="fact")
+        write_derived_statement(root, statement_ids="[MISSING-001]")
+        assert_fails_with(root, "derived statement input is missing in corpus: MISSING-001")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_statement(root, kind="fact")
+        write_derived_statement(root, statement_ids="[DRV-NIGHT-001]")
+        assert_fails_with(root, "derived statements must use direct inputs")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_external_corpus_source(root)
+        write_statement(root, kind="fact")
+        write_derived_statement(
+            root,
+            statement_ids="[]",
+            external_references=(
+                "[{corpus_source_id: EXT, statement_id: EXT-001, revision: v1}]"
+            ),
+        )
+        assert_passes(root)
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_statement(root, kind="fact")
+        write_derived_statement(
+            root,
+            statement_ids="[]",
+            external_references=(
+                "[{corpus_source_id: MISSING, statement_id: EXT-001, revision: v1}]"
+            ),
+        )
+        assert_fails_with(root, "corpus source is missing: MISSING")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_external_corpus_source(root)
+        write_statement(root, kind="fact")
+        write_derived_statement(
+            root,
+            statement_ids="[]",
+            external_references="[{corpus_source_id: EXT, statement_id: EXT-001}]",
+        )
+        assert_fails_with(root, "revision or revision_absence_reason is required")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_statement(root, kind="fact")
+        write_derived_statement(root, derivation_artifact=None)
+        assert_fails_with(root, "aggregation derivation requires artifact")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_statement(root, kind="fact")
+        write_derived_statement(root, derivation_artifact="../calculate.sql")
+        assert_fails_with(root, "derivation.artifact must be repository-relative")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_statement(root, kind="fact")
+        write_derived_statement(root, status="confirmed")
+        assert_fails_with(root, "confirmed statement requires checked_by")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_statement(root, kind="fact")
+        write_derived_statement(
+            root,
+            status="confirmed",
+            checked_by="Reviewer",
+            statement_ids="[]",
+            artifacts=(
+                "[{path: data/test-source/searches.local.csv, "
+                "content_hash_absence_reason: 'Test fixture'}]"
+            ),
+        )
+        assert_fails_with(root, "confirmed statement input requires content_hash")
 
     with tempfile.TemporaryDirectory() as tmp:
         root = Path(tmp)

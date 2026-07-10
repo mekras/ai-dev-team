@@ -10,7 +10,9 @@ project that owns the corpus.
 from __future__ import annotations
 
 import argparse
+import re
 import sys
+from datetime import date
 from pathlib import Path, PurePosixPath
 from typing import Any
 
@@ -54,6 +56,20 @@ STATEMENT_REQUIRED = {
     "open_questions",
 }
 
+DERIVED_STATEMENT_REQUIRED = {
+    "id",
+    "kind",
+    "status",
+    "text",
+    "derived_from",
+    "derivation",
+    "checked_at",
+    "checked_by",
+    "scope",
+    "limitations",
+    "open_questions",
+}
+
 DEFAULT_ALLOWED_STAGES = {
     "indexed",
     "needs_fetch",
@@ -84,6 +100,28 @@ DEFAULT_STATEMENT_KINDS = {
     "inference",
     "limitation",
 }
+
+DERIVED_STATEMENT_KINDS = {
+    "observation",
+    "inference",
+    "limitation",
+}
+
+DERIVED_STATEMENT_STATUSES = {
+    "candidate",
+    "confirmed",
+    "blocked",
+    "rejected",
+}
+
+DERIVATION_TYPES = {
+    "aggregation",
+    "logical",
+    "interpretive",
+    "mixed",
+}
+
+ANALYSIS_ID_PATTERN = re.compile(r"^[A-Z][A-Z0-9]{1,11}$")
 
 PEER_EXTERNAL_CORPUS_USE_AS = {"peer"}
 
@@ -229,6 +267,9 @@ class Validator:
         )
         self.source_ids: set[str] = set()
         self.item_ids: set[str] = set()
+        self.statement_ids: set[str] = set()
+        self.analysis_ids: set[str] = set()
+        self.derived_statement_count = 0
 
     def rel(self, path: Path) -> str:
         return path.relative_to(self.root).as_posix()
@@ -247,6 +288,7 @@ class Validator:
                 self.validate_source(source_dir)
             self.validate_catalog(source_dirs)
             self.validate_global_items_index(source_dirs)
+            self.validate_derived_statements()
         except RuntimeError as exc:
             self.errors.append(str(exc))
 
@@ -256,7 +298,11 @@ class Validator:
                 print(f"- {error}")
             return 1
 
-        print(f"Corpus validation passed: {len(self.source_ids)} source(s) checked.")
+        print(
+            "Corpus validation passed: "
+            f"{len(self.source_ids)} source(s), "
+            f"{self.derived_statement_count} derived statement(s) checked."
+        )
         return 0
 
     def validate_contract(self) -> None:
@@ -989,6 +1035,9 @@ class Validator:
                 if statement_id in seen:
                     self.errors.append(f"{prefix}: duplicate statement id: {statement_id}")
                 seen.add(statement_id)
+                if statement_id in self.statement_ids:
+                    self.errors.append(f"{prefix}: duplicate corpus statement id: {statement_id}")
+                self.statement_ids.add(statement_id)
             else:
                 self.errors.append(f"{prefix}: id must be a string")
 
@@ -1081,6 +1130,255 @@ class Validator:
                 self.errors.append(f"{prefix}: open_questions must be a list")
 
             self.add_value_errors(prefix, statement)
+
+    def validate_derived_statements(self) -> None:
+        analysis_root = self.root / "analysis"
+        if not analysis_root.exists():
+            return
+
+        for path in sorted(analysis_root.glob("*/derived-statements.yml")):
+            self.validate_derived_statements_file(path)
+
+    def validate_derived_statements_file(self, path: Path) -> None:
+        rel = self.rel(path)
+        data = load_yaml(path)
+        if not isinstance(data, dict):
+            self.errors.append(f"{rel}: derived statement file must be a mapping")
+            return
+
+        analysis_id = data.get("analysis_id")
+        if not isinstance(analysis_id, str) or not ANALYSIS_ID_PATTERN.fullmatch(analysis_id):
+            self.errors.append(
+                f"{rel}: analysis_id must contain 2-12 uppercase Latin letters or digits "
+                "and start with a letter"
+            )
+            analysis_id = None
+        elif analysis_id in self.analysis_ids:
+            self.errors.append(f"{rel}: duplicate analysis_id: {analysis_id}")
+        else:
+            self.analysis_ids.add(analysis_id)
+
+        if not nonempty_string(data.get("title")):
+            self.errors.append(f"{rel}: title must be non-empty text")
+
+        statements = data.get("derived_statements")
+        if not isinstance(statements, list) or not statements:
+            self.errors.append(f"{rel}: derived_statements must be a non-empty list")
+            return
+
+        for index, statement in enumerate(statements, start=1):
+            self.validate_derived_statement(
+                statement,
+                f"{rel}: derived statement #{index}",
+                analysis_id,
+            )
+
+    def validate_derived_statement(
+        self,
+        statement: Any,
+        prefix: str,
+        analysis_id: str | None,
+    ) -> None:
+        if not isinstance(statement, dict):
+            self.errors.append(f"{prefix}: derived statement must be a mapping")
+            return
+
+        missing = sorted(DERIVED_STATEMENT_REQUIRED - statement.keys())
+        if missing:
+            self.errors.append(f"{prefix}: missing fields: {', '.join(missing)}")
+
+        statement_id = statement.get("id")
+        expected_pattern = None
+        if analysis_id is not None:
+            expected_pattern = re.compile(rf"^DRV-{re.escape(analysis_id)}-\d{{3}}$")
+        if not isinstance(statement_id, str):
+            self.errors.append(f"{prefix}: id must be a string")
+        else:
+            if expected_pattern is not None and not expected_pattern.fullmatch(statement_id):
+                self.errors.append(
+                    f"{prefix}: id must match DRV-{analysis_id}-NNN"
+                )
+            if statement_id in self.statement_ids:
+                self.errors.append(f"{prefix}: duplicate corpus statement id: {statement_id}")
+            self.statement_ids.add(statement_id)
+
+        kind = statement.get("kind")
+        if kind not in DERIVED_STATEMENT_KINDS:
+            allowed = ", ".join(sorted(DERIVED_STATEMENT_KINDS))
+            self.errors.append(f"{prefix}: kind must be one of: {allowed}; fact is direct only")
+
+        status = statement.get("status")
+        if status not in DERIVED_STATEMENT_STATUSES:
+            allowed = ", ".join(sorted(DERIVED_STATEMENT_STATUSES))
+            self.errors.append(f"{prefix}: status must be one of: {allowed}")
+
+        if not nonempty_string(statement.get("text")):
+            self.errors.append(f"{prefix}: text must be non-empty text")
+        checked_at = statement.get("checked_at")
+        if not isinstance(checked_at, (str, date)) or (
+            isinstance(checked_at, str) and not checked_at.strip()
+        ):
+            self.errors.append(f"{prefix}: checked_at must be a date or non-empty text")
+        checked_by = statement.get("checked_by")
+        if checked_by not in (None, "") and not nonempty_string(checked_by):
+            self.errors.append(f"{prefix}: checked_by must be text when present")
+        if status == "confirmed" and not nonempty_string(checked_by):
+            self.errors.append(f"{prefix}: confirmed statement requires checked_by")
+
+        scope = statement.get("scope")
+        if not isinstance(scope, dict):
+            self.errors.append(f"{prefix}: scope must be a mapping")
+
+        for field in ("limitations", "open_questions"):
+            if not isinstance(statement.get(field), list):
+                self.errors.append(f"{prefix}: {field} must be a list")
+        if "result" in statement and not isinstance(statement.get("result"), dict):
+            self.errors.append(f"{prefix}: result must be a mapping when present")
+
+        self.validate_derived_from(statement.get("derived_from"), prefix, status)
+        self.validate_derivation(statement.get("derivation"), prefix)
+        self.add_value_errors(prefix, statement)
+        self.derived_statement_count += 1
+
+    def validate_derived_from(self, value: Any, prefix: str, status: Any) -> None:
+        if not isinstance(value, dict):
+            self.errors.append(f"{prefix}: derived_from must be a mapping")
+            return
+
+        statement_ids = value.get("statement_ids", [])
+        item_ids = value.get("item_ids", [])
+        artifacts = value.get("artifacts", [])
+        external_references = value.get("external_references", [])
+
+        collections = {
+            "statement_ids": statement_ids,
+            "item_ids": item_ids,
+            "artifacts": artifacts,
+            "external_references": external_references,
+        }
+        for field, entries in collections.items():
+            if not isinstance(entries, list):
+                self.errors.append(f"{prefix}: derived_from.{field} must be a list")
+
+        if not any(isinstance(entries, list) and entries for entries in collections.values()):
+            self.errors.append(f"{prefix}: derived_from must contain at least one input")
+
+        if isinstance(statement_ids, list):
+            for statement_id in statement_ids:
+                if not nonempty_string(statement_id):
+                    self.errors.append(
+                        f"{prefix}: derived_from.statement_ids entries must be non-empty text"
+                    )
+                elif statement_id.startswith("DRV-"):
+                    self.errors.append(
+                        f"{prefix}: derived statements must use direct inputs, not {statement_id}"
+                    )
+                elif statement_id not in self.statement_ids:
+                    self.errors.append(
+                        f"{prefix}: derived statement input is missing in corpus: {statement_id}"
+                    )
+
+        if isinstance(item_ids, list):
+            for item_id in item_ids:
+                if not nonempty_string(item_id):
+                    self.errors.append(
+                        f"{prefix}: derived_from.item_ids entries must be non-empty text"
+                    )
+                elif item_id not in self.item_ids:
+                    self.errors.append(
+                        f"{prefix}: derived item input is missing in corpus: {item_id}"
+                    )
+
+        if isinstance(external_references, list):
+            for index, reference in enumerate(external_references, start=1):
+                reference_prefix = f"{prefix}: derived_from.external_references #{index}"
+                if not isinstance(reference, dict):
+                    self.errors.append(
+                        f"{reference_prefix}: external reference must be a mapping"
+                    )
+                    continue
+                corpus_source_id = reference.get("corpus_source_id")
+                statement_id = reference.get("statement_id")
+                revision = reference.get("revision")
+                revision_absence_reason = reference.get("revision_absence_reason")
+                if not nonempty_string(corpus_source_id):
+                    self.errors.append(
+                        f"{reference_prefix}: corpus_source_id must be non-empty text"
+                    )
+                elif corpus_source_id not in self.source_ids:
+                    self.errors.append(
+                        f"{reference_prefix}: corpus source is missing: {corpus_source_id}"
+                    )
+                if not nonempty_string(statement_id):
+                    self.errors.append(
+                        f"{reference_prefix}: statement_id must be non-empty text"
+                    )
+                if not nonempty_string(revision) and not nonempty_string(
+                    revision_absence_reason
+                ):
+                    self.errors.append(
+                        f"{reference_prefix}: revision or revision_absence_reason is required"
+                    )
+                if status == "confirmed" and not nonempty_string(revision):
+                    self.errors.append(
+                        f"{reference_prefix}: confirmed external input requires revision"
+                    )
+
+        if isinstance(artifacts, list):
+            for index, artifact in enumerate(artifacts, start=1):
+                artifact_prefix = f"{prefix}: derived_from.artifacts #{index}"
+                if not isinstance(artifact, dict):
+                    self.errors.append(f"{artifact_prefix}: artifact input must be a mapping")
+                    continue
+                artifact_path = artifact.get("path")
+                if not nonempty_string(artifact_path):
+                    self.errors.append(f"{artifact_prefix}: path must be non-empty text")
+                elif is_bad_absolute_path(artifact_path) or ".." in PurePosixPath(
+                    artifact_path
+                ).parts:
+                    self.errors.append(f"{artifact_prefix}: path must be repository-relative")
+                elif ".local." not in artifact_path and not (self.root / artifact_path).exists():
+                    self.errors.append(
+                        f"{artifact_prefix}: input artifact does not exist: {artifact_path}"
+                    )
+
+                content_hash = artifact.get("content_hash")
+                hash_absence_reason = artifact.get("content_hash_absence_reason")
+                if not nonempty_string(content_hash) and not nonempty_string(hash_absence_reason):
+                    self.errors.append(
+                        f"{artifact_prefix}: content_hash or "
+                        "content_hash_absence_reason is required"
+                    )
+                if status == "confirmed" and not nonempty_string(content_hash):
+                    self.errors.append(
+                        f"{artifact_prefix}: confirmed statement input requires content_hash"
+                    )
+
+    def validate_derivation(self, value: Any, prefix: str) -> None:
+        if not isinstance(value, dict):
+            self.errors.append(f"{prefix}: derivation must be a mapping")
+            return
+
+        derivation_type = value.get("type")
+        if derivation_type not in DERIVATION_TYPES:
+            allowed = ", ".join(sorted(DERIVATION_TYPES))
+            self.errors.append(f"{prefix}: derivation.type must be one of: {allowed}")
+        if not nonempty_string(value.get("method")):
+            self.errors.append(f"{prefix}: derivation.method must be non-empty text")
+        parameters = value.get("parameters")
+        if parameters is not None and not isinstance(parameters, dict):
+            self.errors.append(f"{prefix}: derivation.parameters must be a mapping")
+
+        artifact = value.get("artifact")
+        if derivation_type == "aggregation" and not nonempty_string(artifact):
+            self.errors.append(f"{prefix}: aggregation derivation requires artifact")
+        if artifact is not None:
+            if not nonempty_string(artifact):
+                self.errors.append(f"{prefix}: derivation.artifact must be non-empty text")
+            elif is_bad_absolute_path(artifact) or ".." in PurePosixPath(artifact).parts:
+                self.errors.append(f"{prefix}: derivation.artifact must be repository-relative")
+            elif not (self.root / artifact).exists():
+                self.errors.append(f"{prefix}: derivation artifact does not exist: {artifact}")
 
 
 def parse_args() -> argparse.Namespace:

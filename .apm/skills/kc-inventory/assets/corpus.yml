@@ -6,6 +6,7 @@ tracked_data:
   source_map_pattern: data/<source>/source-map.yml
   source_unit_pattern: data/<source>/<units>/<unit>/item.yml
   statement_pattern: data/<source>/<units>/<unit>/statements.yml
+  derived_statement_pattern: analysis/<analysis>/derived-statements.yml
 
 # Неотслеживаемый материал держится не в отдельной папке, а файлом с маркером
 # в имени прямо рядом с владельцем — единицей источника или карточкой источника:
