@@ -11,7 +11,7 @@ includes: auto
 dependencies:
   apm:
     - mekras/ai-russian-language#^1.2.8
-    - mekras/ai-agent-supervisor#^0.5.2
-    - mekras/project-knowlege-corpus#^0.12.0
+    - mekras/ai-agent-supervisor#^1.0.0
+    - mekras/project-knowlege-corpus#^0.14.0
 scripts:
   tests: "sh -c 'set -e; python3 tools/validate-apm-package-structure.py; npm run lint:md; apm compile --validate --local-only --target codex; apm pack --dry-run'"
