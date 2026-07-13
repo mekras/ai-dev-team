@@ -3,44 +3,44 @@
   "source_basis": [
     {
       "claim_id": "SMFR-011",
-      "statement_path": "knowledge/data/smfr/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/smfr/items/text/statements.yml"
     },
     {
       "claim_id": "SMFR-018",
-      "statement_path": "knowledge/data/smfr/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/smfr/items/text/statements.yml"
     },
     {
       "claim_id": "SMFR-022",
-      "statement_path": "knowledge/data/smfr/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/smfr/items/text/statements.yml"
     },
     {
       "claim_id": "SMFR-023",
-      "statement_path": "knowledge/data/smfr/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/smfr/items/text/statements.yml"
     },
     {
       "claim_id": "SMFR-024",
-      "statement_path": "knowledge/data/smfr/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/smfr/items/text/statements.yml"
     },
     {
       "claim_id": "SMFR-027",
-      "statement_path": "knowledge/data/smfr/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/smfr/items/text/statements.yml"
     },
     {
       "claim_id": "SMFR-033",
-      "statement_path": "knowledge/data/smfr/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/smfr/items/text/statements.yml"
     }
   ],
   "cases": [
     {
-      "id": "requirements-validation-result-use-case-quality",
+      "id": "ait-req-validation-requirements-validation-result-use-case-quality",
       "prompt": "Проверь готовый вариант использования восстановления доступа: есть кнопки и поля формы в шагах, предусловие «пользователь помнит почту», гарантия успеха не записана, расширение «ошибка системы» без условия, тесты есть только для успешного пути.",
       "input_files": [
         {
-          "path": ".apm/skills/requirements-validation/SKILL.md",
+          "path": ".apm/skills/ait-req-validation/SKILL.md",
           "purpose": "процедура проверки требований и концептуальных тестов"
         },
         {
-          "path": "knowledge/data/smfr/items/source/legacy-statements.md",
+          "path": "knowledge/data/smfr/items/text/statements.yml",
           "purpose": "утверждения SMFR о качестве вариантов использования"
         }
       ],

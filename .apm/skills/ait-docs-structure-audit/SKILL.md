@@ -1,11 +1,7 @@
 ---
 name: ait-docs-structure-audit
 role: technical-writer
-description: >
-  Используй, когда нужно проверить существующую структуру документации проекта:
-  размещение, входные точки, навигацию, дубли, правила и безопасные структурные
-  исправления. Не используй для выбора новой структуры или редактуры одного
-  документа.
+description: Аудит существующей структуры проектной документации.
 ---
 
 # Навык: проверка структуры документации
@@ -35,7 +31,6 @@ description: >
 
 ## Основания
 
-- `knowledge/index/source-impact/2026-06-01-documentation-sources.md`
 - `knowledge/data/hwd/items/source/legacy-statements.md`
 - `knowledge/data/wtdg/items/source/legacy-statements.md`
 - `.apm/agents/technical-writer.agent.md`

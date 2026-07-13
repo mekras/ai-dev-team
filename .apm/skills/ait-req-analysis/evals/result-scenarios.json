@@ -3,56 +3,56 @@
   "source_basis": [
     {
       "claim_id": "SREQ-087",
-      "statement_path": "knowledge/data/sreq/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/sreq/items/text/statements.yml"
     },
     {
       "claim_id": "SREQ-090",
-      "statement_path": "knowledge/data/sreq/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/sreq/items/text/statements.yml"
     },
     {
       "claim_id": "SREQ-091",
-      "statement_path": "knowledge/data/sreq/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/sreq/items/text/statements.yml"
     },
     {
       "claim_id": "SREQ-092",
-      "statement_path": "knowledge/data/sreq/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/sreq/items/text/statements.yml"
     },
     {
       "claim_id": "SMFR-003",
-      "statement_path": "knowledge/data/smfr/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/smfr/items/text/statements.yml"
     },
     {
       "claim_id": "SMFR-016",
-      "statement_path": "knowledge/data/smfr/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/smfr/items/text/statements.yml"
     },
     {
       "claim_id": "SMFR-018",
-      "statement_path": "knowledge/data/smfr/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/smfr/items/text/statements.yml"
     },
     {
       "claim_id": "SMFR-022",
-      "statement_path": "knowledge/data/smfr/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/smfr/items/text/statements.yml"
     },
     {
       "claim_id": "SMFR-023",
-      "statement_path": "knowledge/data/smfr/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/smfr/items/text/statements.yml"
     },
     {
       "claim_id": "SMFR-031",
-      "statement_path": "knowledge/data/smfr/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/smfr/items/text/statements.yml"
     }
   ],
   "cases": [
     {
-      "id": "requirements-analysis-result-replacement-gap-analysis",
+      "id": "ait-req-analysis-requirements-analysis-result-replacement-gap-analysis",
       "prompt": "Разбери черновые сведения для замены старой системы заявок: пользователи просят перенести всё как есть, есть старые отчёты, интеграции и данные.",
       "input_files": [
         {
-          "path": ".apm/skills/requirements-analysis/SKILL.md",
+          "path": ".apm/skills/ait-req-analysis/SKILL.md",
           "purpose": "процедура анализа требований с учётом класса проекта"
         },
         {
-          "path": "knowledge/data/sreq/items/source/legacy-statements.md",
+          "path": "knowledge/data/sreq/items/text/statements.yml",
           "purpose": "утверждения SREQ о проектах замены систем"
         }
       ],
@@ -117,15 +117,15 @@
       ]
     },
     {
-      "id": "requirements-analysis-result-use-case-structure-gaps",
+      "id": "ait-req-analysis-requirements-analysis-result-use-case-structure-gaps",
       "prompt": "Разбери черновик варианта использования: «Пользователь нажимает кнопку Восстановить. Система проверяет пользователя. Если что-то пошло не так, показывает ошибку. После восстановления пароль меняется». Нужно найти пробелы и отделить требования от деталей интерфейса.",
       "input_files": [
         {
-          "path": ".apm/skills/requirements-analysis/SKILL.md",
+          "path": ".apm/skills/ait-req-analysis/SKILL.md",
           "purpose": "процедура анализа требований и выбора представления"
         },
         {
-          "path": "knowledge/data/smfr/items/source/legacy-statements.md",
+          "path": "knowledge/data/smfr/items/text/statements.yml",
           "purpose": "утверждения SMFR о структуре и качестве вариантов использования"
         }
       ],

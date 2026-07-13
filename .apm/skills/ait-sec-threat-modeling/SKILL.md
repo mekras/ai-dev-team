@@ -1,9 +1,7 @@
 ---
 name: ait-sec-threat-modeling
 role: security-engineer
-description: >
-  Используй, когда нужно построить или проверить модель угроз: что строим, что
-  может пойти не так, что с этим делать и достаточно ли хорошо проверили.
+description: Построение и проверка модели угроз.
 ---
 
 # ait-sec-threat-modeling

@@ -1,10 +1,7 @@
 ---
 name: ait-private-knowledge
 role: source-inventory
-description: >
-  Используй, когда нужно создать, подключить, применить или проверить приватный
-  локальный слой знаний проекта для агента: AGENTS.local.md, rules.local,
-  неотслеживаемые правила и проверку, что они не попадут в Git или другую VCS.
+description: Настройка приватных локальных знаний и правил проекта.
 ---
 
 # ait-private-knowledge

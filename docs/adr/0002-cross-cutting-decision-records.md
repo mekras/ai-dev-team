@@ -82,6 +82,10 @@
 
 ## Связанные решения
 
-- Требования `ФТ-7`, `ФТ-8`, `ФТ-9`, `КАЧ-5`, `КАЧ-6` (`docs/requirements.md`).
+- Требования [ФТ-7](../requirements/functional/ft-7.md),
+  [ФТ-8](../requirements/functional/ft-8.md),
+  [ФТ-9](../requirements/functional/ft-9.md),
+  [КАЧ-5](../requirements/quality/kach-5.md) и
+  [КАЧ-6](../requirements/quality/kach-6.md).
 - [ADR-0001](0001-concepts-reconciliation-layer.md) — слой согласования понятий,
   через который вводится обобщённое понятие.

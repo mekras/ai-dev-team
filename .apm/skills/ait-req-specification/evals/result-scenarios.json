@@ -3,52 +3,52 @@
   "source_basis": [
     {
       "claim_id": "SMFR-004",
-      "statement_path": "knowledge/data/smfr/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/smfr/items/text/statements.yml"
     },
     {
       "claim_id": "SMFR-005",
-      "statement_path": "knowledge/data/smfr/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/smfr/items/text/statements.yml"
     },
     {
       "claim_id": "SMFR-009",
-      "statement_path": "knowledge/data/smfr/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/smfr/items/text/statements.yml"
     },
     {
       "claim_id": "SMFR-010",
-      "statement_path": "knowledge/data/smfr/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/smfr/items/text/statements.yml"
     },
     {
       "claim_id": "SMFR-011",
-      "statement_path": "knowledge/data/smfr/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/smfr/items/text/statements.yml"
     },
     {
       "claim_id": "SMFR-018",
-      "statement_path": "knowledge/data/smfr/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/smfr/items/text/statements.yml"
     },
     {
       "claim_id": "SMFR-022",
-      "statement_path": "knowledge/data/smfr/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/smfr/items/text/statements.yml"
     },
     {
       "claim_id": "SMFR-023",
-      "statement_path": "knowledge/data/smfr/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/smfr/items/text/statements.yml"
     }
   ],
   "cases": [
     {
-      "id": "requirements-specification-result-use-case-template",
+      "id": "ait-req-specification-requirements-specification-result-use-case-template",
       "prompt": "Запиши вариант использования для восстановления доступа в небольшом срочном проекте. Известно: пользователь запрашивает восстановление, система отправляет код, внешний сервис может отклонить отправку, после успеха пользователь задаёт новый пароль.",
       "input_files": [
         {
-          "path": ".apm/skills/requirements-specification/SKILL.md",
+          "path": ".apm/skills/ait-req-specification/SKILL.md",
           "purpose": "процедура записи требований и выбора формата"
         },
         {
-          "path": ".apm/skills/requirements-specification/references/use-case-templates.md",
+          "path": ".apm/skills/ait-req-specification/references/use-case-templates.md",
           "purpose": "шаблоны и формулировки вариантов использования"
         },
         {
-          "path": "knowledge/data/smfr/items/source/legacy-statements.md",
+          "path": "knowledge/data/smfr/items/text/statements.yml",
           "purpose": "утверждения SMFR о вариантах использования"
         }
       ],

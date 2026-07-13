@@ -3,23 +3,23 @@
   "source_basis": [
     {
       "claim_id": "ASKL-006",
-      "statement_path": "knowledge/data/askl/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/askl/items/normalized-askl-pages-optimizing-descriptions-index.md/statements.yml"
     },
     {
       "claim_id": "ASKL-009",
-      "statement_path": "knowledge/data/askl/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/askl/items/normalized-askl-pages-evaluating-skills-index.md/statements.yml"
     },
     {
       "claim_id": "ASKL-010",
-      "statement_path": "knowledge/data/askl/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/askl/items/normalized-askl-pages-evaluating-skills-index.md/statements.yml"
     },
     {
       "claim_id": "PPRX-001",
-      "statement_path": "knowledge/data/pprx/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/pprx/items/designing-refining-maintaining-agent-skills/statements.yml"
     },
     {
       "claim_id": "PPRX-002",
-      "statement_path": "knowledge/data/pprx/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/pprx/items/designing-refining-maintaining-agent-skills/statements.yml"
     }
   ],
   "cases": [
@@ -209,7 +209,7 @@
       "expected_output": {
         "report_structure": [
           "показано, что APM-установка уже выполнена и навыки доступны",
-          "назван выбранный клиент или способ его определения",
+          "назван один выбранный клиент и явное основание его определения",
           "существующий AGENTS.md проверяется до компиляции",
           "локальные правила сохраняются в слое, который попадает в компиляцию APM",
           "dry-run compile не выносится как штатный следующий шаг без явного запроса на диагностику генерации",
@@ -246,6 +246,7 @@
       "oracle": {
         "success_criteria": [
           "результат признаёт apm install достаточным шагом доставки навыков",
+          "результат не выводит выбор клиента только из наличия клиентских каталогов",
           "существующий AGENTS.md читается до любых записывающих команд",
           "рукописные правила сохраняются в локальном слое проекта",
           "реальный apm compile в рабочем корне не считается допустимым только из-за сохранения локальных правил",
@@ -259,7 +260,8 @@
           "AGENTS.md перезаписывается без переноса локальных правил",
           "перенос локальных правил трактуется как разрешение на перезапись рукописного AGENTS.md",
           "локальные правила предлагается спрятать в AGENTS.override.md",
-          "непонятно, какой файл стал источником локальных правил"
+          "непонятно, какой файл стал источником локальных правил",
+          "наличие каталогов нескольких клиентов принято как разрешение настроить их все"
         ]
       },
       "application_evidence": [
@@ -270,6 +272,7 @@
       "evaluation_surface": "безопасная настройка клиентских инструкций после установки APM",
       "assertions": [
         "Результат не требует от пользователя прямого запуска apm compile после apm install.",
+        "Результат использует ровно один явно выбранный клиент.",
         "Результат читает существующий AGENTS.md до записывающих действий.",
         "Результат сохраняет рукописные правила в локальном слое проекта.",
         "Результат не выносит apm compile --dry-run как штатный следующий шаг настройки без явного запроса на диагностику.",
@@ -283,7 +286,8 @@
         "не выносить apm compile --dry-run как штатный следующий шаг или итоговый пункт настройки без явной диагностики",
         "не превращать обычную настройку проекта в вопрос о миграции рукописного AGENTS.md под APM без запроса человека",
         "не предлагать AGENTS.override.md как замену сгенерированному AGENTS.md",
-        "не оставлять местонахождение локальных правил неясным"
+        "не оставлять местонахождение локальных правил неясным",
+        "не настраивать несколько клиентских целей без явного выбора человека"
       ]
     },
     {
@@ -689,6 +693,78 @@
       "must_not": [
         "не оставлять отказ от журнала незакреплённым в .ai-dev-team-state.yml",
         "не создавать CHANGELOG.md вопреки решению человека"
+      ]
+    },
+    {
+      "id": "ait-setup-result-decision-records-declined",
+      "prompt": "Настрой проект. Журналы решений нам не нужны, повторно предлагать их не надо.",
+      "input_files": [
+        {
+          "path": ".ai-dev-team-state.yml",
+          "purpose": "хранит решение проекта отказаться от журналов решений"
+        },
+        {
+          "path": ".apm/skills/ait-setup/SKILL.md",
+          "purpose": "задаёт обязанность сохранить отказ и не повторять предложение"
+        },
+        {
+          "path": ".apm/skills/ait-setup/references/setup-dialogue.md",
+          "purpose": "определяет поле setup.decision_records и значение declined"
+        }
+      ],
+      "required_corpus_claims": ["ASKL-006", "ASKL-009", "ASKL-010", "PPRX-001", "PPRX-002"],
+      "expected_output": {
+        "report_structure": [
+          "явно назван отказ человека от журналов решений",
+          "показана запись setup.decision_records.status: declined в .ai-dev-team-state.yml",
+          "сказано, что журналы не будут предлагаться повторно без нового запроса",
+          "отказ от журналов решений не смешан с журналом изменений"
+        ],
+        "findings": [
+          {
+            "severity": "high",
+            "corpus_claims": ["ASKL-006", "PPRX-002"],
+            "observed_problem": "агент принимает отказ от журналов решений только в ответе и не сохраняет его для повторной настройки.",
+            "expected_conclusion": "отказ нужно записать в отдельное поле состояния проекта, чтобы не повторять предложение",
+            "acceptable_fix_direction": "записать setup.decision_records.status: declined в .ai-dev-team-state.yml и не добавлять список journals"
+          }
+        ]
+      },
+      "negative_control": {
+        "description": "Сравнить с ответом, где отказ от журналов решений записан как отказ от CHANGELOG.md либо остаётся только в тексте ответа.",
+        "expected_failure": "Такой ответ должен провалиться по структуре отчёта, находке и запретам."
+      },
+      "oracle": {
+        "success_criteria": [
+          "результат сохраняет отказ в setup.decision_records",
+          "результат использует status: declined",
+          "результат не предлагает журналы решений повторно",
+          "результат отличает журналы решений от журнала изменений"
+        ],
+        "failure_indicators": [
+          "отказ остаётся только в тексте ответа",
+          "изменяется только setup.changelog",
+          "вместе со status: declined создаётся список journals",
+          "журналы решений снова предлагаются без нового запроса"
+        ]
+      },
+      "application_evidence": [
+        "результат содержит ожидаемую структуру отчёта из expected_output.report_structure",
+        "результат называет находку из expected_output.findings",
+        "результат соблюдает assertions и не нарушает must_not"
+      ],
+      "evaluation_surface": "фиксация отказа от журналов решений в состоянии проекта",
+      "assertions": [
+        "Результат записывает setup.decision_records.status: declined.",
+        "Результат не создаёт journals при отказе.",
+        "Результат не предлагает журналы решений повторно без нового запроса.",
+        "Результат не изменяет смысл состояния журнала изменений."
+      ],
+      "must_not": [
+        "не оставлять отказ от журналов решений только в тексте ответа",
+        "не записывать отказ в setup.changelog",
+        "не добавлять journals при status: declined",
+        "не повторять предложение без нового запроса человека"
       ]
     },
     {

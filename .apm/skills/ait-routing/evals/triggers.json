@@ -2,31 +2,31 @@
   "skill_name": "ait-routing",
   "cases": [
     {
-      "id": "routing-positive-new-task",
+      "id": "ait-routing-routing-positive-new-task",
       "prompt": "Прими задачу, выбери маршрут и режим менеджера и покажи план работы.",
       "should_trigger": true,
       "rationale": "Маршрутизация задачи и выбор режима — суть навыка."
     },
     {
-      "id": "routing-positive-multi-role",
+      "id": "ait-routing-routing-positive-multi-role",
       "prompt": "Задача затрагивает требования и безопасность; определи порядок подключения ролей и точки решения человека.",
       "should_trigger": true,
       "rationale": "Координация ролей и точек подтверждения входит в навык."
     },
     {
-      "id": "routing-positive-interface-layer",
+      "id": "ait-routing-routing-positive-interface-layer",
       "prompt": "Задача затрагивает требования и новый мобильный интерфейс; определи порядок подключения аналитика, UX и интерфейсного навыка.",
       "should_trigger": true,
       "rationale": "Нужно выбрать маршрут между требованиями, UX-основанием и проектированием интерфейса."
     },
     {
-      "id": "routing-negative-setup",
+      "id": "ait-routing-routing-negative-setup",
       "prompt": "Настрой проект под актуальные правила продукта.",
       "should_trigger": false,
       "rationale": "Настройка проекта ведётся навыком ait-setup."
     },
     {
-      "id": "routing-negative-execute",
+      "id": "ait-routing-routing-negative-execute",
       "prompt": "Напиши конкретный раздел требований к продукту.",
       "should_trigger": false,
       "rationale": "Это исполнение профильным навыком, а не маршрутизация."

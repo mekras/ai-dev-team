@@ -1,9 +1,7 @@
 ---
 name: ait-docs-structure-design
 role: technical-writer
-description: >
-  Используй, когда нужно выбрать структуру документации проекта: разделы,
-  входные точки, места хранения, навигацию и правила сопровождения.
+description: Проектирование структуры и навигации документации.
 ---
 
 # Навык: проектирование структуры документации
@@ -35,8 +33,6 @@ description: >
 
 ## Основания
 
-- `knowledge/index/source-impact/2026-06-01-documentation-sources.md`
-- `knowledge/index/source-impact/2026-06-22-sreq-requirements-skills.md`
 - `knowledge/data/hwd/items/source/legacy-statements.md`
 - `knowledge/data/wtdg/items/source/legacy-statements.md`
 - `knowledge/data/sreq/items/source/legacy-statements.md`
@@ -83,12 +79,9 @@ description: >
    предметную модель проекта вместо аналитика.
 6. Заполни или используй как рабочую рамку
    `.apm/skills/ait-writing/assets/documentation-structure-template.md`.
-7. Проверяй предлагаемую структуру по трём сквозным принципам организации:
-   единственное авторитетное представление знания (DRY — у каждого сведения один
-   источник истины, остальные разделы ссылаются), высокая связность (связанные
-   темы держатся вместе) и слабое сопряжение (разделы как можно меньше зависят
-   друг от друга). Единый источник принципов —
-   `ait-architecture/references/organization-principles.md`.
+7. Проверяй предлагаемую структуру по трём сквозным принципам из
+   `ait-architecture/references/organization-principles.md`. Примени их к
+   маршруту читателя, границам разделов и будущей цене совместных изменений.
 8. Предложи структуру с явными решениями:
    - входная точка;
    - верхние разделы;

@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "scenarios":
+    [
+      {
+        "id": "catalog-import-policy",
+        "title": "Импорт каталога с решением владельца",
+        "request": "Добавь импорт записей каталога из JSON. Требование пока неполное: нужно определить поведение при повторяющихся идентификаторах. Выбор политики оставляю за собой: сначала запроси моё решение и не изменяй файлы до ответа. После решения доведи изменение до фиксации требования, реализации, проверок и передачи результата мне на приёмку.",
+        "owner_reply": "Повторяющиеся идентификаторы нужно отклонять целиком до изменения каталога. Зафиксируй это требование, реализуй импорт, добавь проверки и подготовь результат к моей приёмке.",
+        "files":
+          {
+            ".gitignore": "__pycache__/\n*.pyc\n",
+            "AGENTS.md": "# Инструкции проверочного проекта\n\nРаботай только с файлами этого одноразового проекта. Запись внутри проекта разрешена. Не используй инструкции, навыки или файлы из родительских каталогов. Не выполняй commit и push.\n",
+            "README.md": "# Каталог\n\nНебольшой учебный проект для проверки полного пути изменения.\n",
+            "catalog.py": "\"\"\"Операции с каталогом.\"\"\"\n\n\ndef item_ids(items):\n    return [item[\"id\"] for item in items]\n",
+            "test_catalog.py": "import unittest\n\nimport catalog\n\n\nclass ItemIdsTest(unittest.TestCase):\n    def test_returns_ids(self):\n        self.assertEqual([1, 2], catalog.item_ids([{\"id\": 1}, {\"id\": 2}]))\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n",
+          },
+        "expected_artifact_groups":
+          [
+            { "label": "код импорта", "any_of": ["catalog.py"] },
+            { "label": "проверки импорта", "any_of": ["test_catalog.py"] },
+            {
+              "label": "зафиксированное требование",
+              "any_of": ["docs/requirements/catalog-import.md", "REQUIREMENTS.md", "README.md"],
+            },
+          ],
+        "required_commands": ["python3 -m unittest"],
+        "handoff_markers": ["приём", "критер", "проверк", "риск"],
+        "decision_marker_groups": [["повтор", "дублик"], ["id", "идентифик"]],
+      },
+    ],
+}

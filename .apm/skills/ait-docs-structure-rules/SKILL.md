@@ -1,12 +1,7 @@
 ---
 name: ait-docs-structure-rules
 role: technical-writer
-description: >
-  Используй, когда нужно сохранить, обновить или проверить правила проекта,
-  которые поддерживают уже выбранную структуру документации: где лежат типы
-  документов, какие входные точки обязательны, что пересматривать вместе и какие
-  изменения требуют обновления структуры. Не используй для выбора структуры с
-  нуля.
+description: Сопровождение правил выбранной структуры документации.
 ---
 
 # Навык: правила структуры документации
@@ -29,8 +24,6 @@ description: >
 
 ## Основания
 
-- `knowledge/index/source-impact/2026-06-01-documentation-sources.md`
-- `knowledge/index/source-impact/2026-06-03-agents-context-sources.md`
 - `knowledge/data/wtdg/items/source/legacy-statements.md`
 - `.apm/agents/project-manager.agent.md`
 - `.apm/agents/technical-writer.agent.md`

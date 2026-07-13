@@ -1,0 +1,32 @@
+rules:
+  - kind: access-secret
+    path: data/gist/items/7c8f65572930a21efa62623557d83f6e/index.html
+    action: suppress
+    reason: >-
+      Неизменяемый снимок публичного учебного материала содержит примеры имён
+      параметров, а не действующие значения доступа; проверено 2026-07-13.
+  - kind: access-secret
+    path: data/lfsp/items/source/spdx-oslbp-022525a.headers.txt
+    action: suppress
+    reason: >-
+      Неизменяемый снимок ответа публичного сайта содержит cookie защиты от
+      ботов, истёкший 2026-06-05 и не связанный с учётной записью; проверено
+      2026-07-13.
+  - kind: access-secret
+    path: data/wtdg/items/source/response-headers.txt
+    action: suppress
+    reason: >-
+      Значение cookie в неизменяемом снимке публичного ответа уже заменено
+      маркером обезличивания; проверено 2026-07-13.
+  - kind: access-secret
+    path: data/xem7/items/article/response-headers.txt
+    action: suppress
+    reason: >-
+      Значения cookies в неизменяемом снимке публичного ответа уже заменены
+      маркерами обезличивания; проверено 2026-07-13.
+  - kind: access-secret
+    path: data/xem7/items/status/response-headers.txt
+    action: suppress
+    reason: >-
+      Значения cookies в неизменяемом снимке публичного ответа уже заменены
+      маркерами обезличивания; проверено 2026-07-13.

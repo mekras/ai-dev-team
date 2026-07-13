@@ -3,43 +3,43 @@
   "source_basis": [
     {
       "claim_id": "HWD-001",
-      "statement_path": "knowledge/data/hwd/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/hwd/items/index/statements.yml"
     },
     {
       "claim_id": "HWD-014",
-      "statement_path": "knowledge/data/hwd/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/hwd/items/theory-goal/statements.yml"
     },
     {
       "claim_id": "HWD-016",
-      "statement_path": "knowledge/data/hwd/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/hwd/items/theory-goal/statements.yml"
     },
     {
       "claim_id": "HWD-018",
-      "statement_path": "knowledge/data/hwd/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/hwd/items/theory-principles/statements.yml"
     },
     {
       "claim_id": "HWD-021",
-      "statement_path": "knowledge/data/hwd/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/hwd/items/theory-how-people-read/statements.yml"
     },
     {
       "claim_id": "HWD-022",
-      "statement_path": "knowledge/data/hwd/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/hwd/items/theory-how-people-read/statements.yml"
     },
     {
       "claim_id": "HWD-023",
-      "statement_path": "knowledge/data/hwd/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/hwd/items/guides-startup/statements.yml"
     },
     {
       "claim_id": "WTDG-006",
-      "statement_path": "knowledge/data/wtdg/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/wtdg/items/normalized-wtdg-pages-writing-docs-principles-index.md/statements.yml"
     },
     {
       "claim_id": "WTDG-009",
-      "statement_path": "knowledge/data/wtdg/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/wtdg/items/normalized-wtdg-pages-writing-docs-principles-index.md/statements.yml"
     },
     {
       "claim_id": "WTDG-011",
-      "statement_path": "knowledge/data/wtdg/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/wtdg/items/normalized-wtdg-pages-writing-docs-principles-index.md/statements.yml"
     }
   ],
   "cases": [
@@ -202,7 +202,8 @@
           "технические детали оставлены только там, где без них нельзя выполнить действие",
           "лишние внутренние подробности вынесены в разработческую документацию, справочник или ссылку",
           "пользовательский следующий шаг остался конкретным",
-          "термины введены через понятное содержание, а не через внутренний жаргон"
+          "термины введены через понятное содержание, а не через внутренний жаргон",
+          "удалены повторы и метатекст без потери условий, ограничений, точных команд и проверки"
         ],
         "findings": [
           {
@@ -223,7 +224,8 @@
           "пользовательская цель и результат стоят раньше технических подробностей",
           "лишние детали вынесены или связаны ссылкой",
           "следующий шаг пользователя конкретен",
-          "термины объяснены через смысл для пользователя"
+          "термины объяснены через смысл для пользователя",
+          "сокращение не требует от читателя домысливать условия или ограничения"
         ],
         "failure_indicators": [
           "текст начинается с внутреннего устройства",
@@ -241,12 +243,14 @@
       "assertions": [
         "Результат держит пользовательский уровень смысла действия.",
         "Результат не перегружает пользовательский документ внутренними деталями.",
-        "Результат сохраняет конкретный следующий шаг."
+        "Результат сохраняет конкретный следующий шаг.",
+        "Результат удаляет текст только без потери условий, ограничений и проверяемости."
       ],
       "must_not": [
         "не начинать пользовательский документ с внутреннего устройства",
         "не заменять пользовательскую цель форматом файлов или командой проверки",
-        "не оставлять технические детали без связи с действием пользователя"
+        "не оставлять технические детали без связи с действием пользователя",
+        "не удалять ради краткости условия, ограничения, точные команды или критерии"
       ]
     },
     {

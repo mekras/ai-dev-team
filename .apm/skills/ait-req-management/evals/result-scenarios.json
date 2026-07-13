@@ -3,36 +3,36 @@
   "source_basis": [
     {
       "claim_id": "SREQ-109",
-      "statement_path": "knowledge/data/sreq/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/sreq/items/text/statements.yml"
     },
     {
       "claim_id": "SREQ-112",
-      "statement_path": "knowledge/data/sreq/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/sreq/items/text/statements.yml"
     },
     {
       "claim_id": "SREQ-114",
-      "statement_path": "knowledge/data/sreq/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/sreq/items/text/statements.yml"
     },
     {
       "claim_id": "SREQ-132",
-      "statement_path": "knowledge/data/sreq/items/source/legacy-statements.md"
+      "statement_path": "knowledge/data/sreq/items/text/statements.yml"
     }
   ],
   "cases": [
     {
-      "id": "requirements-management-result-change-impact",
+      "id": "ait-req-management-requirements-management-result-change-impact",
       "prompt": "Оцени запрос на изменение требования: нужно добавить обязательную двухфакторную аутентификацию в ближайший релиз.",
       "input_files": [
         {
-          "path": ".apm/skills/requirements-management/SKILL.md",
+          "path": ".apm/skills/ait-req-management/SKILL.md",
           "purpose": "процедура управления изменениями требований"
         },
         {
-          "path": ".apm/skills/requirements-management/assets/requirements-management-template.md",
+          "path": ".apm/skills/ait-req-management/assets/requirements-management-template.md",
           "purpose": "шаблон карточки изменения и анализа влияния"
         },
         {
-          "path": "knowledge/data/sreq/items/source/legacy-statements.md",
+          "path": "knowledge/data/sreq/items/text/statements.yml",
           "purpose": "утверждения SREQ об атрибутах требований, изменениях, влиянии и рисках"
         }
       ],

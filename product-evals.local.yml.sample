@@ -1,0 +1,26 @@
+# Локальные настройки сквозной оценки продукта (`apm run product-evals`).
+#
+# При первом рабочем запуске образец копируется в `product-evals.local.yml`.
+# Локальный файл исключён из Git общим правилом `*.local.*`.
+
+client:
+  name: codex
+  target: codex
+  adapter: python3 tools/product-eval-adapters/codex.py
+  model: ""
+
+# Последний принятый выпуск, с которым сравнивается текущее дерево проекта.
+previous_ref: 0.15.1
+
+# Один прогон даёт только калибровочные данные. Число повторов и пороги владелец
+# задаёт после первых запусков.
+repetitions: 1
+timeout: 1800
+
+# Необязательная смысловая проверка. По умолчанию решение принимает человек по
+# сохранённым артефактам. Для модельной проверки задайте command и model.
+judge:
+  mode: human
+# Для модельной проверки замените mode на model и раскомментируйте поля:
+# command: .agents/skills/ai-setup-apm/scripts/eval-tools/adapters/codex
+# model: gpt-5.4

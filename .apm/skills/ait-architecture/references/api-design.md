@@ -148,8 +148,6 @@ API — это формальное обязательство связыват�
   (`APIB-001`–`APIB-071`) — книга Сергея Константинова «API»;
 - `knowledge/data/radr/items/source/legacy-statements.md`
   (`RADR-001`–`RADR-081`) — книга Mark Massé «REST API Design Rulebook»;
-- отчёт о влиянии:
-  `knowledge/index/source-impact/2026-06-24-apib-radr-api-design.md`.
 
 Утверждения корпуса фиксируют содержание источников и не являются решениями
 проекта.

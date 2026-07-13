@@ -2,31 +2,31 @@
   "skill_name": "ait-reliability",
   "cases": [
     {
-      "id": "reliability-positive-slo",
+      "id": "ait-reliability-reliability-positive-slo",
       "prompt": "Помоги задать измеримые цели надёжности сервиса: SLI, SLO и бюджет ошибок.",
       "should_trigger": true,
       "rationale": "Измеримые цели надёжности — суть навыка."
     },
     {
-      "id": "reliability-positive-fault-analysis",
+      "id": "ait-reliability-reliability-positive-fault-analysis",
       "prompt": "Разбери возможные отказы системы в терминах дефект, ошибка, отказ и выбери средства их обработки.",
       "should_trigger": true,
       "rationale": "Анализ отказов и средства надёжности входят в навык."
     },
     {
-      "id": "reliability-positive-resilience",
+      "id": "ait-reliability-reliability-positive-resilience",
       "prompt": "Нужно проверить устойчивость распределённой системы к отказам узлов; спланируй эксперименты.",
       "should_trigger": true,
       "rationale": "Проверка устойчивости и инженерия хаоса входят в навык."
     },
     {
-      "id": "reliability-negative-functional-bug",
+      "id": "ait-reliability-reliability-negative-functional-bug",
       "prompt": "Исправь локальную ошибку в функции форматирования строки.",
       "should_trigger": false,
       "rationale": "Локальная функциональная правка не затрагивает надёжность системно."
     },
     {
-      "id": "reliability-negative-threat-model",
+      "id": "ait-reliability-reliability-negative-threat-model",
       "prompt": "Построй модель угроз безопасности для нового API.",
       "should_trigger": false,
       "rationale": "Это задача моделирования угроз, а не надёжности."
