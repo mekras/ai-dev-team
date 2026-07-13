@@ -31,6 +31,7 @@ REQUIRED_SKILLS = {
     "ait-docs-structure-audit",
     "ait-docs-structure-design",
     "ait-docs-structure-rules",
+    "ait-hypotheses",
     "ait-licensing",
     "ait-private-knowledge",
     "ait-routing",

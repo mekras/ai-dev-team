@@ -27,7 +27,8 @@ scripts:
     python3 "$validators/validate-hidden-unicode.py" .apm;
     python3 "$validators/validate-skill-descriptions.py" "$target";
     python3 "$validators/validate-trigger-evals.py" "$target" --require-all;
-    python3 tools/validate-skill-result-evals.py "$target";
+    PYTHONDONTWRITEBYTECODE=1
+    python3 "$validators/validate-skill-result-evals.py" "$target";
     python3 "$validators/validate-portable-corpus-references.py" "$target";
     npm run lint:md; apm compile --validate --local-only --target codex;
     apm compile --validate --local-only --target claude;

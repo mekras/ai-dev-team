@@ -12,11 +12,16 @@ REQUIREMENTS_ROOT = ROOT / "docs" / "requirements"
 
 CATEGORIES = {
     "business": ("bt", "БТ", (1, 2, 3)),
-    "functional": ("ft", "ФТ", tuple(range(1, 13))),
-    "quality": ("kach", "КАЧ", tuple(range(1, 7))),
+    "functional": ("ft", "ФТ", tuple(range(1, 16))),
+    "quality": ("kach", "КАЧ", tuple(range(1, 8))),
     "rules": ("pr", "ПР", tuple(range(1, 7))),
-    "user": ("pt", "ПТ", tuple(range(1, 5))),
+    "user": ("pt", "ПТ", tuple(range(1, 6))),
 }
+
+INLINE_REQUIREMENT_RE = re.compile(
+    r"^\*\*((?:БТ|ПТ|ФТ|КАЧ|ПР)-\d+)(?:[ .(])",
+    flags=re.MULTILINE,
+)
 
 
 def fail(message: str) -> None:
@@ -35,6 +40,12 @@ def expected_requirements() -> dict[Path, str]:
 
 def check_index(expected: dict[Path, str]) -> None:
     text = INDEX.read_text(encoding="utf-8")
+    inline_requirements = INLINE_REQUIREMENT_RE.findall(text)
+    if inline_requirements:
+        fail(
+            "docs/requirements.md defines requirements inline: "
+            + ", ".join(sorted(set(inline_requirements))),
+        )
     entries = re.findall(
         r"^- \[([^]]+)\]\((requirements/[^)]+\.md)\)$",
         text,

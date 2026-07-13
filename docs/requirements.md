@@ -44,6 +44,7 @@
 - [ПТ-2](requirements/user/pt-2.md)
 - [ПТ-3](requirements/user/pt-3.md)
 - [ПТ-4](requirements/user/pt-4.md)
+- [ПТ-5. Регистрация гипотез](requirements/user/pt-5.md)
 
 ## Функциональные требования
 
@@ -59,6 +60,9 @@
 - [ФТ-10](requirements/functional/ft-10.md)
 - [ФТ-11. Выявление требований](requirements/functional/ft-11.md)
 - [ФТ-12. Применение The Twelve-Factor App](requirements/functional/ft-12.md)
+- [ФТ-13. Реестр гипотез](requirements/functional/ft-13.md)
+- [ФТ-14. Жизненный цикл гипотезы](requirements/functional/ft-14.md)
+- [ФТ-15. Переход от гипотезы к решению](requirements/functional/ft-15.md)
 
 ## Атрибуты качества
 
@@ -68,6 +72,7 @@
 - [КАЧ-4. Понятность общения](requirements/quality/kach-4.md)
 - [КАЧ-5. Лаконичность текстов](requirements/quality/kach-5.md)
 - [КАЧ-6. Качество записи решения](requirements/quality/kach-6.md)
+- [КАЧ-7. Качество записи гипотезы](requirements/quality/kach-7.md)
 
 ## Правила продукта
 
