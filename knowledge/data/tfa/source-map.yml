@@ -1,0 +1,123 @@
+source_id: TFA
+long_source: true
+extraction_passport:
+  format: "Тринадцать веб-страниц в Markdown после извлечения."
+  file_size_bytes: 66787
+  content_hash: "sha256:71a2656d757d7a3458228295c593e2c90ffa55e8eda83e02414ef5f86084c7e2"
+  metadata_source: "Публичный сайт https://12factor.net/ru/"
+  extraction_tool: "defuddle"
+  extraction_status: "Краткие фрагменты повторно проверены; полный текст не
+    опубликован."
+structure:
+  units:
+    - id: introduction
+      title: "Введение"
+      order: 1
+      locator: "https://12factor.net/ru/"
+    - id: codebase
+      title: "I. Кодовая база"
+      order: 2
+      locator: "https://12factor.net/ru/codebase"
+    - id: dependencies
+      title: "II. Зависимости"
+      order: 3
+      locator: "https://12factor.net/ru/dependencies"
+    - id: config
+      title: "III. Конфигурация"
+      order: 4
+      locator: "https://12factor.net/ru/config"
+    - id: backing-services
+      title: "IV. Сторонние службы"
+      order: 5
+      locator: "https://12factor.net/ru/backing-services"
+    - id: build-release-run
+      title: "V. Сборка, релиз, выполнение"
+      order: 6
+      locator: "https://12factor.net/ru/build-release-run"
+    - id: processes
+      title: "VI. Процессы"
+      order: 7
+      locator: "https://12factor.net/ru/processes"
+    - id: port-binding
+      title: "VII. Привязка портов"
+      order: 8
+      locator: "https://12factor.net/ru/port-binding"
+    - id: concurrency
+      title: "VIII. Параллелизм"
+      order: 9
+      locator: "https://12factor.net/ru/concurrency"
+    - id: disposability
+      title: "IX. Утилизируемость"
+      order: 10
+      locator: "https://12factor.net/ru/disposability"
+    - id: dev-prod-parity
+      title: "X. Паритет сред"
+      order: 11
+      locator: "https://12factor.net/ru/dev-prod-parity"
+    - id: logs
+      title: "XI. Журналирование"
+      order: 12
+      locator: "https://12factor.net/ru/logs"
+    - id: admin-processes
+      title: "XII. Задачи администрирования"
+      order: 13
+      locator: "https://12factor.net/ru/admin-processes"
+coverage:
+  units:
+    - unit_id: introduction
+      status: "извлечено"
+      artifacts: [items/normalized-tfa-source.md/source.md]
+      statements:
+        - items/normalized-tfa-source.md/statements.yml#TFA-001
+        - items/normalized-tfa-source.md/statements.yml#TFA-014
+    - unit_id: codebase
+      status: "извлечено"
+      artifacts: [items/normalized-tfa-source.md/source.md]
+      statements: [items/normalized-tfa-source.md/statements.yml#TFA-002]
+    - unit_id: dependencies
+      status: "извлечено"
+      artifacts: [items/normalized-tfa-source.md/source.md]
+      statements: [items/normalized-tfa-source.md/statements.yml#TFA-003]
+    - unit_id: config
+      status: "извлечено"
+      artifacts: [items/normalized-tfa-source.md/source.md]
+      statements: [items/normalized-tfa-source.md/statements.yml#TFA-004]
+    - unit_id: backing-services
+      status: "извлечено"
+      artifacts: [items/normalized-tfa-source.md/source.md]
+      statements: [items/normalized-tfa-source.md/statements.yml#TFA-005]
+    - unit_id: build-release-run
+      status: "извлечено"
+      artifacts: [items/normalized-tfa-source.md/source.md]
+      statements: [items/normalized-tfa-source.md/statements.yml#TFA-006]
+    - unit_id: processes
+      status: "извлечено"
+      artifacts: [items/normalized-tfa-source.md/source.md]
+      statements: [items/normalized-tfa-source.md/statements.yml#TFA-007]
+    - unit_id: port-binding
+      status: "извлечено"
+      artifacts: [items/normalized-tfa-source.md/source.md]
+      statements: [items/normalized-tfa-source.md/statements.yml#TFA-008]
+    - unit_id: concurrency
+      status: "извлечено"
+      artifacts: [items/normalized-tfa-source.md/source.md]
+      statements: [items/normalized-tfa-source.md/statements.yml#TFA-009]
+    - unit_id: disposability
+      status: "извлечено"
+      artifacts: [items/normalized-tfa-source.md/source.md]
+      statements: [items/normalized-tfa-source.md/statements.yml#TFA-010]
+    - unit_id: dev-prod-parity
+      status: "извлечено"
+      artifacts: [items/normalized-tfa-source.md/source.md]
+      statements: [items/normalized-tfa-source.md/statements.yml#TFA-011]
+    - unit_id: logs
+      status: "извлечено"
+      artifacts: [items/normalized-tfa-source.md/source.md]
+      statements: [items/normalized-tfa-source.md/statements.yml#TFA-012]
+    - unit_id: admin-processes
+      status: "извлечено"
+      artifacts: [items/normalized-tfa-source.md/source.md]
+      statements: [items/normalized-tfa-source.md/statements.yml#TFA-013]
+publication_limitations:
+  - "Полный первичный текст не хранится в Git."
+  - "Короткие фрагменты сохранены только для проверки утверждений."

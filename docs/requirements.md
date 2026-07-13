@@ -58,6 +58,7 @@
 - [ФТ-9. Решение до действия](requirements/functional/ft-9.md)
 - [ФТ-10](requirements/functional/ft-10.md)
 - [ФТ-11. Выявление требований](requirements/functional/ft-11.md)
+- [ФТ-12. Применение The Twelve-Factor App](requirements/functional/ft-12.md)
 
 ## Атрибуты качества
 

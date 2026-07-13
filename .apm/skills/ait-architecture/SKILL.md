@@ -105,6 +105,9 @@ description: Архитектура ПО, компоненты, интеграц
   `references/architecture-documentation.md`.
 - Для архитектурного разбора функциональной задачи до разработки читай
   `references/task-protocol.md`.
+- Для оценки и применения The Twelve-Factor App к SaaS и самостоятельно
+  развёртываемым сервисам используй `ait-twelve-factor` до решений по её
+  факторам.
 
 Читай только те справки, которые нужны для текущей задачи.
 
@@ -159,4 +162,5 @@ description: Архитектура ПО, компоненты, интеграц
 `knowledge/catalog.yml`, затем используй `knowledge/data/<slug>/source.yml`,
 `knowledge/data/<slug>/items.yml` и связанные утверждения: `APIB`, `RADR`,
 `CLAR`, `DDDE`, `EVAR`, `SAHP`, `AR42`, `C4M`, `DSCT`, `G250`, `GSRE`, `DDIA`,
-`CHAE`, `CHEN`, `CLCD`, `ADRG`.
+`CHAE`, `CHEN`, `CLCD`, `ADRG`. `TFA` используется через профильный навык
+`ait-twelve-factor`.

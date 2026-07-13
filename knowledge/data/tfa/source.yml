@@ -1,0 +1,39 @@
+id: TFA
+slug: tfa
+title: "Внешний публичный сайт `The Twelve-Factor App` на русском языке."
+status: approved
+priority: normal
+carrier_type: website
+source_kind: reference
+adapter: manual
+storage_strategy: external_reference
+processing_scope: fragments_only
+retrieval_mode: on_demand
+copy_policy: no_bulk_copy
+allowed_use: "Точечная проверка методологии со ссылкой на первоисточник."
+requires_access_check: true
+url: "https://12factor.net/ru/"
+locator: "https://12factor.net/ru/"
+public_reference: "https://12factor.net/ru/"
+license_or_terms: "На странице указано © 2026 Salesforce, Inc.; открытая лицензия
+  на повторное использование полного текста не установлена."
+access:
+  default: "Внешний публичный сайт. Не копировать текст целиком без
+    проверки условий использования."
+reliability: official
+stability: mutable
+refresh_policy: manual
+last_checked_at: "2026-07-13"
+scope:
+  includes:
+    - "методология The Twelve-Factor App"
+    - "русский перевод и двенадцать страниц факторов"
+  excludes:
+    - "все языковые версии сайта без отдельного запроса"
+long_source: true
+known_limitations:
+  - "Сайт может меняться без закреплённой версии."
+  - "Полный первичный текст не хранится в Git из-за неустановленной лицензии."
+processing_notes:
+  - "Точечный снимок 13 страниц получен 2026-07-13; в Git сохранены только
+    краткая нормализация, проверяемые фрагменты и метаданные."

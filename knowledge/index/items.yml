@@ -1,4 +1,20 @@
 items:
+- id: TFA-source
+  source_id: TFA
+  title: "TFA: обзор источника"
+  access: "Смотри карточку источника и ограничения в knowledge/source-attribution.md."
+  status: approved
+  workflow_stage: source_checked
+  url: "https://12factor.net/ru/"
+  path: data/tfa/items/source/item.yml
+- id: TFA-normalized-TFA-source.md
+  source_id: TFA
+  title: "TFA: нормализованная карта сайта"
+  access: "Смотри карточку источника и ограничения в knowledge/source-attribution.md."
+  status: approved
+  workflow_stage: source_checked
+  url: "https://12factor.net/ru/"
+  path: data/tfa/items/normalized-tfa-source.md/item.yml
 - id: AFDS-source
   source_id: AFDS
   title: "AFDS: обзор источника"

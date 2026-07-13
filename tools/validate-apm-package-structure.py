@@ -45,6 +45,7 @@ REQUIRED_SKILLS = {
     "ait-architecture",
     "ait-decisions",
     "ait-scrum",
+    "ait-twelve-factor",
     "ait-sec-access-control",
     "ait-sec-audit",
     "ait-sec-threat-modeling",
@@ -515,6 +516,42 @@ def check_requirements_elicitation_contract() -> None:
                 fail(
                     f"{relative_path} is missing requirements elicitation "
                     f"marker {marker!r}",
+                )
+
+
+def check_twelve_factor_contract() -> None:
+    required_markers = {
+        "docs/requirements/functional/ft-12.md": (
+            "предлагает создать ADR",
+            "не создаёт и не принимает ADR без согласия",
+            "TFA-014",
+        ),
+        ".apm/skills/ait-twelve-factor/SKILL.md": (
+            "статус: `применима`, `частично применима` или `неприменима`",
+            "предложи создать ADR до проектирования решений по факторам",
+            "принимай ADR без согласия владельца проекта",
+        ),
+        ".apm/skills/ait-twelve-factor/evals/result-scenarios.json": (
+            "ait-twelve-factor-result-early-applicable-saas-adr",
+            "ait-twelve-factor-result-inapplicable-library-no-adr",
+        ),
+        ".apm/skills/ait-routing/SKILL.md": (
+            "включи `ait-twelve-factor` для проверки применимости",
+            "предложить ADR об использовании всей",
+        ),
+        "knowledge/data/tfa/items/normalized-tfa-source.md/statements.yml": (
+            "id: TFA-014",
+            "SaaS-приложений",
+        ),
+    }
+    for relative_path, markers in required_markers.items():
+        path = ROOT / relative_path
+        text = path.read_text(encoding="utf-8")
+        for marker in markers:
+            if marker not in text:
+                fail(
+                    f"{relative_path} is missing Twelve-Factor marker "
+                    f"{marker!r}",
                 )
 
 
@@ -1255,6 +1292,7 @@ def main() -> None:
     check_decision_before_action_contract()
     check_interface_quality_contract()
     check_requirements_elicitation_contract()
+    check_twelve_factor_contract()
     check_connection_effort_contract()
     check_portability_contract()
     check_internal_structure_independence_contract()

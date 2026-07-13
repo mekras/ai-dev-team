@@ -1,0 +1,205 @@
+statements:
+  - id: TFA-001
+    source_id: TFA
+    item_id: TFA-normalized-TFA-source.md
+    kind: fact
+    status: verified
+    text: "Методология заявлена как применимая к приложениям на любом языке
+      программирования."
+    excerpt: "Методология двенадцати факторов может быть применена для
+      приложений, написанных на любом языке программирования"
+    artifact: source.md
+    checked_at: "2026-07-13"
+    scope:
+      section_title: "Введение"
+      application: "Разработчик — оценка применимости методологии."
+    open_questions: []
+  - id: TFA-014
+    source_id: TFA
+    item_id: TFA-normalized-TFA-source.md
+    kind: fact
+    status: verified
+    text: "Методология описана как подход к созданию SaaS-приложений,
+      ориентированных на декларативную настройку, переносимость между средами,
+      облачное развёртывание, сокращение расхождений сред и масштабирование."
+    excerpt: "Приложение двенадцати факторов — это методология для создания
+      SaaS-приложений"
+    artifact: source.md
+    checked_at: "2026-07-13"
+    scope:
+      section_title: "Введение"
+      application: "Архитектор — определение базовой области применимости."
+    open_questions: []
+  - id: TFA-002
+    source_id: TFA
+    item_id: TFA-normalized-TFA-source.md
+    kind: fact
+    status: verified
+    text: "Одно приложение связывается с одной кодовой базой, из которой можно
+      выполнять несколько развёртываний."
+    excerpt: "Одна кодовая база, отслеживаемая в системе контроля версий"
+    artifact: source.md
+    checked_at: "2026-07-13"
+    scope:
+      section_title: "I. Кодовая база"
+      application: "Разработчик — границы приложения и репозитория."
+    open_questions: []
+  - id: TFA-003
+    source_id: TFA
+    item_id: TFA-normalized-TFA-source.md
+    kind: fact
+    status: verified
+    text: "Зависимости нужно полностью объявлять и изолировать, не полагаясь на
+      неявно доступные пакеты среды."
+    excerpt: "Явно объявляйте и изолируйте зависимости"
+    artifact: source.md
+    checked_at: "2026-07-13"
+    scope:
+      section_title: "II. Зависимости"
+      application: "Разработчик — воспроизводимость запуска."
+    open_questions: []
+  - id: TFA-004
+    source_id: TFA
+    item_id: TFA-normalized-TFA-source.md
+    kind: fact
+    status: verified
+    text: "Изменяемую между развёртываниями конфигурацию следует отделять от кода
+      и передавать через среду выполнения."
+    excerpt: "Сохраняйте конфигурацию в среде выполнения"
+    artifact: source.md
+    checked_at: "2026-07-13"
+    scope:
+      section_title: "III. Конфигурация"
+      application: "Разработчик — хранение параметров развёртывания."
+    open_questions: []
+  - id: TFA-005
+    source_id: TFA
+    item_id: TFA-normalized-TFA-source.md
+    kind: fact
+    status: verified
+    text: "Внешние сетевые службы рассматриваются как подключаемые ресурсы и могут
+      заменяться сменой настроек без изменения кода."
+    excerpt: "Считайте сторонние службы (backing services) подключаемыми
+      ресурсами"
+    artifact: source.md
+    checked_at: "2026-07-13"
+    scope:
+      section_title: "IV. Сторонние службы"
+      application: "Разработчик — подключение внешних служб."
+    open_questions: []
+  - id: TFA-006
+    source_id: TFA
+    item_id: TFA-normalized-TFA-source.md
+    kind: fact
+    status: verified
+    text: "Сборка, формирование релиза и выполнение приложения описываются как
+      отдельные стадии."
+    excerpt: "Строго разделяйте стадии сборки и выполнения"
+    artifact: source.md
+    checked_at: "2026-07-13"
+    scope:
+      section_title: "V. Сборка, релиз, выполнение"
+      application: "Разработчик — устройство поставки."
+    open_questions: []
+  - id: TFA-007
+    source_id: TFA
+    item_id: TFA-normalized-TFA-source.md
+    kind: fact
+    status: verified
+    text: "Процессы приложения не хранят внутреннее состояние; сохраняемые данные
+      выносятся в внешние службы с состоянием."
+    excerpt: "Запускайте приложение как один или несколько процессов, не
+      сохраняющих внутреннее состояние"
+    artifact: source.md
+    checked_at: "2026-07-13"
+    scope:
+      section_title: "VI. Процессы"
+      application: "Разработчик — хранение состояния приложения."
+    open_questions: []
+  - id: TFA-008
+    source_id: TFA
+    item_id: TFA-normalized-TFA-source.md
+    kind: fact
+    status: verified
+    text: "Приложение самостоятельно экспортирует сетевой сервис через привязку к
+      порту."
+    excerpt: "Экспортируйте сервисы через привязку портов"
+    artifact: source.md
+    checked_at: "2026-07-13"
+    scope:
+      section_title: "VII. Привязка портов"
+      application: "Разработчик — предоставление сетевого сервиса."
+    open_questions: []
+  - id: TFA-009
+    source_id: TFA
+    item_id: TFA-normalized-TFA-source.md
+    kind: fact
+    status: verified
+    text: "Разные виды нагрузки разделяются на типы процессов, а масштабирование
+      достигается изменением их количества."
+    excerpt: "Масштабируйте приложение с помощью процессов"
+    artifact: source.md
+    checked_at: "2026-07-13"
+    scope:
+      section_title: "VIII. Параллелизм"
+      application: "Разработчик — масштабирование нагрузки."
+    open_questions: []
+  - id: TFA-010
+    source_id: TFA
+    item_id: TFA-normalized-TFA-source.md
+    kind: fact
+    status: verified
+    text: "Процессы должны быстро запускаться, штатно завершаться и выдерживать
+      внезапную остановку."
+    excerpt: "Максимизируйте надёжность с помощью быстрого запуска и корректного
+      завершения работы"
+    artifact: source.md
+    checked_at: "2026-07-13"
+    scope:
+      section_title: "IX. Утилизируемость"
+      application: "Разработчик — жизненный цикл процессов."
+    open_questions: []
+  - id: TFA-011
+    source_id: TFA
+    item_id: TFA-normalized-TFA-source.md
+    kind: fact
+    status: verified
+    text: "Среды разработки, промежуточного и рабочего развёртывания следует
+      поддерживать максимально похожими."
+    excerpt: "Держите окружения разработки, промежуточного развёртывания (staging)
+      и рабочего развёртывания (production) максимально похожими"
+    artifact: source.md
+    checked_at: "2026-07-13"
+    scope:
+      section_title: "X. Паритет сред"
+      application: "Разработчик — воспроизводимость между средами."
+    open_questions: []
+  - id: TFA-012
+    source_id: TFA
+    item_id: TFA-normalized-TFA-source.md
+    kind: fact
+    status: verified
+    text: "Журнал приложения рассматривается как поток событий, а его хранением и
+      маршрутизацией управляет среда выполнения."
+    excerpt: "Рассматривайте журнал как поток событий"
+    artifact: source.md
+    checked_at: "2026-07-13"
+    scope:
+      section_title: "XI. Журналирование"
+      application: "Разработчик — вывод событий приложения."
+    open_questions: []
+  - id: TFA-013
+    source_id: TFA
+    item_id: TFA-normalized-TFA-source.md
+    kind: fact
+    status: verified
+    text: "Разовые административные задачи запускаются в том же релизе, с теми же
+      кодом, настройками и зависимостями, что и длительные процессы."
+    excerpt: "Выполняйте задачи администрирования/управления с помощью разовых
+      процессов"
+    artifact: source.md
+    checked_at: "2026-07-13"
+    scope:
+      section_title: "XII. Задачи администрирования"
+      application: "Разработчик — миграции и разовые сценарии."
+    open_questions: []

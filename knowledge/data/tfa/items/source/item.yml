@@ -1,0 +1,23 @@
+id: TFA-source
+source_id: TFA
+title: "The Twelve-Factor App: обзор"
+url: "https://12factor.net/ru/"
+access: "Внешний публичный сайт. Использовать точечно с проверкой
+  условий."
+status: approved
+workflow_stage: source_checked
+processing_scope: fragments_only
+retrieval_mode: on_demand
+copy_policy: no_bulk_copy
+allowed_use: "Техническая навигация по русской версии сайта The Twelve-Factor
+  App и получение кратких проверяемых фрагментов."
+requires_access_check: true
+files:
+  tracked:
+    - source.md
+known_limitations:
+  - "Лицензия и условия использования требуют проверки перед копированием."
+  - "Полный снимок сайта не публикуется в Git."
+processing_notes:
+  - "Корневая страница и двенадцать страниц факторов повторно проверены
+    2026-07-13."
