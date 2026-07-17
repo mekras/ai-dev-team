@@ -1,0 +1,62 @@
+section	file	local_file	sha256	bytes	title
+01-Введение	01-intro-structure.md	01-intro-structure.local.md	0de727f16b9a7256a9a0c317b56e6cd7246c2ef5104b7e51c8e983346307a584	3600	О структуре этой книги
+01-Введение	02-intro-api-definition.md	02-intro-api-definition.local.md	0e098441e7bc8dd95e9d9eafcbbb1a770a3bbfccfa936fc99b53abfbbb01ae37	6545	Определение API
+01-Введение	03-intro-api-quality.md	03-intro-api-quality.local.md	4338d8b155e22f64651611cff0ab8bdef6d89e313285212fa68ece0ed0d55e47	6008	Критерии качества API
+01-Введение	04-intro-api-choosing-solutions.md	04-intro-api-choosing-solutions.local.md	c3c6ed14e2eb9ad0c2e19479089879720553d832987a203edb5cd0fc57fd1eec	3021	Выбор подхода к разработке API
+01-Введение	05-intro-api-first-approach.md	05-intro-api-first-approach.local.md	12e4a6fc0e4a6a11d8eebd46d69206abbd9e6937eb510367d0716418946d2d46	3571	API-first подход
+01-Введение	06-intro-back-compat.md	06-intro-back-compat.local.md	b170ac4df054a11613783f24ae67b68fa3b5115a547e74e0e9b2cb9ba4dbd837	3227	Обратная совместимость
+01-Введение	07-intro-versioning.md	07-intro-versioning.local.md	9037b9534b94731b26c7091d39b64c065c383d440a34bb2ab3df4a1ee78f61b7	2536	О версионировании
+01-Введение	08-intro-terms-notation.md	08-intro-terms-notation.local.md	bbb24c6479d94149ba6750ce1bfce4a9dbae45bbc66822425db97de098c2e2b2	7334	Условные обозначения и терминология
+02-Раздел I. Проектирование API	01-api-design-context-pyramid.md	01-api-design-context-pyramid.local.md	0fa707bf061932f9144ae60fc9d12e7ee82d66eb4b6e5acd7443d190ee013d04	1997	Пирамида контекстов API
+02-Раздел I. Проектирование API	02-api-design-defining-field.md	02-api-design-defining-field.local.md	da5f7b19472dd5fef1dd3775846de666c87a4d7583119eacc480d79bf982ca5a	10210	Определение области применения
+02-Раздел I. Проектирование API	03-api-design-separating-abstractions.md	03-api-design-separating-abstractions.local.md	b540d9bc48db67c30d3e8a1ead381bbb8c9be700f5c71f83bf4dae4542b743d7	50663	Разделение уровней абстракции
+02-Раздел I. Проектирование API	04-api-design-isolating-responsibility.md	04-api-design-isolating-responsibility.local.md	da310e962e256a6dc63ec5aed2b684500ffbb29061121d5683d5b9cb72a5187a	31660	Разграничение областей ответственности
+02-Раздел I. Проектирование API	05-api-design-describing-interfaces.md	05-api-design-describing-interfaces.local.md	7c8abc77b29444b79c4124363ebdabd8640b4c8ac17b7600cec63ffd92ba37f9	81738	Описание конечных интерфейсов
+03-Раздел II. Паттерны дизайна API	01-api-patterns-context.md	01-api-patterns-context.local.md	f45f8450c667fa1b00b6f144a4a1607c8f6a3813405894aa30f56c8c22385848	8000	О паттернах проектирования в контексте API
+03-Раздел II. Паттерны дизайна API	02-api-patterns-aa.md	02-api-patterns-aa.local.md	61d70c750ff40b39595bb9b1cd76edcdf77f2c4de9d1fc392a0e84f6e7aacd94	7778	Аутентификация партнёров и авторизация вызовов API
+03-Раздел II. Паттерны дизайна API	03-api-patterns-sync-strategies.md	03-api-patterns-sync-strategies.local.md	05a4a46db8b3e0084d8d4787072fc029be8568e3e3d02a6f9a9aaf321689ad17	12369	Стратегии синхронизации
+03-Раздел II. Паттерны дизайна API	04-api-patterns-weak-consistency.md	04-api-patterns-weak-consistency.local.md	e939ebf4dc1664605f4626c8d88099ff7f03728f62b93a74dbccc987e67bc536	20501	Слабая консистентность
+03-Раздел II. Паттерны дизайна API	05-api-patterns-async.md	05-api-patterns-async.local.md	d89ba85339b96d9224782d000350569a604b8aee576aa6d70ba99359c5904821	18461	Асинхронность и управление временем
+03-Раздел II. Паттерны дизайна API	06-api-patterns-lists.md	06-api-patterns-lists.local.md	51eea63ff521a8ca071ba85cd3d492b69de68856a6d88fe7232dd8deec8b3011	31398	Списки и организация доступа к ним
+03-Раздел II. Паттерны дизайна API	07-api-patterns-push-vs-poll.md	07-api-patterns-push-vs-poll.local.md	ff5326058ae73d850dd6e99a2ff9a31afc131b5ff5f84d96464fed85cf1e157d	33789	Двунаправленные потоки данных. Push и poll-модели
+03-Раздел II. Паттерны дизайна API	08-api-patterns-async-event-processing.md	08-api-patterns-async-event-processing.local.md	44ff331fd1e79b80c3a22cbbe7e789995726a5cc9deb38a7eb232ddaa4ec9336	9492	Мультиплексирование сообщений. Асинхронная обработка событий
+03-Раздел II. Паттерны дизайна API	09-api-patterns-atomicity.md	09-api-patterns-atomicity.local.md	a06215d07cd2103de6d1351d694335063b8757483040345dcbf75aafff9c684c	16496	Атомарность массовых изменений
+03-Раздел II. Паттерны дизайна API	10-api-patterns-partial-updates.md	10-api-patterns-partial-updates.local.md	7f84f88162e05d7180d4cd542d0d1941540aebf6bfaa8fde43a878dd7b120fc3	21870	Частичные обновления
+03-Раздел II. Паттерны дизайна API	11-api-patterns-degrading.md	11-api-patterns-degrading.local.md	3c4e1f9a5774d34694ec3c25f76b7c63ea7573c77cfcc8bd07f4b999fda306af	7095	Деградация и предсказуемость
+04-Раздел III. Обратная совместимость	01-back-compat-statement.md	01-back-compat-statement.local.md	3d2fa535fb46e050fd2da3313b4d44cfb9031b3183b8830069e7e41171e692a3	34260	Постановка проблемы обратной совместимости
+04-Раздел III. Обратная совместимость	02-back-compat-iceberg-waterline.md	02-back-compat-iceberg-waterline.local.md	3fd3fcaf7a5036ffc92800045c8b05e6a574c1d5db9870667617d61c38fe9ab4	19035	О ватерлинии айсберга
+04-Раздел III. Обратная совместимость	03-back-compat-abstracting-extending.md	03-back-compat-abstracting-extending.local.md	58cd446178cb919d3547980e72c70aa7944e8108c1e96fd74c86872210051540	14441	Расширение через абстрагирование
+04-Раздел III. Обратная совместимость	04-back-compat-strong-coupling.md	04-back-compat-strong-coupling.local.md	754d1d5a1e0bb6ad671beb9b7e592d25be2a4ccecdd661289c5b59b419446f82	21593	Сильная связность и сопутствующие проблемы
+04-Раздел III. Обратная совместимость	05-back-compat-weak-coupling.md	05-back-compat-weak-coupling.local.md	70d9fe4d939e6bbc4a7d16da7ece860d8ff89776c9d1d0a7b2765b8bca38be41	31909	Слабая связность
+04-Раздел III. Обратная совместимость	06-back-compat-universal-interfaces.md	06-back-compat-universal-interfaces.local.md	1f31a40a4a52a36b4ad8eadac331abf6ac49a07e490c66bdda7f52728599f56a	6929	Интерфейсы как универсальный паттерн
+04-Раздел III. Обратная совместимость	07-back-compat-serenity-notepad.md	07-back-compat-serenity-notepad.local.md	d4944a75773a44bdd5c8659270e5412e33071f9abd2002bef66e5c152d92465a	12459	Блокнот душевного покоя
+05-Раздел IV. HTTP API и архитектурные принципы REST	01-http-api-concepts.md	01-http-api-concepts.local.md	c514066f9b2d0b66dbe43f352cfb8efa87f958075e7eea5d75aa1c19040f3cd9	21827	О концепции HTTP API. Парадигмы разработки клиент-серверного взаимодействия
+05-Раздел IV. HTTP API и архитектурные принципы REST	02-http-api-pros-and-cons.md	02-http-api-pros-and-cons.local.md	67a278925824e1339866585d6648104edd02ee89050532576b6399f6a2d8b94c	31862	Преимущества и недостатки HTTP API в сравнении с альтернативными технологиями
+05-Раздел IV. HTTP API и архитектурные принципы REST	03-http-api-rest-myth.md	03-http-api-rest-myth.local.md	06671b488f9f0241425ce94c4ee0378cfd3b889f532ef4cfc0977829ad67ea50	13676	Мифология REST
+05-Раздел IV. HTTP API и архитектурные принципы REST	04-http-api-requests-semantics.md	04-http-api-requests-semantics.local.md	ea19a7789912e7007ec430a3799affba4ab2693ebd07ce4c9d98a3c27ec261bc	37013	Составляющие HTTP запросов и их семантика
+05-Раздел IV. HTTP API и архитектурные принципы REST	05-http-api-rest-organizing.md	05-http-api-rest-organizing.local.md	80ca21a4a6f1c2ca526225a1e5ca38becb46bfab1578a3e2980b63cbd3113dfc	27131	Организация HTTP API согласно принципам REST
+05-Раздел IV. HTTP API и архитектурные принципы REST	06-http-api-urls-crud.md	06-http-api-urls-crud.local.md	13d982cf363353dcbea27638c892b49790b9a54456a310867ab45b7086408131	32403	Разработка номенклатуры URL ресурсов. CRUD-операции
+05-Раздел IV. HTTP API и архитектурные принципы REST	07-http-api-errors.md	07-http-api-errors.local.md	84e0090c266bb06b836083d133f43cc24d5bb50ac2151a5516e39377bf342d68	26491	Работа с ошибками в HTTP API
+05-Раздел IV. HTTP API и архитектурные принципы REST	08-http-api-final-recommendations.md	08-http-api-final-recommendations.local.md	11574562b55de91fab0db3548cefcf0bd9f574e01fdbf274e50168d0d73f38a7	8895	Заключительные положения и общие рекомендации
+06-Раздел V. SDK и UI-библиотеки	01-sdk-toc-technology-overview.md	01-sdk-toc-technology-overview.local.md	b70337b8339a020011f68c1a7c752ca854269c1380f772313c30c464150cd7c8	9104	Терминология. Обзор технологий разработки SDK
+06-Раздел V. SDK и UI-библиотеки	02-sdk-problems-solutions.md	02-sdk-problems-solutions.local.md	5b629967f2c8851af8a6f94a870fe610195656903053fe977240d066f69be5d9	25542	SDK: проблемы и решения
+06-Раздел V. SDK и UI-библиотеки	03-sdk-ui-components.md	03-sdk-ui-components.local.md	bd7387e87c5c1fb325a00610b4bf4b2d02fc0083e1182c3f3f841829f0c11e01	19206	Проблемы встраивания UI-компонентов
+06-Раздел V. SDK и UI-библиотеки	04-sdk-decomposing.md	04-sdk-decomposing.local.md	35f8be34f186fca81693ad7920274d2bb320d372998022bdf74e577b9836e842	33508	Декомпозиция UI-компонентов
+06-Раздел V. SDK и UI-библиотеки	05-sdk-mv-frameworks.md	05-sdk-mv-frameworks.local.md	a62f61759371973c264367a88070d2c061035fa43c3d9f9f7f12b8b73631c879	16667	MV*-фреймворки
+06-Раздел V. SDK и UI-библиотеки	06-sdk-backend-driven.md	06-sdk-backend-driven.local.md	85563fb0283568b41d85ab53bb3e8349b7f467ab7cc74decf945043055571fc5	8362	Backend-Driven UI
+06-Раздел V. SDK и UI-библиотеки	07-sdk-shared-resources.md	07-sdk-shared-resources.local.md	66d813d61eb5b3099cf2763f38826ba25db96b428e26915e6202d665f5eaf477	11175	Разделяемые ресурсы и асинхронные блокировки
+06-Раздел V. SDK и UI-библиотеки	08-sdk-computed-properties.md	08-sdk-computed-properties.local.md	b218b9b69b19d9276b397bbdf93d8b7e81ae08ef8676bd981912ff6db2ddf6e7	7305	Вычисляемые свойства
+06-Раздел V. SDK и UI-библиотеки	09-sdk-conclusion.md	09-sdk-conclusion.local.md	a5814916f3d060accda640a90cce7d3ee9d2a365100622e5e2685c22d5ec1117	971	Заключение
+07-Раздел VI. API как продукт	01-api-product.md	01-api-product.local.md	d40d2472a8412b43904adfe9a27180c8971f3450289038f088f358670dd9ca7c	8196	Продукт API
+07-Раздел VI. API как продукт	02-api-product-business-models.md	02-api-product-business-models.local.md	0ad213050dd74f106cc81df7cc3318e69ea0123bd9530ec6bb7ed2024a09d7c2	30718	Бизнес-модели API
+07-Раздел VI. API как продукт	03-api-product-vision.md	03-api-product-vision.local.md	96b668823dc10590302b476ce9f3ff938f9b1b3df570e5257473b06445695020	12045	Формирование продуктового видения
+07-Раздел VI. API как продукт	04-api-product-devrel.md	04-api-product-devrel.local.md	01e536eda4db900b82a3afc0d53d531842e5f029c2ce5c991343aa10909be269	14953	Взаимодействие с разработчиками
+07-Раздел VI. API как продукт	05-api-product-business-comms.md	05-api-product-business-comms.local.md	8134c3de5456827272d602803b2d977ef500cb50e303bccac2726a31feb6bd6d	3162	Взаимодействие с бизнес-аудиторией
+07-Раздел VI. API как продукт	06-api-product-lineup.md	06-api-product-lineup.local.md	68dd447f82e73f68ed02cd1afb26ba41b5d6d4f6245880e2a8fb251860941bca	14585	Линейка сервисов API
+07-Раздел VI. API как продукт	07-api-product-kpi.md	07-api-product-kpi.local.md	76f14ac4d3f75eec238ae28fed98a87b03246247500f7847b58a501fab734c22	16998	Ключевые показатели эффективности API
+07-Раздел VI. API как продукт	08-api-product-antifraud.md	08-api-product-antifraud.local.md	fec1ebaf0db8e6b7eff42010721a46b58e4b8687269c87b6f87f2706c60d5875	20198	Идентификация пользователей и борьба с фродом
+07-Раздел VI. API как продукт	09-api-product-tos-violations.md	09-api-product-tos-violations.local.md	42bfc96e50241d57fe8955754744f276f515d78bccd4328371021439a8693b3b	17779	Технические способы борьбы с несанкционированным доступом к API
+07-Раздел VI. API как продукт	10-api-product-customer-support.md	10-api-product-customer-support.local.md	92c2ced22772edcbb8c20b5f6928fcd03a8b4d4c518802ae7aa4b1f7a8c5ad78	10980	Поддержка пользователей API
+07-Раздел VI. API как продукт	11-api-product-documentation.md	11-api-product-documentation.local.md	3db8a703958f7338566d3e303dd11056ab36ee96505c28912c3204393f3699a5	23446	Документация
+07-Раздел VI. API как продукт	12-api-product-testing.md	12-api-product-testing.local.md	aed2122f3961ddf33ccdd210130cb1d8f9174039b435bf6ab097db6dc23ea2b2	9898	Тестовая среда
+07-Раздел VI. API как продукт	13-api-product-expectations.md	13-api-product-expectations.local.md	9b41a585736f7c2c4717c77d28375d50df0342f3c52091fd3dbae089194469f5	9289	Управление ожиданиями

@@ -1,8 +1,8 @@
 id: APIB
 slug: apib
-title: Локальная PDF-книга `API` (`The API Book`) Сергея Константинова о проектировании,
-  развитии и продуктовом сопровождении программных интерфейсов. Книга распространяется
-  автором по открытой лицензии `CC BY-NC 4.0`.
+title: Локальная markdown-копия книги `API` (`The API Book`) Сергея Константинова
+  о проектировании, развитии и продуктовом сопровождении программных интерфейсов.
+  Книга распространяется автором по открытой лицензии `CC BY-NC 4.0`.
 status: approved
 carrier_type: document
 source_kind: book
@@ -11,9 +11,21 @@ storage_strategy: local_only
 retrieval_mode: on_demand
 copy_policy: fragments_only
 requires_access_check: true
+long_source: true
 license_or_terms: "`Creative Commons Attribution-NonCommercial 4.0 International` (`CC BY-NC 4.0`), заявлена автором на титульной странице книги."
 access:
   default: Смотри карточки единиц источника в knowledge/data/apib/ и общие ограничения
     в knowledge/source-attribution.md.
 reliability: Смотри паспорт источника и атрибуцию проекта.
 refresh_policy: Обновлять по правилам источника и через маршруты корпуса знаний проекта.
+edition_history:
+  - edition: "2023-04-09"
+    scope: три раздела (32 главы) — Введение, «Проектирование API», «Обратная
+      совместимость», «API как продукт»
+    carrier: PDF (`items/pdf`), текстовая выгрузка `pdftotext -layout` (`items/text`)
+    statements: APIB-001–APIB-071
+  - edition: "2025-10-11"
+    scope: шесть разделов (61 глава) — добавились «Паттерны API», «HTTP API и
+      архитектурные принципы REST», «SDK и UI-библиотеки»
+    carrier: markdown-главы из канонического репозитория (`items/md`)
+    statements: см. `items/text/statements.yml` (продолжение нумерации с APIB-072)

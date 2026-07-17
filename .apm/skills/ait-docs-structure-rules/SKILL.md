@@ -24,7 +24,7 @@ description: Сопровождение правил выбранной стру
 
 ## Основания
 
-- `knowledge/data/wtdg/items/source/legacy-statements.md`
+- `knowledge/data/wtdg/items.yml`
 - `.apm/agents/project-manager.agent.md`
 - `.apm/agents/technical-writer.agent.md`
 - `.apm/skills/ait-writing/assets/documentation-structure-template.md`

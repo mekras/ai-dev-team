@@ -2,7 +2,7 @@
 
 Эта справка раскрывает третий и четвёртый вопросы рамки — «что с этим делать» и
 «достаточно ли хорошо проверили». Основание — корпус знаний проекта
-(`knowledge/data/tmds/items/source/legacy-statements.md`).
+(`knowledge/data/tmds/items/text/statements.yml`).
 
 ## Стратегии работы с риском
 
@@ -67,12 +67,14 @@ bar) или оценкой стоимости. Принятие риска мо�
 - STRIDE как источник требований (по одному классу требований на категорию);
 - требования приватности (Fair Information Practices, Privacy by Design);
 - готовый каталог проверяемых требований OWASP ASVS (разделы V1–V14, привязка к
-  уровням и CWE) — `knowledge/data/asvs/items/source/legacy-statements.md`
+  уровням и CWE) —
+  `knowledge/data/asvs/items/primary-asvs-page-index.tsv/statements.yml`
   (`ASVS-005`–`ASVS-008`); раздел V1 связывает моделирование угроз с
   требованиями.
 
 Моделирование угроз — часть практики проектирования безопасного жизненного цикла
-(SSDF, практика `PW.1`; `knowledge/data/ssdf/items/source/legacy-statements.md`,
+(SSDF, практика `PW.1`;
+`knowledge/data/ssdf/items/primary-ssdf-page-index.tsv/statements.yml`,
 `SSDF-008`). Передавай выведенные требования аналитику (`requirements-*`) как
 вход, не подменяя работу с требованиями, а проверку реализованных мер — навыку
 `ait-sec-audit`.

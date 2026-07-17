@@ -33,9 +33,9 @@ description: Проектирование структуры и навигаци
 
 ## Основания
 
-- `knowledge/data/hwd/items/source/legacy-statements.md`
-- `knowledge/data/wtdg/items/source/legacy-statements.md`
-- `knowledge/data/sreq/items/source/legacy-statements.md`
+- `knowledge/data/hwd/items.yml`
+- `knowledge/data/wtdg/items.yml`
+- `knowledge/data/sreq/items/text/statements.yml`
 - `.apm/agents/analyst.agent.md`
 - `.apm/agents/technical-writer.agent.md`
 - `.apm/skills/ait-writing/assets/documentation-structure-template.md`

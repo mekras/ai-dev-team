@@ -3,7 +3,7 @@
 Эта справка раскрывает второй вопрос рамки — «что может пойти не так». Методы
 подключаются к модели системы как взаимозаменяемые блоки: можно заменить STRIDE
 деревьями атак, оставив остальную рамку. Основание — корпус знаний проекта
-(`knowledge/data/tmds/items/source/legacy-statements.md`).
+(`knowledge/data/tmds/items/text/statements.yml`).
 
 ## STRIDE
 
@@ -45,13 +45,14 @@ STRIDE — техника элиситации: команда, знающая �
 векторы. Учтены в корпусе:
 
 - **CAPEC** — каталог шаблонов атак
-  (`knowledge/data/mwat/items/source/legacy-statements.md`,
+  (`knowledge/data/mwat/items/normalized-mwat-source.md/statements.yml`,
   `MWAT-003`–`MWAT-004`); связан со слабостями **CWE** и тактиками/техниками
-  **MITRE ATT&CK** (`knowledge/data/atck/items/source/legacy-statements.md`),
+  **MITRE ATT&CK**
+  (`knowledge/data/atck/items/normalized-atck-source.md/statements.yml`),
   которые дают операционные TTP («что может сделать злоумышленник»).
 - **OWASP Top 10** — наиболее критичные риски веб-приложений
-  (`knowledge/data/owtt/items/source/legacy-statements.md`); это перечень рисков
-  для осведомлённости, а не стандарт требований.
+  (`knowledge/data/owtt/items/normalized-owtt-source.md/statements.yml`); это
+  перечень рисков для осведомлённости, а не стандарт требований.
 
 Библиотеку атак отличают от чек-листа и от литературного обзора: библиотека —
 структурированный переиспользуемый набор, а не разовый список. Конкретные записи
@@ -80,8 +81,8 @@ STRIDE — техника элиситации: команда, знающая �
 
 Чтобы не рассматривать все угрозы одинаково, опирай приоритет на наблюдаемую
 распространённость. Актуальный ландшафт угроз даёт корпус —
-`knowledge/data/etl5/items/source/legacy-statements.md` (ENISA Threat Landscape
-2025). Наблюдения периода:
+`knowledge/data/etl5/items/primary-etl5-page-index.tsv/statements.yml` (ENISA
+Threat Landscape 2025). Наблюдения периода:
 
 - социальная инженерия (прежде всего фишинг) — основной вектор вторжения
   (`ETL5-003`); эксплуатация уязвимостей часто прямой предшественник установки

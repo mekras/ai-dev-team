@@ -2,7 +2,7 @@
 
 Эта справка описывает модель управления доступом к API в микросервисной
 архитектуре. Основание — корпус знаний проекта
-(`knowledge/data/smas/items/source/legacy-statements.md`, отчёт
+(`knowledge/data/smas/items/text/statements.yml`, отчёт
 `Securing Microservice APIs`). Модель платформонезависима: её можно реализовать
 на разных платформах.
 

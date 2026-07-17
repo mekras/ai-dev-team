@@ -1,10 +1,12 @@
 # Стандарты и зрелость как основание аудита
 
 Эта справка даёт проверяемое основание для аудита и рецензии безопасности. Опора
-— корпус знаний проекта: `knowledge/data/ssdf/items/source/legacy-statements.md`
-(NIST SP 800-218), `knowledge/data/asvs/items/source/legacy-statements.md`
-(OWASP ASVS 4.0.3), `knowledge/data/samm/items/source/legacy-statements.md`
-(OWASP SAMM v2). Источники задают, что проверять и как измерять зрелость; они не
+— корпус знаний проекта:
+`knowledge/data/ssdf/items/primary-ssdf-page-index.tsv/statements.yml` (NIST SP
+800-218), `knowledge/data/asvs/items/primary-asvs-page-index.tsv/statements.yml`
+(OWASP ASVS 4.0.3),
+`knowledge/data/samm/items/primary-samm-page-index.tsv/statements.yml` (OWASP
+SAMM v2). Источники задают, что проверять и как измерять зрелость; они не
 являются принятыми решениями проекта.
 
 ## Практики проверок и реагирования (SSDF)
@@ -65,17 +67,18 @@ OWASP SAMM применяй, когда аудит охватывает не о�
 Дополнительные основания в корпусе (источники `external_reference`):
 
 - **Тестирование веб-безопасности** — методика и каталог тестов OWASP WSTG
-  (`knowledge/data/wstg/items/source/legacy-statements.md`); используй как
-  методическую основу проверки и пентеста.
+  (`knowledge/data/wstg/items/normalized-wstg-source.md/statements.yml`);
+  используй как методическую основу проверки и пентеста.
 - **Классификация находок** — типы слабостей `CWE`
-  (`knowledge/data/mwat/items/source/legacy-statements.md`,
+  (`knowledge/data/mwat/items/normalized-mwat-source.md/statements.yml`,
   `MWAT-001`–`MWAT-002`); присваивай находкам идентификатор `CWE-…` и связывай с
   требованиями ASVS.
 - **Приоритизация серьёзности** — `CVSS v4.0`
-  (`knowledge/data/cvss/items/source/legacy-statements.md`); указывай нотацию
-  (`CVSS-B`/`CVSS-BT`/…), помня, что это техническая серьёзность, а не риск
-  организации.
+  (`knowledge/data/cvss/items/normalized-cvss-source.md/statements.yml`);
+  указывай нотацию (`CVSS-B`/`CVSS-BT`/…), помня, что это техническая
+  серьёзность, а не риск организации.
 - **Отраслевые ориентиры** — `Microsoft SDL`
-  (`knowledge/data/msdl/items/source/legacy-statements.md`) как пример практик
-  SDL и `BSIMM` (`knowledge/data/bsim/items/source/legacy-statements.md`) как
+  (`knowledge/data/msdl/items/normalized-msdl-source.md/statements.yml`) как
+  пример практик SDL и `BSIMM`
+  (`knowledge/data/bsim/items/normalized-bsim-source.md/statements.yml`) как
   наблюдательный ориентир зрелости в дополнение к предписывающей `SAMM`.

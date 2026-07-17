@@ -1,991 +1,3011 @@
 statements:
-- id: APIB-001
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: книга определяет API по смыслу как формальное обязательство связывать между собой различные программируемые
-    контексты, а не просто как «программный интерфейс приложений».
-  excerpt: связывать программируемые контексты, поэтому ошибки проектирования и нарушение
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: API как обязательство
-    application: архитектор.
-  open_questions: []
-- id: APIB-002
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: потребителями API являются разработчики, поэтому поставщик не контролирует качество чужих инженерных
-    решений, но проблемы будут приписывать ему.
-  excerpt: 'Глава 2 «Определение API»: смысловое определение API как формального'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Пользователи API — инженеры
-    application: менеджер проекта.
-  open_questions: []
-- id: APIB-003
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: API одновременно мультиплицирует и возможности, и ошибки разработчика, что налагает повышенную
-    ответственность.
-  excerpt: 'Глава 2 «Определение API»: смысловое определение API как формального'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: API — мультипликатор ошибок
-    application: архитектор.
-  open_questions: []
-- id: APIB-004
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: базовые критерии хорошего API — очевидность (как решить задачу), читаемость (правильный код по
-    номенклатуре) и консистентность (действие по аналогии).
-  excerpt: 'Глава 3 «Критерии качества API»: очевидность, читаемость, консистентность;'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Три критерия качества
-    application: разработчик.
-  open_questions: []
-- id: APIB-005
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: нелогичность и неконсистентность возникают не в начальном ядре API, а при его развитии и попытках
-    сохранить совместимость.
-  excerpt: 'Глава 3 «Критерии качества API»: очевидность, читаемость, консистентность;'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Главные проблемы — при развитии
-    application: архитектор.
-  open_questions: []
-- id: APIB-006
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: проектирование «на будущее» означает избыточность интерфейсов и абстрагирования и оправдано, только
-    если у API это будущее есть, иначе это оверинжиниринг.
-  excerpt: 'Глава 3 «Критерии качества API»: очевидность, читаемость, консистентность;'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Закладывание на будущее небесплатно
-    application: архитектор.
-  open_questions: []
-- id: APIB-007
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: обратная совместимость — временно́е свойство качества, которое отличает разработку API от разработки
-    ПО вообще.
-  excerpt: 'Глава 4 «Обратная совместимость»: совместимость как временна́я характеристика'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Совместимость как временна́я характеристика
-    application: архитектор.
-  open_questions: []
-- id: APIB-008
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: выпуск обратно несовместимых версий — «налог» на потребителей; не следует ломать совместимость,
-    если это возможно.
-  excerpt: 'Глава 4 «Обратная совместимость»: совместимость как временна́я характеристика'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Слом совместимости — скрытый налог
-    application: менеджер проекта.
-  open_questions: []
-- id: APIB-009
-  source_id: APIB
-  item_id: APIB-text
-  kind: observation
-  status: ready_for_review
-  text: книга принимает версионирование semver и устанавливает эквивалентность «мажорная версия» = «обратно
-    несовместимое изменение функциональности».
-  excerpt: 'Глава 5 «О версионировании»: semver и эквивалентность «мажорная версия» ='
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Принятие semver
-    application: разработчик.
-  open_questions: []
-- id: APIB-010
-  source_id: APIB
-  item_id: APIB-text
-  kind: observation
-  status: ready_for_review
-  text: книга намеренно избегает слов «метод», «объект», «функция» в пользу нейтрального термина «сущность»
-    как атомарной единицы функциональности.
-  excerpt: 'Глава 6 «Условные обозначения и терминология»: нейтральный термин «сущность»,'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Нейтральный термин «сущность»
-    application: технический писатель.
-  open_questions: []
-- id: APIB-011
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: 'проектирование ведётся сверху вниз из четырёх шагов: определение области применения, разделение
-    уровней абстракции, разграничение областей ответственности, описание конечных интерфейсов.'
-  excerpt: 'Глава 7 «Пирамида контекстов API»: алгоритм проектирования из четырёх шагов'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Алгоритм проектирования из четырёх шагов
-    application: архитектор.
-  open_questions: []
-- id: APIB-012
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: 'цена ошибки различна по уровням: плохое именование исправить просто, а неверное понимание назначения
-    API — практически невозможно.'
-  excerpt: 'Глава 7 «Пирамида контекстов API»: алгоритм проектирования из четырёх шагов'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Цена ошибки растёт к вершине
-    application: архитектор.
-  open_questions: []
-- id: APIB-013
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: книга предлагает четыре раза задать вопрос «какую проблему мы решаем?» с ударением на каждом слове,
-    чтобы проверить нужность, компетентность и адекватность решения.
-  excerpt: 'Глава 8 «Определение области применения»: четырёхкратный вопрос «какую'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Четырёхкратный вопрос о проблеме
-    application: аналитик.
-  open_questions: []
-- id: APIB-014
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: выделение уровней абстракции преследует три цели — упрощение работы разработчика, поддержку обратной
-    совместимости и интероперабельность.
-  excerpt: 'Глава 9 «Разделение уровней абстракции»: цели изоляции уровней и инструмент'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Цели уровней абстракции
-    application: архитектор.
-  open_questions: []
-- id: APIB-015
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: одно и то же поле, означающее разное в разных интерфейсах, — признак смешения уровней абстракции.
-  excerpt: 'Глава 9 «Разделение уровней абстракции»: цели изоляции уровней и инструмент'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Смешение уровней через общее поле
-    application: разработчик.
-  open_questions: []
-- id: APIB-016
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: соблюдение изоляции уровней усложняет интерфейс, но никакая гибкость и расширяемость не бывают
-    бесплатными.
-  excerpt: 'Глава 9 «Разделение уровней абстракции»: цели изоляции уровней и инструмент'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Изоляция уровней небесплатна
-    application: архитектор.
-  open_questions: []
-- id: APIB-017
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: дерево потоков данных — способ проверить разделение уровней и развивать большие API, которые невозможно
-    удержать в памяти целиком.
-  excerpt: 'Глава 9 «Разделение уровней абстракции»: цели изоляции уровней и инструмент'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Дерево потоков данных
-    application: архитектор.
-  open_questions: []
-- id: APIB-018
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: каждый уровень иерархии — самостоятельная промежуточная предметная область, через которую задача
-    переводится из одного контекста в другой.
-  excerpt: 'Глава 10 «Разграничение областей ответственности»: формулирование назначения'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Каждый уровень — своя предметная область
-    application: аналитик.
-  open_questions: []
-- id: APIB-019
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: модифицирующие операции (например, отмена заказа) на каждом уровне абстракции переформулируются
-    и не должны «перепрыгивать» уровни.
-  excerpt: 'Глава 10 «Разграничение областей ответственности»: формулирование назначения'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Переформулирование операций по уровням
-    application: разработчик.
-  open_questions: []
-- id: APIB-020
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: на этапе спроектированной номенклатуры следует встать на место разработчика и попробовать написать
-    код, чтобы обнаружить неудобства API.
-  excerpt: 'Глава 10 «Разграничение областей ответственности»: формулирование назначения'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Проверка через сценарии использования
-    application: аналитик.
-  open_questions: []
-- id: APIB-021
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: «нулевое правило» гласит, что правила — обобщение опыта и не должны применяться бездумно, если
-    нет причины им следовать.
-  excerpt: 'Глава 11 «Описание конечных интерфейсов»: набор практических правил именования'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Правила применять осмысленно
-    application: разработчик.
-  open_questions: []
-- id: APIB-022
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: из названия сущности должно быть очевидно, что она делает и к каким побочным эффектам приводит;
-    модифицирующих операций за GET быть не может.
-  excerpt: 'Глава 11 «Описание конечных интерфейсов»: набор практических правил именования'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Явное лучше неявного
-    application: разработчик.
-  open_questions: []
-- id: APIB-023
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: если сигнатуру можно понять неправильно, то по мере роста популярности API её неизбежно будет
-    понимать неправильно всё больше партнёров.
-  excerpt: 'Глава 11 «Описание конечных интерфейсов»: набор практических правил именования'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Закон больших чисел против вас
-    application: разработчик.
-  open_questions: []
-- id: APIB-024
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: сущности следует именовать конкретно, не экономить буквы и делать тип поля ясным из названия для
-    лучшей читаемости.
-  excerpt: 'Глава 11 «Описание конечных интерфейсов»: набор практических правил именования'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Не экономить на именах
-    application: разработчик.
-  open_questions: []
-- id: APIB-025
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: ошибки должны быть информативными; из интерфейса должны быть понятны не только решение задачи,
-    но и возможные ошибки и исключения.
-  excerpt: 'Глава 11 «Описание конечных интерфейсов»: набор практических правил именования'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Информативные ошибки
-    application: разработчик.
-  open_questions: []
-- id: APIB-026
-  source_id: APIB
-  item_id: APIB-text
-  kind: observation
-  status: ready_for_review
-  text: книга формулирует правило об идемпотентности операций и предостерегает от неатомарных операций.
-  excerpt: 'Глава 11 «Описание конечных интерфейсов»: набор практических правил именования'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Идемпотентность операций
-    application: разработчик.
-  open_questions: []
-- id: APIB-027
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: не следует изобретать собственную безопасность; технические ограничения API нужно явно декларировать.
-  excerpt: 'Глава 11 «Описание конечных интерфейсов»: набор практических правил именования'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Не изобретать безопасность
-    application: специалист по безопасности.
-  open_questions: []
-- id: APIB-028
-  source_id: APIB
-  item_id: APIB-text
-  kind: observation
-  status: ready_for_review
-  text: локализация и интернационализация продуктовых данных вынесены в отдельное правило проектирования
-    интерфейсов.
-  excerpt: 'Глава 11 «Описание конечных интерфейсов»: набор практических правил именования'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Локализация продуктовых данных
-    application: технический писатель.
-  open_questions: []
-- id: APIB-029
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: обратная совместимость — свойство системы оставаться функционально корректной во времени, то есть
-    код потребителей продолжает решать свою задачу.
-  excerpt: 'Глава 13 «Постановка проблемы обратной совместимости»: совместимость как'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Совместимость = функциональная стабильность
-    application: архитектор.
-  open_questions: []
-- id: APIB-030
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: срок поддержки совместимости следует увязывать с жизненными циклами приложений и LTS-периодами
-    платформ (обычно несколько лет).
-  excerpt: 'Глава 13 «Постановка проблемы обратной совместимости»: совместимость как'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Длительность увязана с жизненным циклом платформ
-    application: менеджер проекта.
-  open_questions: []
-- id: APIB-031
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: 'совместимость подрывают три процесса: фрагментация клиентов, размывание предметной области и
-    нижележащей платформы.'
-  excerpt: 'Глава 13 «Постановка проблемы обратной совместимости»: совместимость как'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Три процесса размывания
-    application: архитектор.
-  open_questions: []
-- id: APIB-032
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: в хорошем API документированная и недокументированная части соотносятся примерно как 1 к 10, и
-    наружу нужно выставлять минимум функциональности.
-  excerpt: 'Глава 14 «О ватерлинии айсберга»: гигиенический минимум публичной поверхности'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Правило айсберга 1:10
-    application: архитектор.
-  open_questions: []
-- id: APIB-033
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: каждое публичное поле, метод и сущность — продуктовое решение, которое должно иметь веские причины
-    для документирования.
-  excerpt: 'Глава 14 «О ватерлинии айсберга»: гигиенический минимум публичной поверхности'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Каждая публичная сущность — продуктовое решение
-    application: менеджер проекта.
-  open_questions: []
-- id: APIB-034
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: 'не следует легитимизировать серые зоны (недокументированные поля, использование непубличных особенностей
-    в примерах): либо функциональность гарантируется всегда, либо на её существование не намекают.'
-  excerpt: 'Глава 14 «О ватерлинии айсберга»: гигиенический минимум публичной поверхности'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Нельзя принять обязательства наполовину
-    application: технический писатель.
-  open_questions: []
-- id: APIB-035
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: неявные договорённости (например, о модели консистентности) нужно явно фиксировать в документации.
-  excerpt: 'Глава 14 «О ватерлинии айсберга»: гигиенический минимум публичной поверхности'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Фиксировать неявные договорённости
-    application: разработчик.
-  open_questions: []
-- id: APIB-036
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: функциональность следует расширять так, чтобы существующие методы становились частным упрощённым
-    случаем более общего интерфейса.
-  excerpt: 'Глава 18 «Интерфейсы как универсальный паттерн»: обобщение приёмов расширения;'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Расширение через абстрагирование
-    application: архитектор.
-  open_questions: []
-- id: APIB-037
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: попытка модифицировать базовую функциональность (например, авторские рецепты партнёров) порождает
-    проблемы сильной связности.
-  excerpt: 'Глава 16 «Сильная связность и сопутствующие проблемы»: как сильная связность'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Сильная связность схлопывает интерфейсы
-    application: архитектор.
-  open_questions: []
-- id: APIB-038
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: 'вышестоящие сущности должны быть информационными контекстами для нижестоящих: сообщать о состоянии
-    и давать средства его менять, а не предписывать поведение.'
-  excerpt: 'Глава 18 «Интерфейсы как универсальный паттерн»: обобщение приёмов расширения;'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Вышестоящие сущности — информационные контексты
-    application: архитектор.
-  open_questions: []
-- id: APIB-039
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: правила расширения узнаются как принципы SOLID, поскольку API по определению является контрактом;
-    книга добавляет к ним понятие уровней абстракции.
-  excerpt: 'Глава 18 «Интерфейсы как универсальный паттерн»: обобщение приёмов расширения;'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Связь с принципами SOLID
-    application: архитектор.
-  open_questions: []
-- id: APIB-040
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: каждую сущность стоит изначально рассматривать как частную реализацию более общего интерфейса,
-    даже если альтернатив пока не предвидится.
-  excerpt: 'Глава 18 «Интерфейсы как универсальный паттерн»: обобщение приёмов расширения;'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Сущность как реализация общего интерфейса
-    application: разработчик.
-  open_questions: []
-- id: APIB-041
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: даже исправление ошибки может сломать чужой код, и иногда приходится эмулировать ошибочное поведение
-    до мажорного релиза.
-  excerpt: 'Глава 19 «Блокнот душевного покоя»: конкретные рекомендации по совместимым'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Даже исправление ошибки ломает код
-    application: разработчик.
-  open_questions: []
-- id: APIB-042
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: тестировать нужно именно формальные интерфейсы API, включая «самоочевидные» инварианты и проверку
-    абстрактных интерфейсов отдельной реализацией.
-  excerpt: 'Глава 19 «Блокнот душевного покоя»: конкретные рекомендации по совместимым'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Тестировать формальные интерфейсы
-    application: разработчик.
-  open_questions: []
-- id: APIB-043
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: не следует проксировать чужой API «как есть»; сторонние зависимости нужно изолировать программной
-    обвязкой с точками расширения.
-  excerpt: 'Глава 19 «Блокнот душевного покоя»: конкретные рекомендации по совместимым'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Изолировать сторонние зависимости
-    application: архитектор.
-  open_questions: []
-- id: APIB-044
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: API — полноценный продукт, к которому применимы принципы продакт-менеджмента, и одновременно очень
-    специфический продукт.
-  excerpt: 'Глава 20 «Продукт API»: API как полноценный, но специфический продукт;'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: API — полноценный, но специфический продукт
-    application: менеджер проекта.
-  open_questions: []
-- id: APIB-045
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: 'аудитория API образует пирамиду: пользователи (основание), бизнес-заказчики (середина) и разработчики
-    (вершина), интересы которых не всегда совпадают.'
-  excerpt: пирамида аудитории (пользователи — бизнес — разработчики).
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Пирамида аудитории API
-    application: менеджер проекта.
-  open_questions: []
-- id: APIB-046
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: самая большая проблема развития API — отсутствие у руководителей продукта и маркетологов экспертизы
-    в работе с API.
-  excerpt: 'Глава 20 «Продукт API»: API как полноценный, но специфический продукт;'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Главная проблема развития — отсутствие API-экспертизы
-    application: менеджер проекта.
-  open_questions: []
-- id: APIB-047
-  source_id: APIB
-  item_id: APIB-text
-  kind: observation
-  status: ready_for_review
-  text: книга разбирает основные модели монетизации (платные лицензии, открытая лицензия с ограничениями,
-    платная поддержка, спонсирование владельцем платформы, тарификация доступа к сервису).
-  excerpt: 'Глава 21 «Бизнес-модели API»: прямые и косвенные модели монетизации.'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Модели монетизации API
-    application: менеджер проекта.
-  open_questions: []
-- id: APIB-048
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: для API недоступен дешёвый MVP, так как для проверки гипотезы партнёры должны вложить деньги в
-    написание кода; решением служат компенсации или референсное приложение.
-  excerpt: 'Глава 22 «Формирование продуктового видения»: тройная аудитория и'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Недоступность дешёвого MVP
-    application: менеджер проекта.
-  open_questions: []
-- id: APIB-049
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: разработчики — рациональная аудитория, скептичная к рекламе и мнениям инфлюэнсеров, требующая
-    цифр и примеров кода.
-  excerpt: 'Глава 23 «Взаимодействие с разработчиками»: рациональная аудитория, каналы'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Рациональность аудитории разработчиков
-    application: менеджер проекта.
-  open_questions: []
-- id: APIB-050
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: до разработчиков информацию доносят через специфические каналы (коллективные блоги, Q&A-сайты,
-    обучающие сервисы, конференции), а прямая реклама там малоэффективна.
-  excerpt: 'Глава 23 «Взаимодействие с разработчиками»: рациональная аудитория, каналы'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Специфические каналы технопиара
-    application: менеджер проекта.
-  open_questions: []
-- id: APIB-051
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: потребители делятся на профессиональных и начинающих/полупрофессиональных разработчиков; один
-    API не может одинаково хорошо подходить обоим.
-  excerpt: 'Глава 23 «Взаимодействие с разработчиками»: рациональная аудитория, каналы'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Две категории потребителей
-    application: технический писатель.
-  open_questions: []
-- id: APIB-052
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: бизнес лояльнее к предложениям, особенно бесплатным, но ему гораздо сложнее объяснить преимущества
-    API как концепции.
-  excerpt: 'Глава 24 «Взаимодействие с бизнес-аудиторией»: лояльность бизнеса и трудность'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Парадокс работы с бизнесом
-    application: менеджер проекта.
-  open_questions: []
-- id: APIB-053
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: нет смысла поставлять один API; следует говорить о наборе продуктов сразу в двух измерениях (горизонтальном
-    и вертикальном).
-  excerpt: 'Глава 25 «Линейка сервисов API»: набор продуктов в двух измерениях'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Нужна линейка, а не один API
-    application: менеджер проекта.
-  open_questions: []
-- id: APIB-054
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: сырое число пользователей и партнёров — необходимый минимум, но не KPI; KPI следует выставлять
-    по количеству целевых действий, коррелирующих с монетизацией.
-  excerpt: 'Глава 26 «Ключевые показатели эффективности API»: KPI по целевым действиям,'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: KPI — целевые действия, а не сырые цифры
-    application: аналитик.
-  open_questions: []
-- id: APIB-055
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: нагрузку на API сложно предсказать (одна строка кода партнёра может её резко повысить), поэтому
-    запас прочности API должен быть существенно выше, чем у пользовательских сервисов.
-  excerpt: 'Глава 26 «Ключевые показатели эффективности API»: KPI по целевым действиям,'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Запас прочности API выше обычного
-    application: архитектор.
-  open_questions: []
-- id: APIB-056
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: уязвимость в API фактически создаёт дыру в безопасности в каждом приложении партнёра, поэтому
-    требуются максимальные меры защиты и оперативная реакция.
-  excerpt: 'Глава 26 «Ключевые показатели эффективности API»: KPI по целевым действиям,'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Уязвимость API тиражируется на потребителей
-    application: специалист по безопасности.
-  open_questions: []
-- id: APIB-057
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: API-ключи не позволяют надёжно идентифицировать ни приложение, ни владельца и не освобождают от
-    перепроверки соблюдения правил.
-  excerpt: 'Глава 27 «Идентификация пользователей и борьба с фродом»: идентификация'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Ненадёжность API-ключей
-    application: специалист по безопасности.
-  open_questions: []
-- id: APIB-058
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: рекомендуется вести иерархический подсчёт уникальных IP (по подсетям /8, /16, /24, автономным
-    системам) и мониторить публичные прокси и TOR, особенно после распространения IPv6.
-  excerpt: 'Глава 27 «Идентификация пользователей и борьба с фродом»: идентификация'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Подсчёт по IP и подсетям
-    application: специалист по безопасности.
-  open_questions: []
-- id: APIB-059
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: 'отсеивание нежелательных запросов состоит из трёх шагов: идентификация подозрительных пользователей,
-    запрос дополнительного фактора аутентификации, вынесение и применение решения об ограничении.'
-  excerpt: 'Глава 28 «Технические способы борьбы с несанкционированным доступом»: три шага'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Три шага антифрода
-    application: специалист по безопасности.
-  open_questions: []
-- id: APIB-060
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: реальных средств бана немного (по IP/подсети, обязательная идентификация, ложный ответ, административные
-    методы), а бан по cookie/Referer/User-Agent почти не работает, так как эти данные подменяет клиент.
-  excerpt: 'Глава 28 «Технические способы борьбы с несанкционированным доступом»: три шага'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Скудость средств ограничения доступа
-    application: специалист по безопасности.
-  open_questions: []
-- id: APIB-061
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: поддержка API требует разработчиков, поскольку причину проблемы в чужом коде может понять только
-    программист; при этом большинство запросов исходят от новичков и не касаются работы API.
-  excerpt: 'Глава 29 «Поддержка пользователей API»: высокая планка к специалистам,'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Высокая планка к специалистам поддержки
-    application: менеджер проекта.
-  open_questions: []
-- id: APIB-062
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: время на техподдержку нужно закладывать при планировании, так как чтение и удалённая отладка незнакомого
-    кода крайне трудозатратны и растут с числом платформ и функциональности.
-  excerpt: 'Глава 29 «Поддержка пользователей API»: высокая планка к специалистам,'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Время на поддержку нужно планировать
-    application: менеджер проекта.
-  open_questions: []
-- id: APIB-063
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: документация — лицо продукта и точка входа в него; пользователи работают со справкой не так, как
-    представляет автор API.
-  excerpt: 'Глава 30 «Документация»: документация как лицо продукта; виды документации.'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Документация — лицо продукта
-    application: технический писатель.
-  open_questions: []
-- id: APIB-064
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: формальная спецификация (в том числе машиночитаемая, например OpenAPI) сама по себе не является
-    документацией; документация — это словесные описания в поле description.
-  excerpt: 'Глава 30 «Документация»: документация как лицо продукта; виды документации.'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Спецификация — не документация
-    application: технический писатель.
-  open_questions: []
-- id: APIB-065
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: примеры кода — важнейший инструмент привлечения новых пользователей; они должны быть лаконичными,
-    атомарными и близкими к реальному приложению.
-  excerpt: 'Глава 29 «Поддержка пользователей API»: высокая планка к специалистам,'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Примеры кода — главный инструмент
-    application: технический писатель.
-  open_questions: []
-- id: APIB-066
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: quick start длиной более десятка строк кода — признак того, что в определении частотных кейсов
-    и хелперных методов что-то сделано не так.
-  excerpt: 'Глава 30 «Документация»: документация как лицо продукта; виды документации.'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Quick start как индикатор
-    application: технический писатель.
-  open_questions: []
-- id: APIB-067
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: для API, чьи операции имеют последствия для пользователей (в том числе стоят денег), необходима
-    тестовая версия с симуляцией реальных действий.
-  excerpt: 'Глава 31 «Тестовая среда»: необходимость тестового API и два подхода к нему.'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Необходимость тестовой среды
-    application: разработчик.
-  open_questions: []
-- id: APIB-068
-  source_id: APIB
-  item_id: APIB-text
-  kind: observation
-  status: ready_for_review
-  text: книга сравнивает два подхода к тестовой среде — мета-API среды тестирования (хелперные методы)
-    и симулятор предопределённых сценариев; у каждого свои плюсы и минусы.
-  excerpt: 'Глава 31 «Тестовая среда»: необходимость тестового API и два подхода к нему.'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Два подхода к тестовой среде
-    application: разработчик.
-  open_questions: []
-- id: APIB-069
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: конечная цель тестового API — позволить партнёрам автоматизировать тестирование, в том числе симулировать
-    сценарии (например, 3-D Secure) в ускоренном масштабе времени.
-  excerpt: 'Глава 31 «Тестовая среда»: необходимость тестового API и два подхода к нему.'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Цель тестовой среды — автоматизация
-    application: разработчик.
-  open_questions: []
-- id: APIB-070
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: период, после которого партнёру потребуется переписать код, должен совпадать с жизненным циклом
-    приложений в предметной области.
-  excerpt: 'Глава 32 «Управление ожиданиями»: золотое правило версий, поддержка платформ,'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Золотое правило выпуска версий
-    application: менеджер проекта.
-  open_questions: []
-- id: APIB-071
-  source_id: APIB
-  item_id: APIB-text
-  kind: fact
-  status: ready_for_review
-  text: следует публиковать (пусть условные, без дат) роадмапы, особенно при прекращении поддержки функциональности;
-    это важное конкурентное преимущество.
-  excerpt: 'Глава 32 «Управление ожиданиями»: золотое правило версий, поддержка платформ,'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
-  scope:
-    section_title: Публичные роадмапы как преимущество
-    application: менеджер проекта.
-  open_questions: []
+  - id: APIB-001
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      книга определяет API по смыслу как формальное обязательство связывать между собой различные программируемые
+      контексты, а не просто как «программный интерфейс приложений».
+    excerpt: связывать программируемые контексты, поэтому ошибки проектирования и нарушение
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: API как обязательство
+      application: архитектор.
+    open_questions: []
+  - id: APIB-002
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      потребителями API являются разработчики, поэтому поставщик не контролирует качество чужих инженерных
+      решений, но проблемы будут приписывать ему.
+    excerpt: "Глава 2 «Определение API»: смысловое определение API как формального"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Пользователи API — инженеры
+      application: менеджер проекта.
+    open_questions: []
+  - id: APIB-003
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      API одновременно мультиплицирует и возможности, и ошибки разработчика, что налагает повышенную
+      ответственность.
+    excerpt: "Глава 2 «Определение API»: смысловое определение API как формального"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: API — мультипликатор ошибок
+      application: архитектор.
+    open_questions: []
+  - id: APIB-004
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      базовые критерии хорошего API — очевидность (как решить задачу), читаемость (правильный код по
+      номенклатуре) и консистентность (действие по аналогии).
+    excerpt: "Глава 3 «Критерии качества API»: очевидность, читаемость, консистентность;"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Три критерия качества
+      application: разработчик.
+    open_questions: []
+  - id: APIB-005
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      нелогичность и неконсистентность возникают не в начальном ядре API, а при его развитии и попытках
+      сохранить совместимость.
+    excerpt: "Глава 3 «Критерии качества API»: очевидность, читаемость, консистентность;"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Главные проблемы — при развитии
+      application: архитектор.
+    open_questions: []
+  - id: APIB-006
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      проектирование «на будущее» означает избыточность интерфейсов и абстрагирования и оправдано, только
+      если у API это будущее есть, иначе это оверинжиниринг.
+    excerpt: "Глава 3 «Критерии качества API»: очевидность, читаемость, консистентность;"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Закладывание на будущее небесплатно
+      application: архитектор.
+    open_questions: []
+  - id: APIB-007
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      обратная совместимость — временно́е свойство качества, которое отличает разработку API от разработки
+      ПО вообще.
+    excerpt: "Глава 4 «Обратная совместимость»: совместимость как временна́я характеристика"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Совместимость как временна́я характеристика
+      application: архитектор.
+    open_questions: []
+  - id: APIB-008
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      выпуск обратно несовместимых версий — «налог» на потребителей; не следует ломать совместимость,
+      если это возможно.
+    excerpt: "Глава 4 «Обратная совместимость»: совместимость как временна́я характеристика"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Слом совместимости — скрытый налог
+      application: менеджер проекта.
+    open_questions: []
+  - id: APIB-009
+    source_id: APIB
+    item_id: APIB-text
+    kind: observation
+    status: ready_for_review
+    text:
+      книга принимает версионирование semver и устанавливает эквивалентность «мажорная версия» = «обратно
+      несовместимое изменение функциональности».
+    excerpt: "Глава 5 «О версионировании»: semver и эквивалентность «мажорная версия» ="
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Принятие semver
+      application: разработчик.
+    open_questions: []
+  - id: APIB-010
+    source_id: APIB
+    item_id: APIB-text
+    kind: observation
+    status: ready_for_review
+    text:
+      книга намеренно избегает слов «метод», «объект», «функция» в пользу нейтрального термина «сущность»
+      как атомарной единицы функциональности.
+    excerpt: "Глава 6 «Условные обозначения и терминология»: нейтральный термин «сущность»,"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Нейтральный термин «сущность»
+      application: технический писатель.
+    open_questions: []
+  - id: APIB-011
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      "проектирование ведётся сверху вниз из четырёх шагов: определение области применения, разделение
+      уровней абстракции, разграничение областей ответственности, описание конечных интерфейсов."
+    excerpt: "Глава 7 «Пирамида контекстов API»: алгоритм проектирования из четырёх шагов"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Алгоритм проектирования из четырёх шагов
+      application: архитектор.
+    open_questions: []
+  - id: APIB-012
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      "цена ошибки различна по уровням: плохое именование исправить просто, а неверное понимание назначения
+      API — практически невозможно."
+    excerpt: "Глава 7 «Пирамида контекстов API»: алгоритм проектирования из четырёх шагов"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Цена ошибки растёт к вершине
+      application: архитектор.
+    open_questions: []
+  - id: APIB-013
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      книга предлагает четыре раза задать вопрос «какую проблему мы решаем?» с ударением на каждом слове,
+      чтобы проверить нужность, компетентность и адекватность решения.
+    excerpt: "Глава 8 «Определение области применения»: четырёхкратный вопрос «какую"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Четырёхкратный вопрос о проблеме
+      application: аналитик.
+    open_questions: []
+  - id: APIB-014
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      выделение уровней абстракции преследует три цели — упрощение работы разработчика, поддержку обратной
+      совместимости и интероперабельность.
+    excerpt: "Глава 9 «Разделение уровней абстракции»: цели изоляции уровней и инструмент"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Цели уровней абстракции
+      application: архитектор.
+    open_questions: []
+  - id: APIB-015
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text: одно и то же поле, означающее разное в разных интерфейсах, — признак смешения уровней абстракции.
+    excerpt: "Глава 9 «Разделение уровней абстракции»: цели изоляции уровней и инструмент"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Смешение уровней через общее поле
+      application: разработчик.
+    open_questions: []
+  - id: APIB-016
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      соблюдение изоляции уровней усложняет интерфейс, но никакая гибкость и расширяемость не бывают
+      бесплатными.
+    excerpt: "Глава 9 «Разделение уровней абстракции»: цели изоляции уровней и инструмент"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Изоляция уровней небесплатна
+      application: архитектор.
+    open_questions: []
+  - id: APIB-017
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      дерево потоков данных — способ проверить разделение уровней и развивать большие API, которые невозможно
+      удержать в памяти целиком.
+    excerpt: "Глава 9 «Разделение уровней абстракции»: цели изоляции уровней и инструмент"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Дерево потоков данных
+      application: архитектор.
+    open_questions: []
+  - id: APIB-018
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      каждый уровень иерархии — самостоятельная промежуточная предметная область, через которую задача
+      переводится из одного контекста в другой.
+    excerpt: "Глава 10 «Разграничение областей ответственности»: формулирование назначения"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Каждый уровень — своя предметная область
+      application: аналитик.
+    open_questions: []
+  - id: APIB-019
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      модифицирующие операции (например, отмена заказа) на каждом уровне абстракции переформулируются
+      и не должны «перепрыгивать» уровни.
+    excerpt: "Глава 10 «Разграничение областей ответственности»: формулирование назначения"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Переформулирование операций по уровням
+      application: разработчик.
+    open_questions: []
+  - id: APIB-020
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      на этапе спроектированной номенклатуры следует встать на место разработчика и попробовать написать
+      код, чтобы обнаружить неудобства API.
+    excerpt: "Глава 10 «Разграничение областей ответственности»: формулирование назначения"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Проверка через сценарии использования
+      application: аналитик.
+    open_questions: []
+  - id: APIB-021
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      «нулевое правило» гласит, что правила — обобщение опыта и не должны применяться бездумно, если
+      нет причины им следовать.
+    excerpt: "Глава 11 «Описание конечных интерфейсов»: набор практических правил именования"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Правила применять осмысленно
+      application: разработчик.
+    open_questions: []
+  - id: APIB-022
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      из названия сущности должно быть очевидно, что она делает и к каким побочным эффектам приводит;
+      модифицирующих операций за GET быть не может.
+    excerpt: "Глава 11 «Описание конечных интерфейсов»: набор практических правил именования"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Явное лучше неявного
+      application: разработчик.
+    open_questions: []
+  - id: APIB-023
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      если сигнатуру можно понять неправильно, то по мере роста популярности API её неизбежно будет
+      понимать неправильно всё больше партнёров.
+    excerpt: "Глава 11 «Описание конечных интерфейсов»: набор практических правил именования"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Закон больших чисел против вас
+      application: разработчик.
+    open_questions: []
+  - id: APIB-024
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      сущности следует именовать конкретно, не экономить буквы и делать тип поля ясным из названия для
+      лучшей читаемости.
+    excerpt: "Глава 11 «Описание конечных интерфейсов»: набор практических правил именования"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Не экономить на именах
+      application: разработчик.
+    open_questions: []
+  - id: APIB-025
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      ошибки должны быть информативными; из интерфейса должны быть понятны не только решение задачи,
+      но и возможные ошибки и исключения.
+    excerpt: "Глава 11 «Описание конечных интерфейсов»: набор практических правил именования"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Информативные ошибки
+      application: разработчик.
+    open_questions: []
+  - id: APIB-026
+    source_id: APIB
+    item_id: APIB-text
+    kind: observation
+    status: ready_for_review
+    text: книга формулирует правило об идемпотентности операций и предостерегает от неатомарных операций.
+    excerpt: "Глава 11 «Описание конечных интерфейсов»: набор практических правил именования"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Идемпотентность операций
+      application: разработчик.
+    open_questions: []
+  - id: APIB-027
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text: не следует изобретать собственную безопасность; технические ограничения API нужно явно декларировать.
+    excerpt: "Глава 11 «Описание конечных интерфейсов»: набор практических правил именования"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Не изобретать безопасность
+      application: специалист по безопасности.
+    open_questions: []
+  - id: APIB-028
+    source_id: APIB
+    item_id: APIB-text
+    kind: observation
+    status: ready_for_review
+    text:
+      локализация и интернационализация продуктовых данных вынесены в отдельное правило проектирования
+      интерфейсов.
+    excerpt: "Глава 11 «Описание конечных интерфейсов»: набор практических правил именования"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Локализация продуктовых данных
+      application: технический писатель.
+    open_questions: []
+  - id: APIB-029
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      обратная совместимость — свойство системы оставаться функционально корректной во времени, то есть
+      код потребителей продолжает решать свою задачу.
+    excerpt: "Глава 13 «Постановка проблемы обратной совместимости»: совместимость как"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Совместимость = функциональная стабильность
+      application: архитектор.
+    open_questions: []
+  - id: APIB-030
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      срок поддержки совместимости следует увязывать с жизненными циклами приложений и LTS-периодами
+      платформ (обычно несколько лет).
+    excerpt: "Глава 13 «Постановка проблемы обратной совместимости»: совместимость как"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Длительность увязана с жизненным циклом платформ
+      application: менеджер проекта.
+    open_questions: []
+  - id: APIB-031
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      "совместимость подрывают три процесса: фрагментация клиентов, размывание предметной области и
+      нижележащей платформы."
+    excerpt: "Глава 13 «Постановка проблемы обратной совместимости»: совместимость как"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Три процесса размывания
+      application: архитектор.
+    open_questions: []
+  - id: APIB-032
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      в хорошем API документированная и недокументированная части соотносятся примерно как 1 к 10, и
+      наружу нужно выставлять минимум функциональности.
+    excerpt: "Глава 14 «О ватерлинии айсберга»: гигиенический минимум публичной поверхности"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Правило айсберга 1:10
+      application: архитектор.
+    open_questions: []
+  - id: APIB-033
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      каждое публичное поле, метод и сущность — продуктовое решение, которое должно иметь веские причины
+      для документирования.
+    excerpt: "Глава 14 «О ватерлинии айсберга»: гигиенический минимум публичной поверхности"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Каждая публичная сущность — продуктовое решение
+      application: менеджер проекта.
+    open_questions: []
+  - id: APIB-034
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      "не следует легитимизировать серые зоны (недокументированные поля, использование непубличных особенностей
+      в примерах): либо функциональность гарантируется всегда, либо на её существование не намекают."
+    excerpt: "Глава 14 «О ватерлинии айсберга»: гигиенический минимум публичной поверхности"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Нельзя принять обязательства наполовину
+      application: технический писатель.
+    open_questions: []
+  - id: APIB-035
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text: неявные договорённости (например, о модели консистентности) нужно явно фиксировать в документации.
+    excerpt: "Глава 14 «О ватерлинии айсберга»: гигиенический минимум публичной поверхности"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Фиксировать неявные договорённости
+      application: разработчик.
+    open_questions: []
+  - id: APIB-036
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      функциональность следует расширять так, чтобы существующие методы становились частным упрощённым
+      случаем более общего интерфейса.
+    excerpt: "Глава 18 «Интерфейсы как универсальный паттерн»: обобщение приёмов расширения;"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Расширение через абстрагирование
+      application: архитектор.
+    open_questions: []
+  - id: APIB-037
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      попытка модифицировать базовую функциональность (например, авторские рецепты партнёров) порождает
+      проблемы сильной связности.
+    excerpt: "Глава 16 «Сильная связность и сопутствующие проблемы»: как сильная связность"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Сильная связность схлопывает интерфейсы
+      application: архитектор.
+    open_questions: []
+  - id: APIB-038
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      "вышестоящие сущности должны быть информационными контекстами для нижестоящих: сообщать о состоянии
+      и давать средства его менять, а не предписывать поведение."
+    excerpt: "Глава 18 «Интерфейсы как универсальный паттерн»: обобщение приёмов расширения;"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Вышестоящие сущности — информационные контексты
+      application: архитектор.
+    open_questions: []
+  - id: APIB-039
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      правила расширения узнаются как принципы SOLID, поскольку API по определению является контрактом;
+      книга добавляет к ним понятие уровней абстракции.
+    excerpt: "Глава 18 «Интерфейсы как универсальный паттерн»: обобщение приёмов расширения;"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Связь с принципами SOLID
+      application: архитектор.
+    open_questions: []
+  - id: APIB-040
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      каждую сущность стоит изначально рассматривать как частную реализацию более общего интерфейса,
+      даже если альтернатив пока не предвидится.
+    excerpt: "Глава 18 «Интерфейсы как универсальный паттерн»: обобщение приёмов расширения;"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Сущность как реализация общего интерфейса
+      application: разработчик.
+    open_questions: []
+  - id: APIB-041
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      даже исправление ошибки может сломать чужой код, и иногда приходится эмулировать ошибочное поведение
+      до мажорного релиза.
+    excerpt: "Глава 19 «Блокнот душевного покоя»: конкретные рекомендации по совместимым"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Даже исправление ошибки ломает код
+      application: разработчик.
+    open_questions: []
+  - id: APIB-042
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      тестировать нужно именно формальные интерфейсы API, включая «самоочевидные» инварианты и проверку
+      абстрактных интерфейсов отдельной реализацией.
+    excerpt: "Глава 19 «Блокнот душевного покоя»: конкретные рекомендации по совместимым"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Тестировать формальные интерфейсы
+      application: разработчик.
+    open_questions: []
+  - id: APIB-043
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      не следует проксировать чужой API «как есть»; сторонние зависимости нужно изолировать программной
+      обвязкой с точками расширения.
+    excerpt: "Глава 19 «Блокнот душевного покоя»: конкретные рекомендации по совместимым"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Изолировать сторонние зависимости
+      application: архитектор.
+    open_questions: []
+  - id: APIB-044
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      API — полноценный продукт, к которому применимы принципы продакт-менеджмента, и одновременно очень
+      специфический продукт.
+    excerpt: "Глава 20 «Продукт API»: API как полноценный, но специфический продукт;"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: API — полноценный, но специфический продукт
+      application: менеджер проекта.
+    open_questions: []
+  - id: APIB-045
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      "аудитория API образует пирамиду: пользователи (основание), бизнес-заказчики (середина) и разработчики
+      (вершина), интересы которых не всегда совпадают."
+    excerpt: пирамида аудитории (пользователи — бизнес — разработчики).
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Пирамида аудитории API
+      application: менеджер проекта.
+    open_questions: []
+  - id: APIB-046
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      самая большая проблема развития API — отсутствие у руководителей продукта и маркетологов экспертизы
+      в работе с API.
+    excerpt: "Глава 20 «Продукт API»: API как полноценный, но специфический продукт;"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Главная проблема развития — отсутствие API-экспертизы
+      application: менеджер проекта.
+    open_questions: []
+  - id: APIB-047
+    source_id: APIB
+    item_id: APIB-text
+    kind: observation
+    status: ready_for_review
+    text:
+      книга разбирает основные модели монетизации (платные лицензии, открытая лицензия с ограничениями,
+      платная поддержка, спонсирование владельцем платформы, тарификация доступа к сервису).
+    excerpt: "Глава 21 «Бизнес-модели API»: прямые и косвенные модели монетизации."
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Модели монетизации API
+      application: менеджер проекта.
+    open_questions: []
+  - id: APIB-048
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      для API недоступен дешёвый MVP, так как для проверки гипотезы партнёры должны вложить деньги в
+      написание кода; решением служат компенсации или референсное приложение.
+    excerpt: "Глава 22 «Формирование продуктового видения»: тройная аудитория и"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Недоступность дешёвого MVP
+      application: менеджер проекта.
+    open_questions: []
+  - id: APIB-049
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      разработчики — рациональная аудитория, скептичная к рекламе и мнениям инфлюэнсеров, требующая
+      цифр и примеров кода.
+    excerpt: "Глава 23 «Взаимодействие с разработчиками»: рациональная аудитория, каналы"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Рациональность аудитории разработчиков
+      application: менеджер проекта.
+    open_questions: []
+  - id: APIB-050
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      до разработчиков информацию доносят через специфические каналы (коллективные блоги, Q&A-сайты,
+      обучающие сервисы, конференции), а прямая реклама там малоэффективна.
+    excerpt: "Глава 23 «Взаимодействие с разработчиками»: рациональная аудитория, каналы"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Специфические каналы технопиара
+      application: менеджер проекта.
+    open_questions: []
+  - id: APIB-051
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      потребители делятся на профессиональных и начинающих/полупрофессиональных разработчиков; один
+      API не может одинаково хорошо подходить обоим.
+    excerpt: "Глава 23 «Взаимодействие с разработчиками»: рациональная аудитория, каналы"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Две категории потребителей
+      application: технический писатель.
+    open_questions: []
+  - id: APIB-052
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      бизнес лояльнее к предложениям, особенно бесплатным, но ему гораздо сложнее объяснить преимущества
+      API как концепции.
+    excerpt: "Глава 24 «Взаимодействие с бизнес-аудиторией»: лояльность бизнеса и трудность"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Парадокс работы с бизнесом
+      application: менеджер проекта.
+    open_questions: []
+  - id: APIB-053
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      нет смысла поставлять один API; следует говорить о наборе продуктов сразу в двух измерениях (горизонтальном
+      и вертикальном).
+    excerpt: "Глава 25 «Линейка сервисов API»: набор продуктов в двух измерениях"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Нужна линейка, а не один API
+      application: менеджер проекта.
+    open_questions: []
+  - id: APIB-054
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      сырое число пользователей и партнёров — необходимый минимум, но не KPI; KPI следует выставлять
+      по количеству целевых действий, коррелирующих с монетизацией.
+    excerpt: "Глава 26 «Ключевые показатели эффективности API»: KPI по целевым действиям,"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: KPI — целевые действия, а не сырые цифры
+      application: аналитик.
+    open_questions: []
+  - id: APIB-055
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      нагрузку на API сложно предсказать (одна строка кода партнёра может её резко повысить), поэтому
+      запас прочности API должен быть существенно выше, чем у пользовательских сервисов.
+    excerpt: "Глава 26 «Ключевые показатели эффективности API»: KPI по целевым действиям,"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Запас прочности API выше обычного
+      application: архитектор.
+    open_questions: []
+  - id: APIB-056
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      уязвимость в API фактически создаёт дыру в безопасности в каждом приложении партнёра, поэтому
+      требуются максимальные меры защиты и оперативная реакция.
+    excerpt: "Глава 26 «Ключевые показатели эффективности API»: KPI по целевым действиям,"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Уязвимость API тиражируется на потребителей
+      application: специалист по безопасности.
+    open_questions: []
+  - id: APIB-057
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      API-ключи не позволяют надёжно идентифицировать ни приложение, ни владельца и не освобождают от
+      перепроверки соблюдения правил.
+    excerpt: "Глава 27 «Идентификация пользователей и борьба с фродом»: идентификация"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Ненадёжность API-ключей
+      application: специалист по безопасности.
+    open_questions: []
+  - id: APIB-058
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      рекомендуется вести иерархический подсчёт уникальных IP (по подсетям /8, /16, /24, автономным
+      системам) и мониторить публичные прокси и TOR, особенно после распространения IPv6.
+    excerpt: "Глава 27 «Идентификация пользователей и борьба с фродом»: идентификация"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Подсчёт по IP и подсетям
+      application: специалист по безопасности.
+    open_questions: []
+  - id: APIB-059
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      "отсеивание нежелательных запросов состоит из трёх шагов: идентификация подозрительных пользователей,
+      запрос дополнительного фактора аутентификации, вынесение и применение решения об ограничении."
+    excerpt: "Глава 28 «Технические способы борьбы с несанкционированным доступом»: три шага"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Три шага антифрода
+      application: специалист по безопасности.
+    open_questions: []
+  - id: APIB-060
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      реальных средств бана немного (по IP/подсети, обязательная идентификация, ложный ответ, административные
+      методы), а бан по cookie/Referer/User-Agent почти не работает, так как эти данные подменяет клиент.
+    excerpt: "Глава 28 «Технические способы борьбы с несанкционированным доступом»: три шага"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Скудость средств ограничения доступа
+      application: специалист по безопасности.
+    open_questions: []
+  - id: APIB-061
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      поддержка API требует разработчиков, поскольку причину проблемы в чужом коде может понять только
+      программист; при этом большинство запросов исходят от новичков и не касаются работы API.
+    excerpt: "Глава 29 «Поддержка пользователей API»: высокая планка к специалистам,"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Высокая планка к специалистам поддержки
+      application: менеджер проекта.
+    open_questions: []
+  - id: APIB-062
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      время на техподдержку нужно закладывать при планировании, так как чтение и удалённая отладка незнакомого
+      кода крайне трудозатратны и растут с числом платформ и функциональности.
+    excerpt: "Глава 29 «Поддержка пользователей API»: высокая планка к специалистам,"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Время на поддержку нужно планировать
+      application: менеджер проекта.
+    open_questions: []
+  - id: APIB-063
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      документация — лицо продукта и точка входа в него; пользователи работают со справкой не так, как
+      представляет автор API.
+    excerpt: "Глава 30 «Документация»: документация как лицо продукта; виды документации."
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Документация — лицо продукта
+      application: технический писатель.
+    open_questions: []
+  - id: APIB-064
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      формальная спецификация (в том числе машиночитаемая, например OpenAPI) сама по себе не является
+      документацией; документация — это словесные описания в поле description.
+    excerpt: "Глава 30 «Документация»: документация как лицо продукта; виды документации."
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Спецификация — не документация
+      application: технический писатель.
+    open_questions: []
+  - id: APIB-065
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      примеры кода — важнейший инструмент привлечения новых пользователей; они должны быть лаконичными,
+      атомарными и близкими к реальному приложению.
+    excerpt: "Глава 29 «Поддержка пользователей API»: высокая планка к специалистам,"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Примеры кода — главный инструмент
+      application: технический писатель.
+    open_questions: []
+  - id: APIB-066
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      quick start длиной более десятка строк кода — признак того, что в определении частотных кейсов
+      и хелперных методов что-то сделано не так.
+    excerpt: "Глава 30 «Документация»: документация как лицо продукта; виды документации."
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Quick start как индикатор
+      application: технический писатель.
+    open_questions: []
+  - id: APIB-067
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      для API, чьи операции имеют последствия для пользователей (в том числе стоят денег), необходима
+      тестовая версия с симуляцией реальных действий.
+    excerpt: "Глава 31 «Тестовая среда»: необходимость тестового API и два подхода к нему."
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Необходимость тестовой среды
+      application: разработчик.
+    open_questions: []
+  - id: APIB-068
+    source_id: APIB
+    item_id: APIB-text
+    kind: observation
+    status: ready_for_review
+    text:
+      книга сравнивает два подхода к тестовой среде — мета-API среды тестирования (хелперные методы)
+      и симулятор предопределённых сценариев; у каждого свои плюсы и минусы.
+    excerpt: "Глава 31 «Тестовая среда»: необходимость тестового API и два подхода к нему."
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Два подхода к тестовой среде
+      application: разработчик.
+    open_questions: []
+  - id: APIB-069
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      конечная цель тестового API — позволить партнёрам автоматизировать тестирование, в том числе симулировать
+      сценарии (например, 3-D Secure) в ускоренном масштабе времени.
+    excerpt: "Глава 31 «Тестовая среда»: необходимость тестового API и два подхода к нему."
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Цель тестовой среды — автоматизация
+      application: разработчик.
+    open_questions: []
+  - id: APIB-070
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      период, после которого партнёру потребуется переписать код, должен совпадать с жизненным циклом
+      приложений в предметной области.
+    excerpt: "Глава 32 «Управление ожиданиями»: золотое правило версий, поддержка платформ,"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Золотое правило выпуска версий
+      application: менеджер проекта.
+    open_questions: []
+  - id: APIB-071
+    source_id: APIB
+    item_id: APIB-text
+    kind: fact
+    status: ready_for_review
+    text:
+      следует публиковать (пусть условные, без дат) роадмапы, особенно при прекращении поддержки функциональности;
+      это важное конкурентное преимущество.
+    excerpt: "Глава 32 «Управление ожиданиями»: золотое правило версий, поддержка платформ,"
+    artifact: ../source/normalized-source.md
+    checked_at: "2026-06-24"
+    scope:
+      section_title: Публичные роадмапы как преимущество
+      application: менеджер проекта.
+    open_questions: []
+  - id: APIB-072
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Использование привычных, устоявшихся механизмов взаимодействия — важная составляющая качества
+      API; изобретать собственный стандарт вместо существующего рекомендуется только при явных и очевидных
+      преимуществах нового подхода.
+    excerpt: Использование привычных механизмов — важная составляющая качества API.
+    artifact: ../md/01-Введение/04-intro-api-choosing-solutions.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: выбор подхода к разработке API
+      application: архитектор.
+    open_questions: []
+  - id: APIB-073
+    source_id: APIB
+    item_id: APIB-md
+    kind: observation
+    status: ready_for_review
+    text:
+      Чем дальше друг от друга отстоят два интегрируемых контекста, тем больше существует разнообразных
+      конкурирующих абстракций и фреймворков для организации связи между ними, и тем сложнее выбор подхода
+      к разработке API.
+    excerpt:
+      Чем дальше отстоят друг от друга два контекста, тем большее количество разнообразных абстракций
+      и фреймворков работы с ними будет существовать.
+    artifact: ../md/01-Введение/04-intro-api-choosing-solutions.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: выбор парадигмы интеграции
+      application: архитектор.
+    open_questions: []
+  - id: APIB-074
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      API-first в техническом смысле означает, что контракт (формальная машиночитаемая спецификация,
+      например Swagger/OpenAPI или .proto) фиксируется до реализации функциональности и определяет её.
+    excerpt:
+      контракт разрабатывается и фиксируется в виде спецификации до того, как функциональность непосредственно
+      реализована.
+    artifact: ../md/01-Введение/05-intro-api-first-approach.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: API-first подход
+      application: архитектор.
+    open_questions: []
+  - id: APIB-075
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Второй принцип API-first требует, что при обнаружении несоответствия между контрактом и его реализацией
+      изменения вносятся в реализацию, а не в контракт, что защищает интересы партнёра-разработчика API.
+    excerpt:
+      если обнаруживается несоответствие контракта и его имплементации, изменения вносятся в имплементацию,
+      а не в контракт.
+    artifact: ../md/01-Введение/05-intro-api-first-approach.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: API-first подход
+      application: архитектор.
+    open_questions: []
+  - id: APIB-076
+    source_id: APIB
+    item_id: APIB-md
+    kind: limitation
+    status: ready_for_review
+    text:
+      Гарантия, которую даёт API-first подход партнёрам, действует только при качественном дизайне API;
+      если в спецификации допущены неисправимые ошибки, принцип приоритета контракта над реализацией придётся
+      нарушить.
+    excerpt: работает эта гарантия только в условиях качественного дизайна API.
+    artifact: ../md/01-Введение/05-intro-api-first-approach.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: ограничения API-first
+      application: архитектор.
+    open_questions: []
+  - id: APIB-077
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      В распределённых многослойных клиент-серверных системах возникновение исключений на клиенте, сервере,
+      в канале связи или у промежуточного агента — норма жизни; клиенты API должны быть способны восстановить
+      своё состояние после любого исключения.
+    excerpt:
+      в случае возникновения исключения любого рода клиенты API должны быть способны восстановить
+      своё состояние.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/01-api-patterns-context.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: устойчивость к исключениям
+      application: архитектор.
+    open_questions: []
+  - id: APIB-078
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Чем больше партнёров подключено к API, тем выше вероятность логических ошибок использования API
+      наряду с физическими сетевыми ошибками; проектирование должно предотвращать отказ в обслуживании одних
+      партнёров из-за ошибок в коде других.
+    excerpt:
+      вы должны ожидать не только физических ошибок, связанных с состоянием сети или перегруженностью
+      сервера, но и логических, связанных с неправильным использованием API.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/01-api-patterns-context.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: устойчивость к ошибкам партнёров
+      application: архитектор.
+    open_questions: []
+  - id: APIB-079
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      "При проектировании API нельзя полагаться на быстрое выполнение критических действий: многошаговые
+      операции должны допускать продолжение с текущего шага, а операции с разделяемыми ресурсами — требовать
+      механизмов блокировки."
+    excerpt: при проектировании API нельзя полагаться на то, что критические действия выполнятся быстро.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/01-api-patterns-context.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: непредсказуемые задержки
+      application: архитектор.
+    open_questions: []
+  - id: APIB-080
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      "Существуют два основных способа авторизации вызовов API: выполнение операций от имени специального
+      аккаунта-«робота» либо авторизация вызывающей системы целиком (обычно через API-ключи, подписи или
+      сертификаты); они различаются гранулярностью доступа."
+    excerpt:
+      по большому счёту, есть два основных способа авторизовать выполнение некоторой операции через
+      API.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/02-api-patterns-aa.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: способы авторизации API
+      application: архитектор.
+    open_questions: []
+  - id: APIB-081
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Авторизация через аккаунт-«робота» требует специальных исключений из систем безопасности (обход
+      капчи, куки, длинные токены с обновлением через refresh-токен), поскольку боты выполняют много параллельных
+      запросов и не могут проходить обычные проверки.
+    excerpt: Необходимо сделать для пользователей-роботов исключения из почти всех систем безопасности.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/02-api-patterns-aa.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: авторизация через роботов
+      application: разработчик.
+    open_questions: []
+  - id: APIB-082
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Авторизация по API-ключу проще во внедрении, чем схема с аккаунтами-роботами, и обычно позволяет
+      ограничить набор доступных эндпойнтов, но более гранулярные ограничения на уровне бизнес-сущностей
+      значительно сложнее в разработке и применяются редко.
+    excerpt: второй подход с авторизацией клиентов через API-ключи более прост в имплементации.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/02-api-patterns-aa.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: авторизация по API-ключу
+      application: разработчик.
+    open_questions: []
+  - id: APIB-083
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Если API идемпотентен, проблема повторной обработки одного и того же запроса решается автоматически,
+      но не все реальные операции (например, создание нового заказа) идемпотентны сами по себе, и клиента
+      нельзя полностью защитить от ручного повторного создания заказа пользователем.
+    excerpt: Если ваш API идемпотентен, то никакой повторной обработки запроса не будет происходить.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/03-api-patterns-sync-strategies.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: идемпотентность и синхронизация
+      application: архитектор.
+    open_questions: []
+  - id: APIB-084
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Программные блокировки (пессимистичная синхронизация) в распределённых сетевых API создают непредсказуемые
+      задержки, требуют отдельной высокопроизводительной подсистемы сильной консистентности и порождают
+      риск «висящих» блокировок из-за некорректного партнёрского кода.
+    excerpt: подобного рода подход крайне редко реализуется в распределённых сетевых API.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/03-api-patterns-sync-strategies.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: программные блокировки
+      application: архитектор.
+    open_questions: []
+  - id: APIB-085
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Оптимистичное управление параллелизмом через версионирование ресурса (версия, дата модификации
+      или ETag) прячет сложность синхронизации внутри системы, но требует от клиентов обязательной корректной
+      обработки ошибок несовпадения версий как штатного поведения.
+    excerpt:
+      Достоинством оптимистичного управления параллелизмом является, таким образом, возможность «спрятать»
+      сложную в имплементации и масштабировании часть «под капотом».
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/03-api-patterns-sync-strategies.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: оптимистичное управление параллелизмом
+      application: архитектор.
+    open_questions: []
+  - id: APIB-086
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Если API уже опубликован с определённой моделью консистентности, уровень консистентности нельзя
+      понижать в дальнейшем (например, менять строгую консистентность на слабую), даже если поведение никогда
+      не документировалось явно.
+    excerpt:
+      если вы уже предоставляете эндпойнт, реализующий какую-то модель консистентности, вы не можете
+      понизить её уровень.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/04-api-patterns-weak-consistency.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: слабая консистентность
+      application: архитектор.
+    open_questions: []
+  - id: APIB-087
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Модель «read-your-writes» гарантирует клиенту видимость собственных изменений при чтении из реплик
+      путём передачи серверу токена последней известной операции или версии ресурса.
+    excerpt:
+      имплементация модели «read-your-writes» — а именно гарантии, что клиент всегда «видит» те изменения,
+      которые сам же и внёс.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/04-api-patterns-weak-consistency.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: read-your-writes
+      application: архитектор.
+    open_questions: []
+  - id: APIB-088
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Вероятность коллизии при слабой консистентности равна отношению времени, требуемого для получения
+      актуального состояния (задержки репликации), к типичному интервалу, за который клиент повторяет операцию;
+      для серверных клиентов, повторяющих запрос почти мгновенно, этот фон ошибок существенно выше, чем
+      для клиентских приложений.
+    excerpt:
+      "Математически вероятность получения ошибки выражается довольно просто: она равна отношению
+      периода времени, требуемого для получения актуального состояния к типичному периоду времени, за который
+      пользователь перезапускает приложение и повторяет заказ."
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/04-api-patterns-weak-consistency.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: риски событийной консистентности
+      application: архитектор.
+    open_questions: []
+  - id: APIB-089
+    source_id: APIB
+    item_id: APIB-md
+    kind: observation
+    status: ready_for_review
+    text:
+      Постоянный фоновый уровень ошибок, вызванный слабой консистентностью, затрудняет обнаружение реальных,
+      независимых от неё ошибок в коде, поскольку осложняет настройку мониторинга, отделяющего эти два класса
+      ошибок друг от друга.
+    excerpt: на фоне имеющихся ошибок найти её весьма непросто.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/04-api-patterns-weak-consistency.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: маскировка ошибок фоном
+      application: архитектор.
+    open_questions: []
+  - id: APIB-090
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Асинхронная схема с созданием лёгкого задания вместо немедленного выполнения операции сокращает
+      временной интервал возможной коллизии, потому что публикация факта «принятия к созданию» распространяется
+      по репликам быстрее, чем полное выполнение операции.
+    excerpt:
+      наша цель — максимально быстро распространить по репликам знание о том, что заказ *принят к
+      созданию*.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/05-api-patterns-async.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: асинхронные задания
+      application: архитектор.
+    open_questions: []
+  - id: APIB-091
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      "Повсеместное применение асинхронности во внешнем API создаёт проблемы: единая точка отказа через
+      общий сервис очередей, усложнение партнёрского кода из-за отсутствия гарантии времени обработки, риски
+      потери или дублирования заданий и размытие смысла SLA."
+    excerpt:
+      несмотря на свою привлекательность, повсеместная асинхронность влечёт за собой ряд достаточно
+      неприятных проблем.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/05-api-patterns-async.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: риски избыточной асинхронности
+      application: архитектор.
+    open_questions: []
+  - id: APIB-092
+    source_id: APIB
+    item_id: APIB-md
+    kind: inference
+    status: ready_for_review
+    text:
+      Рекомендуется ограничивать применение асинхронных интерфейсов только теми случаями, где они действительно
+      критически важны, и по возможности встраивать асинхронную задачу в бизнес-логику как обычный статус
+      ресурса, а не как отдельную сущность «задание».
+    excerpt:
+      мы всё же склонны рекомендовать ограничиться асинхронными интерфейсами только там, где они
+      действительно критически важны.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/05-api-patterns-async.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: рекомендация по асинхронности
+      application: архитектор.
+    open_questions: []
+  - id: APIB-093
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Перебор изменяющихся списков через параметры limit/offset приводит к пропуску или дублированию
+      элементов при изменении данных между запросами страниц, и API должно предоставлять способы перебора,
+      гарантирующие получение полного и целостного набора данных.
+    excerpt:
+      API должно предоставлять способы перебора больших списков, которые гарантируют клиенту получение
+      полного и целостного набора данных.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/06-api-patterns-lists.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: пагинация изменяющихся списков
+      application: архитектор.
+    open_questions: []
+  - id: APIB-094
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Для пополняемых списков с неизменяемыми данными перебор по монотонно растущему идентификатору
+      или курсору (в отличие от offset) обеспечивает кэшируемость запросов и корректный обход новых и старых
+      элементов.
+    excerpt:
+      Первый формат запроса позволяет решить задачу (1)... Важно, что первый запрос при этом ещё
+      и кэшируемый.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/06-api-patterns-lists.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: курсорная пагинация
+      application: разработчик.
+    open_questions: []
+  - id: APIB-095
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Непрозрачный (закодированный) курсор позволяет менять нижележащую технологию перебора данных и
+      добавлять новые фильтры и сортировки без слома обратной совместимости, тогда как читаемый формат курсора
+      вынуждает поддерживать его структуру как публичный контракт.
+    excerpt:
+      предоставление читаемых курсоров будет означать, что вы теперь обязаны поддерживать формат
+      курсора, даже если никогда его не документировали.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/06-api-patterns-lists.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: непрозрачность курсора
+      application: архитектор.
+    open_questions: []
+  - id: APIB-096
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      "Поллинг всегда требует компромисса между отзывчивостью и нагрузкой на систему: более редкие опросы
+      увеличивают задержку и объём данных за итерацию, более частые — увеличивают долю бесполезных запросов
+      и фоновый трафик."
+    excerpt:
+      поллинг всегда заставляет искать компромисс между отзывчивостью, производительностью и пропускной
+      способностью системы.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/07-api-patterns-push-vs-poll.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: компромиссы поллинга
+      application: архитектор.
+    open_questions: []
+  - id: APIB-097
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Доставка push-уведомлений на устройство конечного пользователя никогда не достигает 100% успешности,
+      из-за чего рекомендуется комбинированная модель, в которой push служит триггером для внеочередного
+      поллинга, а не заменяет его полностью.
+    excerpt:
+      процент успешной доставки уведомлений никогда не равен 100; потери сообщений могут достигать
+      десятков процентов.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/07-api-patterns-push-vs-poll.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: ненадёжность push-доставки
+      application: архитектор.
+    open_questions: []
+  - id: APIB-098
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Для доставки сообщений backend-to-backend в публичных API практически безальтернативной технологией
+      является webhook (URL обратного вызова), тогда как дуплексные и низкоуровневые push-технологии применяются
+      редко.
+    excerpt:
+      В случае публичных API практически безальтернативно такой технологией является использование
+      URL обратного вызова (т.н. «webhook»).
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/07-api-patterns-push-vs-poll.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: webhook как канал backend-to-backend
+      application: архитектор.
+    open_questions: []
+  - id: APIB-099
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      "Задание партнёром произвольного URL webhook-а без строгого контроля создаёт риски атак: перехват
+      потока данных партнёра, использование как канала DoS-атаки на сторонние сервисы или SSRF-атаки на
+      инфраструктуру провайдера API, поэтому изменение адреса webhook-а требует усиленной авторизации (например,
+      второго фактора)."
+    excerpt:
+      получив доступ к такой функциональности, злоумышленник может совершить множество весьма неприятных
+      атак.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/07-api-patterns-push-vs-poll.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: безопасность настройки webhook
+      application: архитектор.
+    open_questions: []
+  - id: APIB-100
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Технологии доставки сообщений (push-уведомления, серверные очереди, webhook-и на веб-серверах
+      партнёров) ограничены размером сообщения; выбор между передачей полного состояния в теле уведомления
+      и передачей только идентификатора события с последующим запросом за данными определяет надёжность
+      отслеживания факта обработки события.
+    excerpt: относительно невысокий размер сообщения... Наиболее проблематичная ситуация с push-уведомлениями.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/08-api-patterns-async-event-processing.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: лимиты размера сообщений
+      application: архитектор.
+    open_questions: []
+  - id: APIB-101
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Если webhook-уведомление содержит только ссылку на событие, а не полные данные, необходимо различать
+      статусы «сообщение доставлено» и «сообщение обработано», иначе теряется возможность мониторинга состояния
+      интеграции партнёра.
+    excerpt: нам необходимо иметь раздельные статусы — сообщение доставлено и сообщение обработано.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/08-api-patterns-async-event-processing.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: статусы обработки событий
+      application: архитектор.
+    open_questions: []
+  - id: APIB-102
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Для эндпойнтов массовых изменений существует четыре базовых варианта гарантий (атомарность с идемпотентностью,
+      идемпотентность без атомарности, отсутствие обеих гарантий, запрет перезапросов через ревизию ресурса),
+      и каждый вариант влияет на то, какой код должен написать партнёр для обработки частичных сбоев.
+    excerpt: Мы можем предложить по крайней мере четыре варианта.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/09-api-patterns-atomicity.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: варианты гарантий массовых операций
+      application: архитектор.
+    open_questions: []
+  - id: APIB-103
+    source_id: APIB
+    item_id: APIB-md
+    kind: inference
+    status: ready_for_review
+    text:
+      Атомарный эндпойнт массовых изменений, содержащий хотя бы один неисправимый повторением невалидный
+      подзапрос, блокирует выполнение и валидных подзапросов при каждом повторе, тогда как неатомарный сервер
+      продолжает выполнять валидные операции; это указывает на нежелательность самих эндпойнтов массовых
+      изменений как класса.
+    excerpt:
+      сколько бы он запрос ни повторял, валидные подзапросы не будут выполнены, если есть хоть один
+      невалидный.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/09-api-patterns-atomicity.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: проблема атомарности массовых операций
+      application: архитектор.
+    open_questions: []
+  - id: APIB-104
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Ответ сервера на массовую операцию должен содержать разбивку результатов по каждому подзапросу
+      (список ошибок для атомарных эндпойнтов, список статусов для неатомарных), а группировка потенциально
+      зависимых операций по общему идентификатору сущности снижает риск несогласованных частичных результатов.
+    excerpt: ответы сервера должны включать разбивку по подзапросам.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/09-api-patterns-atomicity.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: детализация ответа массовой операции
+      application: разработчик.
+    open_questions: []
+  - id: APIB-105
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Наивная схема частичных обновлений через специальные «магические» значения полей (передача только
+      изменённых полей) перекладывает вычисление diff-а на клиента, не отменяет обязанность сервера уметь
+      делать то же самое, и перестаёт работать корректно, когда результат зависит от порядка выполнения
+      операций.
+    excerpt: Все эти соображения, однако, на поверку оказываются мнимыми.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/10-api-patterns-partial-updates.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: наивные частичные обновления
+      application: архитектор.
+    open_questions: []
+  - id: APIB-106
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Декомпозиция эндпойнта на независимые идемпотентные суб-эндпойнты с собственными адресами делает
+      результат частичного обновления независимым от порядка выполнения операций и отделяет неизменяемые
+      и вычисляемые поля от изменяемых.
+    excerpt:
+      разделить эндпойнт на несколько идемпотентных суб-эндпойнтов, имеющих независимые идентификаторы
+      и/или адреса.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/10-api-patterns-partial-updates.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: декомпозиция частичных обновлений
+      application: архитектор.
+    open_questions: []
+  - id: APIB-107
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Для «настоящего» совместного редактирования ресурса требуется отдельный гранулярный формат описания
+      изменений (по одному действию клиента на операцию) с явной политикой разрешения конфликтов, а не перезапись
+      объекта целиком.
+    excerpt:
+      Для «настоящего» совместного редактирования необходимо будет разработать отдельный формат описания
+      изменений.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/10-api-patterns-partial-updates.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: совместное редактирование
+      application: архитектор.
+    open_questions: []
+  - id: APIB-108
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Предсказуемость поведения API для партнёра означает не низкий процент ошибок как таковой, а то,
+      насколько явно из документации и номенклатуры ошибок понятно, какие типовые проблемы могут возникнуть
+      и какой код нужно написать для их обработки.
+    excerpt:
+      для разработчиков-партнёров понятие «предсказуемость поведения API» имеет совершенно другой
+      смысл.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/11-api-patterns-degrading.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: предсказуемость API для партнёра
+      application: архитектор.
+    open_questions: []
+  - id: APIB-109
+    source_id: APIB
+    item_id: APIB-md
+    kind: inference
+    status: ready_for_review
+    text:
+      Рекомендуется включать в саму ошибку рекомендации по восстановлению отдельно для конечного пользователя
+      и для разработчика, документировать некритичность отдельных ошибок и предусматривать понятное поведение
+      по умолчанию для неизвестных клиенту ошибок, включая ошибки транспортного уровня без подсказок от
+      бэкенда.
+    excerpt: если вы можете включить в саму ошибку рекомендации, как с ней бороться — сделайте это не раздумывая.
+    artifact: ../md/03-Раздел II. Паттерны дизайна API/11-api-patterns-degrading.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: рекомендации по деградации
+      application: разработчик.
+    open_questions: []
+  - id: APIB-110
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Первое поколение RPC-протоколов (Sun RPC, Java RMI, CORBA) жёстко привязывало клиента и сервер
+      к конкретному языку и платформе; например, Sun RPC не работал под Windows, Java RMI требовал JVM,
+      а заявленная кроссплатформенность CORBA плохо реализовывалась на практике.
+    excerpt: RPC первого поколения диктуют выбор языка и платформы и для клиента, и для сервера.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/01-http-api-concepts.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: ограничения RPC первого поколения
+      application: архитектор.
+    open_questions: []
+  - id: APIB-111
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      В ресурсоориентированной (REST/HTTP) парадигме клиент не вызывает удалённую процедуру с параметрами,
+      а указывает серверу адрес (локатор) ресурса, к которому применяется одна из ограниченного и стандартизированного
+      набора операций.
+    excerpt:
+      клиент указывает серверу абстрактный адрес (локатор) фрагмента данных (ресурса), к которому
+      он хочет применить операцию.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/01-http-api-concepts.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: инверсия парадигмы RPC в REST
+      application: архитектор.
+    open_questions: []
+  - id: APIB-112
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      В ресурсоориентированной парадигме клиент и сервер принципиально не имеют разделяемого состояния
+      — все параметры, необходимые для выполнения операции, должны передаваться явно в каждом запросе.
+    excerpt:
+      клиент и сервер независимы и принципиально не имеют никакого разделяемого состояния; все необходимые
+      для исполнения операции параметры должны быть переданы явно.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/01-http-api-concepts.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: отсутствие разделяемого состояния
+      application: архитектор.
+    open_questions: []
+  - id: APIB-113
+    source_id: APIB
+    item_id: APIB-md
+    kind: observation
+    status: ready_for_review
+    text:
+      Автор книги намеренно вводит собственный практический термин «HTTP API» / «JSON-over-HTTP API»
+      (HTTP 1.1+, JSON, URL по стандарту, семантика вызовов по спецификации, отсутствие сознательных нарушений
+      веб-стандартов) и избегает термина «REST API», поскольку у последнего нет консистентного определения.
+    excerpt: Такое API мы будем для краткости называть просто «HTTP API» или «JSON-over-HTTP API».
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/01-http-api-concepts.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: рабочее определение «HTTP API»
+      application: аналитик.
+    open_questions: []
+  - id: APIB-114
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      "Главный практический принцип разработки HTTP API, по утверждению автора: разрабатывать API так,
+      чтобы промежуточные агенты (клиентские фреймворки, прокси, API-гейтвеи) могли читать и интерпретировать
+      метаданные запроса и ответа без дополнительного кода."
+    excerpt:
+      лучше бы ты разрабатывал API так, чтобы промежуточные агенты могли читать и интерпретировать
+      метаданные запроса и ответа.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/02-http-api-pros-and-cons.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: главный принцип HTTP API
+      application: архитектор.
+    open_questions: []
+  - id: APIB-115
+    source_id: APIB
+    item_id: APIB-md
+    kind: observation
+    status: ready_for_review
+    text:
+      "Главный недостаток HTTP API зеркален его преимуществу: та же способность промежуточных агентов
+      читать и действовать по метаданным запроса проявляется и без ведома разработчика, а сложность стандарта
+      HTTP приводит к тому, что метаданные могут трактоваться неверно."
+    excerpt: промежуточные агенты... могут трактовать метаданные запроса неправильно.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/02-http-api-pros-and-cons.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: обратная сторона метаданных
+      application: архитектор.
+    open_questions: []
+  - id: APIB-116
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      По утверждению автора, сжатие gzip/brotli практически нивелирует разницу в размере между JSON
+      и бинарными форматами, а оптимизированные десериализаторы (например, simdjson) снимают проблему производительности
+      разбора JSON почти для всех API, кроме экзотических.
+    excerpt:
+      использование gzip практически нивелирует разницу в размере JSON документов относительно альтернативных
+      бинарных форматов.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/02-http-api-pros-and-cons.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: производительность JSON-over-HTTP
+      application: архитектор.
+    open_questions: []
+  - id: APIB-117
+    source_id: APIB
+    item_id: APIB-md
+    kind: inference
+    status: ready_for_review
+    text:
+      Для публичных API JSON-over-HTTP является выбором по умолчанию из-за широкой понятности и кроссплатформенности
+      клиентов, тогда как узкоспециализированные RPC-фреймворки (например, Apache Avro) уместны в узкоспециализированных
+      внутренних системах.
+    excerpt: для публичных API предоставление JSON-over-HTTP эндпойнтов является выбором по умолчанию.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/02-http-api-pros-and-cons.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: выбор технологии API
+      application: архитектор.
+    open_questions: []
+  - id: APIB-118
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      "gRPC сочетает HTTP/2 и Protobuf, contract-first подход и кодогенерацию, но имеет недостатки:
+      сложность отладки, слабую поддержку браузеров, меньшую распространённость и потенциальную зависимость
+      от Google."
+    excerpt:
+      "К недостаткам gRPC следует отнести: сложность декодирования сообщений и отладки коммуникации;
+      слабую поддержку браузеров."
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/02-http-api-pros-and-cons.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: сильные и слабые стороны gRPC
+      application: архитектор.
+    open_questions: []
+  - id: APIB-119
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      GraphQL подходит для насыщенных разнородными данными предметных областей с богатым языком запросов,
+      но предоставление внешних GraphQL API — редкость, поскольку с ростом объёма данных и запросов таким
+      сервисом становится сложно управлять.
+    excerpt:
+      Предоставление внешних GraphQL API на сегодня скорее экзотика, поскольку с ростом количества
+      данных и запросов GraphQL-сервисом становится очень сложно управлять.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/02-http-api-pros-and-cons.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: область применения GraphQL
+      application: архитектор.
+    open_questions: []
+  - id: APIB-120
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Диссертация Филдинга 2000 года («REST») представляет собой абстрактный обзор ограничений распределённой
+      сетевой архитектуры, не привязанный к HTTP или URL, и не содержит правил дизайна API.
+    excerpt:
+      она представляет собой абстрактный обзор распределённой сетевой архитектуры, вообще не привязанной
+      ни к HTTP, ни к URL.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/03-http-api-rest-myth.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: природа диссертации Филдинга
+      application: аналитик.
+    open_questions: []
+  - id: APIB-121
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      "Филдинг перечисляет шесть ограничений REST: клиент-серверная архитектура, stateless-дизайн, разметка
+      кэшируемости данных, стандартизация интерфейсов взаимодействия, многослойность сети и возможность
+      расширения клиента кодом с сервера (code-on-demand)."
+    excerpt:
+      клиент и сервер не знают внутреннего устройства друг друга (клиент-серверная архитектура);
+      сессия хранится на клиенте (stateless-дизайн).
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/03-http-api-rest-myth.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: шесть ограничений REST по Филдингу
+      application: архитектор.
+    open_questions: []
+  - id: APIB-122
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      В разъяснении 2008 года Филдинг ужесточил трактовку REST — клиент не должен обладать никаким априорным
+      знанием об API, все операции и ссылки должны извлекаться из гипермедиа-представлений ресурсов (HATEOAS);
+      по утверждению автора книги, этому требованию не удовлетворяет ни одна реально существующая система.
+    excerpt: ни одна существующая система в мире не удовлетворяет описанию REST по Филдингу-2008.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/03-http-api-rest-myth.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: REST по Филдингу-2008 и HATEOAS
+      application: архитектор.
+    open_questions: []
+  - id: APIB-123
+    source_id: APIB
+    item_id: APIB-md
+    kind: inference
+    status: ready_for_review
+    text:
+      Автор книги сознательно не использует термины «REST API» и «RESTful API» в последующих главах
+      из-за их неформальности и отсутствия консистентного смысла, заменяя их термином «HTTP API».
+    excerpt:
+      Термин «архитектурный стиль REST» и производный от него «REST API» в последующих главах мы
+      использовать не будем.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/03-http-api-rest-myth.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: отказ от термина REST API
+      application: аналитик.
+    open_questions: []
+  - id: APIB-124
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Актуальная семантика HTTP описана в RFC 9110, заменившем девять предыдущих спецификаций; при этом
+      кэширование регулируется отдельным RFC 9111, а широко используемый в API метод PATCH — отдельным RFC
+      5789, а не основным RFC.
+    excerpt:
+      RFC 9110... заменил аж девять предыдущих спецификаций... метод PATCH так и не вошёл в основной
+      RFC.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/04-http-api-requests-semantics.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: спецификации HTTP-семантики
+      application: разработчик.
+    open_questions: []
+  - id: APIB-125
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Каждый HTTP-глагол однозначно определяет семантику операции и её побочные свойства; GET безопасен
+      и идемпотентен без тела, PUT заменяет ресурс целиком и идемпотентен с телом, DELETE удаляет ресурс
+      и идемпотентен без тела, POST не безопасен и не идемпотентен с телом, PATCH частично модифицирует
+      ресурс и не безопасен и не идемпотентен с телом.
+    excerpt: GET... Возвращает представление ресурса... PUT... Заменяет (полностью перезаписывает) ресурс.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/04-http-api-requests-semantics.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: таблица свойств HTTP-глаголов
+      application: разработчик.
+    open_questions: []
+  - id: APIB-126
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      URL запроса служит ключом идемпотентности для модифицирующих идемпотентных глаголов — повторный
+      PUT /url должен приводить к тому же состоянию ресурса, повторный DELETE /url должен оставлять его
+      удалённым, а последующий GET /url должен возвращать представление, консистентное с последним PUT,
+      или 404/410 после DELETE.
+    excerpt: URL запроса является его ключом идемпотентности... DELETE /url обязан удалить указанный ресурс.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/04-http-api-requests-semantics.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: URL как ключ идемпотентности
+      application: разработчик.
+    open_questions: []
+  - id: APIB-127
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Частый антипаттерн дизайна HTTP API — размещение модифицирующих операций за GET (риск кэширования
+      и автоматического повтора промежуточными агентами), неидемпотентных операций за PUT/DELETE, и нарушение
+      требования симметрии между GET, PUT и DELETE над одним и тем же ресурсом.
+    excerpt:
+      Один из самых частых антипаттернов разработки HTTP API — это использование HTTP-глаголов в
+      нарушение их семантики.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/04-http-api-requests-semantics.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: антипаттерны выбора глаголов
+      application: разработчик.
+    open_questions: []
+  - id: APIB-128
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Статус-коды HTTP делятся на пять групп по первой цифре (1xx–5xx); согласно спецификации, если
+      клиент не знает конкретный код ошибки, он обязан вести себя так же, как при получении соответствующего
+      кода x00 из той же группы.
+    excerpt:
+      если возвращаемый сервером код ошибки xyz неизвестен клиенту, согласно спецификации клиент
+      обязан выполнить то действие, которое выполнил бы при получении ошибки x00.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/04-http-api-requests-semantics.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: группы статус-кодов и фолбэк
+      application: разработчик.
+    open_questions: []
+  - id: APIB-129
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      По умолчанию коды 4xx не кэшируются, за исключением 404, 405, 410 и 414, которые кэшируются по
+      умолчанию.
+    excerpt: "По умолчанию все 4xx коды не кэшируются, за исключением: 404, 405, 410, 414."
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/04-http-api-requests-semantics.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: кэшируемость кодов 4xx
+      application: разработчик.
+    open_questions: []
+  - id: APIB-130
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Разные части HTTP-запроса имеют разные общепринятые правила кейсинга (kebab-case для домена, заголовков
+      и пути; snake_case для query; snake_case или camelCase для тела), причём знак подчёркивания недопустим
+      в доменных именах, что делает единый кейсинг во всех частях запроса невозможным.
+    excerpt:
+      kebab-case для домена, заголовков и пути; snake_case для query-параметров; snake_case или camelCase
+      для тела запроса.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/04-http-api-requests-semantics.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: кейсинг параметров по частям запроса
+      application: разработчик.
+    open_questions: []
+  - id: APIB-131
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Практическое применение принципов REST к HTTP означает — URL операции должен идентифицировать
+      ресурс и служить ключом кэширования для GET и ключом идемпотентности для PUT/DELETE, глаголы используются
+      по семантике, а свойства операции, заголовки и статус-коды соответствуют спецификации.
+    excerpt:
+      URL операции должен идентифицировать ресурс, к которому применяется действие, и быть ключом
+      кэширования для GET и ключом идемпотентности — для PUT и DELETE.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/05-http-api-rest-organizing.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: применение REST к HTTP на практике
+      application: архитектор.
+    open_questions: []
+  - id: APIB-132
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      В примере декомпозиции монолита на микросервисы явная передача user_id между сервисами (вместо
+      повторного извлечения его из токена аутентификации внутри каждого сервиса) устраняет лишнюю нагрузку
+      на авторизационный сервис и делает нижестоящие сервисы stateless относительно чужого контекста.
+    excerpt:
+      мы переформулировали запрос так, что он не требует от (микро)сервиса обращаться за данными
+      за пределами его области ответственности.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/05-http-api-rest-organizing.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: явная передача user_id между сервисами
+      application: архитектор.
+    open_questions: []
+  - id: APIB-133
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      HTTP-кэширование на основе ревизии ресурса можно реализовать через заголовок ETag — сервис возвращает
+      ревизию в ETag, а при повторном запросе гейтвей отправляет условный GET с If-None-Match и получает
+      304 Not Modified, если данные не изменились.
+    excerpt: если сервис C отвечает статусом 304 Not Modified, вернуть данные из кэша.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/05-http-api-rest-organizing.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: кэширование через ETag и If-None-Match
+      application: разработчик.
+    open_questions: []
+  - id: APIB-134
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Рекомендуемый принцип проектирования микросервисов — каждый сервис должен иметь чётко очерченную
+      зону ответственности и не хранить данные, относящиеся к другим уровням абстракции; «внешние» данные
+      трактуются им только как идентификаторы контекста.
+    excerpt:
+      микросервисы разрабатываются так, чтобы иметь чётко очерченную зону ответственности и не хранить
+      данные, относящиеся к другим уровням абстракции.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/05-http-api-rest-organizing.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: границы ответственности микросервисов
+      application: архитектор.
+    open_questions: []
+  - id: APIB-135
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Оптимистичное управление параллелизмом реализуется передачей клиентом заголовка If-Match с актуальной
+      ревизией ресурса при модифицирующем запросе, что одновременно служит и защитой от гонок, и ключом
+      кэша.
+    excerpt: клиент должен передать в запросе актуальную ревизию ресурса orders.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/05-http-api-rest-organizing.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: If-Match и оптимистичная конкурентность
+      application: разработчик.
+    open_questions: []
+  - id: APIB-136
+    source_id: APIB
+    item_id: APIB-md
+    kind: inference
+    status: ready_for_review
+    text:
+      При полностью stateless-запросах и правильном использовании HTTP-кэширования гейтвей между клиентом
+      и сервисами становится необязательным звеном — его функции можно перенести на сторону клиента.
+    excerpt:
+      мы получили систему, в которой мы можем убрать гейтвей D и возложить его функции непосредственно
+      на клиентский код.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/05-http-api-rest-organizing.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: устранимость гейтвея
+      application: архитектор.
+    open_questions: []
+  - id: APIB-137
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Правила организации URL (path для строгой иерархии, query для нестрогих отношений и параметров
+      операции) существуют только для читабельности кода и удобства разработчика — ни стандарты HTTP/URL,
+      ни принципы REST не предписывают этим компонентам конкретной семантики.
+    excerpt: Правила организации URL в HTTP API существуют только для читабельности кода и удобства разработчика.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/06-http-api-urls-crud.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: назначение правил номенклатуры URL
+      application: архитектор.
+    open_questions: []
+  - id: APIB-138
+    source_id: APIB
+    item_id: APIB-md
+    kind: inference
+    status: ready_for_review
+    text:
+      Автор рекомендует размещать версию API в пути (path), а не в query-параметре или заголовке, поскольку
+      остальные способы имеют смысл только если номенклатура URL при смене мажорной версии остаётся прежней,
+      а в этом случае нет и необходимости нарушать обратную совместимость.
+    excerpt:
+      все остальные способы сделать это имеют смысл, если и только если при изменении мажорной версии
+      протокола номенклатура URL останется прежней.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/06-http-api-urls-crud.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: размещение версии API в URL
+      application: архитектор.
+    open_questions: []
+  - id: APIB-139
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Соответствие CRUD-операций HTTP-глаголам (POST — создание, GET — чтение, PUT/PATCH — редактирование,
+      DELETE — удаление) — это лишь мнемоническое правило; глагол всегда следует выбирать по его семантике
+      из стандарта, а не по мнемонике.
+    excerpt: глагол следует выбирать по его семантике согласно стандарту, а не по мнемоническим правилам.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/06-http-api-urls-crud.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: CRUD-мнемоника против семантики
+      application: разработчик.
+    open_questions: []
+  - id: APIB-140
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Идемпотентное создание ресурса можно реализовать тремя способами — POST с токеном идемпотентности,
+      PUT с идентификатором, сгенерированным клиентом, или схемой «черновик–подтверждение»; автор считает
+      схему «черновик–подтверждение» предпочтительнее PUT с клиентским ID.
+    excerpt:
+      Метод (2) в современных системах используется редко, так как вынуждает доверять правильности
+      генерации идентификатора заказа клиентом.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/06-http-api-urls-crud.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: три способа идемпотентного создания
+      application: разработчик.
+    open_questions: []
+  - id: APIB-141
+    source_id: APIB
+    item_id: APIB-md
+    kind: observation
+    status: ready_for_review
+    text:
+      На практике номенклатура CRUD-эндпойнтов быстро вырастает с 2 URL и 4–5 методов до примерно 8
+      URL и 9–10 методов, если требуются контроль параллелизма при создании, совместное редактирование,
+      архивирование и поиск с фильтрацией.
+    excerpt: то мы быстро придём к номенклатуре из 8 URL и 9-10 методов.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/06-http-api-urls-crud.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: рост номенклатуры CRUD-эндпойнтов
+      application: архитектор.
+    open_questions: []
+  - id: APIB-142
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Для полного описания ошибки каждому из трёх акторов (пользователь, клиент, сервер) нужны ответы
+      на четыре вопроса — кто допустил ошибку, можно ли исправить её простым повтором запроса, можно ли
+      исправить переформулированием запроса, и что делать, если исправить нельзя вовсе.
+    excerpt: Каждому из этих акторов необходимо понимать ответ на четыре вопроса относительно ошибки.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/07-http-api-errors.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: четыре вопроса об ошибке
+      application: архитектор.
+    open_questions: []
+  - id: APIB-143
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Повтор запроса при получении 4xx обычно бессмыслен, за исключением 429 Too Many Requests и 404
+      Not Found — последний по стандарту означает «состояние неопределённости» и допускает успешный повтор;
+      для персистентного отсутствия ресурса используется отдельный код 410 Gone.
+    excerpt:
+      по стандарту имеет смысл «состояния неопределённости»... После получения ошибки 404, можно
+      сделать повторный запрос.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/07-http-api-errors.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: повторяемость ошибок 404 и 429
+      application: разработчик.
+    open_questions: []
+  - id: APIB-144
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Де-факто стандартом стало возвращать 401 Unauthorized при отсутствии заголовков авторизации или
+      невалидном токене, хотя это формально противоречит спецификации, требующей при 401 обязательно указывать
+      заголовок WWW-Authenticate.
+    excerpt:
+      сегодня де-факто стандартом является возврат кода 401 Unauthorized при отсутствии заголовков
+      авторизации или невалидном токене.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/07-http-api-errors.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: 401 Unauthorized де-факто и де-юре
+      application: разработчик.
+    open_questions: []
+  - id: APIB-145
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      "На практике множество разнородных бизнес-ошибок сводят к небольшому набору кодов: 400 (валидация
+      запроса), 403 (авторизация), 404 (не найдено или скрытая причина), 409 (конфликт целостности), 410
+      (удалено), 429 (превышение лимитов)."
+    excerpt: 400 Bad Request для всех ошибок валидации запроса.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/07-http-api-errors.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: базовый набор кодов бизнес-ошибок
+      application: разработчик.
+    open_questions: []
+  - id: APIB-146
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      RFC 9457 (Problem Details for HTTP APIs) покрывает только базовый сценарий описания ошибок — не
+      передаёт подтип ошибки, не разделяет сообщения для пользователя и для разработчика, а конкретный машиночитаемый
+      формат деталей остаётся на усмотрение разработчика.
+    excerpt: она покрывает только самый базовый сценарий, подтип ошибки не передаётся в мета-информации.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/07-http-api-errors.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: ограничения RFC 9457
+      application: разработчик.
+    open_questions: []
+  - id: APIB-147
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      HTTP-клиенты по умолчанию автоматически повторяют только немодифицирующие запросы (GET, HEAD,
+      OPTIONS); повтор модифицирующих запросов требует, чтобы разработчик написал соответствующую логику
+      сам, сверившись с документацией API.
+    excerpt: безусловно повторяются только немодифицирующие (GET, HEAD, OPTIONS) запросы.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/07-http-api-errors.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: автоматический повтор запросов
+      application: разработчик.
+    open_questions: []
+  - id: APIB-148
+    source_id: APIB
+    item_id: APIB-md
+    kind: inference
+    status: ready_for_review
+    text:
+      Существует три подхода к организации ошибок HTTP API — расширительная трактовка номенклатуры статус-кодов,
+      полный отказ от статус-кодов в пользу тела ответа с кодом 200, и смешанный подход; по мнению автора,
+      только смешанный подход полностью соответствует стандарту.
+    excerpt: считать соответствующим стандарту можно только подход (3).
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/07-http-api-errors.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: три подхода к ошибкам HTTP API
+      application: архитектор.
+    open_questions: []
+  - id: APIB-149
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Рекомендуемая последовательность проектирования HTTP API — описать happy path, определить операции
+      над ресурсами и составить номенклатуру URL и методов, проанализировать возможные ошибки и восстановление
+      клиента, решить объём функциональности на уровне протокола HTTP, составить спецификацию и проверить
+      её псевдокодом бизнес-логики.
+    excerpt: Описать happy path.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/08-http-api-final-recommendations.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: последовательность проектирования HTTP API
+      application: архитектор.
+    open_questions: []
+  - id: APIB-150
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Рекомендация — всегда возвращать корневой JSON-объект в ответах эндпойнтов (не массив и не примитив),
+      чтобы сохранить возможность обратно-совместимого расширения ответа новыми полями; для отсутствия данных
+      лучше вернуть пустой объект или 204 No Content, а не пустую строку.
+    excerpt: всегда возвращайте корневой JSON-объект в ответах эндпойтов.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/08-http-api-final-recommendations.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: корневой JSON-объект для расширяемости
+      application: разработчик.
+    open_questions: []
+  - id: APIB-151
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Рекомендация — не изобретать собственный формат передачи массивов и вложенных объектов в query-строке,
+      а использовать HTTP-глагол, допускающий тело запроса, либо в крайнем случае Base64-кодированное JSON-поле;
+      не размещать в пути и домене параметры, требующие эскейпинга.
+    excerpt: не придумывайте свой стандарт для передачи массивов и вложенных объектов в query.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/08-http-api-final-recommendations.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: параметры сложной структуры в URL
+      application: разработчик.
+    open_questions: []
+  - id: APIB-152
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      "Рекомендация — поддержать метод OPTIONS и протокол CORS, если API может использоваться из браузеров,
+      и заложить защиту от типовых уязвимостей HTTP API: CSRF, SSRF, HTTP Response Splitting и Unvalidated
+      Redirects and Forwards."
+    excerpt: Поддержите метод OPTIONS и протокол CORS на случай, если ваш API захотят использовать из браузеров.
+    artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/08-http-api-final-recommendations.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: CORS и защита от типовых уязвимостей
+      application: разработчик.
+    open_questions: []
+  - id: APIB-153
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      В узком значении SDK — это клиентская библиотека, предоставляющая высокоуровневый (обычно нативный)
+      интерфейс к нижележащей платформе и, в частности, к клиент-серверному API.
+    excerpt:
+      это клиентская библиотека, которая предоставляет высокоуровневый (обычно, нативный) интерфейс
+      для работы с некоторой нижележащей платформой
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/01-sdk-toc-technology-overview.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Терминология SDK
+      application: архитектор.
+    open_questions: []
+  - id: APIB-154
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Автор разделяет клиентские инструменты на два вида — «SDK» как обёртки над клиент-серверным API
+      и «UI-библиотеки» как компоненты, с которыми конечный пользователь взаимодействует напрямую; UI-библиотека
+      может как включать обёртку над API, так и быть чистым графическим движком.
+    excerpt: мы будем называть первый тип инструментов просто «SDK», а второй — «UI-библиотеки»
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/01-sdk-toc-technology-overview.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Терминология SDK
+      application: архитектор.
+    open_questions: []
+  - id: APIB-155
+    source_id: APIB
+    item_id: APIB-md
+    kind: observation
+    status: ready_for_review
+    text:
+      Выбор фреймворка для веб-UI осложнён избыточным числом конкурирующих технологий без явного лидера,
+      и решение приходится принимать индивидуально для каждой платформы, измеряя долю рынка каждого фреймворка.
+    excerpt:
+      Вопрос «на каком фреймворке разрабатывать UI-компоненты для этих платформ», увы, не имеет простого
+      ответа
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/01-sdk-toc-technology-overview.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Выбор UI-фреймворка
+      application: архитектор.
+    open_questions: []
+  - id: APIB-156
+    source_id: APIB
+    item_id: APIB-md
+    kind: inference
+    status: ready_for_review
+    text:
+      Кросс-платформенные фреймворки (React Native, Flutter, Xamarin, JavaFX, Qt) дают скорость разработки
+      и универсальность кода и программистов ценой сложностей с производительностью и ограниченной доступностью
+      нативных инструментов отладки и профилирования.
+    excerpt: Несомненным преимуществом таких технологий является скорость разработки и универсальность
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/01-sdk-toc-technology-overview.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Кросс-платформенные фреймворки
+      application: архитектор.
+    open_questions: []
+  - id: APIB-157
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      SDK решает тривиальные проблемы адаптации API к языку платформы — форматы данных, стиль кодирования,
+      парадигму обработки ошибок и логику перезапросов с уважением заголовка Retry-After и растущих интервалов.
+    excerpt: достаточно адаптировать платформо-независимый формат API к правилам конкретного языка программирования
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/02-sdk-problems-solutions.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Тривиальные проблемы SDK
+      application: разработчик.
+    open_questions: []
+  - id: APIB-158
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      "Помимо тривиальных задач SDK должен решать проблемы более высокого порядка: разрешение ссылок
+      на сущности вместо голых идентификаторов, автоматическую подгрузку связанных объектов и кэширование,
+      удобную подписку на серверные события без ручных карт объектов и восстановление после ошибок бизнес-логики."
+    excerpt:
+      в клиент-серверных API данные передаются только по значению; чтобы сослаться на какую-то сущность,
+      необходимо использовать какие-то внешние идентификаторы
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/02-sdk-problems-solutions.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Проблемы SDK высокого порядка
+      application: архитектор.
+    open_questions: []
+  - id: APIB-159
+    source_id: APIB
+    item_id: APIB-md
+    kind: inference
+    status: ready_for_review
+    text:
+      Хорошо спроектированный SDK служит трём целям — снижает количество ошибок в клиентском коде, избавляет
+      разработчиков от ненужного им кода и даёт вендору API больше контроля над интеграциями, вплоть до
+      изоляции API и бесшовной смены его мажорных версий.
+    excerpt:
+      хорошо спроектированный SDK служит, помимо поддержания консистентности платформы и предоставления
+      «синтаксического сахара», трём важным целям
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/02-sdk-problems-solutions.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Цели проектирования SDK
+      application: архитектор.
+    open_questions: []
+  - id: APIB-160
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Кодогенерация по спецификации API (например, gRPC, OpenAPI/Swagger) автоматизирует типовые задачи
+      SDK — стиль кодирования, обработку исключений, сериализацию — но не решает проблем более высокого
+      порядка, таких как серверные события и восстановление после ошибок бизнес-логики, без доработки под
+      конкретный API.
+    excerpt:
+      проблемы более высокого порядка ... никак не может быть покрыта кодогенерацией, во всяком случае
+      — стандартным модулем без его доработки применительно к конкретному API
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/02-sdk-problems-solutions.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Кодогенерация SDK
+      application: архитектор.
+    open_questions: []
+  - id: APIB-161
+    source_id: APIB
+    item_id: APIB-md
+    kind: inference
+    status: ready_for_review
+    text:
+      Включение готовых UI-компонентов в SDK добавляет к разработчикам ещё одного актора — конечного
+      пользователя — и требует на порядок более глубокой проработки дизайна интерфейсов по сравнению с чистым
+      клиент-серверным API.
+    excerpt:
+      с точки зрения дизайна API добавление конечного пользователя — огромная проблема, которая требует
+      на порядок более глубокой и качественной проработки дизайна
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/03-sdk-ui-components.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Проблема UI-компонентов
+      application: архитектор.
+    open_questions: []
+  - id: APIB-162
+    source_id: APIB
+    item_id: APIB-md
+    kind: observation
+    status: ready_for_review
+    text:
+      Чем ближе пользовательский интерфейс к сырым данным API, тем он, как правило, менее удобен для
+      пользователя; классический пример — избыточно большие формы ввода.
+    excerpt: чем более интерфейс приближен к сырым данным, тем он, как правило, менее удобен для пользователя
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/03-sdk-ui-components.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Удобство интерфейса и близость к данным
+      application: архитектор.
+    open_questions: []
+  - id: APIB-163
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Объединение в одном UI-объекте (например, классе Button) разнородной функциональности — внешнего
+      вида, реакции на действия и элементов UX — требует, чтобы каждая из этих трёх подсистем могла независимо
+      переопределяться, иначе три типовых сценария кастомизации кнопок конфликтуют друг с другом.
+    excerpt:
+      класс `Button` должен позволять независимо переопределять и внешний вид кнопки, и реакцию на
+      действия пользователя, и элементы UX
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/03-sdk-ui-components.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Разнородная функциональность в UI-объекте
+      application: архитектор.
+    open_questions: []
+  - id: APIB-164
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      UI-компоненты в отличие от клиент-серверного API разделяют общий ресурс — экран приложения и внимание
+      пользователя, — поэтому одновременные асинхронные вызовы (например, повторный SearchBox.search) требуют
+      явной политики арбитража, а не независимой обработки каждого вызова.
+    excerpt:
+      все они, в конечном итоге, разделяют один общий ресурс — экран приложения и внимание пользователя
+      на нём
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/03-sdk-ui-components.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Общее владение ресурсами
+      application: архитектор.
+    open_questions: []
+  - id: APIB-165
+    source_id: APIB
+    item_id: APIB-md
+    kind: inference
+    status: ready_for_review
+    text:
+      Автор рекомендует трижды подумать перед тем, как предоставлять возможность программной настройки
+      UI-компонентов, поскольку полное разделение ответственности между бизнес-логикой, внешним видом и
+      UX-поведением может утроить иерархию абстракций SDK.
+    excerpt: три раза подумайте прежде чем предоставлять возможность программной настройки UI-компонентов
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/03-sdk-ui-components.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Цена кастомизации UI-компонентов
+      application: архитектор.
+    open_questions: []
+  - id: APIB-166
+    source_id: APIB
+    item_id: APIB-md
+    kind: observation
+    status: ready_for_review
+    text:
+      Декомпозиция SearchBox на подкомпоненты OfferList и OfferPanel с прямыми вызовами методов друг
+      друга работает без требований кастомизации, но каждый из трёх сценариев кастомизации (замена списка
+      на карту, слияние списка и панели, добавление кнопок) ломает эту простую декомпозицию по-своему.
+    excerpt:
+      Если бы мы не разрабатывали SDK и у нас не было бы задачи разрешать кастомизацию этих компонентов,
+      подобная реализация была бы стопроцентно уместной
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/04-sdk-decomposing.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Декомпозиция SearchBox
+      application: архитектор.
+    open_questions: []
+  - id: APIB-167
+    source_id: APIB
+    item_id: APIB-md
+    kind: inference
+    status: ready_for_review
+    text:
+      Замена прямых вызовов методов на подписку на события (слабая связность) делает код декомпозированных
+      компонентов более читаемым, но не устраняет их взаимозависимость — использовать OfferList без OfferPanel
+      по-прежнему невозможно.
+    excerpt: Код выглядит более разумно написанным, но никак не уменьшает взаимозависимость компонентов
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/04-sdk-decomposing.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Слабая связность через события
+      application: архитектор.
+    open_questions: []
+  - id: APIB-168
+    source_id: APIB
+    item_id: APIB-md
+    kind: observation
+    status: ready_for_review
+    text:
+      Маршрутизация всех событий подкомпонентов через родительский компонент (например, SearchBox) заставляет
+      родителя транслировать чужие события и легко приводит к бесконечным циклам обработки, если высокоуровневые
+      и низкоуровневые события не разделены явно.
+    excerpt:
+      в этих цепочках событий очень легко запутаться ... В этом коде легко можно организовать бесконечный
+      цикл
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/04-sdk-decomposing.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Трансляция событий через родителя
+      application: архитектор.
+    open_questions: []
+  - id: APIB-169
+    source_id: APIB
+    item_id: APIB-md
+    kind: inference
+    status: ready_for_review
+    text:
+      Единственное решение проблемы декомпозиции кастомизируемых UI-компонентов — ввести дополнительный
+      уровень абстракции («composer»), который не зависит от конкретной реализации дочерних компонентов
+      и модерирует потоки данных и событий между ними, хотя это существенно усложняет взаимодействие.
+    excerpt:
+      мы не можем декомпозировать `SearchBox` просто потому, что мы не располагаем достаточным количеством
+      уровней абстракции
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/04-sdk-decomposing.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Composer как мостик абстракции
+      application: архитектор.
+    open_questions: []
+  - id: APIB-170
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Ограничение путей взаимодействия компонентов так, что подкомпоненты только читают состояние, а
+      контроллер только получает уведомления о действиях пользователя, фактически приводит к паттерну Model-View-Controller
+      (MVC).
+    excerpt:
+      Сделав подобное упрощение, мы фактически получили компонент, следующий методологии «Model-View-Controller»
+      (MVC)
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/05-sdk-mv-frameworks.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Возникновение MVC
+      application: архитектор.
+    open_questions: []
+  - id: APIB-171
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Общая черта всех MV*-фреймворков — модель полностью и детерминировано определяет внешний вид и
+      состояние UI-компонента, а визуальные представления не могут менять модель напрямую и взаимодействуют
+      только через контроллер.
+    excerpt:
+      требование к сущности «модель» ... полностью детерминировано определять внешний вид и состояние
+      UI-компонента
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/05-sdk-mv-frameworks.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Паттерн модель
+      application: архитектор.
+    open_questions: []
+  - id: APIB-172
+    source_id: APIB
+    item_id: APIB-md
+    kind: inference
+    status: ready_for_review
+    text:
+      Требование полностью описывать состояние компонента в модели (включая, например, ход выполнения
+      анимаций) приводит к тому, что модель содержит данные всех уровней абстракции и плохо поддаётся версионированию
+      и сериализации при изменении реализации подкомпонентов.
+    excerpt: сериализация таких моделей окажется ограничена рамками конкретной версии API или приложения
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/05-sdk-mv-frameworks.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Проблема полной модели
+      application: архитектор.
+    open_questions: []
+  - id: APIB-173
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      В паттерне Model-View-Presenter (MVP) Мартина Фаулера presenter в отличие от контроллера MVC не
+      имеет собственного состояния и лишь вычисляет данные для показа из модели, что позволяет отделить
+      семантичные данные модели от низкоуровневых данных представления.
+    excerpt:
+      По мысли Фаулера собственного состояния у presenter-а нет ... он только вычисляет данные, необходимые
+      для показа визуального интерфейса, из данных модели
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/05-sdk-mv-frameworks.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: MVP по Фаулеру
+      application: архитектор.
+    open_questions: []
+  - id: APIB-174
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Backend-Driven UI убирает бизнес-логику из клиента, заменяя обработку сырых данных получением
+      с сервера готовой разметки или списка действий для применения на клиенте.
+    excerpt:
+      вместо получения машиночитаемых результатов поиска, мы получаем с сервера их готовое представление
+      в виде кода на HTML либо другого ... языка разметки
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/06-sdk-backend-driven.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Идея Backend-Driven UI
+      application: архитектор.
+    open_questions: []
+  - id: APIB-175
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Преимущества Backend-Driven UI — возможность вендора менять поведение клиента с сервера в реальном
+      времени без обновления приложения и экономия на разработке консистентной публичной номенклатуры сущностей
+      SDK, а недостаток — требовательность к качеству сетевого соединения.
+    excerpt:
+      возможность с сервера регулировать поведение клиента ... возможность сэкономить на разработке
+      консистентной и читабельной номенклатуры сущностей публичного SDK
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/06-sdk-backend-driven.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Достоинства и недостатки Backend-Driven UI
+      application: архитектор.
+    open_questions: []
+  - id: APIB-176
+    source_id: APIB
+    item_id: APIB-md
+    kind: observation
+    status: ready_for_review
+    text:
+      Автор утверждает, что не знает ни одного заметного рыночного продукта, построенного целиком в
+      парадигме Backend-Driven UI (кроме протоколов удалённых терминалов), хотя крупные IT-компании часто
+      проходят через фазу экспериментов с этим подходом; основная причина — гибридный код, сочетающий серверное
+      и клиентское состояние, писать сложнее, чем чистый клиентский.
+    excerpt: мы не знаем ни одного заметного на рынке продукта, разработанного в этой парадигме
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/06-sdk-backend-driven.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Редкость Backend-Driven UI на практике
+      application: архитектор.
+    open_questions: []
+  - id: APIB-177
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Backend-Driven UI отличается от серверного рендеринга (SSR) тем, что при SSR клиент способен интерпретировать
+      ответ сервера и извлекать из него семантические данные, тогда как в Backend-Driven UI ответ сервера
+      для клиента остаётся непрозрачным «чёрным ящиком».
+    excerpt: следует различать Backend-Driven UI и технологию серверного рендеринга (SSR)
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/06-sdk-backend-driven.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Backend-Driven UI и SSR
+      application: архитектор.
+    open_questions: []
+  - id: APIB-178
+    source_id: APIB
+    item_id: APIB-md
+    kind: inference
+    status: ready_for_review
+    text:
+      Использование простого булева флага (например, isDataLoading) для блокировки интерфейса на время
+      асинхронной загрузки данных плохо масштабируется на разные виды загрузок, ухудшает читаемость кода
+      и может оставить интерфейс заблокированным навсегда, если при загрузке произойдёт необработанная ошибка.
+    excerpt: этот код очень плох по множеству причин ... интерфейс останется заблокированным навсегда
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/07-sdk-shared-resources.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Проблемы наивных флагов блокировки
+      application: разработчик.
+    open_questions: []
+  - id: APIB-179
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Рекомендуемое решение для управления доступом к разделяемому UI-ресурсу (например, панели предложения)
+      — явный захват блокировки (acquireLock) по аналогии с управлением разделяемыми ресурсами в системном
+      программировании, с обязательным освобождением ресурса в блоке finally.
+    excerpt: "нам нужно сделать ещё один шаг: не просто ввести флаг, но и процедуру его *захвата*"
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/07-sdk-shared-resources.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Захват разделяемого ресурса
+      application: разработчик.
+    open_questions: []
+  - id: APIB-180
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Блокировка разделяемого ресурса должна иметь максимальное время жизни (например, 10 секунд), по
+      истечении которого она автоматически снимается, чтобы забытое исключение или зависший запрос не блокировали
+      интерфейс навсегда.
+    excerpt:
+      вторым параметром в `acquireLock` мы передали максимальное время жизни блокировки — 10 секунд
+      ... она будет отменена автоматически
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/07-sdk-shared-resources.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Таймаут блокировки
+      application: разработчик.
+    open_questions: []
+  - id: APIB-181
+    source_id: APIB
+    item_id: APIB-md
+    kind: observation
+    status: ready_for_review
+    text:
+      В современном фронтенде захват контроля над разделяемыми ресурсами на время загрузки данных или
+      анимации почти не практикуется, так как короткие асинхронные операции считаются не создающими коллизий
+      доступа, хотя для длительных или многоступенчатых загрузок это может быть серьёзной UX-проблемой.
+    excerpt: в современном фронтенде ... подобные упражнения с захватом контроля ... практически не производятся
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/07-sdk-shared-resources.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Практика захвата ресурсов во фронтенде
+      application: разработчик.
+    open_questions: []
+  - id: APIB-182
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      Если одно и то же свойство компонента (например, iconUrl) может наследоваться сразу по нескольким
+      иерархиям — данным и настройкам отображения — нужны явные правила приоритета, иначе разработчику придётся
+      копировать значения вручную, что порождает дублирующийся и запутывающий код.
+    excerpt:
+      если значение определено сразу в нескольких иерархиях ... каким образом задавать приоритеты,
+      чтобы выбирать одно из них?
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/08-sdk-computed-properties.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Приоритет наследуемых свойств
+      application: архитектор.
+    open_questions: []
+  - id: APIB-183
+    source_id: APIB
+    item_id: APIB-md
+    kind: inference
+    status: ready_for_review
+    text:
+      Декларативный или императивный механизм задания правил вычисления свойств компонента (по образцу
+      CSS) значительно облегчает кастомизацию визуальных компонентов разработчиками, несмотря на существенную
+      сложность его реализации.
+    excerpt:
+      поддержка какого-то простого подмножества подобного рода правил *значительно* облегчает кастомизацию
+      визуальных компонент для разработчиков
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/08-sdk-computed-properties.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Правила вычисления свойств
+      application: архитектор.
+    open_questions: []
+  - id: APIB-184
+    source_id: APIB
+    item_id: APIB-md
+    kind: fact
+    status: ready_for_review
+    text:
+      SDK должен предоставлять разработчику доступ не только к заданному значению свойства, но и к его
+      реально вычисленному значению (computedStyle) и к событию его изменения.
+    excerpt:
+      мы должны разделить заданные и вычисленные значения ... Хорошей практикой также будет предоставлять
+      доступ не только к вычисляемым значениям, но и к событию изменения этого значения
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/08-sdk-computed-properties.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Вычисленные значения свойств
+      application: разработчик.
+    open_questions: []
+  - id: APIB-185
+    source_id: APIB
+    item_id: APIB-md
+    kind: inference
+    status: ready_for_review
+    text:
+      "Автор формулирует итоговый вывод раздела: разработка качественной UI-библиотеки — отдельная и
+      сложная инженерная задача, не сводимая к автоматической генерации SDK по спецификации или модели данных."
+    excerpt:
+      разработка качественной UI-библиотеки — это отдельная и весьма непростая инженерная задача
+      ... и эта задача не сводится к автоматической генерации SDK по спецификации / модели данных
+    artifact: ../md/06-Раздел V. SDK и UI-библиотеки/09-sdk-conclusion.local.md
+    checked_at: "2026-07-17"
+    scope:
+      section_title: Итог раздела о SDK и UI-библиотеках
+      application: архитектор.
+    open_questions: []

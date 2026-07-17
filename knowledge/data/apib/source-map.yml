@@ -1,0 +1,422 @@
+source_id: APIB
+edition: "2025-10-11"
+retrieved_at: "2026-07-17"
+unit: chapter
+total_units: 61
+legend:
+  covered: утверждения извлечены (см. диапазон statement_ids)
+  pending: нормализовано (карта раздела ниже), утверждения не извлечены
+sections:
+  - title: Введение
+    dir: 01-Введение
+    chapters:
+      - {
+          file: 01-intro-structure.md,
+          title: О структуре этой книги,
+          status: covered,
+          statement_ids: [],
+        }
+      - {
+          file: 02-intro-api-definition.md,
+          title: Определение API,
+          status: covered,
+          statement_ids: [APIB-001, APIB-002, APIB-003],
+        }
+      - {
+          file: 03-intro-api-quality.md,
+          title: Критерии качества API,
+          status: covered,
+          statement_ids: [APIB-004, APIB-005, APIB-006],
+        }
+      - {
+          file: 04-intro-api-choosing-solutions.md,
+          title: Выбор подхода к разработке API,
+          status: covered,
+          statement_ids: [APIB-072, APIB-073],
+        }
+      - {
+          file: 05-intro-api-first-approach.md,
+          title: API-first подход,
+          status: covered,
+          statement_ids: [APIB-074, APIB-075, APIB-076],
+        }
+      - {
+          file: 06-intro-back-compat.md,
+          title: Обратная совместимость,
+          status: covered,
+          statement_ids: [APIB-007, APIB-008],
+        }
+      - {
+          file: 07-intro-versioning.md,
+          title: О версионировании,
+          status: covered,
+          statement_ids: [APIB-009],
+        }
+      - {
+          file: 08-intro-terms-notation.md,
+          title: Условные обозначения и терминология,
+          status: covered,
+          statement_ids: [APIB-010],
+        }
+  - title: "Раздел I. Проектирование API"
+    dir: "02-Раздел I. Проектирование API"
+    chapters:
+      - {
+          file: 01-api-design-context-pyramid.md,
+          title: Пирамида контекстов API,
+          status: covered,
+          statement_ids: [APIB-011, APIB-012],
+        }
+      - {
+          file: 02-api-design-defining-field.md,
+          title: Определение области применения,
+          status: covered,
+          statement_ids: [APIB-013],
+        }
+      - {
+          file: 03-api-design-separating-abstractions.md,
+          title: Разделение уровней абстракции,
+          status: covered,
+          statement_ids: [APIB-014, APIB-015, APIB-016, APIB-017],
+        }
+      - {
+          file: 04-api-design-isolating-responsibility.md,
+          title: Разграничение областей ответственности,
+          status: covered,
+          statement_ids: [APIB-018, APIB-019, APIB-020],
+        }
+      - {
+          file: 05-api-design-describing-interfaces.md,
+          title: Описание конечных интерфейсов,
+          status: covered,
+          statement_ids:
+            [APIB-021, APIB-022, APIB-023, APIB-024, APIB-025, APIB-026, APIB-027, APIB-028],
+        }
+  - title: "Раздел II. Паттерны дизайна API"
+    dir: "03-Раздел II. Паттерны дизайна API"
+    chapters:
+      - {
+          file: 01-api-patterns-context.md,
+          title: О паттернах проектирования в контексте API,
+          status: covered,
+          statement_ids: [APIB-077, APIB-078, APIB-079],
+        }
+      - {
+          file: 02-api-patterns-aa.md,
+          title: Аутентификация партнёров и авторизация вызовов API,
+          status: covered,
+          statement_ids: [APIB-080, APIB-081, APIB-082],
+        }
+      - {
+          file: 03-api-patterns-sync-strategies.md,
+          title: Стратегии синхронизации,
+          status: covered,
+          statement_ids: [APIB-083, APIB-084, APIB-085],
+        }
+      - {
+          file: 04-api-patterns-weak-consistency.md,
+          title: Слабая консистентность,
+          status: covered,
+          statement_ids: [APIB-086, APIB-087, APIB-088, APIB-089],
+        }
+      - {
+          file: 05-api-patterns-async.md,
+          title: Асинхронность и управление временем,
+          status: covered,
+          statement_ids: [APIB-090, APIB-091, APIB-092],
+        }
+      - {
+          file: 06-api-patterns-lists.md,
+          title: Списки и организация доступа к ним,
+          status: covered,
+          statement_ids: [APIB-093, APIB-094, APIB-095],
+        }
+      - {
+          file: 07-api-patterns-push-vs-poll.md,
+          title: "Двунаправленные потоки данных. Push и poll-модели",
+          status: covered,
+          statement_ids: [APIB-096, APIB-097, APIB-098, APIB-099],
+        }
+      - {
+          file: 08-api-patterns-async-event-processing.md,
+          title: "Мультиплексирование сообщений. Асинхронная обработка событий",
+          status: covered,
+          statement_ids: [APIB-100, APIB-101],
+        }
+      - {
+          file: 09-api-patterns-atomicity.md,
+          title: Атомарность массовых изменений,
+          status: covered,
+          statement_ids: [APIB-102, APIB-103, APIB-104],
+        }
+      - {
+          file: 10-api-patterns-partial-updates.md,
+          title: Частичные обновления,
+          status: covered,
+          statement_ids: [APIB-105, APIB-106, APIB-107],
+        }
+      - {
+          file: 11-api-patterns-degrading.md,
+          title: Деградация и предсказуемость,
+          status: covered,
+          statement_ids: [APIB-108, APIB-109],
+        }
+  - title: "Раздел III. Обратная совместимость"
+    dir: "04-Раздел III. Обратная совместимость"
+    chapters:
+      - {
+          file: 01-back-compat-statement.md,
+          title: Постановка проблемы обратной совместимости,
+          status: covered,
+          statement_ids: [APIB-029, APIB-030, APIB-031],
+        }
+      - {
+          file: 02-back-compat-iceberg-waterline.md,
+          title: О ватерлинии айсберга,
+          status: covered,
+          statement_ids: [APIB-032, APIB-033, APIB-034, APIB-035],
+        }
+      - {
+          file: 03-back-compat-abstracting-extending.md,
+          title: Расширение через абстрагирование,
+          status: covered,
+          statement_ids: [APIB-036],
+        }
+      - {
+          file: 04-back-compat-strong-coupling.md,
+          title: Сильная связность и сопутствующие проблемы,
+          status: covered,
+          statement_ids: [APIB-037],
+        }
+      - {
+          file: 05-back-compat-weak-coupling.md,
+          title: Слабая связность,
+          status: covered,
+          statement_ids: [APIB-038],
+        }
+      - {
+          file: 06-back-compat-universal-interfaces.md,
+          title: Интерфейсы как универсальный паттерн,
+          status: covered,
+          statement_ids: [APIB-039, APIB-040, APIB-041, APIB-042],
+        }
+      - {
+          file: 07-back-compat-serenity-notepad.md,
+          title: Блокнот душевного покоя,
+          status: covered,
+          statement_ids: [APIB-043],
+        }
+  - title: "Раздел IV. HTTP API и архитектурные принципы REST"
+    dir: "05-Раздел IV. HTTP API и архитектурные принципы REST"
+    chapters:
+      - {
+          file: 01-http-api-concepts.md,
+          title: "О концепции HTTP API. Парадигмы разработки клиент-серверного взаимодействия",
+          status: covered,
+          statement_ids: [APIB-110, APIB-111, APIB-112, APIB-113],
+        }
+      - {
+          file: 02-http-api-pros-and-cons.md,
+          title: Преимущества и недостатки HTTP API в сравнении с альтернативными технологиями,
+          status: covered,
+          statement_ids: [APIB-114, APIB-115, APIB-116, APIB-117, APIB-118, APIB-119],
+        }
+      - {
+          file: 03-http-api-rest-myth.md,
+          title: Мифология REST,
+          status: covered,
+          statement_ids: [APIB-120, APIB-121, APIB-122, APIB-123],
+        }
+      - {
+          file: 04-http-api-requests-semantics.md,
+          title: Составляющие HTTP запросов и их семантика,
+          status: covered,
+          statement_ids: [APIB-124, APIB-125, APIB-126, APIB-127, APIB-128, APIB-129, APIB-130],
+        }
+      - {
+          file: 05-http-api-rest-organizing.md,
+          title: Организация HTTP API согласно принципам REST,
+          status: covered,
+          statement_ids: [APIB-131, APIB-132, APIB-133, APIB-134, APIB-135, APIB-136],
+        }
+      - {
+          file: 06-http-api-urls-crud.md,
+          title: "Разработка номенклатуры URL ресурсов. CRUD-операции",
+          status: covered,
+          statement_ids: [APIB-137, APIB-138, APIB-139, APIB-140, APIB-141],
+        }
+      - {
+          file: 07-http-api-errors.md,
+          title: Работа с ошибками в HTTP API,
+          status: covered,
+          statement_ids: [APIB-142, APIB-143, APIB-144, APIB-145, APIB-146, APIB-147, APIB-148],
+        }
+      - {
+          file: 08-http-api-final-recommendations.md,
+          title: Заключительные положения и общие рекомендации,
+          status: covered,
+          statement_ids: [APIB-149, APIB-150, APIB-151, APIB-152],
+        }
+  - title: "Раздел V. SDK и UI-библиотеки"
+    dir: "06-Раздел V. SDK и UI-библиотеки"
+    chapters:
+      - {
+          file: 01-sdk-toc-technology-overview.md,
+          title: "Терминология. Обзор технологий разработки SDK",
+          status: covered,
+          statement_ids: [APIB-153, APIB-154, APIB-155, APIB-156],
+        }
+      - {
+          file: 02-sdk-problems-solutions.md,
+          title: "SDK: проблемы и решения",
+          status: covered,
+          statement_ids: [APIB-157, APIB-158, APIB-159, APIB-160],
+        }
+      - {
+          file: 03-sdk-ui-components.md,
+          title: Проблемы встраивания UI-компонентов,
+          status: covered,
+          statement_ids: [APIB-161, APIB-162, APIB-163, APIB-164, APIB-165],
+        }
+      - {
+          file: 04-sdk-decomposing.md,
+          title: Декомпозиция UI-компонентов,
+          status: covered,
+          statement_ids: [APIB-166, APIB-167, APIB-168, APIB-169],
+        }
+      - {
+          file: 05-sdk-mv-frameworks.md,
+          title: MV*-фреймворки,
+          status: covered,
+          statement_ids: [APIB-170, APIB-171, APIB-172, APIB-173],
+        }
+      - {
+          file: 06-sdk-backend-driven.md,
+          title: Backend-Driven UI,
+          status: covered,
+          statement_ids: [APIB-174, APIB-175, APIB-176, APIB-177],
+        }
+      - {
+          file: 07-sdk-shared-resources.md,
+          title: Разделяемые ресурсы и асинхронные блокировки,
+          status: covered,
+          statement_ids: [APIB-178, APIB-179, APIB-180, APIB-181],
+        }
+      - {
+          file: 08-sdk-computed-properties.md,
+          title: Вычисляемые свойства,
+          status: covered,
+          statement_ids: [APIB-182, APIB-183, APIB-184],
+        }
+      - {
+          file: 09-sdk-conclusion.md,
+          title: Заключение,
+          status: covered,
+          statement_ids: [APIB-185],
+        }
+  - title: "Раздел VI. API как продукт"
+    dir: "07-Раздел VI. API как продукт"
+    chapters:
+      - {
+          file: 01-api-product.md,
+          title: Продукт API,
+          status: covered,
+          statement_ids: [APIB-044, APIB-045],
+        }
+      - {
+          file: 02-api-product-business-models.md,
+          title: Бизнес-модели API,
+          status: covered,
+          statement_ids: [APIB-046],
+        }
+      - {
+          file: 03-api-product-vision.md,
+          title: Формирование продуктового видения,
+          status: covered,
+          statement_ids: [APIB-047],
+        }
+      - {
+          file: 04-api-product-devrel.md,
+          title: Взаимодействие с разработчиками,
+          status: covered,
+          statement_ids: [APIB-048, APIB-049, APIB-050],
+        }
+      - {
+          file: 05-api-product-business-comms.md,
+          title: Взаимодействие с бизнес-аудиторией,
+          status: covered,
+          statement_ids: [APIB-051],
+        }
+      - {
+          file: 06-api-product-lineup.md,
+          title: Линейка сервисов API,
+          status: covered,
+          statement_ids: [APIB-052],
+        }
+      - {
+          file: 07-api-product-kpi.md,
+          title: Ключевые показатели эффективности API,
+          status: covered,
+          statement_ids: [APIB-053, APIB-054, APIB-055],
+        }
+      - {
+          file: 08-api-product-antifraud.md,
+          title: Идентификация пользователей и борьба с фродом,
+          status: covered,
+          statement_ids: [APIB-056, APIB-057],
+        }
+      - {
+          file: 09-api-product-tos-violations.md,
+          title: Технические способы борьбы с несанкционированным доступом к API,
+          status: covered,
+          statement_ids: [APIB-058, APIB-059],
+        }
+      - {
+          file: 10-api-product-customer-support.md,
+          title: Поддержка пользователей API,
+          status: covered,
+          statement_ids: [APIB-060, APIB-061, APIB-062],
+        }
+      - {
+          file: 11-api-product-documentation.md,
+          title: Документация,
+          status: covered,
+          statement_ids: [APIB-063, APIB-064, APIB-065],
+        }
+      - {
+          file: 12-api-product-testing.md,
+          title: Тестовая среда,
+          status: covered,
+          statement_ids: [APIB-066, APIB-067, APIB-068],
+        }
+      - {
+          file: 13-api-product-expectations.md,
+          title: Управление ожиданиями,
+          status: covered,
+          statement_ids: [APIB-069, APIB-070, APIB-071],
+        }
+
+summary:
+  covered_chapters: 61
+  pending_chapters: 0
+  note: >-
+    Все 61 глава актуальной редакции покрыты утверждениями (`APIB-001`–`APIB-185`).
+    31 глава, совпавшая по названию и позиции со старой редакцией (2023-04-09),
+    сопоставлена с уже извлечёнными утверждениями `APIB-001`–`APIB-071` без
+    повторного извлечения из markdown. 30 глав, отсутствовавших в старой редакции
+    (два новых введения и разделы «Паттерны дизайна API», «HTTP API и REST»,
+    «SDK и UI-библиотеки»), извлечены заново `2026-07-17` как `APIB-072`–`APIB-185`.
+  known_limitations:
+    - >-
+      В главах с развёрнутыми учебными примерами (например, декомпозиция
+      `SearchBox`/`Composer` в разделе «SDK и UI-библиотеки», псевдокод в разделе
+      «HTTP API и REST») утверждения обобщают логику примера, но сам код и
+      пошаговые листинги не перенесены как отдельные трассируемые единицы; для
+      точной трассировки к конкретному листингу нужно смотреть исходный
+      `.local.md`.
+    - >-
+      Разделы «Раздел I. Проектирование API» и «Раздел III. Обратная
+      совместимость» не перепроверялись на предмет новых абзацев или примеров,
+      добавленных при переиздании — сопоставление выполнено по совпадению
+      заголовка и позиции главы, а не построчной сверкой текста со старой
+      редакцией.

@@ -73,17 +73,17 @@ description: Выбор и применение средств информац�
   инструментов с автоматическим сбором артефактов (`PO.3`), настройка процессов
   компиляции и сборки на безопасность, включая утверждённый список инструментов
   и предупреждения компилятора (`PW.6`), и критерии проверок (`PO.4`). См.
-  `knowledge/data/ssdf/items/source/legacy-statements.md` (`SSDF-005`,
-  `SSDF-010`).
+  `knowledge/data/ssdf/items/primary-ssdf-page-index.tsv/statements.yml`
+  (`SSDF-005`, `SSDF-010`).
 - Для криптографических средств действует правило проверенных профессионалами
   решений из навыка `ait-sec-threat-modeling` (основание `TMDS`).
 - Для SCA и SBOM ориентиром служит стандарт состава ПО `CycloneDX`
-  (`knowledge/data/cydx/items/source/legacy-statements.md`: компоненты,
-  зависимости, уязвимости, VEX), дополняющий учтённый `SPDX`; средства SCA
-  связаны с проверкой компонентов (SSDF `PW.4`).
+  (`knowledge/data/cydx/items/normalized-cydx-source.md/statements.yml`:
+  компоненты, зависимости, уязвимости, VEX), дополняющий учтённый `SPDX`;
+  средства SCA связаны с проверкой компонентов (SSDF `PW.4`).
 - Классы средств тестирования (SAST/DAST/пентест) систематизирует OWASP WSTG
-  (`knowledge/data/wstg/items/source/legacy-statements.md`); их применение ведёт
-  навык `ait-sec-audit`.
+  (`knowledge/data/wstg/items/normalized-wstg-source.md/statements.yml`); их
+  применение ведёт навык `ait-sec-audit`.
 
 ## Опорные источники
 

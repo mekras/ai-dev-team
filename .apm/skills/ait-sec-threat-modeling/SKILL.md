@@ -78,6 +78,12 @@ description: Построение и проверка модели угроз.
 - `references/risk-and-validation.md` — стратегии работы с риском, привязка
   свойств защиты к STRIDE, приоритизация, проверка мер и требования
   безопасности.
+- Если моделируется публичный или партнёрский API — обязательно проверь разделы
+  о безопасности в `ait-architecture/references/api-design.md`: векторы атак
+  через URL обратного вызова (`webhook`) — перехват потока данных партнёра,
+  канал DoS, SSRF на инфраструктуру провайдера — и типовые уязвимости HTTP API
+  (CSRF, SSRF, HTTP Response Splitting, Unvalidated Redirects and Forwards).
+  Основание: `APIB-099`, `APIB-152`.
 
 Читай только те справки, которые нужны для текущей задачи.
 
@@ -86,4 +92,6 @@ description: Построение и проверка модели угроз.
 Навык опирается на источники корпуса: сначала найди источник по `id` в
 `knowledge/catalog.yml`, затем используй `knowledge/data/<slug>/source.yml`,
 `knowledge/data/<slug>/items.yml` и связанные утверждения: `SMAS`, `TMDS`,
-`ATCK`, `MWAT`, `OWTT`, `ETL5`, `ASVS`, `SSDF`.
+`ATCK`, `MWAT`, `OWTT`, `ETL5`, `ASVS`, `SSDF`. Для угроз публичных и
+партнёрских API дополнительно — `APIB` (через
+`ait-architecture/references/api-design.md`).

@@ -31,8 +31,8 @@ description: Аудит существующей структуры проект
 
 ## Основания
 
-- `knowledge/data/hwd/items/source/legacy-statements.md`
-- `knowledge/data/wtdg/items/source/legacy-statements.md`
+- `knowledge/data/hwd/items.yml`
+- `knowledge/data/wtdg/items.yml`
 - `.apm/agents/technical-writer.agent.md`
 - `.apm/skills/ait-writing/SKILL.md`
 - `.apm/skills/ait-writing/assets/documentation-structure-template.md`

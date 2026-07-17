@@ -67,7 +67,7 @@
 Этот процесс согласован с матрицей развилки из `ait-decisions`: шаги 1–2
 наполняют столбцы «Источники», «Поддержка», «Ограничения», шаг 3 — «Остаточная
 неопределённость» и «Следствие». Основание — источник `SAHP`
-(`knowledge/data/sahp/items/source/legacy-statements.md`).
+(`knowledge/data/sahp/items/text/statements.yml`).
 
 ## Вопросы для ADR
 
