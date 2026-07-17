@@ -379,25 +379,43 @@ def check_decision_initiative_contract() -> None:
     required_markers = {
         "docs/requirements/functional/ft-8.md": (
             "setup.decision_records.status: declined",
+            "договор журнала",
             "первое принятое решение",
             "незаписанное решение",
         ),
+        "docs/requirements/functional/ft-7.md": (
+            "?DR-NNNN.md",
+            "Существующее соглашение проекта",
+            "решения о миграции",
+        ),
         ".apm/skills/ait-setup/SKILL.md": (
             "setup.decision_records",
+            "?DR-NNNN.md",
             "status: declined",
         ),
         ".apm/skills/ait-setup/references/setup-dialogue.md": (
             "decision_records:",
+            "record_pattern: ADR-NNNN.md",
             "setup.decision_records.status: declined",
         ),
         ".apm/skills/ait-docs-structure-design/SKILL.md": (
-            "первой записью предложи порядок принятия",
-            "Отказ заказчика зафиксируй",
+            "Сначала предложи договор журнала",
+            "Первую запись предлагай только",
+            "Отказ заказчика",
             "без нового запроса",
         ),
+        ".apm/skills/ait-docs-structure-design/evals/result-scenarios.json": (
+            "ait-docs-structure-design-result-decision-journal-contract",
+            "не помещать общий порядок принятия решений в ADR",
+        ),
         ".apm/skills/ait-decisions/SKILL.md": (
+            "не выдавай договор журнала за",
             "при первом значимом решении",
             "ретроспективную запись",
+        ),
+        ".apm/skills/ait-decisions/evals/result-scenarios.json": (
+            "ait-decisions-decisions-result-journal-kind-and-first-record",
+            "не использовать нейтральное имя 0001-decision-governance.md",
         ),
         ".apm/skills/ait-decisions/evals/triggers.json": (
             "ait-decisions-decisions-positive-first-accepted-initiative",
@@ -405,6 +423,7 @@ def check_decision_initiative_contract() -> None:
         ),
         ".apm/skills/ait-setup/evals/result-scenarios.json": (
             "ait-setup-result-decision-records-declined",
+            "ait-setup-result-typed-decision-journal-contract",
             "setup.decision_records.status: declined",
         ),
     }
