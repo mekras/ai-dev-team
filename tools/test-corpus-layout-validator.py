@@ -681,6 +681,44 @@ def main() -> int:
                 f"{result.stdout}"
             )
 
+        write_text(
+            root / "data" / "test-source" / "example-addresses.md",
+            """
+            jane@example.com
+            john@example.com
+            test@example.com
+            user@example.com
+            info@coop.example.com
+            etl@enisa.europa.eu
+            press@enisa.europa.eu
+            ssdf@nist.gov
+            doc.writer@asciidoctor.org
+            guide@writethedocs.org
+            osi@social.opensource.org
+            press@perplexity.ai
+            project@google-groups.com
+            """,
+        )
+        subprocess.run(["git", "add", "-A"], cwd=root, check=True)
+        result = run_validator(root, operational=True)
+        if result.returncode != 0 or "personal-data" in result.stdout:
+            raise AssertionError(
+                "Addresses on reserved domains or role mailboxes were classified as personal data.\n"
+                f"{result.stdout}"
+            )
+
+        write_text(
+            root / "data" / "test-source" / "ordinary-address.md",
+            "ssw0rd@prod-db.company.com\n",
+        )
+        subprocess.run(["git", "add", "-A"], cwd=root, check=True)
+        result = run_validator(root, operational=True)
+        if result.returncode != 0 or "personal-data" not in result.stdout:
+            raise AssertionError(
+                "An address on an ordinary domain was not reported as a quality warning.\n"
+                f"{result.stdout}"
+            )
+
         write_text(root / "data" / "test-source" / "contact-plus.md", "Phone: +7 (999) 123-45-67\n")
         subprocess.run(["git", "add", "-A"], cwd=root, check=True)
         result = run_validator(root, operational=True)

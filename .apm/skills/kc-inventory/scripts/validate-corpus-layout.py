@@ -218,6 +218,35 @@ CREDENTIALLED_URL_PATTERN = re.compile(
     r"(?i)\b(?:https?|ssh)://[^\s/@:]+:[^\s/@]+@|[?&](?:access_token|api[_-]?key|token|signature|x-amz-signature)=[^\s&#]+"
 )
 EMAIL_PATTERN = re.compile(r"(?i)\b[\w.+-]+@[\w.-]+\.[a-z]{2,}\b")
+# Зарезервированный RFC домен примеров служит синтетическими данными для
+# документации и тестов, а не персональными контактами. Проверка отделена от
+# EMAIL_PATTERN, чтобы строка с тестовым и обычным адресами всё равно попала в отчёт.
+EXAMPLE_EMAIL_DOMAIN = "example.com"
+# Ролевые и технические ящики идентифицируют функцию, а не человека. Список
+# намеренно ограничен устойчивыми именами, чтобы не скрывать адреса с именем.
+ROLE_EMAIL_LOCAL_PARTS = frozenset(
+    {
+        "abuse",
+        "admin",
+        "contact",
+        "doc.writer",
+        "etl",
+        "guide",
+        "info",
+        "legal",
+        "noreply",
+        "no-reply",
+        "osi",
+        "press",
+        "privacy",
+        "project",
+        "security",
+        "ssdf",
+        "support",
+        "team",
+        "webmaster",
+    }
+)
 # A bare sequence of digits is ambiguous: public HTML commonly contains app,
 # author and document identifiers of the same length as a phone number.  Treat
 # only a number with an international prefix or explicit formatting as a phone.
@@ -472,11 +501,26 @@ class Validator:
             sum(character.isdigit() for character in match.group()) >= 10
             for match in PHONE_PATTERN.finditer(line)
         )
-        if EMAIL_PATTERN.search(line) or has_phone:
+        has_personal_email = any(
+            not Validator.is_non_personal_email_address(match.group())
+            for match in EMAIL_PATTERN.finditer(line)
+        )
+        if has_personal_email or has_phone:
             if PurePosixPath(relative_path).name in METADATA_CONTACT_FILES:
                 return "public-contact"
             return "personal-data"
         return None
+
+    @staticmethod
+    def is_non_personal_email_address(address: str) -> bool:
+        """Проверяет, относится ли адрес к тестовому домену или ролевому ящику."""
+        local_part, domain = address.rsplit("@", maxsplit=1)
+        normalized_domain = domain.casefold()
+        return (
+            normalized_domain == EXAMPLE_EMAIL_DOMAIN
+            or normalized_domain.endswith(f".{EXAMPLE_EMAIL_DOMAIN}")
+            or local_part.casefold() in ROLE_EMAIL_LOCAL_PARTS
+        )
 
     def load_operational_policy(self) -> list[dict[str, str]]:
         if self.operational_policy is None:
