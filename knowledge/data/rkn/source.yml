@@ -1,0 +1,39 @@
+id: RKN
+slug: rkn
+title: >-
+  Портал персональных данных Роскомнадзора: реестр операторов и официальные
+  процедуры уведомлений.
+status: approved
+priority: high
+carrier_type: website
+source_kind: reference
+adapter: manual
+storage_strategy: external_reference
+processing_scope: fragments_only
+retrieval_mode: on_demand
+copy_policy: fragments_only
+allowed_use: >-
+  Проверка официальных процедур уведомления, статусов и реестра операторов со
+  ссылкой на актуальную страницу портала.
+requires_access_check: true
+url: https://pd.rkn.gov.ru/
+locator: https://pd.rkn.gov.ru/
+public_reference: https://pd.rkn.gov.ru/
+license_or_terms: >-
+ Публичный официальный сайт; не копировать полный сайт, проверять дату
+ изменения страницы перед применением.
+access:
+  default: Внешний публичный официальный источник; получать только нужную страницу.
+reliability: official
+stability: mutable
+refresh_policy: manual
+last_checked_at: '2026-07-18'
+scope:
+  includes:
+    - Реестр операторов.
+    - Инциденты и трансграничная передача.
+  excludes:
+    - Юридическая квалификация конкретного оператора без его фактических данных.
+known_limitations:
+  - Портал описывает процедуру, но не заменяет закон и действующую редакцию акта.
+processing_notes: []

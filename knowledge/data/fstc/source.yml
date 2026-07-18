@@ -1,0 +1,38 @@
+id: FSTC
+slug: fstc
+title: >-
+  ФСТЭК России: состав и содержание организационных и технических мер при
+  обработке персональных данных в информационных системах.
+status: approved
+priority: high
+carrier_type: document
+source_kind: reference
+adapter: manual
+storage_strategy: external_reference
+processing_scope: fragments_only
+retrieval_mode: on_demand
+copy_policy: fragments_only
+allowed_use: >-
+  Точечная проверка актуальной редакции приказа ФСТЭК России № 21 и передача
+  технических мер роли ИБ.
+requires_access_check: true
+url: https://fstec.ru/
+locator: https://fstec.ru/
+public_reference: https://publication.pravo.gov.ru/document/0001202007100002
+license_or_terms: >-
+  Официальный нормативный материал; перед применением проверять действующую
+  редакцию, применимость и связанные акты.
+access:
+  default: Внешний публичный официальный источник; получать точечно по реквизитам.
+reliability: official
+stability: mutable
+refresh_policy: manual
+last_checked_at: '2026-07-18'
+scope:
+  includes:
+    - Организационные и технические меры защиты в информационных системах.
+  excludes:
+    - Самостоятельное проектирование технической защиты без роли ИБ.
+known_limitations:
+  - Набор мер зависит от уровня защищённости и характеристик системы.
+processing_notes: []

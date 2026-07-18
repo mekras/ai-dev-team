@@ -1,0 +1,79 @@
+statements:
+  - id: RUPD-001
+    source_id: RUPD
+    item_id: RUPD-152
+    kind: fact
+    status: verified
+    text: >-
+      персональные данные — информация о прямо или косвенно определённом или
+      определяемом физическом лице; оператор определяет цели, состав данных и
+      операции обработки.
+    excerpt: Персональные данные — любая информация, относящаяся прямо или косвенно
+    artifact: normalized.md
+    checked_at: '2026-07-18'
+    scope:
+      section_title: Понятия и применимость
+      application: юрист, аналитик, специалист по безопасности.
+    open_questions: []
+  - id: RUPD-002
+    source_id: RUPD
+    item_id: RUPD-152
+    kind: fact
+    status: verified
+    text: >-
+      для каждой цели обработки требуется предусмотренное законом условие;
+      согласие субъекта не заменяет проверку иных оснований и ограничений.
+    excerpt: согласие субъекта — одно из возможных условий
+    artifact: normalized.md
+    checked_at: '2026-07-18'
+    scope:
+      section_title: Принципы и основания
+      application: юрист.
+    open_questions: []
+  - id: RUPD-003
+    source_id: RUPD
+    item_id: RUPD-152
+    kind: fact
+    status: verified
+    text: >-
+      при поручении обработки оператор обязан определить цели, данные,
+      операции, конфиденциальность и меры безопасности обработчика.
+    excerpt: оператор определяет перечень данных, операции, цели
+    artifact: normalized.md
+    checked_at: '2026-07-18'
+    scope:
+      section_title: Обязанности оператора
+      application: юрист, специалист по безопасности.
+    open_questions: []
+  - id: RUPD-004
+    source_id: RUPD
+    item_id: RUPD-152
+    kind: fact
+    status: verified
+    text: >-
+      для сбора через Интернет персональных данных граждан Российской Федерации
+      закон устанавливает требование использовать базы данных на территории
+      Российской Федерации для перечисленных операций.
+    excerpt: с использованием баз данных, находящихся на территории Российской Федерации
+    artifact: normalized.md
+    checked_at: '2026-07-18'
+    scope:
+      section_title: Особые случаи
+      application: юрист, архитектор, специалист по безопасности.
+    open_questions: []
+  - id: RUPD-005
+    source_id: RUPD
+    item_id: RUPD-152
+    kind: fact
+    status: verified
+    text: >-
+      инцидент, нарушивший права субъектов, требует уведомления уполномоченного
+      органа по порядку статьи 21; субъект имеет права на сведения, уточнение,
+      блокирование или уничтожение данных в установленных случаях.
+    excerpt: уведомляет уполномоченный орган в порядке статьи 21
+    artifact: normalized.md
+    checked_at: '2026-07-18'
+    scope:
+      section_title: Инциденты и права субъектов
+      application: юрист, специалист по безопасности.
+    open_questions: []

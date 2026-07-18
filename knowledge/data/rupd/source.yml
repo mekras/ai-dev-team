@@ -1,0 +1,43 @@
+id: RUPD
+slug: rupd
+title: >-
+  Официальные нормативные правовые акты Российской Федерации об обработке
+  персональных данных, выбранные для проектов разработки ПО.
+status: approved
+priority: high
+carrier_type: document
+source_kind: reference
+adapter: manual
+storage_strategy: external_reference
+processing_scope: fragments_only
+retrieval_mode: on_demand
+copy_policy: fragments_only
+allowed_use: >-
+  Точечная проверка действующей редакции и хранение кратких проверяемых
+  фрагментов с локатором на официальный первоисточник.
+requires_access_check: true
+url: https://pravo.gov.ru/
+locator: https://pravo.gov.ru/
+public_reference: https://ips.pravo.gov.ru/
+license_or_terms: >-
+  Официальные документы не являются объектами авторского права; перед
+  применением проверять действующую редакцию и дату вступления изменений в силу.
+access:
+  default: >-
+    Внешний публичный официальный источник. Получать только релевантные акты
+    и статьи, проверяя редакцию на дату работы.
+reliability: official
+stability: mutable
+refresh_policy: manual
+last_checked_at: '2026-07-18'
+scope:
+  includes:
+    - Федеральный закон № 152-ФЗ «О персональных данных».
+    - Требования к защите, оценке вреда, уничтожению и уведомлениям.
+    - Ответственность за нарушения, затрагивающие персональные данные.
+  excludes:
+    - Отраслевые режимы, не относящиеся к обычному проекту разработки ПО.
+known_limitations:
+  - Перед каждым юридически значимым выводом сверять действующую редакцию.
+  - Не использовать краткие фрагменты как замену полного текста правового акта.
+processing_notes: []

@@ -1,0 +1,19 @@
+id: FSTC-21
+title: Приказ ФСТЭК России от 18.02.2013 № 21
+url: https://fstec.ru/
+access: Официальный источник; актуальность изменений проверять перед применением.
+status: approved
+workflow_stage: statements_extracted
+processing_scope: fragments_only
+retrieval_mode: on_demand
+copy_policy: fragments_only
+allowed_use: >-
+  Определять необходимость технических мер и передавать их разработку роли ИБ.
+requires_access_check: true
+files:
+  tracked:
+    - normalized.md
+    - statements.yml
+known_limitations:
+  - Не заменяет анализ угроз и проектирование защиты.
+processing_notes: []

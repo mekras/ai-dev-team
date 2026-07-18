@@ -33,6 +33,7 @@ REQUIRED_SKILLS = {
     "ait-docs-structure-rules",
     "ait-hypotheses",
     "ait-licensing",
+    "ait-personal-data",
     "ait-private-knowledge",
     "ait-routing",
     "ait-readme",
@@ -731,19 +732,23 @@ def check_decision_record_quality_contract() -> None:
             "вариант без него или проверенное",
             "При общей «дыре»",
             "не выдумывая фиктивный вариант",
+            "внутренняя работа агента",
         ),
         ".apm/skills/ait-decisions/SKILL.md": (
             "Для каждого существенного недостатка",
             "неизбежен для всего",
+            "Контекст начни с краткой формулировки",
         ),
         ".apm/skills/ait-decisions/references/decision-workflow.md": (
             "проверенное ограничение",
             "неизбежным для всего пространства",
+            "Не превращай контекст в конспект всей работы над записью",
         ),
         ".apm/skills/ait-decisions/evals/result-scenarios.json": (
             "ait-decisions-decisions-result-option-space-gap",
             "общий существенный недостаток",
             "не принимать запись с незакрытой дырой",
+            "ait-decisions-decisions-result-concise-context-boundaries",
         ),
     }
     for relative_path, markers in required_markers.items():

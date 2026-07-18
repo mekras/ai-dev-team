@@ -1,0 +1,31 @@
+statements:
+  - id: RUPD-006
+    source_id: RUPD
+    item_id: RUPD-security
+    kind: fact
+    status: verified
+    text: >-
+      применимость конкретных мер защиты зависит от системы, категорий данных и
+      угроз, поэтому юрист определяет правовые требования совместно с ролью ИБ.
+    excerpt: Выбор конкретных мер зависит от системы, категорий данных и актуальных угроз
+    artifact: normalized.md
+    checked_at: '2026-07-18'
+    scope:
+      section_title: Защита при автоматизированной и неавтоматизированной обработке
+      application: юрист, специалист по безопасности.
+    open_questions: []
+  - id: RUPD-007
+    source_id: RUPD
+    item_id: RUPD-security
+    kind: fact
+    status: verified
+    text: >-
+      оператору нужны оценка вреда, подтверждение уничтожения и, когда это
+      применимо, уведомления по утверждённым формам Роскомнадзора.
+    excerpt: требует подтверждать уничтожение персональных данных
+    artifact: normalized.md
+    checked_at: '2026-07-18'
+    scope:
+      section_title: Оценка вреда и уничтожение
+      application: юрист.
+    open_questions: []

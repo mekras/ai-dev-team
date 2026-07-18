@@ -1,0 +1,16 @@
+statements:
+  - id: RKN-002
+    source_id: RKN
+    item_id: RKN-incidents
+    kind: fact
+    status: verified
+    text: >-
+      применимый инцидент требует уведомления Роскомнадзора в течение 24 часов
+      и результатов внутреннего расследования в течение 72 часов.
+    excerpt: в течение 24 часов — об инциденте
+    artifact: normalized.md
+    checked_at: '2026-07-18'
+    scope:
+      section_title: Уведомление об инциденте
+      application: юрист, специалист по безопасности.
+    open_questions: []

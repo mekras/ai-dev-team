@@ -31,6 +31,77 @@
 #   gaps               — известные разрывы (со ссылкой на BACKLOG.md)
 
 concepts:
+  - id: personal-data
+    primary_ru: персональные данные
+    forms_en: [personal data]
+    definition_ru: >-
+      любая информация, относящаяся прямо или косвенно к определённому или
+      определяемому физическому лицу.
+    authority: RUPD
+    defined_by: [RUPD-001]
+    cite_as: [RUPD, RKN]
+    covered_in:
+      - ait-personal-data/SKILL.md
+    synonyms_by_source:
+      RUPD: персональные данные
+      RKN: ПД
+    reconciliation:
+      - >-
+        В продукте используется полная форма «персональные данные»; сокращение
+        «ПД» сохраняется только в идентификаторах и точных названиях источников.
+    collisions:
+      - >-
+        Не путать с обезличенными данными: вопрос о возможности идентификации
+        оценивается по применимым нормам и фактам конкретной обработки.
+
+  - id: personal-data-operator
+    primary_ru: оператор персональных данных
+    forms_en: [personal data operator, controller]
+    definition_ru: >-
+      лицо или орган, организующие или осуществляющие обработку персональных
+      данных и определяющие её цели, состав данных и операции.
+    authority: RUPD
+    defined_by: [RUPD-001, RUPD-003, RKN-001]
+    cite_as: [RUPD, RKN]
+    covered_in:
+      - ait-personal-data/SKILL.md
+      - ait-personal-data/references/russian-personal-data-workflow.md
+    synonyms_by_source:
+      RUPD: оператор
+      RKN: оператор персональных данных
+    reconciliation:
+      - >-
+        Английское controller не подменяет российское нормативное понятие;
+        при анализе договора отдельно устанавливается фактическая роль стороны.
+    collisions:
+      - >-
+        Не путать с лицом, которому поручена обработка: поручение не снимает с
+        оператора обязанность определить цели и условия обработки.
+
+  - id: personal-data-processing
+    primary_ru: обработка персональных данных
+    forms_en: [personal data processing]
+    definition_ru: >-
+      действия или совокупность действий с персональными данными, которые
+      анализируются по цели, основанию, составу данных, операциям и участникам.
+    authority: RUPD
+    defined_by: [RUPD-002, RUPD-003, RKN-002, RKN-003]
+    cite_as: [RUPD, RKN]
+    covered_in:
+      - ait-personal-data/SKILL.md
+      - ait-personal-data/references/russian-personal-data-workflow.md
+    synonyms_by_source:
+      RUPD: обработка персональных данных
+      RKN: обработка ПД
+    reconciliation:
+      - >-
+        Матрица навыка рассматривает каждую цель обработки отдельно, не
+        объединяя разные основания и получателей в одну запись.
+    collisions:
+      - >-
+        Не путать обработку с хранением: хранение — одна из операций, а не
+        самостоятельное универсальное основание.
+
   - id: prompt-injection
     primary_ru: внедрение инструкций
     forms_ru: [инъекция промпта, внедрение инструкций в запрос]

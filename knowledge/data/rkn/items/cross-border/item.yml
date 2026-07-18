@@ -1,0 +1,18 @@
+id: RKN-cross-border
+title: Трансграничная передача персональных данных
+url: https://pd.rkn.gov.ru/cross-border-transmission/
+access: Внешний публичный официальный источник.
+status: approved
+workflow_stage: statements_extracted
+processing_scope: fragments_only
+retrieval_mode: on_demand
+copy_policy: fragments_only
+allowed_use: Проверка процедуры трансграничной передачи и её уведомления.
+requires_access_check: true
+files:
+  tracked:
+    - normalized.md
+    - statements.yml
+known_limitations:
+  - Допустимость передачи зависит от страны, основания и фактов обработки.
+processing_notes: []

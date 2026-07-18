@@ -1,0 +1,17 @@
+id: RKN-registry
+title: Реестр операторов персональных данных
+url: https://pd.rkn.gov.ru/operators-registry/
+access: Внешний публичный официальный источник.
+status: approved
+workflow_stage: statements_extracted
+processing_scope: fragments_only
+retrieval_mode: on_demand
+copy_policy: fragments_only
+allowed_use: Проверка сведений реестра и статуса подачи уведомления.
+requires_access_check: true
+files:
+  tracked:
+    - normalized.md
+    - statements.yml
+known_limitations: []
+processing_notes: []
