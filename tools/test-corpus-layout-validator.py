@@ -330,10 +330,14 @@ def write_derived_statement(
     )
 
 
-def run_validator(root: Path, *, strict_statements: bool = False) -> subprocess.CompletedProcess[str]:
+def run_validator(
+    root: Path, *, strict_statements: bool = False, operational: bool = False
+) -> subprocess.CompletedProcess[str]:
     command = [sys.executable, str(VALIDATOR)]
     if strict_statements:
         command.append("--strict-statements")
+    if operational:
+        command.append("--operational")
     command.append(str(root))
     return subprocess.run(
         command,
@@ -357,6 +361,11 @@ def assert_fails_with(root: Path, expected: str, *, strict_statements: bool = Fa
         raise AssertionError("expected validator to fail")
     if expected not in result.stdout:
         raise AssertionError(f"expected {expected!r} in output:\n{result.stdout}")
+
+
+def initialize_git(root: Path) -> None:
+    subprocess.run(["git", "init", "--quiet"], cwd=root, check=True)
+    subprocess.run(["git", "add", "-A"], cwd=root, check=True)
 
 
 def main() -> int:
@@ -651,6 +660,45 @@ def main() -> int:
         write_long_source(root)
         write_source_map(root, extra='full_text: "Complete tracked text is not allowed."')
         assert_fails_with(root, "source-map.yml contains full-text-like fields")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_text(
+            root / "data" / "test-source" / "gist.html",
+            """
+            <meta property="fb:app_id" content="1401488693436528">
+            <meta name="apple-itunes-app" content="app-id=1477376905">
+            <meta name="author" content="262588213843476">
+            <meta name="gist-id" content="141849770">
+            """,
+        )
+        initialize_git(root)
+        result = run_validator(root, operational=True)
+        if result.returncode != 0 or "personal-data" in result.stdout:
+            raise AssertionError(
+                "Bare technical identifiers from public HTML were classified as personal data.\n"
+                f"{result.stdout}"
+            )
+
+        write_text(root / "data" / "test-source" / "contact-plus.md", "Phone: +7 (999) 123-45-67\n")
+        subprocess.run(["git", "add", "-A"], cwd=root, check=True)
+        result = run_validator(root, operational=True)
+        if result.returncode != 0 or "personal-data" not in result.stdout:
+            raise AssertionError(
+                "A formatted international phone number was not reported as a quality warning.\n"
+                f"{result.stdout}"
+            )
+
+        (root / "data" / "test-source" / "contact-plus.md").unlink()
+        write_text(root / "data" / "test-source" / "contact-russian.md", "Phone: 8 (999) 123-45-67\n")
+        subprocess.run(["git", "add", "-A"], cwd=root, check=True)
+        result = run_validator(root, operational=True)
+        if result.returncode != 0 or "personal-data" not in result.stdout:
+            raise AssertionError(
+                "A formatted Russian phone number starting with 8 was not reported as a quality warning.\n"
+                f"{result.stdout}"
+            )
 
     return 0
 

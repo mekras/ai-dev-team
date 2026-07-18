@@ -217,8 +217,12 @@ SECRET_ASSIGNMENT_PATTERN = re.compile(
 CREDENTIALLED_URL_PATTERN = re.compile(
     r"(?i)\b(?:https?|ssh)://[^\s/@:]+:[^\s/@]+@|[?&](?:access_token|api[_-]?key|token|signature|x-amz-signature)=[^\s&#]+"
 )
-CONTACT_PATTERN = re.compile(
-    r"(?i)(?:\b[\w.+-]+@[\w.-]+\.[a-z]{2,}\b|\+\d[\d\s().-]{7,}\d|\b(?:\d[\s().-]?){10,}\d\b)"
+EMAIL_PATTERN = re.compile(r"(?i)\b[\w.+-]+@[\w.-]+\.[a-z]{2,}\b")
+# A bare sequence of digits is ambiguous: public HTML commonly contains app,
+# author and document identifiers of the same length as a phone number.  Treat
+# only a number with an international prefix or explicit formatting as a phone.
+PHONE_PATTERN = re.compile(
+    r"(?:\+\d[\d\s().-]{7,}\d|\b\d{1,4}(?:[\s().-]+\d{1,4}){2,}\b)"
 )
 METADATA_CONTACT_FILES = {"catalog.yml", "source.yml", "items.yml", "item.yml"}
 
@@ -464,7 +468,11 @@ class Validator:
             return "access-secret"
         if CREDENTIALLED_URL_PATTERN.search(line):
             return "credentialed-url"
-        if CONTACT_PATTERN.search(line):
+        has_phone = any(
+            sum(character.isdigit() for character in match.group()) >= 10
+            for match in PHONE_PATTERN.finditer(line)
+        )
+        if EMAIL_PATTERN.search(line) or has_phone:
             if PurePosixPath(relative_path).name in METADATA_CONTACT_FILES:
                 return "public-contact"
             return "personal-data"
