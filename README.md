@@ -16,13 +16,13 @@
 Для Claude:
 
 ```shell
-apm install mekras/ai-dev-team#^0.16.1 --target claude
+apm install mekras/ai-dev-team#^0.17.0 --target claude
 ```
 
 Для Codex:
 
 ```shell
-apm install mekras/ai-dev-team#^0.16.1 --target codex
+apm install mekras/ai-dev-team#^0.17.0 --target codex
 ```
 
 APM добавит продукт в зависимости текущего проекта, установит локальную копию
@@ -90,13 +90,13 @@ APM добавит продукт в зависимости текущего п�
 Для Claude:
 
 ```shell
-apm install mekras/ai-dev-team#^0.16.1 --target claude
+apm install mekras/ai-dev-team#^0.17.0 --target claude
 ```
 
 Для Codex:
 
 ```shell
-apm install mekras/ai-dev-team#^0.16.1 --target codex
+apm install mekras/ai-dev-team#^0.17.0 --target codex
 ```
 
 Затем в корне проекта дайте агенту команду:

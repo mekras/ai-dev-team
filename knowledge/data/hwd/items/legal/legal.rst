@@ -9,4 +9,4 @@
 материалы.
 
 Связаться с автором можно по электронной почте
-`m.krasilnikov@yandex.ru <mailto:m.krasilnikov@yandex.ru>`_.
+`[REDACTED] <mailto:[REDACTED]>`_.

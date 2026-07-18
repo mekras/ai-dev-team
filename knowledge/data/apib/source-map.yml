@@ -1,422 +1,758 @@
 source_id: APIB
-edition: "2025-10-11"
-retrieved_at: "2026-07-17"
-unit: chapter
-total_units: 61
-legend:
-  covered: утверждения извлечены (см. диапазон statement_ids)
-  pending: нормализовано (карта раздела ниже), утверждения не извлечены
-sections:
-  - title: Введение
-    dir: 01-Введение
-    chapters:
-      - {
-          file: 01-intro-structure.md,
-          title: О структуре этой книги,
-          status: covered,
-          statement_ids: [],
-        }
-      - {
-          file: 02-intro-api-definition.md,
-          title: Определение API,
-          status: covered,
-          statement_ids: [APIB-001, APIB-002, APIB-003],
-        }
-      - {
-          file: 03-intro-api-quality.md,
-          title: Критерии качества API,
-          status: covered,
-          statement_ids: [APIB-004, APIB-005, APIB-006],
-        }
-      - {
-          file: 04-intro-api-choosing-solutions.md,
-          title: Выбор подхода к разработке API,
-          status: covered,
-          statement_ids: [APIB-072, APIB-073],
-        }
-      - {
-          file: 05-intro-api-first-approach.md,
-          title: API-first подход,
-          status: covered,
-          statement_ids: [APIB-074, APIB-075, APIB-076],
-        }
-      - {
-          file: 06-intro-back-compat.md,
-          title: Обратная совместимость,
-          status: covered,
-          statement_ids: [APIB-007, APIB-008],
-        }
-      - {
-          file: 07-intro-versioning.md,
-          title: О версионировании,
-          status: covered,
-          statement_ids: [APIB-009],
-        }
-      - {
-          file: 08-intro-terms-notation.md,
-          title: Условные обозначения и терминология,
-          status: covered,
-          statement_ids: [APIB-010],
-        }
-  - title: "Раздел I. Проектирование API"
-    dir: "02-Раздел I. Проектирование API"
-    chapters:
-      - {
-          file: 01-api-design-context-pyramid.md,
-          title: Пирамида контекстов API,
-          status: covered,
-          statement_ids: [APIB-011, APIB-012],
-        }
-      - {
-          file: 02-api-design-defining-field.md,
-          title: Определение области применения,
-          status: covered,
-          statement_ids: [APIB-013],
-        }
-      - {
-          file: 03-api-design-separating-abstractions.md,
-          title: Разделение уровней абстракции,
-          status: covered,
-          statement_ids: [APIB-014, APIB-015, APIB-016, APIB-017],
-        }
-      - {
-          file: 04-api-design-isolating-responsibility.md,
-          title: Разграничение областей ответственности,
-          status: covered,
-          statement_ids: [APIB-018, APIB-019, APIB-020],
-        }
-      - {
-          file: 05-api-design-describing-interfaces.md,
-          title: Описание конечных интерфейсов,
-          status: covered,
-          statement_ids:
-            [APIB-021, APIB-022, APIB-023, APIB-024, APIB-025, APIB-026, APIB-027, APIB-028],
-        }
-  - title: "Раздел II. Паттерны дизайна API"
-    dir: "03-Раздел II. Паттерны дизайна API"
-    chapters:
-      - {
-          file: 01-api-patterns-context.md,
-          title: О паттернах проектирования в контексте API,
-          status: covered,
-          statement_ids: [APIB-077, APIB-078, APIB-079],
-        }
-      - {
-          file: 02-api-patterns-aa.md,
-          title: Аутентификация партнёров и авторизация вызовов API,
-          status: covered,
-          statement_ids: [APIB-080, APIB-081, APIB-082],
-        }
-      - {
-          file: 03-api-patterns-sync-strategies.md,
-          title: Стратегии синхронизации,
-          status: covered,
-          statement_ids: [APIB-083, APIB-084, APIB-085],
-        }
-      - {
-          file: 04-api-patterns-weak-consistency.md,
-          title: Слабая консистентность,
-          status: covered,
-          statement_ids: [APIB-086, APIB-087, APIB-088, APIB-089],
-        }
-      - {
-          file: 05-api-patterns-async.md,
-          title: Асинхронность и управление временем,
-          status: covered,
-          statement_ids: [APIB-090, APIB-091, APIB-092],
-        }
-      - {
-          file: 06-api-patterns-lists.md,
-          title: Списки и организация доступа к ним,
-          status: covered,
-          statement_ids: [APIB-093, APIB-094, APIB-095],
-        }
-      - {
-          file: 07-api-patterns-push-vs-poll.md,
-          title: "Двунаправленные потоки данных. Push и poll-модели",
-          status: covered,
-          statement_ids: [APIB-096, APIB-097, APIB-098, APIB-099],
-        }
-      - {
-          file: 08-api-patterns-async-event-processing.md,
-          title: "Мультиплексирование сообщений. Асинхронная обработка событий",
-          status: covered,
-          statement_ids: [APIB-100, APIB-101],
-        }
-      - {
-          file: 09-api-patterns-atomicity.md,
-          title: Атомарность массовых изменений,
-          status: covered,
-          statement_ids: [APIB-102, APIB-103, APIB-104],
-        }
-      - {
-          file: 10-api-patterns-partial-updates.md,
-          title: Частичные обновления,
-          status: covered,
-          statement_ids: [APIB-105, APIB-106, APIB-107],
-        }
-      - {
-          file: 11-api-patterns-degrading.md,
-          title: Деградация и предсказуемость,
-          status: covered,
-          statement_ids: [APIB-108, APIB-109],
-        }
-  - title: "Раздел III. Обратная совместимость"
-    dir: "04-Раздел III. Обратная совместимость"
-    chapters:
-      - {
-          file: 01-back-compat-statement.md,
-          title: Постановка проблемы обратной совместимости,
-          status: covered,
-          statement_ids: [APIB-029, APIB-030, APIB-031],
-        }
-      - {
-          file: 02-back-compat-iceberg-waterline.md,
-          title: О ватерлинии айсберга,
-          status: covered,
-          statement_ids: [APIB-032, APIB-033, APIB-034, APIB-035],
-        }
-      - {
-          file: 03-back-compat-abstracting-extending.md,
-          title: Расширение через абстрагирование,
-          status: covered,
-          statement_ids: [APIB-036],
-        }
-      - {
-          file: 04-back-compat-strong-coupling.md,
-          title: Сильная связность и сопутствующие проблемы,
-          status: covered,
-          statement_ids: [APIB-037],
-        }
-      - {
-          file: 05-back-compat-weak-coupling.md,
-          title: Слабая связность,
-          status: covered,
-          statement_ids: [APIB-038],
-        }
-      - {
-          file: 06-back-compat-universal-interfaces.md,
-          title: Интерфейсы как универсальный паттерн,
-          status: covered,
-          statement_ids: [APIB-039, APIB-040, APIB-041, APIB-042],
-        }
-      - {
-          file: 07-back-compat-serenity-notepad.md,
-          title: Блокнот душевного покоя,
-          status: covered,
-          statement_ids: [APIB-043],
-        }
-  - title: "Раздел IV. HTTP API и архитектурные принципы REST"
-    dir: "05-Раздел IV. HTTP API и архитектурные принципы REST"
-    chapters:
-      - {
-          file: 01-http-api-concepts.md,
-          title: "О концепции HTTP API. Парадигмы разработки клиент-серверного взаимодействия",
-          status: covered,
-          statement_ids: [APIB-110, APIB-111, APIB-112, APIB-113],
-        }
-      - {
-          file: 02-http-api-pros-and-cons.md,
-          title: Преимущества и недостатки HTTP API в сравнении с альтернативными технологиями,
-          status: covered,
-          statement_ids: [APIB-114, APIB-115, APIB-116, APIB-117, APIB-118, APIB-119],
-        }
-      - {
-          file: 03-http-api-rest-myth.md,
-          title: Мифология REST,
-          status: covered,
-          statement_ids: [APIB-120, APIB-121, APIB-122, APIB-123],
-        }
-      - {
-          file: 04-http-api-requests-semantics.md,
-          title: Составляющие HTTP запросов и их семантика,
-          status: covered,
-          statement_ids: [APIB-124, APIB-125, APIB-126, APIB-127, APIB-128, APIB-129, APIB-130],
-        }
-      - {
-          file: 05-http-api-rest-organizing.md,
-          title: Организация HTTP API согласно принципам REST,
-          status: covered,
-          statement_ids: [APIB-131, APIB-132, APIB-133, APIB-134, APIB-135, APIB-136],
-        }
-      - {
-          file: 06-http-api-urls-crud.md,
-          title: "Разработка номенклатуры URL ресурсов. CRUD-операции",
-          status: covered,
-          statement_ids: [APIB-137, APIB-138, APIB-139, APIB-140, APIB-141],
-        }
-      - {
-          file: 07-http-api-errors.md,
-          title: Работа с ошибками в HTTP API,
-          status: covered,
-          statement_ids: [APIB-142, APIB-143, APIB-144, APIB-145, APIB-146, APIB-147, APIB-148],
-        }
-      - {
-          file: 08-http-api-final-recommendations.md,
-          title: Заключительные положения и общие рекомендации,
-          status: covered,
-          statement_ids: [APIB-149, APIB-150, APIB-151, APIB-152],
-        }
-  - title: "Раздел V. SDK и UI-библиотеки"
-    dir: "06-Раздел V. SDK и UI-библиотеки"
-    chapters:
-      - {
-          file: 01-sdk-toc-technology-overview.md,
-          title: "Терминология. Обзор технологий разработки SDK",
-          status: covered,
-          statement_ids: [APIB-153, APIB-154, APIB-155, APIB-156],
-        }
-      - {
-          file: 02-sdk-problems-solutions.md,
-          title: "SDK: проблемы и решения",
-          status: covered,
-          statement_ids: [APIB-157, APIB-158, APIB-159, APIB-160],
-        }
-      - {
-          file: 03-sdk-ui-components.md,
-          title: Проблемы встраивания UI-компонентов,
-          status: covered,
-          statement_ids: [APIB-161, APIB-162, APIB-163, APIB-164, APIB-165],
-        }
-      - {
-          file: 04-sdk-decomposing.md,
-          title: Декомпозиция UI-компонентов,
-          status: covered,
-          statement_ids: [APIB-166, APIB-167, APIB-168, APIB-169],
-        }
-      - {
-          file: 05-sdk-mv-frameworks.md,
-          title: MV*-фреймворки,
-          status: covered,
-          statement_ids: [APIB-170, APIB-171, APIB-172, APIB-173],
-        }
-      - {
-          file: 06-sdk-backend-driven.md,
-          title: Backend-Driven UI,
-          status: covered,
-          statement_ids: [APIB-174, APIB-175, APIB-176, APIB-177],
-        }
-      - {
-          file: 07-sdk-shared-resources.md,
-          title: Разделяемые ресурсы и асинхронные блокировки,
-          status: covered,
-          statement_ids: [APIB-178, APIB-179, APIB-180, APIB-181],
-        }
-      - {
-          file: 08-sdk-computed-properties.md,
-          title: Вычисляемые свойства,
-          status: covered,
-          statement_ids: [APIB-182, APIB-183, APIB-184],
-        }
-      - {
-          file: 09-sdk-conclusion.md,
-          title: Заключение,
-          status: covered,
-          statement_ids: [APIB-185],
-        }
-  - title: "Раздел VI. API как продукт"
-    dir: "07-Раздел VI. API как продукт"
-    chapters:
-      - {
-          file: 01-api-product.md,
-          title: Продукт API,
-          status: covered,
-          statement_ids: [APIB-044, APIB-045],
-        }
-      - {
-          file: 02-api-product-business-models.md,
-          title: Бизнес-модели API,
-          status: covered,
-          statement_ids: [APIB-046],
-        }
-      - {
-          file: 03-api-product-vision.md,
-          title: Формирование продуктового видения,
-          status: covered,
-          statement_ids: [APIB-047],
-        }
-      - {
-          file: 04-api-product-devrel.md,
-          title: Взаимодействие с разработчиками,
-          status: covered,
-          statement_ids: [APIB-048, APIB-049, APIB-050],
-        }
-      - {
-          file: 05-api-product-business-comms.md,
-          title: Взаимодействие с бизнес-аудиторией,
-          status: covered,
-          statement_ids: [APIB-051],
-        }
-      - {
-          file: 06-api-product-lineup.md,
-          title: Линейка сервисов API,
-          status: covered,
-          statement_ids: [APIB-052],
-        }
-      - {
-          file: 07-api-product-kpi.md,
-          title: Ключевые показатели эффективности API,
-          status: covered,
-          statement_ids: [APIB-053, APIB-054, APIB-055],
-        }
-      - {
-          file: 08-api-product-antifraud.md,
-          title: Идентификация пользователей и борьба с фродом,
-          status: covered,
-          statement_ids: [APIB-056, APIB-057],
-        }
-      - {
-          file: 09-api-product-tos-violations.md,
-          title: Технические способы борьбы с несанкционированным доступом к API,
-          status: covered,
-          statement_ids: [APIB-058, APIB-059],
-        }
-      - {
-          file: 10-api-product-customer-support.md,
-          title: Поддержка пользователей API,
-          status: covered,
-          statement_ids: [APIB-060, APIB-061, APIB-062],
-        }
-      - {
-          file: 11-api-product-documentation.md,
-          title: Документация,
-          status: covered,
-          statement_ids: [APIB-063, APIB-064, APIB-065],
-        }
-      - {
-          file: 12-api-product-testing.md,
-          title: Тестовая среда,
-          status: covered,
-          statement_ids: [APIB-066, APIB-067, APIB-068],
-        }
-      - {
-          file: 13-api-product-expectations.md,
-          title: Управление ожиданиями,
-          status: covered,
-          statement_ids: [APIB-069, APIB-070, APIB-071],
-        }
-
-summary:
-  covered_chapters: 61
-  pending_chapters: 0
-  note: >-
-    Все 61 глава актуальной редакции покрыты утверждениями (`APIB-001`–`APIB-185`).
-    31 глава, совпавшая по названию и позиции со старой редакцией (2023-04-09),
-    сопоставлена с уже извлечёнными утверждениями `APIB-001`–`APIB-071` без
-    повторного извлечения из markdown. 30 глав, отсутствовавших в старой редакции
-    (два новых введения и разделы «Паттерны дизайна API», «HTTP API и REST»,
-    «SDK и UI-библиотеки»), извлечены заново `2026-07-17` как `APIB-072`–`APIB-185`.
-  known_limitations:
-    - >-
-      В главах с развёрнутыми учебными примерами (например, декомпозиция
-      `SearchBox`/`Composer` в разделе «SDK и UI-библиотеки», псевдокод в разделе
-      «HTTP API и REST») утверждения обобщают логику примера, но сам код и
-      пошаговые листинги не перенесены как отдельные трассируемые единицы; для
-      точной трассировки к конкретному листингу нужно смотреть исходный
-      `.local.md`.
-    - >-
-      Разделы «Раздел I. Проектирование API» и «Раздел III. Обратная
-      совместимость» не перепроверялись на предмет новых абзацев или примеров,
-      добавленных при переиздании — сопоставление выполнено по совпадению
-      заголовка и позиции главы, а не построчной сверкой текста со старой
-      редакцией.
+long_source: true
+extraction_passport:
+  format: 61 глава в Markdown; полные файлы хранятся локально.
+  file_size_bytes: 1063370
+  content_hash_absence_reason: Для набора из 61 файла контрольные суммы и размеры приведены
+    в items/md/chapter-index.tsv.
+  metadata_source: Репозиторий автора, ветка gh-pages, снимок 2025-10-11.
+  extraction_tool: Точечное получение исходных Markdown-файлов.
+  extraction_status: Главы получены и сверены по локальному индексу.
+structure:
+  units:
+  - id: chapter-001
+    title: О структуре этой книги
+    order: 1
+    locator: 01-Введение/01-intro-structure.md
+  - id: chapter-002
+    title: Определение API
+    order: 2
+    locator: 01-Введение/02-intro-api-definition.md
+  - id: chapter-003
+    title: Критерии качества API
+    order: 3
+    locator: 01-Введение/03-intro-api-quality.md
+  - id: chapter-004
+    title: Выбор подхода к разработке API
+    order: 4
+    locator: 01-Введение/04-intro-api-choosing-solutions.md
+  - id: chapter-005
+    title: API-first подход
+    order: 5
+    locator: 01-Введение/05-intro-api-first-approach.md
+  - id: chapter-006
+    title: Обратная совместимость
+    order: 6
+    locator: 01-Введение/06-intro-back-compat.md
+  - id: chapter-007
+    title: О версионировании
+    order: 7
+    locator: 01-Введение/07-intro-versioning.md
+  - id: chapter-008
+    title: Условные обозначения и терминология
+    order: 8
+    locator: 01-Введение/08-intro-terms-notation.md
+  - id: chapter-009
+    title: Пирамида контекстов API
+    order: 9
+    locator: 02-Раздел I. Проектирование API/01-api-design-context-pyramid.md
+  - id: chapter-010
+    title: Определение области применения
+    order: 10
+    locator: 02-Раздел I. Проектирование API/02-api-design-defining-field.md
+  - id: chapter-011
+    title: Разделение уровней абстракции
+    order: 11
+    locator: 02-Раздел I. Проектирование API/03-api-design-separating-abstractions.md
+  - id: chapter-012
+    title: Разграничение областей ответственности
+    order: 12
+    locator: 02-Раздел I. Проектирование API/04-api-design-isolating-responsibility.md
+  - id: chapter-013
+    title: Описание конечных интерфейсов
+    order: 13
+    locator: 02-Раздел I. Проектирование API/05-api-design-describing-interfaces.md
+  - id: chapter-014
+    title: О паттернах проектирования в контексте API
+    order: 14
+    locator: 03-Раздел II. Паттерны дизайна API/01-api-patterns-context.md
+  - id: chapter-015
+    title: Аутентификация партнёров и авторизация вызовов API
+    order: 15
+    locator: 03-Раздел II. Паттерны дизайна API/02-api-patterns-aa.md
+  - id: chapter-016
+    title: Стратегии синхронизации
+    order: 16
+    locator: 03-Раздел II. Паттерны дизайна API/03-api-patterns-sync-strategies.md
+  - id: chapter-017
+    title: Слабая консистентность
+    order: 17
+    locator: 03-Раздел II. Паттерны дизайна API/04-api-patterns-weak-consistency.md
+  - id: chapter-018
+    title: Асинхронность и управление временем
+    order: 18
+    locator: 03-Раздел II. Паттерны дизайна API/05-api-patterns-async.md
+  - id: chapter-019
+    title: Списки и организация доступа к ним
+    order: 19
+    locator: 03-Раздел II. Паттерны дизайна API/06-api-patterns-lists.md
+  - id: chapter-020
+    title: Двунаправленные потоки данных. Push и poll-модели
+    order: 20
+    locator: 03-Раздел II. Паттерны дизайна API/07-api-patterns-push-vs-poll.md
+  - id: chapter-021
+    title: Мультиплексирование сообщений. Асинхронная обработка событий
+    order: 21
+    locator: 03-Раздел II. Паттерны дизайна API/08-api-patterns-async-event-processing.md
+  - id: chapter-022
+    title: Атомарность массовых изменений
+    order: 22
+    locator: 03-Раздел II. Паттерны дизайна API/09-api-patterns-atomicity.md
+  - id: chapter-023
+    title: Частичные обновления
+    order: 23
+    locator: 03-Раздел II. Паттерны дизайна API/10-api-patterns-partial-updates.md
+  - id: chapter-024
+    title: Деградация и предсказуемость
+    order: 24
+    locator: 03-Раздел II. Паттерны дизайна API/11-api-patterns-degrading.md
+  - id: chapter-025
+    title: Постановка проблемы обратной совместимости
+    order: 25
+    locator: 04-Раздел III. Обратная совместимость/01-back-compat-statement.md
+  - id: chapter-026
+    title: О ватерлинии айсберга
+    order: 26
+    locator: 04-Раздел III. Обратная совместимость/02-back-compat-iceberg-waterline.md
+  - id: chapter-027
+    title: Расширение через абстрагирование
+    order: 27
+    locator: 04-Раздел III. Обратная совместимость/03-back-compat-abstracting-extending.md
+  - id: chapter-028
+    title: Сильная связность и сопутствующие проблемы
+    order: 28
+    locator: 04-Раздел III. Обратная совместимость/04-back-compat-strong-coupling.md
+  - id: chapter-029
+    title: Слабая связность
+    order: 29
+    locator: 04-Раздел III. Обратная совместимость/05-back-compat-weak-coupling.md
+  - id: chapter-030
+    title: Интерфейсы как универсальный паттерн
+    order: 30
+    locator: 04-Раздел III. Обратная совместимость/06-back-compat-universal-interfaces.md
+  - id: chapter-031
+    title: Блокнот душевного покоя
+    order: 31
+    locator: 04-Раздел III. Обратная совместимость/07-back-compat-serenity-notepad.md
+  - id: chapter-032
+    title: О концепции HTTP API. Парадигмы разработки клиент-серверного взаимодействия
+    order: 32
+    locator: 05-Раздел IV. HTTP API и архитектурные принципы REST/01-http-api-concepts.md
+  - id: chapter-033
+    title: Преимущества и недостатки HTTP API в сравнении с альтернативными технологиями
+    order: 33
+    locator: 05-Раздел IV. HTTP API и архитектурные принципы REST/02-http-api-pros-and-cons.md
+  - id: chapter-034
+    title: Мифология REST
+    order: 34
+    locator: 05-Раздел IV. HTTP API и архитектурные принципы REST/03-http-api-rest-myth.md
+  - id: chapter-035
+    title: Составляющие HTTP запросов и их семантика
+    order: 35
+    locator: 05-Раздел IV. HTTP API и архитектурные принципы REST/04-http-api-requests-semantics.md
+  - id: chapter-036
+    title: Организация HTTP API согласно принципам REST
+    order: 36
+    locator: 05-Раздел IV. HTTP API и архитектурные принципы REST/05-http-api-rest-organizing.md
+  - id: chapter-037
+    title: Разработка номенклатуры URL ресурсов. CRUD-операции
+    order: 37
+    locator: 05-Раздел IV. HTTP API и архитектурные принципы REST/06-http-api-urls-crud.md
+  - id: chapter-038
+    title: Работа с ошибками в HTTP API
+    order: 38
+    locator: 05-Раздел IV. HTTP API и архитектурные принципы REST/07-http-api-errors.md
+  - id: chapter-039
+    title: Заключительные положения и общие рекомендации
+    order: 39
+    locator: 05-Раздел IV. HTTP API и архитектурные принципы REST/08-http-api-final-recommendations.md
+  - id: chapter-040
+    title: Терминология. Обзор технологий разработки SDK
+    order: 40
+    locator: 06-Раздел V. SDK и UI-библиотеки/01-sdk-toc-technology-overview.md
+  - id: chapter-041
+    title: 'SDK: проблемы и решения'
+    order: 41
+    locator: 06-Раздел V. SDK и UI-библиотеки/02-sdk-problems-solutions.md
+  - id: chapter-042
+    title: Проблемы встраивания UI-компонентов
+    order: 42
+    locator: 06-Раздел V. SDK и UI-библиотеки/03-sdk-ui-components.md
+  - id: chapter-043
+    title: Декомпозиция UI-компонентов
+    order: 43
+    locator: 06-Раздел V. SDK и UI-библиотеки/04-sdk-decomposing.md
+  - id: chapter-044
+    title: MV*-фреймворки
+    order: 44
+    locator: 06-Раздел V. SDK и UI-библиотеки/05-sdk-mv-frameworks.md
+  - id: chapter-045
+    title: Backend-Driven UI
+    order: 45
+    locator: 06-Раздел V. SDK и UI-библиотеки/06-sdk-backend-driven.md
+  - id: chapter-046
+    title: Разделяемые ресурсы и асинхронные блокировки
+    order: 46
+    locator: 06-Раздел V. SDK и UI-библиотеки/07-sdk-shared-resources.md
+  - id: chapter-047
+    title: Вычисляемые свойства
+    order: 47
+    locator: 06-Раздел V. SDK и UI-библиотеки/08-sdk-computed-properties.md
+  - id: chapter-048
+    title: Заключение
+    order: 48
+    locator: 06-Раздел V. SDK и UI-библиотеки/09-sdk-conclusion.md
+  - id: chapter-049
+    title: Продукт API
+    order: 49
+    locator: 07-Раздел VI. API как продукт/01-api-product.md
+  - id: chapter-050
+    title: Бизнес-модели API
+    order: 50
+    locator: 07-Раздел VI. API как продукт/02-api-product-business-models.md
+  - id: chapter-051
+    title: Формирование продуктового видения
+    order: 51
+    locator: 07-Раздел VI. API как продукт/03-api-product-vision.md
+  - id: chapter-052
+    title: Взаимодействие с разработчиками
+    order: 52
+    locator: 07-Раздел VI. API как продукт/04-api-product-devrel.md
+  - id: chapter-053
+    title: Взаимодействие с бизнес-аудиторией
+    order: 53
+    locator: 07-Раздел VI. API как продукт/05-api-product-business-comms.md
+  - id: chapter-054
+    title: Линейка сервисов API
+    order: 54
+    locator: 07-Раздел VI. API как продукт/06-api-product-lineup.md
+  - id: chapter-055
+    title: Ключевые показатели эффективности API
+    order: 55
+    locator: 07-Раздел VI. API как продукт/07-api-product-kpi.md
+  - id: chapter-056
+    title: Идентификация пользователей и борьба с фродом
+    order: 56
+    locator: 07-Раздел VI. API как продукт/08-api-product-antifraud.md
+  - id: chapter-057
+    title: Технические способы борьбы с несанкционированным доступом к API
+    order: 57
+    locator: 07-Раздел VI. API как продукт/09-api-product-tos-violations.md
+  - id: chapter-058
+    title: Поддержка пользователей API
+    order: 58
+    locator: 07-Раздел VI. API как продукт/10-api-product-customer-support.md
+  - id: chapter-059
+    title: Документация
+    order: 59
+    locator: 07-Раздел VI. API как продукт/11-api-product-documentation.md
+  - id: chapter-060
+    title: Тестовая среда
+    order: 60
+    locator: 07-Раздел VI. API как продукт/12-api-product-testing.md
+  - id: chapter-061
+    title: Управление ожиданиями
+    order: 61
+    locator: 07-Раздел VI. API как продукт/13-api-product-expectations.md
+coverage:
+  units:
+  - unit_id: chapter-001
+    status: extracted
+    artifacts:
+    - items/md/01-Введение/01-intro-structure.local.md
+    statements: []
+  - unit_id: chapter-002
+    status: extracted
+    artifacts:
+    - items/md/01-Введение/02-intro-api-definition.local.md
+    statements:
+    - items/text/statements.yml#APIB-001
+    - items/text/statements.yml#APIB-002
+    - items/text/statements.yml#APIB-003
+  - unit_id: chapter-003
+    status: extracted
+    artifacts:
+    - items/md/01-Введение/03-intro-api-quality.local.md
+    statements:
+    - items/text/statements.yml#APIB-004
+    - items/text/statements.yml#APIB-005
+    - items/text/statements.yml#APIB-006
+  - unit_id: chapter-004
+    status: extracted
+    artifacts:
+    - items/md/01-Введение/04-intro-api-choosing-solutions.local.md
+    statements:
+    - items/md/statements.yml#APIB-072
+    - items/md/statements.yml#APIB-073
+  - unit_id: chapter-005
+    status: extracted
+    artifacts:
+    - items/md/01-Введение/05-intro-api-first-approach.local.md
+    statements:
+    - items/md/statements.yml#APIB-074
+    - items/md/statements.yml#APIB-075
+    - items/md/statements.yml#APIB-076
+  - unit_id: chapter-006
+    status: extracted
+    artifacts:
+    - items/md/01-Введение/06-intro-back-compat.local.md
+    statements:
+    - items/text/statements.yml#APIB-007
+    - items/text/statements.yml#APIB-008
+  - unit_id: chapter-007
+    status: extracted
+    artifacts:
+    - items/md/01-Введение/07-intro-versioning.local.md
+    statements:
+    - items/text/statements.yml#APIB-009
+  - unit_id: chapter-008
+    status: extracted
+    artifacts:
+    - items/md/01-Введение/08-intro-terms-notation.local.md
+    statements:
+    - items/text/statements.yml#APIB-010
+  - unit_id: chapter-009
+    status: extracted
+    artifacts:
+    - items/md/02-Раздел I. Проектирование API/01-api-design-context-pyramid.local.md
+    statements:
+    - items/text/statements.yml#APIB-011
+    - items/text/statements.yml#APIB-012
+  - unit_id: chapter-010
+    status: extracted
+    artifacts:
+    - items/md/02-Раздел I. Проектирование API/02-api-design-defining-field.local.md
+    statements:
+    - items/text/statements.yml#APIB-013
+  - unit_id: chapter-011
+    status: extracted
+    artifacts:
+    - items/md/02-Раздел I. Проектирование API/03-api-design-separating-abstractions.local.md
+    statements:
+    - items/text/statements.yml#APIB-014
+    - items/text/statements.yml#APIB-015
+    - items/text/statements.yml#APIB-016
+    - items/text/statements.yml#APIB-017
+  - unit_id: chapter-012
+    status: extracted
+    artifacts:
+    - items/md/02-Раздел I. Проектирование API/04-api-design-isolating-responsibility.local.md
+    statements:
+    - items/text/statements.yml#APIB-018
+    - items/text/statements.yml#APIB-019
+    - items/text/statements.yml#APIB-020
+  - unit_id: chapter-013
+    status: extracted
+    artifacts:
+    - items/md/02-Раздел I. Проектирование API/05-api-design-describing-interfaces.local.md
+    statements:
+    - items/text/statements.yml#APIB-021
+    - items/text/statements.yml#APIB-022
+    - items/text/statements.yml#APIB-023
+    - items/text/statements.yml#APIB-024
+    - items/text/statements.yml#APIB-025
+    - items/text/statements.yml#APIB-026
+    - items/text/statements.yml#APIB-027
+    - items/text/statements.yml#APIB-028
+  - unit_id: chapter-014
+    status: extracted
+    artifacts:
+    - items/md/03-Раздел II. Паттерны дизайна API/01-api-patterns-context.local.md
+    statements:
+    - items/md/statements.yml#APIB-077
+    - items/md/statements.yml#APIB-078
+    - items/md/statements.yml#APIB-079
+  - unit_id: chapter-015
+    status: extracted
+    artifacts:
+    - items/md/03-Раздел II. Паттерны дизайна API/02-api-patterns-aa.local.md
+    statements:
+    - items/md/statements.yml#APIB-080
+    - items/md/statements.yml#APIB-081
+    - items/md/statements.yml#APIB-082
+  - unit_id: chapter-016
+    status: extracted
+    artifacts:
+    - items/md/03-Раздел II. Паттерны дизайна API/03-api-patterns-sync-strategies.local.md
+    statements:
+    - items/md/statements.yml#APIB-083
+    - items/md/statements.yml#APIB-084
+    - items/md/statements.yml#APIB-085
+  - unit_id: chapter-017
+    status: extracted
+    artifacts:
+    - items/md/03-Раздел II. Паттерны дизайна API/04-api-patterns-weak-consistency.local.md
+    statements:
+    - items/md/statements.yml#APIB-086
+    - items/md/statements.yml#APIB-087
+    - items/md/statements.yml#APIB-088
+    - items/md/statements.yml#APIB-089
+  - unit_id: chapter-018
+    status: extracted
+    artifacts:
+    - items/md/03-Раздел II. Паттерны дизайна API/05-api-patterns-async.local.md
+    statements:
+    - items/md/statements.yml#APIB-090
+    - items/md/statements.yml#APIB-091
+    - items/md/statements.yml#APIB-092
+  - unit_id: chapter-019
+    status: extracted
+    artifacts:
+    - items/md/03-Раздел II. Паттерны дизайна API/06-api-patterns-lists.local.md
+    statements:
+    - items/md/statements.yml#APIB-093
+    - items/md/statements.yml#APIB-094
+    - items/md/statements.yml#APIB-095
+  - unit_id: chapter-020
+    status: extracted
+    artifacts:
+    - items/md/03-Раздел II. Паттерны дизайна API/07-api-patterns-push-vs-poll.local.md
+    statements:
+    - items/md/statements.yml#APIB-096
+    - items/md/statements.yml#APIB-097
+    - items/md/statements.yml#APIB-098
+    - items/md/statements.yml#APIB-099
+  - unit_id: chapter-021
+    status: extracted
+    artifacts:
+    - items/md/03-Раздел II. Паттерны дизайна API/08-api-patterns-async-event-processing.local.md
+    statements:
+    - items/md/statements.yml#APIB-100
+    - items/md/statements.yml#APIB-101
+  - unit_id: chapter-022
+    status: extracted
+    artifacts:
+    - items/md/03-Раздел II. Паттерны дизайна API/09-api-patterns-atomicity.local.md
+    statements:
+    - items/md/statements.yml#APIB-102
+    - items/md/statements.yml#APIB-103
+    - items/md/statements.yml#APIB-104
+  - unit_id: chapter-023
+    status: extracted
+    artifacts:
+    - items/md/03-Раздел II. Паттерны дизайна API/10-api-patterns-partial-updates.local.md
+    statements:
+    - items/md/statements.yml#APIB-105
+    - items/md/statements.yml#APIB-106
+    - items/md/statements.yml#APIB-107
+  - unit_id: chapter-024
+    status: extracted
+    artifacts:
+    - items/md/03-Раздел II. Паттерны дизайна API/11-api-patterns-degrading.local.md
+    statements:
+    - items/md/statements.yml#APIB-108
+    - items/md/statements.yml#APIB-109
+  - unit_id: chapter-025
+    status: extracted
+    artifacts:
+    - items/md/04-Раздел III. Обратная совместимость/01-back-compat-statement.local.md
+    statements:
+    - items/text/statements.yml#APIB-029
+    - items/text/statements.yml#APIB-030
+    - items/text/statements.yml#APIB-031
+  - unit_id: chapter-026
+    status: extracted
+    artifacts:
+    - items/md/04-Раздел III. Обратная совместимость/02-back-compat-iceberg-waterline.local.md
+    statements:
+    - items/text/statements.yml#APIB-032
+    - items/text/statements.yml#APIB-033
+    - items/text/statements.yml#APIB-034
+    - items/text/statements.yml#APIB-035
+  - unit_id: chapter-027
+    status: extracted
+    artifacts:
+    - items/md/04-Раздел III. Обратная совместимость/03-back-compat-abstracting-extending.local.md
+    statements:
+    - items/text/statements.yml#APIB-036
+  - unit_id: chapter-028
+    status: extracted
+    artifacts:
+    - items/md/04-Раздел III. Обратная совместимость/04-back-compat-strong-coupling.local.md
+    statements:
+    - items/text/statements.yml#APIB-037
+  - unit_id: chapter-029
+    status: extracted
+    artifacts:
+    - items/md/04-Раздел III. Обратная совместимость/05-back-compat-weak-coupling.local.md
+    statements:
+    - items/text/statements.yml#APIB-038
+  - unit_id: chapter-030
+    status: extracted
+    artifacts:
+    - items/md/04-Раздел III. Обратная совместимость/06-back-compat-universal-interfaces.local.md
+    statements:
+    - items/text/statements.yml#APIB-039
+    - items/text/statements.yml#APIB-040
+    - items/text/statements.yml#APIB-041
+    - items/text/statements.yml#APIB-042
+  - unit_id: chapter-031
+    status: extracted
+    artifacts:
+    - items/md/04-Раздел III. Обратная совместимость/07-back-compat-serenity-notepad.local.md
+    statements:
+    - items/text/statements.yml#APIB-043
+  - unit_id: chapter-032
+    status: extracted
+    artifacts:
+    - items/md/05-Раздел IV. HTTP API и архитектурные принципы REST/01-http-api-concepts.local.md
+    statements:
+    - items/md/statements.yml#APIB-110
+    - items/md/statements.yml#APIB-111
+    - items/md/statements.yml#APIB-112
+    - items/md/statements.yml#APIB-113
+  - unit_id: chapter-033
+    status: extracted
+    artifacts:
+    - items/md/05-Раздел IV. HTTP API и архитектурные принципы REST/02-http-api-pros-and-cons.local.md
+    statements:
+    - items/md/statements.yml#APIB-114
+    - items/md/statements.yml#APIB-115
+    - items/md/statements.yml#APIB-116
+    - items/md/statements.yml#APIB-117
+    - items/md/statements.yml#APIB-118
+    - items/md/statements.yml#APIB-119
+  - unit_id: chapter-034
+    status: extracted
+    artifacts:
+    - items/md/05-Раздел IV. HTTP API и архитектурные принципы REST/03-http-api-rest-myth.local.md
+    statements:
+    - items/md/statements.yml#APIB-120
+    - items/md/statements.yml#APIB-121
+    - items/md/statements.yml#APIB-122
+    - items/md/statements.yml#APIB-123
+  - unit_id: chapter-035
+    status: extracted
+    artifacts:
+    - items/md/05-Раздел IV. HTTP API и архитектурные принципы REST/04-http-api-requests-semantics.local.md
+    statements:
+    - items/md/statements.yml#APIB-124
+    - items/md/statements.yml#APIB-125
+    - items/md/statements.yml#APIB-126
+    - items/md/statements.yml#APIB-127
+    - items/md/statements.yml#APIB-128
+    - items/md/statements.yml#APIB-129
+    - items/md/statements.yml#APIB-130
+  - unit_id: chapter-036
+    status: extracted
+    artifacts:
+    - items/md/05-Раздел IV. HTTP API и архитектурные принципы REST/05-http-api-rest-organizing.local.md
+    statements:
+    - items/md/statements.yml#APIB-131
+    - items/md/statements.yml#APIB-132
+    - items/md/statements.yml#APIB-133
+    - items/md/statements.yml#APIB-134
+    - items/md/statements.yml#APIB-135
+    - items/md/statements.yml#APIB-136
+  - unit_id: chapter-037
+    status: extracted
+    artifacts:
+    - items/md/05-Раздел IV. HTTP API и архитектурные принципы REST/06-http-api-urls-crud.local.md
+    statements:
+    - items/md/statements.yml#APIB-137
+    - items/md/statements.yml#APIB-138
+    - items/md/statements.yml#APIB-139
+    - items/md/statements.yml#APIB-140
+    - items/md/statements.yml#APIB-141
+  - unit_id: chapter-038
+    status: extracted
+    artifacts:
+    - items/md/05-Раздел IV. HTTP API и архитектурные принципы REST/07-http-api-errors.local.md
+    statements:
+    - items/md/statements.yml#APIB-142
+    - items/md/statements.yml#APIB-143
+    - items/md/statements.yml#APIB-144
+    - items/md/statements.yml#APIB-145
+    - items/md/statements.yml#APIB-146
+    - items/md/statements.yml#APIB-147
+    - items/md/statements.yml#APIB-148
+  - unit_id: chapter-039
+    status: extracted
+    artifacts:
+    - items/md/05-Раздел IV. HTTP API и архитектурные принципы REST/08-http-api-final-recommendations.local.md
+    statements:
+    - items/md/statements.yml#APIB-149
+    - items/md/statements.yml#APIB-150
+    - items/md/statements.yml#APIB-151
+    - items/md/statements.yml#APIB-152
+  - unit_id: chapter-040
+    status: extracted
+    artifacts:
+    - items/md/06-Раздел V. SDK и UI-библиотеки/01-sdk-toc-technology-overview.local.md
+    statements:
+    - items/md/statements.yml#APIB-153
+    - items/md/statements.yml#APIB-154
+    - items/md/statements.yml#APIB-155
+    - items/md/statements.yml#APIB-156
+  - unit_id: chapter-041
+    status: extracted
+    artifacts:
+    - items/md/06-Раздел V. SDK и UI-библиотеки/02-sdk-problems-solutions.local.md
+    statements:
+    - items/md/statements.yml#APIB-157
+    - items/md/statements.yml#APIB-158
+    - items/md/statements.yml#APIB-159
+    - items/md/statements.yml#APIB-160
+  - unit_id: chapter-042
+    status: extracted
+    artifacts:
+    - items/md/06-Раздел V. SDK и UI-библиотеки/03-sdk-ui-components.local.md
+    statements:
+    - items/md/statements.yml#APIB-161
+    - items/md/statements.yml#APIB-162
+    - items/md/statements.yml#APIB-163
+    - items/md/statements.yml#APIB-164
+    - items/md/statements.yml#APIB-165
+  - unit_id: chapter-043
+    status: extracted
+    artifacts:
+    - items/md/06-Раздел V. SDK и UI-библиотеки/04-sdk-decomposing.local.md
+    statements:
+    - items/md/statements.yml#APIB-166
+    - items/md/statements.yml#APIB-167
+    - items/md/statements.yml#APIB-168
+    - items/md/statements.yml#APIB-169
+  - unit_id: chapter-044
+    status: extracted
+    artifacts:
+    - items/md/06-Раздел V. SDK и UI-библиотеки/05-sdk-mv-frameworks.local.md
+    statements:
+    - items/md/statements.yml#APIB-170
+    - items/md/statements.yml#APIB-171
+    - items/md/statements.yml#APIB-172
+    - items/md/statements.yml#APIB-173
+  - unit_id: chapter-045
+    status: extracted
+    artifacts:
+    - items/md/06-Раздел V. SDK и UI-библиотеки/06-sdk-backend-driven.local.md
+    statements:
+    - items/md/statements.yml#APIB-174
+    - items/md/statements.yml#APIB-175
+    - items/md/statements.yml#APIB-176
+    - items/md/statements.yml#APIB-177
+  - unit_id: chapter-046
+    status: extracted
+    artifacts:
+    - items/md/06-Раздел V. SDK и UI-библиотеки/07-sdk-shared-resources.local.md
+    statements:
+    - items/md/statements.yml#APIB-178
+    - items/md/statements.yml#APIB-179
+    - items/md/statements.yml#APIB-180
+    - items/md/statements.yml#APIB-181
+  - unit_id: chapter-047
+    status: extracted
+    artifacts:
+    - items/md/06-Раздел V. SDK и UI-библиотеки/08-sdk-computed-properties.local.md
+    statements:
+    - items/md/statements.yml#APIB-182
+    - items/md/statements.yml#APIB-183
+    - items/md/statements.yml#APIB-184
+  - unit_id: chapter-048
+    status: extracted
+    artifacts:
+    - items/md/06-Раздел V. SDK и UI-библиотеки/09-sdk-conclusion.local.md
+    statements:
+    - items/md/statements.yml#APIB-185
+  - unit_id: chapter-049
+    status: extracted
+    artifacts:
+    - items/md/07-Раздел VI. API как продукт/01-api-product.local.md
+    statements:
+    - items/text/statements.yml#APIB-044
+    - items/text/statements.yml#APIB-045
+  - unit_id: chapter-050
+    status: extracted
+    artifacts:
+    - items/md/07-Раздел VI. API как продукт/02-api-product-business-models.local.md
+    statements:
+    - items/text/statements.yml#APIB-046
+  - unit_id: chapter-051
+    status: extracted
+    artifacts:
+    - items/md/07-Раздел VI. API как продукт/03-api-product-vision.local.md
+    statements:
+    - items/text/statements.yml#APIB-047
+  - unit_id: chapter-052
+    status: extracted
+    artifacts:
+    - items/md/07-Раздел VI. API как продукт/04-api-product-devrel.local.md
+    statements:
+    - items/text/statements.yml#APIB-048
+    - items/text/statements.yml#APIB-049
+    - items/text/statements.yml#APIB-050
+  - unit_id: chapter-053
+    status: extracted
+    artifacts:
+    - items/md/07-Раздел VI. API как продукт/05-api-product-business-comms.local.md
+    statements:
+    - items/text/statements.yml#APIB-051
+  - unit_id: chapter-054
+    status: extracted
+    artifacts:
+    - items/md/07-Раздел VI. API как продукт/06-api-product-lineup.local.md
+    statements:
+    - items/text/statements.yml#APIB-052
+  - unit_id: chapter-055
+    status: extracted
+    artifacts:
+    - items/md/07-Раздел VI. API как продукт/07-api-product-kpi.local.md
+    statements:
+    - items/text/statements.yml#APIB-053
+    - items/text/statements.yml#APIB-054
+    - items/text/statements.yml#APIB-055
+  - unit_id: chapter-056
+    status: extracted
+    artifacts:
+    - items/md/07-Раздел VI. API как продукт/08-api-product-antifraud.local.md
+    statements:
+    - items/text/statements.yml#APIB-056
+    - items/text/statements.yml#APIB-057
+  - unit_id: chapter-057
+    status: extracted
+    artifacts:
+    - items/md/07-Раздел VI. API как продукт/09-api-product-tos-violations.local.md
+    statements:
+    - items/text/statements.yml#APIB-058
+    - items/text/statements.yml#APIB-059
+  - unit_id: chapter-058
+    status: extracted
+    artifacts:
+    - items/md/07-Раздел VI. API как продукт/10-api-product-customer-support.local.md
+    statements:
+    - items/text/statements.yml#APIB-060
+    - items/text/statements.yml#APIB-061
+    - items/text/statements.yml#APIB-062
+  - unit_id: chapter-059
+    status: extracted
+    artifacts:
+    - items/md/07-Раздел VI. API как продукт/11-api-product-documentation.local.md
+    statements:
+    - items/text/statements.yml#APIB-063
+    - items/text/statements.yml#APIB-064
+    - items/text/statements.yml#APIB-065
+  - unit_id: chapter-060
+    status: extracted
+    artifacts:
+    - items/md/07-Раздел VI. API как продукт/12-api-product-testing.local.md
+    statements:
+    - items/text/statements.yml#APIB-066
+    - items/text/statements.yml#APIB-067
+    - items/text/statements.yml#APIB-068
+  - unit_id: chapter-061
+    status: extracted
+    artifacts:
+    - items/md/07-Раздел VI. API как продукт/13-api-product-expectations.local.md
+    statements:
+    - items/text/statements.yml#APIB-069
+    - items/text/statements.yml#APIB-070
+    - items/text/statements.yml#APIB-071
+publication_limitations:
+- Полные тексты глав не хранятся в Git.
+- Локальные Markdown-файлы и текстовая выгрузка исключены через *.local.*.
+- В главах с развёрнутыми учебными примерами (например, декомпозиция `SearchBox`/`Composer`
+  в разделе «SDK и UI-библиотеки», псевдокод в разделе «HTTP API и REST») утверждения обобщают
+  логику примера, но сам код и пошаговые листинги не перенесены как отдельные трассируемые
+  единицы; для точной трассировки к конкретному листингу нужно смотреть исходный `.local.md`.
+- Разделы «Раздел I. Проектирование API» и «Раздел III. Обратная совместимость» не перепроверялись
+  на предмет новых абзацев или примеров, добавленных при переиздании — сопоставление выполнено
+  по совпадению заголовка и позиции главы, а не построчной сверкой текста со старой редакцией.

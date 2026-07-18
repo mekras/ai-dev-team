@@ -12,10 +12,10 @@ REQUIREMENTS_ROOT = ROOT / "docs" / "requirements"
 
 CATEGORIES = {
     "business": ("bt", "БТ", (1, 2, 3)),
-    "functional": ("ft", "ФТ", tuple(range(1, 16))),
+    "functional": ("ft", "ФТ", tuple(range(1, 17))),
     "quality": ("kach", "КАЧ", tuple(range(1, 8))),
     "rules": ("pr", "ПР", tuple(range(1, 7))),
-    "user": ("pt", "ПТ", tuple(range(1, 6))),
+    "user": ("pt", "ПТ", tuple(range(1, 7))),
 }
 
 INLINE_REQUIREMENT_RE = re.compile(

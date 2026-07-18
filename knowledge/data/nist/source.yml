@@ -1,0 +1,29 @@
+id: NIST
+slug: nist
+title: "Публикации NIST по управлению рисками ИИ и противодействию атакам на машинное обучение."
+status: candidate
+priority: high
+carrier_type: website
+source_kind: reference
+adapter: manual
+storage_strategy: external_reference
+processing_scope: metadata_only
+retrieval_mode: on_demand
+copy_policy: no_bulk_copy
+allowed_use: "Точечная проверка рекомендаций NIST по рискам генеративного ИИ и атакам на ИИ."
+requires_access_check: true
+url: "https://www.nist.gov/itl/ai-risk-management-framework"
+locator: "https://www.nist.gov/itl/ai-risk-management-framework"
+public_reference: "https://www.nist.gov/itl/ai-risk-management-framework"
+license_or_terms: "Перед сохранением фрагментов проверять условия публикации NIST и режим конкретного документа."
+access:
+  default: "Внешний публичный источник. Получать только релевантные страницы и документы."
+reliability: official
+stability: mutable
+refresh_policy: manual
+last_checked_at: "2026-07-18"
+scope:
+  includes: ["управление рисками ИИ", "генеративный ИИ", "атаки на машинное обучение"]
+  excludes: ["правовые заключения"]
+known_limitations: ["Рамка управления рисками не заменяет модель угроз конкретной системы."]
+processing_notes: []

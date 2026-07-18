@@ -1,0 +1,29 @@
+id: ISOA
+slug: isoa
+title: "ISO/IEC 42001, 23894 и 27090: внешние стандарты управления ИИ, рисками ИИ и безопасностью ИИ."
+status: candidate
+priority: high
+carrier_type: website
+source_kind: reference
+adapter: manual
+storage_strategy: external_reference
+processing_scope: metadata_only
+retrieval_mode: on_demand
+copy_policy: no_bulk_copy
+allowed_use: "Проверка области и статуса стандартов; полный текст получать только при наличии права доступа."
+requires_access_check: true
+url: "https://www.iso.org/standard/81230.html"
+locator: "https://www.iso.org/standard/81230.html"
+public_reference: "https://www.iso.org/standard/81230.html"
+license_or_terms: "Полные тексты ISO могут быть платными и не копируются в репозиторий."
+access:
+  default: "Внешний источник. Перед содержательным использованием подтвердить право доступа к нужной редакции."
+reliability: official
+stability: mutable
+refresh_policy: manual
+last_checked_at: "2026-07-18"
+scope:
+  includes: ["система менеджмента ИИ", "управление рисками ИИ", "безопасность ИИ"]
+  excludes: ["толкование обязательных правовых норм"]
+known_limitations: ["Полные нормативные требования недоступны без подтверждённого права доступа."]
+processing_notes: []

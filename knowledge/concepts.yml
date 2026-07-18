@@ -31,6 +31,52 @@
 #   gaps               — известные разрывы (со ссылкой на BACKLOG.md)
 
 concepts:
+  - id: prompt-injection
+    primary_ru: внедрение инструкций
+    forms_ru: [инъекция промпта, внедрение инструкций в запрос]
+    forms_en: [prompt injection, indirect prompt injection]
+    definition_ru: атака, при которой недоверенный ввод или содержимое пытается
+      изменить инструкции, контекст или действия ИИ-системы вопреки её цели и
+      установленным ограничениям.
+    authority: OWSP
+    cite_as: [OWSP, ATLS]
+    covered_in:
+      - ait-sec-ai/SKILL.md
+      - ait-sec-ai/references/ai-security-scope.md
+    synonyms_by_source:
+      OWSP: prompt injection
+      ATLS: prompt injection
+    reconciliation:
+      - основная русская форма описывает воздействие на инструкции; английские
+        формы допустимы при ссылке на внешний источник.
+    collisions:
+      - не путать с обычным запросом пользователя и с безопасной системной
+        инструкцией; опасность определяется недоверенным происхождением и
+        изменением установленного поведения.
+
+  - id: agentic-ai-system
+    primary_ru: агентная ИИ-система
+    forms_ru: [ИИ-агент, агент с действиями от имени человека]
+    forms_en: [agentic AI system, AI agent]
+    definition_ru: система ИИ, которая получает контекст, выбирает или вызывает
+      средства и способна выполнять действия в пределах предоставленных ей
+      полномочий и заданной автономности.
+    authority: OWSP
+    cite_as: [OWSP, AIGD]
+    covered_in:
+      - ait-sec-ai/SKILL.md
+      - ait-sec-ai/references/ai-security-scope.md
+    synonyms_by_source:
+      OWSP: agentic application
+      AIGD: agentic AI service
+    reconciliation:
+      - все формы описывают ИИ с доступом к средствам и последствиями за
+        пределами текстового ответа; в продукте основная форма — «агентная
+        ИИ-система».
+    collisions:
+      - не путать с моделью без средств и полномочий на действия; она может быть
+        частью агентной ИИ-системы, но не равна ей.
+
   - id: hypothesis-record
     primary_ru: запись гипотезы
     forms_ru: [запись проектной гипотезы]

@@ -1,0 +1,29 @@
+id: ENAI
+slug: enai
+title: "ENISA: многоуровневая рамка практик кибербезопасности для ИИ."
+status: candidate
+priority: high
+carrier_type: website
+source_kind: reference
+adapter: manual
+storage_strategy: external_reference
+processing_scope: metadata_only
+retrieval_mode: on_demand
+copy_policy: no_bulk_copy
+allowed_use: "Точечная проверка практик кибербезопасности систем ИИ."
+requires_access_check: true
+url: "https://www.enisa.europa.eu/publications/multilayer-framework-for-good-cybersecurity-practices-for-ai"
+locator: "https://www.enisa.europa.eu/publications/multilayer-framework-for-good-cybersecurity-practices-for-ai"
+public_reference: "https://www.enisa.europa.eu/publications/multilayer-framework-for-good-cybersecurity-practices-for-ai"
+license_or_terms: "Перед сохранением фрагментов проверять условия использования ENISA."
+access:
+  default: "Внешний публичный источник. Получать только релевантные страницы и документы."
+reliability: official
+stability: mutable
+refresh_policy: manual
+last_checked_at: "2026-07-18"
+scope:
+  includes: ["кибербезопасность ИИ", "практики защиты", "управление рисками"]
+  excludes: ["правовые заключения"]
+known_limitations: ["Рамка не заменяет правила конкретной организации."]
+processing_notes: []

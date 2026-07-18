@@ -1,0 +1,29 @@
+id: AICM
+slug: aicm
+title: "Cloud Security Alliance AI Controls Matrix — каталог мер безопасности и управления для облачных ИИ-систем."
+status: candidate
+priority: high
+carrier_type: document
+source_kind: reference
+adapter: manual
+storage_strategy: external_reference
+processing_scope: metadata_only
+retrieval_mode: on_demand
+copy_policy: no_bulk_copy
+allowed_use: "Проверка покрытия мер и рекомендательных пробелов в аудите ИИ."
+requires_access_check: true
+url: "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix-v1-1"
+locator: "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix-v1-1"
+public_reference: "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix-v1-1"
+license_or_terms: "Проверять условия CSA и условия загрузки документа перед сохранением фрагментов."
+access:
+  default: "Внешний публичный каталог. Использовать как рекомендательную основу, пока организация его не примет."
+reliability: industry_standard
+stability: mutable
+refresh_policy: manual
+last_checked_at: "2026-07-18"
+scope:
+  includes: ["каталог мер", "аудит", "управление рисками", "облачные ИИ-системы"]
+  excludes: ["самостоятельное объявление соответствия стандартам"]
+known_limitations: ["Каталог не заменяет утверждённые правила организации."]
+processing_notes: []

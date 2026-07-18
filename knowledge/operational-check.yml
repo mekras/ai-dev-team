@@ -30,3 +30,235 @@ rules:
     reason: >-
       Значения cookies в неизменяемом снимке публичного ответа уже заменены
       маркерами обезличивания; проверено 2026-07-13.
+  - kind: personal-data
+    path: data/askl/items/best-practices/index.html
+    action: suppress
+    reason: >-
+      Совпадения принадлежат координатам SVG в неизменяемом снимке публичной
+      страницы, а не контактам; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/askl/items/evaluating-skills/index.html
+    action: suppress
+    reason: >-
+      Совпадения принадлежат координатам SVG в неизменяемом снимке публичной
+      страницы, а не контактам; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/askl/items/optimizing-descriptions/index.html
+    action: suppress
+    reason: >-
+      Совпадения принадлежат координатам SVG в неизменяемом снимке публичной
+      страницы, а не контактам; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/ccmp/items/source/source.md
+    action: suppress
+    reason: >-
+      Совпадение является ISBN источника, а не контактом; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/clar/items/source/source.md
+    action: suppress
+    reason: >-
+      Совпадение является ISBN источника, а не контактом; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/codx/items/agents-md/index.html
+    action: suppress
+    reason: >-
+      Совпадения принадлежат координатам SVG в неизменяемом снимке публичной
+      страницы, а не контактам; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/ddde/items/source/source.md
+    action: suppress
+    reason: >-
+      Совпадение является ISBN источника, а не контактом; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/evar/items/source/source.md
+    action: suppress
+    reason: >-
+      Совпадения являются ISBN источника, а не контактами; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/hwd/items/_include-refs-asylum/asylum.rst
+    action: suppress
+    reason: >-
+      Совпадение является ISBN источника, а не контактом; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/sahp/items/source/source.md
+    action: suppress
+    reason: >-
+      Совпадения являются ISBN источника, а не контактами; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/scco/items/source/source.md
+    action: suppress
+    reason: >-
+      Совпадение является ISBN источника, а не контактом; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/sreq/items/source/source.md
+    action: suppress
+    reason: >-
+      Совпадения являются ISBN источника, а не контактами; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/todo/items/using-open-source-code/index.html
+    action: suppress
+    reason: >-
+      Совпадения принадлежат координатам SVG в неизменяемом снимке публичной
+      страницы, а не контактам; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/vscd/items/custom-instructions/index.html
+    action: suppress
+    reason: >-
+      Совпадения принадлежат координатам SVG в неизменяемом снимке публичной
+      страницы, а не контактам; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/xem7/items/article/index.html
+    action: suppress
+    reason: >-
+      Совпадение принадлежит координатам SVG в неизменяемом снимке публичной
+      страницы, а не контакту; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/xem7/items/status/index.html
+    action: suppress
+    reason: >-
+      Совпадение принадлежит координатам SVG в неизменяемом снимке публичной
+      страницы, а не контакту; проверено 2026-07-18.
+  - kind: personal-data
+    path: source-attribution.md
+    action: suppress
+    reason: >-
+      Совпадения являются ISBN в библиографических ссылках, а не контактами;
+      проверено 2026-07-18.
+  - kind: personal-data
+    path: data/ar26/items/2602.11988v1/index.html
+    action: suppress
+    reason: >-
+      Совпадения принадлежат SVG-разметке и идентификатору структурной единицы
+      научной статьи, а не контактам; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/ghab/items/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/index.html
+    action: suppress
+    reason: >-
+      Совпадения принадлежат SVG-разметке в неизменяемом снимке публичной
+      страницы, а не контактам; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/odcm/items/by/index.html
+    action: suppress
+    reason: >-
+      Совпадения принадлежат SVG-разметке в неизменяемом снимке публичной
+      страницы, а не контактам; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/odcm/items/faq-licenses/index.html
+    action: suppress
+    reason: >-
+      Совпадения принадлежат SVG-разметке в неизменяемом снимке публичной
+      страницы, а не контактам; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/odcm/items/licenses/index.html
+    action: suppress
+    reason: >-
+      Совпадения принадлежат SVG-разметке в неизменяемом снимке публичной
+      страницы, а не контактам; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/odcm/items/odbl/index.html
+    action: suppress
+    reason: >-
+      Совпадения принадлежат SVG-разметке в неизменяемом снимке публичной
+      страницы, а не контактам; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/odcm/items/pddl/index.html
+    action: suppress
+    reason: >-
+      Совпадения принадлежат SVG-разметке в неизменяемом снимке публичной
+      страницы, а не контактам; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/inma/items/source/source.md
+    action: suppress
+    reason: >-
+      Совпадение является датой создания PDF, а не контактом; проверено
+      2026-07-18.
+  - kind: personal-data
+    path: data/spdx/items/licenses/index.html
+    action: suppress
+    reason: >-
+      Совпадение является версией списка лицензий, а не контактом; проверено
+      2026-07-18.
+  - kind: personal-data
+    path: data/ar12/items/2601.20404v2/index.html
+    action: suppress
+    reason: >-
+      После обезличивания контактов авторов остались только SVG-координаты,
+      а не персональные сведения; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/etl5/items/text/enisa-threat-landscape-2025.txt
+    action: suppress
+    reason: >-
+      Остались публичные адреса ENISA и библиографические идентификаторы, а не
+      частные контакты; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/gist/items/7c8f65572930a21efa62623557d83f6e/index.html
+    action: suppress
+    reason: >-
+      Остались учебные адреса и SVG-координаты в публичном снимке, а не
+      частные контакты; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/hwd/items/theory-goal/goal.rst
+    action: suppress
+    reason: >-
+      Остались учебный адрес и ISBN в источнике, а не частный контакт;
+      проверено 2026-07-18.
+  - kind: personal-data
+    path: data/osil/items/licenses/index.html
+    action: suppress
+    reason: >-
+      Остались публичный адрес организации и SVG-координаты, а не частный
+      контакт; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/phsc/items/writing-good-agents/index.html
+    action: suppress
+    reason: >-
+      После обезличивания адреса автора осталось только совпадение в
+      SVG-разметке, а не персональные сведения; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/pprx/items/designing-refining-maintaining-agent-skills/index.html
+    action: suppress
+    reason: >-
+      Остались публичный адрес Perplexity Research и SVG-координата, а не
+      частный контакт; проверено 2026-07-18.
+  - kind: personal-data
+    path: data/reus/items/faq/index.html
+    action: suppress
+    reason: >-
+      Содержит только учебные адреса и публичный адрес организации; проверено
+      2026-07-18.
+  - kind: personal-data
+    path: data/reus/items/spec-3-3/index.html
+    action: suppress
+    reason: >-
+      Содержит только учебные адреса и публичный адрес организации; проверено
+      2026-07-18.
+  - kind: personal-data
+    path: data/ssdf/items/text/nist-sp-800-218.txt
+    action: suppress
+    reason: >-
+      Содержит только публичный адрес NIST, а не частный контакт; проверено
+      2026-07-18.
+  - kind: personal-data
+    path: data/wtdg/items/contributing/index.md
+    action: suppress
+    reason: >-
+      Содержит только публичный адрес Write the Docs, а не частный контакт;
+      проверено 2026-07-18.
+  - kind: personal-data
+    path: data/wtdg/items/normalized-wtdg-pages-writing-beginners-guide-to-docs-index.md/index.md
+    action: suppress
+    reason: >-
+      Содержит только публичный адрес Write the Docs, а не частный контакт;
+      проверено 2026-07-18.
+  - kind: personal-data
+    path: data/wtdg/items/writing-asciidoc/index.md
+    action: suppress
+    reason: >-
+      Содержит только публичный адрес Write the Docs, а не частный контакт;
+      проверено 2026-07-18.
+  - kind: personal-data
+    path: data/wtdg/items/writing-beginners-guide-to-docs/index.html
+    action: suppress
+    reason: >-
+      Содержит только публичный адрес Write the Docs, а не частный контакт;
+      проверено 2026-07-18.

@@ -1,0 +1,29 @@
+id: MSAI
+slug: msai
+title: "Microsoft: моделирование угроз для систем ИИ и машинного обучения."
+status: candidate
+priority: medium
+carrier_type: website
+source_kind: reference
+adapter: manual
+storage_strategy: external_reference
+processing_scope: metadata_only
+retrieval_mode: on_demand
+copy_policy: no_bulk_copy
+allowed_use: "Точечная проверка методики моделирования угроз ИИ и машинного обучения."
+requires_access_check: true
+url: "https://learn.microsoft.com/ru-ru/security/engineering/threat-modeling-aiml"
+locator: "https://learn.microsoft.com/ru-ru/security/engineering/threat-modeling-aiml"
+public_reference: "https://learn.microsoft.com/ru-ru/security/engineering/threat-modeling-aiml"
+license_or_terms: "Перед сохранением фрагментов проверять условия Microsoft Learn."
+access:
+  default: "Внешний публичный источник. Получать только релевантные страницы по запросу."
+reliability: vendor
+stability: mutable
+refresh_policy: manual
+last_checked_at: "2026-07-18"
+scope:
+  includes: ["моделирование угроз ИИ", "машинное обучение", "защита данных"]
+  excludes: ["универсальная нормативная база"]
+known_limitations: ["Методика поставщика не заменяет модель угроз конкретного проекта."]
+processing_notes: []

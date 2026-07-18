@@ -8,8 +8,8 @@
 
 В проекте актуальны команды первичной установки:
 
-- `apm install mekras/ai-dev-team#^0.16.1 --target claude`;
-- `apm install mekras/ai-dev-team#^0.16.1 --target codex`.
+- `apm install mekras/ai-dev-team#^0.17.0 --target claude`;
+- `apm install mekras/ai-dev-team#^0.17.0 --target codex`.
 
 После установки пользователь открывает выбранный клиент в корне проекта и даёт
 агенту команду «Настрой проект». Дальше `ait-setup` выполняет аудит, сохраняет
@@ -30,8 +30,8 @@
   сценария;
 - не возвращать в README команды удалённого CLI, отдельного серверного
   транспорта или глобальной установки;
-- отнести `apm install mekras/ai-dev-team#^0.16.1 --target claude` и
-  `apm install mekras/ai-dev-team#^0.16.1 --target codex` к первичной установке
+- отнести `apm install mekras/ai-dev-team#^0.17.0 --target claude` и
+  `apm install mekras/ai-dev-team#^0.17.0 --target codex` к первичной установке
   продукта в целевой проект штатными средствами APM;
 - после установки направить пользователя в выбранный клиент с командой «Настрой
   проект»;

@@ -45,6 +45,7 @@
 - [ПТ-3](requirements/user/pt-3.md)
 - [ПТ-4](requirements/user/pt-4.md)
 - [ПТ-5. Регистрация гипотез](requirements/user/pt-5.md)
+- [ПТ-6. Безопасное использование и разработка ИИ](requirements/user/pt-6.md)
 
 ## Функциональные требования
 
@@ -63,6 +64,7 @@
 - [ФТ-13. Реестр гипотез](requirements/functional/ft-13.md)
 - [ФТ-14. Жизненный цикл гипотезы](requirements/functional/ft-14.md)
 - [ФТ-15. Переход от гипотезы к решению](requirements/functional/ft-15.md)
+- [ФТ-16. ИБ использования и разработки ИИ](requirements/functional/ft-16.md)
 
 ## Атрибуты качества
 

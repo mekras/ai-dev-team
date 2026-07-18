@@ -1,0 +1,29 @@
+id: OWSP
+slug: owsp
+title: "OWASP GenAI Security Project — практические каталоги рисков для LLM и агентных приложений."
+status: candidate
+priority: high
+carrier_type: website
+source_kind: reference
+adapter: manual
+storage_strategy: external_reference
+processing_scope: metadata_only
+retrieval_mode: on_demand
+copy_policy: no_bulk_copy
+allowed_use: "Точечная проверка рисков и мер для LLM, RAG и агентных приложений."
+requires_access_check: true
+url: "https://genai.owasp.org/"
+locator: "https://genai.owasp.org/"
+public_reference: "https://genai.owasp.org/"
+license_or_terms: "Проверять лицензию и версию выбранного материала OWASP перед копированием."
+access:
+  default: "Внешний публичный источник. Использовать релевантные версии каталогов по запросу."
+reliability: community_reviewed
+stability: mutable
+refresh_policy: manual
+last_checked_at: "2026-07-18"
+scope:
+  includes: ["LLM", "RAG", "агентные приложения", "рекомендации по снижению рисков"]
+  excludes: ["объявление соответствия требованиям без принятия компанией"]
+known_limitations: ["Каталог рисков не является самостоятельной моделью угроз."]
+processing_notes: []

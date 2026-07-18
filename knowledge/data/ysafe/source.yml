@@ -1,0 +1,29 @@
+id: YSAFE
+slug: ysafe
+title: "Yandex Cloud AI-SAFE: внешние рекомендации по безопасному использованию ИИ."
+status: candidate
+priority: medium
+carrier_type: website
+source_kind: reference
+adapter: manual
+storage_strategy: external_reference
+processing_scope: metadata_only
+retrieval_mode: on_demand
+copy_policy: no_bulk_copy
+allowed_use: "Точечная проверка прикладных рекомендаций поставщика облачных ИИ-сервисов."
+requires_access_check: true
+url: "https://yandex.cloud/ru/security/ai-safe"
+locator: "https://yandex.cloud/ru/security/ai-safe"
+public_reference: "https://yandex.cloud/ru/security/ai-safe"
+license_or_terms: "Перед сохранением фрагментов проверять условия использования Yandex Cloud."
+access:
+  default: "Внешний публичный источник. Получать только релевантные страницы по запросу."
+reliability: vendor
+stability: mutable
+refresh_policy: manual
+last_checked_at: "2026-07-18"
+scope:
+  includes: ["безопасное использование ИИ", "защита данных", "облачные сервисы"]
+  excludes: ["универсальная нормативная база"]
+known_limitations: ["Материал отражает контекст и продукты конкретного поставщика."]
+processing_notes: []

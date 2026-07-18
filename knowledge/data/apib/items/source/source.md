@@ -17,7 +17,7 @@
 - Автор: Сергей Константинов (Sergei Konstantinov)
 - Англоязычное название проекта: `The API Book`
 - Исходный код и каноническая версия: `https://github.com/twirl/The-API-Book`
-- Контакты автора в книге: `yatwirl@gmail.com`, `linkedin.com/in/twirl`,
+- Контакты автора в книге: `[REDACTED]`, `linkedin.com/in/twirl`,
   `patreon.com/yatwirl`
 - Иллюстрации: Maria Konstantinova (`art.mari.ka`)
 - Тип источника: локальная книга (русскоязычная редакция), первично добавлена

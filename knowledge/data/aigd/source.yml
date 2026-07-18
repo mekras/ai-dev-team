@@ -1,0 +1,29 @@
+id: AIGD
+slug: aigd
+title: "Совместные руководства государственных агентств по безопасной разработке, развёртыванию и использованию систем ИИ."
+status: candidate
+priority: high
+carrier_type: website
+source_kind: reference
+adapter: manual
+storage_strategy: external_reference
+processing_scope: metadata_only
+retrieval_mode: on_demand
+copy_policy: no_bulk_copy
+allowed_use: "Точечная проверка жизненного цикла, защиты данных и безопасной эксплуатации ИИ."
+requires_access_check: true
+url: "https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development"
+locator: "https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development"
+public_reference: "https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development"
+license_or_terms: "Проверять условия каждого документа NCSC, CISA, NSA и партнёров перед копированием."
+access:
+  default: "Внешние публичные руководства. Получать точечно по конкретной задаче."
+reliability: official
+stability: mutable
+refresh_policy: manual
+last_checked_at: "2026-07-18"
+scope:
+  includes: ["безопасная разработка ИИ", "защита данных ИИ", "агентные системы", "MCP"]
+  excludes: ["национальные требования, не применимые к целевому проекту"]
+known_limitations: ["Рекомендации требуют адаптации к рискам и юрисдикции организации."]
+processing_notes: []

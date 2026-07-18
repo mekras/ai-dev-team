@@ -4,7 +4,7 @@ title: 'SCCO: обзор источника'
 access: Смотри карточку единицы и связанные артефакты в knowledge/data/scco/ и общие
   ограничения в knowledge/source-attribution.md.
 status: approved
-workflow_stage: fetched
+workflow_stage: statements_extracted
 processing_scope: metadata_only
 retrieval_mode: on_demand
 copy_policy: fragments_only
@@ -22,8 +22,12 @@ primary_file:
   page_count: 576
   metadata_source: pdfinfo
 known_limitations:
-- Полный PDF хранится только в игнорируемом локальном слое и не публикуется в Git.
-- Текст ещё не извлечён; нормализация и утверждения выполняются на следующем шаге.
+- Полный PDF и текстовая выгрузка хранятся только в игнорируемом локальном слое
+  и не публикуются в Git.
+- Нормализованный слой и утверждения требуют сверки с локальным первичным
+  материалом до перевода в статус `verified`.
 processing_notes:
-- Источник заведён навыком kc-sources-add и остановлен перед нормализацией.
-- Следующий шаг по kc-pipeline — нормализация выбранного фрагмента и извлечение утверждений.
+- Нормализация и извлечение утверждений завершены в
+  `items/normalized-scco-source.md/`.
+- Следующий шаг по kc-pipeline — проверка извлечённых утверждений по локальному
+  первичному материалу.
