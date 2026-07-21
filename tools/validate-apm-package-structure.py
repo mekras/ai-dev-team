@@ -17,6 +17,11 @@ REQUIRED_APM_DEPENDENCIES = {
     "mekras/project-knowlege-corpus",
 }
 
+REQUIRED_APM_DEPENDENCY_CONSTRAINTS = {
+    "mekras/ai-agent-supervisor": "^2.0.0",
+    "mekras/ai-russian-language": "^2.0.0",
+}
+
 REQUIRED_SKILLS = {
     "ait-docs-concept",
     "ait-setup",
@@ -213,6 +218,16 @@ def check_manifest() -> None:
     missing_dependencies = sorted(REQUIRED_APM_DEPENDENCIES - actual_dependencies)
     if missing_dependencies:
         fail(f"missing APM dependencies: {', '.join(missing_dependencies)}")
+    dependency_constraints = {
+        dependency.split("#", maxsplit=1)[0]: dependency.split("#", maxsplit=1)[1]
+        for dependency in dependencies
+        if "#" in dependency
+    }
+    for dependency, expected_constraint in REQUIRED_APM_DEPENDENCY_CONSTRAINTS.items():
+        if dependency_constraints.get(dependency) != expected_constraint:
+            fail(
+                f"{dependency} must use constraint {expected_constraint}",
+            )
     tests = manifest.get("scripts", {}).get("tests")
     if not isinstance(tests, str) or "validate-apm-package-structure.py" not in tests:
         fail("apm.yml scripts.tests must run the package structure validator")
@@ -1229,6 +1244,47 @@ def check_forbidden_references() -> None:
                 fail(f"{path.relative_to(ROOT)} still references {needle}")
 
 
+def check_dependency_migration_contract() -> None:
+    legacy_skills = ("ru-dev", "ai-application-check")
+    paths = [ROOT / "AGENTS.md"]
+    paths.extend(
+        path
+        for path in (ROOT / ".apm").rglob("*")
+        if path.is_file() and path.suffix in TEXT_SUFFIXES
+    )
+    for path in paths:
+        text = path.read_text(encoding="utf-8")
+        for legacy_skill in legacy_skills:
+            if legacy_skill in text:
+                fail(
+                    f"{path.relative_to(ROOT)} still references removed skill "
+                    f"{legacy_skill}",
+                )
+
+    required_markers = {
+        ".apm/skills/ait-setup/SKILL.md": (
+            "неигнорируемые изменения или только изменения агента",
+            "по умолчанию 30 дней",
+        ),
+        ".apm/skills/ait-setup/references/setup-dialogue.md": (
+            "## Политика индекса Git",
+            "Отсутствующую или нечитаемую дату",
+        ),
+        ".apm/skills/ait-setup/evals/result-scenarios.json": (
+            "ait-setup-result-git-index-policy-choice",
+            "ait-setup-result-subagent-policy-review-lifecycle",
+        ),
+    }
+    for relative_path, markers in required_markers.items():
+        text = (ROOT / relative_path).read_text(encoding="utf-8")
+        for marker in markers:
+            if marker not in text:
+                fail(
+                    f"{relative_path} does not cover dependency migration "
+                    f"marker {marker!r}",
+                )
+
+
 def check_portable_core_boundary() -> None:
     apm_root = ROOT / ".apm"
     for path in apm_root.rglob("*"):
@@ -1334,6 +1390,7 @@ def main() -> None:
     check_business_effect_evidence_contract()
     check_priority_tradeoff_contract()
     check_forbidden_references()
+    check_dependency_migration_contract()
     check_portable_core_boundary()
     check_project_readme_regression()
     check_installation_contract()

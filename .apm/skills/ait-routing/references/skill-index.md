@@ -17,8 +17,6 @@
 
 - `ai-agents-md-maintenance` — роль: `technical-writer` — сопровождение
   `AGENTS.md`. Источник: `github.com/mekras/ai-agent-supervisor`.
-- `ai-application-check` — роль: `analyst` — предварительная оценка пригодности
-  задачи для ИИ. Источник: `github.com/mekras/ai-agent-supervisor`.
 - `ai-audit-agents-md` — роль: `technical-writer` — проверка качества
   `AGENTS.md`. Источник: `github.com/mekras/ai-agent-supervisor`.
 - `ai-audit-project` — роль: `cross-role` — проверка правил и агентских
@@ -35,9 +33,9 @@
   `github.com/mekras/ai-agent-supervisor`.
 - `ai-skill-development` — роль: `cross-role` — разработка и проверка навыков
   агента. Источник: `github.com/mekras/ai-agent-supervisor`.
-- `ai-work-control` — роль: `cross-role` — контроль существенных изменений
-  правил, ролей, навыков, шаблонов, документации или источников истины.
-  Источник: `github.com/mekras/ai-agent-supervisor`.
+- `ai-work-control` — роль: `cross-role` — предварительная оценка пригодности
+  задачи для ИИ в режиме `screening` и полный контроль существенных изменений в
+  режиме `full`. Источник: `github.com/mekras/ai-agent-supervisor`.
 - `ai-work-result-evaluation` — роль: `cross-role` — оценка результата ИИ перед
   принятием, публикацией или использованием как основания следующего шага.
   Источник: `github.com/mekras/ai-agent-supervisor`.
