@@ -1,0 +1,28 @@
+id: PGIT
+slug: pgit
+title: Официальная книга Pro Git, рекомендации по сообщениям коммитов.
+status: approved
+carrier_type: web_page
+source_kind: reference
+adapter: manual
+storage_strategy: external_reference
+retrieval_mode: on_demand
+copy_policy: fragments_only
+allowed_use: >-
+  Точечная проверка рекомендаций по сообщениям коммитов и краткие фрагменты со
+  ссылкой на первоисточник.
+requires_access_check: true
+url: >-
+  https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project
+locator: >-
+  https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project
+public_reference: https://git-scm.com/book/
+license_or_terms: CC BY-NC-SA 3.0
+access:
+  default: Внешний публичный источник; полная локальная копия не хранится.
+reliability: official
+stability: mutable
+refresh_policy: Проверять актуальную редакцию книги перед изменением профиля.
+last_checked_at: "2026-07-21"
+known_limitations:
+  - Это рекомендации, а не синтаксическая спецификация Git.

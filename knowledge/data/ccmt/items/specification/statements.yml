@@ -1,0 +1,47 @@
+statements:
+  - id: CCMT-001
+    source_id: CCMT
+    item_id: CCMT-specification
+    kind: fact
+    status: verified
+    text: >-
+      Conventional Commits задаёт заголовок из типа, необязательной области и
+      описания, после которого могут идти тело и служебные строки.
+    excerpt: "<type>[optional scope]: <description>"
+    artifact: normalized.md
+    checked_at: "2026-07-21"
+    scope:
+      section_title: Формат
+      application: схема сообщений коммитов.
+    open_questions: []
+  - id: CCMT-002
+    source_id: CCMT
+    item_id: CCMT-specification
+    kind: fact
+    status: verified
+    text: >-
+      Conventional Commits требует префикс типа; feat обозначает новую функцию,
+      fix — исправление, а несовместимость отмечается знаком ! или строкой
+      BREAKING CHANGE.
+    excerpt: "Commits MUST be prefixed with a type"
+    artifact: normalized.md
+    checked_at: "2026-07-21"
+    scope:
+      section_title: Формат
+      application: проверка сообщения Conventional Commits.
+    open_questions: []
+  - id: CCMT-003
+    source_id: CCMT
+    item_id: CCMT-specification
+    kind: fact
+    status: verified
+    text: >-
+      Conventional Commits связывает явную историю коммитов с созданием
+      автоматизированных средств поверх неё.
+    excerpt: "automated tools on top of explicit commit history"
+    artifact: normalized.md
+    checked_at: "2026-07-21"
+    scope:
+      section_title: Автоматизация
+      application: оценка схемы сообщений коммитов.
+    open_questions: []

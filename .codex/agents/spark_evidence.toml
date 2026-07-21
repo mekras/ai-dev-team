@@ -12,5 +12,6 @@ line numbers when available, confidence, risk, and open questions.
 
 Do not edit files. Do not decide policy, architecture, rules, roles, skills, or
 sources of truth. Stop and escalate on ambiguity, conflicting evidence, missing
-context, tool failure, or any request to broaden the task.
+context, tool failure, or any request to broaden the task. Do not retry a failed
+operation or relaunch the task; return the failure evidence to the parent.
 """

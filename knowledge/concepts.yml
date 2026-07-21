@@ -31,6 +31,32 @@
 #   gaps               — известные разрывы (со ссылкой на BACKLOG.md)
 
 concepts:
+  - id: commit-message-scheme
+    primary_ru: схема сообщений коммитов
+    forms_ru: [схема оформления коммитов]
+    forms_en: [commit message convention, commit guidelines]
+    definition_ru: >-
+      выбранное проектом правило структуры и формулировки сообщений коммитов.
+    authority: решение владельца продукта от 2026-07-21
+    defined_by: [CCMT-001, GTMJ-001, PGIT-001, PGIT-002]
+    cite_as: [CCMT, GTMJ, PGIT]
+    covered_in:
+      - ait-commit-messages/references/schemes.md
+      - ait-setup/references/setup-dialogue.md
+    synonyms_by_source:
+      CCMT: Conventional Commits
+      GTMJ: Gitmoji
+      PGIT: Commit Guidelines
+    reconciliation:
+      - >-
+        Источники описывают альтернативные схемы, а не одну объединённую:
+        Conventional Commits задаёт машинно-читаемую структуру, Gitmoji —
+        визуальное намерение, Pro Git — человекочитаемый заголовок и тело.
+    collisions:
+      - >-
+        Не путать схему сообщений коммитов с политикой состава коммита,
+        добавления файлов в индекс Git или выпуска версии.
+
   - id: personal-data
     primary_ru: персональные данные
     forms_en: [personal data]

@@ -1,0 +1,27 @@
+id: CCMT
+slug: ccmt
+title: Официальная спецификация Conventional Commits 1.0.0.
+status: approved
+carrier_type: web_page
+source_kind: normative
+adapter: manual
+storage_strategy: external_reference
+retrieval_mode: on_demand
+copy_policy: fragments_only
+allowed_use: >-
+  Точечная проверка синтаксиса, экосистемы средств и примеров применения со
+  ссылкой на первоисточник.
+requires_access_check: true
+url: https://www.conventionalcommits.org/en/v1.0.0/
+locator: https://www.conventionalcommits.org/en/v1.0.0/
+public_reference: https://www.conventionalcommits.org/en/v1.0.0/
+license_or_terms: CC BY 3.0
+access:
+  default: Внешний публичный источник; полная локальная копия не хранится.
+reliability: official
+stability: versioned
+refresh_policy: Проверять версию спецификации перед изменением профиля.
+last_checked_at: "2026-07-21"
+known_limitations:
+  - Спецификация не закрепляет закрытый перечень типов кроме feat и fix.
+  - Перечень проектов на официальном сайте не измеряет долю применения схемы.

@@ -1,0 +1,32 @@
+statements:
+  - id: GTMJ-003
+    source_id: GTMJ
+    item_id: GTMJ-tooling
+    kind: fact
+    status: verified
+    text: >-
+      Официальный Gitmoji CLI поддерживает поиск эмодзи, интерактивное
+      формирование сообщения и подключение к проекту как Git hook.
+    excerpt: искать эмодзи, формировать сообщение по подсказкам
+    artifact: normalized.md
+    checked_at: "2026-07-21"
+    scope:
+      section_title: Подготовка сообщения
+      application: оценка инструментальной поддержки схемы.
+    open_questions:
+      - Нет сопоставимой оценки доли применения схем сообщений коммитов.
+  - id: GTMJ-004
+    source_id: GTMJ
+    item_id: GTMJ-tooling
+    kind: fact
+    status: verified
+    text: >-
+      Gitmoji CLI синхронизирует список эмодзи с репозиторием по отдельной
+      команде и хранит локальный кеш списка.
+    excerpt: синхронизирует список эмодзи с репозиторием
+    artifact: normalized.md
+    checked_at: "2026-07-21"
+    scope:
+      section_title: Обновление словаря
+      application: оценка сопровождения схемы.
+    open_questions: []

@@ -3262,3 +3262,73 @@ items:
   date_published: null
   workflow_stage: statements_extracted
   access: Официальные опубликования федеральных законов.
+- id: CCMT-source
+  source_id: CCMT
+  path: data/ccmt/items/source/item.yml
+  title: "Conventional Commits 1.0.0: обзор источника"
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный источник; использовать точечно.
+- id: CCMT-specification
+  source_id: CCMT
+  path: data/ccmt/items/specification/item.yml
+  title: "Conventional Commits 1.0.0: спецификация"
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный источник; сохранён краткий нормализованный обзор.
+- id: CCMT-ecosystem
+  source_id: CCMT
+  path: data/ccmt/items/ecosystem/item.yml
+  title: "Conventional Commits: экосистема"
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный источник; сохранён краткий нормализованный обзор.
+- id: GTMJ-source
+  source_id: GTMJ
+  path: data/gtmj/items/source/item.yml
+  title: "Gitmoji: обзор источника"
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный источник; использовать точечно.
+- id: GTMJ-specification
+  source_id: GTMJ
+  path: data/gtmj/items/specification/item.yml
+  title: "Gitmoji: спецификация"
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный источник; сохранён краткий нормализованный обзор.
+- id: GTMJ-tooling
+  source_id: GTMJ
+  path: data/gtmj/items/tooling/item.yml
+  title: "Gitmoji: официальный CLI"
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный источник; сохранён краткий нормализованный обзор.
+- id: PGIT-source
+  source_id: PGIT
+  path: data/pgit/items/source/item.yml
+  title: "Pro Git: обзор источника"
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный источник; использовать точечно.
+- id: PGIT-commit-guidelines
+  source_id: PGIT
+  path: data/pgit/items/commit-guidelines/item.yml
+  title: "Pro Git: Commit Guidelines"
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный источник; сохранён краткий нормализованный обзор.
+- id: GITD-source
+  source_id: GITD
+  path: data/gitd/items/source/item.yml
+  title: "Git: обзор документации"
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный источник; использовать точечно.
+- id: GITD-commit-message-support
+  source_id: GITD
+  path: data/gitd/items/commit-message-support/item.yml
+  title: "Git: средства подготовки и проверки сообщений"
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный источник; сохранён краткий нормализованный обзор.

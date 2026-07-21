@@ -82,3 +82,11 @@
 
 Если в проекте есть `CHANGELOG.md`, `NEWS.md` или `HISTORY.md`, агент проверяет
 необходимость его обновления через `ait-changelog`.
+
+## Сообщения коммитов
+
+Укажите одну выбранную схему: `conventional-commits`, `gitmoji` или `pro-git`.
+Значение должно соответствовать `setup.commit_messages.scheme` в
+`.ai-dev-team-state.yml`.
+
+Перед подготовкой или проверкой сообщения применяйте `ait-commit-messages`.

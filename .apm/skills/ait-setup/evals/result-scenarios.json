@@ -28,6 +28,26 @@
     {
       "claim_id": "PPRX-002",
       "statement_path": "knowledge/data/pprx/items/designing-refining-maintaining-agent-skills/statements.yml"
+    },
+    {
+      "claim_id": "CCMT-001",
+      "statement_path": "knowledge/data/ccmt/items/specification/statements.yml"
+    },
+    {
+      "claim_id": "GTMJ-001",
+      "statement_path": "knowledge/data/gtmj/items/specification/statements.yml"
+    },
+    {
+      "claim_id": "GTMJ-002",
+      "statement_path": "knowledge/data/gtmj/items/specification/statements.yml"
+    },
+    {
+      "claim_id": "PGIT-001",
+      "statement_path": "knowledge/data/pgit/items/commit-guidelines/statements.yml"
+    },
+    {
+      "claim_id": "PGIT-002",
+      "statement_path": "knowledge/data/pgit/items/commit-guidelines/statements.yml"
     }
   ],
   "cases": [
@@ -1223,6 +1243,79 @@
         "не помещать организационную политику в ADR ради инициализации журнала",
         "не объединять несколько решений владельца одним подтверждением",
         "не переименовывать существующие журналы без отдельного решения"
+      ]
+    },
+    {
+      "id": "ait-setup-result-commit-message-scheme-choice",
+      "prompt": "Настрой Git-проект. Схема сообщений коммитов ещё не выбрана. Предложи следующий вопрос.",
+      "input_files": [
+        {
+          "path": ".apm/skills/ait-setup/SKILL.md",
+          "purpose": "задаёт обязанность предложить выбор схемы"
+        },
+        {
+          "path": ".apm/skills/ait-setup/references/setup-dialogue.md",
+          "purpose": "задаёт варианты, последствия и фиксацию решения"
+        },
+        {
+          "path": ".apm/skills/ait-commit-messages/SKILL.md",
+          "purpose": "задаёт дальнейшее соблюдение выбранной схемы"
+        }
+      ],
+      "required_corpus_claims": ["CCMT-001", "GTMJ-001", "GTMJ-002", "PGIT-001", "PGIT-002"],
+      "expected_output": {
+        "report_structure": [
+          "предложены conventional-commits, gitmoji и pro-git",
+          "для каждого варианта кратко объяснены автоматизация и сопровождение",
+          "одна схема не выбрана молча",
+          "после решения предусмотрены .ai-dev-team-state.yml и рабочее правило",
+          "задан один обязательный вопрос"
+        ],
+        "findings": [
+          {
+            "severity": "high",
+            "corpus_claims": ["CCMT-001", "GTMJ-001", "GTMJ-002", "PGIT-001", "PGIT-002"],
+            "observed_problem": "настройка предлагает одну схему как безусловное значение по умолчанию.",
+            "expected_conclusion": "три схемы имеют разные последствия и требуют выбора владельца проекта",
+            "acceptable_fix_direction": "предложить три варианта с кратким сравнением и одним вопросом"
+          }
+        ]
+      },
+      "negative_control": {
+        "description": "Сравнить с ответом, который сразу записывает conventional-commits или одновременно спрашивает схему и формат Gitmoji.",
+        "expected_failure": "Такой ответ должен провалиться по границе решения и одному вопросу за ход."
+      },
+      "oracle": {
+        "success_criteria": [
+          "названы ровно три поддерживаемые схемы",
+          "последствия вариантов различимы",
+          "решение оставлено владельцу",
+          "задан один вопрос"
+        ],
+        "failure_indicators": [
+          "схема выбрана молча",
+          "одна из трёх схем отсутствует",
+          "формат Gitmoji запрошен до выбора Gitmoji",
+          "рабочее правило не предусмотрено"
+        ]
+      },
+      "application_evidence": [
+        "результат содержит ожидаемую структуру из expected_output.report_structure",
+        "результат связывает варианты с проверяемыми основаниями корпуса",
+        "результат соблюдает assertions и не нарушает must_not"
+      ],
+      "evaluation_surface": "выбор и фиксация схемы сообщений коммитов при настройке",
+      "assertions": [
+        "Результат предлагает три поддерживаемые схемы.",
+        "Результат объясняет влияние вариантов.",
+        "Результат оставляет выбор человеку.",
+        "Результат предусматривает рабочее правило и файл состояния."
+      ],
+      "must_not": [
+        "не выбирать схему молча",
+        "не смешивать схемы",
+        "не хранить выбор только в .ai-dev-team-state.yml",
+        "не задавать больше одного обязательного вопроса"
       ]
     }
   ]

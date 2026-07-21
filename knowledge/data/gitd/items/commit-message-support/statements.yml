@@ -1,0 +1,29 @@
+statements:
+  - id: GITD-001
+    source_id: GITD
+    item_id: GITD-commit-message-support
+    kind: fact
+    status: verified
+    text: Git поддерживает файл шаблона для новых сообщений коммитов.
+    excerpt: "commit.template"
+    artifact: normalized.md
+    checked_at: "2026-07-21"
+    scope:
+      section_title: Шаблон
+      application: помощь автору сообщения коммита.
+    open_questions: []
+  - id: GITD-002
+    source_id: GITD
+    item_id: GITD-commit-message-support
+    kind: fact
+    status: verified
+    text: >-
+      Обработчик commit-msg может нормализовать сообщение или отклонить коммит
+      после проверки сообщения.
+    excerpt: привести его к принятому формату или отклонить коммит
+    artifact: normalized.md
+    checked_at: "2026-07-21"
+    scope:
+      section_title: Проверка
+      application: проверка схемы сообщений коммитов.
+    open_questions: []

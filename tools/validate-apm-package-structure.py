@@ -524,6 +524,97 @@ def check_interface_quality_contract() -> None:
                 )
 
 
+def check_commit_message_scheme_contract() -> None:
+    required_markers = {
+        "docs/requirements/functional/ft-17.md": (
+            "нескольких поддерживаемых схем",
+            "setup.commit_messages",
+            "рабочее правило проекта",
+            "не объединяет",
+        ),
+        "docs/pdr/README.md": (
+            "Product Decision Record (PDR)",
+            "PDR-0001",
+            "PDR-0002",
+            "PDR-0003",
+        ),
+        "docs/pdr/PDR-0001-conventional-commits.md": (
+            "Статус:",
+            "## Достоинства",
+            "## Недостатки",
+            "## Решение",
+        ),
+        "docs/pdr/PDR-0002-gitmoji.md": (
+            "Статус:",
+            "## Достоинства",
+            "## Недостатки",
+            "## Решение",
+        ),
+        "docs/pdr/PDR-0003-pro-git-commit-guidelines.md": (
+            "Статус:",
+            "## Достоинства",
+            "## Недостатки",
+            "## Решение",
+        ),
+        ".apm/skills/ait-setup/SKILL.md": (
+            "conventional-commits",
+            "gitmoji",
+            "pro-git",
+            "setup.commit_messages",
+        ),
+        ".apm/skills/ait-setup/references/setup-dialogue.md": (
+            "## Схема сообщений коммитов",
+            "setup.commit_messages.scheme",
+            "setup.commit_messages.emoji_format",
+        ),
+        ".apm/skills/ait-commit-messages/SKILL.md": (
+            "setup.commit_messages",
+            "расходятся",
+            "фактический состав коммита",
+        ),
+        ".apm/skills/ait-commit-messages/evals/triggers.json": (
+            "ait-commit-messages-positive-compose",
+            "ait-commit-messages-boundary-setup",
+        ),
+        ".apm/skills/ait-commit-messages/evals/result-scenarios.json": (
+            "ait-commit-messages-result-conventional-commits",
+            "ait-commit-messages-result-gitmoji-shortcode",
+            "ait-commit-messages-result-pro-git-russian",
+            "ait-commit-messages-result-conflicting-settings-stop",
+        ),
+        ".apm/skills/ait-setup/evals/result-scenarios.json": (
+            "ait-setup-result-commit-message-scheme-choice",
+            "не выбирать схему молча",
+        ),
+    }
+    for relative_path, markers in required_markers.items():
+        path = ROOT / relative_path
+        text = path.read_text(encoding="utf-8")
+        for marker in markers:
+            if marker not in text:
+                fail(
+                    f"{relative_path} is missing commit message scheme marker "
+                    f"{marker!r}",
+                )
+
+    allowed_pdr_statuses = {
+        "Предложено",
+        "Принято",
+        "Отклонено",
+        "Устарело",
+        "Заменено",
+    }
+    for relative_path in (
+        "docs/pdr/PDR-0001-conventional-commits.md",
+        "docs/pdr/PDR-0002-gitmoji.md",
+        "docs/pdr/PDR-0003-pro-git-commit-guidelines.md",
+    ):
+        text = (ROOT / relative_path).read_text(encoding="utf-8")
+        status_match = re.search(r"^- Статус: (.+)$", text, re.MULTILINE)
+        if status_match is None or status_match.group(1) not in allowed_pdr_statuses:
+            fail(f"{relative_path} has an unsupported PDR status")
+
+
 def check_requirements_elicitation_contract() -> None:
     required_markers = {
         "docs/requirements/functional/ft-11.md": (
@@ -1372,6 +1463,7 @@ def main() -> None:
     check_decision_initiative_contract()
     check_decision_before_action_contract()
     check_interface_quality_contract()
+    check_commit_message_scheme_contract()
     check_requirements_elicitation_contract()
     check_twelve_factor_contract()
     check_connection_effort_contract()

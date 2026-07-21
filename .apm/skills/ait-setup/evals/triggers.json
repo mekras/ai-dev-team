@@ -80,6 +80,12 @@
       "rationale": "Приоритеты проектных решений собираются при настройке проекта и закрепляются в AGENTS.md."
     },
     {
+      "id": "ait-setup-positive-commit-message-scheme",
+      "prompt": "Настрой проект и предложи выбрать схему сообщений коммитов.",
+      "should_trigger": true,
+      "rationale": "Выбор постоянного правила Git относится к настройке проекта."
+    },
+    {
       "id": "ait-setup-negative-readme-only",
       "prompt": "Обнови README.md: добавь команду установки и ссылку на документацию.",
       "should_trigger": false,

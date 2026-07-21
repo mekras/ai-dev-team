@@ -1,0 +1,24 @@
+items:
+  - id: GTMJ-source
+    source_id: GTMJ
+    title: "Gitmoji: обзор источника"
+    access: Внешний публичный источник; использовать точечно.
+    status: approved
+    workflow_stage: statements_extracted
+    path: items/source/item.yml
+  - id: GTMJ-specification
+    source_id: GTMJ
+    title: "Gitmoji: спецификация"
+    access: Внешний публичный источник; сохранён краткий нормализованный обзор.
+    status: approved
+    workflow_stage: statements_extracted
+    url: https://gitmoji.dev/specification
+    path: items/specification/item.yml
+  - id: GTMJ-tooling
+    source_id: GTMJ
+    title: "Gitmoji: официальный CLI"
+    access: Внешний публичный источник; сохранён краткий нормализованный обзор.
+    status: approved
+    workflow_stage: statements_extracted
+    url: https://github.com/carloscuesta/gitmoji-cli
+    path: items/tooling/item.yml

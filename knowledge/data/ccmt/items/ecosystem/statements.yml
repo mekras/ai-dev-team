@@ -1,0 +1,33 @@
+statements:
+  - id: CCMT-004
+    source_id: CCMT
+    item_id: CCMT-ecosystem
+    kind: fact
+    status: verified
+    text: >-
+      Официальная страница Conventional Commits перечисляет готовые средства
+      для разбора, проверки и подготовки сообщений, выпуска версий, журналов
+      изменений, сред разработки и непрерывной интеграции.
+    excerpt: средства для разбора и проверки сообщений
+    artifact: normalized.md
+    checked_at: "2026-07-21"
+    scope:
+      section_title: Инструменты
+      application: оценка инструментальной поддержки схемы.
+    open_questions: []
+  - id: CCMT-005
+    source_id: CCMT
+    item_id: CCMT-ecosystem
+    kind: fact
+    status: verified
+    text: >-
+      Официальная страница перечисляет именованные проекты, заявившие
+      применение Conventional Commits, но не приводит долю применения схемы.
+    excerpt: проекты, заявившие применение Conventional Commits
+    artifact: normalized.md
+    checked_at: "2026-07-21"
+    scope:
+      section_title: Примеры применения
+      application: косвенная оценка распространённости схемы.
+    open_questions:
+      - Нет сопоставимой оценки доли применения схем сообщений коммитов.

@@ -6,7 +6,16 @@ import os
 from pathlib import Path
 
 
-COMMON_LIMIT_MODELS = {"gpt-5.4", "gpt-5.4-mini", "gpt-5.5"}
+HISTORICAL_COMMON_LIMIT_MODELS = {
+    "gpt-5.4",
+    "gpt-5.4-mini",
+    "gpt-5.5",
+}
+COMMON_LIMIT_MODELS = HISTORICAL_COMMON_LIMIT_MODELS | {
+    "gpt-5.6-luna",
+    "gpt-5.6-sol",
+    "gpt-5.6-terra",
+}
 SEPARATE_LIMIT_MODELS = {"gpt-5.3-codex-spark"}
 
 

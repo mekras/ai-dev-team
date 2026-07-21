@@ -1,0 +1,29 @@
+statements:
+  - id: GTMJ-001
+    source_id: GTMJ
+    item_id: GTMJ-specification
+    kind: fact
+    status: verified
+    text: >-
+      Gitmoji задаёт сообщение из эмодзи намерения, необязательной области и
+      краткого описания изменения.
+    excerpt: "<intention> [scope?][:?] <message>"
+    artifact: normalized.md
+    checked_at: "2026-07-21"
+    scope:
+      section_title: Формат
+      application: схема сообщений коммитов.
+    open_questions: []
+  - id: GTMJ-002
+    source_id: GTMJ
+    item_id: GTMJ-specification
+    kind: fact
+    status: verified
+    text: Gitmoji допускает Unicode и короткий код для представления эмодзи.
+    excerpt: "Either in the :shortcode: or unicode format"
+    artifact: normalized.md
+    checked_at: "2026-07-21"
+    scope:
+      section_title: Представление эмодзи
+      application: настройка проекта с Gitmoji.
+    open_questions: []

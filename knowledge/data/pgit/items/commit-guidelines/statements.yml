@@ -1,0 +1,44 @@
+statements:
+  - id: PGIT-001
+    source_id: PGIT
+    item_id: PGIT-commit-guidelines
+    kind: fact
+    status: verified
+    text: >-
+      Pro Git рекомендует краткий заголовок примерно до 50 знаков, пустую
+      строку и подробное тело при необходимости.
+    excerpt: Книга рекомендует краткий заголовок примерно до 50 знаков
+    artifact: normalized.md
+    checked_at: "2026-07-21"
+    scope:
+      section_title: Заголовок и тело
+      application: схема сообщений коммитов.
+    open_questions: []
+  - id: PGIT-002
+    source_id: PGIT
+    item_id: PGIT-commit-guidelines
+    kind: fact
+    status: verified
+    text: Pro Git рекомендует формулировать заголовок в повелительном наклонении.
+    excerpt: "Write your commit message in the imperative"
+    artifact: normalized.md
+    checked_at: "2026-07-21"
+    scope:
+      section_title: Форма действия
+      application: проверка заголовка сообщения коммита.
+    open_questions: []
+  - id: PGIT-003
+    source_id: PGIT
+    item_id: PGIT-commit-guidelines
+    kind: fact
+    status: verified
+    text: >-
+      Рекомендованное повелительное наклонение согласуется с сообщениями,
+      создаваемыми командами git merge и git revert.
+    excerpt: согласуется с сообщениями, создаваемыми командами
+    artifact: normalized.md
+    checked_at: "2026-07-21"
+    scope:
+      section_title: Форма действия
+      application: совместимость истории с сообщениями Git.
+    open_questions: []

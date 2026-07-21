@@ -1,0 +1,26 @@
+id: GITD
+slug: gitd
+title: Официальная документация Git по сообщениям коммитов.
+status: approved
+carrier_type: web_page
+source_kind: normative
+adapter: manual
+storage_strategy: external_reference
+retrieval_mode: on_demand
+copy_policy: fragments_only
+allowed_use: >-
+  Точечная проверка встроенных средств подготовки и проверки сообщений
+  коммитов со ссылкой на первоисточник.
+requires_access_check: true
+url: https://git-scm.com/docs/git-commit
+locator: https://git-scm.com/docs/git-commit
+public_reference: https://git-scm.com/docs
+license_or_terms: GPL-2.0 для документации Git
+access:
+  default: Внешний публичный источник; полная локальная копия не хранится.
+reliability: official
+stability: mutable
+refresh_policy: Проверять актуальную документацию перед изменением профиля.
+last_checked_at: "2026-07-21"
+known_limitations:
+  - Встроенные средства Git не задают конкретную схему сообщений коммитов.

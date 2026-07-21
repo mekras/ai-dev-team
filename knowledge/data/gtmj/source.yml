@@ -1,0 +1,27 @@
+id: GTMJ
+slug: gtmj
+title: Официальная спецификация Gitmoji.
+status: approved
+carrier_type: web_page
+source_kind: normative
+adapter: manual
+storage_strategy: external_reference
+retrieval_mode: on_demand
+copy_policy: fragments_only
+allowed_use: >-
+  Точечная проверка формата Gitmoji и официального средства подготовки
+  сообщений со ссылкой на первоисточник.
+requires_access_check: true
+url: https://gitmoji.dev/specification
+locator: https://gitmoji.dev/specification
+public_reference: https://gitmoji.dev/specification
+license_or_terms: MIT для репозитория Gitmoji
+access:
+  default: Внешний публичный источник; полная локальная копия не хранится.
+reliability: official
+stability: mutable
+refresh_policy: Проверять актуальную спецификацию перед изменением профиля.
+last_checked_at: "2026-07-21"
+known_limitations:
+  - Список эмодзи меняется; перед применением нужен актуальный первоисточник.
+  - Наличие официального CLI не определяет долю применения схемы.

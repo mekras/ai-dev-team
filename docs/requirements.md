@@ -65,6 +65,7 @@
 - [ФТ-14. Жизненный цикл гипотезы](requirements/functional/ft-14.md)
 - [ФТ-15. Переход от гипотезы к решению](requirements/functional/ft-15.md)
 - [ФТ-16. ИБ использования и разработки ИИ](requirements/functional/ft-16.md)
+- [ФТ-17. Схема сообщений коммитов](requirements/functional/ft-17.md)
 
 ## Атрибуты качества
 

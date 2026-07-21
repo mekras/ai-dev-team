@@ -1,0 +1,120 @@
+#!/usr/bin/env python3
+"""Запуск роли Codex с проверкой фактической модели по журналу сессии."""
+
+from __future__ import annotations
+
+import glob
+import json
+import os
+import subprocess
+import sys
+import tempfile
+import time
+from pathlib import Path
+
+
+def json_events(text: str):
+  for line in text.splitlines():
+    try:
+      yield json.loads(line)
+    except json.JSONDecodeError:
+      continue
+
+
+def session_model(thread_id: str | None) -> str | None:
+  if not thread_id:
+    return None
+  codex_home = Path(os.environ.get("CODEX_HOME", Path.home() / ".codex"))
+  pattern = str(codex_home / "sessions" / "**" / f"*{thread_id}.jsonl")
+  for _ in range(20):
+    matches = glob.glob(pattern, recursive=True)
+    if matches:
+      model = None
+      for event in json_events(Path(matches[0]).read_text(encoding="utf-8")):
+        if event.get("type") == "turn_context":
+          model = (event.get("payload") or {}).get("model") or model
+      return model
+    time.sleep(0.1)
+  return None
+
+
+def main() -> int:
+  if len(sys.argv) != 4:
+    raise SystemExit("Использование: codex-role <модель> <усилие> <режим>")
+
+  model, effort, sandbox = sys.argv[1:]
+  raw_prompt = sys.stdin.read()
+  try:
+    payload = json.loads(raw_prompt)
+  except json.JSONDecodeError:
+    payload = {"task": raw_prompt, "inputs": []}
+  inputs = payload.get("inputs") or []
+  if not isinstance(inputs, list) or not all(isinstance(item, str) for item in inputs):
+    raise SystemExit("Поле inputs должно быть массивом путей")
+  payload["execution"] = {
+    "active_role": payload.get("role"),
+    "delegation_allowed": False,
+    "perform_task_directly": True,
+  }
+
+  with tempfile.TemporaryDirectory() as directory:
+    final = Path(directory) / "final.txt"
+    command = [
+      "codex",
+      "exec",
+      "--json",
+      "--color",
+      "never",
+      "--strict-config",
+      "--skip-git-repo-check",
+      "--cd",
+      directory,
+      "--sandbox",
+      sandbox,
+      "--model",
+      model,
+      "-c",
+      f'model_reasoning_effort="{effort}"',
+      "--output-last-message",
+      str(final),
+    ]
+    if sandbox == "workspace-write":
+      for parent in dict.fromkeys(str(Path(item).resolve().parent) for item in inputs):
+        command.extend(["--add-dir", parent])
+    command.append("-")
+    run = subprocess.run(
+      command,
+      input=json.dumps(payload, ensure_ascii=False),
+      text=True,
+      capture_output=True,
+      check=False,
+    )
+
+    raw_log = os.environ.get("CODEX_ROLE_LOG")
+    if raw_log:
+      Path(raw_log).write_text(run.stdout, encoding="utf-8")
+
+    events = list(json_events(run.stdout))
+    thread_id = next(
+      (event.get("thread_id") for event in events if event.get("type") == "thread.started"),
+      None,
+    )
+    usage = next(
+      (
+        event.get("usage")
+        for event in reversed(events)
+        if event.get("type") == "turn.completed"
+      ),
+      None,
+    )
+    actual_model = session_model(thread_id)
+    print(json.dumps({"model": actual_model, "usage": usage}, ensure_ascii=False))
+    if final.exists():
+      print(final.read_text(encoding="utf-8"), end="")
+    if run.returncode:
+      print(run.stderr, file=sys.stderr, end="")
+    return run.returncode
+
+
+if __name__ == "__main__":
+  raise SystemExit(main())
