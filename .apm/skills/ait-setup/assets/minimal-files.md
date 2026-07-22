@@ -49,6 +49,11 @@
 product: mekras/ai-dev-team
 updated_at: 2026-06-27
 setup:
+  project_profile:
+    forms: [library]
+    users: [software-developer]
+    interfaces: [api]
+    delivery: [dependency]
   visibility: public
   git:
     enabled: true

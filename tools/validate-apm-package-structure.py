@@ -524,6 +524,45 @@ def check_interface_quality_contract() -> None:
                 )
 
 
+def check_setup_dialogue_contract() -> None:
+    required_markers = {
+        "docs/requirements/functional/ft-18.md": (
+            "setup.project_profile",
+            "несколько форм",
+            "ответить номером",
+        ),
+        "knowledge/concepts.yml": (
+            "id: project-profile",
+            "характер проекта",
+            "SREQ-138",
+        ),
+        ".apm/skills/ait-setup/SKILL.md": (
+            "профиль проекта",
+            "разрешай ответить номером",
+        ),
+        ".apm/skills/ait-setup/references/setup-dialogue.md": (
+            "## Договор вопросов",
+            "## Профиль проекта",
+            "setup.project_profile",
+            "## Уровень интерфейсных проверок",
+        ),
+        ".apm/skills/ait-setup/evals/result-scenarios.json": (
+            "ait-setup-result-vague-project-profile",
+            "ait-setup-result-interface-checks-explained-choice",
+            "варианты пронумерованы и разрешён ответ номером",
+        ),
+    }
+    for relative_path, markers in required_markers.items():
+        path = ROOT / relative_path
+        text = path.read_text(encoding="utf-8")
+        for marker in markers:
+            if marker not in text:
+                fail(
+                    f"{relative_path} is missing setup dialogue marker "
+                    f"{marker!r}",
+                )
+
+
 def check_commit_message_scheme_contract() -> None:
     required_markers = {
         "docs/requirements/functional/ft-17.md": (
@@ -1463,6 +1502,7 @@ def main() -> None:
     check_decision_initiative_contract()
     check_decision_before_action_contract()
     check_interface_quality_contract()
+    check_setup_dialogue_contract()
     check_commit_message_scheme_contract()
     check_requirements_elicitation_contract()
     check_twelve_factor_contract()
