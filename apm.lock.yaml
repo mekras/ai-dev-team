@@ -1,5 +1,5 @@
 lockfile_version: '2'
-generated_at: '2026-07-22T20:20:57.955874+00:00'
+generated_at: '2026-07-22T20:56:00.846020+00:00'
 apm_version: 0.24.0
 dependencies:
 - repo_url: mekras/ai-agent-supervisor
@@ -406,14 +406,14 @@ dependencies:
   content_hash: sha256:933c53623a4049efb8508c6f21eb3ff089dca7e6a6dc71ca5ccc0a4c312c6036
   constraint: ^2.0.2
   resolved_tag: 2.0.2
-  resolved_at: '2026-07-22T20:20:46+00:00'
+  resolved_at: '2026-07-22T20:54:54+00:00'
   declared_license: MIT
 - repo_url: mekras/ai-russian-language
   name: ai-russian-language
   host: github.com
-  resolved_commit: 5f2408125b0bb0c352cea5e51c2fbefb18334cbf
-  resolved_ref: 2.0.0
-  version: 2.0.0
+  resolved_commit: 3e1923a3db88ca43256891764aeeaac135a1aed7
+  resolved_ref: 2.0.1
+  version: 2.0.1
   package_type: apm_package
   deployed_files:
   - .agents/skills/ru-lang
@@ -437,28 +437,28 @@ dependencies:
   - .claude/skills/ru-lang/references/strict-rules.md
   - .claude/skills/ru-lang/references/technical-russian.md
   deployed_file_hashes:
-    .agents/skills/ru-lang/SKILL.md: sha256:e3777339e5a51b5b5f40feaa7e16b687c6c63ba9d23525978854be1fcacbf383
+    .agents/skills/ru-lang/SKILL.md: sha256:b9b010dfbe86176a48d493d794e33998fca07526350273b3cfdb7252784762de
     .agents/skills/ru-lang/agents/openai.yaml: sha256:df9717b4771de60e542b34bb9b3411a40ad66b76fa61e72b98483aad3e2a575a
     .agents/skills/ru-lang/assets/strict-replacements.md: sha256:f38bd8549f10d7f9aa5b091c4249031c67c2472a9f3a59756197fe88444e883b
-    .agents/skills/ru-lang/evals/compose.jsonl: sha256:f36742a25bf19cd6d987859fdf5ee98a5c9d45dc640572e8739eb373ad56b04c
+    .agents/skills/ru-lang/evals/compose.jsonl: sha256:02b8c0c527e7667def07a6169dff52e05053040db12cafdd32039042a093b4e3
     .agents/skills/ru-lang/evals/triggers.json: sha256:11f1451c79da8ea427d34c9c66188f64baa8357874dd69cbbadc249b39b64d41
     .agents/skills/ru-lang/references/development-rules.md: sha256:e9300f58b71cb18ef826064c61b7de34bc55dc78d8384bbba50666f01a0000c5
-    .agents/skills/ru-lang/references/main-rules.md: sha256:6a119ff611d9a81b86c73f79718b00760424b0219fa560a602ee6abbec8b4f7e
+    .agents/skills/ru-lang/references/main-rules.md: sha256:3ec5d98a6361992fb687ba1678ca23f4fc96001c72cd8f5a0f18b9c76dac6ff1
     .agents/skills/ru-lang/references/strict-rules.md: sha256:82ecb6c85dedac551073891fe0992ba394cc0edd1151b7bd46f374716bb8d497
     .agents/skills/ru-lang/references/technical-russian.md: sha256:a32aaaae7f5ab9d534d9459bda616323d059701b1850d3ea35a43294012c0e18
-    .claude/skills/ru-lang/SKILL.md: sha256:e3777339e5a51b5b5f40feaa7e16b687c6c63ba9d23525978854be1fcacbf383
+    .claude/skills/ru-lang/SKILL.md: sha256:b9b010dfbe86176a48d493d794e33998fca07526350273b3cfdb7252784762de
     .claude/skills/ru-lang/agents/openai.yaml: sha256:df9717b4771de60e542b34bb9b3411a40ad66b76fa61e72b98483aad3e2a575a
     .claude/skills/ru-lang/assets/strict-replacements.md: sha256:f38bd8549f10d7f9aa5b091c4249031c67c2472a9f3a59756197fe88444e883b
-    .claude/skills/ru-lang/evals/compose.jsonl: sha256:f36742a25bf19cd6d987859fdf5ee98a5c9d45dc640572e8739eb373ad56b04c
+    .claude/skills/ru-lang/evals/compose.jsonl: sha256:02b8c0c527e7667def07a6169dff52e05053040db12cafdd32039042a093b4e3
     .claude/skills/ru-lang/evals/triggers.json: sha256:11f1451c79da8ea427d34c9c66188f64baa8357874dd69cbbadc249b39b64d41
     .claude/skills/ru-lang/references/development-rules.md: sha256:e9300f58b71cb18ef826064c61b7de34bc55dc78d8384bbba50666f01a0000c5
-    .claude/skills/ru-lang/references/main-rules.md: sha256:6a119ff611d9a81b86c73f79718b00760424b0219fa560a602ee6abbec8b4f7e
+    .claude/skills/ru-lang/references/main-rules.md: sha256:3ec5d98a6361992fb687ba1678ca23f4fc96001c72cd8f5a0f18b9c76dac6ff1
     .claude/skills/ru-lang/references/strict-rules.md: sha256:82ecb6c85dedac551073891fe0992ba394cc0edd1151b7bd46f374716bb8d497
     .claude/skills/ru-lang/references/technical-russian.md: sha256:a32aaaae7f5ab9d534d9459bda616323d059701b1850d3ea35a43294012c0e18
-  content_hash: sha256:39e8189ddcbf9f537f27fa209372d37af23224aa2b1c3b6d17f49a5817bcd7d8
-  constraint: ^2.0.0
-  resolved_tag: 2.0.0
-  resolved_at: '2026-07-22T20:20:46+00:00'
+  content_hash: sha256:df60ef84031cd0c4c741bfbb6e74cb242e5dab1ec0e4c0ec0a664945f9a24b7d
+  constraint: ^2.0.1
+  resolved_tag: 2.0.1
+  resolved_at: '2026-07-22T20:54:53+00:00'
   declared_license: MIT
 - repo_url: mekras/project-knowlege-corpus
   name: project-knowledge-corpus
@@ -890,7 +890,7 @@ dependencies:
   content_hash: sha256:5c4731dd01ef1bd4fba50a2017f47129911dafd0843247124d7fc02754bd0b72
   constraint: ^0.14.2
   resolved_tag: 0.14.2
-  resolved_at: '2026-07-22T20:20:46+00:00'
+  resolved_at: '2026-07-22T20:54:54+00:00'
   declared_license: MIT
 - repo_url: talkstream/ru-text
   name: ru-text
