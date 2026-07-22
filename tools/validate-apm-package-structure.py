@@ -515,6 +515,8 @@ def check_setup_dialogue_contract() -> None:
             "setup.project_profile",
             "несколько форм",
             "ответить номером",
+            "подменяет недоступный механизм",
+            "фактически развёрнутую APM-копию",
         ),
         "knowledge/concepts.yml": (
             "id: project-profile",
@@ -524,6 +526,8 @@ def check_setup_dialogue_contract() -> None:
         ".apm/skills/ait-setup/SKILL.md": (
             "профиль проекта",
             "разрешай ответить номером",
+            "не подменяй меню",
+            "активного `ait-setup`",
         ),
         ".apm/skills/ait-setup/references/setup-dialogue.md": (
             "## Договор вопросов",
@@ -534,6 +538,8 @@ def check_setup_dialogue_contract() -> None:
         ".apm/skills/ait-setup/evals/result-scenarios.json": (
             "ait-setup-result-vague-project-profile",
             "ait-setup-result-interface-checks-explained-choice",
+            "ait-setup-result-deployed-version-drift-stop",
+            "ait-setup-result-commit-message-scheme-sequential-question",
             "варианты пронумерованы и разрешён ответ номером",
         ),
     }
@@ -1469,6 +1475,7 @@ def check_installation_contract() -> None:
             "apm install file:",
             "#master --target",
             "#main --target",
+            "ai-dev-team#^" + version + " --dev",
             "--channel",
         )
         for fragment in forbidden_installation_fragments:
