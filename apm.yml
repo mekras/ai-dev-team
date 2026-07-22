@@ -11,7 +11,7 @@ includes: auto
 dependencies:
   apm:
     - mekras/ai-russian-language#^2.0.0
-    - mekras/ai-agent-supervisor#^2.0.0
+    - mekras/ai-agent-supervisor#^2.0.1
     - mekras/project-knowlege-corpus#^0.14.2
 scripts:
   tests: >-
@@ -29,7 +29,7 @@ scripts:
     python3 "$validators/validate-trigger-evals.py" "$target" --require-all;
     PYTHONDONTWRITEBYTECODE=1
     python3 "$validators/validate-skill-result-evals.py" "$target";
-    python3 "$validators/validate-portable-corpus-references.py" "$target";
+    python3 tools/validate-portable-corpus-references.py;
     npm run lint:md; apm compile --validate --local-only --target codex;
     apm compile --validate --local-only --target claude;
     apm pack --dry-run'

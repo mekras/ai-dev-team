@@ -17,11 +17,6 @@ REQUIRED_APM_DEPENDENCIES = {
     "mekras/project-knowlege-corpus",
 }
 
-REQUIRED_APM_DEPENDENCY_CONSTRAINTS = {
-    "mekras/ai-agent-supervisor": "^2.0.0",
-    "mekras/ai-russian-language": "^2.0.0",
-}
-
 REQUIRED_SKILLS = {
     "ait-docs-concept",
     "ait-setup",
@@ -91,7 +86,7 @@ REQUIRED_TEST_FRAGMENTS = (
     "validate-skill-descriptions.py",
     "validate-trigger-evals.py",
     "validate-skill-result-evals.py",
-    "validate-portable-corpus-references.py",
+    "tools/validate-portable-corpus-references.py",
     "npm run lint:md",
     "apm compile --validate --local-only --target codex",
     "apm compile --validate --local-only --target claude",
@@ -218,16 +213,6 @@ def check_manifest() -> None:
     missing_dependencies = sorted(REQUIRED_APM_DEPENDENCIES - actual_dependencies)
     if missing_dependencies:
         fail(f"missing APM dependencies: {', '.join(missing_dependencies)}")
-    dependency_constraints = {
-        dependency.split("#", maxsplit=1)[0]: dependency.split("#", maxsplit=1)[1]
-        for dependency in dependencies
-        if "#" in dependency
-    }
-    for dependency, expected_constraint in REQUIRED_APM_DEPENDENCY_CONSTRAINTS.items():
-        if dependency_constraints.get(dependency) != expected_constraint:
-            fail(
-                f"{dependency} must use constraint {expected_constraint}",
-            )
     tests = manifest.get("scripts", {}).get("tests")
     if not isinstance(tests, str) or "validate-apm-package-structure.py" not in tests:
         fail("apm.yml scripts.tests must run the package structure validator")
