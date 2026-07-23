@@ -1,3 +1,26 @@
 product: mekras/ai-dev-team
-applied_version: 0.10.0
-updated_at: 2026-06-27
+applied_version: 0.20.6
+updated_at: 2026-07-23
+setup:
+  project_profile:
+    forms: [apm-skill-collection, documentation]
+    users: [project-developers]
+    interfaces: [apm, ai-agent-prompts]
+    delivery: [public-apm-package]
+  visibility: public
+  git:
+    enabled: true
+  commit_messages:
+    scheme: pro-git
+  changelog:
+    status: present
+    path: CHANGELOG.md
+  decision_records:
+    status: present
+    journals:
+      - kind: ADR
+        path: docs/ADR/
+        record_pattern: ADR-NNNN.md
+        index: docs/ADR/README.md
+  knowledge:
+    status: declined
