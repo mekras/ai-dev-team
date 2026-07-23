@@ -1,5 +1,5 @@
 lockfile_version: '2'
-generated_at: '2026-07-23T11:12:14.699287+00:00'
+generated_at: '2026-07-23T11:59:59.661888+00:00'
 apm_version: 0.26.0
 dependencies:
 - repo_url: mekras/ai-agent-supervisor
@@ -406,7 +406,7 @@ dependencies:
   content_hash: sha256:933c53623a4049efb8508c6f21eb3ff089dca7e6a6dc71ca5ccc0a4c312c6036
   constraint: ^2.0.2
   resolved_tag: 2.0.2
-  resolved_at: '2026-07-22T20:54:54+00:00'
+  resolved_at: '2026-07-23T11:59:48+00:00'
   declared_license: MIT
 - repo_url: mekras/ai-russian-language
   name: ai-russian-language
@@ -458,14 +458,14 @@ dependencies:
   content_hash: sha256:df60ef84031cd0c4c741bfbb6e74cb242e5dab1ec0e4c0ec0a664945f9a24b7d
   constraint: ^2.0.1
   resolved_tag: 2.0.1
-  resolved_at: '2026-07-22T20:54:53+00:00'
+  resolved_at: '2026-07-23T11:59:48+00:00'
   declared_license: MIT
 - repo_url: mekras/project-knowlege-corpus
   name: project-knowledge-corpus
   host: github.com
-  resolved_commit: 1406819be3cc796eedb58e0bdc68371ac934c42c
-  resolved_ref: 0.14.2
-  version: 0.14.2
+  resolved_commit: 59111d82f87569cd882435fd7642e9df1805b285
+  resolved_ref: 0.14.3
+  version: 0.14.3
   package_type: apm_package
   deployed_files:
   - .agents/skills/kc-analysis
@@ -887,10 +887,10 @@ dependencies:
     .claude/skills/transcript-analysis/agents/openai.yaml: sha256:cfeb2363e7bcfdad0909b531658048945cc6888560ae78d706f96ca078f327d3
     .claude/skills/transcript-analysis/evals/result-scenarios.json: sha256:fd20ff8a9594cdf2def183e9f4eec2e654c7eef1da8bce6ab475075ca3eec55c
     .claude/skills/transcript-analysis/evals/triggers.json: sha256:4dd2a72292e983a42abdf0e0b6b168abec1f4fec9c62c79a4f3345b8c18117a9
-  content_hash: sha256:5c4731dd01ef1bd4fba50a2017f47129911dafd0843247124d7fc02754bd0b72
-  constraint: ^0.14.2
-  resolved_tag: 0.14.2
-  resolved_at: '2026-07-22T20:54:54+00:00'
+  content_hash: sha256:6b81d96e28f06e7329a14c2f88526124d75317c64e4151ca0bc519bdf7eb04bd
+  constraint: ^0.14.3
+  resolved_tag: 0.14.3
+  resolved_at: '2026-07-23T11:59:48+00:00'
   declared_license: MIT
 - repo_url: talkstream/ru-text
   name: ru-text
