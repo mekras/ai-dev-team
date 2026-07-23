@@ -1,7 +1,7 @@
 ---
 name: ait-decisions
 role: project-manager
-description: Запись и проверка значимых проектных решений любого вида.
+description: Запись значимых проектных решений.
 ---
 
 # Навык: записи решений

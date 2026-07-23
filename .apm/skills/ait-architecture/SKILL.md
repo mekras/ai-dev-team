@@ -111,6 +111,8 @@ description: Архитектура ПО, компоненты, интеграц
 - Для оценки и применения The Twelve-Factor App к SaaS и самостоятельно
   развёртываемым сервисам используй `ait-twelve-factor` до решений по её
   факторам.
+- Для оценки спецификации как первичного артефакта и проверки восстановления
+  реализации используй `ait-reconstructability` до выбора области генерации.
 
 Читай только те справки, которые нужны для текущей задачи.
 
@@ -166,4 +168,5 @@ description: Архитектура ПО, компоненты, интеграц
 `knowledge/data/<slug>/items.yml` и связанные утверждения: `APIB`, `RADR`,
 `CLAR`, `DDDE`, `EVAR`, `SAHP`, `AR42`, `C4M`, `DSCT`, `G250`, `GSRE`, `DDIA`,
 `CHAE`, `CHEN`, `CLCD`, `ADRG`. `TFA` используется через профильный навык
-`ait-twelve-factor`.
+`ait-twelve-factor`. Источники `SDDP`, `SPKT` и `AUGR` используются через
+`ait-reconstructability`.

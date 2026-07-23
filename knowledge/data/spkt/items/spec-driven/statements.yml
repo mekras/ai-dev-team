@@ -1,0 +1,29 @@
+statements:
+  - id: SPKT-001
+    source_id: SPKT
+    item_id: SPKT-spec-driven
+    kind: fact
+    status: verified
+    text: "Документ Spec Kit называет спецификацию первичным артефактом."
+    excerpt: "The specification becomes the primary artifact."
+    artifact: evidence.md
+    checked_at: "2026-07-23"
+    scope:
+      section_title: "Первичный артефакт"
+      application: "Определение канонического слоя проекта."
+    open_questions: []
+  - id: SPKT-002
+    source_id: SPKT
+    item_id: SPKT-spec-driven
+    kind: fact
+    status: verified
+    text: >-
+      Документ Spec Kit рассматривает код как выражение спецификации в
+      конкретном языке и среде.
+    excerpt: "Code becomes its expression"
+    artifact: evidence.md
+    checked_at: "2026-07-23"
+    scope:
+      section_title: "Производный код"
+      application: "Отделение канонических и производных артефактов."
+    open_questions: []

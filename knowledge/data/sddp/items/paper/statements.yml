@@ -1,0 +1,61 @@
+statements:
+  - id: SDDP-001
+    source_id: SDDP
+    item_id: SDDP-paper
+    kind: fact
+    status: verified
+    text: >-
+      Источник различает spec-first, spec-anchored и spec-as-source как уровни
+      авторитетности спецификации.
+    excerpt: "Not all spec-driven approaches are equal."
+    artifact: evidence.md
+    checked_at: "2026-07-23"
+    scope:
+      section_title: "Спектр"
+      application: "Выбор минимально достаточного уровня практики."
+    open_questions: []
+  - id: SDDP-002
+    source_id: SDDP
+    item_id: SDDP-paper
+    kind: fact
+    status: verified
+    text: >-
+      В предельном варианте spec-as-source человек изменяет спецификацию, а код
+      полностью создаётся из неё.
+    excerpt: "the specification is the only artifact humans edit directly"
+    artifact: evidence.md
+    checked_at: "2026-07-23"
+    scope:
+      section_title: "Spec-as-source"
+      application: "Определение предельного уровня реконструируемости."
+    open_questions: []
+  - id: SDDP-003
+    source_id: SDDP
+    item_id: SDDP-paper
+    kind: limitation
+    status: verified
+    text: >-
+      Разработка на основе спецификаций применима не ко всем проектам и требует
+      выбора строгости по контексту.
+    excerpt: "Spec-driven development is not universally applicable."
+    artifact: evidence.md
+    checked_at: "2026-07-23"
+    scope:
+      section_title: "Граница применимости"
+      application: "Запрет универсального требования."
+    open_questions: []
+  - id: SDDP-004
+    source_id: SDDP
+    item_id: SDDP-paper
+    kind: limitation
+    status: verified
+    text: >-
+      Недетерминированность языковых моделей допускает разные реализации по
+      одной структурированной спецификации.
+    excerpt: "Challenges remain, including LLM non-determinism"
+    artifact: evidence.md
+    checked_at: "2026-07-23"
+    scope:
+      section_title: "Неопределённость генерации"
+      application: "Выбор поведенческого, а не побитового критерия."
+    open_questions: []

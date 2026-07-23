@@ -1,0 +1,44 @@
+id: AUGR
+slug: augr
+title: >-
+  Практическое руководство Augment Code о реконструируемой кодовой базе и
+  проверке восстановления.
+status: approved
+priority: medium
+carrier_type: web_page
+source_kind: article
+adapter: manual
+storage_strategy: external_reference
+processing_scope: selected_fragments
+retrieval_mode: on_demand
+copy_policy: fragments_only
+allowed_use: >-
+  Практическая форма проверки восстановления и состав достаточной
+  спецификации.
+requires_access_check: true
+url: >-
+  https://www.augmentcode.com/guides/spec-as-source-of-truth-rebuildable-codebase
+locator: >-
+  https://www.augmentcode.com/guides/spec-as-source-of-truth-rebuildable-codebase
+public_reference: >-
+  https://www.augmentcode.com/guides/spec-as-source-of-truth-rebuildable-codebase
+license_or_terms: >-
+  Открытая лицензия не установлена. Хранить только короткие фрагменты с
+  атрибуцией.
+access:
+  default: >-
+    Внешний публичный источник. Получать точечно и не сохранять полную копию.
+reliability: practitioner_article
+stability: mutable
+refresh_policy: manual
+last_checked_at: "2026-07-23"
+scope:
+  includes:
+    - "проверка восстановления"
+    - "состав спецификации для генерации"
+    - "постепенное внедрение"
+  excludes:
+    - "независимое доказательство эффективности"
+known_limitations:
+  - "Материал поставщика имеет практический и маркетинговый характер."
+processing_notes: []

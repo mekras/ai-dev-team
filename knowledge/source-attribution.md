@@ -1132,3 +1132,35 @@
 - Лицензия текста: `CC BY-NC-SA 3.0`.
 - Использование в корпусе: внешний источник; сохранены краткий обзор,
   проверяемые утверждения и ссылка без полной копии страницы.
+
+## SDDP
+
+- Источник:
+  `Spec-Driven Development: From Code to Contract in the Age of AI Coding Assistants`.
+- Автор: Deepak Babu Piskala.
+- Канонический адрес: `https://arxiv.org/abs/2602.00180v1`.
+- Лицензионный статус: перед публикацией новых фрагментов нужно проверять
+  лицензию конкретной версии arXiv.
+- Использование в корпусе: `external_reference`. Сохранены короткие проверенные
+  фрагменты без полной копии препринта.
+
+## SPKT
+
+- Источник: документ `Specification-Driven Development` проекта GitHub Spec Kit.
+- Владелец: GitHub и участники проекта Spec Kit.
+- Канонический адрес:
+  `https://github.com/github/spec-kit/blob/main/spec-driven.md`.
+- Лицензия репозитория: `MIT`.
+- Использование в корпусе: `external_reference`. Сохранены короткие проверенные
+  фрагменты с атрибуцией.
+
+## AUGR
+
+- Источник:
+  `The Spec as Source of Truth: Why Codebases Should Be Rebuildable from Documentation`.
+- Автор: Ani Galstian, Augment Code.
+- Канонический адрес:
+  `https://www.augmentcode.com/guides/spec-as-source-of-truth-rebuildable-codebase`.
+- Лицензионный статус: открытая лицензия не установлена.
+- Использование в корпусе: `external_reference`. Сохранены короткие проверенные
+  фрагменты без полной копии страницы.

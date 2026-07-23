@@ -1,74 +1,4 @@
 items:
-- id: ENAI-source
-  source_id: ENAI
-  path: data/enai/items/source/item.yml
-  title: 'ENISA: обзор источника'
-  date_published: null
-  workflow_stage: indexed
-  access: Внешний публичный источник. Получать релевантные документы по запросу.
-- id: ISOA-source
-  source_id: ISOA
-  path: data/isoa/items/source/item.yml
-  title: 'ISO: обзор стандартов ИИ'
-  date_published: null
-  workflow_stage: indexed
-  access: Внешний источник. Полный текст получать только после проверки права доступа.
-- id: MSAI-source
-  source_id: MSAI
-  path: data/msai/items/source/item.yml
-  title: 'Microsoft: обзор моделирования угроз ИИ'
-  date_published: null
-  workflow_stage: indexed
-  access: Внешний публичный источник. Получать релевантные страницы по запросу.
-- id: SBMT-source
-  source_id: SBMT
-  path: data/sbmt/items/source/item.yml
-  title: 'Сбер: обзор источника о модели угроз ИИ'
-  date_published: null
-  workflow_stage: indexed
-  access: Внешняя страница. Нужны официальная полная версия и проверка условий доступа.
-- id: YSAFE-source
-  source_id: YSAFE
-  path: data/ysafe/items/source/item.yml
-  title: 'Yandex Cloud AI-SAFE: обзор источника'
-  date_published: null
-  workflow_stage: indexed
-  access: Внешний публичный источник. Получать релевантные страницы по запросу.
-- id: AICM-source
-  source_id: AICM
-  path: data/aicm/items/source/item.yml
-  title: 'CSA AI Controls Matrix'
-  date_published: null
-  workflow_stage: indexed
-  access: Внешний публичный каталог. Проверять условия доступа и версию перед использованием.
-- id: AIGD-source
-  source_id: AIGD
-  path: data/aigd/items/source/item.yml
-  title: 'Совместные руководства по ИБ ИИ'
-  date_published: null
-  workflow_stage: indexed
-  access: Внешние публичные руководства. Получать релевантный документ по запросу.
-- id: ATLS-source
-  source_id: ATLS
-  path: data/atls/items/source/item.yml
-  title: 'MITRE ATLAS'
-  date_published: null
-  workflow_stage: indexed
-  access: Внешняя публичная база знаний. Получать релевантные техники и меры по запросу.
-- id: NIST-source
-  source_id: NIST
-  path: data/nist/items/source/item.yml
-  title: 'NIST: обзор источника'
-  date_published: null
-  workflow_stage: indexed
-  access: Внешний публичный источник. Получать релевантные документы по запросу.
-- id: OWSP-source
-  source_id: OWSP
-  path: data/owsp/items/source/item.yml
-  title: 'OWASP GenAI Security Project'
-  date_published: null
-  workflow_stage: indexed
-  access: Внешний публичный сайт. Получать релевантные каталоги по запросу.
 - id: ADRG-source
   source_id: ADRG
   path: data/adrg/items/source/item.yml
@@ -99,6 +29,20 @@ items:
   date_published: null
   workflow_stage: indexed
   access: Внешний публичный файл; получать точечно по запросу.
+- id: AICM-source
+  source_id: AICM
+  path: data/aicm/items/source/item.yml
+  title: CSA AI Controls Matrix
+  date_published: null
+  workflow_stage: indexed
+  access: Внешний публичный каталог. Проверять условия доступа и версию перед использованием.
+- id: AIGD-source
+  source_id: AIGD
+  path: data/aigd/items/source/item.yml
+  title: Совместные руководства по ИБ ИИ
+  date_published: null
+  workflow_stage: indexed
+  access: Внешние публичные руководства. Получать релевантный документ по запросу.
 - id: APHG-source
   source_id: APHG
   path: data/aphg/items/source/item.yml
@@ -449,6 +393,21 @@ items:
   workflow_stage: statements_extracted
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/atck/ и общие
     ограничения в knowledge/source-attribution.md.
+- id: ATLS-source
+  source_id: ATLS
+  path: data/atls/items/source/item.yml
+  title: MITRE ATLAS
+  date_published: null
+  workflow_stage: indexed
+  access: Внешняя публичная база знаний. Получать релевантные техники и меры по запросу.
+- id: AUGR-guide
+  source_id: AUGR
+  path: data/augr/items/guide/item.yml
+  title: The Spec as Source of Truth
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный материал. Использовать выбранные фрагменты по правилам
+    карточки источника.
 - id: BSIM-source
   source_id: BSIM
   path: data/bsim/items/source/item.yml
@@ -697,6 +656,27 @@ items:
   workflow_stage: statements_extracted
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/ccmp/ и общие
     ограничения в knowledge/source-attribution.md.
+- id: CCMT-source
+  source_id: CCMT
+  path: data/ccmt/items/source/item.yml
+  title: 'Conventional Commits 1.0.0: обзор источника'
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный источник; использовать точечно.
+- id: CCMT-specification
+  source_id: CCMT
+  path: data/ccmt/items/specification/item.yml
+  title: 'Conventional Commits 1.0.0: спецификация'
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный источник; сохранён краткий нормализованный обзор.
+- id: CCMT-ecosystem
+  source_id: CCMT
+  path: data/ccmt/items/ecosystem/item.yml
+  title: 'Conventional Commits: экосистема'
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный источник; сохранён краткий нормализованный обзор.
 - id: CHAE-source
   source_id: CHAE
   path: data/chae/items/source/item.yml
@@ -991,6 +971,13 @@ items:
   date_published: null
   workflow_stage: indexed
   access: Внешний публичный документ; получать точечно по запросу.
+- id: ENAI-source
+  source_id: ENAI
+  path: data/enai/items/source/item.yml
+  title: 'ENISA: обзор источника'
+  date_published: null
+  workflow_stage: indexed
+  access: Внешний публичный источник. Получать релевантные документы по запросу.
 - id: ESWO-source
   source_id: ESWO
   path: data/eswo/items/source/item.yml
@@ -1079,6 +1066,13 @@ items:
   workflow_stage: statements_extracted
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/evar/ и общие
     ограничения в knowledge/source-attribution.md.
+- id: FSTC-21
+  source_id: FSTC
+  path: data/fstc/items/order-21/item.yml
+  title: Приказ ФСТЭК России № 21
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Официальный нормативный источник; проверять действующую редакцию.
 - id: G250-source
   source_id: G250
   path: data/g250/items/source/item.yml
@@ -1191,6 +1185,20 @@ items:
   workflow_stage: statements_extracted
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/gist/ и общие
     ограничения в knowledge/source-attribution.md.
+- id: GITD-source
+  source_id: GITD
+  path: data/gitd/items/source/item.yml
+  title: 'Git: обзор документации'
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный источник; использовать точечно.
+- id: GITD-commit-message-support
+  source_id: GITD
+  path: data/gitd/items/commit-message-support/item.yml
+  title: 'Git: средства подготовки и проверки сообщений'
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный источник; сохранён краткий нормализованный обзор.
 - id: GPLQ-source
   source_id: GPLQ
   path: data/gplq/items/source/item.yml
@@ -1223,6 +1231,27 @@ items:
   workflow_stage: statements_extracted
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/gsre/ и общие
     ограничения в knowledge/source-attribution.md.
+- id: GTMJ-source
+  source_id: GTMJ
+  path: data/gtmj/items/source/item.yml
+  title: 'Gitmoji: обзор источника'
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный источник; использовать точечно.
+- id: GTMJ-specification
+  source_id: GTMJ
+  path: data/gtmj/items/specification/item.yml
+  title: 'Gitmoji: спецификация'
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный источник; сохранён краткий нормализованный обзор.
+- id: GTMJ-tooling
+  source_id: GTMJ
+  path: data/gtmj/items/tooling/item.yml
+  title: 'Gitmoji: официальный CLI'
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный источник; сохранён краткий нормализованный обзор.
 - id: HSRE-source
   source_id: HSRE
   path: data/hsre/items/source/item.yml
@@ -2220,6 +2249,13 @@ items:
   workflow_stage: statements_extracted
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/inma/ и общие
     ограничения в knowledge/source-attribution.md.
+- id: ISOA-source
+  source_id: ISOA
+  path: data/isoa/items/source/item.yml
+  title: 'ISO: обзор стандартов ИИ'
+  date_published: null
+  workflow_stage: indexed
+  access: Внешний источник. Полный текст получать только после проверки права доступа.
 - id: LFSP-source
   source_id: LFSP
   path: data/lfsp/items/source/item.yml
@@ -2258,6 +2294,13 @@ items:
   date_published: null
   workflow_stage: indexed
   access: Внешний публичный сайт; получать точечно по запросу.
+- id: MSAI-source
+  source_id: MSAI
+  path: data/msai/items/source/item.yml
+  title: 'Microsoft: обзор моделирования угроз ИИ'
+  date_published: null
+  workflow_stage: indexed
+  access: Внешний публичный источник. Получать релевантные страницы по запросу.
 - id: MSDL-source
   source_id: MSDL
   path: data/msdl/items/source/item.yml
@@ -2297,6 +2340,13 @@ items:
   date_published: null
   workflow_stage: indexed
   access: Смотри карточку источника и ограничения в knowledge/source-attribution.md.
+- id: NIST-source
+  source_id: NIST
+  path: data/nist/items/source/item.yml
+  title: 'NIST: обзор источника'
+  date_published: null
+  workflow_stage: indexed
+  access: Внешний публичный источник. Получать релевантные документы по запросу.
 - id: O523-source
   source_id: O523
   path: data/o523/items/source/item.yml
@@ -2406,6 +2456,13 @@ items:
   workflow_stage: statements_extracted
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/osil/ и общие
     ограничения в knowledge/source-attribution.md.
+- id: OWSP-source
+  source_id: OWSP
+  path: data/owsp/items/source/item.yml
+  title: OWASP GenAI Security Project
+  date_published: null
+  workflow_stage: indexed
+  access: Внешний публичный сайт. Получать релевантные каталоги по запросу.
 - id: OWTT-source
   source_id: OWTT
   path: data/owtt/items/source/item.yml
@@ -2422,6 +2479,20 @@ items:
   workflow_stage: statements_extracted
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/owtt/ и общие
     ограничения в knowledge/source-attribution.md.
+- id: PGIT-source
+  source_id: PGIT
+  path: data/pgit/items/source/item.yml
+  title: 'Pro Git: обзор источника'
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный источник; использовать точечно.
+- id: PGIT-commit-guidelines
+  source_id: PGIT
+  path: data/pgit/items/commit-guidelines/item.yml
+  title: 'Pro Git: Commit Guidelines'
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный источник; сохранён краткий нормализованный обзор.
 - id: PHSC-source
   source_id: PHSC
   path: data/phsc/items/source/item.yml
@@ -2526,6 +2597,27 @@ items:
   workflow_stage: statements_extracted
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/reus/ и общие
     ограничения в knowledge/source-attribution.md.
+- id: RKN-registry
+  source_id: RKN
+  path: data/rkn/items/registry/item.yml
+  title: Реестр операторов персональных данных
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный портал Роскомнадзора.
+- id: RKN-incidents
+  source_id: RKN
+  path: data/rkn/items/incidents/item.yml
+  title: Уведомление об инциденте с персональными данными
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный портал Роскомнадзора.
+- id: RKN-cross-border
+  source_id: RKN
+  path: data/rkn/items/cross-border/item.yml
+  title: Трансграничная передача персональных данных
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный портал Роскомнадзора.
 - id: RTZ-source
   source_id: RTZ
   path: data/rtz/items/source/item.yml
@@ -2550,6 +2642,27 @@ items:
   workflow_stage: statements_extracted
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/rtz/ и общие
     ограничения в knowledge/source-attribution.md.
+- id: RUPD-152
+  source_id: RUPD
+  path: data/rupd/items/law-152/item.yml
+  title: Федеральный закон № 152-ФЗ «О персональных данных»
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Действующая редакция доступна через официальный портал правовой информации.
+- id: RUPD-security
+  source_id: RUPD
+  path: data/rupd/items/security/item.yml
+  title: Требования к защите и организационным действиям оператора
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Официальные постановления и приказы получать точечно по реквизитам.
+- id: RUPD-liability
+  source_id: RUPD
+  path: data/rupd/items/liability/item.yml
+  title: Ответственность за нарушения законодательства о персональных данных
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Официальные опубликования федеральных законов.
 - id: SAHP-source
   source_id: SAHP
   path: data/sahp/items/source/item.yml
@@ -2606,6 +2719,13 @@ items:
   workflow_stage: statements_extracted
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/samm/ и общие
     ограничения в knowledge/source-attribution.md.
+- id: SBMT-source
+  source_id: SBMT
+  path: data/sbmt/items/source/item.yml
+  title: 'Сбер: обзор источника о модели угроз ИИ'
+  date_published: null
+  workflow_stage: indexed
+  access: Внешняя страница. Нужны официальная полная версия и проверка условий доступа.
 - id: SCCO-source
   source_id: SCCO
   path: data/scco/items/source/item.yml
@@ -2654,6 +2774,14 @@ items:
   workflow_stage: statements_extracted
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/scxp/ и общие
     ограничения в knowledge/source-attribution.md.
+- id: SDDP-paper
+  source_id: SDDP
+  path: data/sddp/items/paper/item.yml
+  title: Spec-Driven Development
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный препринт. Использовать выбранные фрагменты по правилам
+    карточки источника.
 - id: SMAS-source
   source_id: SMAS
   path: data/smas/items/source/item.yml
@@ -2750,6 +2878,14 @@ items:
   workflow_stage: statements_extracted
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/spdx/ и общие
     ограничения в knowledge/source-attribution.md.
+- id: SPKT-spec-driven
+  source_id: SPKT
+  path: data/spkt/items/spec-driven/item.yml
+  title: Specification-Driven Development
+  date_published: null
+  workflow_stage: statements_extracted
+  access: Внешний публичный документ. Использовать выбранные фрагменты по правилам
+    карточки источника.
 - id: SREQ-source
   source_id: SREQ
   path: data/sreq/items/source/item.yml
@@ -3213,122 +3349,10 @@ items:
   workflow_stage: statements_extracted
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/xem7/ и общие
     ограничения в knowledge/source-attribution.md.
-- id: FSTC-21
-  source_id: FSTC
-  path: data/fstc/items/order-21/item.yml
-  title: Приказ ФСТЭК России № 21
+- id: YSAFE-source
+  source_id: YSAFE
+  path: data/ysafe/items/source/item.yml
+  title: 'Yandex Cloud AI-SAFE: обзор источника'
   date_published: null
-  workflow_stage: statements_extracted
-  access: Официальный нормативный источник; проверять действующую редакцию.
-- id: RKN-registry
-  source_id: RKN
-  path: data/rkn/items/registry/item.yml
-  title: Реестр операторов персональных данных
-  date_published: null
-  workflow_stage: statements_extracted
-  access: Внешний публичный портал Роскомнадзора.
-- id: RKN-incidents
-  source_id: RKN
-  path: data/rkn/items/incidents/item.yml
-  title: Уведомление об инциденте с персональными данными
-  date_published: null
-  workflow_stage: statements_extracted
-  access: Внешний публичный портал Роскомнадзора.
-- id: RKN-cross-border
-  source_id: RKN
-  path: data/rkn/items/cross-border/item.yml
-  title: Трансграничная передача персональных данных
-  date_published: null
-  workflow_stage: statements_extracted
-  access: Внешний публичный портал Роскомнадзора.
-- id: RUPD-152
-  source_id: RUPD
-  path: data/rupd/items/law-152/item.yml
-  title: Федеральный закон № 152-ФЗ «О персональных данных»
-  date_published: null
-  workflow_stage: statements_extracted
-  access: Действующая редакция доступна через официальный портал правовой информации.
-- id: RUPD-security
-  source_id: RUPD
-  path: data/rupd/items/security/item.yml
-  title: Требования к защите и организационным действиям оператора
-  date_published: null
-  workflow_stage: statements_extracted
-  access: Официальные постановления и приказы получать точечно по реквизитам.
-- id: RUPD-liability
-  source_id: RUPD
-  path: data/rupd/items/liability/item.yml
-  title: Ответственность за нарушения законодательства о персональных данных
-  date_published: null
-  workflow_stage: statements_extracted
-  access: Официальные опубликования федеральных законов.
-- id: CCMT-source
-  source_id: CCMT
-  path: data/ccmt/items/source/item.yml
-  title: "Conventional Commits 1.0.0: обзор источника"
-  date_published: null
-  workflow_stage: statements_extracted
-  access: Внешний публичный источник; использовать точечно.
-- id: CCMT-specification
-  source_id: CCMT
-  path: data/ccmt/items/specification/item.yml
-  title: "Conventional Commits 1.0.0: спецификация"
-  date_published: null
-  workflow_stage: statements_extracted
-  access: Внешний публичный источник; сохранён краткий нормализованный обзор.
-- id: CCMT-ecosystem
-  source_id: CCMT
-  path: data/ccmt/items/ecosystem/item.yml
-  title: "Conventional Commits: экосистема"
-  date_published: null
-  workflow_stage: statements_extracted
-  access: Внешний публичный источник; сохранён краткий нормализованный обзор.
-- id: GTMJ-source
-  source_id: GTMJ
-  path: data/gtmj/items/source/item.yml
-  title: "Gitmoji: обзор источника"
-  date_published: null
-  workflow_stage: statements_extracted
-  access: Внешний публичный источник; использовать точечно.
-- id: GTMJ-specification
-  source_id: GTMJ
-  path: data/gtmj/items/specification/item.yml
-  title: "Gitmoji: спецификация"
-  date_published: null
-  workflow_stage: statements_extracted
-  access: Внешний публичный источник; сохранён краткий нормализованный обзор.
-- id: GTMJ-tooling
-  source_id: GTMJ
-  path: data/gtmj/items/tooling/item.yml
-  title: "Gitmoji: официальный CLI"
-  date_published: null
-  workflow_stage: statements_extracted
-  access: Внешний публичный источник; сохранён краткий нормализованный обзор.
-- id: PGIT-source
-  source_id: PGIT
-  path: data/pgit/items/source/item.yml
-  title: "Pro Git: обзор источника"
-  date_published: null
-  workflow_stage: statements_extracted
-  access: Внешний публичный источник; использовать точечно.
-- id: PGIT-commit-guidelines
-  source_id: PGIT
-  path: data/pgit/items/commit-guidelines/item.yml
-  title: "Pro Git: Commit Guidelines"
-  date_published: null
-  workflow_stage: statements_extracted
-  access: Внешний публичный источник; сохранён краткий нормализованный обзор.
-- id: GITD-source
-  source_id: GITD
-  path: data/gitd/items/source/item.yml
-  title: "Git: обзор документации"
-  date_published: null
-  workflow_stage: statements_extracted
-  access: Внешний публичный источник; использовать точечно.
-- id: GITD-commit-message-support
-  source_id: GITD
-  path: data/gitd/items/commit-message-support/item.yml
-  title: "Git: средства подготовки и проверки сообщений"
-  date_published: null
-  workflow_stage: statements_extracted
-  access: Внешний публичный источник; сохранён краткий нормализованный обзор.
+  workflow_stage: indexed
+  access: Внешний публичный источник. Получать релевантные страницы по запросу.

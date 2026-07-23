@@ -67,6 +67,7 @@
 - [ФТ-16. ИБ использования и разработки ИИ](requirements/functional/ft-16.md)
 - [ФТ-17. Схема сообщений коммитов](requirements/functional/ft-17.md)
 - [ФТ-18. Профиль проекта и диалог настройки](requirements/functional/ft-18.md)
+- [ФТ-19. Реконструируемость проекта](requirements/functional/ft-19.md)
 
 ## Атрибуты качества
 

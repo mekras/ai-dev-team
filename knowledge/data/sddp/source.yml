@@ -1,0 +1,41 @@
+id: SDDP
+slug: sddp
+title: >-
+  Препринт о разработке на основе спецификаций и трёх уровнях их
+  авторитетности.
+status: approved
+priority: high
+carrier_type: document
+source_kind: research
+adapter: manual
+storage_strategy: external_reference
+processing_scope: selected_fragments
+retrieval_mode: on_demand
+copy_policy: fragments_only
+allowed_use: >-
+  Оценка применимости разработки на основе спецификаций и границ
+  spec-as-source.
+requires_access_check: true
+url: "https://arxiv.org/html/2602.00180v1"
+locator: "https://arxiv.org/abs/2602.00180v1"
+public_reference: "https://arxiv.org/abs/2602.00180v1"
+license_or_terms: >-
+  Перед публикацией новых фрагментов проверять лицензию версии arXiv.
+access:
+  default: >-
+    Внешний публичный источник. Получать только нужные фрагменты и сверять
+    их с указанной версией.
+reliability: preprint
+stability: versioned
+refresh_policy: manual
+last_checked_at: "2026-07-23"
+scope:
+  includes:
+    - "уровни разработки на основе спецификаций"
+    - "условия применимости spec-as-source"
+    - "ограничения генерации кода средствами ИИ"
+  excludes:
+    - "доказательство экономического эффекта"
+known_limitations:
+  - "Препринт не прошёл рецензирование и содержит практические рекомендации."
+processing_notes: []

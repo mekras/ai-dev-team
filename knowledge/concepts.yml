@@ -31,6 +31,53 @@
 #   gaps               — известные разрывы (со ссылкой на BACKLOG.md)
 
 concepts:
+  - id: project-reconstructability
+    primary_ru: реконструируемость проекта
+    forms_ru:
+      - восстановление проекта по спецификациям
+      - реконструируемая кодовая база
+    forms_en:
+      - project reconstructability
+      - rebuildability
+      - rebuildable codebase
+    definition_ru: >-
+      свойство выбранной области проекта, при котором канонические входы
+      вместе с зафиксированным контуром исполнения позволяют повторно создать
+      производные артефакты и подтвердить заданную эквивалентность результата.
+    authority: решение владельца продукта от 2026-07-23
+    defined_by:
+      - SDDP-002
+      - SDDP-004
+      - SPKT-001
+      - SPKT-002
+      - AUGR-001
+      - AUGR-002
+      - AUGR-003
+    cite_as: [SDDP, SPKT, AUGR]
+    covered_in:
+      - ait-reconstructability/SKILL.md
+      - ../../docs/requirements/functional/ft-19.md
+    synonyms_by_source:
+      SDDP: spec-as-source
+      SPKT: specification-driven development
+      AUGR: rebuildable codebase
+      OWNER-2026-07-23: реконструируемость проекта
+    reconciliation:
+      - >-
+        SDDP и SPKT определяют первичность спецификации, а AUGR добавляет
+        практическую проверку восстановления. Продукт использует
+        «реконструируемость проекта» для проверяемого свойства и сохраняет
+        spec-as-source как предельный способ его достижения.
+    collisions:
+      - >-
+        Не путать с восстанавливаемостью после эксплуатационного отказа:
+        реконструируемость относится к повторному созданию артефактов из
+        канонических входов.
+      - >-
+        Не путать с воспроизводимой сборкой: она начинается с исходного кода и
+        требует побитово одинаковой сборки, а реконструируемость может включать
+        повторное создание исходного кода и проверяться по поведению.
+
   - id: project-profile
     primary_ru: профиль проекта
     forms_ru: [характер проекта, тип проекта, класс проекта]
@@ -40,8 +87,7 @@ concepts:
       пользователей, способов взаимодействия и поставки, которое определяет
       применимые маршруты настройки, вопросы и проверки.
     authority: решение владельца продукта от 2026-07-22
-    defined_by: [SREQ-076, SREQ-086, SREQ-091, SREQ-094, SREQ-098, SREQ-100,
-      SREQ-102, SREQ-138]
+    defined_by: [SREQ-076, SREQ-086, SREQ-091, SREQ-094, SREQ-098, SREQ-100, SREQ-102, SREQ-138]
     cite_as: [SREQ]
     covered_in:
       - ait-setup/references/setup-dialogue.md

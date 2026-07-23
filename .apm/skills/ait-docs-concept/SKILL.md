@@ -1,7 +1,7 @@
 ---
 name: ait-docs-concept
 role: technical-writer
-description: Создание, изменение и проверка краткой концепции проекта.
+description: Краткая концепция проекта.
 ---
 
 # Навык: концепция проекта

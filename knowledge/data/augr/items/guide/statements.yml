@@ -1,0 +1,46 @@
+statements:
+  - id: AUGR-001
+    source_id: AUGR
+    item_id: AUGR-guide
+    kind: fact
+    status: verified
+    text: >-
+      На уровне spec-as-source инженеры изменяют спецификации, а машины создают
+      код.
+    excerpt: "Engineers edit specs; machines produce code."
+    artifact: evidence.md
+    checked_at: "2026-07-23"
+    scope:
+      section_title: "Уровень spec-as-source"
+      application: "Определение направления зависимости артефактов."
+    open_questions: []
+  - id: AUGR-002
+    source_id: AUGR
+    item_id: AUGR-guide
+    kind: fact
+    status: verified
+    text: >-
+      Руководство проверяет восстановление удалением созданного кода,
+      повторным созданием по спецификации и запуском тестов.
+    excerpt: "delete generated code, regenerate from spec, confirm tests pass"
+    artifact: evidence.md
+    checked_at: "2026-07-23"
+    scope:
+      section_title: "Проверка восстановления"
+      application: "Форма изолированной проверки реконструируемости."
+    open_questions: []
+  - id: AUGR-003
+    source_id: AUGR
+    item_id: AUGR-guide
+    kind: observation
+    status: verified
+    text: >-
+      Для восстановления недостаточно описать интерфейсы. Нужны правила,
+      решения, ограничения и сведения о происхождении генерации.
+    excerpt: "A spec that passes the rebuild test contains more than endpoints"
+    artifact: evidence.md
+    checked_at: "2026-07-23"
+    scope:
+      section_title: "Состав спецификации"
+      application: "Проверка полноты канонических входов."
+    open_questions: []

@@ -1,7 +1,7 @@
 ---
 name: ait-code-construction
 role: coder
-description: Конструирование, улучшение и рефакторинг прикладного кода.
+description: Разработка и рефакторинг прикладного кода.
 ---
 
 # ait-code-construction

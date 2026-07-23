@@ -1,0 +1,38 @@
+id: SPKT
+slug: spkt
+title: >-
+  Документ GitHub Spec Kit о разработке, в которой спецификация служит
+  первичным артефактом.
+status: approved
+priority: high
+carrier_type: document
+source_kind: reference
+adapter: manual
+storage_strategy: external_reference
+processing_scope: selected_fragments
+retrieval_mode: on_demand
+copy_policy: fragments_only
+allowed_use: "Проверка модели спецификации как первичного артефакта."
+requires_access_check: true
+url: "https://github.com/github/spec-kit/blob/main/spec-driven.md"
+locator: "https://github.com/github/spec-kit"
+public_reference: "https://github.com/github/spec-kit/blob/main/spec-driven.md"
+license_or_terms: >-
+  Репозиторий Spec Kit распространяется по лицензии MIT. Атрибуцию сохранять.
+access:
+  default: >-
+    Внешний публичный репозиторий. Сверять фрагменты с конкретной версией
+    документа.
+reliability: official_project_documentation
+stability: mutable
+refresh_policy: manual
+last_checked_at: "2026-07-23"
+scope:
+  includes:
+    - "спецификация как первичный артефакт"
+    - "код как производный результат"
+  excludes:
+    - "универсальная гарантия полной генерации"
+known_limitations:
+  - "Документ выражает позицию проекта Spec Kit, а не отраслевой стандарт."
+processing_notes: []

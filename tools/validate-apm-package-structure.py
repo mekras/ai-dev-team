@@ -37,6 +37,7 @@ REQUIRED_SKILLS = {
     "ait-private-knowledge",
     "ait-routing",
     "ait-readme",
+    "ait-reconstructability",
     "ait-reliability",
     "ait-req-analysis",
     "ait-req-elicitation",
@@ -708,6 +709,49 @@ def check_twelve_factor_contract() -> None:
             if marker not in text:
                 fail(
                     f"{relative_path} is missing Twelve-Factor marker "
+                    f"{marker!r}",
+                )
+
+
+def check_reconstructability_contract() -> None:
+    required_markers = {
+        "docs/requirements/functional/ft-19.md": (
+            "канонические входы, контур исполнения",
+            "поведенческая\nэквивалентность",
+            "Обычная ветка текущего рабочего дерева не",
+            "SDDP-001",
+        ),
+        ".apm/skills/ait-reconstructability/SKILL.md": (
+            "статус применимости: `применима`, `частично применима`",
+            "Побитовую идентичность требуй только",
+            "пользовательские данные ради проверки",
+            "Обычная ветка в текущем рабочем дереве не считается изоляцией",
+            "Не создавай и не принимай запись без решения владельца",
+        ),
+        ".apm/skills/ait-reconstructability/evals/result-scenarios.json": (
+            "ait-reconstructability-result-applicable-safe-slice",
+            "ait-reconstructability-result-prototype-no-heavy-process",
+            "ait-reconstructability-result-unsafe-current-branch-stop",
+        ),
+        ".apm/skills/ait-routing/SKILL.md": (
+            "включи `ait-reconstructability`",
+            "Наличие документации, тестов или агента ИИ",
+        ),
+        "knowledge/data/sddp/items/paper/statements.yml": (
+            "id: SDDP-003",
+            "id: SDDP-004",
+        ),
+        "knowledge/data/augr/items/guide/statements.yml": (
+            "id: AUGR-002",
+        ),
+    }
+    for relative_path, markers in required_markers.items():
+        path = ROOT / relative_path
+        text = path.read_text(encoding="utf-8")
+        for marker in markers:
+            if marker not in text:
+                fail(
+                    f"{relative_path} is missing reconstructability marker "
                     f"{marker!r}",
                 )
 
@@ -1507,6 +1551,7 @@ def main() -> None:
     check_commit_message_scheme_contract()
     check_requirements_elicitation_contract()
     check_twelve_factor_contract()
+    check_reconstructability_contract()
     check_connection_effort_contract()
     check_portability_contract()
     check_deployed_skill_references()
