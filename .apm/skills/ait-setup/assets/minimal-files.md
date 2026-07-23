@@ -49,6 +49,9 @@
 product: mekras/ai-dev-team
 updated_at: 2026-06-27
 setup:
+  operating_context:
+    kind: noncommercial
+    note: volunteer-maintained
   project_profile:
     forms: [library]
     users: [software-developer]
