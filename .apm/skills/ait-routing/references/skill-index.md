@@ -127,6 +127,8 @@
 - `ait-writing` — роль: `technical-writer` — техническое письмо.
 - `kc-analysis` — роль: `analyst` — анализ корпуса знаний. Источник:
   `github.com/mekras/project-knowlege-corpus`.
+- `kc-concepts` — роль: `normalizer` — согласование понятий между корпусом и
+  продуктом. Источник: `github.com/mekras/project-knowlege-corpus`.
 - `kc-impact-audit` — роль: `analyst` — анализ влияния источников на производные
   материалы. Источник: `github.com/mekras/project-knowlege-corpus`.
 - `kc-inventory` — роль: `source-inventory` — учёт и техническая синхронизация
