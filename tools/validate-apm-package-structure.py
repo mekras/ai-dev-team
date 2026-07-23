@@ -773,6 +773,15 @@ def check_portability_contract() -> None:
                 )
 
 
+def check_deployed_skill_references() -> None:
+    for path in sorted((ROOT / ".apm" / "skills").glob("*/SKILL.md")):
+        if "../../context/" in path.read_text(encoding="utf-8"):
+            fail(
+                f"{path.relative_to(ROOT)} refers to ../../context/, which is "
+                "not deployed with installed skills",
+            )
+
+
 def check_internal_structure_independence_contract() -> None:
     required_markers = {
         "docs/requirements/quality/kach-3.md": (
@@ -1500,6 +1509,7 @@ def main() -> None:
     check_twelve_factor_contract()
     check_connection_effort_contract()
     check_portability_contract()
+    check_deployed_skill_references()
     check_internal_structure_independence_contract()
     check_human_readable_communication_contract()
     check_concise_text_contract()
