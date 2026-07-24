@@ -62,6 +62,12 @@ setup:
     enabled: true
   commit_messages:
     scheme: conventional-commits
+    # Для scheme: custom добавьте format и не менее двух examples.
+    # custom:
+    #   format: '<описание структуры сообщения>'
+    #   examples:
+    #     - '<первый пример>'
+    #     - '<второй пример>'
   changelog:
     status: present
     path: CHANGELOG.md

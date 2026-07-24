@@ -90,8 +90,9 @@
 
 ## Сообщения коммитов
 
-Укажите одну выбранную схему: `conventional-commits`, `gitmoji` или `pro-git`.
-Значение должно соответствовать `setup.commit_messages.scheme` в
-`.ai-dev-team-state.yml`.
+Укажите одну выбранную схему: `conventional-commits`, `gitmoji`, `pro-git` или
+`custom`. Значение должно соответствовать `setup.commit_messages.scheme` в
+`.ai-dev-team-state.yml`. Для `custom` добавьте в этом файле или доступной из
+него инструкции формат и не менее двух примеров, совпадающих с форматом.
 
 Перед подготовкой или проверкой сообщения применяйте `ait-commit-messages`.
