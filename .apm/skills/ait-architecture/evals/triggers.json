@@ -182,6 +182,12 @@
       "rationale": "Это локальный рефакторинг кода, если пользователь не просит оценить компонентные границы системы."
     },
     {
+      "id": "ait-architecture-software-architecture-negative-session-write-protocol",
+      "prompt": "Для одной сессии выбери между заменой файла и созданием новой версии при сохранении записи. Политика долговечности уже принята, нужно добавить тест восстановления.",
+      "should_trigger": false,
+      "rationale": "Это локальная реализация принятой политики, а не новый архитектурный выбор."
+    },
+    {
       "id": "ait-architecture-software-architecture-negative-deployment-instructions",
       "prompt": "Напиши инструкцию, как задеплоить сервис на staging через существующий Helm chart.",
       "should_trigger": false,
