@@ -1,5 +1,5 @@
 lockfile_version: '2'
-generated_at: '2026-07-23T09:12:37.905792+00:00'
+generated_at: '2026-07-24T09:13:48.079686+00:00'
 apm_version: 0.26.0
 dependencies:
 - repo_url: mekras/ai-dev-team
@@ -765,7 +765,7 @@ dependencies:
   is_dev: true
   constraint: ^0.20.0
   resolved_tag: 0.20.6
-  resolved_at: '2026-07-23T08:40:31+00:00'
+  resolved_at: '2026-07-24T09:13:13+00:00'
   declared_license: MIT
 - repo_url: mekras/ai-agent-supervisor
   name: ai-agent-supervisor
@@ -1174,7 +1174,7 @@ dependencies:
   is_dev: true
   constraint: ^2.0.2
   resolved_tag: 2.0.2
-  resolved_at: '2026-07-23T09:12:31+00:00'
+  resolved_at: '2026-07-24T09:13:14+00:00'
   declared_license: MIT
 - repo_url: mekras/ai-russian-language
   name: ai-russian-language
@@ -1229,14 +1229,14 @@ dependencies:
   is_dev: true
   constraint: ^2.0.1
   resolved_tag: 2.0.1
-  resolved_at: '2026-07-23T09:12:31+00:00'
+  resolved_at: '2026-07-24T09:13:14+00:00'
   declared_license: MIT
 - repo_url: mekras/project-knowlege-corpus
   name: project-knowledge-corpus
   host: github.com
-  resolved_commit: 1406819be3cc796eedb58e0bdc68371ac934c42c
-  resolved_ref: 0.14.2
-  version: 0.14.2
+  resolved_commit: 59111d82f87569cd882435fd7642e9df1805b285
+  resolved_ref: 0.14.3
+  version: 0.14.3
   depth: 2
   resolved_by: mekras/ai-dev-team
   package_type: apm_package
@@ -1660,11 +1660,11 @@ dependencies:
     .claude/skills/transcript-analysis/agents/openai.yaml: sha256:cfeb2363e7bcfdad0909b531658048945cc6888560ae78d706f96ca078f327d3
     .claude/skills/transcript-analysis/evals/result-scenarios.json: sha256:fd20ff8a9594cdf2def183e9f4eec2e654c7eef1da8bce6ab475075ca3eec55c
     .claude/skills/transcript-analysis/evals/triggers.json: sha256:4dd2a72292e983a42abdf0e0b6b168abec1f4fec9c62c79a4f3345b8c18117a9
-  content_hash: sha256:5c4731dd01ef1bd4fba50a2017f47129911dafd0843247124d7fc02754bd0b72
+  content_hash: sha256:6b81d96e28f06e7329a14c2f88526124d75317c64e4151ca0bc519bdf7eb04bd
   is_dev: true
   constraint: ^0.14.2
-  resolved_tag: 0.14.2
-  resolved_at: '2026-07-23T09:12:31+00:00'
+  resolved_tag: 0.14.3
+  resolved_at: '2026-07-24T09:13:14+00:00'
   declared_license: MIT
 - repo_url: talkstream/ru-text
   name: ru-text
@@ -1739,6 +1739,123 @@ dependencies:
   is_dev: true
   declared_license: MIT
 deployments:
+- kind: project-relative
+  target: agents
+  value: .agents/skills/kc-retrieval-evaluation
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/kc-retrieval-evaluation/README.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:5eeebad995868818f917732970acba27433102ecdcc6e96c85a79a1e0a12f546
+- kind: project-relative
+  target: agents
+  value: .agents/skills/kc-retrieval-evaluation/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:b7f52e646243d845394abb587279c19e60b8f0d0efc15414d87af4e7ee387ea4
+- kind: project-relative
+  target: agents
+  value: .agents/skills/kc-retrieval-evaluation/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:381585c695118708ae6efdf6c6b8fe1ddb148948e7d8ab8b4fcbce4bab44a067
+- kind: project-relative
+  target: agents
+  value: .agents/skills/kc-retrieval-evaluation/assets/evaluation-config.yml.sample
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:8cc0a7509352dce6a760eaea4b1c0abc0063a28de6b982ad3422f638a4433ed8
+- kind: project-relative
+  target: agents
+  value: .agents/skills/kc-retrieval-evaluation/assets/evaluation-suite.yml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:755456be367aec4b5ac6220f0a338117ed24005d07bc35492e89ec3b032be588
+- kind: project-relative
+  target: agents
+  value: .agents/skills/kc-retrieval-evaluation/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:932b50e7950b3099ec52dee005fdb0828b9d6d940056798a7cdddb241323d202
+- kind: project-relative
+  target: agents
+  value: .agents/skills/kc-retrieval-evaluation/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:022cbbcf2c5a239247476d5243f66361059595b20ebb483912bb93d4f01c4d49
+- kind: project-relative
+  target: agents
+  value: .agents/skills/kc-retrieval-evaluation/references/evaluation-protocol.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:e4ca60cdf6d9ce79a6de97ca9b494591cc95a97e439585fe0cacadb4efa99a88
+- kind: project-relative
+  target: agents
+  value: .agents/skills/kc-retrieval-evaluation/scripts/evaluation_suite.py
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:cc0a649e1d583a79c0bfc9990045e11c384e13e202116acf4aa1498ca7e7a677
+- kind: project-relative
+  target: agents
+  value: .agents/skills/kc-retrieval-evaluation/scripts/run-evaluation-suite.py
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:2ed77378bee3a91928bdd71c491bfa7af16edc9e0b042e61a89682d53328ac47
+- kind: project-relative
+  target: agents
+  value: .agents/skills/kc-retrieval-evaluation/scripts/sample-source-sections.py
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:e86f25d00a8e8ec12008e1104ab8e3902dec81086b7daef801e24389a0d79802
+- kind: project-relative
+  target: agents
+  value: .agents/skills/kc-retrieval-evaluation/scripts/validate-evaluation-suite.py
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:b4c9652578f77c79c3858648197b68f686669959bdc14ddfe1805277ee162d29
 - kind: project-relative
   target: claude
   value: .claude/agents/analyst.md
@@ -5166,6 +5283,123 @@ deployments:
   - .
   active_owner: mekras/project-knowlege-corpus
   content_hash: sha256:56da6801692029c5d129ecfd5082107da673a3e3fc07c0898cee832e08fd2d7d
+- kind: project-relative
+  target: claude
+  value: .claude/skills/kc-retrieval-evaluation
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/kc-retrieval-evaluation/README.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:5eeebad995868818f917732970acba27433102ecdcc6e96c85a79a1e0a12f546
+- kind: project-relative
+  target: claude
+  value: .claude/skills/kc-retrieval-evaluation/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:b7f52e646243d845394abb587279c19e60b8f0d0efc15414d87af4e7ee387ea4
+- kind: project-relative
+  target: claude
+  value: .claude/skills/kc-retrieval-evaluation/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:381585c695118708ae6efdf6c6b8fe1ddb148948e7d8ab8b4fcbce4bab44a067
+- kind: project-relative
+  target: claude
+  value: .claude/skills/kc-retrieval-evaluation/assets/evaluation-config.yml.sample
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:8cc0a7509352dce6a760eaea4b1c0abc0063a28de6b982ad3422f638a4433ed8
+- kind: project-relative
+  target: claude
+  value: .claude/skills/kc-retrieval-evaluation/assets/evaluation-suite.yml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:755456be367aec4b5ac6220f0a338117ed24005d07bc35492e89ec3b032be588
+- kind: project-relative
+  target: claude
+  value: .claude/skills/kc-retrieval-evaluation/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:932b50e7950b3099ec52dee005fdb0828b9d6d940056798a7cdddb241323d202
+- kind: project-relative
+  target: claude
+  value: .claude/skills/kc-retrieval-evaluation/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:022cbbcf2c5a239247476d5243f66361059595b20ebb483912bb93d4f01c4d49
+- kind: project-relative
+  target: claude
+  value: .claude/skills/kc-retrieval-evaluation/references/evaluation-protocol.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:e4ca60cdf6d9ce79a6de97ca9b494591cc95a97e439585fe0cacadb4efa99a88
+- kind: project-relative
+  target: claude
+  value: .claude/skills/kc-retrieval-evaluation/scripts/evaluation_suite.py
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:cc0a649e1d583a79c0bfc9990045e11c384e13e202116acf4aa1498ca7e7a677
+- kind: project-relative
+  target: claude
+  value: .claude/skills/kc-retrieval-evaluation/scripts/run-evaluation-suite.py
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:2ed77378bee3a91928bdd71c491bfa7af16edc9e0b042e61a89682d53328ac47
+- kind: project-relative
+  target: claude
+  value: .claude/skills/kc-retrieval-evaluation/scripts/sample-source-sections.py
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:e86f25d00a8e8ec12008e1104ab8e3902dec81086b7daef801e24389a0d79802
+- kind: project-relative
+  target: claude
+  value: .claude/skills/kc-retrieval-evaluation/scripts/validate-evaluation-suite.py
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:b4c9652578f77c79c3858648197b68f686669959bdc14ddfe1805277ee162d29
 - kind: project-relative
   target: claude
   value: .claude/skills/kc-setup
@@ -10060,6 +10294,19 @@ local_deployed_files:
 - .agents/skills/kc-pipeline/references/operations-contract.md
 - .agents/skills/kc-pipeline/references/workflow-contract.md
 - .agents/skills/kc-pipeline/scripts/run-corpus-operations.py
+- .agents/skills/kc-retrieval-evaluation
+- .agents/skills/kc-retrieval-evaluation/README.md
+- .agents/skills/kc-retrieval-evaluation/SKILL.md
+- .agents/skills/kc-retrieval-evaluation/agents/openai.yaml
+- .agents/skills/kc-retrieval-evaluation/assets/evaluation-config.yml.sample
+- .agents/skills/kc-retrieval-evaluation/assets/evaluation-suite.yml
+- .agents/skills/kc-retrieval-evaluation/evals/result-scenarios.json
+- .agents/skills/kc-retrieval-evaluation/evals/triggers.json
+- .agents/skills/kc-retrieval-evaluation/references/evaluation-protocol.md
+- .agents/skills/kc-retrieval-evaluation/scripts/evaluation_suite.py
+- .agents/skills/kc-retrieval-evaluation/scripts/run-evaluation-suite.py
+- .agents/skills/kc-retrieval-evaluation/scripts/sample-source-sections.py
+- .agents/skills/kc-retrieval-evaluation/scripts/validate-evaluation-suite.py
 - .agents/skills/kc-setup
 - .agents/skills/kc-setup/README.md
 - .agents/skills/kc-setup/SKILL.md
@@ -10171,6 +10418,19 @@ local_deployed_files:
 - .claude/skills/kc-pipeline/references/operations-contract.md
 - .claude/skills/kc-pipeline/references/workflow-contract.md
 - .claude/skills/kc-pipeline/scripts/run-corpus-operations.py
+- .claude/skills/kc-retrieval-evaluation
+- .claude/skills/kc-retrieval-evaluation/README.md
+- .claude/skills/kc-retrieval-evaluation/SKILL.md
+- .claude/skills/kc-retrieval-evaluation/agents/openai.yaml
+- .claude/skills/kc-retrieval-evaluation/assets/evaluation-config.yml.sample
+- .claude/skills/kc-retrieval-evaluation/assets/evaluation-suite.yml
+- .claude/skills/kc-retrieval-evaluation/evals/result-scenarios.json
+- .claude/skills/kc-retrieval-evaluation/evals/triggers.json
+- .claude/skills/kc-retrieval-evaluation/references/evaluation-protocol.md
+- .claude/skills/kc-retrieval-evaluation/scripts/evaluation_suite.py
+- .claude/skills/kc-retrieval-evaluation/scripts/run-evaluation-suite.py
+- .claude/skills/kc-retrieval-evaluation/scripts/sample-source-sections.py
+- .claude/skills/kc-retrieval-evaluation/scripts/validate-evaluation-suite.py
 - .claude/skills/kc-setup
 - .claude/skills/kc-setup/README.md
 - .claude/skills/kc-setup/SKILL.md
@@ -10277,6 +10537,18 @@ local_deployed_file_hashes:
   .agents/skills/kc-pipeline/references/operations-contract.md: sha256:d7a8484d54ec0ac6c4389aecd90f07912c0d8cb6965b45c603c09cac9cacb5b9
   .agents/skills/kc-pipeline/references/workflow-contract.md: sha256:4bec08b508734045449fb4225b4dd52a689eff9e61ecbbc7a29228c9e6257ab0
   .agents/skills/kc-pipeline/scripts/run-corpus-operations.py: sha256:56da6801692029c5d129ecfd5082107da673a3e3fc07c0898cee832e08fd2d7d
+  .agents/skills/kc-retrieval-evaluation/README.md: sha256:5eeebad995868818f917732970acba27433102ecdcc6e96c85a79a1e0a12f546
+  .agents/skills/kc-retrieval-evaluation/SKILL.md: sha256:b7f52e646243d845394abb587279c19e60b8f0d0efc15414d87af4e7ee387ea4
+  .agents/skills/kc-retrieval-evaluation/agents/openai.yaml: sha256:381585c695118708ae6efdf6c6b8fe1ddb148948e7d8ab8b4fcbce4bab44a067
+  .agents/skills/kc-retrieval-evaluation/assets/evaluation-config.yml.sample: sha256:8cc0a7509352dce6a760eaea4b1c0abc0063a28de6b982ad3422f638a4433ed8
+  .agents/skills/kc-retrieval-evaluation/assets/evaluation-suite.yml: sha256:755456be367aec4b5ac6220f0a338117ed24005d07bc35492e89ec3b032be588
+  .agents/skills/kc-retrieval-evaluation/evals/result-scenarios.json: sha256:932b50e7950b3099ec52dee005fdb0828b9d6d940056798a7cdddb241323d202
+  .agents/skills/kc-retrieval-evaluation/evals/triggers.json: sha256:022cbbcf2c5a239247476d5243f66361059595b20ebb483912bb93d4f01c4d49
+  .agents/skills/kc-retrieval-evaluation/references/evaluation-protocol.md: sha256:e4ca60cdf6d9ce79a6de97ca9b494591cc95a97e439585fe0cacadb4efa99a88
+  .agents/skills/kc-retrieval-evaluation/scripts/evaluation_suite.py: sha256:cc0a649e1d583a79c0bfc9990045e11c384e13e202116acf4aa1498ca7e7a677
+  .agents/skills/kc-retrieval-evaluation/scripts/run-evaluation-suite.py: sha256:2ed77378bee3a91928bdd71c491bfa7af16edc9e0b042e61a89682d53328ac47
+  .agents/skills/kc-retrieval-evaluation/scripts/sample-source-sections.py: sha256:e86f25d00a8e8ec12008e1104ab8e3902dec81086b7daef801e24389a0d79802
+  .agents/skills/kc-retrieval-evaluation/scripts/validate-evaluation-suite.py: sha256:b4c9652578f77c79c3858648197b68f686669959bdc14ddfe1805277ee162d29
   .agents/skills/kc-setup/README.md: sha256:30a19dac14a9e2da6434306f27ccfa3be6bf732062566abc9648cbcfa213bad4
   .agents/skills/kc-setup/SKILL.md: sha256:635e2d07210bcd290549bc6fe8a298a7a954ae814e4c44e2d07c7cb05fe23583
   .agents/skills/kc-setup/agents/openai.yaml: sha256:ac85735a3278bc36c4fb1dff6674a0d659e435a6e0c6f2e3dc6ac41ebb66b1c7
@@ -10375,6 +10647,18 @@ local_deployed_file_hashes:
   .claude/skills/kc-pipeline/references/operations-contract.md: sha256:d7a8484d54ec0ac6c4389aecd90f07912c0d8cb6965b45c603c09cac9cacb5b9
   .claude/skills/kc-pipeline/references/workflow-contract.md: sha256:4bec08b508734045449fb4225b4dd52a689eff9e61ecbbc7a29228c9e6257ab0
   .claude/skills/kc-pipeline/scripts/run-corpus-operations.py: sha256:56da6801692029c5d129ecfd5082107da673a3e3fc07c0898cee832e08fd2d7d
+  .claude/skills/kc-retrieval-evaluation/README.md: sha256:5eeebad995868818f917732970acba27433102ecdcc6e96c85a79a1e0a12f546
+  .claude/skills/kc-retrieval-evaluation/SKILL.md: sha256:b7f52e646243d845394abb587279c19e60b8f0d0efc15414d87af4e7ee387ea4
+  .claude/skills/kc-retrieval-evaluation/agents/openai.yaml: sha256:381585c695118708ae6efdf6c6b8fe1ddb148948e7d8ab8b4fcbce4bab44a067
+  .claude/skills/kc-retrieval-evaluation/assets/evaluation-config.yml.sample: sha256:8cc0a7509352dce6a760eaea4b1c0abc0063a28de6b982ad3422f638a4433ed8
+  .claude/skills/kc-retrieval-evaluation/assets/evaluation-suite.yml: sha256:755456be367aec4b5ac6220f0a338117ed24005d07bc35492e89ec3b032be588
+  .claude/skills/kc-retrieval-evaluation/evals/result-scenarios.json: sha256:932b50e7950b3099ec52dee005fdb0828b9d6d940056798a7cdddb241323d202
+  .claude/skills/kc-retrieval-evaluation/evals/triggers.json: sha256:022cbbcf2c5a239247476d5243f66361059595b20ebb483912bb93d4f01c4d49
+  .claude/skills/kc-retrieval-evaluation/references/evaluation-protocol.md: sha256:e4ca60cdf6d9ce79a6de97ca9b494591cc95a97e439585fe0cacadb4efa99a88
+  .claude/skills/kc-retrieval-evaluation/scripts/evaluation_suite.py: sha256:cc0a649e1d583a79c0bfc9990045e11c384e13e202116acf4aa1498ca7e7a677
+  .claude/skills/kc-retrieval-evaluation/scripts/run-evaluation-suite.py: sha256:2ed77378bee3a91928bdd71c491bfa7af16edc9e0b042e61a89682d53328ac47
+  .claude/skills/kc-retrieval-evaluation/scripts/sample-source-sections.py: sha256:e86f25d00a8e8ec12008e1104ab8e3902dec81086b7daef801e24389a0d79802
+  .claude/skills/kc-retrieval-evaluation/scripts/validate-evaluation-suite.py: sha256:b4c9652578f77c79c3858648197b68f686669959bdc14ddfe1805277ee162d29
   .claude/skills/kc-setup/README.md: sha256:30a19dac14a9e2da6434306f27ccfa3be6bf732062566abc9648cbcfa213bad4
   .claude/skills/kc-setup/SKILL.md: sha256:635e2d07210bcd290549bc6fe8a298a7a954ae814e4c44e2d07c7cb05fe23583
   .claude/skills/kc-setup/agents/openai.yaml: sha256:ac85735a3278bc36c4fb1dff6674a0d659e435a6e0c6f2e3dc6ac41ebb66b1c7
