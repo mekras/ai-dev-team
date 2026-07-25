@@ -26,7 +26,15 @@ except ImportError:  # pragma: no cover - depends on the target project environm
 
 
 DEFAULT_NORMALIZED_ARTIFACTS = ("normalized.md", "message.md", "stenogram.txt")
-QUEUE_ORDER = ("fetch", "transcribe", "normalize", "statements", "source_check", "human_decision")
+QUEUE_ORDER = (
+    "content_selection",
+    "fetch",
+    "transcribe",
+    "normalize",
+    "statements",
+    "source_check",
+    "human_decision",
+)
 ADAPTER_STATUSES = {
     "synced",
     "partial",
@@ -51,6 +59,7 @@ class OperationsError(RuntimeError):
 class CorpusItem:
     source_id: str
     source_dir: Path
+    source_card: dict[str, Any]
     index_item: dict[str, Any]
     item_dir: Path | None
     item_card: dict[str, Any] | None
@@ -68,6 +77,11 @@ class CorpusItem:
     @property
     def stage(self) -> str:
         value = self.value("workflow_stage")
+        return value if isinstance(value, str) else ""
+
+    @property
+    def storage_strategy(self) -> str:
+        value = self.source_card.get("storage_strategy")
         return value if isinstance(value, str) else ""
 
 
@@ -223,7 +237,7 @@ def load_items(corpus_root: Path) -> list[CorpusItem]:
                     loaded = load_yaml(item_path)
                     if isinstance(loaded, dict):
                         item_card = loaded
-            items.append(CorpusItem(source["id"], source_dir, row, item_dir, item_card))
+            items.append(CorpusItem(source["id"], source_dir, source, row, item_dir, item_card))
     return items
 
 
@@ -278,8 +292,13 @@ def queue_name(item: CorpusItem, normalized_names: tuple[str, ...]) -> tuple[str
     stage = item.stage
     if stage == "needs_fetch":
         return "fetch", "workflow_stage=needs_fetch"
-    if stage == "indexed" and item.value("processing_scope") == "full" and item.item_dir is None:
-        return "fetch", "полная обработка без локальной папки единицы"
+    if stage == "indexed":
+        processing_scope = item.value("processing_scope")
+        if processing_scope in {"selected_fragments", "full", "full_redacted"}:
+            return "fetch", f"единица выбрана для точечного получения: processing_scope={processing_scope}"
+        if item.storage_strategy == "index_only":
+            return None
+        return "content_selection", "проиндексированная единица ожидает содержательного отбора"
     if stage == "needs_transcript":
         if has_statements(item):
             return "source_check", "утверждения уже есть, требуется сверка стадии"

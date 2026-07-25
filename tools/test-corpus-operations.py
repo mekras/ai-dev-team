@@ -55,6 +55,9 @@ def build_corpus(root: Path) -> None:
           - id: TEST
             title: "Тестовый источник"
             path: data/test
+          - id: TEST-INDEX-ONLY
+            title: "Индексируемый источник"
+            path: data/test-index-only
         """,
     )
     write(
@@ -68,6 +71,7 @@ def build_corpus(root: Path) -> None:
         status: active
         carrier_type: document
         source_kind: reference
+        storage_strategy: full_copy
         adapter: builtin.local-file
         locator: "file:///tmp/test-source.txt"
         reliability: test
@@ -105,6 +109,52 @@ def build_corpus(root: Path) -> None:
             status: active
             workflow_stage: statements_extracted
             path: documents/statements
+          - id: TEST-CONTENT-SELECTION
+            title: "Нужен содержательный отбор"
+            access: "Открытый тестовый источник."
+            status: active
+            workflow_stage: indexed
+            processing_scope: metadata_only
+          - id: TEST-SELECTED
+            title: "Выбраны фрагменты"
+            access: "Открытый тестовый источник."
+            status: active
+            workflow_stage: indexed
+            processing_scope: selected_fragments
+        """,
+    )
+    write(
+        root / "knowledge" / "data" / "test-index-only" / "source.yml",
+        """
+        id: TEST-INDEX-ONLY
+        slug: test-index-only
+        title: "Индексируемый источник"
+        access:
+          default: "Открытый тестовый источник."
+        status: active
+        carrier_type: document
+        source_kind: reference
+        storage_strategy: index_only
+        reliability: test
+        refresh_policy: manual
+        """,
+    )
+    write(
+        root / "knowledge" / "data" / "test-index-only" / "items.yml",
+        """
+        items:
+          - id: TEST-INDEX-ONLY-METADATA
+            title: "Только в индексе"
+            access: "Открытый тестовый источник."
+            status: active
+            workflow_stage: indexed
+            processing_scope: metadata_only
+          - id: TEST-INDEX-ONLY-SELECTED
+            title: "Выбранная единица индексируемого источника"
+            access: "Открытый тестовый источник."
+            status: active
+            workflow_stage: indexed
+            processing_scope: full
         """,
     )
     write(
@@ -217,9 +267,17 @@ def main() -> int:
         subprocess.run(["git", "add", "-A"], cwd=root, check=True)
 
         plan = run(root)
-        for expected_line in ("- fetch: 1", "- statements: 1", "- source_check: 1", "- human_decision: 2"):
+        for expected_line in (
+            "- content_selection: 1",
+            "- fetch: 3",
+            "- statements: 1",
+            "- source_check: 1",
+            "- human_decision: 2",
+        ):
             if expected_line not in plan.stdout:
                 raise AssertionError(f"В плане нет строки: {expected_line}")
+        if "TEST-INDEX-ONLY-METADATA" in plan.stdout:
+            raise AssertionError("Не выбранная единица index_only не должна образовывать массовую очередь.")
         if (root / ".local").exists() or (root / "knowledge" / "index").exists():
             raise AssertionError("Планирование без параметров не должно записывать файлы.")
 
