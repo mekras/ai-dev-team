@@ -11,8 +11,8 @@ includes: auto
 dependencies:
   apm:
     - mekras/ai-russian-language#^2.0.1
-    - mekras/ai-agent-supervisor#^2.0.2
-    - mekras/project-knowlege-corpus#^0.14.3
+    - mekras/ai-agent-supervisor#^2.1.0
+    - mekras/project-knowlege-corpus#^0.15.0
 scripts:
   tests: >-
     sh -c 'set -e; target="${APM_EVAL_PATH:-.apm/skills}";

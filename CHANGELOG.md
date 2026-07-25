@@ -11,6 +11,21 @@
 
 ## [Невыпущено]
 
+### Изменено
+
+- README и связанные документы помогают оценить продукт до подключения:
+  показывают поддерживаемые подходы, устройство команды, назначение ролей и
+  работу с корпусом знаний.
+- README обновляет установленный продукт командой `apm update` и описывает
+  подключение, первую задачу и обновление через действия читателя.
+
+### Исправлено
+
+- Общий аудит документации сохраняет назначение, тезисы и модальность концепции
+  и других источников истины, даже если на них ссылается README.
+- Проектирование интерфейса связывает локальное действие с его объектом и
+  предусматривает видимую и доступную обратную связь после действия.
+
 ## [0.21.2] - 2026-07-24
 
 ### Исправлено
@@ -222,10 +237,12 @@
   [Anthropic Skills](https://github.com/anthropics/skills),
   [Impeccable](https://github.com/pbakaus/impeccable),
   [Open Design](https://github.com/nexu-io/open-design),
-  [Neuform](https://neuform.ai/),
-  [Design Tokens Community Group](https://www.designtokens.org/tr/drafts/format/),
-  [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines)
-  и [Material Design 3](https://m3.material.io/).
+  [Neuform](https://neuform.ai/), [Design Tokens Community
+  Group][design-tokens], [Apple Human Interface Guidelines][apple-hig] и
+  [Material Design 3](https://m3.material.io/).
+
+[design-tokens]: https://www.designtokens.org/tr/drafts/format/
+[apple-hig]: https://developer.apple.com/design/human-interface-guidelines
 
 ### Изменено
 

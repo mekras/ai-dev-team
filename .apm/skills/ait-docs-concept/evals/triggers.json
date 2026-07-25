@@ -26,6 +26,12 @@
       "rationale": "Нужно сопровождать существующую концепцию."
     },
     {
+      "id": "ait-docs-concept-positive-audit-includes-concept",
+      "prompt": "Проверь и исправь все вводные документы, включая существующую концепцию проекта.",
+      "should_trigger": true,
+      "rationale": "Общий аудит прямо включает проверку и возможное изменение самой концепции."
+    },
+    {
       "id": "ait-docs-concept-negative-readme",
       "prompt": "Создай README.md проекта с установкой и быстрым стартом.",
       "should_trigger": false,
@@ -48,6 +54,12 @@
       "prompt": "Проверь все документы проекта на соответствие концепции.",
       "should_trigger": false,
       "rationale": "Подробная проверка документов относится к навыкам их сопровождения."
+    },
+    {
+      "id": "ait-docs-concept-negative-readme-links-concept",
+      "prompt": "Улучши README, используя существующую концепцию как источник смысла.",
+      "should_trigger": false,
+      "rationale": "Концепция остаётся неизменяемым основанием, а работа направлена на README."
     }
   ]
 }
