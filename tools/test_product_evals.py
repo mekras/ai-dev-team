@@ -208,7 +208,7 @@ class ProductEvalTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             workdir = Path(temp)
             with mock.patch.object(MODULE, "run") as run_mock:
-                with mock.patch.object(MODULE, "append_connection_instructions"):
+                with mock.patch.object(MODULE, "compile_connection_instructions"):
                     MODULE.install_variant(
                         "current",
                         workdir,
@@ -229,27 +229,66 @@ class ProductEvalTest(unittest.TestCase):
         normalized = MODULE.normalize_commands(["python3 -m unittest -v"])
         self.assertIn("python -m unittest", normalized)
 
-    def test_connection_is_appended_without_frontmatter(self):
+    def test_connection_is_compiled_for_the_client(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             source = root / "source"
             workdir = root / "project"
-            instruction = (
-                source
-                / ".apm/instructions/ai-dev-team-connection.instructions.md"
-            )
-            instruction.parent.mkdir(parents=True)
+            source.mkdir()
             workdir.mkdir()
-            (workdir / "AGENTS.md").write_text("# Common\n", encoding="utf-8")
-            instruction.write_text(
-                "---\ndescription: test\n---\n\n# Connection\n",
-                encoding="utf-8",
+            with mock.patch.object(MODULE, "run") as run_mock:
+                MODULE.compile_connection_instructions(workdir, source, "codex")
+        command = run_mock.call_args.args[0]
+        self.assertEqual(
+            [
+                "apm",
+                "compile",
+                "--local-only",
+                "--target",
+                "codex",
+                "--root",
+                str(workdir),
+            ],
+            command,
+        )
+        self.assertEqual(source, run_mock.call_args.args[1])
+
+    def test_routing_requires_trace_and_first_response(self):
+        scenario = {
+            "expected_artifact_groups": [
+                {"label": "результат", "any_of": ["result.txt"]},
+            ],
+            "required_commands": ["python3 -m unittest"],
+            "handoff_markers": ["приём", "критер", "проверк", "риск"],
+            "routing_markers": ["режим менеджера", "маршрут", "ait-routing"],
+            "decision_marker_groups": [["повтор"]],
+        }
+        first = {
+            "answer": "Режим менеджера: полный. Маршрут: ait-routing.",
+            "commands": [],
+            "usage": {},
+        }
+        second = {
+            "answer": "Критерий и проверка готовы, риск указан. Передаю на приёмку.",
+            "commands": ["python3 -m unittest"],
+            "usage": {},
+        }
+        with tempfile.TemporaryDirectory() as temp:
+            workdir = Path(temp)
+            (workdir / "result.txt").write_text("done", encoding="utf-8")
+            metrics = MODULE.score_run(
+                scenario,
+                first,
+                second,
+                {"status": "", "diff": ""},
+                {"status": " M result.txt\n", "diff": ""},
+                workdir,
+                routing_opened=False,
             )
-            MODULE.append_connection_instructions(workdir, source)
-            result = (workdir / "AGENTS.md").read_text(encoding="utf-8")
-        self.assertIn("# Common", result)
-        self.assertIn("# Connection", result)
-        self.assertNotIn("description: test", result)
+        self.assertIn(
+            "Новая сессия не открыла ait-routing/SKILL.md.",
+            metrics["missed_mandatory_actions"],
+        )
 
 
 if __name__ == "__main__":

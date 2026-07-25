@@ -2,7 +2,9 @@
 from __future__ import annotations
 
 import re
+import subprocess
 import sys
+import tempfile
 import tomllib
 from pathlib import Path
 
@@ -798,9 +800,13 @@ def check_portability_contract() -> None:
             "для `codex` и",
         ),
         ".apm/instructions/ai-dev-team-connection.instructions.md": (
-            "## Переносимость правил",
-            "которую нельзя выразить",
-            "Удобство одного клиента",
+            "# Маршрутизация ai-dev-team",
+            "Полный протокол маршрутизации",
+            "ait-routing/SKILL.md",
+        ),
+        ".apm/skills/ait-routing/SKILL.md": (
+            "## Объяснение маршрута человеку",
+            "ai-work-result-evaluation",
         ),
         "apm.yml": (
             "apm compile --validate --local-only --target codex",
@@ -815,6 +821,45 @@ def check_portability_contract() -> None:
                 fail(
                     f"{relative_path} is missing portability marker {marker!r}",
                 )
+
+
+def check_codex_routing_reachability() -> None:
+    """Проверяет загрузчик в фактически скомпилированном корневом AGENTS.md."""
+    with tempfile.TemporaryDirectory(prefix="ai-dev-team-codex-") as temporary:
+        output_root = Path(temporary)
+        completed = subprocess.run(
+            [
+                "apm",
+                "compile",
+                "--local-only",
+                "--target",
+                "codex",
+                "--root",
+                str(output_root),
+            ],
+            cwd=ROOT,
+            text=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            check=False,
+        )
+        if completed.returncode:
+            detail = completed.stderr.strip() or completed.stdout.strip()
+            fail(f"cannot compile Codex routing loader: {detail}")
+        agents = output_root / "AGENTS.md"
+        if not agents.is_file():
+            fail("Codex compilation did not create a root AGENTS.md")
+        text = agents.read_text(encoding="utf-8")
+    required_markers = (
+        ".agents/skills/ait-routing/SKILL.md",
+        "Режим менеджера: лёгкий|полный.",
+        "Не начинай предметную работу до этого шага.",
+    )
+    for marker in required_markers:
+        if marker not in text:
+            fail(f"compiled Codex AGENTS.md is missing routing loader {marker!r}")
+    if "## Передача результата" in text:
+        fail("compiled Codex AGENTS.md contains the routing protocol instead of a loader")
 
 
 def check_deployed_skill_references() -> None:
@@ -868,8 +913,8 @@ def check_human_readable_communication_contract() -> None:
             "сохраняй точное написание",
         ),
         ".apm/instructions/ai-dev-team-connection.instructions.md": (
-            "понятные человеку этапы",
-            "технические имена — в скобках",
+            "Режим менеджера: лёгкий|полный.",
+            "Маршрут: ...",
         ),
         ".apm/agents/project-manager.agent.md": (
             "сначала называй смысл этапа",
@@ -1196,10 +1241,6 @@ def check_result_acceptance_contract() -> None:
             "Статус `готов к приёмке` допустим",
             "Статус `принят` ставится только после явного решения человека",
             "Частично проверенный результат нельзя выдавать",
-        ),
-        ".apm/instructions/ai-dev-team-connection.instructions.md": (
-            "## Передача результата",
-            "статус `принят` допустим только после явного решения",
         ),
         ".apm/skills/ait-routing/evals/result-scenarios.json": (
             "ait-routing-routing-result-handoff-for-acceptance",
@@ -1554,6 +1595,7 @@ def main() -> None:
     check_reconstructability_contract()
     check_connection_effort_contract()
     check_portability_contract()
+    check_codex_routing_reachability()
     check_deployed_skill_references()
     check_internal_structure_independence_contract()
     check_human_readable_communication_contract()

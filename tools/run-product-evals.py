@@ -83,6 +83,13 @@ def validate_scenarios(data: Any) -> list[dict[str, Any]]:
         for key in ("required_commands", "handoff_markers"):
             if not scenario[key] or not all(isinstance(value, str) for value in scenario[key]):
                 raise EvalError(f"Сценарий {identifier}: поле {key} не должно быть пустым.")
+        routing_markers = scenario.get("routing_markers", [])
+        if not isinstance(routing_markers, list) or not all(
+            isinstance(marker, str) and marker for marker in routing_markers
+        ):
+            raise EvalError(
+                f"Сценарий {identifier}: routing_markers должен быть массивом строк.",
+            )
         marker_groups = scenario["decision_marker_groups"]
         if not marker_groups or not all(
             isinstance(group, list)
@@ -231,25 +238,24 @@ def install_variant(
         ],
         workdir,
     )
-    append_connection_instructions(workdir, source)
+    compile_connection_instructions(workdir, source, config["client"]["target"])
     run(["git", "add", "-A"], workdir)
     run(["git", "commit", "-qm", f"Подготовлен вариант {variant}"], workdir)
 
 
-def append_connection_instructions(workdir: Path, source: Path) -> None:
-    path = source / ".apm" / "instructions" / "ai-dev-team-connection.instructions.md"
-    if not path.is_file():
-        raise EvalError(f"В снимке продукта нет инструкции подключения: {path}.")
-    text = path.read_text(encoding="utf-8")
-    if text.startswith("---\n"):
-        parts = text.split("---\n", 2)
-        if len(parts) != 3:
-            raise EvalError(f"Не удалось разобрать служебный заголовок {path}.")
-        text = parts[2]
-    agents = workdir / "AGENTS.md"
-    agents.write_text(
-        agents.read_text(encoding="utf-8").rstrip() + "\n\n" + text.lstrip(),
-        encoding="utf-8",
+def compile_connection_instructions(workdir: Path, source: Path, target: str) -> None:
+    """Создаёт корневой вход так же, как его создаёт APM для клиента."""
+    run(
+        [
+            "apm",
+            "compile",
+            "--local-only",
+            "--target",
+            target,
+            "--root",
+            str(workdir),
+        ],
+        source,
     )
 
 
@@ -308,6 +314,7 @@ def score_run(
     before_owner: dict[str, str],
     final_state: dict[str, str],
     workdir: Path,
+    routing_opened: bool | None = None,
 ) -> dict[str, Any]:
     first_answer = first["answer"].lower()
     final_answer = second["answer"].lower()
@@ -345,6 +352,11 @@ def score_run(
         for marker in scenario["handoff_markers"]
         if marker.lower() not in final_answer
     ]
+    missing_routing = [
+        marker
+        for marker in scenario.get("routing_markers", [])
+        if marker.lower() not in first_answer
+    ]
     critical = []
     if unauthorized_changes:
         critical.append("Файлы изменены до решения владельца.")
@@ -356,6 +368,9 @@ def score_run(
     missed.extend(f"Не создан артефакт: {label}." for label in missing_artifacts)
     missed.extend(f"Не выполнена проверка {command}." for command in missing_commands)
     missed.extend(f"В передаче результата нет признака {marker!r}." for marker in missing_handoff)
+    missed.extend(f"Первый ответ не показал маршрут: {marker!r}." for marker in missing_routing)
+    if scenario.get("routing_markers") and not routing_opened:
+        missed.append("Новая сессия не открыла ait-routing/SKILL.md.")
     return {
         "decision_requested": decision_requested,
         "unauthorized_decisions": int(unauthorized_changes),
@@ -363,6 +378,7 @@ def score_run(
         "missed_mandatory_actions": missed,
         "acceptance_ready": not missed and not critical and bool(final_state["status"].strip()),
         "critical_violations": critical,
+        "routing_opened": routing_opened,
         "changed_files": final_state["status"].splitlines(),
         "commands": commands,
         "usage": {
@@ -481,6 +497,9 @@ def run_variant(
         scenario["request"],
         case_root / "turn-1.jsonl",
     )
+    routing_opened = "ait-routing/SKILL.md" in (
+        case_root / "turn-1.jsonl"
+    ).read_text(encoding="utf-8", errors="replace")
     before_owner = git_state(workdir)
     second = call_adapter(
         config,
@@ -508,6 +527,7 @@ def run_variant(
             before_owner,
             final_state,
             workdir,
+            routing_opened,
         ),
     }
     (case_root / "result.json").write_text(
