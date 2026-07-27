@@ -46,6 +46,7 @@
 - [ПТ-4](requirements/user/pt-4.md)
 - [ПТ-5. Регистрация гипотез](requirements/user/pt-5.md)
 - [ПТ-6. Безопасное использование и разработка ИИ](requirements/user/pt-6.md)
+- [ПТ-7. Полная управляемая проверка репозитория](requirements/user/pt-7.md)
 
 ## Функциональные требования
 
@@ -69,6 +70,8 @@
 - [ФТ-18. Профиль проекта и диалог настройки](requirements/functional/ft-18.md)
 - [ФТ-19. Реконструируемость проекта](requirements/functional/ft-19.md)
 - [ФТ-20. Рефакторинг требований](requirements/functional/ft-20.md)
+- [ФТ-21. Динамический охват полной проверки](requirements/functional/ft-21.md)
+- [ФТ-22. Поэтапная проверка и исправление](requirements/functional/ft-22.md)
 
 ## Атрибуты качества
 
@@ -79,6 +82,7 @@
 - [КАЧ-5. Лаконичность текстов](requirements/quality/kach-5.md)
 - [КАЧ-6. Качество записи решения](requirements/quality/kach-6.md)
 - [КАЧ-7. Качество записи гипотезы](requirements/quality/kach-7.md)
+- [КАЧ-8. Завершаемость управляемой проверки](requirements/quality/kach-8.md)
 
 ## Правила продукта
 

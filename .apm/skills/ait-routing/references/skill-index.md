@@ -84,6 +84,9 @@
   и безопасная работа с материалами.
 - `ait-private-knowledge` — роль: `source-inventory` — приватный локальный слой
   знаний проекта для агента вне VCS.
+- `ait-project-revalidation` — роль: `project-manager` — управляемая полная
+  проверка и исправление всего Git-репозитория по динамически обнаруженному
+  составу проверок.
 - `ait-readme` — роль: `technical-writer` — сопровождение проектного
   `README.md`.
 - `ait-reconstructability` — роль: `software-architect` — оценка и безопасная

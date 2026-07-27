@@ -18,7 +18,11 @@ scripts:
     sh -c 'set -e; target="${APM_EVAL_PATH:-.apm/skills}";
     validators=".agents/skills/ai-setup-apm/scripts/eval-tools";
     python3 tools/validate-apm-package-structure.py;
+    python3 tools/validate-project-review-capabilities.py;
     python3 tools/validate-requirements-structure.py;
+    PYTHONDONTWRITEBYTECODE=1 python3 -m unittest
+    tools/test_project_review.py
+    tools/test_validate_project_review_capabilities.py;
     python3 tools/run-product-evals.py --validate;
     python3 -m unittest tools/test_product_evals.py;
     python3 .agents/skills/kc-inventory/scripts/validate-corpus-layout.py

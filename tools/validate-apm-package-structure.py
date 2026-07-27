@@ -38,6 +38,7 @@ REQUIRED_SKILLS = {
     "ait-licensing",
     "ait-personal-data",
     "ait-private-knowledge",
+    "ait-project-revalidation",
     "ait-routing",
     "ait-readme",
     "ait-reconstructability",
@@ -83,7 +84,10 @@ REQUIRED_CONTEXTS = {
 
 REQUIRED_TEST_FRAGMENTS = (
     "validate-apm-package-structure.py",
+    "validate-project-review-capabilities.py",
     "validate-requirements-structure.py",
+    "test_project_review.py",
+    "test_validate_project_review_capabilities.py",
     "validate-knowledge-operational.py",
     "validate-corpus-layout.py",
     "validate-hidden-unicode.py",
@@ -1551,6 +1555,54 @@ def check_project_readme_regression() -> None:
                 )
 
 
+def check_project_revalidation_contract() -> None:
+    required_markers = {
+        ".apm/skills/ait-project-revalidation/SKILL.md": (
+            "scripts/project_review.py inventory",
+            "возможность блокирует вывод о полном охвате",
+            "complete_with_accepted_risks",
+        ),
+        ".apm/skills/ait-project-revalidation/references/controller.md": (
+            "создаёт новый ход, пока",
+            "Сценарий, который завершил цель в первом ходе",
+            "Не называй ручной режим управляемым",
+        ),
+        ".apm/skills/ait-project-revalidation/references/workflow.md": (
+            "`repository`",
+            "`impact`",
+            "Внешнее изменение переводит процесс в `interrupted`",
+        ),
+        ".apm/skills/ait-routing/SKILL.md": (
+            "ait-project-revalidation",
+            "Запрос «проверь проект»",
+        ),
+        ".apm/agents/project-manager.agent.md": (
+            "запускать `ait-project-revalidation`",
+        ),
+        ".apm/skills/ait-project-revalidation/evals/triggers.json": (
+            "ait-project-revalidation-positive-all-problems",
+            "ait-project-revalidation-boundary-ambiguous-project",
+        ),
+        ".apm/skills/ait-project-revalidation/evals/result-scenarios.json": (
+            "ait-project-revalidation-result-dynamic-plan",
+            "ait-project-revalidation-result-resume-change",
+            "ait-project-revalidation-result-manual-controller",
+            "ait-project-revalidation-result-terminal-status",
+        ),
+    }
+    for relative_path, markers in required_markers.items():
+        path = ROOT / relative_path
+        if not path.is_file():
+            fail(f"missing project revalidation surface: {relative_path}")
+        text = path.read_text(encoding="utf-8")
+        for marker in markers:
+            if marker not in text:
+                fail(
+                    f"{relative_path} does not cover project revalidation "
+                    f"marker {marker!r}",
+                )
+
+
 def check_installation_contract() -> None:
     manifest = read_yaml(ROOT / "apm.yml")
     if manifest.get("name") != "ai-dev-team":
@@ -1631,6 +1683,7 @@ def main() -> None:
     check_dependency_migration_contract()
     check_portable_core_boundary()
     check_project_readme_regression()
+    check_project_revalidation_contract()
     check_installation_contract()
     print("APM package structure OK")
 
