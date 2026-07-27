@@ -31,6 +31,63 @@
 #   gaps               — известные разрывы (со ссылкой на BACKLOG.md)
 
 concepts:
+  - id: guiding-statement
+    primary_ru: направляющее положение
+    forms_ru:
+      - общий ориентир
+      - принцип
+      - политика
+      - метатребование
+    forms_en:
+      - guiding statement
+      - principle
+      - policy
+    definition_ru: >-
+      положение между краткой концепцией и конкретными требованиями, которое
+      раскрывает общее направление, допустимый способ выбора или границу для
+      нескольких требований и решений, но не обязано иметь собственный
+      измеримый критерий приёмки.
+    authority: решение владельца продукта от 2026-07-27
+    defined_by:
+      - AM32-003
+      - AM32-004
+      - AM32-005
+      - TG10-003
+      - TG10-004
+      - TG10-005
+      - BMM-002
+      - BMM-003
+      - BMM-004
+      - BMM-007
+    cite_as: [AM32, TG10, BMM]
+    covered_in:
+      - ait-req-analysis/SKILL.md
+      - ait-req-analysis/references/guiding-statements.md
+      - ait-req-management/SKILL.md
+      - ait-req-revalidation/SKILL.md
+    synonyms_by_source:
+      AM32: Goal и Principle в области Motivation
+      TG10: Business Principles, Goals, and Drivers и Architecture Principles
+      BMM: Ends, Means и Business Policy
+      OWNER-2026-07-27: промежуточный слой между концепцией и требованиями
+    reconciliation:
+      - >-
+        «Направляющее положение» — нейтральная форма продукта, а не новый
+        элемент объединённой метамодели. Проект может использовать собственные
+        термины и связи либо явно выбрать один из внешних подходов.
+      - >-
+        Термин «метатребование» допустим только при явном определении проекта:
+        без него он может означать как общий ориентир продукта, так и требование
+        к качеству или оформлению самих требований.
+    collisions:
+      - >-
+        Не путать с требованием к системе. Направляющее положение может быть
+        источником требований, но само не обязано задавать проверяемое
+        поведение или измеримый результат.
+      - >-
+        Не считать Goal и Principle ArchiMate, Architecture Principles TOGAF и
+        Business Policy BMM взаимозаменяемыми.
+
   - id: architecture-principle
     primary_ru: архитектурный принцип
     forms_ru: [направляющий архитектурный принцип]
@@ -65,6 +122,7 @@ concepts:
       - >-
         Не считать Principle ArchiMate, Architecture Principle TOGAF и Business
         Policy BMM взаимозаменяемыми без явного выбора подхода.
+    related_concepts: [guiding-statement]
 
   - id: project-reconstructability
     primary_ru: реконструируемость проекта
