@@ -25,6 +25,7 @@ scripts:
     knowledge --strict-statements;
     python3 tools/validate-knowledge-operational.py;
     python3 "$validators/validate-hidden-unicode.py" .apm;
+    APM_SKILL_DESCRIPTION_TOTAL_MAX_CHARS=2400
     python3 "$validators/validate-skill-descriptions.py" "$target";
     python3 "$validators/validate-trigger-evals.py" "$target" --require-all;
     PYTHONDONTWRITEBYTECODE=1

@@ -25,6 +25,7 @@ REQUIRED_SKILLS = {
     "ait-analysis",
     "ait-arch-revalidation",
     "ait-interface-design",
+    "ait-ui-kit",
     "ait-code-construction",
     "ait-code-review",
     "ait-code-testing",
@@ -478,9 +479,11 @@ def check_interface_quality_contract() -> None:
         "docs/requirements/functional/ft-10.md": (
             "обязательной проверки веб-интерфейса",
             "Сценарий ручной приёмки",
+            "предлагает UI Kit",
         ),
         ".apm/skills/ait-routing/SKILL.md": (
             "ait-interface-design",
+            "ait-ui-kit",
             "платформенные правила",
         ),
         ".apm/skills/ait-interface-design/SKILL.md": (
@@ -499,6 +502,15 @@ def check_interface_quality_contract() -> None:
         ".apm/skills/ait-interface-design/evals/result-scenarios.json": (
             "ait-interface-design-interface-design-result-required-web-checks",
             "ait-interface-design-interface-design-result-manual-acceptance",
+        ),
+        ".apm/skills/ait-ui-kit/SKILL.md": (
+            "не нужен`, `нужен стартовый набор`",
+            "экспериментальный`, `стабильный` и `устаревающий",
+            "Несовместимое изменение",
+        ),
+        ".apm/skills/ait-ui-kit/evals/result-scenarios.json": (
+            "ait-ui-kit-result-create-maintain-use",
+            "ait-ui-kit-result-breaking-change-stop",
         ),
     }
     for relative_path, markers in required_markers.items():

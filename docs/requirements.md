@@ -68,6 +68,7 @@
 - [ФТ-17. Схема сообщений коммитов](requirements/functional/ft-17.md)
 - [ФТ-18. Профиль проекта и диалог настройки](requirements/functional/ft-18.md)
 - [ФТ-19. Реконструируемость проекта](requirements/functional/ft-19.md)
+- [ФТ-20. Рефакторинг требований](requirements/functional/ft-20.md)
 
 ## Атрибуты качества
 
