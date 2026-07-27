@@ -60,6 +60,26 @@ STATEMENT_REQUIRED = {
     "open_questions",
 }
 
+STATEMENT_V2_REQUIRED = {
+    "id",
+    "source_id",
+    "item_id",
+    "kind",
+    "text",
+    "excerpt",
+    "artifact",
+    "checked_at",
+    "scope",
+    "open_questions",
+    "processing_status",
+    "source_role",
+    "evidence_strength",
+    "confidence",
+    "temporal_status",
+    "corroboration",
+    "limitations",
+}
+
 DERIVED_STATEMENT_REQUIRED = {
     "id",
     "kind",
@@ -116,6 +136,53 @@ DERIVED_STATEMENT_STATUSES = {
     "confirmed",
     "blocked",
     "rejected",
+}
+
+STATEMENT_PROCESSING_VALUES = {
+    "extraction": {"complete"},
+    "traceability": {"pending", "passed", "failed", "blocked"},
+    "semantic_review": {"pending", "passed", "failed", "blocked"},
+    "strong_review": {"not_required", "pending", "passed", "blocked"},
+    "corroboration_check": {"pending", "complete", "blocked"},
+}
+
+STATEMENT_SOURCE_ROLES = {"primary", "secondary", "user_generated", "unknown"}
+STATEMENT_EVIDENCE_STRENGTHS = {"strong", "moderate", "weak", "unknown"}
+STATEMENT_CONFIDENCE_VALUES = {"high", "medium", "low"}
+STATEMENT_TEMPORAL_STATUSES = {"current", "aging", "historical", "unknown"}
+STATEMENT_CORROBORATION_VALUES = {
+    "single_source",
+    "independently_confirmed",
+    "conflict",
+    "not_applicable",
+}
+
+BLOCKER_CODES = {
+    "access_unavailable",
+    "source_unavailable",
+    "provenance_missing",
+    "write_scope_violation",
+    "storage_not_permitted",
+    "publication_not_permitted",
+    "credential_exposure",
+    "conflicting_change",
+    "validation_failed",
+    "user_prohibited",
+    "owner_decision_required",
+}
+
+OPERATIONAL_FINDING_KINDS = {
+    "access-secret",
+    "credentialed-url",
+    "personal-data",
+    "public-contact",
+}
+
+OPERATIONAL_BLOCKER_CODES = {
+    "access-secret": "credential_exposure",
+    "credentialed-url": "credential_exposure",
+    "personal-data": "publication_not_permitted",
+    "public-contact": "publication_not_permitted",
 }
 
 DERIVATION_TYPES = {
@@ -265,6 +332,7 @@ class OperationalFinding:
     line: int
     classification: str
     reason: str
+    blocker_code: str | None = None
 
 
 def load_yaml(path: Path) -> Any:
@@ -412,9 +480,9 @@ class Validator:
         return 0
 
     def validate_operational_safety(self) -> None:
-        """Inspect only Git-tracked corpus files and retain no matched values."""
+        """Inspect publishable Git files and retain no matched values."""
         policy = self.load_operational_policy()
-        for relative_path in self.tracked_corpus_paths():
+        for relative_path in self.publishable_corpus_paths():
             if self.is_local_path(relative_path):
                 continue
             path = self.root / relative_path
@@ -431,7 +499,15 @@ class Validator:
                 classification, reason = self.classify_operational_finding(
                     policy, kind, relative_path
                 )
-                finding = OperationalFinding(kind, relative_path, line_number, classification, reason)
+                blocker_code = OPERATIONAL_BLOCKER_CODES.get(kind) if classification == "blocker" else None
+                finding = OperationalFinding(
+                    kind,
+                    relative_path,
+                    line_number,
+                    classification,
+                    reason,
+                    blocker_code,
+                )
                 if classification == "blocker":
                     self.blockers.append(finding)
                 elif classification == "warning":
@@ -439,7 +515,7 @@ class Validator:
                 else:
                     self.suppressed.append(finding)
 
-    def tracked_corpus_paths(self) -> list[str]:
+    def publishable_corpus_paths(self) -> list[str]:
         prefix_result = subprocess.run(
             ["git", "rev-parse", "--show-prefix"],
             cwd=self.root,
@@ -447,14 +523,22 @@ class Validator:
             text=True,
         )
         result = subprocess.run(
-            ["git", "ls-files", "-z", "--full-name"],
+            [
+                "git",
+                "ls-files",
+                "-z",
+                "--full-name",
+                "--cached",
+                "--others",
+                "--exclude-standard",
+            ],
             cwd=self.root,
             capture_output=True,
             text=False,
         )
         if prefix_result.returncode != 0 or result.returncode != 0:
             raise RuntimeError(
-                "operational check requires a Git worktree; it scans only files returned by git ls-files"
+                "operational check requires a Git worktree and scans files publishable by Git"
             )
         corpus_prefix = prefix_result.stdout.strip()
         if corpus_prefix:
@@ -549,6 +633,7 @@ class Validator:
             )
             if (
                 not nonempty_string(kind)
+                or kind not in OPERATIONAL_FINDING_KINDS
                 or not nonempty_string(path_pattern)
                 or action not in {"suppress", "warning", "blocker"}
                 or not nonempty_string(reason)
@@ -877,6 +962,7 @@ class Validator:
         stage = item.get("workflow_stage")
         if stage and stage not in self.allowed_stages:
             self.errors.append(f"{prefix}: unknown workflow_stage: {stage}")
+        self.validate_blocker_code(item, prefix, stage == "blocked")
 
         long_source = item.get("long_source")
         if long_source is not None and not isinstance(long_source, bool):
@@ -901,6 +987,20 @@ class Validator:
                     item_id = item.get("id") if item_path.exists() and isinstance(item, dict) else None
                     self.validate_statements(statements_path, source_id, item_id)
 
+    def validate_blocker_code(
+        self,
+        value: dict[str, Any],
+        prefix: str,
+        required: bool,
+    ) -> None:
+        blocker_code = value.get("blocker_code")
+        if required and blocker_code not in BLOCKER_CODES:
+            allowed = ", ".join(sorted(BLOCKER_CODES))
+            self.errors.append(f"{prefix}: blocker_code must be one of: {allowed}")
+        elif blocker_code is not None and blocker_code not in BLOCKER_CODES:
+            allowed = ", ".join(sorted(BLOCKER_CODES))
+            self.errors.append(f"{prefix}: blocker_code must be one of: {allowed}")
+
     def validate_unit_item(self, item: Any, source_id: Any, path: Path) -> None:
         rel = self.rel(path)
         if not isinstance(item, dict):
@@ -923,6 +1023,7 @@ class Validator:
         stage = item.get("workflow_stage")
         if stage and stage not in self.allowed_stages:
             self.errors.append(f"{rel}: unknown workflow_stage: {stage}")
+        self.validate_blocker_code(item, rel, stage == "blocked")
 
         long_source = item.get("long_source")
         if long_source is not None and not isinstance(long_source, bool):
@@ -1289,6 +1390,11 @@ class Validator:
             self.errors.append(f"{rel}: statements must be a list")
             return
 
+        contract_version = data.get("statement_contract_version", 1) if isinstance(data, dict) else 1
+        if contract_version not in {1, 2}:
+            self.errors.append(f"{rel}: unsupported statement_contract_version: {contract_version}")
+            return
+
         seen: set[str] = set()
         for index, statement in enumerate(statements, start=1):
             prefix = f"{rel}: statement #{index}"
@@ -1296,7 +1402,8 @@ class Validator:
                 self.errors.append(f"{prefix}: statement must be a mapping")
                 continue
 
-            missing = sorted(STATEMENT_REQUIRED - statement.keys())
+            required = STATEMENT_V2_REQUIRED if contract_version == 2 else STATEMENT_REQUIRED
+            missing = sorted(required - statement.keys())
             if missing:
                 self.errors.append(f"{prefix}: missing fields: {', '.join(missing)}")
 
@@ -1317,6 +1424,11 @@ class Validator:
                 self.errors.append(f"{prefix}: item_id does not match {item_id}")
 
             status = statement.get("status")
+            if contract_version == 2 and "status" in statement:
+                self.errors.append(
+                    f"{prefix}: status is not allowed in statement contract v2. "
+                    "use processing_status and evidence assessment fields"
+                )
             if status in self.allowed_statement_kinds:
                 self.errors.append(
                     f"{prefix}: status contains statement kind {status}; use kind instead"
@@ -1332,6 +1444,16 @@ class Validator:
                 elif kind not in self.allowed_statement_kinds:
                     allowed = ", ".join(sorted(self.allowed_statement_kinds))
                     self.errors.append(f"{prefix}: kind must be one of: {allowed}")
+
+            if contract_version == 2:
+                self.validate_statement_v2_assessment(statement, prefix)
+                processing = statement.get("processing_status")
+                processing_blocked = isinstance(processing, dict) and any(
+                    value == "blocked" for value in processing.values()
+                )
+                self.validate_blocker_code(statement, prefix, processing_blocked)
+            else:
+                self.validate_blocker_code(statement, prefix, status == "blocked")
 
             text = statement.get("text")
             if isinstance(text, str):
@@ -1400,6 +1522,50 @@ class Validator:
                 self.errors.append(f"{prefix}: open_questions must be a list")
 
             self.add_value_errors(prefix, statement)
+
+    def validate_statement_v2_assessment(self, statement: dict[str, Any], prefix: str) -> None:
+        processing = statement.get("processing_status")
+        if not isinstance(processing, dict):
+            self.errors.append(f"{prefix}: processing_status must be a mapping")
+        else:
+            for field, allowed_values in STATEMENT_PROCESSING_VALUES.items():
+                value = processing.get(field)
+                if value not in allowed_values:
+                    allowed = ", ".join(sorted(allowed_values))
+                    self.errors.append(
+                        f"{prefix}: processing_status.{field} must be one of: {allowed}"
+                    )
+
+        classifications = (
+            ("source_role", STATEMENT_SOURCE_ROLES),
+            ("evidence_strength", STATEMENT_EVIDENCE_STRENGTHS),
+            ("confidence", STATEMENT_CONFIDENCE_VALUES),
+            ("temporal_status", STATEMENT_TEMPORAL_STATUSES),
+            ("corroboration", STATEMENT_CORROBORATION_VALUES),
+        )
+        for field, allowed_values in classifications:
+            value = statement.get(field)
+            if value not in allowed_values:
+                allowed = ", ".join(sorted(allowed_values))
+                self.errors.append(f"{prefix}: {field} must be one of: {allowed}")
+
+        limitations = statement.get("limitations")
+        if not isinstance(limitations, list) or not all(
+            isinstance(value, str) and value.strip() for value in limitations
+        ):
+            self.errors.append(f"{prefix}: limitations must be a list of non-empty strings")
+
+        if isinstance(processing, dict):
+            strong_review = processing.get("strong_review")
+            if (
+                statement.get("confidence") == "low"
+                or statement.get("corroboration") == "conflict"
+                or processing.get("semantic_review") == "failed"
+            ) and strong_review == "not_required":
+                self.errors.append(
+                    f"{prefix}: low confidence, conflict or failed semantic review "
+                    "requires strong_review"
+                )
 
     def validate_derived_statements(self) -> None:
         analysis_root = self.root / "analysis"

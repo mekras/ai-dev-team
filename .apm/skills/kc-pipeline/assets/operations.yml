@@ -8,6 +8,10 @@ operations_version: 1
 report:
   path: .local/reports/corpus-operations.md
 
+# Состояние полного прохода переживает отдельный сеанс агента.
+run_state:
+  path: .local/state/corpus-pipeline.json
+
 # Имена подготовленных артефактов единицы. Их наличие переводит единицу
 # из очереди нормализации в очередь извлечения утверждений.
 normalized_artifacts:
@@ -27,6 +31,50 @@ stages:
         working_directory: .
         write_paths:
           - knowledge/data/example-source
+        required: true
+  # Для --run-pipeline добавьте исполнители по именам очередей:
+  # content_selection, fetch, transcribe, normalize, statements,
+  # traceability, semantic_review, strong_review, corroboration, source_check,
+  # concepts, impact_audit, apply_changes и corpus_validation.
+  # Исполнитель первичного контура должен изменить машиночитаемую очередь.
+  # Успешный исполнитель глобальной стадии закрывает её в состоянии прохода.
+  normalize:
+    commands:
+      - id: example-normalize
+        argv:
+          - python3
+          - tools/normalize-corpus-queue.py
+        working_directory: .
+        write_paths:
+          - knowledge/data
+        required: true
+  concepts:
+    commands:
+      - id: example-concepts
+        argv: [python3, tools/update-corpus-concepts.py]
+        working_directory: .
+        write_paths: [knowledge]
+        required: true
+  impact_audit:
+    commands:
+      - id: example-impact-audit
+        argv: [python3, tools/audit-corpus-impact.py]
+        working_directory: .
+        write_paths: [knowledge, docs, src, tests]
+        required: true
+  apply_changes:
+    commands:
+      - id: example-apply-safe-changes
+        argv: [python3, tools/apply-corpus-impact.py]
+        working_directory: .
+        write_paths: [docs, src, tests]
+        required: true
+  corpus_validation:
+    commands:
+      - id: example-corpus-validation
+        argv: [python3, tools/validate-project-corpus.py]
+        working_directory: .
+        write_paths: [knowledge]
         required: true
 
 # Реестр исполняемых адаптеров. Имя совпадает с полем adapter в source.yml.

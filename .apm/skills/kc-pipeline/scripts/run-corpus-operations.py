@@ -9,11 +9,15 @@ commands and never invokes them unless --run-commands is given.
 from __future__ import annotations
 
 import argparse
+import fcntl
+import hashlib
 import json
 import os
 import subprocess
 import sys
 import tempfile
+import uuid
+from contextlib import contextmanager
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path, PurePosixPath
@@ -32,9 +36,52 @@ QUEUE_ORDER = (
     "transcribe",
     "normalize",
     "statements",
+    "traceability",
+    "semantic_review",
+    "strong_review",
+    "corroboration",
     "source_check",
+    "concepts",
+    "impact_audit",
+    "apply_changes",
+    "corpus_validation",
     "human_decision",
 )
+GLOBAL_STAGES = (
+    "concepts",
+    "impact_audit",
+    "apply_changes",
+    "corpus_validation",
+)
+AUTOMATED_QUEUES = tuple(name for name in QUEUE_ORDER if name != "human_decision")
+RUN_STATUSES = {
+    "running",
+    "paused_limit",
+    "paused_resources",
+    "waiting_external",
+    "failed",
+    "completed",
+}
+RUN_EXIT_CODES = {
+    "completed": 0,
+    "paused_limit": 10,
+    "paused_resources": 11,
+    "waiting_external": 20,
+    "failed": 1,
+}
+BLOCKER_CODES = {
+    "access_unavailable",
+    "source_unavailable",
+    "provenance_missing",
+    "write_scope_violation",
+    "storage_not_permitted",
+    "publication_not_permitted",
+    "credential_exposure",
+    "conflicting_change",
+    "validation_failed",
+    "user_prohibited",
+    "owner_decision_required",
+}
 ADAPTER_STATUSES = {
     "synced",
     "partial",
@@ -126,6 +173,17 @@ class OperationalCheckResult:
     blockers: tuple[dict[str, Any], ...]
     quality_warnings: tuple[dict[str, Any], ...]
     suppressed: tuple[dict[str, Any], ...]
+
+
+@dataclass(frozen=True)
+class PipelineResult:
+    status: str
+    reason_code: str
+    queues: dict[str, list[dict[str, str]]]
+    command_results: tuple[CommandResult, ...]
+    steps: int
+    message: str
+    completed_global_stages: tuple[str, ...] = ()
 
 
 def require_yaml() -> None:
@@ -288,59 +346,227 @@ def has_statements(item: CorpusItem) -> bool:
     return bool(item.item_dir and (item.item_dir / "statements.yml").is_file())
 
 
-def queue_name(item: CorpusItem, normalized_names: tuple[str, ...]) -> tuple[str, str] | None:
+def statement_processing_tasks(item: CorpusItem, root: Path) -> list[tuple[str, dict[str, str]]]:
+    if not item.item_dir or item.stage in {"blocked", "rejected"}:
+        return []
+    path = item.item_dir / "statements.yml"
+    if not path.is_file():
+        return []
+    data = load_yaml(path)
+    statements = data.get("statements") if isinstance(data, dict) else None
+    if not isinstance(statements, list):
+        return []
+    tasks: list[tuple[str, dict[str, str]]] = []
+    contract_version = data.get("statement_contract_version", 1) if isinstance(data, dict) else 1
+    if contract_version not in {1, 2}:
+        raise OperationsError(
+            f"Неподдерживаемая statement_contract_version в {repo_relative(root, path)}: "
+            f"{contract_version}"
+        )
+    for position, statement in enumerate(statements, start=1):
+        if not isinstance(statement, dict):
+            continue
+        statement_id = statement.get("id")
+        task_id = statement_id if isinstance(statement_id, str) else f"{item.item_id}#statement-{position}"
+        base = {
+            "id": task_id,
+            "source_id": item.source_id,
+            "path": repo_relative(root, path),
+            "title": str(statement.get("text", "")),
+        }
+        if contract_version != 2:
+            status = statement.get("status")
+            if status == "candidate":
+                tasks.append(
+                    (
+                        "semantic_review",
+                        {
+                            **base,
+                            "reason": "устаревший status=candidate требует переноса в раздельную оценку",
+                        },
+                    )
+                )
+            elif status == "blocked":
+                blocker_code = statement.get("blocker_code")
+                if blocker_code not in BLOCKER_CODES:
+                    raise OperationsError(
+                        f"Заблокированное утверждение {task_id} должно задавать blocker_code."
+                    )
+                tasks.append(
+                    (
+                        "human_decision",
+                        {
+                            **base,
+                            "reason": "устаревший status=blocked требует конкретного решения или блокера",
+                            "blocker_code": blocker_code,
+                        },
+                    )
+                )
+            continue
+        processing = statement.get("processing_status")
+        if not isinstance(processing, dict):
+            tasks.append(("traceability", {**base, "reason": "нет processing_status"}))
+            continue
+        blocked_stages = [name for name, value in processing.items() if value == "blocked"]
+        if blocked_stages:
+            blocker_code = statement.get("blocker_code")
+            if blocker_code not in BLOCKER_CODES:
+                raise OperationsError(
+                    f"Заблокированное утверждение {task_id} должно задавать blocker_code."
+                )
+            tasks.append(
+                (
+                    "human_decision",
+                    {
+                        **base,
+                        "reason": f"заблокированы проверки: {', '.join(sorted(blocked_stages))}",
+                        "blocker_code": blocker_code,
+                    },
+                )
+            )
+            continue
+        if processing.get("extraction") != "complete" or processing.get("traceability") != "passed":
+            tasks.append(("traceability", {**base, "reason": "извлечение или прослеживаемость не проверены"}))
+            continue
+        if processing.get("semantic_review") == "pending":
+            tasks.append(("semantic_review", {**base, "reason": "смысловая проверка не завершена"}))
+            continue
+        if processing.get("semantic_review") == "failed":
+            tasks.append(
+                (
+                    "strong_review",
+                    {**base, "reason": "обычная смысловая проверка выявила спорный случай"},
+                )
+            )
+            continue
+        if processing.get("strong_review") not in {"not_required", "passed"}:
+            tasks.append(("strong_review", {**base, "reason": "усиленная проверка не завершена"}))
+            continue
+        if processing.get("corroboration_check") != "complete":
+            tasks.append(("corroboration", {**base, "reason": "сопоставление источников не завершено"}))
+    return tasks
+
+
+def queue_name(
+    item: CorpusItem,
+    normalized_names: tuple[str, ...],
+) -> tuple[str, str, str | None] | None:
     stage = item.stage
     if stage == "needs_fetch":
-        return "fetch", "workflow_stage=needs_fetch"
+        return "fetch", "workflow_stage=needs_fetch", None
     if stage == "indexed":
         processing_scope = item.value("processing_scope")
         if processing_scope in {"selected_fragments", "full", "full_redacted"}:
-            return "fetch", f"единица выбрана для точечного получения: processing_scope={processing_scope}"
+            return (
+                "fetch",
+                f"единица выбрана для точечного получения: processing_scope={processing_scope}",
+                None,
+            )
         if item.storage_strategy == "index_only":
             return None
-        return "content_selection", "проиндексированная единица ожидает содержательного отбора"
+        return (
+            "content_selection",
+            "проиндексированная единица ожидает содержательного отбора",
+            None,
+        )
     if stage == "needs_transcript":
         if has_statements(item):
-            return "source_check", "утверждения уже есть, требуется сверка стадии"
+            return "source_check", "утверждения уже есть, требуется сверка стадии", None
         if has_normalized_artifact(item, normalized_names):
-            return "statements", "подготовленный артефакт уже есть"
+            return "statements", "подготовленный артефакт уже есть", None
         if has_raw_transcript(item):
-            return "normalize", "сырая расшифровка уже есть"
-        return "transcribe", "workflow_stage=needs_transcript"
+            return "normalize", "сырая расшифровка уже есть", None
+        return "transcribe", "workflow_stage=needs_transcript", None
     if stage in {"fetched", "raw_transcribed"}:
-        return "normalize", f"workflow_stage={stage}"
+        return "normalize", f"workflow_stage={stage}", None
     if stage == "normalized":
-        return ("source_check", "утверждения уже есть, требуется сверка стадии") if has_statements(item) else (
+        return (
+            "source_check",
+            "утверждения уже есть, требуется сверка стадии",
+            None,
+        ) if has_statements(item) else (
             "statements",
             "материал нормализован, утверждения отсутствуют",
+            None,
         )
     if stage == "statements_extracted":
-        return "source_check", "workflow_stage=statements_extracted"
+        return "source_check", "workflow_stage=statements_extracted", None
     if stage == "blocked":
-        return "human_decision", "workflow_stage=blocked"
+        blocker_code = item.value("blocker_code")
+        if blocker_code not in BLOCKER_CODES:
+            raise OperationsError(
+                f"Заблокированная единица {item.item_id} должна задавать blocker_code."
+            )
+        return "human_decision", "workflow_stage=blocked", blocker_code
     if stage in {"source_checked", "rejected", ""}:
         return None
-    return "human_decision", f"неизвестная или неподдерживаемая стадия: {stage}"
+    raise OperationsError(
+        f"Единица {item.item_id} содержит неизвестную или неподдерживаемую стадию: {stage}"
+    )
+
+
+def empty_queues() -> dict[str, list[dict[str, str]]]:
+    return {name: [] for name in QUEUE_ORDER}
 
 
 def build_queues(items: list[CorpusItem], normalized_names: tuple[str, ...], root: Path) -> dict[str, list[dict[str, str]]]:
-    queues = {name: [] for name in QUEUE_ORDER}
+    queues = empty_queues()
     for item in items:
+        statement_tasks = statement_processing_tasks(item, root)
+        if statement_tasks:
+            for name, task in statement_tasks:
+                queues[name].append(task)
+            continue
         result = queue_name(item, normalized_names)
         if result is None:
             continue
-        name, reason = result
+        name, reason, blocker_code = result
         relative_path = repo_relative(root, item.item_dir) if item.item_dir else ""
-        queues[name].append(
+        task = {
+            "id": item.item_id,
+            "source_id": item.source_id,
+            "path": relative_path,
+            "title": str(item.value("title", "")),
+            "reason": reason,
+        }
+        if blocker_code is not None:
+            task["blocker_code"] = blocker_code
+        queues[name].append(task)
+    return queues
+
+
+def build_run_queues(
+    corpus_root: Path,
+    normalized_names: tuple[str, ...],
+    root: Path,
+    completed_global_stages: set[str],
+) -> dict[str, list[dict[str, str]]]:
+    queues = build_queues(load_items(corpus_root), normalized_names, root)
+    for stage in GLOBAL_STAGES:
+        if stage in completed_global_stages:
+            continue
+        queues[stage].append(
             {
-                "id": item.item_id,
-                "source_id": item.source_id,
-                "path": relative_path,
-                "title": str(item.value("title", "")),
-                "reason": reason,
+                "id": f"global:{stage}",
+                "source_id": "",
+                "path": "",
+                "title": stage,
+                "reason": "обязательная глобальная стадия полного прохода не завершена",
             }
         )
     return queues
+
+
+def available_task_count(queues: dict[str, list[dict[str, str]]]) -> int:
+    return sum(len(queues[name]) for name in AUTOMATED_QUEUES)
+
+
+def stage_fingerprint(queues: dict[str, list[dict[str, str]]], stage: str) -> str:
+    return json.dumps(queues[stage], ensure_ascii=False, sort_keys=True)
+
+
+def next_automated_queue(queues: dict[str, list[dict[str, str]]]) -> str | None:
+    return next((name for name in AUTOMATED_QUEUES if queues[name]), None)
 
 
 def index_paths(corpus_root: Path) -> tuple[Path, Path]:
@@ -406,6 +632,13 @@ def rebuild_indexes(corpus_root: Path, root: Path) -> tuple[int, int]:
                     "text": statement.get("text"),
                     "artifact": statement.get("artifact"),
                     "checked_at": statement.get("checked_at"),
+                    "processing_status": statement.get("processing_status"),
+                    "source_role": statement.get("source_role"),
+                    "evidence_strength": statement.get("evidence_strength"),
+                    "confidence": statement.get("confidence"),
+                    "temporal_status": statement.get("temporal_status"),
+                    "corroboration": statement.get("corroboration"),
+                    "limitations": statement.get("limitations"),
                 }
             )
     items_path, statements_path = index_paths(corpus_root)
@@ -414,23 +647,49 @@ def rebuild_indexes(corpus_root: Path, root: Path) -> tuple[int, int]:
     return len(item_rows), len(statement_rows)
 
 
-def git_status_paths(root: Path) -> set[str]:
+def git_file_fingerprints(root: Path) -> dict[str, str]:
     result = subprocess.run(
-        ["git", "status", "--porcelain=v1", "-z"],
+        ["git", "ls-files", "-z", "--cached", "--others", "--exclude-standard"],
         cwd=root,
         capture_output=True,
         text=False,
     )
     if result.returncode != 0:
         raise OperationsError("Для --run-commands проект должен быть рабочей областью Git.")
-    paths: set[str] = set()
-    for record in result.stdout.split(b"\0"):
-        if not record:
+    fingerprints: dict[str, str] = {}
+    for raw_path in result.stdout.split(b"\0"):
+        if not raw_path:
             continue
-        text = record.decode("utf-8", errors="replace")
-        if len(text) >= 4:
-            paths.add(text[3:])
-    return paths
+        relative = raw_path.decode("utf-8", errors="strict")
+        relative_path(relative, "Путь файла Git")
+        path = root / relative
+        try:
+            path.parent.resolve().relative_to(root)
+        except ValueError as exc:
+            raise OperationsError(f"Родительский путь файла Git выходит из проекта: {relative}") from exc
+        try:
+            metadata = path.lstat()
+            if path.is_symlink():
+                payload = os.readlink(path).encode("utf-8", errors="surrogateescape")
+                kind = b"symlink\0"
+            elif path.is_file():
+                payload = path.read_bytes()
+                kind = b"file\0"
+            else:
+                continue
+        except OSError as exc:
+            raise OperationsError(f"Не удалось получить снимок файла {relative}: {exc}") from exc
+        mode = str(metadata.st_mode).encode("ascii")
+        fingerprints[relative] = hashlib.sha256(kind + mode + b"\0" + payload).hexdigest()
+    return fingerprints
+
+
+def changed_fingerprint_paths(before: dict[str, str], after: dict[str, str]) -> set[str]:
+    return {
+        path
+        for path in before.keys() | after.keys()
+        if before.get(path) != after.get(path)
+    }
 
 
 def configured_commands(operations: dict[str, Any], stage: str) -> list[dict[str, Any]]:
@@ -468,10 +727,13 @@ def run_commands(root: Path, operations: dict[str, Any], stage: str) -> list[Com
         for path in write_paths:
             resolve_inside(root, path, f"write_paths команды {command_id}")
         command_cwd = resolve_inside(root, cwd, f"working_directory команды {command_id}")
-        before = git_status_paths(root)
-        process = subprocess.run(argv, cwd=command_cwd, capture_output=True, text=True)
-        after = git_status_paths(root)
-        changed = after - before
+        before = git_file_fingerprints(root)
+        try:
+            process = subprocess.run(argv, cwd=command_cwd, capture_output=True, text=True)
+        except OSError as exc:
+            raise OperationsError(f"Не удалось запустить команду {command_id}: {exc}") from exc
+        after = git_file_fingerprints(root)
+        changed = changed_fingerprint_paths(before, after)
         if not command_paths_allowed(changed, write_paths):
             paths = ", ".join(sorted(changed)) or "нет"
             raise OperationsError(f"Команда {command_id} изменила файлы вне write_paths: {paths}")
@@ -550,10 +812,20 @@ def run_adapters(root: Path, corpus_root: Path, operations: dict[str, Any], sele
         for path in write_paths:
             resolve_inside(root, path, f"write_paths адаптера {source.adapter}")
         command_cwd = resolve_inside(root, cwd, f"working_directory адаптера {source.adapter}")
-        before = git_status_paths(root)
-        process = subprocess.run(format_adapter_argv(argv, source, root), cwd=command_cwd, capture_output=True, text=True)
-        after = git_status_paths(root)
-        changed = after - before
+        before = git_file_fingerprints(root)
+        try:
+            process = subprocess.run(
+                format_adapter_argv(argv, source, root),
+                cwd=command_cwd,
+                capture_output=True,
+                text=True,
+            )
+        except OSError as exc:
+            raise OperationsError(
+                f"Не удалось запустить адаптер {source.adapter} источника {source.source_id}: {exc}"
+            ) from exc
+        after = git_file_fingerprints(root)
+        changed = changed_fingerprint_paths(before, after)
         if not command_paths_allowed(changed, write_paths):
             paths = ", ".join(sorted(changed)) or "нет"
             raise OperationsError(f"Адаптер {source.adapter} изменил файлы вне write_paths: {paths}")
@@ -591,7 +863,10 @@ def run_operational_check(
     errors = data.get("contract_errors", [])
     if not isinstance(errors, list) or not all(isinstance(entry, str) for entry in errors):
         raise OperationsError("Операционная проверка вернула неверные ошибки договора.")
-    return OperationalCheckResult(process.returncode, tuple(errors), findings("blockers"), findings("quality_warnings"), findings("suppressed"))
+    blockers = findings("blockers")
+    if any(finding.get("blocker_code") not in BLOCKER_CODES for finding in blockers):
+        raise OperationsError("Операционная проверка вернула блокер вне закрытого перечня.")
+    return OperationalCheckResult(process.returncode, tuple(errors), blockers, findings("quality_warnings"), findings("suppressed"))
 
 
 def render_report(
@@ -601,6 +876,7 @@ def render_report(
     index_counts: tuple[int, int] | None,
     adapter_results: list[AdapterResult] | None = None,
     operational_check: OperationalCheckResult | None = None,
+    run_state: dict[str, Any] | None = None,
 ) -> str:
     lines = [
         "# Операционный отчёт корпуса",
@@ -611,12 +887,33 @@ def render_report(
         "## Очереди",
         "",
     ]
+    if run_state is not None:
+        lines[5:5] = [
+            "## Состояние прохода",
+            "",
+            f"- run_id: {run_state['run_id']}",
+            f"- status: {run_state['status']}",
+            f"- reason_code: {run_state['reason_code']}",
+            f"- доступных задач: {run_state['available_task_count']}",
+            f"- задач с внешним блокером: {run_state['blocked_task_count']}",
+            f"- коды внешних блокеров: {', '.join(run_state.get('blocker_codes', [])) or 'нет'}",
+            (
+                "- завершённые глобальные стадии: "
+                f"{', '.join(run_state.get('completed_global_stages', [])) or 'нет'}"
+            ),
+            "",
+        ]
     for name in QUEUE_ORDER:
         entries = queues[name]
         lines.append(f"- {name}: {len(entries)}")
-        for entry in entries[:10]:
+        for entry in entries:
             location = f" ({entry['path']})" if entry["path"] else ""
-            lines.append(f"  - {entry['id']}{location}: {entry['reason']}")
+            blocker = (
+                f", blocker_code={entry['blocker_code']}"
+                if entry.get("blocker_code")
+                else ""
+            )
+            lines.append(f"  - {entry['id']}{location}: {entry['reason']}{blocker}")
     if command_results:
         lines.extend(["", "## Команды", ""])
         for result in command_results:
@@ -633,7 +930,7 @@ def render_report(
         lines.extend(
             [
                 "",
-                "## Предзапусковая проверка",
+                "## Операционная проверка текущего состояния",
                 "",
                 f"- ошибки договора: {len(operational_check.contract_errors)}",
                 f"- блокеры доступа: {len(operational_check.blockers)}",
@@ -642,7 +939,17 @@ def render_report(
             ]
         )
         for finding in (*operational_check.blockers, *operational_check.quality_warnings)[:10]:
-            lines.append(f"  - {finding.get('path')}:{finding.get('line')}: {finding.get('kind')}")
+            blocker = (
+                f", blocker_code={finding.get('blocker_code')}"
+                if finding.get("blocker_code")
+                else ""
+            )
+            lines.append(
+                f"  - {finding.get('path')}:{finding.get('line')}: "
+                f"{finding.get('kind')}{blocker}"
+            )
+        for error in operational_check.contract_errors:
+            lines.append(f"  - ошибка договора: {error}")
     lines.extend(["", "## Продолжение", "", "Следующий запуск начинает с указанных очередей. Необработанная единица остаётся в своей стадии, пока проектная команда или человек не изменят её состояние.", ""])
     return "\n".join(lines)
 
@@ -656,6 +963,259 @@ def report_path(root: Path, operations: dict[str, Any], explicit: Path | None) -
     return resolve_inside(root, report["path"], "report.path")
 
 
+def state_path(root: Path, operations: dict[str, Any], explicit: Path | None) -> Path:
+    if explicit is not None:
+        return resolve_inside(root, str(explicit), "Путь состояния прохода")
+    run_state = operations.get("run_state")
+    if isinstance(run_state, dict) and isinstance(run_state.get("path"), str):
+        return resolve_inside(root, run_state["path"], "run_state.path")
+    return resolve_inside(root, ".local/state/corpus-pipeline.json", "Путь состояния прохода")
+
+
+def read_run_state(path: Path) -> dict[str, Any] | None:
+    if not path.is_file():
+        return None
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise OperationsError(f"Не удалось прочитать состояние прохода {path}: {exc}") from exc
+    if not isinstance(data, dict) or data.get("contract_version") != 1:
+        raise OperationsError(f"Состояние прохода {path} имеет неподдерживаемый договор.")
+    if data.get("status") not in RUN_STATUSES:
+        raise OperationsError(f"Состояние прохода {path} содержит неизвестный status.")
+    if not isinstance(data.get("run_id"), str) or not data["run_id"]:
+        raise OperationsError(f"Состояние прохода {path} не содержит строковый run_id.")
+    if not isinstance(data.get("attempts"), int) or not isinstance(data.get("steps"), int):
+        raise OperationsError(f"Состояние прохода {path} содержит неверные счётчики.")
+    queues = data.get("queues")
+    if isinstance(queues, dict):
+        for stage in GLOBAL_STAGES:
+            queues.setdefault(stage, [])
+    if not isinstance(queues, dict) or any(
+        not isinstance(queues.get(name), list)
+        or any(not isinstance(entry, dict) for entry in queues[name])
+        for name in QUEUE_ORDER
+    ):
+        raise OperationsError(f"Состояние прохода {path} содержит неполные очереди.")
+    completed_global_stages = data.get("completed_global_stages", [])
+    if (
+        not isinstance(completed_global_stages, list)
+        or not all(stage in GLOBAL_STAGES for stage in completed_global_stages)
+        or len(set(completed_global_stages)) != len(completed_global_stages)
+    ):
+        raise OperationsError(
+            f"Состояние прохода {path} содержит неверные глобальные стадии."
+        )
+    return data
+
+
+def write_run_state(path: Path, state: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile("w", encoding="utf-8", dir=path.parent, delete=False) as stream:
+        json.dump(state, stream, ensure_ascii=False, indent=2)
+        stream.write("\n")
+        temporary_path = Path(stream.name)
+    try:
+        os.replace(temporary_path, path)
+    except OSError:
+        temporary_path.unlink(missing_ok=True)
+        raise
+
+
+@contextmanager
+def run_state_lock(path: Path) -> Any:
+    lock_path = path.with_name(f"{path.name}.lock")
+    lock_path.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        stream = lock_path.open("a+", encoding="utf-8")
+    except OSError as exc:
+        raise OperationsError(f"Не удалось открыть блокировку прохода {lock_path}: {exc}") from exc
+    try:
+        try:
+            fcntl.flock(stream.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError as exc:
+            raise OperationsError(
+                f"Проход с состоянием {path} уже выполняется другим процессом."
+            ) from exc
+        yield
+    finally:
+        stream.close()
+
+
+def blocker_codes(queues: dict[str, list[dict[str, str]]]) -> list[str]:
+    return sorted(
+        {
+            entry["blocker_code"]
+            for entry in queues["human_decision"]
+            if entry.get("blocker_code") in BLOCKER_CODES
+        }
+    )
+
+
+def start_run_state(
+    previous: dict[str, Any] | None,
+    queues: dict[str, list[dict[str, str]]],
+    attempt_started_at: str,
+) -> dict[str, Any]:
+    resumable = previous is not None and previous.get("status") != "completed"
+    completed_global_stages = (
+        list(previous.get("completed_global_stages", [])) if resumable else []
+    )
+    return {
+        "contract_version": 1,
+        "run_id": previous["run_id"] if resumable else str(uuid.uuid4()),
+        "status": "running",
+        "reason_code": "attempt_started",
+        "started_at": previous.get("started_at", attempt_started_at) if resumable else attempt_started_at,
+        "updated_at": attempt_started_at,
+        "completed_at": None,
+        "attempts": int(previous.get("attempts", 0)) + 1 if resumable else 1,
+        "steps": int(previous.get("steps", 0)) if resumable else 0,
+        "available_task_count": available_task_count(queues),
+        "blocked_task_count": len(queues["human_decision"]),
+        "blocker_codes": blocker_codes(queues),
+        "completed_global_stages": completed_global_stages,
+        "queues": queues,
+        "message": "Попытка автономного прохода начата.",
+    }
+
+
+def finish_run_state(running: dict[str, Any], result: PipelineResult) -> dict[str, Any]:
+    now = datetime.now(UTC).isoformat()
+    return {
+        **running,
+        "status": result.status,
+        "reason_code": result.reason_code,
+        "updated_at": now,
+        "completed_at": now if result.status == "completed" else None,
+        "steps": int(running.get("steps", 0)) + result.steps,
+        "available_task_count": available_task_count(result.queues),
+        "blocked_task_count": len(result.queues["human_decision"]),
+        "blocker_codes": blocker_codes(result.queues),
+        "completed_global_stages": list(result.completed_global_stages),
+        "queues": result.queues,
+        "message": result.message,
+    }
+
+
+def run_pipeline(
+    root: Path,
+    corpus_root: Path,
+    operations: dict[str, Any],
+    max_steps: int | None,
+    completed_global_stages: set[str],
+) -> PipelineResult:
+    normalized_names = normalized_artifacts(operations)
+    queues = build_run_queues(
+        corpus_root,
+        normalized_names,
+        root,
+        completed_global_stages,
+    )
+    results: list[CommandResult] = []
+    steps = 0
+    def completed_stages() -> tuple[str, ...]:
+        return tuple(stage for stage in GLOBAL_STAGES if stage in completed_global_stages)
+
+    while True:
+        queue = next_automated_queue(queues)
+        if queue is None:
+            if queues["human_decision"]:
+                return PipelineResult(
+                    "waiting_external",
+                    "external_blockers_remaining",
+                    queues,
+                    tuple(results),
+                    steps,
+                    "Доступная работа исчерпана. Проход ждёт перечисленных внешних решений.",
+                    completed_stages(),
+                )
+            return PipelineResult(
+                "completed",
+                "all_queues_empty",
+                queues,
+                tuple(results),
+                steps,
+                "Все очереди прохода пусты.",
+                completed_stages(),
+            )
+        if max_steps is not None and steps >= max_steps:
+            return PipelineResult(
+                "paused_limit",
+                "step_limit_reached",
+                queues,
+                tuple(results),
+                steps,
+                "Лимит попытки исчерпан. Проход не завершён и будет продолжен из сохранённой очереди.",
+                completed_stages(),
+            )
+        if not configured_commands(operations, queue):
+            return PipelineResult(
+                "paused_resources",
+                "executor_not_configured",
+                queues,
+                tuple(results),
+                steps,
+                f"Для очереди {queue} не зарегистрирован исполнитель.",
+                completed_stages(),
+            )
+        before = stage_fingerprint(queues, queue)
+        try:
+            stage_results = run_commands(root, operations, queue)
+        except OperationsError as exc:
+            queues = build_run_queues(
+                corpus_root,
+                normalized_names,
+                root,
+                completed_global_stages,
+            )
+            return PipelineResult(
+                "failed",
+                "execution_contract_error",
+                queues,
+                tuple(results),
+                steps,
+                f"Исполнитель очереди {queue} нарушил договор операций: {exc}",
+                completed_stages(),
+            )
+        results.extend(stage_results)
+        steps += 1
+        if any(result.returncode != 0 for result in stage_results):
+            queues = build_run_queues(
+                corpus_root,
+                normalized_names,
+                root,
+                completed_global_stages,
+            )
+            return PipelineResult(
+                "failed",
+                "stage_command_failed",
+                queues,
+                tuple(results),
+                steps,
+                f"Исполнитель очереди {queue} завершился с ошибкой.",
+                completed_stages(),
+            )
+        if queue in GLOBAL_STAGES:
+            completed_global_stages.add(queue)
+        queues = build_run_queues(
+            corpus_root,
+            normalized_names,
+            root,
+            completed_global_stages,
+        )
+        if stage_fingerprint(queues, queue) == before:
+            return PipelineResult(
+                "failed",
+                "no_progress",
+                queues,
+                tuple(results),
+                steps,
+                f"Исполнитель очереди {queue} не изменил машиночитаемую очередь.",
+                completed_stages(),
+            )
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Спланировать или выполнить операции переносимого корпуса знаний.")
     parser.add_argument("corpus", type=Path, help="Корень корпуса с corpus.yml.")
@@ -665,6 +1225,17 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--run-adapters", action="store_true", help="Явно выполнить зарегистрированные адаптеры источников.")
     parser.add_argument("--source", action="append", default=[], help="Идентификатор источника для --run-adapters; можно повторять.")
     parser.add_argument("--rebuild-indexes", action="store_true", help="Атомарно пересобрать производные индексы.")
+    parser.add_argument(
+        "--run-pipeline",
+        action="store_true",
+        help="Продолжать автономный проход по очередям до терминального состояния.",
+    )
+    parser.add_argument(
+        "--max-steps",
+        type=int,
+        help="Ограничить число стадий в одной попытке, сохранив проход незавершённым.",
+    )
+    parser.add_argument("--state", type=Path, help="Репо-относительный путь состояния прохода.")
     parser.add_argument(
         "--operational-check",
         action="store_true",
@@ -691,14 +1262,28 @@ def main() -> int:
     corpus_paths(corpus_root)
     operations_path = resolve_inside(root, str(args.operations), "Файл настроек операций") if args.operations else None
     operations = load_operations(operations_path)
-    items = load_items(corpus_root)
-    queues = build_queues(items, normalized_artifacts(operations), root)
+    items: list[CorpusItem] = []
+    queues = empty_queues()
     command_results: list[CommandResult] = []
     adapter_results: list[AdapterResult] = []
     operational_check: OperationalCheckResult | None = None
-    if args.operational_policy and not args.operational_check:
-        raise OperationsError("--operational-policy требует --operational-check.")
-    if args.operational_check:
+    if args.max_steps is not None and args.max_steps < 1:
+        raise OperationsError("--max-steps должен быть положительным числом.")
+    if args.max_steps is not None and not args.run_pipeline:
+        raise OperationsError("--max-steps требует --run-pipeline.")
+    if args.run_pipeline and (args.run_commands or args.run_adapters):
+        raise OperationsError("--run-pipeline нельзя совмещать с запуском одной стадии или адаптеров.")
+    if args.operational_policy and not (args.operational_check or args.run_pipeline):
+        raise OperationsError("--operational-policy требует --operational-check или --run-pipeline.")
+    if not args.run_pipeline:
+        items = load_items(corpus_root)
+        queues = build_run_queues(
+            corpus_root,
+            normalized_artifacts(operations),
+            root,
+            set(),
+        )
+    if args.operational_check and not args.run_pipeline:
         policy = resolve_inside(root, str(args.operational_policy), "Файл правил операционной проверки") if args.operational_policy else None
         operational_check = run_operational_check(root, corpus_root, policy)
         if operational_check.returncode:
@@ -711,6 +1296,133 @@ def main() -> int:
             else:
                 print(report)
             return 1
+    if args.run_pipeline:
+        if not operations_path:
+            raise OperationsError("Для --run-pipeline нужен параметр --operations.")
+        destination_state = state_path(root, operations, args.state)
+        policy = resolve_inside(root, str(args.operational_policy), "Файл правил операционной проверки") if args.operational_policy else None
+        with run_state_lock(destination_state):
+            attempt_started_at = datetime.now(UTC).isoformat()
+            previous_state = read_run_state(destination_state)
+            resumable = previous_state is not None and previous_state.get("status") != "completed"
+            completed_global_stages = set(
+                previous_state.get("completed_global_stages", []) if resumable else []
+            )
+            initial_queues = (
+                previous_state["queues"] if previous_state is not None else empty_queues()
+            )
+            running_state = start_run_state(previous_state, initial_queues, attempt_started_at)
+            write_run_state(destination_state, running_state)
+            try:
+                operational_check = run_operational_check(root, corpus_root, policy)
+            except OperationsError as exc:
+                operational_check = OperationalCheckResult(
+                    1,
+                    (f"Не удалось выполнить предзапусковую проверку: {exc}",),
+                    (),
+                    (),
+                    (),
+                )
+            if not operational_check.contract_errors:
+                initial_queues = build_run_queues(
+                    corpus_root,
+                    normalized_artifacts(operations),
+                    root,
+                    completed_global_stages,
+                )
+                running_state = {
+                    **running_state,
+                    "available_task_count": available_task_count(initial_queues),
+                    "blocked_task_count": len(initial_queues["human_decision"]),
+                    "blocker_codes": blocker_codes(initial_queues),
+                    "queues": initial_queues,
+                }
+                write_run_state(destination_state, running_state)
+            if operational_check.returncode:
+                pipeline_result = PipelineResult(
+                    "failed",
+                    "preflight_failed",
+                    initial_queues,
+                    (),
+                    0,
+                    "Предзапусковая проверка обнаружила ошибки договора или блокеры публикации.",
+                    tuple(
+                        stage
+                        for stage in GLOBAL_STAGES
+                        if stage in completed_global_stages
+                    ),
+                )
+            else:
+                try:
+                    pipeline_result = run_pipeline(
+                        root,
+                        corpus_root,
+                        operations,
+                        args.max_steps,
+                        completed_global_stages,
+                    )
+                except OperationsError as exc:
+                    current_queues = build_run_queues(
+                        corpus_root,
+                        normalized_artifacts(operations),
+                        root,
+                        completed_global_stages,
+                    )
+                    pipeline_result = PipelineResult(
+                        "failed",
+                        "execution_contract_error",
+                        current_queues,
+                        (),
+                        0,
+                        f"Исполнитель нарушил договор операций: {exc}",
+                        tuple(
+                            stage
+                            for stage in GLOBAL_STAGES
+                            if stage in completed_global_stages
+                        ),
+                    )
+                if pipeline_result.status == "completed":
+                    try:
+                        postflight = run_operational_check(root, corpus_root, policy)
+                    except OperationsError as exc:
+                        postflight = OperationalCheckResult(
+                            1,
+                            (f"Не удалось выполнить итоговую проверку: {exc}",),
+                            (),
+                            (),
+                            (),
+                        )
+                    operational_check = postflight
+                    if postflight.returncode:
+                        pipeline_result = PipelineResult(
+                            "failed",
+                            "postflight_failed",
+                            pipeline_result.queues,
+                            pipeline_result.command_results,
+                            pipeline_result.steps,
+                            "Итоговая проверка обнаружила ошибки договора или блокеры публикации.",
+                            pipeline_result.completed_global_stages,
+                        )
+            run_state = finish_run_state(running_state, pipeline_result)
+            write_run_state(destination_state, run_state)
+        report = render_report(
+            corpus_root,
+            pipeline_result.queues,
+            list(pipeline_result.command_results),
+            None,
+            [],
+            operational_check,
+            run_state,
+        )
+        destination = report_path(root, operations, args.report) if args.write_report or args.report else None
+        if destination:
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_text(report, encoding="utf-8")
+            print(f"Отчёт записан: {repo_relative(root, destination)}")
+        else:
+            print(report)
+        print(f"Состояние прохода записано: {repo_relative(root, destination_state)}")
+        return RUN_EXIT_CODES[pipeline_result.status]
     if args.run_commands:
         if not operations_path:
             raise OperationsError("Для --run-commands нужен параметр --operations.")
@@ -719,13 +1431,23 @@ def main() -> int:
             print(render_report(corpus_root, queues, command_results, None, adapter_results))
             return 1
         items = load_items(corpus_root)
-        queues = build_queues(items, normalized_artifacts(operations), root)
+        queues = build_run_queues(
+            corpus_root,
+            normalized_artifacts(operations),
+            root,
+            set(),
+        )
     if args.run_adapters:
         if not operations_path:
             raise OperationsError("Для --run-adapters нужен параметр --operations.")
         adapter_results = run_adapters(root, corpus_root, operations, set(args.source))
         items = load_items(corpus_root)
-        queues = build_queues(items, normalized_artifacts(operations), root)
+        queues = build_run_queues(
+            corpus_root,
+            normalized_artifacts(operations),
+            root,
+            set(),
+        )
     index_counts = rebuild_indexes(corpus_root, root) if args.rebuild_indexes else None
     report = render_report(corpus_root, queues, command_results, index_counts, adapter_results, operational_check)
     destination = report_path(root, operations, args.report) if args.write_report or args.report else None

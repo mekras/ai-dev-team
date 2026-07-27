@@ -275,6 +275,54 @@ def write_statement(
     )
 
 
+def write_statement_v2(root: Path, *, include_legacy_status: bool = False) -> None:
+    status_line = "status: candidate" if include_legacy_status else ""
+    write_text(root / "data" / "test-source" / "documents" / "item-001" / "artifact.md", "Source fragment.")
+    write_text(
+        root / "data" / "test-source" / "documents" / "item-001" / "item.yml",
+        """
+        id: TEST-ITEM-001
+        title: "Test item"
+        access: "Same as source."
+        status: active
+        workflow_stage: statements_extracted
+        """,
+    )
+    write_text(
+        root / "data" / "test-source" / "documents" / "item-001" / "statements.yml",
+        f"""
+        statement_contract_version: 2
+        source_id: TEST
+        item_id: TEST-ITEM-001
+        statements:
+          - id: TEST-001
+            source_id: TEST
+            item_id: TEST-ITEM-001
+            kind: fact
+            {status_line}
+            text: "A traceable test statement."
+            excerpt: "Source fragment."
+            artifact: artifact.md
+            checked_at: 2026-07-26
+            scope: {{}}
+            open_questions: []
+            processing_status:
+              extraction: complete
+              traceability: passed
+              semantic_review: passed
+              strong_review: not_required
+              corroboration_check: complete
+            source_role: primary
+            evidence_strength: weak
+            confidence: high
+            temporal_status: historical
+            corroboration: single_source
+            limitations:
+              - "The source is historical."
+        """,
+    )
+
+
 def write_derived_statement(
     root: Path,
     *,
@@ -331,13 +379,19 @@ def write_derived_statement(
 
 
 def run_validator(
-    root: Path, *, strict_statements: bool = False, operational: bool = False
+    root: Path,
+    *,
+    strict_statements: bool = False,
+    operational: bool = False,
+    operational_policy: Path | None = None,
 ) -> subprocess.CompletedProcess[str]:
     command = [sys.executable, str(VALIDATOR)]
     if strict_statements:
         command.append("--strict-statements")
     if operational:
         command.append("--operational")
+    if operational_policy is not None:
+        command.extend(["--operational-policy", str(operational_policy)])
     command.append(str(root))
     return subprocess.run(
         command,
@@ -379,6 +433,79 @@ def main() -> int:
         write_minimal_corpus(root)
         write_statement(root)
         assert_passes(root)
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_statement_v2(root)
+        assert_passes(root)
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_statement_v2(root)
+        statements_path = root / "data" / "test-source" / "documents" / "item-001" / "statements.yml"
+        statements_path.write_text(
+            statements_path.read_text(encoding="utf-8").replace(
+                "confidence: high",
+                "confidence: low",
+            ),
+            encoding="utf-8",
+        )
+        assert_fails_with(root, "requires strong_review")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_statement_v2(root)
+        statements_path = root / "data" / "test-source" / "documents" / "item-001" / "statements.yml"
+        statements_path.write_text(
+            statements_path.read_text(encoding="utf-8").replace(
+                "semantic_review: passed",
+                "semantic_review: failed",
+            ),
+            encoding="utf-8",
+        )
+        assert_fails_with(root, "failed semantic review requires strong_review")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_statement_v2(root, include_legacy_status=True)
+        assert_fails_with(root, "status is not allowed in statement contract v2")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_statement_v2(root)
+        statements_path = root / "data" / "test-source" / "documents" / "item-001" / "statements.yml"
+        statements_path.write_text(
+            statements_path.read_text(encoding="utf-8").replace(
+                "statement_contract_version: 2",
+                "statement_contract_version: 99",
+            ),
+            encoding="utf-8",
+        )
+        assert_fails_with(root, "unsupported statement_contract_version: 99")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        items_path = root / "data" / "test-source" / "items.yml"
+        items_path.write_text(
+            items_path.read_text(encoding="utf-8").replace(
+                "workflow_stage: indexed",
+                "workflow_stage: blocked",
+            ),
+            encoding="utf-8",
+        )
+        assert_fails_with(root, "blocker_code must be one of:")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_statement(root, status="blocked")
+        assert_fails_with(root, "blocker_code must be one of:")
 
     with tempfile.TemporaryDirectory() as tmp:
         root = Path(tmp)
@@ -660,6 +787,28 @@ def main() -> int:
         write_long_source(root)
         write_source_map(root, extra='full_text: "Complete tracked text is not allowed."')
         assert_fails_with(root, "source-map.yml contains full-text-like fields")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        write_text(
+            root / "operational-policy.yml",
+            """
+            rules:
+              - kind: arbitrary-topic
+                path: data/**
+                action: blocker
+                reason: "Произвольная тема не должна становиться блокером."
+            """,
+        )
+        initialize_git(root)
+        result = run_validator(
+            root,
+            operational=True,
+            operational_policy=Path("operational-policy.yml"),
+        )
+        if result.returncode == 0 or "operational policy rule #1" not in result.stdout:
+            raise AssertionError("Произвольный вид находки принят как операционный блокер.")
 
     with tempfile.TemporaryDirectory() as tmp:
         root = Path(tmp)

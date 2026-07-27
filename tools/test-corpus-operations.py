@@ -3,6 +3,8 @@
 
 from __future__ import annotations
 
+import fcntl
+import json
 import subprocess
 import sys
 import tempfile
@@ -98,11 +100,7 @@ def build_corpus(root: Path) -> None:
             access: "Открытый тестовый источник."
             status: blocked
             workflow_stage: blocked
-          - id: TEST-UNKNOWN
-            title: "Неизвестная стадия"
-            access: "Открытый тестовый источник."
-            status: active
-            workflow_stage: custom_stage
+            blocker_code: owner_decision_required
           - id: TEST-STATEMENTS
             title: "С утверждениями"
             access: "Открытый тестовый источник."
@@ -121,6 +119,12 @@ def build_corpus(root: Path) -> None:
             status: active
             workflow_stage: indexed
             processing_scope: selected_fragments
+          - id: TEST-V2-COMPLETE
+            title: "Полностью обработанное историческое утверждение"
+            access: "Открытый тестовый источник."
+            status: active
+            workflow_stage: source_checked
+            path: documents/v2-complete
         """,
     )
     write(
@@ -135,6 +139,7 @@ def build_corpus(root: Path) -> None:
         carrier_type: document
         source_kind: reference
         storage_strategy: index_only
+        adapter: builtin.index
         reliability: test
         refresh_policy: manual
         """,
@@ -190,9 +195,62 @@ def build_corpus(root: Path) -> None:
             status: candidate
             kind: fact
             text: "Тестовое утверждение."
+            excerpt: "Тестовое утверждение."
             artifact: normalized.md
             checked_at: 2026-07-10
+            scope: {}
+            open_questions: []
         """,
+    )
+    write(
+        root / "knowledge" / "data" / "test" / "documents" / "statements" / "normalized.md",
+        "Тестовое утверждение.\n",
+    )
+    write(
+        root / "knowledge" / "data" / "test" / "documents" / "v2-complete" / "item.yml",
+        """
+        id: TEST-V2-COMPLETE
+        title: "Полностью обработанное историческое утверждение"
+        access: "Открытый тестовый источник."
+        status: active
+        workflow_stage: source_checked
+        """,
+    )
+    write(
+        root / "knowledge" / "data" / "test" / "documents" / "v2-complete" / "statements.yml",
+        """
+        statement_contract_version: 2
+        source_id: TEST
+        item_id: TEST-V2-COMPLETE
+        statements:
+          - id: TEST-002
+            source_id: TEST
+            item_id: TEST-V2-COMPLETE
+            kind: fact
+            text: "Историческое утверждение со слабым основанием."
+            excerpt: "Историческое утверждение со слабым основанием."
+            artifact: normalized.md
+            checked_at: 2026-07-10
+            scope: {}
+            open_questions: []
+            processing_status:
+              extraction: complete
+              traceability: passed
+              semantic_review: passed
+              strong_review: not_required
+              corroboration_check: complete
+            source_role: secondary
+            evidence_strength: weak
+            confidence: high
+            temporal_status: historical
+            corroboration: single_source
+            limitations:
+              - "Сведения относятся к прошлому состоянию."
+        """,
+    )
+    write(
+        root / "knowledge" / "data" / "test" / "documents" / "v2-complete" / "normalized.md",
+        "Историческое утверждение со слабым основанием.\n",
     )
     write(
         root / "adapter.py",
@@ -214,6 +272,29 @@ def build_corpus(root: Path) -> None:
         """,
     )
     write(
+        root / "advance-content-selection.py",
+        """
+        import json
+        from pathlib import Path
+
+        state = json.loads(Path(".local/state/corpus-pipeline.json").read_text(encoding="utf-8"))
+        if state.get("status") != "running":
+            raise SystemExit("pipeline state was not persisted as running")
+        path = Path("knowledge/data/test/items.yml")
+        text = path.read_text(encoding="utf-8")
+        old = '''  - id: TEST-CONTENT-SELECTION
+            title: "Нужен содержательный отбор"
+            access: "Открытый тестовый источник."
+            status: active
+            workflow_stage: indexed
+            processing_scope: metadata_only'''
+        new = old.replace("workflow_stage: indexed", "workflow_stage: rejected")
+        if old not in text:
+            raise SystemExit("test item was not found")
+        path.write_text(text.replace(old, new), encoding="utf-8")
+        """,
+    )
+    write(
         root / "operations.yml",
         f"""
         operations_version: 1
@@ -231,6 +312,55 @@ def build_corpus(root: Path) -> None:
                 write_paths:
                   - knowledge/data/test
                 required: true
+          content_selection:
+            commands:
+              - id: reject-unselected-test-item
+                argv:
+                  - {sys.executable}
+                  - advance-content-selection.py
+                working_directory: .
+                write_paths:
+                  - knowledge/data/test
+                required: true
+          bad_write:
+            commands:
+              - id: overwrite-staged-file-outside-scope
+                argv:
+                  - {sys.executable}
+                  - -c
+                  - "from pathlib import Path; Path('outside.txt').write_text('changed', encoding='utf-8')"
+                working_directory: .
+                write_paths:
+                  - knowledge/data/test
+                required: true
+          concepts:
+            commands:
+              - id: check-concepts
+                argv: [{sys.executable}, -c, "pass"]
+                working_directory: .
+                write_paths: [knowledge]
+                required: true
+          impact_audit:
+            commands:
+              - id: audit-impact
+                argv: [{sys.executable}, -c, "pass"]
+                working_directory: .
+                write_paths: [knowledge]
+                required: true
+          apply_changes:
+            commands:
+              - id: apply-safe-changes
+                argv: [{sys.executable}, -c, "pass"]
+                working_directory: .
+                write_paths: [knowledge]
+                required: true
+          corpus_validation:
+            commands:
+              - id: validate-complete-corpus
+                argv: [{sys.executable}, -c, "pass"]
+                working_directory: .
+                write_paths: [knowledge]
+                required: true
         adapters:
           builtin.local-file:
             argv:
@@ -243,6 +373,85 @@ def build_corpus(root: Path) -> None:
               - knowledge/data/test
         """,
     )
+    write(root / "outside.txt", "original\n")
+
+
+def reject_automated_work(root: Path, *, keep_blocked: bool) -> None:
+    stage_names = (
+        "needs_fetch",
+        "fetched",
+        "needs_transcript",
+        "raw_transcribed",
+        "normalized",
+        "statements_extracted",
+        "source_checked",
+        "indexed",
+    )
+    for path in (root / "knowledge" / "data").rglob("*.yml"):
+        text = path.read_text(encoding="utf-8")
+        for stage in stage_names:
+            text = text.replace(f"workflow_stage: {stage}", "workflow_stage: rejected")
+        text = text.replace("status: candidate", "status: confirmed")
+        if not keep_blocked:
+            text = text.replace("workflow_stage: blocked", "workflow_stage: rejected")
+        path.write_text(text, encoding="utf-8")
+
+
+def add_no_progress_fetch_executor(root: Path) -> None:
+    path = root / "operations.yml"
+    text = path.read_text(encoding="utf-8")
+    addition = (
+        "  fetch:\n"
+        "    commands:\n"
+        "      - id: touch-unrelated-marker\n"
+        "        argv:\n"
+        f"          - {sys.executable}\n"
+        "          - -c\n"
+        "          - \"from pathlib import Path; "
+        "Path('knowledge/data/test/unrelated.txt').write_text('changed', encoding='utf-8')\"\n"
+        "        working_directory: .\n"
+        "        write_paths:\n"
+        "          - knowledge/data/test\n"
+        "        required: true\n"
+    )
+    path.write_text(
+        text.replace("\nadapters:\n", f"\n{addition}adapters:\n"),
+        encoding="utf-8",
+    )
+
+
+def make_pipeline_executor_violate_write_scope(root: Path) -> None:
+    path = root / "operations.yml"
+    text = path.read_text(encoding="utf-8")
+    text = text.replace(
+        f"          - {sys.executable}\n          - advance-content-selection.py",
+        (
+            f"          - {sys.executable}\n"
+            "          - -c\n"
+            "          - \"from pathlib import Path; "
+            "Path('outside.txt').write_text('pipeline changed', encoding='utf-8')\""
+        ),
+    )
+    path.write_text(text, encoding="utf-8")
+
+
+def make_final_stage_leave_operational_blocker(root: Path) -> None:
+    path = root / "operations.yml"
+    text = path.read_text(encoding="utf-8")
+    old = (
+        "      - id: validate-complete-corpus\n"
+        f"        argv: [{sys.executable}, -c, \"pass\"]"
+    )
+    new = (
+        "      - id: validate-complete-corpus\n"
+        f"        argv: [{sys.executable}, -c, "
+        "\"from pathlib import Path; "
+        "Path('knowledge/data/test/runtime-leak.yml').write_text('api_key=runtime-secret', "
+        "encoding='utf-8')\"]"
+    )
+    if old not in text:
+        raise AssertionError("Не найдена команда финальной проверки в тестовых настройках.")
+    path.write_text(text.replace(old, new), encoding="utf-8")
 
 
 def run(root: Path, *arguments: str, expected: int = 0) -> subprocess.CompletedProcess[str]:
@@ -263,6 +472,21 @@ def main() -> int:
     with tempfile.TemporaryDirectory() as temporary:
         root = Path(temporary)
         build_corpus(root)
+        make_pipeline_executor_violate_write_scope(root)
+        subprocess.run(["git", "init", "--quiet"], cwd=root, check=True)
+        subprocess.run(["git", "add", "-A"], cwd=root, check=True)
+        failed = run(root, "--run-pipeline", expected=1)
+        state = json.loads(
+            (root / ".local" / "state" / "corpus-pipeline.json").read_text(encoding="utf-8")
+        )
+        if state["status"] != "failed" or state["reason_code"] != "execution_contract_error":
+            raise AssertionError("Нарушение write_paths оставило проход в нетерминальном состоянии.")
+        if "вне write_paths: outside.txt" not in state["message"] or "status: running" in failed.stdout:
+            raise AssertionError("Отчёт не сохранил причину нарушения write_paths.")
+
+    with tempfile.TemporaryDirectory() as temporary:
+        root = Path(temporary)
+        build_corpus(root)
         subprocess.run(["git", "init", "--quiet"], cwd=root, check=True)
         subprocess.run(["git", "add", "-A"], cwd=root, check=True)
 
@@ -271,15 +495,34 @@ def main() -> int:
             "- content_selection: 1",
             "- fetch: 3",
             "- statements: 1",
-            "- source_check: 1",
-            "- human_decision: 2",
+            "- semantic_review: 1",
+            "- human_decision: 1",
+            "- concepts: 1",
+            "- impact_audit: 1",
+            "- apply_changes: 1",
+            "- corpus_validation: 1",
         ):
             if expected_line not in plan.stdout:
                 raise AssertionError(f"В плане нет строки: {expected_line}")
         if "TEST-INDEX-ONLY-METADATA" in plan.stdout:
             raise AssertionError("Не выбранная единица index_only не должна образовывать массовую очередь.")
+        if "TEST-V2-COMPLETE" in plan.stdout:
+            raise AssertionError("Слабое историческое утверждение с завершённой обработкой не должно возвращаться в очередь.")
         if (root / ".local").exists() or (root / "knowledge" / "index").exists():
             raise AssertionError("Планирование без параметров не должно записывать файлы.")
+
+        paused = run(root, "--run-pipeline", "--max-steps", "1", expected=10)
+        state_path = root / ".local" / "state" / "corpus-pipeline.json"
+        state = state_path.read_text(encoding="utf-8")
+        if '"status": "paused_limit"' not in state or '"available_task_count": 0' in state:
+            raise AssertionError("Лимит попытки не сохранил незавершённый проход и полный хвост.")
+        run_id_line = next(line for line in state.splitlines() if '"run_id"' in line)
+        unavailable = run(root, "--run-pipeline", expected=11)
+        resumed_state = state_path.read_text(encoding="utf-8")
+        if '"status": "paused_resources"' not in resumed_state or run_id_line not in resumed_state:
+            raise AssertionError("Следующая попытка не продолжила тот же проход.")
+        if "status: completed" in paused.stdout or "status: completed" in unavailable.stdout:
+            raise AssertionError("Управляемая пауза не должна называться завершением прохода.")
 
         run(root, "--rebuild-indexes", "--write-report")
         items_index = (root / "knowledge" / "index" / "items.yml").read_text(encoding="utf-8")
@@ -296,6 +539,9 @@ def main() -> int:
         run(root, "--run-commands")
         if marker.read_text(encoding="utf-8") != "ok":
             raise AssertionError("Явно разрешённая команда не выполнилась.")
+        forbidden_write = run(root, "--run-commands", "--stage", "bad_write", expected=2)
+        if "вне write_paths: outside.txt" not in forbidden_write.stderr:
+            raise AssertionError("Изменение уже отслеживаемого файла вне write_paths не обнаружено.")
 
         adapter_marker = root / "knowledge" / "data" / "test" / "adapter-marker.yml"
         adapters = run(root, "--run-adapters", "--source", "TEST")
@@ -377,6 +623,163 @@ def main() -> int:
         rejected = run(root, expected=2)
         if "относительным путём внутри корпуса" not in rejected.stderr:
             raise AssertionError("Выход за пределы источника не был отклонён.")
+
+    with tempfile.TemporaryDirectory() as temporary:
+        root = Path(temporary)
+        build_corpus(root)
+        subprocess.run(["git", "init", "--quiet"], cwd=root, check=True)
+        subprocess.run(["git", "add", "-A"], cwd=root, check=True)
+        statements = (
+            root
+            / "knowledge"
+            / "data"
+            / "test"
+            / "documents"
+            / "v2-complete"
+            / "statements.yml"
+        )
+        statements.write_text(
+            statements.read_text(encoding="utf-8")
+            .replace("semantic_review: passed", "semantic_review: failed")
+            .replace("strong_review: not_required", "strong_review: pending"),
+            encoding="utf-8",
+        )
+        plan = run(root)
+        if "- strong_review: 1" not in plan.stdout or "- semantic_review: 2" in plan.stdout:
+            raise AssertionError("Спорный случай обычной модели не направлен на усиленную проверку.")
+
+    with tempfile.TemporaryDirectory() as temporary:
+        root = Path(temporary)
+        build_corpus(root)
+        subprocess.run(["git", "init", "--quiet"], cwd=root, check=True)
+        subprocess.run(["git", "add", "-A"], cwd=root, check=True)
+        state_path = root / ".local" / "state" / "corpus-pipeline.json"
+        lock_path = state_path.with_name(f"{state_path.name}.lock")
+        lock_path.parent.mkdir(parents=True, exist_ok=True)
+        with lock_path.open("a+", encoding="utf-8") as stream:
+            fcntl.flock(stream.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+            locked = run(root, "--run-pipeline", expected=2)
+        if "уже выполняется другим процессом" not in locked.stderr:
+            raise AssertionError("Одновременный исполнитель не был остановлен блокировкой состояния.")
+
+    with tempfile.TemporaryDirectory() as temporary:
+        root = Path(temporary)
+        build_corpus(root)
+        subprocess.run(["git", "init", "--quiet"], cwd=root, check=True)
+        subprocess.run(["git", "add", "-A"], cwd=root, check=True)
+        reject_automated_work(root, keep_blocked=True)
+        waiting = run(root, "--run-pipeline", expected=20)
+        state = json.loads(
+            (root / ".local" / "state" / "corpus-pipeline.json").read_text(encoding="utf-8")
+        )
+        if state["status"] != "waiting_external" or state["blocker_codes"] != [
+            "owner_decision_required"
+        ]:
+            raise AssertionError("Внешний блокер не сохранился в состоянии прохода.")
+        if "blocker_code=owner_decision_required" not in waiting.stdout:
+            raise AssertionError("Отчёт не показывает машиночитаемый код внешнего блокера.")
+
+    with tempfile.TemporaryDirectory() as temporary:
+        root = Path(temporary)
+        build_corpus(root)
+        subprocess.run(["git", "init", "--quiet"], cwd=root, check=True)
+        subprocess.run(["git", "add", "-A"], cwd=root, check=True)
+        reject_automated_work(root, keep_blocked=False)
+        run(root, "--run-pipeline", "--max-steps", "2", expected=10)
+        state_path = root / ".local" / "state" / "corpus-pipeline.json"
+        paused = json.loads(state_path.read_text(encoding="utf-8"))
+        if paused["completed_global_stages"] != ["concepts", "impact_audit"]:
+            raise AssertionError("Пауза не сохранила завершённые глобальные стадии.")
+        resumed = run(root, "--run-pipeline")
+        first = json.loads(state_path.read_text(encoding="utf-8"))
+        if first["run_id"] != paused["run_id"]:
+            raise AssertionError("Продолжение глобальных стадий создало новый проход.")
+        if "check-concepts" in resumed.stdout or "audit-impact" in resumed.stdout:
+            raise AssertionError("Продолжение повторно запустило завершённые глобальные стадии.")
+        if first["status"] != "completed" or first["available_task_count"] != 0:
+            raise AssertionError("Пустой хвост не завершил проход.")
+        if first["completed_global_stages"] != [
+            "concepts",
+            "impact_audit",
+            "apply_changes",
+            "corpus_validation",
+        ]:
+            raise AssertionError("Проход завершился без обязательных глобальных стадий.")
+        run(root, "--run-pipeline")
+        second = json.loads(state_path.read_text(encoding="utf-8"))
+        if second["status"] != "completed" or second["run_id"] == first["run_id"]:
+            raise AssertionError("После завершения не был создан новый проход.")
+
+    with tempfile.TemporaryDirectory() as temporary:
+        root = Path(temporary)
+        build_corpus(root)
+        add_no_progress_fetch_executor(root)
+        subprocess.run(["git", "init", "--quiet"], cwd=root, check=True)
+        subprocess.run(["git", "add", "-A"], cwd=root, check=True)
+        stalled = run(root, "--run-pipeline", expected=1)
+        state = json.loads(
+            (root / ".local" / "state" / "corpus-pipeline.json").read_text(encoding="utf-8")
+        )
+        if state["reason_code"] != "no_progress" or "не изменил машиночитаемую очередь" not in state["message"]:
+            raise AssertionError(
+                "Исполнитель без прогресса текущей стадии не остановил проход.\n"
+                f"state={state}\nstdout={stalled.stdout}\nstderr={stalled.stderr}"
+            )
+
+    with tempfile.TemporaryDirectory() as temporary:
+        root = Path(temporary)
+        build_corpus(root)
+        reject_automated_work(root, keep_blocked=False)
+        make_final_stage_leave_operational_blocker(root)
+        subprocess.run(["git", "init", "--quiet"], cwd=root, check=True)
+        subprocess.run(["git", "add", "-A"], cwd=root, check=True)
+        failed = run(root, "--run-pipeline", expected=1)
+        state = json.loads(
+            (root / ".local" / "state" / "corpus-pipeline.json").read_text(encoding="utf-8")
+        )
+        if state["status"] != "failed" or state["reason_code"] != "postflight_failed":
+            raise AssertionError("Итоговый операционный блокер не отменил completed.")
+        if "блокеры доступа: 1" not in failed.stdout or "runtime-secret" in failed.stdout:
+            raise AssertionError("Итоговая проверка не обезличила операционный блокер.")
+
+    with tempfile.TemporaryDirectory() as temporary:
+        root = Path(temporary)
+        build_corpus(root)
+        subprocess.run(["git", "init", "--quiet"], cwd=root, check=True)
+        subprocess.run(["git", "add", "-A"], cwd=root, check=True)
+        statements = (
+            root
+            / "knowledge"
+            / "data"
+            / "test"
+            / "documents"
+            / "v2-complete"
+            / "statements.yml"
+        )
+        statements.write_text(
+            statements.read_text(encoding="utf-8").replace(
+                "statement_contract_version: 2",
+                "statement_contract_version: 99",
+            ),
+            encoding="utf-8",
+        )
+        failed = run(root, "--run-pipeline", expected=1)
+        state = json.loads(
+            (root / ".local" / "state" / "corpus-pipeline.json").read_text(encoding="utf-8")
+        )
+        if state["reason_code"] != "preflight_failed" or "ошибка договора" not in failed.stdout:
+            raise AssertionError("Обязательная предзапусковая проверка не сохранила отказ прохода.")
+
+    with tempfile.TemporaryDirectory() as temporary:
+        root = Path(temporary)
+        build_corpus(root)
+        subprocess.run(["git", "init", "--quiet"], cwd=root, check=True)
+        subprocess.run(["git", "add", "-A"], cwd=root, check=True)
+        state_path = root / ".local" / "state" / "corpus-pipeline.json"
+        write(state_path, "{not-json")
+        corrupt = run(root, "--run-pipeline", expected=2)
+        if "Не удалось прочитать состояние прохода" not in corrupt.stderr:
+            raise AssertionError("Повреждённое состояние прохода не было отклонено.")
 
     print("Проверки операционного контура корпуса прошли.")
     return 0

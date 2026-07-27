@@ -199,6 +199,78 @@
       "required_corpus_claims": [
         "KCSTATEMENTS-1"
       ]
+    },
+    {
+      "id": "kc-statements-result-processing-quality-separation",
+      "prompt": "Утверждение точно извлечено и прослеживается до старого вторичного источника. Независимого подтверждения нет. Запиши его состояние без общей метки candidate и реши, нужна ли ручная проверка.",
+      "input_files": [
+        {
+          "path": ".apm/skills/kc-statements/SKILL.md",
+          "purpose": "разделение обработки и оценки сведений"
+        },
+        {
+          "path": ".apm/skills/kc-inventory/assets/statements.yml",
+          "purpose": "договор утверждений версии 2"
+        }
+      ],
+      "expected_output": {
+        "report_structure": [
+          "processing_status",
+          "source_role",
+          "evidence_strength",
+          "confidence",
+          "temporal_status",
+          "corroboration",
+          "strong_review",
+          "limitations"
+        ],
+        "findings": [
+          {
+            "severity": "medium",
+            "observed_problem": "Качество и возраст основания не должны превращаться в незавершённую обработку.",
+            "expected_conclusion": "Обработка может быть завершена, а источник отмечен как secondary, weak, historical и single_source. Ручное решение не требуется только из-за этих свойств.",
+            "acceptable_fix_direction": "Сохранить конкретные ограничения отдельно от processing_status.",
+            "corpus_claims": [
+              "KCSTATEMENTS-1"
+            ]
+          }
+        ]
+      },
+      "negative_control": {
+        "description": "Ответ ставит candidate, blocked или отправляет утверждение человеку только из-за возраста и слабости источника.",
+        "expected_failure": "Такой ответ снова смешивает качество сведений с очередью обработки."
+      },
+      "oracle": {
+        "success_criteria": [
+          "результат использует договор версии 2 без status",
+          "результат отмечает завершённую обработку отдельно от слабого основания",
+          "результат не создаёт ручную очередь по тематике или качеству",
+          "низкая уверенность или противоречие маршрутизируются в strong_review до человека"
+        ],
+        "failure_indicators": [
+          "ответ использует общий candidate",
+          "confidence трактуется как истинность",
+          "старый источник автоматически блокирует проход"
+        ]
+      },
+      "application_evidence": [
+        "результат заполняет независимые поля обработки и оценки",
+        "ограничения сформулированы конкретно"
+      ],
+      "evaluation_surface": "качество результата и ограничение",
+      "assertions": [
+        "Слабое историческое основание может быть полностью обработано.",
+        "Уверенность относится к извлечению, а не к истинности.",
+        "Тематика материала не определяет блокировку."
+      ],
+      "must_not": [
+        "не использовать status в договоре версии 2",
+        "не отправлять утверждение человеку только из-за слабого основания",
+        "не вводить тематический стоп-параметр"
+      ],
+      "required_corpus_claims": [
+        "KCSTATEMENTS-1"
+      ]
     }
   ]
 }
