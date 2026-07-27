@@ -43,6 +43,14 @@ items:
   date_published: null
   workflow_stage: indexed
   access: Внешние публичные руководства. Получать релевантный документ по запросу.
+- id: AM32-motivation
+  source_id: AM32
+  path: data/am32/items/motivation/item.yml
+  title: 'ArchiMate 3.2: область Motivation и связанные элементы'
+  date_published: null
+  workflow_stage: source_checked
+  access: Внешние официальные страницы. Полный стандарт не копировать и перед нормативным
+    применением проверять действующую лицензию.
 - id: APHG-source
   source_id: APHG
   path: data/aphg/items/source/item.yml
@@ -408,6 +416,14 @@ items:
   workflow_stage: statements_extracted
   access: Внешний публичный материал. Использовать выбранные фрагменты по правилам
     карточки источника.
+- id: BMM-core
+  source_id: BMM
+  path: data/bmm/items/core/item.yml
+  title: 'BMM: официальный обзор основных понятий и спецификация 1.3'
+  date_published: null
+  workflow_stage: source_checked
+  access: Официальный обзор разрешено распространять с атрибуцией. Спецификацию использовать
+    точечно с проверкой условий OMG.
 - id: BSIM-source
   source_id: BSIM
   path: data/bsim/items/source/item.yml
@@ -2956,6 +2972,14 @@ items:
   date_published: null
   workflow_stage: source_checked
   access: Смотри карточку источника и ограничения в knowledge/source-attribution.md.
+- id: TG10-principles
+  source_id: TG10
+  path: data/tg10/items/principles/item.yml
+  title: 'TOGAF 10: архитектурные принципы и требования'
+  date_published: null
+  workflow_stage: source_checked
+  access: Публичные страницы каталога The Open Group. Полные документы требуют проверки
+    лицензии и могут требовать регистрации.
 - id: TMDS-source
   source_id: TMDS
   path: data/tmds/items/source/item.yml

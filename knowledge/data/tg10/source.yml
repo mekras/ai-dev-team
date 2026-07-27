@@ -1,0 +1,65 @@
+id: TG10
+slug: tg10
+title: >-
+  Официальные материалы The Open Group по TOGAF Standard, 10th Edition:
+  структура стандарта, настраиваемая практика и шаблоны результатов.
+status: approved
+priority: high
+carrier_type: website
+source_kind: normative
+long_source: false
+adapter: manual
+storage_strategy: external_reference
+processing_scope: selected_fragments
+retrieval_mode: on_demand
+copy_policy: no_bulk_copy
+allowed_use: >-
+  Точечная проверка структуры TOGAF, места архитектурных принципов и требований
+  со ссылкой на первоисточник. Полный текст стандарта не копируется.
+requires_access_check: true
+url: https://publications.opengroup.org/c220
+locator: https://publications.opengroup.org/c220
+public_reference: https://www.opengroup.org/togaf
+license_or_terms: >-
+  TOGAF Standard, 10th Edition доступен по лицензии The Open Group.
+  Перераспространение документации полностью или частично не допускается
+  условиями оценочной лицензии.
+access:
+  default: >-
+    Метаданные и страницы каталога доступны публично. Получение стандарта и
+    шаблонов может требовать регистрации и принятия условий лицензии.
+reliability: official
+stability: versioned
+refresh_policy: manual
+last_checked_at: "2026-07-27"
+scope:
+  includes:
+    - настраиваемая практика архитектуры предприятия
+    - архитектурные принципы
+    - бизнес-принципы, цели и движущие силы
+    - спецификация архитектурных требований
+  excludes:
+    - обязательное применение TOGAF во всех проектах
+    - полный метод ADM
+    - локальная копия стандарта и шаблонов
+known_limitations:
+  - >-
+    Полные определения и рекомендуемый шаблон архитектурного принципа нужно
+    проверять по лицензированному разделу ADM Techniques.
+  - >-
+    Страницы каталога показывают состав и назначение материалов, но не заменяют
+    нормативный текст.
+processing_notes:
+  - >-
+    Нормализованы только публичные метаданные, относящиеся к принципам,
+    требованиям и настраиваемости подхода.
+items:
+  - id: TG10-principles
+    source_id: TG10
+    title: "TOGAF 10: архитектурные принципы и требования"
+    access: >-
+      Публичные страницы каталога The Open Group. Полные документы требуют
+      проверки лицензии и могут требовать регистрации.
+    status: confirmed
+    workflow_stage: source_checked
+    path: items/principles/item.yml

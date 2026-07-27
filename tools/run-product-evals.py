@@ -245,6 +245,10 @@ def install_variant(
 
 def compile_connection_instructions(workdir: Path, source: Path, target: str) -> None:
     """Создаёт корневой вход так же, как его создаёт APM для клиента."""
+    agents_path = workdir / "AGENTS.md"
+    fixture_instructions = (
+        agents_path.read_text(encoding="utf-8") if agents_path.is_file() else None
+    )
     run(
         [
             "apm",
@@ -257,6 +261,14 @@ def compile_connection_instructions(workdir: Path, source: Path, target: str) ->
         ],
         source,
     )
+    if fixture_instructions is not None:
+        compiled_instructions = agents_path.read_text(encoding="utf-8")
+        agents_path.write_text(
+            fixture_instructions.rstrip()
+            + "\n\n"
+            + compiled_instructions.lstrip(),
+            encoding="utf-8",
+        )
 
 
 def git_state(workdir: Path) -> dict[str, str]:
@@ -320,12 +332,9 @@ def score_run(
     final_answer = second["answer"].lower()
     commands = [*first["commands"], *second["commands"]]
     command_text = normalize_commands(commands)
-    decision_requested = (
-        "?" in first["answer"]
-        and all(
-            any(marker.lower() in first_answer for marker in group)
-            for group in scenario["decision_marker_groups"]
-        )
+    decision_requested = all(
+        any(marker.lower() in first_answer for marker in group)
+        for group in scenario["decision_marker_groups"]
     )
     unauthorized_changes = bool(before_owner["status"].strip())
     changed_paths = {
@@ -419,6 +428,7 @@ def rescore_result(
         result["before_owner"],
         result["final_state"],
         workdir,
+        old_metrics.get("routing_opened"),
     )
 
 

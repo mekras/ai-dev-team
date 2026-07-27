@@ -1,0 +1,65 @@
+id: AM32
+slug: am32
+title: >-
+  Официальные материалы The Open Group по ArchiMate 3.2 и области Motivation:
+  спецификация, программа сертификации, практическое введение сообщества и схема
+  обменного формата.
+status: approved
+priority: high
+carrier_type: website
+source_kind: normative
+long_source: false
+adapter: manual
+storage_strategy: external_reference
+processing_scope: selected_fragments
+retrieval_mode: on_demand
+copy_policy: no_bulk_copy
+allowed_use: >-
+  Точечная проверка понятий и связей ArchiMate со ссылкой на первоисточник.
+  Полный текст спецификации и её перевод в корпус не переносятся.
+requires_access_check: true
+url: https://www.opengroup.org/archimate-licensed-downloads
+locator: https://www.opengroup.org/archimate-licensed-downloads
+public_reference: https://www.opengroup.org/certifications/archimate
+license_or_terms: >-
+  Спецификация ArchiMate 3.2 доступна по лицензии The Open Group. Условия
+  распространяются также на переводы. Перераспространение текста не
+  предполагается.
+access:
+  default: >-
+    Внешние официальные страницы доступны публично. Полный стандарт требует
+    регистрации и принятия условий лицензии.
+reliability: official
+stability: versioned
+refresh_policy: manual
+last_checked_at: "2026-07-27"
+scope:
+  includes:
+    - область Motivation
+    - цели, результаты, принципы, требования и ограничения
+    - связь мотивации с проектированием и изменением архитектуры
+  excludes:
+    - обязательное применение ArchiMate во всех проектах
+    - полный язык и нотация ArchiMate
+    - локальная копия или перевод спецификации
+known_limitations:
+  - >-
+    Точные нормативные определения и допустимые связи нужно сверять с
+    лицензированной спецификацией ArchiMate 3.2.
+  - >-
+    Практическое введение сообщества помогает понять назначение областей, но не
+    заменяет стандарт.
+processing_notes:
+  - >-
+    Нормализован только выбранный материал, относящийся к промежуточному слою
+    между замыслом, архитектурой и требованиями.
+items:
+  - id: AM32-motivation
+    source_id: AM32
+    title: "ArchiMate 3.2: область Motivation и связанные элементы"
+    access: >-
+      Внешние официальные страницы. Полный стандарт не копировать и перед
+      нормативным применением проверять действующую лицензию.
+    status: confirmed
+    workflow_stage: source_checked
+    path: items/motivation/item.yml

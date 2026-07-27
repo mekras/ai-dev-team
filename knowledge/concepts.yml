@@ -31,6 +31,41 @@
 #   gaps               — известные разрывы (со ссылкой на BACKLOG.md)
 
 concepts:
+  - id: architecture-principle
+    primary_ru: архитектурный принцип
+    forms_ru: [направляющий архитектурный принцип]
+    forms_en: [architecture principle, principle]
+    definition_ru: >-
+      направляющее положение архитектурной работы, которое хранится отдельно
+      от конкретных требований. Точная семантика и допустимые связи зависят от
+      выбранного подхода.
+    authority: >-
+      AM32 и TG10. Общая русская форма совпадает, а значения не объединяются.
+    defined_by: [AM32-003, AM32-004, TG10-003, TG10-004]
+    cite_as: [AM32, TG10, BMM]
+    synonyms_by_source:
+      AM32: Principle в области Motivation
+      TG10: Architecture Principle
+      BMM: Business Policy — связанное, но не тождественное понятие
+    reconciliation:
+      - >-
+        В ArchiMate Principle — элемент модели мотивации рядом с Goal,
+        Requirement и Constraint. В TOGAF Architecture Principles —
+        самостоятельный результат и техника архитектурной работы. Одинаковое
+        название не означает одинаковый договор хранения и применения.
+      - >-
+        Business Policy в BMM выполняет близкую направляющую функцию, но
+        относится к Means и раскрывается через Business Rules. Поэтому она не
+        считается прямым синонимом архитектурного принципа.
+    collisions:
+      - >-
+        Не путать архитектурный принцип с проверяемым требованием. Принцип
+        направляет выбор и порождение требований, но не обязан сам задавать
+        измеримый критерий приёмки.
+      - >-
+        Не считать Principle ArchiMate, Architecture Principle TOGAF и Business
+        Policy BMM взаимозаменяемыми без явного выбора подхода.
+
   - id: project-reconstructability
     primary_ru: реконструируемость проекта
     forms_ru:

@@ -1,0 +1,104 @@
+statements:
+  - id: AM32-001
+    source_id: AM32
+    item_id: AM32-motivation
+    kind: fact
+    status: verified
+    text: >-
+      ArchiMate задаёт независимый язык моделирования архитектуры предприятия
+      для описания, анализа и визуализации связей между предметными областями.
+    excerpt: >-
+      ArchiMate задаёт независимый язык моделирования архитектуры предприятия.
+    artifact: normalized.md
+    checked_at: "2026-07-27"
+    scope:
+      section_title: Назначение языка
+      application: выбор общего языка архитектурного моделирования
+    open_questions: []
+  - id: AM32-002
+    source_id: AM32
+    item_id: AM32-motivation
+    kind: fact
+    status: verified
+    text: >-
+      Практическое введение сообщества ArchiMate выделяет области Motivation,
+      Strategy, Core, Implementation and Migration.
+    excerpt: >-
+      Практическое введение сообщества группирует элементы языка по четырём
+      областям: Motivation, Strategy, Core, Implementation and Migration.
+    artifact: normalized.md
+    checked_at: "2026-07-27"
+    scope:
+      section_title: Области языка
+      application: разделение мотивации, стратегии, решения и перехода
+    open_questions: []
+  - id: AM32-003
+    source_id: AM32
+    item_id: AM32-motivation
+    kind: fact
+    status: verified
+    text: >-
+      Область Motivation предназначена для моделирования причин, которые
+      направляют проектирование или изменение архитектуры.
+    excerpt: >-
+      Область Motivation моделирует причины, которые направляют проектирование
+      или изменение архитектуры.
+    artifact: normalized.md
+    checked_at: "2026-07-27"
+    scope:
+      section_title: Области языка
+      application: объяснение замысла и оснований архитектурного изменения
+    open_questions: []
+  - id: AM32-004
+    source_id: AM32
+    item_id: AM32-motivation
+    kind: fact
+    status: verified
+    text: >-
+      Официальная схема обменного формата ArchiMate содержит отдельные типы
+      Goal, Outcome, Principle, Requirement и Constraint.
+    excerpt: >-
+      Официальная схема обменного формата перечисляет среди типов элементов
+      Stakeholder, Driver, Assessment, Goal, Outcome, Principle, Requirement,
+      Constraint, Meaning и Value.
+    artifact: normalized.md
+    checked_at: "2026-07-27"
+    scope:
+      section_title: Элементы области Motivation
+      application: раздельное представление целей, принципов и требований
+    open_questions: []
+  - id: AM32-005
+    source_id: AM32
+    item_id: AM32-motivation
+    kind: inference
+    status: verified
+    text: >-
+      Разделение областей ArchiMate позволяет не смешивать причины изменения,
+      выбранное направление и устройство решения.
+    excerpt: >-
+      Такое разделение позволяет не смешивать причины изменения, выбранное
+      направление и устройство решения.
+    artifact: normalized.md
+    checked_at: "2026-07-27"
+    scope:
+      section_title: Области языка
+      application: проектирование промежуточного слоя между замыслом и требованиями
+    open_questions: []
+  - id: AM32-006
+    source_id: AM32
+    item_id: AM32-motivation
+    kind: limitation
+    status: verified
+    text: >-
+      Нормативные определения и допустимые связи элементов нужно проверять по
+      лицензированной спецификации ArchiMate 3.2. Схема обмена и практическое
+      введение её не заменяют.
+    excerpt: >-
+      Точный смысл элементов и допустимые связи нужно проверять по спецификации
+      ArchiMate 3.2.
+    artifact: normalized.md
+    checked_at: "2026-07-27"
+    scope:
+      section_title: Ограничения
+      application: нормативное применение ArchiMate
+    open_questions: []

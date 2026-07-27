@@ -1,0 +1,27 @@
+id: BMM-core
+source_id: BMM
+title: "BMM: официальный обзор основных понятий и спецификация 1.3"
+url: https://www.omg.org/spec/BMM
+access: >-
+  Официальный обзор разрешено распространять с атрибуцией. Спецификацию
+  использовать точечно с проверкой условий OMG.
+status: confirmed
+workflow_stage: source_checked
+long_source: false
+processing_scope: selected_fragments
+retrieval_mode: on_demand
+copy_policy: fragments_only
+allowed_use: >-
+  Краткое нормализованное описание основных понятий BMM с обязательным
+  указанием версии и ограничений.
+requires_access_check: true
+files:
+  tracked:
+    - normalized.md
+    - statements.yml
+known_limitations:
+  - Обзор 2008 года предшествует действующей спецификации BMM 1.3.
+processing_notes:
+  - >-
+    Основные понятия обзора сопоставлены со структурой официальной
+    спецификации BMM 1.3.

@@ -1,0 +1,138 @@
+statements:
+  - id: BMM-001
+    source_id: BMM
+    item_id: BMM-core
+    kind: fact
+    status: verified
+    text: >-
+      BMM предназначен для фиксации решений организации о реакции на изменения,
+      их обоснований и связей с изменениями операционной деятельности.
+    excerpt: >-
+      Модель фиксирует решения и их обоснования, а также связывает результаты
+      решений с изменениями процессов, ответственности и других частей
+      деятельности.
+    artifact: normalized.md
+    checked_at: "2026-07-27"
+    scope:
+      section_title: Назначение BMM
+      application: трассировка от мотивации к изменениям деятельности
+    open_questions: []
+  - id: BMM-002
+    source_id: BMM
+    item_id: BMM-core
+    kind: fact
+    status: verified
+    text: >-
+      BMM нейтрален к методологии и задаёт структуру понятий, применимую в
+      разных процессах принятия решений и разработки планов.
+    excerpt: >-
+      BMM нейтрален к методологии.
+    artifact: normalized.md
+    checked_at: "2026-07-27"
+    scope:
+      section_title: Назначение BMM
+      application: поддержка нескольких подходов в ai-dev-team
+    open_questions: []
+  - id: BMM-003
+    source_id: BMM
+    item_id: BMM-core
+    kind: fact
+    status: verified
+    text: >-
+      BMM разделяет Ends, описывающие желаемое состояние, и Means, описывающие
+      выбранные действия для достижения Ends.
+    excerpt: >-
+      Ends описывают желаемое состояние организации. Means описывают то, что
+      организация решила делать для достижения Ends.
+    artifact: normalized.md
+    checked_at: "2026-07-27"
+    scope:
+      section_title: Цикл принятия решений
+      application: разделение целей и способов их достижения
+    open_questions: []
+  - id: BMM-004
+    source_id: BMM
+    item_id: BMM-core
+    kind: fact
+    status: verified
+    text: >-
+      В BMM Goals и Objectives должны поддерживать Vision или как минимум не
+      противоречить ему.
+    excerpt: >-
+      Goals и Objectives должны поддерживать Vision или как минимум не
+      противоречить ему.
+    artifact: normalized.md
+    checked_at: "2026-07-27"
+    scope:
+      section_title: Уровни Ends
+      application: проверка согласованности общего замысла и целей
+    open_questions: []
+  - id: BMM-005
+    source_id: BMM
+    item_id: BMM-core
+    kind: fact
+    status: verified
+    text: >-
+      Goal задаёт средне- или долгосрочное состояние, а Objective — измеримый и
+      ограниченный по времени шаг к одной или нескольким Goals.
+    excerpt: >-
+      Goal задаёт средне- или долгосрочное состояние либо условие. Objective
+      задаёт измеримый и ограниченный по времени шаг.
+    artifact: normalized.md
+    checked_at: "2026-07-27"
+    scope:
+      section_title: Уровни Ends
+      application: разделение общих целей и измеримых результатов
+    open_questions: []
+  - id: BMM-006
+    source_id: BMM
+    item_id: BMM-core
+    kind: fact
+    status: verified
+    text: >-
+      BMM различает Strategy как значительную обычно долгосрочную часть плана и
+      Tactic как более узкий способ поддержки одной или нескольких Strategies.
+    excerpt: >-
+      Strategy — значительная и обычно долгосрочная часть плана. Tactic имеет
+      более узкую область и поддерживает одну или несколько Strategies.
+    artifact: normalized.md
+    checked_at: "2026-07-27"
+    scope:
+      section_title: Виды Means
+      application: иерархия способов достижения целей
+    open_questions: []
+  - id: BMM-007
+    source_id: BMM
+    item_id: BMM-core
+    kind: fact
+    status: verified
+    text: >-
+      Business Policy в BMM — широкая директива, которую нужно дополнительно
+      истолковать через Business Rules. Правила делают политику применимой и
+      направляют процессы.
+    excerpt: >-
+      Business Policy — широкая директива, которую нужно дополнительно
+      истолковать через Business Rules.
+    artifact: normalized.md
+    checked_at: "2026-07-27"
+    scope:
+      section_title: Виды Means
+      application: промежуточный слой между направлением и конкретными правилами
+    open_questions: []
+  - id: BMM-008
+    source_id: BMM
+    item_id: BMM-core
+    kind: limitation
+    status: verified
+    text: >-
+      BMM описывает организацию и бизнес-планы. Его элементы нельзя без анализа
+      автоматически считать требованиями к программной системе.
+    excerpt: >-
+      Его элементы нельзя автоматически считать требованиями к программной
+      системе.
+    artifact: normalized.md
+    checked_at: "2026-07-27"
+    scope:
+      section_title: Ограничения
+      application: перенос BMM в инженерные требования
+    open_questions: []

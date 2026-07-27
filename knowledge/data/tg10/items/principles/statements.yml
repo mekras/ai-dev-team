@@ -1,0 +1,101 @@
+statements:
+  - id: TG10-001
+    source_id: TG10
+    item_id: TG10-principles
+    kind: fact
+    status: verified
+    text: >-
+      TOGAF Standard, 10th Edition разделён на Fundamental Content с основными
+      понятиями и практиками и Series Guides с руководствами по настройке.
+    excerpt: >-
+      Десятая редакция разделяет материалы на TOGAF Fundamental Content и TOGAF
+      Series Guides.
+    artifact: normalized.md
+    checked_at: "2026-07-27"
+    scope:
+      section_title: Структура стандарта
+      application: выбор и настройка подхода к архитектуре предприятия
+    open_questions: []
+  - id: TG10-002
+    source_id: TG10
+    item_id: TG10-principles
+    kind: fact
+    status: verified
+    text: >-
+      TOGAF 10 предполагает адаптацию общих понятий и практик к настроенной
+      практике архитектуры предприятия конкретной организации.
+    excerpt: >-
+      Организация должна адаптировать их к собственной настроенной практике.
+    artifact: normalized.md
+    checked_at: "2026-07-27"
+    scope:
+      section_title: Структура стандарта
+      application: методологическая нейтральность ai-dev-team
+    open_questions: []
+  - id: TG10-003
+    source_id: TG10
+    item_id: TG10-principles
+    kind: fact
+    status: verified
+    text: >-
+      В структуре TOGAF 10 архитектурные принципы относятся к техникам ADM.
+    excerpt: Архитектурные принципы относятся к техникам ADM.
+    artifact: normalized.md
+    checked_at: "2026-07-27"
+    scope:
+      section_title: Место принципов и требований
+      application: управление архитектурными принципами
+    open_questions: []
+  - id: TG10-004
+    source_id: TG10
+    item_id: TG10-principles
+    kind: fact
+    status: verified
+    text: >-
+      В официальном наборе шаблонов TOGAF 10 Architecture Principles и
+      Business Principles, Goals, and Drivers представлены как отдельные
+      результаты Preliminary Phase.
+    excerpt: >-
+      Официальный набор шаблонов результатов десятой редакции перечисляет для
+      Preliminary Phase отдельные результаты Architecture Principles и Business
+      Principles, Goals, and Drivers.
+    artifact: normalized.md
+    checked_at: "2026-07-27"
+    scope:
+      section_title: Место принципов и требований
+      application: разделение архитектурных принципов и бизнес-целей
+    open_questions: []
+  - id: TG10-005
+    source_id: TG10
+    item_id: TG10-principles
+    kind: fact
+    status: verified
+    text: >-
+      Официальный набор шаблонов TOGAF 10 отдельно указывает Architecture
+      Requirements Specification как результат Phase B.
+    excerpt: >-
+      Для Phase B отдельно указана Architecture Requirements Specification.
+    artifact: normalized.md
+    checked_at: "2026-07-27"
+    scope:
+      section_title: Место принципов и требований
+      application: разделение принципов и спецификации требований
+    open_questions: []
+  - id: TG10-006
+    source_id: TG10
+    item_id: TG10-principles
+    kind: limitation
+    status: verified
+    text: >-
+      Публичный каталог TOGAF 10 не заменяет нормативный текст. Определения,
+      критерии качества и шаблон архитектурного принципа нужно проверять в
+      лицензированном документе ADM Techniques.
+    excerpt: >-
+      Полные определения, критерии хорошего принципа и рекомендуемый шаблон
+      нужно проверять в актуальном лицензированном тексте ADM Techniques.
+    artifact: normalized.md
+    checked_at: "2026-07-27"
+    scope:
+      section_title: Ограничения
+      application: нормативное применение TOGAF
+    open_questions: []

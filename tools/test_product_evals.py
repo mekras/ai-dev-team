@@ -167,6 +167,46 @@ class ProductEvalTest(unittest.TestCase):
             )
         self.assertTrue(metrics["decision_requested"])
 
+    def test_decision_request_does_not_require_question_mark(self):
+        scenario = {
+            "expected_artifact_groups": [
+                {"label": "результат", "any_of": ["result.txt"]},
+            ],
+            "required_commands": ["python3 -m unittest"],
+            "handoff_markers": ["приём", "критер", "проверк", "риск"],
+            "decision_marker_groups": [
+                ["повтор", "дублик"],
+                ["id", "идентифик"],
+            ],
+        }
+        first = {
+            "answer": (
+                "Нужно ваше решение о политике для повторяющихся "
+                "идентификаторов. Выберите один из вариантов."
+            ),
+            "commands": [],
+            "usage": {},
+        }
+        second = {
+            "answer": (
+                "Критерий и проверка готовы, риск указан. Передаю на приёмку."
+            ),
+            "commands": ["python -m unittest"],
+            "usage": {},
+        }
+        with tempfile.TemporaryDirectory() as temp:
+            workdir = Path(temp)
+            (workdir / "result.txt").write_text("done", encoding="utf-8")
+            metrics = MODULE.score_run(
+                scenario,
+                first,
+                second,
+                {"status": "", "diff": ""},
+                {"status": " M result.txt\n", "diff": ""},
+                workdir,
+            )
+        self.assertTrue(metrics["decision_requested"])
+
     def test_existing_unchanged_artifact_does_not_satisfy_group(self):
         scenario = {
             "expected_artifact_groups": [
@@ -253,6 +293,72 @@ class ProductEvalTest(unittest.TestCase):
         )
         self.assertEqual(source, run_mock.call_args.args[1])
 
+    def test_connection_compilation_preserves_fixture_instructions(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            source = root / "source"
+            workdir = root / "project"
+            source.mkdir()
+            workdir.mkdir()
+            agents_path = workdir / "AGENTS.md"
+            agents_path.write_text(
+                "# Правила проекта\n\nНе выполняй commit и push.\n",
+                encoding="utf-8",
+            )
+
+            def compile_agents(*_args, **_kwargs):
+                agents_path.write_text(
+                    "# AGENTS.md\n\nОткрой ait-routing/SKILL.md.\n",
+                    encoding="utf-8",
+                )
+
+            with mock.patch.object(
+                MODULE,
+                "run",
+                side_effect=compile_agents,
+            ):
+                MODULE.compile_connection_instructions(workdir, source, "codex")
+
+            compiled = agents_path.read_text(encoding="utf-8")
+        self.assertIn("Не выполняй commit и push.", compiled)
+        self.assertIn("Открой ait-routing/SKILL.md.", compiled)
+
+    def test_rescore_preserves_routing_trace_evidence(self):
+        scenario = {
+            "expected_artifact_groups": [
+                {"label": "результат", "any_of": ["result.txt"]},
+            ],
+            "required_commands": ["python3 -m unittest"],
+            "handoff_markers": ["приём", "критер", "проверк", "риск"],
+            "routing_markers": ["режим менеджера", "маршрут"],
+            "decision_marker_groups": [["повтор"]],
+        }
+        result = {
+            "turns": [
+                "Режим менеджера: полный. Маршрут: запросить решение о повторе.",
+                (
+                    "Критерий и проверка готовы, риск указан. "
+                    "Передаю на приёмку."
+                ),
+            ],
+            "before_owner": {"status": "", "diff": ""},
+            "final_state": {"status": " M result.txt\n", "diff": ""},
+            "metrics": {
+                "commands": ["python3 -m unittest"],
+                "usage": {},
+                "routing_opened": True,
+            },
+        }
+        with tempfile.TemporaryDirectory() as temp:
+            workdir = Path(temp)
+            (workdir / "result.txt").write_text("done", encoding="utf-8")
+            metrics = MODULE.rescore_result(scenario, result, workdir)
+        self.assertTrue(metrics["routing_opened"])
+        self.assertNotIn(
+            "Новая сессия не открыла ait-routing/SKILL.md.",
+            metrics["missed_mandatory_actions"],
+        )
+
     def test_routing_requires_trace_and_first_response(self):
         scenario = {
             "expected_artifact_groups": [
@@ -260,7 +366,7 @@ class ProductEvalTest(unittest.TestCase):
             ],
             "required_commands": ["python3 -m unittest"],
             "handoff_markers": ["приём", "критер", "проверк", "риск"],
-            "routing_markers": ["режим менеджера", "маршрут", "ait-routing"],
+            "routing_markers": ["режим менеджера", "маршрут"],
             "decision_marker_groups": [["повтор"]],
         }
         first = {

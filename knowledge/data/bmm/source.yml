@@ -1,0 +1,64 @@
+id: BMM
+slug: bmm
+title: >-
+  OMG Business Motivation Model 1.3 и официальный обзор основных понятий:
+  цели, средства, директивы, влияющие факторы и оценки.
+status: approved
+priority: high
+carrier_type: document
+source_kind: normative
+long_source: false
+adapter: manual
+storage_strategy: external_reference
+processing_scope: selected_fragments
+retrieval_mode: on_demand
+copy_policy: fragments_only
+allowed_use: >-
+  Использование официального краткого обзора для навигации по BMM и точечная
+  сверка с действующей спецификацией 1.3.
+requires_access_check: true
+url: https://www.omg.org/spec/BMM
+locator: https://www.omg.org/spec/BMM/1.3
+public_reference: >-
+  https://www.omg.org/oceb/BMM_Overview-Core_Concepts_%5B081208%5D.pdf
+license_or_terms: >-
+  Спецификация OMG имеет собственные ограничения копирования. Краткий обзор
+  основных понятий разрешено свободно распространять с указанием авторских
+  прав.
+access:
+  default: >-
+    Официальные страницы и PDF доступны публично. Перед копированием текста
+    спецификации проверять уведомления и условия OMG.
+reliability: official
+stability: versioned
+refresh_policy: manual
+last_checked_at: "2026-07-27"
+scope:
+  includes:
+    - Vision, Goal и Objective
+    - Mission, Strategy и Tactic
+    - Business Policy и Business Rule
+    - Influencer и Assessment
+    - трассировка от мотивации к изменениям деятельности
+  excludes:
+    - обязательное применение BMM во всех проектах
+    - полный каталог понятий и метамодель
+    - локальная копия спецификации
+known_limitations:
+  - >-
+    Краткий обзор датирован 2008 годом и объясняет BMM 1.0. Состав и точные
+    определения нужно сверять со спецификацией BMM 1.3 от 2015 года.
+processing_notes:
+  - >-
+    Нормализованы основные понятия, связанные с промежуточным слоем между
+    замыслом и конкретными требованиями или правилами.
+items:
+  - id: BMM-core
+    source_id: BMM
+    title: "BMM: официальный обзор основных понятий и спецификация 1.3"
+    access: >-
+      Официальный обзор разрешено распространять с атрибуцией. Спецификацию
+      использовать точечно с проверкой условий OMG.
+    status: confirmed
+    workflow_stage: source_checked
+    path: items/core/item.yml
