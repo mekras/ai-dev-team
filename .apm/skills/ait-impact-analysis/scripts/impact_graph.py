@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import fnmatch
 import json
+import os
 import re
 import subprocess
 import sys
@@ -481,16 +482,18 @@ def repository_paths(repo: Path) -> list[str]:
         completed = subprocess.run(
             [
                 "git",
+                "-c",
+                "core.quotepath=false",
                 "-C",
                 str(repo),
                 "ls-files",
+                "-z",
                 "--cached",
                 "--others",
                 "--exclude-standard",
             ],
             check=True,
             capture_output=True,
-            text=True,
         )
     except (FileNotFoundError, subprocess.CalledProcessError):
         return sorted(
@@ -498,7 +501,11 @@ def repository_paths(repo: Path) -> list[str]:
             for path in repo.rglob("*")
             if path.is_file() and ".git" not in path.relative_to(repo).parts
         )
-    return sorted(filter(None, completed.stdout.splitlines()))
+    return sorted(
+        os.fsdecode(path)
+        for path in completed.stdout.split(b"\0")
+        if path
+    )
 
 
 def coverage_result(graph: dict[str, Any], repo: Path) -> tuple[dict[str, Any], int]:

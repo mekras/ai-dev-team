@@ -249,6 +249,50 @@ class ImpactGraphTests(unittest.TestCase):
                 ROOT / "missing-impact-graph-test-repository",
             )
 
+    def test_coverage_handles_git_paths_verbatim(self) -> None:
+        data = sample_graph()
+        data["nodes"].append(
+            {
+                "id": "localized-docs",
+                "title": "Localized documentation",
+                "kind": "documentation",
+                "paths": ["документы/**"],
+                "checks": ["documentation-check"],
+            },
+        )
+        graph = impact_graph.validate_graph(data)
+
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            repo = Path(temporary_directory)
+            subprocess.run(
+                ["git", "init", "--quiet", str(repo)],
+                check=True,
+            )
+            paths = [
+                repo / "документы" / "требования.md",
+                repo / "документы" / "строка\nпереноса.md",
+            ]
+            for path in paths:
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text("", encoding="utf-8")
+            subprocess.run(
+                [
+                    "git",
+                    "-C",
+                    str(repo),
+                    "add",
+                    "документы/требования.md",
+                ],
+                check=True,
+            )
+
+            result, exit_code = impact_graph.coverage_result(graph, repo)
+
+        self.assertEqual(exit_code, 0)
+        self.assertTrue(result["complete"])
+        self.assertEqual(result["mapped_paths"], 2)
+        self.assertEqual(result["unmapped_paths"], [])
+
     def test_cli_uses_only_json_contract(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:
             graph_path = Path(temporary_directory) / "project-impact.json"
