@@ -1,13 +1,13 @@
 lockfile_version: '2'
-generated_at: '2026-07-30T11:07:23.156129+00:00'
+generated_at: '2026-07-30T19:07:56.274292+00:00'
 apm_version: 0.26.0
 dependencies:
 - repo_url: mekras/ai-agent-supervisor
   name: ai-agent-supervisor
   host: github.com
-  resolved_commit: fa63c1d531d167996f18a6f25775396d168a65f9
-  resolved_ref: 2.1.0
-  version: 2.1.0
+  resolved_commit: f727418d9c3a1123528393e2422c353c9f8ef59c
+  resolved_ref: 2.2.0
+  version: 2.2.0
   package_type: apm_package
   deployed_files:
   - .agents/skills/ai-agents-md-maintenance
@@ -62,6 +62,7 @@ dependencies:
   - .agents/skills/ai-setup-apm/scripts/eval-tools/validate-trigger-evals.py
   - .agents/skills/ai-setup-apm/scripts/install-eval-tools
   - .agents/skills/ai-setup-apm/scripts/setup-apm-collection
+  - .agents/skills/ai-setup-apm/scripts/validate-apm-git-boundary.py
   - .agents/skills/ai-setup-hooks
   - .agents/skills/ai-setup-hooks/SKILL.md
   - .agents/skills/ai-setup-hooks/agents/openai.yaml
@@ -169,6 +170,7 @@ dependencies:
   - .claude/skills/ai-setup-apm/scripts/eval-tools/validate-trigger-evals.py
   - .claude/skills/ai-setup-apm/scripts/install-eval-tools
   - .claude/skills/ai-setup-apm/scripts/setup-apm-collection
+  - .claude/skills/ai-setup-apm/scripts/validate-apm-git-boundary.py
   - .claude/skills/ai-setup-hooks
   - .claude/skills/ai-setup-hooks/SKILL.md
   - .claude/skills/ai-setup-hooks/agents/openai.yaml
@@ -251,9 +253,9 @@ dependencies:
     .agents/skills/ai-rule-failure-analysis/agents/openai.yaml: sha256:d0dee7cbd260f74c793e1236f87e6e3d64fc03c9682b96d161f3300e6d930755
     .agents/skills/ai-rule-failure-analysis/evals/result-scenarios.json: sha256:9e1c933ef08145bdbf0bf30f1e75b10d407fc4d503ead6cfd26431f65f279aaf
     .agents/skills/ai-rule-failure-analysis/evals/triggers.json: sha256:c8b46792bf5d52d1bb190b3519039ac9da85065a066ff2a4a494d6b453eb281c
-    .agents/skills/ai-setup-apm/SKILL.md: sha256:709bdda891c467756c2a87fe9eb232c43abbcec8a0070cd1b2f9590192e12f17
+    .agents/skills/ai-setup-apm/SKILL.md: sha256:ef7397b5d15db8e5bc224c39006bc746e4bbd3577a3c45457ecd4cccbeac8060
     .agents/skills/ai-setup-apm/agents/openai.yaml: sha256:8dc1fd4084ecd54dcde1a6e7f46147784e4e2c340999bf0e498a8f7115f16e4d
-    .agents/skills/ai-setup-apm/evals/result-scenarios.json: sha256:fea2ac42323270753d5f8bf05642e94dfed94055fd9a9f8c174353716fb85195
+    .agents/skills/ai-setup-apm/evals/result-scenarios.json: sha256:f49c3320dd41b61f5b5066cf5e0ef38cd32a23d5bb308521e67a38667a1e0469
     .agents/skills/ai-setup-apm/evals/triggers.json: sha256:a4aa5992acf8901ef2c6afea39ea5b66e706689e3bc5c94216ba29fb7f27bad4
     .agents/skills/ai-setup-apm/references/apm-collection-settings.md: sha256:993801567fe35e1910a5e629f2918897f30ab9022866320a918f1f94767ac97e
     .agents/skills/ai-setup-apm/references/tooling-installers.md: sha256:3c9c948579d9c6c14410161c985981a219659df5f1e523edd1fa2956dba83f0e
@@ -270,7 +272,8 @@ dependencies:
     .agents/skills/ai-setup-apm/scripts/eval-tools/validate-skill-result-evals.py: sha256:bb9b70ea7e6e7e368bb4de6c97b3a7bd7cc1fedb2df47dca20a4bd8ed6d52b84
     .agents/skills/ai-setup-apm/scripts/eval-tools/validate-trigger-evals.py: sha256:a06e9d4ea16fdc1358d89f0109589e0e745312c1a489106bf7737306cf208f7c
     .agents/skills/ai-setup-apm/scripts/install-eval-tools: sha256:39642ddbb67782bf99c4912164549b544b74fa3913e559b05bbe5118f2665464
-    .agents/skills/ai-setup-apm/scripts/setup-apm-collection: sha256:df7757df960ef3a3b1dce446fa91c540c84d28c30e84e6e44fd56f7bba600ab0
+    .agents/skills/ai-setup-apm/scripts/setup-apm-collection: sha256:d329255145f00e3fb3634d0a68f3c7bf0bd5ea2c815791a1ef7220a101e0ae46
+    .agents/skills/ai-setup-apm/scripts/validate-apm-git-boundary.py: sha256:12c3ef6dc598bc8bb00af5f513677619abbcd166fde6c66de15ee59472fed7d5
     .agents/skills/ai-setup-hooks/SKILL.md: sha256:181257a798da934ebd8813953d9c8c526469cbcfc6432d7eb8793d58bec3db67
     .agents/skills/ai-setup-hooks/agents/openai.yaml: sha256:ec5bce4608cf49faefd68b8e22ffa0a7c5a278b116a0a612df716623726b0ec9
     .agents/skills/ai-setup-hooks/evals/result-scenarios.json: sha256:bca5e5e1b9388ff2f2d09c61bcd873ad8d361a08bc1b07dcc1bf4bedd3c19b79
@@ -346,9 +349,9 @@ dependencies:
     .claude/skills/ai-rule-failure-analysis/agents/openai.yaml: sha256:d0dee7cbd260f74c793e1236f87e6e3d64fc03c9682b96d161f3300e6d930755
     .claude/skills/ai-rule-failure-analysis/evals/result-scenarios.json: sha256:9e1c933ef08145bdbf0bf30f1e75b10d407fc4d503ead6cfd26431f65f279aaf
     .claude/skills/ai-rule-failure-analysis/evals/triggers.json: sha256:c8b46792bf5d52d1bb190b3519039ac9da85065a066ff2a4a494d6b453eb281c
-    .claude/skills/ai-setup-apm/SKILL.md: sha256:709bdda891c467756c2a87fe9eb232c43abbcec8a0070cd1b2f9590192e12f17
+    .claude/skills/ai-setup-apm/SKILL.md: sha256:ef7397b5d15db8e5bc224c39006bc746e4bbd3577a3c45457ecd4cccbeac8060
     .claude/skills/ai-setup-apm/agents/openai.yaml: sha256:8dc1fd4084ecd54dcde1a6e7f46147784e4e2c340999bf0e498a8f7115f16e4d
-    .claude/skills/ai-setup-apm/evals/result-scenarios.json: sha256:fea2ac42323270753d5f8bf05642e94dfed94055fd9a9f8c174353716fb85195
+    .claude/skills/ai-setup-apm/evals/result-scenarios.json: sha256:f49c3320dd41b61f5b5066cf5e0ef38cd32a23d5bb308521e67a38667a1e0469
     .claude/skills/ai-setup-apm/evals/triggers.json: sha256:a4aa5992acf8901ef2c6afea39ea5b66e706689e3bc5c94216ba29fb7f27bad4
     .claude/skills/ai-setup-apm/references/apm-collection-settings.md: sha256:993801567fe35e1910a5e629f2918897f30ab9022866320a918f1f94767ac97e
     .claude/skills/ai-setup-apm/references/tooling-installers.md: sha256:3c9c948579d9c6c14410161c985981a219659df5f1e523edd1fa2956dba83f0e
@@ -365,7 +368,8 @@ dependencies:
     .claude/skills/ai-setup-apm/scripts/eval-tools/validate-skill-result-evals.py: sha256:bb9b70ea7e6e7e368bb4de6c97b3a7bd7cc1fedb2df47dca20a4bd8ed6d52b84
     .claude/skills/ai-setup-apm/scripts/eval-tools/validate-trigger-evals.py: sha256:a06e9d4ea16fdc1358d89f0109589e0e745312c1a489106bf7737306cf208f7c
     .claude/skills/ai-setup-apm/scripts/install-eval-tools: sha256:39642ddbb67782bf99c4912164549b544b74fa3913e559b05bbe5118f2665464
-    .claude/skills/ai-setup-apm/scripts/setup-apm-collection: sha256:df7757df960ef3a3b1dce446fa91c540c84d28c30e84e6e44fd56f7bba600ab0
+    .claude/skills/ai-setup-apm/scripts/setup-apm-collection: sha256:d329255145f00e3fb3634d0a68f3c7bf0bd5ea2c815791a1ef7220a101e0ae46
+    .claude/skills/ai-setup-apm/scripts/validate-apm-git-boundary.py: sha256:12c3ef6dc598bc8bb00af5f513677619abbcd166fde6c66de15ee59472fed7d5
     .claude/skills/ai-setup-hooks/SKILL.md: sha256:181257a798da934ebd8813953d9c8c526469cbcfc6432d7eb8793d58bec3db67
     .claude/skills/ai-setup-hooks/agents/openai.yaml: sha256:ec5bce4608cf49faefd68b8e22ffa0a7c5a278b116a0a612df716623726b0ec9
     .claude/skills/ai-setup-hooks/evals/result-scenarios.json: sha256:bca5e5e1b9388ff2f2d09c61bcd873ad8d361a08bc1b07dcc1bf4bedd3c19b79
@@ -415,10 +419,10 @@ dependencies:
     .claude/skills/ai-work-result-evaluation/evals/result-scenarios.json: sha256:10a766abcca3dc21a4edc9695feaa352f277badb0ba130bd334e6fe3fe2218f5
     .claude/skills/ai-work-result-evaluation/evals/triggers.json: sha256:53886909d51af15cf1a76ba85a62564e21d6508076552042437437fcd055e654
     .claude/skills/ai-work-result-evaluation/references/work-result-evaluation.md: sha256:80e7a25161b08f657a335bd83f66e7d17ed7250fb49a5f3b83bfa86a99387fd5
-  content_hash: sha256:e4ab542e22db3070d545f18c66a5916a63f61541d17f28e132db740d8d3f6d09
+  content_hash: sha256:102dea9bc923f99a5ebd401ca64780e567a8fc0d385c0ae98deb284b42191757
   constraint: ^2.1.0
-  resolved_tag: 2.1.0
-  resolved_at: '2026-07-29T20:22:43+00:00'
+  resolved_tag: 2.2.0
+  resolved_at: '2026-07-30T19:07:50+00:00'
   declared_license: MIT
 - repo_url: mekras/ai-russian-language
   name: ai-russian-language
@@ -470,7 +474,7 @@ dependencies:
   content_hash: sha256:df60ef84031cd0c4c741bfbb6e74cb242e5dab1ec0e4c0ec0a664945f9a24b7d
   constraint: ^2.0.1
   resolved_tag: 2.0.1
-  resolved_at: '2026-07-29T20:22:43+00:00'
+  resolved_at: '2026-07-30T19:07:50+00:00'
   declared_license: MIT
 - repo_url: mekras/project-knowlege-corpus
   name: project-knowledge-corpus
@@ -952,7 +956,7 @@ dependencies:
   content_hash: sha256:162cb7cf8e92c00a7cecf9911737bcfc7a494a53c83c34f28e3e58d19b9df2c9
   constraint: ^0.16.0
   resolved_tag: 0.16.0
-  resolved_at: '2026-07-29T20:22:43+00:00'
+  resolved_at: '2026-07-30T19:07:50+00:00'
   declared_license: MIT
 - repo_url: talkstream/ru-text
   name: ru-text
@@ -978,22 +982,50 @@ dependencies:
   - .agents/skills/ru-text/references/sources.md
   - .agents/skills/ru-text/references/typography.md
   - .agents/skills/ru-text/references/ux-writing.md
-  - .claude/commands/ru-check.md
-  - .claude/commands/ru-score.md
   - .claude/skills/ru-text
+  - .claude/skills/ru-text/.claude-plugin/marketplace.json
+  - .claude/skills/ru-text/.claude-plugin/plugin.json
+  - .claude/skills/ru-text/.codex-plugin/plugin.json
+  - .claude/skills/ru-text/.cursor-plugin/plugin.json
+  - .claude/skills/ru-text/.github/FUNDING.yml
+  - .claude/skills/ru-text/.github/ISSUE_TEMPLATE/bug_report.md
+  - .claude/skills/ru-text/.github/ISSUE_TEMPLATE/config.yml
+  - .claude/skills/ru-text/.github/ISSUE_TEMPLATE/feature_request.md
+  - .claude/skills/ru-text/.github/PULL_REQUEST_TEMPLATE.md
+  - .claude/skills/ru-text/.gitignore
+  - .claude/skills/ru-text/CHANGELOG.md
+  - .claude/skills/ru-text/CODE_OF_CONDUCT.md
+  - .claude/skills/ru-text/CONTRIBUTING.md
+  - .claude/skills/ru-text/LICENSE
+  - .claude/skills/ru-text/PRIVACY_POLICY.md
+  - .claude/skills/ru-text/README.en.md
+  - .claude/skills/ru-text/README.md
+  - .claude/skills/ru-text/SECURITY.md
   - .claude/skills/ru-text/SKILL.md
-  - .claude/skills/ru-text/agents/gemini.yaml
-  - .claude/skills/ru-text/agents/openai.yaml
-  - .claude/skills/ru-text/references/addenda.md
-  - .claude/skills/ru-text/references/anti-patterns.md
-  - .claude/skills/ru-text/references/business-writing.md
-  - .claude/skills/ru-text/references/editorial-grammar.md
-  - .claude/skills/ru-text/references/editorial-punctuation.md
-  - .claude/skills/ru-text/references/info-style.md
-  - .claude/skills/ru-text/references/scoring.md
-  - .claude/skills/ru-text/references/sources.md
-  - .claude/skills/ru-text/references/typography.md
-  - .claude/skills/ru-text/references/ux-writing.md
+  - .claude/skills/ru-text/Social Preview 1280x640.png
+  - .claude/skills/ru-text/apm.yml
+  - .claude/skills/ru-text/assets/icon.png
+  - .claude/skills/ru-text/commands/ru-check.md
+  - .claude/skills/ru-text/commands/ru-score.md
+  - .claude/skills/ru-text/docs/source-funnel-analysis-v1.9.0.md
+  - .claude/skills/ru-text/gemini-extension.json
+  - .claude/skills/ru-text/logo-round.png
+  - .claude/skills/ru-text/notion/README.md
+  - .claude/skills/ru-text/notion/ru-text-notion-skill.md
+  - .claude/skills/ru-text/openclaw.plugin.json
+  - .claude/skills/ru-text/skills/ru-text/SKILL.md
+  - .claude/skills/ru-text/skills/ru-text/agents/gemini.yaml
+  - .claude/skills/ru-text/skills/ru-text/agents/openai.yaml
+  - .claude/skills/ru-text/skills/ru-text/references/addenda.md
+  - .claude/skills/ru-text/skills/ru-text/references/anti-patterns.md
+  - .claude/skills/ru-text/skills/ru-text/references/business-writing.md
+  - .claude/skills/ru-text/skills/ru-text/references/editorial-grammar.md
+  - .claude/skills/ru-text/skills/ru-text/references/editorial-punctuation.md
+  - .claude/skills/ru-text/skills/ru-text/references/info-style.md
+  - .claude/skills/ru-text/skills/ru-text/references/scoring.md
+  - .claude/skills/ru-text/skills/ru-text/references/sources.md
+  - .claude/skills/ru-text/skills/ru-text/references/typography.md
+  - .claude/skills/ru-text/skills/ru-text/references/ux-writing.md
   deployed_file_hashes:
     .agents/skills/ru-text/SKILL.md: sha256:e8d8743cfbf181398288c3ce54d21ae9bf5ed80805bee50c5dde1bc40b22e84e
     .agents/skills/ru-text/agents/gemini.yaml: sha256:8ad0bb037ef842431ba01adab0642a2211d8775eeb34465bc1d60534e481f978
@@ -1008,21 +1040,49 @@ dependencies:
     .agents/skills/ru-text/references/sources.md: sha256:008e6bb32e64877b91d06eeb81e3e369004a29d03627550439215165d795045b
     .agents/skills/ru-text/references/typography.md: sha256:474efb4258cffcb85ca9ca1bc7a0a46052e8e1b5712318b268b9a62ba17d591d
     .agents/skills/ru-text/references/ux-writing.md: sha256:7802bc126bff4f754e4eeb0f8b986dd967ac876c038d23a0a63b5846248b4cee
-    .claude/commands/ru-check.md: sha256:731d2c104ab157680e9aa952b430c8980357462d704d6b237e1f649c90d34aff
-    .claude/commands/ru-score.md: sha256:990d9bab2e446e9c2150602df0d2d84a79866efef90f82b17259d08d76b65c06
+    .claude/skills/ru-text/.claude-plugin/marketplace.json: sha256:64719d3936519160d620e7aec5d2b2342f544284dce3efc795bb65453256b26e
+    .claude/skills/ru-text/.claude-plugin/plugin.json: sha256:d1e660e677bec5edae4fa0fcc4ef34dd50ff565b87c536af89d89b7ba32b9edf
+    .claude/skills/ru-text/.codex-plugin/plugin.json: sha256:261d77344da54c9a9bd4f7391763435fa98bd7dc4dbc55f581249cbf09fb23f9
+    .claude/skills/ru-text/.cursor-plugin/plugin.json: sha256:82aafe044dd584391b59c08981835846ec00ce64520faea0b9cdfee009d42675
+    .claude/skills/ru-text/.github/FUNDING.yml: sha256:b0f6a5dbb2568abb70854a6f8f449fcc49ed6dfb69a17565e177a39e740c6835
+    .claude/skills/ru-text/.github/ISSUE_TEMPLATE/bug_report.md: sha256:fc033f10d2bd007306e2415438038b5bf4fdd6f9b313cce20fdcfe54859f07c9
+    .claude/skills/ru-text/.github/ISSUE_TEMPLATE/config.yml: sha256:72f68aebad5a7fa354a1037c671a749a8fc4f96b9b3f8362f8de3acf0cb80c23
+    .claude/skills/ru-text/.github/ISSUE_TEMPLATE/feature_request.md: sha256:d58fd0fb67342e2698d99bd50dd6dea70acef98f031c66308301d4fd1b4fde69
+    .claude/skills/ru-text/.github/PULL_REQUEST_TEMPLATE.md: sha256:de7a193bcffce5af790d3ed654d61df979b4615ceacc7a13978d450d6b9f1505
+    .claude/skills/ru-text/.gitignore: sha256:27d5ee2e35d13003e97b0118851eefafe5545b5210b608624d74779eda31784c
+    .claude/skills/ru-text/CHANGELOG.md: sha256:93c784f24d969c4e28e2b1a9fbc36eb99db433a1fdb55942c3233fd28bc1fd83
+    .claude/skills/ru-text/CODE_OF_CONDUCT.md: sha256:dc92923b50309a8302fa240c25d2f386cb6b0fa58b5258d5ac6b1dea8b28f0d2
+    .claude/skills/ru-text/CONTRIBUTING.md: sha256:ef18d17371a0bd36f0ce7553a1935e4a12719e7de48d98eccbc45679ea09dc21
+    .claude/skills/ru-text/LICENSE: sha256:37ea601e35a544e6a4b08b1c5cb126543b2ea6dc14b23620f12bdc11a00ba839
+    .claude/skills/ru-text/PRIVACY_POLICY.md: sha256:87d75495d9d7f5c68e3fa378f0a63eff8f72c13116c72e6ec9fcbdaea9bf4672
+    .claude/skills/ru-text/README.en.md: sha256:e60f73fc30da8705c4af282026ad4559b60b03be96f9483ad199faf087da7fb0
+    .claude/skills/ru-text/README.md: sha256:759152baa040a301c1a912767b3086386bfa60b84dc0985f1427fb45baf9cbf8
+    .claude/skills/ru-text/SECURITY.md: sha256:5d04b0d10e727843aebd5e4cae053f78a255c83e480a1defa21643c068a042f6
     .claude/skills/ru-text/SKILL.md: sha256:e8d8743cfbf181398288c3ce54d21ae9bf5ed80805bee50c5dde1bc40b22e84e
-    .claude/skills/ru-text/agents/gemini.yaml: sha256:8ad0bb037ef842431ba01adab0642a2211d8775eeb34465bc1d60534e481f978
-    .claude/skills/ru-text/agents/openai.yaml: sha256:4337e973231e6ab7337fdd86def0c7617b3346e01de74b7938c1613fe5d927a6
-    .claude/skills/ru-text/references/addenda.md: sha256:1aaa86668999e7890ff0e3fe240c63f0ea5d54ac4e07afd339ab9aca08b5971e
-    .claude/skills/ru-text/references/anti-patterns.md: sha256:09e507ecd09ff3ecb30a4f96a9ed0f36a42ef868045b4a8740d0903c1452ea0b
-    .claude/skills/ru-text/references/business-writing.md: sha256:689895e01768e129b38ffebf0dff14f577c32b677040d361d301a561fc97b2ae
-    .claude/skills/ru-text/references/editorial-grammar.md: sha256:7eea8943cb0d701f4efcaee78609927cc84d621925ce0eeb5a9f65e772acf19a
-    .claude/skills/ru-text/references/editorial-punctuation.md: sha256:75637dfb78ac1a6946da1f354b25132473e0f008bbf5bd8ba9d8b751ad9fbe41
-    .claude/skills/ru-text/references/info-style.md: sha256:ed755dbcebbbcd275a722d9fda1bfedd74f58fd5cfd702cf6a3fa9b81b0fc50b
-    .claude/skills/ru-text/references/scoring.md: sha256:9ad1e57633a4e3c673b040960e7ff315225324ac397d92370827d03d80045987
-    .claude/skills/ru-text/references/sources.md: sha256:008e6bb32e64877b91d06eeb81e3e369004a29d03627550439215165d795045b
-    .claude/skills/ru-text/references/typography.md: sha256:474efb4258cffcb85ca9ca1bc7a0a46052e8e1b5712318b268b9a62ba17d591d
-    .claude/skills/ru-text/references/ux-writing.md: sha256:7802bc126bff4f754e4eeb0f8b986dd967ac876c038d23a0a63b5846248b4cee
+    .claude/skills/ru-text/Social Preview 1280x640.png: sha256:a1fc6df71908a64e9112f56fbed4701c269e47ecdeeec3f547b6d90cfb587bd0
+    .claude/skills/ru-text/apm.yml: sha256:a30172c82e4493823a1f8eb7f2a78e0b682b66b42d7103a7195257138cbddfda
+    .claude/skills/ru-text/assets/icon.png: sha256:4780b3ee7a078f0cb40eb9979639ba3b992f10a393996a093592aa3a5b7422ae
+    .claude/skills/ru-text/commands/ru-check.md: sha256:b111c75a5b3a7b9e3d129ebcf9b23444ce76da8bec53ebae2ac96e98bda35aba
+    .claude/skills/ru-text/commands/ru-score.md: sha256:29cd195ba9154a9d22fa85b5fc25b4718ace7fe1b7a7c82a9839a136659d8b55
+    .claude/skills/ru-text/docs/source-funnel-analysis-v1.9.0.md: sha256:9589fd47004e2162bdc70f3d515f8619923578dab5231be4c7f20139317a4b56
+    .claude/skills/ru-text/gemini-extension.json: sha256:3e69885859eb701659134ad7899f4e27d680464677a30cb9293274496247450b
+    .claude/skills/ru-text/logo-round.png: sha256:fa2e971d8c6b3ff424adae80df56e66386b74d45f45ab781b44eca42ad09a5b5
+    .claude/skills/ru-text/notion/README.md: sha256:2c10664496837d390a042c2103856ba4cb140ef15bd2a081744690c53a82c250
+    .claude/skills/ru-text/notion/ru-text-notion-skill.md: sha256:9e731c1a3ebb7a3bd68b9f11948f3b44ac46a1ddf465a9a90d9ab50bac61ace4
+    .claude/skills/ru-text/openclaw.plugin.json: sha256:b3ad9f7fa7f4fb1bcd3c4e8af2c31f7a5c997c34d4e66e6e56c9562a32661a5c
+    .claude/skills/ru-text/skills/ru-text/SKILL.md: sha256:e8d8743cfbf181398288c3ce54d21ae9bf5ed80805bee50c5dde1bc40b22e84e
+    .claude/skills/ru-text/skills/ru-text/agents/gemini.yaml: sha256:8ad0bb037ef842431ba01adab0642a2211d8775eeb34465bc1d60534e481f978
+    .claude/skills/ru-text/skills/ru-text/agents/openai.yaml: sha256:4337e973231e6ab7337fdd86def0c7617b3346e01de74b7938c1613fe5d927a6
+    .claude/skills/ru-text/skills/ru-text/references/addenda.md: sha256:1aaa86668999e7890ff0e3fe240c63f0ea5d54ac4e07afd339ab9aca08b5971e
+    .claude/skills/ru-text/skills/ru-text/references/anti-patterns.md: sha256:09e507ecd09ff3ecb30a4f96a9ed0f36a42ef868045b4a8740d0903c1452ea0b
+    .claude/skills/ru-text/skills/ru-text/references/business-writing.md: sha256:689895e01768e129b38ffebf0dff14f577c32b677040d361d301a561fc97b2ae
+    .claude/skills/ru-text/skills/ru-text/references/editorial-grammar.md: sha256:7eea8943cb0d701f4efcaee78609927cc84d621925ce0eeb5a9f65e772acf19a
+    .claude/skills/ru-text/skills/ru-text/references/editorial-punctuation.md: sha256:75637dfb78ac1a6946da1f354b25132473e0f008bbf5bd8ba9d8b751ad9fbe41
+    .claude/skills/ru-text/skills/ru-text/references/info-style.md: sha256:ed755dbcebbbcd275a722d9fda1bfedd74f58fd5cfd702cf6a3fa9b81b0fc50b
+    .claude/skills/ru-text/skills/ru-text/references/scoring.md: sha256:9ad1e57633a4e3c673b040960e7ff315225324ac397d92370827d03d80045987
+    .claude/skills/ru-text/skills/ru-text/references/sources.md: sha256:008e6bb32e64877b91d06eeb81e3e369004a29d03627550439215165d795045b
+    .claude/skills/ru-text/skills/ru-text/references/typography.md: sha256:474efb4258cffcb85ca9ca1bc7a0a46052e8e1b5712318b268b9a62ba17d591d
+    .claude/skills/ru-text/skills/ru-text/references/ux-writing.md: sha256:7802bc126bff4f754e4eeb0f8b986dd967ac876c038d23a0a63b5846248b4cee
   content_hash: sha256:5a5987e731dcd35ffab55fa8d1b4a43fb8fff4eadb13a12660c655b61e6b3285
   declared_license: MIT
 deployments:
@@ -3206,24 +3266,6 @@ deployments:
   content_hash: sha256:caf7279c59f4f4620508610e9b628c2f7f83294a8d788ecd21fd27625dbe6045
 - kind: project-relative
   target: claude
-  value: .claude/commands/ru-check.md
-  runtime: null
-  scope: project
-  owners:
-  - talkstream/ru-text
-  active_owner: talkstream/ru-text
-  content_hash: sha256:731d2c104ab157680e9aa952b430c8980357462d704d6b237e1f649c90d34aff
-- kind: project-relative
-  target: claude
-  value: .claude/commands/ru-score.md
-  runtime: null
-  scope: project
-  owners:
-  - talkstream/ru-text
-  active_owner: talkstream/ru-text
-  content_hash: sha256:990d9bab2e446e9c2150602df0d2d84a79866efef90f82b17259d08d76b65c06
-- kind: project-relative
-  target: claude
   value: .claude/rules/ai-dev-team-connection.md
   runtime: null
   scope: project
@@ -3527,7 +3569,7 @@ deployments:
   owners:
   - mekras/ai-agent-supervisor
   active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:709bdda891c467756c2a87fe9eb232c43abbcec8a0070cd1b2f9590192e12f17
+  content_hash: sha256:ef7397b5d15db8e5bc224c39006bc746e4bbd3577a3c45457ecd4cccbeac8060
 - kind: project-relative
   target: claude
   value: .claude/skills/ai-setup-apm/agents/openai.yaml
@@ -3545,7 +3587,7 @@ deployments:
   owners:
   - mekras/ai-agent-supervisor
   active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:fea2ac42323270753d5f8bf05642e94dfed94055fd9a9f8c174353716fb85195
+  content_hash: sha256:f49c3320dd41b61f5b5066cf5e0ef38cd32a23d5bb308521e67a38667a1e0469
 - kind: project-relative
   target: claude
   value: .claude/skills/ai-setup-apm/evals/triggers.json
@@ -3698,7 +3740,16 @@ deployments:
   owners:
   - mekras/ai-agent-supervisor
   active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:df7757df960ef3a3b1dce446fa91c540c84d28c30e84e6e44fd56f7bba600ab0
+  content_hash: sha256:d329255145f00e3fb3634d0a68f3c7bf0bd5ea2c815791a1ef7220a101e0ae46
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ai-setup-apm/scripts/validate-apm-git-boundary.py
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:12c3ef6dc598bc8bb00af5f513677619abbcd166fde6c66de15ee59472fed7d5
 - kind: project-relative
   target: claude
   value: .claude/skills/ai-setup-hooks
@@ -7418,6 +7469,168 @@ deployments:
   content_hash: null
 - kind: project-relative
   target: claude
+  value: .claude/skills/ru-text/.claude-plugin/marketplace.json
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:64719d3936519160d620e7aec5d2b2342f544284dce3efc795bb65453256b26e
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/.claude-plugin/plugin.json
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:d1e660e677bec5edae4fa0fcc4ef34dd50ff565b87c536af89d89b7ba32b9edf
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/.codex-plugin/plugin.json
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:261d77344da54c9a9bd4f7391763435fa98bd7dc4dbc55f581249cbf09fb23f9
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/.cursor-plugin/plugin.json
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:82aafe044dd584391b59c08981835846ec00ce64520faea0b9cdfee009d42675
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/.github/FUNDING.yml
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:b0f6a5dbb2568abb70854a6f8f449fcc49ed6dfb69a17565e177a39e740c6835
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/.github/ISSUE_TEMPLATE/bug_report.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:fc033f10d2bd007306e2415438038b5bf4fdd6f9b313cce20fdcfe54859f07c9
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/.github/ISSUE_TEMPLATE/config.yml
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:72f68aebad5a7fa354a1037c671a749a8fc4f96b9b3f8362f8de3acf0cb80c23
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/.github/ISSUE_TEMPLATE/feature_request.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:d58fd0fb67342e2698d99bd50dd6dea70acef98f031c66308301d4fd1b4fde69
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/.github/PULL_REQUEST_TEMPLATE.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:de7a193bcffce5af790d3ed654d61df979b4615ceacc7a13978d450d6b9f1505
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/.gitignore
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:27d5ee2e35d13003e97b0118851eefafe5545b5210b608624d74779eda31784c
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/CHANGELOG.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:93c784f24d969c4e28e2b1a9fbc36eb99db433a1fdb55942c3233fd28bc1fd83
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/CODE_OF_CONDUCT.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:dc92923b50309a8302fa240c25d2f386cb6b0fa58b5258d5ac6b1dea8b28f0d2
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/CONTRIBUTING.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:ef18d17371a0bd36f0ce7553a1935e4a12719e7de48d98eccbc45679ea09dc21
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/LICENSE
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:37ea601e35a544e6a4b08b1c5cb126543b2ea6dc14b23620f12bdc11a00ba839
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/PRIVACY_POLICY.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:87d75495d9d7f5c68e3fa378f0a63eff8f72c13116c72e6ec9fcbdaea9bf4672
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/README.en.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:e60f73fc30da8705c4af282026ad4559b60b03be96f9483ad199faf087da7fb0
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/README.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:759152baa040a301c1a912767b3086386bfa60b84dc0985f1427fb45baf9cbf8
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/SECURITY.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:5d04b0d10e727843aebd5e4cae053f78a255c83e480a1defa21643c068a042f6
+- kind: project-relative
+  target: claude
   value: .claude/skills/ru-text/SKILL.md
   runtime: null
   scope: project
@@ -7427,7 +7640,115 @@ deployments:
   content_hash: sha256:e8d8743cfbf181398288c3ce54d21ae9bf5ed80805bee50c5dde1bc40b22e84e
 - kind: project-relative
   target: claude
-  value: .claude/skills/ru-text/agents/gemini.yaml
+  value: .claude/skills/ru-text/Social Preview 1280x640.png
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:a1fc6df71908a64e9112f56fbed4701c269e47ecdeeec3f547b6d90cfb587bd0
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/apm.yml
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:a30172c82e4493823a1f8eb7f2a78e0b682b66b42d7103a7195257138cbddfda
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/assets/icon.png
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:4780b3ee7a078f0cb40eb9979639ba3b992f10a393996a093592aa3a5b7422ae
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/commands/ru-check.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:b111c75a5b3a7b9e3d129ebcf9b23444ce76da8bec53ebae2ac96e98bda35aba
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/commands/ru-score.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:29cd195ba9154a9d22fa85b5fc25b4718ace7fe1b7a7c82a9839a136659d8b55
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/docs/source-funnel-analysis-v1.9.0.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:9589fd47004e2162bdc70f3d515f8619923578dab5231be4c7f20139317a4b56
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/gemini-extension.json
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:3e69885859eb701659134ad7899f4e27d680464677a30cb9293274496247450b
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/logo-round.png
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:fa2e971d8c6b3ff424adae80df56e66386b74d45f45ab781b44eca42ad09a5b5
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/notion/README.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:2c10664496837d390a042c2103856ba4cb140ef15bd2a081744690c53a82c250
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/notion/ru-text-notion-skill.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:9e731c1a3ebb7a3bd68b9f11948f3b44ac46a1ddf465a9a90d9ab50bac61ace4
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/openclaw.plugin.json
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:b3ad9f7fa7f4fb1bcd3c4e8af2c31f7a5c997c34d4e66e6e56c9562a32661a5c
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/skills/ru-text/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:e8d8743cfbf181398288c3ce54d21ae9bf5ed80805bee50c5dde1bc40b22e84e
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ru-text/skills/ru-text/agents/gemini.yaml
   runtime: null
   scope: project
   owners:
@@ -7436,7 +7757,7 @@ deployments:
   content_hash: sha256:8ad0bb037ef842431ba01adab0642a2211d8775eeb34465bc1d60534e481f978
 - kind: project-relative
   target: claude
-  value: .claude/skills/ru-text/agents/openai.yaml
+  value: .claude/skills/ru-text/skills/ru-text/agents/openai.yaml
   runtime: null
   scope: project
   owners:
@@ -7445,7 +7766,7 @@ deployments:
   content_hash: sha256:4337e973231e6ab7337fdd86def0c7617b3346e01de74b7938c1613fe5d927a6
 - kind: project-relative
   target: claude
-  value: .claude/skills/ru-text/references/addenda.md
+  value: .claude/skills/ru-text/skills/ru-text/references/addenda.md
   runtime: null
   scope: project
   owners:
@@ -7454,7 +7775,7 @@ deployments:
   content_hash: sha256:1aaa86668999e7890ff0e3fe240c63f0ea5d54ac4e07afd339ab9aca08b5971e
 - kind: project-relative
   target: claude
-  value: .claude/skills/ru-text/references/anti-patterns.md
+  value: .claude/skills/ru-text/skills/ru-text/references/anti-patterns.md
   runtime: null
   scope: project
   owners:
@@ -7463,7 +7784,7 @@ deployments:
   content_hash: sha256:09e507ecd09ff3ecb30a4f96a9ed0f36a42ef868045b4a8740d0903c1452ea0b
 - kind: project-relative
   target: claude
-  value: .claude/skills/ru-text/references/business-writing.md
+  value: .claude/skills/ru-text/skills/ru-text/references/business-writing.md
   runtime: null
   scope: project
   owners:
@@ -7472,7 +7793,7 @@ deployments:
   content_hash: sha256:689895e01768e129b38ffebf0dff14f577c32b677040d361d301a561fc97b2ae
 - kind: project-relative
   target: claude
-  value: .claude/skills/ru-text/references/editorial-grammar.md
+  value: .claude/skills/ru-text/skills/ru-text/references/editorial-grammar.md
   runtime: null
   scope: project
   owners:
@@ -7481,7 +7802,7 @@ deployments:
   content_hash: sha256:7eea8943cb0d701f4efcaee78609927cc84d621925ce0eeb5a9f65e772acf19a
 - kind: project-relative
   target: claude
-  value: .claude/skills/ru-text/references/editorial-punctuation.md
+  value: .claude/skills/ru-text/skills/ru-text/references/editorial-punctuation.md
   runtime: null
   scope: project
   owners:
@@ -7490,7 +7811,7 @@ deployments:
   content_hash: sha256:75637dfb78ac1a6946da1f354b25132473e0f008bbf5bd8ba9d8b751ad9fbe41
 - kind: project-relative
   target: claude
-  value: .claude/skills/ru-text/references/info-style.md
+  value: .claude/skills/ru-text/skills/ru-text/references/info-style.md
   runtime: null
   scope: project
   owners:
@@ -7499,7 +7820,7 @@ deployments:
   content_hash: sha256:ed755dbcebbbcd275a722d9fda1bfedd74f58fd5cfd702cf6a3fa9b81b0fc50b
 - kind: project-relative
   target: claude
-  value: .claude/skills/ru-text/references/scoring.md
+  value: .claude/skills/ru-text/skills/ru-text/references/scoring.md
   runtime: null
   scope: project
   owners:
@@ -7508,7 +7829,7 @@ deployments:
   content_hash: sha256:9ad1e57633a4e3c673b040960e7ff315225324ac397d92370827d03d80045987
 - kind: project-relative
   target: claude
-  value: .claude/skills/ru-text/references/sources.md
+  value: .claude/skills/ru-text/skills/ru-text/references/sources.md
   runtime: null
   scope: project
   owners:
@@ -7517,7 +7838,7 @@ deployments:
   content_hash: sha256:008e6bb32e64877b91d06eeb81e3e369004a29d03627550439215165d795045b
 - kind: project-relative
   target: claude
-  value: .claude/skills/ru-text/references/typography.md
+  value: .claude/skills/ru-text/skills/ru-text/references/typography.md
   runtime: null
   scope: project
   owners:
@@ -7526,7 +7847,7 @@ deployments:
   content_hash: sha256:474efb4258cffcb85ca9ca1bc7a0a46052e8e1b5712318b268b9a62ba17d591d
 - kind: project-relative
   target: claude
-  value: .claude/skills/ru-text/references/ux-writing.md
+  value: .claude/skills/ru-text/skills/ru-text/references/ux-writing.md
   runtime: null
   scope: project
   owners:
@@ -7883,7 +8204,7 @@ deployments:
   owners:
   - mekras/ai-agent-supervisor
   active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:709bdda891c467756c2a87fe9eb232c43abbcec8a0070cd1b2f9590192e12f17
+  content_hash: sha256:ef7397b5d15db8e5bc224c39006bc746e4bbd3577a3c45457ecd4cccbeac8060
 - kind: project-relative
   target: codex
   value: .agents/skills/ai-setup-apm/agents/openai.yaml
@@ -7901,7 +8222,7 @@ deployments:
   owners:
   - mekras/ai-agent-supervisor
   active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:fea2ac42323270753d5f8bf05642e94dfed94055fd9a9f8c174353716fb85195
+  content_hash: sha256:f49c3320dd41b61f5b5066cf5e0ef38cd32a23d5bb308521e67a38667a1e0469
 - kind: project-relative
   target: codex
   value: .agents/skills/ai-setup-apm/evals/triggers.json
@@ -8054,7 +8375,16 @@ deployments:
   owners:
   - mekras/ai-agent-supervisor
   active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:df7757df960ef3a3b1dce446fa91c540c84d28c30e84e6e44fd56f7bba600ab0
+  content_hash: sha256:d329255145f00e3fb3634d0a68f3c7bf0bd5ea2c815791a1ef7220a101e0ae46
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-apm/scripts/validate-apm-git-boundary.py
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:12c3ef6dc598bc8bb00af5f513677619abbcd166fde6c66de15ee59472fed7d5
 - kind: project-relative
   target: codex
   value: .agents/skills/ai-setup-hooks
@@ -9882,123 +10212,6 @@ deployments:
   - mekras/project-knowlege-corpus
   active_owner: mekras/project-knowlege-corpus
   content_hash: sha256:4dd2a72292e983a42abdf0e0b6b168abec1f4fec9c62c79a4f3345b8c18117a9
-- kind: project-relative
-  target: codex
-  value: .codex/agents/analyst.toml
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:413cba0c5201c93838ec5820e01409242f875106f0f9d4ca1d526e4331631545
-- kind: project-relative
-  target: codex
-  value: .codex/agents/coder.toml
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:2349110058391c4cf5aef9f15679ba59d2e372c40ad0a31a27a5fab0f9589c6d
-- kind: project-relative
-  target: codex
-  value: .codex/agents/documentation-reader.toml
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:df385d427877feb672f91e38d90a1115dbe1d9c8b81688fb5da2d96933ee4223
-- kind: project-relative
-  target: codex
-  value: .codex/agents/legal.toml
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:8f9e2b09b13e26821fa86963442c24c6acd79dc4d0f05cc6869d2c1e3fb851ac
-- kind: project-relative
-  target: codex
-  value: .codex/agents/normalizer.toml
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:e4564cf987fd974833fa5bf2d879d8d8b1db357457eb284ca097670562fded55
-- kind: project-relative
-  target: codex
-  value: .codex/agents/project-manager.toml
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:107ed875b64ebe972258f4276d1c8cb6b4d3ebf51cafc9f6c1436b4ea3eb5a70
-- kind: project-relative
-  target: codex
-  value: .codex/agents/reliability-engineer.toml
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:0b0cfdb980136e2998ec402d264f07efd706cd80a3e0338ebea4c2f7fc050443
-- kind: project-relative
-  target: codex
-  value: .codex/agents/security-engineer.toml
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:aa1cea2ad9bcad7cdad1f19bf10cdbf055620b0bfb8ebc70140d914bb5c779b2
-- kind: project-relative
-  target: codex
-  value: .codex/agents/software-architect.toml
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:3c7674b93abc09eb7b4cac9603c0799c3ab59a6899b7532fcbae694346bfed14
-- kind: project-relative
-  target: codex
-  value: .codex/agents/source-inventory.toml
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:e219b8a3da50480d458cce6e050360ee7419eccb3ce5727ff1788ccb34371ba4
-- kind: project-relative
-  target: codex
-  value: .codex/agents/statement-extractor.toml
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:1c4c38aa335c5dfbcb4d24ab0ed6f80be011d8be4c13b03bc5189e92ffdf5581
-- kind: project-relative
-  target: codex
-  value: .codex/agents/technical-writer.toml
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:897d306e51d31482502e9cb5466ad8889d11edead33c6dba33a0e74e9b17c703
-- kind: project-relative
-  target: codex
-  value: .codex/agents/ux-specialist.toml
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:fea0935ba6a6c6615ad7119e62af0984030a7b311e8aa95013a7c0dc775da602
 local_deployed_files:
 - .agents/skills/ait-analysis
 - .agents/skills/ait-analysis/SKILL.md
@@ -10472,19 +10685,6 @@ local_deployed_files:
 - .claude/skills/ait-writing/assets/documentation-structure-template.md
 - .claude/skills/ait-writing/evals/result-scenarios.json
 - .claude/skills/ait-writing/evals/triggers.json
-- .codex/agents/analyst.toml
-- .codex/agents/coder.toml
-- .codex/agents/documentation-reader.toml
-- .codex/agents/legal.toml
-- .codex/agents/normalizer.toml
-- .codex/agents/project-manager.toml
-- .codex/agents/reliability-engineer.toml
-- .codex/agents/security-engineer.toml
-- .codex/agents/software-architect.toml
-- .codex/agents/source-inventory.toml
-- .codex/agents/statement-extractor.toml
-- .codex/agents/technical-writer.toml
-- .codex/agents/ux-specialist.toml
 local_deployed_file_hashes:
   .agents/skills/ait-analysis/SKILL.md: sha256:e39f9a73dfcfa12928a8d30640758408186ead74dffd1f4c95505419de30ee99
   .agents/skills/ait-analysis/evals/triggers.json: sha256:a8137c3527cf1880fe996f54dbb96c219023f21bfc9c0462119a0966692c14a7
@@ -10872,16 +11072,3 @@ local_deployed_file_hashes:
   .claude/skills/ait-writing/assets/documentation-structure-template.md: sha256:b146cf88845fe0543c05ab2586c148e0a9007cb1983fe9058d738b92cf708a11
   .claude/skills/ait-writing/evals/result-scenarios.json: sha256:e42d95d0fb8acc78afb95de81be71994bdbc597f2589e87e4bce03d970ce54e4
   .claude/skills/ait-writing/evals/triggers.json: sha256:ff5b56a332fa8ac234a7162b77047f8627f3753310116e1c8b8cad99d26caee2
-  .codex/agents/analyst.toml: sha256:413cba0c5201c93838ec5820e01409242f875106f0f9d4ca1d526e4331631545
-  .codex/agents/coder.toml: sha256:2349110058391c4cf5aef9f15679ba59d2e372c40ad0a31a27a5fab0f9589c6d
-  .codex/agents/documentation-reader.toml: sha256:df385d427877feb672f91e38d90a1115dbe1d9c8b81688fb5da2d96933ee4223
-  .codex/agents/legal.toml: sha256:8f9e2b09b13e26821fa86963442c24c6acd79dc4d0f05cc6869d2c1e3fb851ac
-  .codex/agents/normalizer.toml: sha256:e4564cf987fd974833fa5bf2d879d8d8b1db357457eb284ca097670562fded55
-  .codex/agents/project-manager.toml: sha256:107ed875b64ebe972258f4276d1c8cb6b4d3ebf51cafc9f6c1436b4ea3eb5a70
-  .codex/agents/reliability-engineer.toml: sha256:0b0cfdb980136e2998ec402d264f07efd706cd80a3e0338ebea4c2f7fc050443
-  .codex/agents/security-engineer.toml: sha256:aa1cea2ad9bcad7cdad1f19bf10cdbf055620b0bfb8ebc70140d914bb5c779b2
-  .codex/agents/software-architect.toml: sha256:3c7674b93abc09eb7b4cac9603c0799c3ab59a6899b7532fcbae694346bfed14
-  .codex/agents/source-inventory.toml: sha256:e219b8a3da50480d458cce6e050360ee7419eccb3ce5727ff1788ccb34371ba4
-  .codex/agents/statement-extractor.toml: sha256:1c4c38aa335c5dfbcb4d24ab0ed6f80be011d8be4c13b03bc5189e92ffdf5581
-  .codex/agents/technical-writer.toml: sha256:897d306e51d31482502e9cb5466ad8889d11edead33c6dba33a0e74e9b17c703
-  .codex/agents/ux-specialist.toml: sha256:fea0935ba6a6c6615ad7119e62af0984030a7b311e8aa95013a7c0dc775da602
