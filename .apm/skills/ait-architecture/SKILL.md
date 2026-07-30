@@ -168,9 +168,10 @@ description: Архитектура ПО, компоненты, интеграц
 
 ## Опорные источники
 
-Навык опирается на источники корпуса: сначала найди источник по `id` в
-`knowledge/catalog.yml`, затем используй `knowledge/data/<slug>/source.yml`,
-`knowledge/data/<slug>/items.yml` и связанные утверждения: `APIB`, `RADR`,
+Корень корпуса проекта указан в `AGENTS.md`, раздел «Корпус знаний проекта».
+Все пути ниже указаны относительно этого корня. Сначала найди источник по `id`
+в `catalog.yml`, затем используй `data/<slug>/source.yml`,
+`data/<slug>/items.yml` и связанные утверждения: `APIB`, `RADR`,
 `CLAR`, `DDDE`, `EVAR`, `SAHP`, `AR42`, `C4M`, `DSCT`, `G250`, `GSRE`, `DDIA`,
 `CHAE`, `CHEN`, `CLCD`, `ADRG`. `TFA` используется через профильный навык
 `ait-twelve-factor`. Источники `SDDP`, `SPKT` и `AUGR` используются через

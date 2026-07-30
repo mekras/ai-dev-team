@@ -91,9 +91,10 @@ description: Построение и проверка модели угроз.
 
 ## Опорные источники
 
-Навык опирается на источники корпуса: сначала найди источник по `id` в
-`knowledge/catalog.yml`, затем используй `knowledge/data/<slug>/source.yml`,
-`knowledge/data/<slug>/items.yml` и связанные утверждения: `SMAS`, `TMDS`,
+Корень корпуса проекта указан в `AGENTS.md`, раздел «Корпус знаний проекта».
+Все пути ниже указаны относительно этого корня. Сначала найди источник по `id`
+в `catalog.yml`, затем используй `data/<slug>/source.yml`,
+`data/<slug>/items.yml` и связанные утверждения: `SMAS`, `TMDS`,
 `ATCK`, `MWAT`, `OWTT`, `ETL5`, `ASVS`, `SSDF`. Для угроз публичных и
 партнёрских API дополнительно — `APIB` (через
 `ait-architecture/references/api-design.md`).

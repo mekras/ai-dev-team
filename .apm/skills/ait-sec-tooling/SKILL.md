@@ -69,25 +69,29 @@ description: Выбор и применение средств информац�
 
 ## Основание в корпусе
 
+Корень корпуса проекта указан в `AGENTS.md`, раздел «Корпус знаний проекта».
+Пути к файлам корпуса ниже указаны относительно этого корня.
+
 - Выбор и применение средств опираются на практики SSDF: поддерживающие цепочки
   инструментов с автоматическим сбором артефактов (`PO.3`), настройка процессов
   компиляции и сборки на безопасность, включая утверждённый список инструментов
   и предупреждения компилятора (`PW.6`), и критерии проверок (`PO.4`). См.
-  `knowledge/data/ssdf/items/primary-ssdf-page-index.tsv/statements.yml`
+  `data/ssdf/items/primary-ssdf-page-index.tsv/statements.yml`
   (`SSDF-005`, `SSDF-010`).
 - Для криптографических средств действует правило проверенных профессионалами
   решений из навыка `ait-sec-threat-modeling` (основание `TMDS`).
 - Для SCA и SBOM ориентиром служит стандарт состава ПО `CycloneDX`
-  (`knowledge/data/cydx/items/normalized-cydx-source.md/statements.yml`:
+  (`data/cydx/items/normalized-cydx-source.md/statements.yml`:
   компоненты, зависимости, уязвимости, VEX), дополняющий учтённый `SPDX`;
   средства SCA связаны с проверкой компонентов (SSDF `PW.4`).
 - Классы средств тестирования (SAST/DAST/пентест) систематизирует OWASP WSTG
-  (`knowledge/data/wstg/items/normalized-wstg-source.md/statements.yml`); их
+  (`data/wstg/items/normalized-wstg-source.md/statements.yml`); их
   применение ведёт навык `ait-sec-audit`.
 
 ## Опорные источники
 
-Навык опирается на источники корпуса: сначала найди источник по `id` в
-`knowledge/catalog.yml`, затем используй `knowledge/data/<slug>/source.yml`,
-`knowledge/data/<slug>/items.yml` и связанные утверждения: `CYDX`, `WSTG`,
+Корень корпуса проекта указан в `AGENTS.md`, раздел «Корпус знаний проекта».
+Все пути ниже указаны относительно этого корня. Сначала найди источник по `id`
+в `catalog.yml`, затем используй `data/<slug>/source.yml`,
+`data/<slug>/items.yml` и связанные утверждения: `CYDX`, `WSTG`,
 `SSDF`, `SAMM`, `ASVS`.

@@ -31,8 +31,11 @@ description: Аудит существующей структуры проект
 
 ## Основания
 
-- `knowledge/data/hwd/items.yml`
-- `knowledge/data/wtdg/items.yml`
+Корень корпуса проекта указан в `AGENTS.md`, раздел «Корпус знаний проекта».
+Пути к файлам корпуса ниже указаны относительно этого корня.
+
+- `data/hwd/items.yml`
+- `data/wtdg/items.yml`
 - `.apm/agents/technical-writer.agent.md`
 - `.apm/skills/ait-writing/SKILL.md`
 - `.apm/skills/ait-writing/assets/documentation-structure-template.md`

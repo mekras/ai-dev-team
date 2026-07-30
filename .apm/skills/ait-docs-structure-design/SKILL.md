@@ -33,9 +33,12 @@ description: Проектирование структуры и навигаци
 
 ## Основания
 
-- `knowledge/data/hwd/items.yml`
-- `knowledge/data/wtdg/items.yml`
-- `knowledge/data/sreq/items/text/statements.yml`
+Корень корпуса проекта указан в `AGENTS.md`, раздел «Корпус знаний проекта».
+Пути к файлам корпуса ниже указаны относительно этого корня.
+
+- `data/hwd/items.yml`
+- `data/wtdg/items.yml`
+- `data/sreq/items/text/statements.yml`
 - `.apm/agents/analyst.agent.md`
 - `.apm/agents/technical-writer.agent.md`
 - `.apm/skills/ait-writing/assets/documentation-structure-template.md`

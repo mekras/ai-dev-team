@@ -24,7 +24,10 @@ description: Сопровождение правил выбранной стру
 
 ## Основания
 
-- `knowledge/data/wtdg/items.yml`
+Корень корпуса проекта указан в `AGENTS.md`, раздел «Корпус знаний проекта».
+Пути к файлам корпуса ниже указаны относительно этого корня.
+
+- `data/wtdg/items.yml`
 - `.apm/agents/project-manager.agent.md`
 - `.apm/agents/technical-writer.agent.md`
 - `.apm/skills/ait-writing/assets/documentation-structure-template.md`
