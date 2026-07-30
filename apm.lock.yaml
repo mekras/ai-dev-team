@@ -2051,7 +2051,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:d6adbcf4be3918415c8cafd52b41d7bed84fde53688e8bf37a8256261354c104
+  content_hash: sha256:28a1f4d83f1fe75e8451f126176f708c729e7002472248ead69f899a9f8c49cb
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-readme/evals/apm-skill-collection.md
@@ -2079,6 +2079,15 @@ deployments:
   - .
   active_owner: .
   content_hash: sha256:40ed2f8d8fc08eea02dd347524cc551d5744847edf2db0bac1f70f77985d5bfd
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-readme/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:dacf56ea5318188866cfb5748f70cb332122a2c7e4acc5d47293cd7ea83f553f
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-readme/evals/triggers.json
@@ -5210,7 +5219,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:d6adbcf4be3918415c8cafd52b41d7bed84fde53688e8bf37a8256261354c104
+  content_hash: sha256:28a1f4d83f1fe75e8451f126176f708c729e7002472248ead69f899a9f8c49cb
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-readme/evals/apm-skill-collection.md
@@ -5238,6 +5247,15 @@ deployments:
   - .
   active_owner: .
   content_hash: sha256:40ed2f8d8fc08eea02dd347524cc551d5744847edf2db0bac1f70f77985d5bfd
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ait-readme/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:dacf56ea5318188866cfb5748f70cb332122a2c7e4acc5d47293cd7ea83f553f
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-readme/evals/triggers.json
@@ -10099,6 +10117,7 @@ local_deployed_files:
 - .agents/skills/ait-readme/evals/apm-skill-collection.md
 - .agents/skills/ait-readme/evals/installation-vs-project-connection.md
 - .agents/skills/ait-readme/evals/openclaw-skills-regression.md
+- .agents/skills/ait-readme/evals/result-scenarios.json
 - .agents/skills/ait-readme/evals/triggers.json
 - .agents/skills/ait-readme/evals/user-entry.md
 - .agents/skills/ait-readme/references/apm-skill-collections.md
@@ -10341,6 +10360,7 @@ local_deployed_files:
 - .claude/skills/ait-readme/evals/apm-skill-collection.md
 - .claude/skills/ait-readme/evals/installation-vs-project-connection.md
 - .claude/skills/ait-readme/evals/openclaw-skills-regression.md
+- .claude/skills/ait-readme/evals/result-scenarios.json
 - .claude/skills/ait-readme/evals/triggers.json
 - .claude/skills/ait-readme/evals/user-entry.md
 - .claude/skills/ait-readme/references/apm-skill-collections.md
@@ -10558,10 +10578,11 @@ local_deployed_file_hashes:
   .agents/skills/ait-project-revalidation/references/controller.md: sha256:0b5796c39c5b7fc1dad9b54f851666e107b063d26f736b8d43d2656c7607fc9b
   .agents/skills/ait-project-revalidation/references/workflow.md: sha256:26c1398c1d9e222b5bf06793d3a7d48bb35e9b0362c5d1714478ce17c416bb09
   .agents/skills/ait-project-revalidation/scripts/project_review.py: sha256:1a7b2ae33eba1e9fc7f9ea522d6ed7663c0a7500c007b39ac242f038456acf09
-  .agents/skills/ait-readme/SKILL.md: sha256:d6adbcf4be3918415c8cafd52b41d7bed84fde53688e8bf37a8256261354c104
+  .agents/skills/ait-readme/SKILL.md: sha256:28a1f4d83f1fe75e8451f126176f708c729e7002472248ead69f899a9f8c49cb
   .agents/skills/ait-readme/evals/apm-skill-collection.md: sha256:9fe6e4ccafe389d25111bbe4447b77f90e3740ddd207dcb0815fe15ac1da87ca
   .agents/skills/ait-readme/evals/installation-vs-project-connection.md: sha256:1ebf80b255f2c87cec07042c0eb88a5236fe6a859b67228bd22aff4538ccf7a4
   .agents/skills/ait-readme/evals/openclaw-skills-regression.md: sha256:40ed2f8d8fc08eea02dd347524cc551d5744847edf2db0bac1f70f77985d5bfd
+  .agents/skills/ait-readme/evals/result-scenarios.json: sha256:dacf56ea5318188866cfb5748f70cb332122a2c7e4acc5d47293cd7ea83f553f
   .agents/skills/ait-readme/evals/triggers.json: sha256:095c8649d0fc0e8eb8d0b42245146515f32f05ec7d8d3c7c594047564b7f9a61
   .agents/skills/ait-readme/evals/user-entry.md: sha256:21325d45f67152c0cf5b8495ac7f1ee77b8dfab4aa0b7b966c23f61044a468c8
   .agents/skills/ait-readme/references/apm-skill-collections.md: sha256:e53faf20150af73b6be75ec2d2064d7de9fd185589435025ecdb446901a5a2ef
@@ -10757,10 +10778,11 @@ local_deployed_file_hashes:
   .claude/skills/ait-project-revalidation/references/controller.md: sha256:0b5796c39c5b7fc1dad9b54f851666e107b063d26f736b8d43d2656c7607fc9b
   .claude/skills/ait-project-revalidation/references/workflow.md: sha256:26c1398c1d9e222b5bf06793d3a7d48bb35e9b0362c5d1714478ce17c416bb09
   .claude/skills/ait-project-revalidation/scripts/project_review.py: sha256:1a7b2ae33eba1e9fc7f9ea522d6ed7663c0a7500c007b39ac242f038456acf09
-  .claude/skills/ait-readme/SKILL.md: sha256:d6adbcf4be3918415c8cafd52b41d7bed84fde53688e8bf37a8256261354c104
+  .claude/skills/ait-readme/SKILL.md: sha256:28a1f4d83f1fe75e8451f126176f708c729e7002472248ead69f899a9f8c49cb
   .claude/skills/ait-readme/evals/apm-skill-collection.md: sha256:9fe6e4ccafe389d25111bbe4447b77f90e3740ddd207dcb0815fe15ac1da87ca
   .claude/skills/ait-readme/evals/installation-vs-project-connection.md: sha256:1ebf80b255f2c87cec07042c0eb88a5236fe6a859b67228bd22aff4538ccf7a4
   .claude/skills/ait-readme/evals/openclaw-skills-regression.md: sha256:40ed2f8d8fc08eea02dd347524cc551d5744847edf2db0bac1f70f77985d5bfd
+  .claude/skills/ait-readme/evals/result-scenarios.json: sha256:dacf56ea5318188866cfb5748f70cb332122a2c7e4acc5d47293cd7ea83f553f
   .claude/skills/ait-readme/evals/triggers.json: sha256:095c8649d0fc0e8eb8d0b42245146515f32f05ec7d8d3c7c594047564b7f9a61
   .claude/skills/ait-readme/evals/user-entry.md: sha256:21325d45f67152c0cf5b8495ac7f1ee77b8dfab4aa0b7b966c23f61044a468c8
   .claude/skills/ait-readme/references/apm-skill-collections.md: sha256:e53faf20150af73b6be75ec2d2064d7de9fd185589435025ecdb446901a5a2ef

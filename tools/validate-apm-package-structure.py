@@ -179,6 +179,11 @@ PROJECT_README_REGRESSION_NEEDLES = {
         "apm compile --target codex",
         "git status --short",
     ),
+    ".apm/skills/ait-readme/evals/result-scenarios.json": (
+        "ait-readme-result-file-location-without-installer-mechanics",
+        "ait-readme-result-meaningful-installation-limitation",
+        "фактическое расположение файла после установки",
+    ),
 }
 
 TEXT_SUFFIXES = {
