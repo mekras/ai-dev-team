@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "graph": {
+    "name": "project-knowledge-corpus",
+    "description": "Направления возможного влияния между частями коллекции навыков для корпуса знаний.",
+    "default_facet": "semantic",
+    "unmapped_paths": "block",
+    "ignore": [
+      ".git/**",
+      ".agents/**",
+      ".claude/**",
+      ".codex/**",
+      "apm_modules/**",
+      "**/__pycache__/**"
+    ]
+  },
+  "nodes": [
+    {
+      "id": "concept",
+      "title": "Концепция проекта",
+      "kind": "concept",
+      "paths": ["README.md"],
+      "checks": ["ait-docs-concept", "ait-readme"],
+      "review_stages": ["requirements"]
+    },
+    {
+      "id": "published-skills",
+      "title": "Публикуемые навыки",
+      "kind": "implementation",
+      "paths": [".apm/skills/**"],
+      "checks": ["ai-skill-development", "apm run tests"],
+      "review_stages": ["code", "tests"]
+    },
+    {
+      "id": "user-documentation",
+      "title": "Пользовательская документация",
+      "kind": "documentation",
+      "paths": [
+        "docs/00-index.md",
+        "docs/10-user-guide/**",
+        "docs/20-sources/**",
+        "docs/40-reference/**",
+        "docs/50-how-to/**"
+      ],
+      "checks": ["ait-writing", "ait-docs-structure-audit"],
+      "review_stages": ["requirements"]
+    },
+    {
+      "id": "governance",
+      "title": "Решения и процесс",
+      "kind": "process",
+      "paths": [
+        "AGENTS.md",
+        "CLAUDE.md",
+        ".ai-dev-team-state.yml",
+        "docs/ADR/**",
+        "BACKLOG.md",
+        "CHANGELOG.md",
+        "project-impact.json"
+      ],
+      "checks": ["ai-agents-md-maintenance", "ait-decisions", "ait-changelog", "ait-impact-analysis"],
+      "review_stages": ["repository", "impact"]
+    },
+    {
+      "id": "delivery",
+      "title": "Поставка",
+      "kind": "delivery",
+      "paths": ["apm.yml", "apm.lock.yaml", "LICENSE", ".gitignore"],
+      "checks": ["ai-setup-apm", "apm audit --ci"],
+      "review_stages": ["repository", "assurance"]
+    },
+    {
+      "id": "quality-tooling",
+      "title": "Проверки и инструменты",
+      "kind": "test",
+      "paths": ["tools/**", ".githooks/**", ".apm/evals/**", "evals.local.yml.sample"],
+      "checks": ["ait-code-testing", "apm run tests"],
+      "review_stages": ["tests", "assurance"]
+    }
+  ],
+  "edges": [
+    {
+      "from": "concept",
+      "to": "published-skills",
+      "relation": "constrains",
+      "facets": ["semantic", "documentation"],
+      "rationale": "Навыки реализуют назначение коллекции и не должны расходиться с её концепцией."
+    },
+    {
+      "from": "concept",
+      "to": "user-documentation",
+      "relation": "constrains",
+      "facets": ["semantic", "documentation"],
+      "rationale": "Пользовательская документация объясняет назначение коллекции и должна сохранять её смысл."
+    },
+    {
+      "from": "published-skills",
+      "to": "user-documentation",
+      "relation": "documents",
+      "facets": ["interface", "documentation"],
+      "rationale": "Документация описывает доступные навыки, их сценарии и договоры применения."
+    },
+    {
+      "from": "published-skills",
+      "to": "quality-tooling",
+      "relation": "verifies",
+      "facets": ["interface", "data", "quality", "structure"],
+      "rationale": "Проверки и средства оценки подтверждают структуру, договоры и качество публикуемых навыков."
+    },
+    {
+      "from": "published-skills",
+      "to": "delivery",
+      "relation": "packages",
+      "facets": ["interface", "structure"],
+      "rationale": "Поставка APM упаковывает и доставляет публикуемые навыки потребителю."
+    },
+    {
+      "from": "delivery",
+      "to": "quality-tooling",
+      "relation": "configures",
+      "facets": ["interface", "operation", "structure"],
+      "rationale": "Манифест и файл блокировки определяют состав поставки, который проверяют APM и тесты."
+    },
+    {
+      "from": "governance",
+      "to": "concept",
+      "relation": "governs",
+      "facets": ["semantic", "structure"],
+      "rationale": "Инструкции агента закрепляют источник концепции и порядок работы с ним."
+    },
+    {
+      "from": "governance",
+      "to": "published-skills",
+      "relation": "governs",
+      "facets": ["semantic", "structure"],
+      "rationale": "Проектные правила и решения задают границы сопровождения публикуемых навыков."
+    },
+    {
+      "from": "governance",
+      "to": "delivery",
+      "relation": "governs",
+      "facets": ["operation", "structure"],
+      "rationale": "Проектные правила задают порядок обновления зависимостей и поставки APM."
+    }
+  ]
+}
