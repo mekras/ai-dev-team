@@ -1,0 +1,46 @@
+statements:
+  - id: AFDS-001
+    source_id: AFDS
+    item_id: AFDS-skill
+    kind: fact
+    status: verified
+    text: >-
+      Anthropic frontend-design требует основывать визуальное направление на
+      конкретном предмете, аудитории и задаче страницы.
+    excerpt: "Ground it in the subject"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Ground it in the subject
+      application: подготовка визуального направления интерфейса.
+    open_questions: []
+  - id: AFDS-002
+    source_id: AFDS
+    item_id: AFDS-skill
+    kind: fact
+    status: verified
+    text: >-
+      Навык разделяет работу на планирование, критику, реализацию и повторную
+      критику результата.
+    excerpt: "brainstorm, explore, plan, critique, build, critique again"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Process
+      application: итерационная проверка интерфейсного результата.
+    open_questions: []
+  - id: AFDS-003
+    source_id: AFDS
+    item_id: AFDS-skill
+    kind: fact
+    status: verified
+    text: >-
+      Минимальный уровень качества результата включает адаптивность до
+      мобильного экрана, видимый фокус с клавиатуры и учёт reduced motion.
+    excerpt: "responsive down to mobile"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Restraint and self-critique
+      application: проверка базового качества интерфейса.
+    open_questions: []

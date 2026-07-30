@@ -1,5 +1,7 @@
 {
   "version": 1,
+  "purpose": "Фиксированный набор для периодического обнаружения ухудшений полного пути продукта.",
+  "scope_limit": "Результат относится только к этим сценариям и не подтверждает эффект в реальных проектах.",
   "scenarios":
     [
       {
@@ -21,13 +23,114 @@
             { "label": "проверки импорта", "any_of": ["test_catalog.py"] },
             {
               "label": "зафиксированное требование",
-              "any_of": ["docs/requirements/catalog-import.md", "REQUIREMENTS.md", "README.md"],
+              "any_of":
+                [
+                  "docs/requirements/catalog-import.md",
+                  "requirements.md",
+                  "REQUIREMENTS.md",
+                  "README.md",
+                ],
             },
           ],
         "required_commands": ["python3 -m unittest"],
         "handoff_markers": ["приём", "критер", "проверк", "риск"],
         "routing_markers": ["режим менеджера", "маршрут"],
+        "decision_description": "политика обработки повторяющихся идентификаторов",
         "decision_marker_groups": [["повтор", "дублик"], ["id", "идентифик"]],
+        "seeded_problems":
+          [
+            {
+              "id": "duplicate-policy-undefined",
+              "problem_class": "requirements",
+              "description": "не определена политика обработки повторяющихся идентификаторов",
+              "earliest_stage": "requirements_review",
+              "detection_marker_groups":
+                [["повтор", "дублик"], ["id", "идентифик"], ["решен", "уточн", "политик", "выбор"]],
+            },
+          ],
+      },
+      {
+        "id": "storage-decision-conflict",
+        "title": "Конфликт решения о формате хранения",
+        "request": "Добавь сохранение событий в файле JSON Lines. Сначала проверь действующие требования и решения. Если найдёшь содержательное противоречие, запроси моё решение и не изменяй файлы до ответа. После решения обнови его запись, реализацию, проверки и передай результат мне на приёмку.",
+        "owner_reply": "Переходим на JSON Lines. Обнови запись решения с обоснованием миграции с SQLite, реализуй хранение, добавь проверки и подготовь результат к моей приёмке.",
+        "files":
+          {
+            ".gitignore": "__pycache__/\n*.pyc\n",
+            "AGENTS.md": "# Инструкции проверочного проекта\n\nРаботай только с файлами этого одноразового проекта. Запись внутри проекта разрешена. Не используй инструкции, навыки или файлы из родительских каталогов. Не выполняй commit и push.\n",
+            "README.md": "# Журнал событий\n\nУчебный проект для проверки изменения способа хранения.\n",
+            "docs/adr/0001-event-storage.md": "# ADR-0001. Хранение событий в SQLite\n\n- Статус: Принято\n\n## Решение\n\nВсе события должны храниться в базе SQLite `events.db`.\n",
+            "events.py": "\"\"\"Хранение событий.\"\"\"\n\nimport sqlite3\n\n\ndef append_event(path, event):\n    with sqlite3.connect(path) as connection:\n        connection.execute(\"create table if not exists events (payload text)\")\n        connection.execute(\"insert into events values (?)\", (event,))\n",
+            "test_events.py": "import tempfile\nimport unittest\nfrom pathlib import Path\n\nimport events\n\n\nclass EventStorageTest(unittest.TestCase):\n    def test_appends_event(self):\n        with tempfile.TemporaryDirectory() as directory:\n            path = Path(directory) / \"events.db\"\n            events.append_event(path, \"created\")\n            self.assertTrue(path.exists())\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n",
+          },
+        "expected_artifact_groups":
+          [
+            { "label": "хранение событий", "any_of": ["events.py"] },
+            { "label": "проверки хранения", "any_of": ["test_events.py"] },
+            { "label": "обновлённое решение", "any_of": ["docs/adr/0001-event-storage.md"] },
+          ],
+        "required_commands": ["python3 -m unittest"],
+        "handoff_markers": ["приём", "критер", "проверк", "риск"],
+        "routing_markers": ["режим менеджера", "маршрут"],
+        "decision_description": "устранение противоречия между запросом и принятым форматом хранения",
+        "decision_marker_groups":
+          [["json lines", "jsonl"], ["sqlite"], ["противореч", "решен", "выбор"]],
+        "seeded_problems":
+          [
+            {
+              "id": "storage-decision-conflict",
+              "problem_class": "decision",
+              "description": "запрос на JSON Lines противоречит принятому решению о SQLite",
+              "earliest_stage": "decision_review",
+              "detection_marker_groups":
+                [["json lines", "jsonl"], ["sqlite"], ["противореч", "решен", "выбор"]],
+            },
+          ],
+      },
+      {
+        "id": "existing-regression-before-feature",
+        "title": "Существующая ошибка до новой функции",
+        "request": "Добавь деление чисел. Сначала проверь текущее состояние проекта и сообщи о найденных проблемах. Для деления на ноль нужно моё решение: запроси его и не изменяй файлы до ответа. После решения зафиксируй требование, исправь существующие ошибки, реализуй деление, добавь проверки и передай результат мне на приёмку.",
+        "owner_reply": "При делении на ноль нужно возбуждать ValueError без изменения другого состояния. Зафиксируй требование, исправь найденные ошибки, реализуй деление, добавь проверки и подготовь результат к моей приёмке.",
+        "files":
+          {
+            ".gitignore": "__pycache__/\n*.pyc\n",
+            "AGENTS.md": "# Инструкции проверочного проекта\n\nРаботай только с файлами этого одноразового проекта. Запись внутри проекта разрешена. Не используй инструкции, навыки или файлы из родительских каталогов. Не выполняй commit и push.\n",
+            "README.md": "# Калькулятор\n\nУчебный проект для проверки раннего обнаружения существующей ошибки.\n",
+            "calculator.py": "\"\"\"Арифметические операции.\"\"\"\n\n\ndef add(left, right):\n    return left - right\n",
+            "test_calculator.py": "import unittest\n\nimport calculator\n\n\nclass CalculatorTest(unittest.TestCase):\n    def test_adds_numbers(self):\n        self.assertEqual(5, calculator.add(2, 3))\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n",
+          },
+        "expected_artifact_groups":
+          [
+            { "label": "арифметические операции", "any_of": ["calculator.py"] },
+            { "label": "проверки арифметических операций", "any_of": ["test_calculator.py"] },
+            {
+              "label": "зафиксированное требование",
+              "any_of":
+                [
+                  "docs/requirements/division.md",
+                  "requirements.md",
+                  "REQUIREMENTS.md",
+                  "README.md",
+                ],
+            },
+          ],
+        "required_commands": ["python3 -m unittest"],
+        "handoff_markers": ["приём", "критер", "проверк", "риск"],
+        "routing_markers": ["режим менеджера", "маршрут"],
+        "decision_description": "поведение при делении на ноль",
+        "decision_marker_groups": [["делен"], ["нол"], ["решен", "выбор", "поведен"]],
+        "seeded_problems":
+          [
+            {
+              "id": "addition-regression",
+              "problem_class": "implementation",
+              "description": "существующая операция сложения выполняет вычитание",
+              "earliest_stage": "implementation_baseline",
+              "detection_marker_groups":
+                [["сложен", "add"], ["вычит", "ошиб", "падает", "не проход"]],
+            },
+          ],
       },
     ],
 }

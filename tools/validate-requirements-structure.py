@@ -12,10 +12,10 @@ REQUIREMENTS_ROOT = ROOT / "docs" / "requirements"
 
 CATEGORIES = {
     "business": ("bt", "БТ", (1, 2, 3)),
-    "functional": ("ft", "ФТ", tuple(range(1, 23))),
-    "quality": ("kach", "КАЧ", tuple(range(1, 9))),
-    "rules": ("pr", "ПР", tuple(range(1, 7))),
-    "user": ("pt", "ПТ", tuple(range(1, 8))),
+    "functional": ("ft", "ФТ", tuple(range(1, 32))),
+    "quality": ("kach", "КАЧ", tuple(range(1, 10))),
+    "rules": ("pr", "ПР", tuple(range(1, 9))),
+    "user": ("pt", "ПТ", (1, 2, 3, 5, 6, 7)),
 }
 
 INLINE_REQUIREMENT_RE = re.compile(
@@ -75,6 +75,16 @@ def check_index(expected: dict[Path, str]) -> None:
                 f"docs/requirements.md labels {link} as {label!r}, "
                 f"expected {expected[path]}",
             )
+        heading = re.search(
+            r"^# (.+)$",
+            path.read_text(encoding="utf-8"),
+            flags=re.MULTILINE,
+        )
+        if heading is None or label != heading.group(1):
+            fail(
+                "docs/requirements.md must use the full requirement title "
+                f"from {link}",
+            )
 
 
 def check_requirement_file(path: Path, identifier: str) -> None:
@@ -85,10 +95,56 @@ def check_requirement_file(path: Path, identifier: str) -> None:
             f"{path.relative_to(ROOT)} must have one H1 starting with "
             f"{identifier}",
         )
+    if not re.fullmatch(
+        rf"{re.escape(identifier)}\. \S.+",
+        headings[0],
+    ):
+        fail(
+            f"{path.relative_to(ROOT)} must have a meaningful title after "
+            f"{identifier}",
+        )
     if text.count("## Требование") != 1:
         fail(f"{path.relative_to(ROOT)} must have one requirement section")
     if not re.search(r"^## Требование\n\n\S", text, flags=re.MULTILINE):
         fail(f"{path.relative_to(ROOT)} has an empty requirement section")
+    check_sections = re.findall(
+        r"^## Проверка(?: требования)?$",
+        text,
+        flags=re.MULTILINE,
+    )
+    if len(check_sections) != 1:
+        fail(
+            f"{path.relative_to(ROOT)} must have one check section named "
+            "'Проверка' or 'Проверка требования'",
+        )
+    if not re.search(
+        r"^## Проверка(?: требования)?\n\n\S",
+        text,
+        flags=re.MULTILINE,
+    ):
+        fail(f"{path.relative_to(ROOT)} has an empty check section")
+    if path.parent.name == "business":
+        if "## Проверка требования" in text:
+            fail(
+                f"{path.relative_to(ROOT)} must name the business requirement "
+                "check section 'Проверка'",
+            )
+        check_body = re.search(
+            r"^## Проверка\n\n(?P<body>.*?)(?=^## |\Z)",
+            text,
+            flags=re.MULTILINE | re.DOTALL,
+        )
+        if check_body is None:
+            fail(f"{path.relative_to(ROOT)} has no readable check section")
+        first_block = check_body.group("body").strip().split("\n\n", 1)[0]
+        if not re.match(
+            rf"^{re.escape(identifier)} считается выполненным, если\b",
+            first_block,
+        ):
+            fail(
+                f"{path.relative_to(ROOT)} must state when the business "
+                "requirement is fulfilled before listing evidence",
+            )
     if "[К списку требований](../../requirements.md)" not in text:
         fail(f"{path.relative_to(ROOT)} has no link to the requirements index")
 

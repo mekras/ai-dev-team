@@ -1,4 +1,5 @@
 *.local.*
+!*.local.*.sample
 *.local
 *.tmp.*
 __pycache__/
@@ -10,3 +11,4 @@ __pycache__/
 /node_modules
 apm_modules/
 /books.local/
+/eval-results/

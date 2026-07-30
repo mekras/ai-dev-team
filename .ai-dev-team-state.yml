@@ -1,0 +1,44 @@
+product: mekras/ai-dev-team
+updated_at: 2026-07-29
+setup:
+  operating_context:
+    kind: mixed
+  project_profile:
+    forms:
+      - ai-agent-team
+      - apm-collection
+      - project-documentation
+    users:
+      - software-project-owner
+      - software-developer
+      - ai-dev-team-contributor
+    interfaces:
+      - agent-chat
+      - cli
+    delivery:
+      - published-apm-package
+      - local-project-installation
+  visibility: public
+  git:
+    enabled: true
+  commit_messages:
+    scheme: pro-git
+  changelog:
+    status: present
+    path: CHANGELOG.md
+  decision_records:
+    status: present
+    journals:
+      - kind: ADR
+        path: docs/adr/
+        record_pattern: NNNN-<slug>.md
+        index: docs/adr/README.md
+  knowledge:
+    status: present
+    path: knowledge/
+  impact_graph:
+    status: present
+    path: project-impact.json
+    schema_version: 1
+  interface_checks:
+    level: recommended

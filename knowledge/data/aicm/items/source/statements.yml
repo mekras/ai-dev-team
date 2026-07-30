@@ -1,0 +1,45 @@
+statements:
+  - id: AICM-001
+    source_id: AICM
+    item_id: AICM-source
+    kind: fact
+    status: verified
+    text: >-
+      AICM v1.1 является независимой от поставщика рамкой контроля для
+      облачных ИИ-систем.
+    excerpt: "vendor-agnostic framework for cloud-based AI systems"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: AI Controls Matrix v1.1
+      application: сопоставление мер безопасности ИИ.
+    open_questions: []
+  - id: AICM-002
+    source_id: AICM
+    item_id: AICM-source
+    kind: fact
+    status: verified
+    text: >-
+      AICM v1.1 содержит 247 целей контроля в 18 доменах безопасности.
+    excerpt: "247 control objectives distributed across 18 security domains"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: AI Controls Matrix v1.1
+      application: оценка полноты каталога мер.
+    open_questions: []
+  - id: AICM-003
+    source_id: AICM
+    item_id: AICM-source
+    kind: limitation
+    status: verified
+    text: >-
+      В текущем проходе проверено публичное описание AICM, но не загружаемый
+      полный каталог целей контроля.
+    excerpt: "Download this Resource"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Download this Resource
+      application: ограничение глубины проверки.
+    open_questions: []

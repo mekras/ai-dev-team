@@ -1,0 +1,17 @@
+statements:
+  - id: NFRM-001
+    source_id: NFRM
+    item_id: NFRM-source
+    kind: fact
+    status: verified
+    text: >-
+      Neuform заявляет возможность сохранять полученный дизайн как повторно
+      используемый файл DESIGN.md.
+    excerpt: "reusable DESIGN.md"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Public landing page
+      application: перенос контекста дизайн-системы.
+    open_questions:
+      - "Какая схема и какие гарантии совместимости предусмотрены для DESIGN.md?"

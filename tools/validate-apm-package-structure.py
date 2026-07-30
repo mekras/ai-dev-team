@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+from collections import deque
+import fnmatch
+import json
 import re
 import subprocess
 import sys
@@ -12,6 +15,12 @@ import yaml
 
 
 ROOT = Path(__file__).resolve().parents[1]
+OWNER_DECISION_PATTERN = re.compile(
+    r"\bрешени(?:е|я|ю|ем|й)\s+владел(?:ец|ьц[а-я]*)\b"
+    r"|\bвладел(?:ец|ьц[а-я]*)\b.{0,120}"
+    r"\bрешени(?:е|я|ю|ем|й)\b",
+    flags=re.IGNORECASE | re.DOTALL,
+)
 
 REQUIRED_APM_DEPENDENCIES = {
     "mekras/ai-agent-supervisor",
@@ -35,6 +44,7 @@ REQUIRED_SKILLS = {
     "ait-docs-structure-design",
     "ait-docs-structure-rules",
     "ait-hypotheses",
+    "ait-impact-analysis",
     "ait-licensing",
     "ait-personal-data",
     "ait-private-knowledge",
@@ -87,7 +97,11 @@ REQUIRED_TEST_FRAGMENTS = (
     "validate-project-review-capabilities.py",
     "validate-requirements-structure.py",
     "test_project_review.py",
+    "test_validate_requirements_structure.py",
     "test_validate_project_review_capabilities.py",
+    "test_impact_graph.py",
+    "impact_graph.py validate --graph project-impact.json",
+    "impact_graph.py coverage --graph project-impact.json --repo .",
     "validate-knowledge-operational.py",
     "validate-corpus-layout.py",
     "validate-hidden-unicode.py",
@@ -668,7 +682,7 @@ def check_requirements_elicitation_contract() -> None:
     required_markers = {
         "docs/requirements/functional/ft-11.md": (
             "требования-кандидаты с типом, основанием и статусом",
-            "не допускает выдавать черновик за утверждённую",
+            "не должны считаться утверждённой",
         ),
         ".apm/skills/ait-routing/SKILL.md": (
             "ait-req-elicitation",
@@ -821,7 +835,7 @@ def check_portability_contract() -> None:
             "ait-routing/SKILL.md",
         ),
         ".apm/skills/ait-routing/SKILL.md": (
-            "## Объяснение маршрута человеку",
+            "## Тексты для человека",
             "ai-work-result-evaluation",
         ),
         "apm.yml": (
@@ -919,25 +933,65 @@ def check_internal_structure_independence_contract() -> None:
 def check_human_readable_communication_contract() -> None:
     required_markers = {
         "docs/requirements/quality/kach-4.md": (
-            "сначала называет смысл понятными словами",
+            "В создаваемых текстах для человека, включая сообщения",
+            "При каждом употреблении",
+            "оставляет его без понятного представления.",
+            "коды статусов",
+            "внутренние пути",
             "конфигурация и машинный вывод",
             "объяснения цели этих элементов.",
+            "если требования не названы по заголовкам.",
+            "Проверка ожидает решения владельца (`waiting_decision`)",
         ),
         ".apm/skills/ait-routing/SKILL.md": (
             "## Обязательный первый ответ",
             "Режим менеджера: лёгкий|полный.",
             "начальный маршрут по запросу",
-            "## Объяснение маршрута человеку",
+            "## Тексты для человека",
             "проверка требований",
-            "сохраняй точное написание",
+            "проверка ожидает решения",
+            "`waiting_decision`",
+            "единственное представление",
+            "сохраняй точное",
         ),
         ".apm/instructions/ai-dev-team-connection.instructions.md": (
             "Режим менеджера: лёгкий|полный.",
             "Маршрут: ...",
+            "## Тексты для человека",
+            "Не показывай техническое",
         ),
         ".apm/agents/project-manager.agent.md": (
-            "сначала называй смысл этапа",
-            "Не заменяй объяснение списком внутренних",
+            "сначала называй сущность, действие или",
+            "служебный код статуса",
+            "заменяй объяснение списком",
+            "технических обозначений",
+        ),
+        ".apm/skills/ait-project-revalidation/SKILL.md": (
+            "при каждом употреблении",
+            "внутреннего или технического обозначения",
+            "единственным",
+            "конечное состояние понятными словами",
+        ),
+        ".apm/skills/ait-project-revalidation/references/workflow.md": (
+            "Служебное состояние является техническим входом",
+            "коды состояний или требования без преобразования",
+            "При каждом употреблении",
+            "название при предыдущем употреблении не поясняют",
+            "проверка ожидает решения владельца",
+            "`waiting_decision`",
+        ),
+        ".apm/skills/ait-project-revalidation/evals/result-scenarios.json": (
+            "ait-project-revalidation-result-human-readable-requirement-names",
+            "каждое употребление идентификатора сопровождается названием",
+            "Путь пользователя от подключения к приёмке",
+            "статус complete_with_accepted_risks добавлен как технический след",
+            "не показывать только технический статус",
+        ),
+        ".apm/skills/ait-routing/evals/result-scenarios.json": (
+            "ait-routing-routing-result-explain-technical-status",
+            "waiting_decision объяснён как ожидание решения владельца",
+            "interrupted объяснён как прерывание проверки",
+            "не показывать служебный статус без понятного описания",
         ),
     }
     for relative_path, markers in required_markers.items():
@@ -948,6 +1002,24 @@ def check_human_readable_communication_contract() -> None:
                 fail(
                     f"{relative_path} is missing human-readable communication "
                     f"marker {marker!r}",
+                )
+    forbidden_first_mention_markers = (
+        "при первом упоминании",
+        "при его первом упоминании",
+        "при первом появлении",
+        "впервые упомянут",
+    )
+    for relative_path in (
+        "docs/requirements/quality/kach-4.md",
+        ".apm/skills/ait-project-revalidation/SKILL.md",
+        ".apm/skills/ait-project-revalidation/references/workflow.md",
+    ):
+        text = (ROOT / relative_path).read_text(encoding="utf-8").lower()
+        for marker in forbidden_first_mention_markers:
+            if marker in text:
+                fail(
+                    f"{relative_path} retains forbidden first-mention "
+                    f"exception {marker!r}",
                 )
 
 
@@ -1013,6 +1085,33 @@ def check_decision_record_quality_contract() -> None:
                     f"{relative_path} is missing decision record quality "
                     f"marker {marker!r}",
                 )
+
+
+def check_adr_objective_rationale_contract() -> None:
+    owner_decision = (
+        r"решени(?:е|я|ю|ем|й)\s+владельц"
+    )
+    owner_selection = re.compile(
+        rf"(?:выбран\w*\s+вариант|форма\s+выбирается)"
+        rf".{{0,200}}?{owner_decision}",
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    owner_declared_choice = re.compile(
+        r"\bвладелец\s+продукта\s+решил\b",
+        flags=re.IGNORECASE,
+    )
+    for path in sorted((ROOT / "docs/adr").glob("[0-9]*.md")):
+        text = path.read_text(encoding="utf-8")
+        if owner_selection.search(text):
+            fail(
+                f"{path.relative_to(ROOT)} uses an owner decision "
+                "as ADR selection rationale",
+            )
+        if owner_declared_choice.search(text):
+            fail(
+                f"{path.relative_to(ROOT)} uses an owner declaration "
+                "as ADR rationale",
+            )
 
 
 def check_knowledge_basis_contract() -> None:
@@ -1131,14 +1230,15 @@ def check_self_application_contract() -> None:
 def check_user_development_journey_contract() -> None:
     required_markers = {
         "docs/requirements/user/pt-1.md": (
-            "Подключение включает не только установку",
-            "не обязан заранее знать",
-            "обычная задача проходит путь",
+            "Продукт должен позволять пользователю",
+            "Пользователь не должен заранее знать",
+            "Эти исходы завершают",
+            "ПТ-1 считается выполненным",
         ),
         "README.md": (
             "## Работа с проектом",
             "Продукт сам подберёт специалистов",
-            "Подтвердите работу или",
+            "проведённые проверки и оставшиеся ограничения",
         ),
         ".apm/skills/ait-readme/evals/installation-vs-project-connection.md": (
             "продолжить путь первой обычной задачей",
@@ -1163,10 +1263,15 @@ def check_user_development_journey_contract() -> None:
 
 def check_free_form_goal_contract() -> None:
     required_markers = {
-        "docs/requirements/user/pt-2.md": (
-            "достаточно описать хотя бы один",
-            "обязательная анкета до начала",
-            "не становится утверждённой спецификацией",
+        "docs/requirements/user/pt-1.md": (
+            "достаточно описать хотя бы один из трёх элементов",
+            "Продукт не должен требовать",
+            "заполнить шаблон или анкету",
+        ),
+        "docs/requirements/functional/ft-11.md": (
+            "отделять подтверждённые сведения",
+            "остановить следующий шаг на одном вопросе",
+            "не должны считаться утверждённой",
         ),
         "README.md": (
             "Опишите цель, проблему или ожидаемый результат обычными словами",
@@ -1195,9 +1300,15 @@ def check_free_form_goal_contract() -> None:
 def check_client_target_contract() -> None:
     required_markers = {
         "docs/requirements/user/pt-3.md": (
-            "содержит ровно одну цель",
-            "не считается согласием настроить оба",
-            "проверяется для `claude` и `codex`",
+            "создавать и изменять файлы только для тех клиентских",
+            "не настраивает остальные",
+            "не ограничивает пользователя одним клиентским инструментом",
+        ),
+        "docs/requirements/functional/ft-3.md": (
+            "должна содержать ровно одну явную цель",
+            "`--target claude`",
+            "Значение `all`",
+            "не запрещает пользователю явно подключить другой",
         ),
         ".apm/skills/ait-setup/references/setup-dialogue.md": (
             "определи ровно один выбранный клиент",
@@ -1248,12 +1359,235 @@ def check_client_target_contract() -> None:
                 )
 
 
+def check_requirement_basis_contract() -> None:
+    requirement_root = ROOT / "docs/requirements"
+    graph = json.loads((ROOT / "project-impact.json").read_text(encoding="utf-8"))
+    nodes = graph["nodes"]
+    semantic_edges: dict[str, set[str]] = {}
+    for edge in graph["edges"]:
+        facets = set(edge.get("facets", ()))
+        if not facets.intersection({"semantic", "any"}):
+            continue
+        semantic_edges.setdefault(edge["from"], set()).add(edge["to"])
+
+    def has_semantic_path(source_id: str, target_id: str) -> bool:
+        pending = deque([source_id])
+        visited: set[str] = set()
+        while pending:
+            current = pending.popleft()
+            if current == target_id:
+                return True
+            if current in visited:
+                continue
+            visited.add(current)
+            pending.extend(semantic_edges.get(current, ()))
+        return False
+
+    allowed_basis_nodes = {
+        node["id"]
+        for node in nodes
+        if has_semantic_path(node["id"], "requirements")
+    }
+
+    def graph_nodes_for_path(relative_path: str) -> set[str]:
+        return {
+            node["id"]
+            for node in nodes
+            if any(
+                fnmatch.fnmatchcase(relative_path, pattern)
+                for pattern in node["paths"]
+            )
+        }
+
+    def local_basis_targets(text: str, basis: str) -> set[str]:
+        definitions = {
+            match.group("label").casefold(): match.group("target")
+            for match in re.finditer(
+                r"^\[(?P<label>[^\]]+)\]:\s*(?P<target>\S+)",
+                text,
+                flags=re.MULTILINE,
+            )
+        }
+        targets = {
+            match.group("target").strip()
+            for match in re.finditer(
+                r"(?<!!)\[[^\]]+\]\((?P<target>[^)]+)\)",
+                basis,
+            )
+        }
+        for match in re.finditer(
+            r"(?<!!)\[[^\]]+\]\[(?P<label>[^\]]+)\]",
+            basis,
+        ):
+            target = definitions.get(match.group("label").casefold())
+            if target is not None:
+                targets.add(target)
+        return targets
+
+    def normalize_local_target(path: Path, target: str) -> str | None:
+        target = target.strip()
+        if target.startswith("<") and ">" in target:
+            target = target[1 : target.index(">")]
+        else:
+            target = target.split(maxsplit=1)[0]
+        if target.startswith("#") or re.match(
+            r"^[a-z][a-z0-9+.-]*:",
+            target,
+            flags=re.IGNORECASE,
+        ):
+            return None
+        target = target.split("#", maxsplit=1)[0].split("?", maxsplit=1)[0]
+        if not target:
+            return None
+        resolved = (path.parent / target).resolve()
+        try:
+            return resolved.relative_to(ROOT.resolve()).as_posix()
+        except ValueError:
+            fail(
+                f"{path.relative_to(ROOT)} uses requirement basis outside "
+                f"the project: {target!r}",
+            )
+
+    circular_markers = (
+        "текущие требования продукта",
+        "текущие ограничения продукта",
+    )
+    for path in sorted(requirement_root.glob("*/*.md")):
+        text = path.read_text(encoding="utf-8")
+        match = re.search(
+            r"^## Основание\s*$\n(?P<body>.*?)(?=^## |\Z)",
+            text,
+            flags=re.MULTILINE | re.DOTALL,
+        )
+        if match is None:
+            fail(f"{path.relative_to(ROOT)} has no requirement basis section")
+        basis = match.group("body")
+        relative_path = path.relative_to(ROOT)
+        if OWNER_DECISION_PATTERN.search(basis):
+            fail(f"{relative_path} uses an owner decision as requirement basis")
+        if re.search(r"\bADR-\d+", basis):
+            fail(f"{relative_path} uses a downstream ADR as requirement basis")
+        lowered_basis = basis.lower()
+        for marker in circular_markers:
+            if marker in lowered_basis:
+                fail(
+                    f"{relative_path} uses circular requirement basis "
+                    f"{marker!r}",
+                )
+        for target in sorted(local_basis_targets(text, basis)):
+            normalized_target = normalize_local_target(path, target)
+            if normalized_target is None:
+                continue
+            target_nodes = graph_nodes_for_path(normalized_target)
+            if not target_nodes:
+                fail(
+                    f"{relative_path} uses an unmapped local requirement "
+                    f"basis {normalized_target!r}",
+                )
+            if target_nodes.isdisjoint(allowed_basis_nodes):
+                fail(
+                    f"{relative_path} uses downstream requirement basis "
+                    f"{normalized_target!r} from graph node(s) "
+                    f"{sorted(target_nodes)}; no semantic path leads from "
+                    "that source to 'requirements'",
+                )
+
+    for path in sorted((requirement_root / "user").glob("*.md")):
+        text = path.read_text(encoding="utf-8")
+        basis = re.search(
+            r"^## Основание\s*$\n(?P<body>.*?)(?=^## |\Z)",
+            text,
+            flags=re.MULTILINE | re.DOTALL,
+        ).group("body")
+        if "../functional/" in basis or re.search(r"`ФТ-\d+", basis):
+            fail(
+                f"{path.relative_to(ROOT)} uses a functional requirement "
+                "as the basis of a user need",
+            )
+
+
+def check_linked_impact_basis_contract() -> None:
+    requirement_root = ROOT / "docs/requirements"
+    impact_link_pattern = re.compile(
+        r"knowledge/index/source-impact/"
+        r"\d{4}-\d{2}-\d{2}-[^)\s]+\.md",
+    )
+    basis_prefixes = (
+        "дополнительное основание",
+        "источник:",
+        "основание:",
+    )
+    linked_reports: set[Path] = set()
+    for requirement in requirement_root.glob("*/*.md"):
+        text = requirement.read_text(encoding="utf-8")
+        linked_reports.update(
+            ROOT / match.group(0)
+            for match in impact_link_pattern.finditer(text)
+        )
+
+    for report in sorted(linked_reports):
+        if not report.is_file():
+            fail(
+                "requirement links missing impact report "
+                f"{report.relative_to(ROOT)}",
+            )
+        for paragraph in re.split(r"\n\s*\n", report.read_text(encoding="utf-8")):
+            normalized = paragraph.strip().lower()
+            if not normalized.startswith(basis_prefixes):
+                continue
+            if OWNER_DECISION_PATTERN.search(paragraph):
+                fail(
+                    f"{report.relative_to(ROOT)} uses an owner decision "
+                    "as a linked impact-report basis",
+                )
+
+
+def check_owner_decision_pattern_contract() -> None:
+    forbidden_examples = (
+        "Основанием является решение владельца.",
+        "Требование следует решению владельца.",
+        "Форма закреплена решением владельца.",
+        "Порядок взят из решений владельца.",
+        "Владельцем продукта принято решение использовать вариант.",
+    )
+    missed = [
+        example
+        for example in forbidden_examples
+        if not OWNER_DECISION_PATTERN.search(example)
+    ]
+    if missed:
+        fail(
+            "owner-decision pattern misses inflected negative controls: "
+            + "; ".join(missed),
+        )
+    allowed_examples = (
+        "Основание — измеряемое снижение риска.",
+        "Заказчик подтверждает внешнее изменение.",
+        "Решение следует из нормативного источника.",
+    )
+    false_positives = [
+        example
+        for example in allowed_examples
+        if OWNER_DECISION_PATTERN.search(example)
+    ]
+    if false_positives:
+        fail(
+            "owner-decision pattern rejects objective controls: "
+            + "; ".join(false_positives),
+        )
+
+
 def check_result_acceptance_contract() -> None:
     required_markers = {
-        "docs/requirements/user/pt-4.md": (
-            "Для статуса `готов к приёмке`",
-            "Статус `принят` появляется только после явного решения",
-            "Промежуточный результат можно передать следующей роли",
+        "docs/requirements/user/pt-1.md": (
+            "Вместе с итоговым результатом продукт должен передать пользователю",
+            "Продукт должен считать результат принятым только после",
+            "явный выбор: принять результат или вернуть его на доработку",
+        ),
+        "docs/requirements/functional/ft-2.md": (
+            "Результат, который не достиг порога пригодности",
+            "Частично проверенный результат можно передать только",
+            "Контроль должен оставлять проверяемый след",
         ),
         ".apm/agents/project-manager.agent.md": (
             "### Передача результата на приёмку",
@@ -1304,14 +1638,15 @@ def check_result_acceptance_contract() -> None:
 def check_end_to_end_business_contract() -> None:
     required_markers = {
         "docs/requirements/business/bt-1.md": (
-            "Бизнес-результат подключения",
-            "Контур считается целостным",
-            "Недоступная специализация, обязательная",
-            "Сквозная проверка начинает обычную задачу",
+            "# БТ-1. Целостный контур агентной разработки",
+            "Продукт должен предоставлять",
+            "Контур должен связывать",
+            "БТ-1 считается выполненным",
+            "Сквозной сценарий в новом целевом проекте",
         ),
         "docs/requirements/functional/ft-1.md": (
             "помогать человеку формулировать цель",
-            "В сквозном сценарии заказчик описывает цель",
+            "В сквозном сценарии пользователь описывает цель",
         ),
         "README.md": (
             "Опишите цель, проблему или ожидаемый результат",
@@ -1333,51 +1668,89 @@ def check_end_to_end_business_contract() -> None:
                 )
 
 
-def check_business_effect_evidence_contract() -> None:
+def check_product_evaluation_contract() -> None:
     required_markers = {
         "docs/requirements/business/bt-2.md": (
-            "Ожидаемый бизнес-эффект",
-            "свойством каждого подключения продукта",
-            "не доказывают снижение",
-            "## Показатели эффекта",
-            "продукт против того же клиентского инструмента",
-            "новая версия продукта против предыдущей принятой версии",
-            "До выбора числа повторов и числовых порогов",
-            "Без таких данных сообщается снижение",
-            "с неполным доказательством",
+            "# БТ-2. Раннее выявление ошибок и упущений",
+            "наиболее ранней стадии разработки",
+            "постоянное направление развития",
+            "Сопоставимые проверки версий",
+            "не подтверждают снижение стоимости",
+            "статистика применения",
         ),
-        "BACKLOG.md": (
-            "Для проверки бизнес-эффекта из `БТ-2`",
-            "число повторов, допустимый разброс",
-            "наблюдаемые показатели",
+        "docs/requirements/functional/ft-26.md": (
+            "# ФТ-26. Раннее назначение проверок",
+            "вероятные классы ошибок, недостатков и упущений",
+            "первую стадию",
+            "Пользователь не должен",
+            "явного решения человека",
+        ),
+        ".apm/agents/project-manager.agent.md": (
+            "вероятные классы ошибок, недостатков и упущений",
+            "Пользователь не обязан знать внутренние роли и навыки",
+            "Не требуется назначать все доступные проверки",
+        ),
+        ".apm/skills/ait-routing/SKILL.md": (
+            "первую стадию, когда проблему уже можно обнаружить",
+            "Пользователь не обязан знать внутренние роли и навыки",
+            "все доступные проверки каждой задаче",
+        ),
+        "product-evals.local.yml.sample": (
+            "Фиксированный набор не подтверждает",
+            "не представляет всё",
+            "не подтверждает бизнес-эффект",
+            "initial_repetitions: 3",
+            "additional_repetitions: 2",
+            "max_missed_action_range: 2",
+        ),
+        "tools/run-product-evals.py": (
+            '"needs_additional_repetitions"',
+            '"needs_semantic_review"',
+            '"fixed_scenario_benchmark_passed"',
+            '"benchmark_failed"',
+            "median_missed_mandatory_actions",
+            "acceptance_ready_rate",
+            "seeded_problem_observations",
+            "early_detected_seeded_problems_rate",
+            'VARIANTS = ("bare", "current", "previous")',
+            '"needs_human_decision"',
+            '"unauthorized_decisions"',
+            '"critical_violations"',
         ),
         ".agents/skills/ai-work-result-evaluation/SKILL.md": (
             "Укажи критерии проверки, метрику и порог пригодности",
             "Сравни с базовой линией",
         ),
         "evals/product-scenarios.yml": (
+            '"purpose"',
+            '"scope_limit"',
             '"owner_reply"',
             '"expected_artifact_groups"',
             '"required_commands"',
+            '"seeded_problems"',
+            '"problem_class": "requirements"',
+            '"problem_class": "decision"',
+            '"problem_class": "implementation"',
         ),
-        "tools/run-product-evals.py": (
-            'VARIANTS = ("bare", "current", "previous")',
-            '"needs_human_decision"',
-            '"unauthorized_decisions"',
-            '"rework_returns"',
-            '"critical_violations"',
+        "docs/adr/0013-product-evidence-levels.md": (
+            "разделяются на три уровня",
+            "`fixed_scenario_benchmark_passed`",
+            "не подтверждает бизнес-эффект",
+            "отдельного средства сбора статистики",
+            "заранее известные проблемы",
+            "первой доступной стадии",
         ),
     }
     for relative_path, markers in required_markers.items():
         path = ROOT / relative_path
         if not path.is_file():
-            fail(f"missing business effect evidence surface: {relative_path}")
+            fail(f"missing product evaluation surface: {relative_path}")
         text = path.read_text(encoding="utf-8")
         for marker in markers:
             if marker not in text:
                 fail(
-                    f"{relative_path} does not cover business effect "
-                    f"evidence marker {marker!r}",
+                    f"{relative_path} does not cover product evaluation "
+                    f"marker {marker!r}",
                 )
 
     requirement_text = (
@@ -1386,6 +1759,8 @@ def check_business_effect_evidence_contract() -> None:
     unsupported_claims = (
         "системное применение практик уменьшает число дефектов",
         "успешные тесты доказывают снижение стоимости",
+        "Эффект продукта подтверждается только",
+        "наборе репрезентативных задач",
     )
     for claim in unsupported_claims:
         if claim in requirement_text:
@@ -1400,13 +1775,25 @@ def check_business_effect_evidence_contract() -> None:
 def check_priority_tradeoff_contract() -> None:
     required_markers = {
         "docs/requirements/business/bt-3.md": (
-            "надёжность и качество являются",
-            "обязательными ограничениями",
-            "Эффективность применения",
-            "Критическое ухудшение надёжности или качества блокирует",
-            "явному решению владельца",
-            "компенсирует критическое ухудшение",
-            "## Проверка требования",
+            "Продукт должен повышать эффективность разработки ПО",
+            "не ниже уровня",
+            "не считается улучшением",
+            "КАЧ-9. Надёжность рабочего маршрута",
+            "ПР-8. Надёжность и качество до эффективности",
+            "БТ-3 считается выполненным",
+        ),
+        "docs/requirements/quality/kach-9.md": (
+            "Принятая продуктом задача должна проходить",
+            "проверяемый результат передан на приёмку",
+            "явный запрос решения",
+            "названо препятствие",
+            "доля успешных запусков",
+        ),
+        "docs/requirements/rules/pr-8.md": (
+            "применимые границы надёжности и качества",
+            "Эффективность сравнивается только",
+            "допустимо только по явному решению владельца",
+            "не компенсирует нарушение обязательной границы",
         ),
         ".apm/agents/project-manager.agent.md": (
             "### Выбор между вариантами",
@@ -1421,8 +1808,9 @@ def check_priority_tradeoff_contract() -> None:
             "не выбирать более быстрый вариант с критическим ухудшением",
         ),
         "CHANGELOG.md": (
-            "Надёжность и качество не компенсируются скоростью",
-            "расходом токенов или будущими затратами на сопровождение",
+            "БТ-3 разделяет бизнес-результат",
+            "надёжность рабочего маршрута",
+            "правило выбора",
         ),
     }
     for relative_path, markers in required_markers.items():
@@ -1559,22 +1947,30 @@ def check_project_revalidation_contract() -> None:
     required_markers = {
         ".apm/skills/ait-project-revalidation/SKILL.md": (
             "scripts/project_review.py inventory",
-            "возможность блокирует вывод о полном охвате",
+            "возможность блокирует вывод",
+            "Первым исследовательским действием",
+            "`record-concept`",
+            "Запрос полной проверки сам",
             "complete_with_accepted_risks",
         ),
         ".apm/skills/ait-project-revalidation/references/controller.md": (
             "создаёт новый ход, пока",
+            "## Барьер концепции",
+            "`checked` и открывает",
             "Сценарий, который завершил цель в первом ходе",
             "Не называй ручной режим управляемым",
         ),
         ".apm/skills/ait-project-revalidation/references/workflow.md": (
             "`repository`",
             "`impact`",
+            "## Обязательное начало с концепции",
+            "scripts/project_review.py record-concept",
             "Внешнее изменение переводит процесс в `interrupted`",
         ),
         ".apm/skills/ait-routing/SKILL.md": (
             "ait-project-revalidation",
-            "Запрос «проверь проект»",
+            "Полная проверка сама по себе не разрешает запись",
+            "«проверь проект»",
         ),
         ".apm/agents/project-manager.agent.md": (
             "запускать `ait-project-revalidation`",
@@ -1585,9 +1981,15 @@ def check_project_revalidation_contract() -> None:
         ),
         ".apm/skills/ait-project-revalidation/evals/result-scenarios.json": (
             "ait-project-revalidation-result-dynamic-plan",
+            "ait-project-revalidation-result-impact-priority",
             "ait-project-revalidation-result-resume-change",
             "ait-project-revalidation-result-manual-controller",
+            "ait-project-revalidation-result-read-only-full-review",
             "ait-project-revalidation-result-terminal-status",
+        ),
+        ".apm/skills/ait-routing/evals/result-scenarios.json": (
+            "ait-routing-routing-result-read-only-full-project-review",
+            "не расширяет полномочия",
         ),
     }
     for relative_path, markers in required_markers.items():
@@ -1601,6 +2003,22 @@ def check_project_revalidation_contract() -> None:
                     f"{relative_path} does not cover project revalidation "
                     f"marker {marker!r}",
                 )
+
+
+def check_package_has_no_python_cache() -> None:
+    cache_paths = sorted(
+        path.relative_to(ROOT).as_posix()
+        for path in (ROOT / ".apm").rglob("*")
+        if "__pycache__" in path.parts or path.suffix == ".pyc"
+    )
+    if cache_paths:
+        fail(
+            "package sources contain Python cache artifacts: "
+            + ", ".join(cache_paths),
+        )
+    lock_text = (ROOT / "apm.lock.yaml").read_text(encoding="utf-8")
+    if "__pycache__" in lock_text or ".pyc" in lock_text:
+        fail("apm.lock.yaml contains Python cache artifacts")
 
 
 def check_installation_contract() -> None:
@@ -1649,6 +2067,65 @@ def check_installation_contract() -> None:
                 )
 
 
+def check_project_impact_graph_contract() -> None:
+    required_markers = {
+        "docs/requirements/functional/ft-25.md": (
+            "полной транзитивной глубине",
+            "verified_no_impact",
+            "project-impact.json",
+        ),
+        "docs/requirements/rules/pr-7.md": (
+            "После изменения любого проектного артефакта",
+            "полное транзитивное замыкание",
+        ),
+        ".apm/skills/ait-impact-analysis/SKILL.md": (
+            "impact_graph.py",
+            "owner_decision",
+            "coverage --graph",
+        ),
+        ".apm/skills/ait-routing/SKILL.md": (
+            "setup.impact_graph.path",
+            "ait-impact-analysis",
+            "полное транзитивное влияние",
+        ),
+        ".apm/skills/ait-setup/SKILL.md": (
+            "setup.impact_graph",
+            "project-impact.json",
+            "граф влияния",
+        ),
+        ".apm/skills/ait-project-revalidation/SKILL.md": (
+            "ait-impact-analysis",
+            "review_stages",
+            "общий граф проекта",
+        ),
+        ".apm/skills/ait-setup/assets/project-AGENTS.md": (
+            "Граф влияния проекта",
+            "ait-impact-analysis",
+        ),
+        "AGENTS.md": (
+            "Граф влияния проекта",
+            "project-impact.json",
+        ),
+    }
+    for relative_path, markers in required_markers.items():
+        path = ROOT / relative_path
+        text = path.read_text(encoding="utf-8")
+        for marker in markers:
+            if marker not in text:
+                fail(
+                    f"{relative_path} is missing project impact marker "
+                    f"{marker!r}",
+                )
+
+    graph_path = ROOT / "project-impact.json"
+    try:
+        graph = json.loads(graph_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        fail(f"cannot read project-impact.json: {exc}")
+    if graph.get("schema_version") != 1:
+        fail("project-impact.json must use schema_version 1")
+
+
 def main() -> None:
     check_manifest()
     check_tree()
@@ -1670,21 +2147,27 @@ def main() -> None:
     check_human_readable_communication_contract()
     check_concise_text_contract()
     check_decision_record_quality_contract()
+    check_adr_objective_rationale_contract()
     check_knowledge_basis_contract()
     check_self_application_contract()
     check_user_development_journey_contract()
     check_free_form_goal_contract()
     check_client_target_contract()
+    check_owner_decision_pattern_contract()
+    check_requirement_basis_contract()
+    check_linked_impact_basis_contract()
     check_result_acceptance_contract()
     check_end_to_end_business_contract()
-    check_business_effect_evidence_contract()
+    check_product_evaluation_contract()
     check_priority_tradeoff_contract()
     check_forbidden_references()
     check_dependency_migration_contract()
     check_portable_core_boundary()
     check_project_readme_regression()
     check_project_revalidation_contract()
+    check_package_has_no_python_cache()
     check_installation_contract()
+    check_project_impact_graph_contract()
     print("APM package structure OK")
 
 

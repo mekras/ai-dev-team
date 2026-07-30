@@ -1,13 +1,13 @@
 id: AICM
 slug: aicm
 title: "Cloud Security Alliance AI Controls Matrix — каталог мер безопасности и управления для облачных ИИ-систем."
-status: candidate
+status: approved
 priority: high
 carrier_type: document
 source_kind: reference
 adapter: manual
 storage_strategy: external_reference
-processing_scope: metadata_only
+processing_scope: selected_fragments
 retrieval_mode: on_demand
 copy_policy: no_bulk_copy
 allowed_use: "Проверка покрытия мер и рекомендательных пробелов в аудите ИИ."
@@ -21,7 +21,7 @@ access:
 reliability: industry_standard
 stability: mutable
 refresh_policy: manual
-last_checked_at: "2026-07-18"
+last_checked_at: "2026-07-29"
 scope:
   includes: ["каталог мер", "аудит", "управление рисками", "облачные ИИ-системы"]
   excludes: ["самостоятельное объявление соответствия стандартам"]

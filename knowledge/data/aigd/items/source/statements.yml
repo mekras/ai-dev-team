@@ -1,0 +1,47 @@
+statements:
+  - id: AIGD-001
+    source_id: AIGD
+    item_id: AIGD-source
+    kind: fact
+    status: verified
+    text: >-
+      Руководство NCSC предназначено для поставщиков любых систем,
+      использующих ИИ, включая системы на основе внешних средств, сервисов и
+      API.
+    excerpt: "providers of any systems that use artificial intelligence"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Executive summary
+      application: определение области безопасной разработки ИИ-систем.
+    open_questions: []
+  - id: AIGD-002
+    source_id: AIGD
+    item_id: AIGD-source
+    kind: fact
+    status: verified
+    text: >-
+      NCSC делит безопасную разработку ИИ-систем на проектирование, разработку,
+      развёртывание, эксплуатацию и сопровождение.
+    excerpt: "secure design, secure development, secure deployment"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: About the guidelines
+      application: покрытие жизненного цикла ИИ-системы.
+    open_questions: []
+  - id: AIGD-003
+    source_id: AIGD
+    item_id: AIGD-source
+    kind: fact
+    status: verified
+    text: >-
+      NCSC требует рассматривать безопасность как основное требование на всём
+      жизненном цикле ИИ-системы.
+    excerpt: "Security must be a core requirement"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: About the guidelines
+      application: граница применения мер безопасности.
+    open_questions: []

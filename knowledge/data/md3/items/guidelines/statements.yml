@@ -1,0 +1,45 @@
+statements:
+  - id: MD3-001
+    source_id: MD3
+    item_id: MD3-guidelines
+    kind: fact
+    status: verified
+    text: >-
+      Jetpack Compose предоставляет реализацию Material 3 для приложений.
+    excerpt: "implementation of Material You"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Material Design 3 in Compose
+      application: интерфейсы Android на Jetpack Compose.
+    open_questions: []
+  - id: MD3-002
+    source_id: MD3
+    item_id: MD3-guidelines
+    kind: fact
+    status: verified
+    text: >-
+      Тема Material 3 включает цветовую схему, типографику и формы, изменения
+      которых отражаются в компонентах приложения.
+    excerpt: "color scheme, typography and shapes"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Material theming
+      application: устройство темы интерфейса.
+    open_questions: []
+  - id: MD3-003
+    source_id: MD3
+    item_id: MD3-guidelines
+    kind: fact
+    status: verified
+    text: >-
+      Динамические цветовые схемы доступны с Android 12, а для более ранних
+      версий требуется резервная светлая или тёмная схема.
+    excerpt: "Dynamic color is available on Android 12 and above"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Dynamic color schemes
+      application: совместимость цветовой схемы Android.
+    open_questions: []

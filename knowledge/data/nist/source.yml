@@ -1,13 +1,13 @@
 id: NIST
 slug: nist
 title: "Публикации NIST по управлению рисками ИИ и противодействию атакам на машинное обучение."
-status: candidate
+status: approved
 priority: high
 carrier_type: website
 source_kind: reference
 adapter: manual
 storage_strategy: external_reference
-processing_scope: metadata_only
+processing_scope: selected_fragments
 retrieval_mode: on_demand
 copy_policy: no_bulk_copy
 allowed_use: "Точечная проверка рекомендаций NIST по рискам генеративного ИИ и атакам на ИИ."
@@ -21,7 +21,7 @@ access:
 reliability: official
 stability: mutable
 refresh_policy: manual
-last_checked_at: "2026-07-18"
+last_checked_at: "2026-07-29"
 scope:
   includes: ["управление рисками ИИ", "генеративный ИИ", "атаки на машинное обучение"]
   excludes: ["правовые заключения"]

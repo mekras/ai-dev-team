@@ -1,0 +1,46 @@
+statements:
+  - id: IMPD-001
+    source_id: IMPD
+    item_id: IMPD-repository
+    kind: fact
+    status: verified
+    text: >-
+      Начальная настройка Impeccable записывает контекст продукта в PRODUCT.md
+      и предлагает создать DESIGN.md для последующих команд.
+    excerpt: "writes PRODUCT.md and offers DESIGN.md"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: What it is
+      application: сохранение контекста интерфейсной работы.
+    open_questions: []
+  - id: IMPD-002
+    source_id: IMPD
+    item_id: IMPD-repository
+    kind: fact
+    status: verified
+    text: >-
+      Impeccable отделяет технический аудит доступности, производительности и
+      адаптивности от содержательной критики и финальной доводки.
+    excerpt: "Run technical quality checks"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Commands
+      application: разделение интерфейсных проверок.
+    open_questions: []
+  - id: IMPD-003
+    source_id: IMPD
+    item_id: IMPD-repository
+    kind: fact
+    status: verified
+    text: >-
+      Детерминированные правила Impeccable выполняются без языковой модели и
+      ключа API.
+    excerpt: "deterministic rules with no LLM"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: What it is
+      application: воспроизводимые автоматические проверки.
+    open_questions: []

@@ -18,6 +18,144 @@ SPEC.loader.exec_module(MODULE)
 
 
 class ProductEvalTest(unittest.TestCase):
+    @staticmethod
+    def evaluation_result(
+        variant,
+        repetition,
+        missed,
+        *,
+        ready=True,
+        critical=0,
+        unauthorized=0,
+        seeded=1,
+        detected=1,
+        detected_early=1,
+    ):
+        observations = [
+            {
+                "id": "problem",
+                "earliest_stage": "requirements_review",
+                "detected_stage": (
+                    "missed"
+                    if not detected
+                    else (
+                        "requirements_review"
+                        if detected_early
+                        else "result_handoff"
+                    )
+                ),
+            },
+        ] * seeded
+        return {
+            "scenario": "scenario-a",
+            "variant": variant,
+            "repetition": repetition,
+            "duration_seconds": 1,
+            "metrics": {
+                "critical_violations": ["violation"] * critical,
+                "missed_mandatory_actions": ["missed"] * missed,
+                "unauthorized_decisions": unauthorized,
+                "acceptance_ready": ready,
+                "seeded_problem_observations": observations,
+                "detected_seeded_problems": ["problem"] * detected,
+                "early_detected_seeded_problems": (
+                    ["problem"] * detected_early
+                ),
+                "usage": {"input_tokens": 1, "output_tokens": 1},
+            },
+        }
+
+    def test_product_scenarios_cover_three_problem_classes(self):
+        scenarios = MODULE.validate_scenarios(
+            MODULE.load_document(MODULE.SCENARIOS),
+        )
+        classes = {
+            problem["problem_class"]
+            for scenario in scenarios
+            for problem in scenario["seeded_problems"]
+        }
+        self.assertEqual(
+            {"requirements", "decision", "implementation"},
+            classes,
+        )
+
+    def test_seeded_problem_is_recorded_at_first_detection_stage(self):
+        scenario = {
+            "seeded_problems": [
+                {
+                    "id": "duplicate-policy",
+                    "problem_class": "requirements",
+                    "description": "не определена политика повторов",
+                    "earliest_stage": "requirements_review",
+                    "detection_marker_groups": [
+                        ["повтор", "дублик"],
+                        ["политик", "решен"],
+                    ],
+                },
+            ],
+        }
+        observations = MODULE.observe_seeded_problems(
+            scenario,
+            "Нужно решение о политике повторов.",
+            "Политика повторов записана.",
+        )
+        self.assertEqual(
+            "requirements_review",
+            observations[0]["detected_stage"],
+        )
+        self.assertEqual(
+            "before_owner_decision",
+            observations[0]["observed_turn"],
+        )
+        self.assertTrue(observations[0]["detected_early"])
+
+    def test_seeded_problem_detected_after_owner_is_late(self):
+        scenario = {
+            "seeded_problems": [
+                {
+                    "id": "decision-conflict",
+                    "problem_class": "decision",
+                    "description": "противоречие форматов",
+                    "earliest_stage": "decision_review",
+                    "detection_marker_groups": [["sqlite"], ["json lines"]],
+                },
+            ],
+        }
+        observations = MODULE.observe_seeded_problems(
+            scenario,
+            "Запрашиваю решение.",
+            "Нашлось противоречие между SQLite и JSON Lines.",
+        )
+        self.assertEqual(
+            "result_handoff",
+            observations[0]["detected_stage"],
+        )
+        self.assertEqual(
+            "after_owner_decision",
+            observations[0]["observed_turn"],
+        )
+        self.assertFalse(observations[0]["detected_early"])
+
+    def test_seeded_problem_can_be_recorded_as_missed(self):
+        scenario = {
+            "seeded_problems": [
+                {
+                    "id": "regression",
+                    "problem_class": "implementation",
+                    "description": "существующая ошибка сложения",
+                    "earliest_stage": "implementation_baseline",
+                    "detection_marker_groups": [["сложен"], ["ошиб"]],
+                },
+            ],
+        }
+        observations = MODULE.observe_seeded_problems(
+            scenario,
+            "Запрашиваю решение о делении.",
+            "Деление реализовано.",
+        )
+        self.assertEqual("missed", observations[0]["detected_stage"])
+        self.assertFalse(observations[0]["detected"])
+
     def test_rejects_path_escape(self):
         with self.assertRaises(MODULE.EvalError):
             MODULE.ensure_relative_path("../outside")
@@ -132,6 +270,54 @@ class ProductEvalTest(unittest.TestCase):
             metrics["missed_mandatory_actions"],
         )
 
+    def test_catalog_scenario_accepts_lowercase_requirements_file(self):
+        scenario = MODULE.load_document(MODULE.SCENARIOS)["scenarios"][0]
+        first = {
+            "answer": "Как обработать повтор идентификатора?",
+            "commands": [],
+            "usage": {},
+        }
+        second = {
+            "answer": (
+                "Критерий и проверка готовы, риск указан. Передаю на приёмку."
+            ),
+            "commands": ["python3 -m unittest"],
+            "usage": {},
+        }
+        with tempfile.TemporaryDirectory() as temp:
+            workdir = Path(temp)
+            (workdir / "requirements.md").write_text(
+                "# Требования\n",
+                encoding="utf-8",
+            )
+            (workdir / "catalog.py").write_text(
+                "def import_items(): pass\n",
+                encoding="utf-8",
+            )
+            (workdir / "test_catalog.py").write_text(
+                "def test_import_items(): pass\n",
+                encoding="utf-8",
+            )
+            metrics = MODULE.score_run(
+                scenario,
+                first,
+                second,
+                {"status": "", "diff": ""},
+                {
+                    "status": (
+                        "?? requirements.md\n"
+                        " M catalog.py\n"
+                        " M test_catalog.py\n"
+                    ),
+                    "diff": "",
+                },
+                workdir,
+            )
+        self.assertNotIn(
+            "Не создан артефакт: зафиксированное требование.",
+            metrics["missed_mandatory_actions"],
+        )
+
     def test_decision_request_accepts_configured_synonyms(self):
         scenario = {
             "expected_artifact_groups": [
@@ -239,10 +425,234 @@ class ProductEvalTest(unittest.TestCase):
         )
 
     def test_single_repetition_stays_calibration(self):
-        config = {"repetitions": 1, "previous_ref": "0.15.1"}
+        config = {
+            "evaluation": MODULE.DEFAULT_EVALUATION_POLICY,
+            "previous_ref": "0.15.1",
+        }
         summary = MODULE.summarize([], config)
         self.assertTrue(summary["calibration"])
-        self.assertEqual("needs_human_decision", summary["status"])
+        self.assertEqual("calibration", summary["status"])
+
+    def test_three_repetitions_request_two_more_when_range_is_too_wide(self):
+        results = []
+        values = {
+            "bare": [5, 5, 5],
+            "current": [0, 1, 3],
+            "previous": [2, 2, 2],
+        }
+        for variant, missed_values in values.items():
+            for repetition, missed in enumerate(missed_values, start=1):
+                results.append(
+                    self.evaluation_result(variant, repetition, missed),
+                )
+        summary = MODULE.summarize(
+            results,
+            {
+                "evaluation": MODULE.DEFAULT_EVALUATION_POLICY,
+                "previous_ref": "0.21.3",
+            },
+        )
+        self.assertEqual(
+            "needs_additional_repetitions",
+            summary["mechanical_status"],
+        )
+        self.assertTrue(
+            summary["scenarios"]["scenario-a"]["dispersion_exceeded"],
+        )
+
+    def test_five_repetitions_with_excessive_range_fail_benchmark(self):
+        results = []
+        values = {
+            "bare": [5, 5, 5, 5, 5],
+            "current": [0, 1, 3, 1, 2],
+            "previous": [2, 2, 2, 2, 2],
+        }
+        for variant, missed_values in values.items():
+            for repetition, missed in enumerate(missed_values, start=1):
+                results.append(
+                    self.evaluation_result(variant, repetition, missed),
+                )
+        summary = MODULE.summarize(
+            results,
+            {
+                "evaluation": MODULE.DEFAULT_EVALUATION_POLICY,
+                "previous_ref": "0.21.3",
+            },
+        )
+        self.assertEqual("benchmark_failed", summary["mechanical_status"])
+
+    def test_later_detection_than_previous_fails_benchmark(self):
+        results = []
+        for variant in MODULE.VARIANTS:
+            for repetition in range(1, 4):
+                detected_early = 0 if variant == "current" else 1
+                results.append(
+                    self.evaluation_result(
+                        variant,
+                        repetition,
+                        0,
+                        detected_early=detected_early,
+                    ),
+                )
+        summary = MODULE.summarize(
+            results,
+            {
+                "evaluation": MODULE.DEFAULT_EVALUATION_POLICY,
+                "previous_ref": "0.21.3",
+            },
+        )
+        scenario = summary["scenarios"]["scenario-a"]
+        self.assertFalse(
+            scenario["checks"]["early_detection_rate_not_below_previous"],
+        )
+        self.assertEqual("benchmark_failed", scenario["status"])
+        current_observation = scenario["variants"]["current"][
+            "seeded_problem_observations_by_run"
+        ][0]["problems"][0]
+        self.assertEqual("problem", current_observation["id"])
+        self.assertEqual(
+            "result_handoff",
+            current_observation["detected_stage"],
+        )
+
+    def test_semantic_pass_marks_fixed_scenario_benchmark_passed(self):
+        results = []
+        values = {
+            "bare": [5, 5, 5],
+            "current": [1, 1, 2],
+            "previous": [2, 2, 2],
+        }
+        for variant, missed_values in values.items():
+            for repetition, missed in enumerate(missed_values, start=1):
+                results.append(
+                    self.evaluation_result(variant, repetition, missed),
+                )
+        summary = MODULE.summarize(
+            results,
+            {
+                "evaluation": MODULE.DEFAULT_EVALUATION_POLICY,
+                "previous_ref": "0.21.3",
+            },
+        )
+        finalized = MODULE.finalize_summary(
+            summary,
+            {"mode": "model", "status": "complete", "decision": "pass"},
+        )
+        self.assertEqual(
+            "fixed_scenario_benchmark_passed",
+            finalized["status"],
+        )
+        self.assertNotIn("rework_returns", finalized["variants"]["current"])
+
+    def test_semantic_revision_fails_fixed_scenario_benchmark(self):
+        results = []
+        values = {
+            "bare": [5, 5, 5],
+            "current": [1, 1, 2],
+            "previous": [2, 2, 2],
+        }
+        for variant, missed_values in values.items():
+            for repetition, missed in enumerate(missed_values, start=1):
+                results.append(
+                    self.evaluation_result(variant, repetition, missed),
+                )
+        summary = MODULE.summarize(
+            results,
+            {
+                "evaluation": MODULE.DEFAULT_EVALUATION_POLICY,
+                "previous_ref": "0.21.3",
+            },
+        )
+        finalized = MODULE.finalize_summary(
+            summary,
+            {"mode": "model", "status": "complete", "decision": "revise"},
+        )
+        self.assertEqual("benchmark_failed", finalized["status"])
+
+    def test_semantic_review_rejects_pass_without_reasons(self):
+        completed = mock.Mock(
+            returncode=0,
+            stdout='{"status":"pass","open_questions":[]}',
+            stderr="",
+        )
+        config = {
+            "judge": {
+                "mode": "model",
+                "command": "judge",
+                "model": "test-model",
+            },
+            "timeout": 1,
+        }
+        with mock.patch.object(
+            MODULE.subprocess,
+            "run",
+            return_value=completed,
+        ):
+            with self.assertRaisesRegex(MODULE.EvalError, "reasons"):
+                MODULE.semantic_review({}, [], config)
+
+    def test_semantic_review_rejects_invalid_open_questions(self):
+        completed = mock.Mock(
+            returncode=0,
+            stdout=(
+                '{"status":"pass","reasons":["Серия пригодна."],'
+                '"open_questions":"нет"}'
+            ),
+            stderr="",
+        )
+        config = {
+            "judge": {
+                "mode": "model",
+                "command": "judge",
+                "model": "test-model",
+            },
+            "timeout": 1,
+        }
+        with mock.patch.object(
+            MODULE.subprocess,
+            "run",
+            return_value=completed,
+        ):
+            with self.assertRaisesRegex(MODULE.EvalError, "open_questions"):
+                MODULE.semantic_review({}, [], config)
+
+    def test_semantic_review_accepts_complete_evidence(self):
+        completed = mock.Mock(
+            returncode=0,
+            stdout=(
+                '{"status":"pass","reasons":["Серия пригодна."],'
+                '"open_questions":[]}'
+            ),
+            stderr="",
+        )
+        config = {
+            "judge": {
+                "mode": "model",
+                "command": "judge",
+                "model": "test-model",
+            },
+            "timeout": 1,
+        }
+        with mock.patch.object(
+            MODULE.subprocess,
+            "run",
+            return_value=completed,
+        ):
+            review = MODULE.semantic_review({}, [], config)
+
+        self.assertEqual(review["decision"], "pass")
+        self.assertEqual(review["review"]["reasons"], ["Серия пригодна."])
+
+    def test_evaluation_policy_requires_three_initial_repetitions(self):
+        with self.assertRaises(MODULE.EvalError):
+            MODULE.validate_evaluation_policy(
+                {
+                    "initial_repetitions": 2,
+                    "additional_repetitions": 2,
+                    "max_missed_action_range": 2,
+                },
+                "test.yml",
+            )
 
     def test_product_is_installed_from_fixture_directory(self):
         with tempfile.TemporaryDirectory() as temp:

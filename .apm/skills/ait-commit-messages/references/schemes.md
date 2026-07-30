@@ -94,8 +94,7 @@ feat(setup): offer commit message schemes
 Добавлен выбор схем сообщений коммитов
 ```
 
-Источник:
-[Pro Git, Commit Guidelines](https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project).
+Источник: [Pro Git, Commit Guidelines][a].
 
 ## Собственная схема
 
@@ -108,3 +107,5 @@ feat(setup): offer commit message schemes
 Перед подготовкой или проверкой сообщения сверяй его с форматом и примерами.
 Если они неполные, противоречат друг другу или не позволяют установить форму
 сообщения, не выдумывай правило и запроси уточнение владельца проекта.
+
+[a]: https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project

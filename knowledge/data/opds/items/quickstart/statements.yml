@@ -1,0 +1,46 @@
+statements:
+  - id: OPDS-001
+    source_id: OPDS
+    item_id: OPDS-quickstart
+    kind: fact
+    status: verified
+    text: >-
+      Структурные локальные среды Open Design записывают канонические файлы
+      проекта и обновляют рабочую область и предварительный просмотр.
+    excerpt: "write canonical project files"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: First run
+      application: передача результата агентной работы.
+    open_questions: []
+  - id: OPDS-002
+    source_id: OPDS
+    item_id: OPDS-quickstart
+    kind: fact
+    status: verified
+    text: >-
+      Каталог дизайн-систем Open Design загружается из пакетов, основанных на
+      файлах DESIGN.md.
+    excerpt: "loaded from the DESIGN.md packages"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Catalogs
+      application: переносимый контекст дизайн-системы.
+    open_questions: []
+  - id: OPDS-003
+    source_id: OPDS
+    item_id: OPDS-quickstart
+    kind: fact
+    status: verified
+    text: >-
+      Инструкция Open Design составляется из базового слоя, активной
+      дизайн-системы и активного навыка.
+    excerpt: "active design system body"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Prompt composition
+      application: разделение стиля и рабочего процесса.
+    open_questions: []

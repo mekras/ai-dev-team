@@ -2,8 +2,8 @@
 name: ait-twelve-factor
 role: software-architect
 description: >
-  Оценка применимости и применение The Twelve-Factor App к SaaS и самостоятельно
-  развёртываемым сервисам, включая раннее предложение ADR.
+  The Twelve-Factor App: SaaS и самостоятельно развёртываемые сервисы, оценка,
+  применение, ранний ADR.
 ---
 
 # ait-twelve-factor

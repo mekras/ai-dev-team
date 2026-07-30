@@ -1,0 +1,46 @@
+statements:
+  - id: ENAI-001
+    source_id: ENAI
+    item_id: ENAI-source
+    kind: fact
+    status: verified
+    text: >-
+      ENISA представляет масштабируемую рамку применения существующих практик
+      для защиты ИИ-систем, операций и процессов.
+    excerpt: "a scalable framework"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Publication summary
+      application: структурирование практик безопасности ИИ.
+    open_questions: []
+  - id: ENAI-002
+    source_id: ENAI
+    item_id: ENAI-source
+    kind: fact
+    status: verified
+    text: >-
+      Рамка ENISA разделяет основы кибербезопасности, специфическую
+      кибербезопасность ИИ и отраслевую кибербезопасность ИИ.
+    excerpt: "cybersecurity foundations, AI-specific cybersecurity"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Publication summary
+      application: проверка уровней защитных практик.
+    open_questions: []
+  - id: ENAI-003
+    source_id: ENAI
+    item_id: ENAI-source
+    kind: limitation
+    status: verified
+    text: >-
+      Текущий проход проверяет публичное описание рамки, но не полный отчёт
+      ENISA.
+    excerpt: "sector-specific cybersecurity for AI"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Publication summary
+      application: ограничение глубины проверки.
+    open_questions: []

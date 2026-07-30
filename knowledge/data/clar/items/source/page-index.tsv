@@ -1,3 +1,3 @@
 id	artifact_path	sha256	notes
 epub	knowledge/data/clar/items/epub/clean-architecture-martin-ru.local.epub	c908087fde4407de4fd3097df8431f6e443a8f30c6d5631b30493b3b68ee6cc2	Local working copy of the Russian edition EPUB; excluded from Git.
-text	knowledge/data/clar/items/text/clean-architecture-martin-ru.local.txt	3f8cea89e1a576905125a53d662f49a07db9f1a2508a1435729335bde96a2322	Text extracted from the EPUB text layer in spine order; excluded from Git.
+text	knowledge/data/clar/items/text/clean-architecture-martin-ru.local.txt	5f93fad7e71325e632c803aab2a6a6dab5df09d4667413c04c4cc018213c79e1	Text extracted from XHTML body elements with Python 3 xml.etree.ElementTree in spine order; documents separated by two line feeds; excluded from Git.

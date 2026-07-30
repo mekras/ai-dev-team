@@ -1,15 +1,17 @@
 id: APHG-hig
-title: "Apple Human Interface Guidelines"
-url: "https://developer.apple.com/design/human-interface-guidelines"
+title: "UI Design Dos and Don’ts"
+url: "https://developer.apple.com/design/tips/"
 access: "Внешний публичный сайт. Получать релевантные страницы по запросу."
-status: candidate
-workflow_stage: indexed
-processing_scope: metadata_only
+status: approved
+workflow_stage: statements_extracted
+processing_scope: selected_fragments
 retrieval_mode: on_demand
 copy_policy: no_bulk_copy
 allowed_use: "Точечная проверка решений интерфейса для iOS и платформ Apple."
-requires_access_check: true
+requires_access_check: false
 files:
-  tracked: []
+  tracked:
+    - normalized.md
+    - statements.yml
 known_limitations: []
 processing_notes: []

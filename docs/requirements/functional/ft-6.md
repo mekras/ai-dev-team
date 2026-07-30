@@ -40,9 +40,8 @@
 
 ## Реализация
 
-- [Единый справочник](../../../.apm/skills/ait-architecture/references/organization-principles.md)
-  описывает три принципа, их область применения и ограничение «призма, а не
-  мандат».
+- [Единый справочник][a] описывает три принципа, их область применения и
+  ограничение «призма, а не мандат».
 - На справочник ссылаются навыки `ait-architecture`, `ait-code-construction`,
   `ait-code-review`, `ait-docs-structure-audit`, `ait-docs-structure-design` и
   `ait-docs-structure-rules`.
@@ -53,3 +52,5 @@
    применение трёх принципов, цена изменения и обоснование выбора.
 2. `apm run tests` проверяет наличие единого справочника и ссылки на него из
    всех профильных навыков.
+
+[a]: ../../../.apm/skills/ait-architecture/references/organization-principles.md

@@ -1,0 +1,32 @@
+statements:
+  - id: MSAI-001
+    source_id: MSAI
+    item_id: MSAI-source
+    kind: fact
+    status: verified
+    text: >-
+      Руководство Microsoft дополняет методы SDL рекомендациями по угрозам и
+      снижению рисков, характерных для ИИ и машинного обучения.
+    excerpt: "дополняет существующие методики моделирования угроз SDL"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Введение
+      application: моделирование специфических угроз ИИ.
+    open_questions: []
+  - id: MSAI-002
+    source_id: MSAI
+    item_id: MSAI-source
+    kind: fact
+    status: verified
+    text: >-
+      Руководство требует сначала учитывать традиционные угрозы безопасности,
+      на основе которых рассматриваются специфические угрозы ИИ и машинного
+      обучения.
+    excerpt: "Традиционное устранение угроз безопасности является более важным"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Введение
+      application: граница модели угроз ИИ.
+    open_questions: []

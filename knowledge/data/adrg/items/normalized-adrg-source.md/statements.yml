@@ -3,13 +3,13 @@ statements:
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   kind: fact
-  status: ready_for_review
+  status: verified
   text: 'Architectural Decision Record (ADR) — запись, фиксирующая одно архитектурное
     решение (AD) вместе с его обоснованием, компромиссами и последствиями.'
   excerpt: Architectural Decision Record (ADR) — запись, фиксирующая одно AD вместе
     с его обоснованием, компромиссами и последствиями.
   artifact: source.md
-  checked_at: '2026-06-29'
+  checked_at: '2026-07-28'
   scope:
     section_title: Базовые определения
     application: архитектор, технический писатель — назначение формата ADR.
@@ -18,14 +18,14 @@ statements:
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   kind: fact
-  status: ready_for_review
+  status: verified
   text: Architectural Decision (AD) — обоснованный проектный выбор, отвечающий на функциональное
     или нефункциональное требование, значимое для архитектуры; Architecturally Significant
     Requirement (ASR) — требование, измеримо влияющее на архитектуру и качество системы.
   excerpt: Architecturally Significant Requirement (ASR) — требование, измеримо влияющее
     на архитектуру и качество системы.
   artifact: source.md
-  checked_at: '2026-06-29'
+  checked_at: '2026-07-28'
   scope:
     section_title: Базовые определения
     application: архитектор — отбор архитектурно значимых решений.
@@ -66,13 +66,13 @@ statements:
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   kind: fact
-  status: ready_for_review
+  status: verified
   text: классический шаблон Nygard ADR состоит из разделов title, status, context,
     decision, consequences.
   excerpt: 'Nygard ADR — классическая структура: title, status, context, decision,
     consequences;'
   artifact: source.md
-  checked_at: '2026-06-29'
+  checked_at: '2026-07-28'
   scope:
     section_title: Шаблоны ADR
     application: архитектор, технический писатель — выбор структуры ADR.
@@ -159,11 +159,11 @@ statements:
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   kind: fact
-  status: ready_for_review
+  status: verified
   text: 'жизненный цикл решения проходит статусы: proposed, accepted, deprecated, superseded.'
   excerpt: 'статусы решения: proposed, accepted, deprecated, superseded;'
   artifact: source.md
-  checked_at: '2026-06-29'
+  checked_at: '2026-07-28'
   scope:
     section_title: Статусы решения
     application: архитектор — сопровождение и пересмотр решений.
@@ -202,12 +202,12 @@ statements:
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   kind: fact
-  status: ready_for_review
+  status: verified
   text: подход ADR в материалах сайта допускает расширение с архитектурных решений
     на любые организационные решения.
   excerpt: расширение подхода с архитектурных решений на любые организационные.
   artifact: source.md
-  checked_at: '2026-06-29'
+  checked_at: '2026-07-28'
   scope:
     section_title: Область применения ADR
     application: архитектор, менеджер — фиксация решений за пределами архитектуры.

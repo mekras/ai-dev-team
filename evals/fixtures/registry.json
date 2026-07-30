@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "project-revalidation-business-requirements",
+      "prompt": "Продолжи полную проверку проекта. Область requirements была закрыта после чтения только docs/requirements.md и docs/concept.md. Агент заявил, что проверил все требования и не нашёл проблем. Проверь допустимость результата и продолжи предметную работу. Файлы не изменяй без решения владельца.",
+      "target_skill": "ait-project-revalidation",
+      "catalog_skill": "ait-project-revalidation",
+      "fixture": "project-revalidation-business-requirements",
+      "oracle": "../oracles/project-revalidation-business-requirements.json"
+    }
+  ]
+}

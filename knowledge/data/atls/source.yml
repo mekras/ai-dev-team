@@ -1,13 +1,13 @@
 id: ATLS
 slug: atls
 title: "MITRE ATLAS — база тактик, техник и мер против атак на системы искусственного интеллекта."
-status: candidate
+status: approved
 priority: high
 carrier_type: website
 source_kind: knowledge_base
 adapter: manual
 storage_strategy: external_reference
-processing_scope: metadata_only
+processing_scope: selected_fragments
 retrieval_mode: on_demand
 copy_policy: no_bulk_copy
 allowed_use: "Точечный поиск техник атак и мер для модели угроз ИИ."
@@ -21,7 +21,7 @@ access:
 reliability: official
 stability: mutable
 refresh_policy: manual
-last_checked_at: "2026-07-18"
+last_checked_at: "2026-07-29"
 scope:
   includes: ["атаки на ИИ", "генеративный ИИ", "агентные системы", "меры защиты"]
   excludes: ["обычные техники ATT&CK вне связи с ИИ"]

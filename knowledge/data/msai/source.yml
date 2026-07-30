@@ -1,13 +1,13 @@
 id: MSAI
 slug: msai
 title: "Microsoft: моделирование угроз для систем ИИ и машинного обучения."
-status: candidate
+status: approved
 priority: medium
 carrier_type: website
 source_kind: reference
 adapter: manual
 storage_strategy: external_reference
-processing_scope: metadata_only
+processing_scope: selected_fragments
 retrieval_mode: on_demand
 copy_policy: no_bulk_copy
 allowed_use: "Точечная проверка методики моделирования угроз ИИ и машинного обучения."
@@ -21,7 +21,7 @@ access:
 reliability: vendor
 stability: mutable
 refresh_policy: manual
-last_checked_at: "2026-07-18"
+last_checked_at: "2026-07-29"
 scope:
   includes: ["моделирование угроз ИИ", "машинное обучение", "защита данных"]
   excludes: ["универсальная нормативная база"]

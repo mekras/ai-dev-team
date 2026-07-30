@@ -1,0 +1,45 @@
+statements:
+  - id: APHG-001
+    source_id: APHG
+    item_id: APHG-hig
+    kind: fact
+    status: verified
+    text: >-
+      Apple рекомендует использовать элементы управления, рассчитанные на
+      сенсорные жесты.
+    excerpt: "designed for touch gestures"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Touch Controls
+      application: интерфейсы платформ Apple.
+    open_questions: []
+  - id: APHG-002
+    source_id: APHG
+    item_id: APHG-hig
+    kind: fact
+    status: verified
+    text: >-
+      Минимальный размер сенсорной цели по рекомендации Apple составляет 44 на
+      44 пункта.
+    excerpt: "at least 44 points x 44 points"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Hit Targets
+      application: доступность сенсорного управления.
+    open_questions: []
+  - id: APHG-003
+    source_id: APHG
+    item_id: APHG-hig
+    kind: fact
+    status: verified
+    text: >-
+      Между цветом текста и фоном нужен достаточный контраст для читаемости.
+    excerpt: "ample contrast"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Contrast
+      application: читаемость интерфейса.
+    open_questions: []

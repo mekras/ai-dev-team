@@ -1,0 +1,43 @@
+statements:
+  - id: NIST-001
+    source_id: NIST
+    item_id: NIST-source
+    kind: fact
+    status: verified
+    text: >-
+      NIST AI RMF предназначена для добровольного применения при управлении
+      рисками ИИ.
+    excerpt: "intended for voluntary use"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Overview of the AI RMF
+      application: статус рамки управления рисками.
+    open_questions: []
+  - id: NIST-002
+    source_id: NIST
+    item_id: NIST-source
+    kind: limitation
+    status: verified
+    text: "NIST сообщает, что AI RMF 1.0 находится на пересмотре."
+    excerpt: "The AI RMF 1.0 is being revised"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: AI Risk Management Framework
+      application: проверка актуальности версии.
+    open_questions: []
+  - id: NIST-003
+    source_id: NIST
+    item_id: NIST-source
+    kind: fact
+    status: verified
+    text: >-
+      NIST опубликовал отдельный профиль AI RMF для генеративного ИИ.
+    excerpt: "Generative Artificial Intelligence Profile"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Overview of the AI RMF
+      application: навигация к рискам генеративного ИИ.
+    open_questions: []

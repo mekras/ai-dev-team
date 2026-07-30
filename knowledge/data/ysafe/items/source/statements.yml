@@ -1,0 +1,46 @@
+statements:
+  - id: YSAFE-001
+    source_id: YSAFE
+    item_id: YSAFE-source
+    kind: fact
+    status: verified
+    text: >-
+      AI-SAFE распределяет угрозы генеративных технологий по пяти уровням от
+      интерфейса до данных и знаний.
+    excerpt: "пяти уровнях работы с генеративными технологиями"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: AI-SAFE
+      application: проверка полноты областей угроз.
+    open_questions: []
+  - id: YSAFE-002
+    source_id: YSAFE
+    item_id: YSAFE-source
+    kind: fact
+    status: verified
+    text: >-
+      Для снижения риска внедрения инструкций AI-SAFE рекомендует санитизацию и
+      валидацию входных данных.
+    excerpt: "Санитизация и валидация входных данных"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Уровень 1
+      application: меры против внедрения инструкций.
+    open_questions: []
+  - id: YSAFE-003
+    source_id: YSAFE
+    item_id: YSAFE-source
+    kind: fact
+    status: verified
+    text: >-
+      Для критических действий агента AI-SAFE рекомендует подтверждение
+      человеком.
+    excerpt: "human approval gates для критических действий"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Уровень 2
+      application: контроль действий агента.
+    open_questions: []

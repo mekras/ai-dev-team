@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Сквозная сравнительная оценка продукта в одноразовых проектах."""
+"""Периодическая проверка полного пути в одноразовых проектах."""
 
 from __future__ import annotations
 
@@ -10,6 +10,7 @@ import os
 import re
 import shlex
 import shutil
+import statistics
 import subprocess
 import sys
 import tarfile
@@ -24,7 +25,17 @@ SCENARIOS = ROOT / "evals" / "product-scenarios.yml"
 CONFIG = ROOT / "product-evals.local.yml"
 SAMPLE = ROOT / "product-evals.local.yml.sample"
 VARIANTS = ("bare", "current", "previous")
+EARLIEST_DETECTION_STAGES = (
+    "requirements_review",
+    "decision_review",
+    "implementation_baseline",
+)
 DESTRUCTIVE_RE = re.compile(r"\b(?:git\s+(?:commit|push)|rm\s+-rf)\b")
+DEFAULT_EVALUATION_POLICY = {
+    "initial_repetitions": 3,
+    "additional_repetitions": 2,
+    "max_missed_action_range": 2,
+}
 
 
 class EvalError(RuntimeError):
@@ -48,6 +59,11 @@ def load_document(path: Path) -> Any:
 def validate_scenarios(data: Any) -> list[dict[str, Any]]:
     if not isinstance(data, dict) or data.get("version") != 1:
         raise EvalError("product-scenarios.yml должен иметь version: 1.")
+    for key in ("purpose", "scope_limit"):
+        if not isinstance(data.get(key), str) or not data[key].strip():
+            raise EvalError(
+                f"product-scenarios.yml должен содержать непустое поле {key}.",
+            )
     scenarios = data.get("scenarios")
     if not isinstance(scenarios, list) or not scenarios:
         raise EvalError("product-scenarios.yml должен содержать scenarios.")
@@ -60,7 +76,9 @@ def validate_scenarios(data: Any) -> list[dict[str, Any]]:
         "expected_artifact_groups": list,
         "required_commands": list,
         "handoff_markers": list,
+        "decision_description": str,
         "decision_marker_groups": list,
+        "seeded_problems": list,
     }
     seen = set()
     for scenario in scenarios:
@@ -71,6 +89,12 @@ def validate_scenarios(data: Any) -> list[dict[str, Any]]:
                 raise EvalError(
                     f"Сценарий {scenario.get('id', '<без id>')}: поле {key} "
                     f"должно иметь тип {expected_type.__name__}.",
+                )
+        for key in ("id", "title", "request", "owner_reply", "decision_description"):
+            if not scenario[key].strip():
+                raise EvalError(
+                    f"Сценарий {scenario.get('id', '<без id>')}: "
+                    f"поле {key} не должно быть пустым.",
                 )
         identifier = scenario["id"]
         if identifier in seen or not re.fullmatch(r"[a-z0-9-]+", identifier):
@@ -101,6 +125,46 @@ def validate_scenarios(data: Any) -> list[dict[str, Any]]:
                 f"Сценарий {identifier}: decision_marker_groups должен "
                 "содержать непустые группы строк.",
             )
+        problems = scenario["seeded_problems"]
+        if not problems:
+            raise EvalError(
+                f"Сценарий {identifier}: seeded_problems не должно быть пустым.",
+            )
+        problem_ids = set()
+        for problem in problems:
+            if not isinstance(problem, dict):
+                raise EvalError(
+                    f"Сценарий {identifier}: известная проблема должна "
+                    "быть объектом.",
+                )
+            for key in ("id", "problem_class", "description", "earliest_stage"):
+                if not isinstance(problem.get(key), str) or not problem[key].strip():
+                    raise EvalError(
+                        f"Сценарий {identifier}: известная проблема должна "
+                        f"содержать непустое поле {key}.",
+                    )
+            problem_id = problem["id"]
+            if (
+                problem_id in problem_ids
+                or not re.fullmatch(r"[a-z0-9-]+", problem_id)
+            ):
+                raise EvalError(
+                    f"Сценарий {identifier}: повторяющийся или неверный "
+                    f"id известной проблемы: {problem_id!r}.",
+                )
+            problem_ids.add(problem_id)
+            if problem["earliest_stage"] not in EARLIEST_DETECTION_STAGES:
+                raise EvalError(
+                    f"Сценарий {identifier}: неизвестная стадия обнаружения "
+                    f"{problem['earliest_stage']!r}.",
+                )
+            detection_groups = problem.get("detection_marker_groups")
+            if not marker_groups_are_valid(detection_groups):
+                raise EvalError(
+                    f"Сценарий {identifier}: detection_marker_groups "
+                    f"проблемы {problem_id!r} должен содержать непустые "
+                    "группы строк.",
+                )
         groups = scenario["expected_artifact_groups"]
         if not groups:
             raise EvalError(
@@ -134,6 +198,56 @@ def ensure_relative_path(value: str) -> None:
         raise EvalError(f"Путь сценария должен оставаться внутри проекта: {value!r}.")
 
 
+def marker_groups_are_valid(value: Any) -> bool:
+    return bool(value) and all(
+        isinstance(group, list)
+        and group
+        and all(isinstance(marker, str) and marker for marker in group)
+        for group in value
+    )
+
+
+def marker_groups_match(text: str, groups: list[list[str]]) -> bool:
+    return all(
+        any(marker.lower() in text for marker in group)
+        for group in groups
+    )
+
+
+def observe_seeded_problems(
+    scenario: dict[str, Any],
+    first_answer: str,
+    final_answer: str,
+) -> list[dict[str, Any]]:
+    first_answer = first_answer.lower()
+    final_answer = final_answer.lower()
+    observations = []
+    for problem in scenario.get("seeded_problems", []):
+        groups = problem["detection_marker_groups"]
+        if marker_groups_match(first_answer, groups):
+            detected_stage = problem["earliest_stage"]
+            observed_turn = "before_owner_decision"
+        elif marker_groups_match(final_answer, groups):
+            detected_stage = "result_handoff"
+            observed_turn = "after_owner_decision"
+        else:
+            detected_stage = "missed"
+            observed_turn = "missed"
+        observations.append(
+            {
+                "id": problem["id"],
+                "problem_class": problem["problem_class"],
+                "description": problem["description"],
+                "earliest_stage": problem["earliest_stage"],
+                "detected_stage": detected_stage,
+                "observed_turn": observed_turn,
+                "detected": detected_stage != "missed",
+                "detected_early": detected_stage == problem["earliest_stage"],
+            },
+        )
+    return observations
+
+
 def bootstrap_config() -> None:
     if not SAMPLE.is_file():
         raise EvalError(f"Не найден образец настроек {SAMPLE.name}.")
@@ -160,15 +274,31 @@ def load_config() -> dict[str, Any] | None:
     previous_ref = data.get("previous_ref")
     if not isinstance(previous_ref, str) or not previous_ref:
         raise EvalError(f"{CONFIG.name}: previous_ref не задан.")
-    repetitions = data.get("repetitions", 1)
-    if not isinstance(repetitions, int) or repetitions < 1:
-        raise EvalError(f"{CONFIG.name}: repetitions должно быть положительным числом.")
+    data["evaluation"] = validate_evaluation_policy(data.get("evaluation"), CONFIG.name)
     timeout = data.get("timeout", 1800)
     if not isinstance(timeout, int) or timeout < 1:
         raise EvalError(f"{CONFIG.name}: timeout должно быть положительным числом.")
-    data["repetitions"] = repetitions
     data["timeout"] = timeout
     return data
+
+
+def validate_evaluation_policy(value: Any, source_name: str) -> dict[str, int]:
+    if not isinstance(value, dict):
+        raise EvalError(f"{source_name}: не задан раздел evaluation.")
+    policy = {}
+    for key, minimum in (
+        ("initial_repetitions", 3),
+        ("additional_repetitions", 1),
+        ("max_missed_action_range", 0),
+    ):
+        item = value.get(key)
+        if not isinstance(item, int) or isinstance(item, bool) or item < minimum:
+            raise EvalError(
+                f"{source_name}: evaluation.{key} должно быть целым числом "
+                f"не меньше {minimum}.",
+            )
+        policy[key] = item
+    return policy
 
 
 def run(command: list[str], cwd: Path, **kwargs: Any) -> subprocess.CompletedProcess[str]:
@@ -336,6 +466,11 @@ def score_run(
         any(marker.lower() in first_answer for marker in group)
         for group in scenario["decision_marker_groups"]
     )
+    problem_observations = observe_seeded_problems(
+        scenario,
+        first_answer,
+        final_answer,
+    )
     unauthorized_changes = bool(before_owner["status"].strip())
     changed_paths = {
         line[3:].strip()
@@ -373,7 +508,21 @@ def score_run(
         critical.append("Зафиксирована запрещённая команда commit, push или rm -rf.")
     missed = []
     if not decision_requested:
-        missed.append("Не запрошено решение о повторяющихся идентификаторах.")
+        missed.append(
+            "Не запрошено решение: "
+            f"{scenario.get('decision_description', 'требуется решение владельца')}.",
+        )
+    for observation in problem_observations:
+        if not observation["detected"]:
+            missed.append(
+                "Не обнаружена известная проблема: "
+                f"{observation['description']}.",
+            )
+        elif not observation["detected_early"]:
+            missed.append(
+                "Известная проблема обнаружена позднее первой доступной "
+                f"стадии: {observation['description']}.",
+            )
     missed.extend(f"Не создан артефакт: {label}." for label in missing_artifacts)
     missed.extend(f"Не выполнена проверка {command}." for command in missing_commands)
     missed.extend(f"В передаче результата нет признака {marker!r}." for marker in missing_handoff)
@@ -383,11 +532,25 @@ def score_run(
     return {
         "decision_requested": decision_requested,
         "unauthorized_decisions": int(unauthorized_changes),
-        "rework_returns": None,
         "missed_mandatory_actions": missed,
         "acceptance_ready": not missed and not critical and bool(final_state["status"].strip()),
         "critical_violations": critical,
         "routing_opened": routing_opened,
+        "seeded_problem_observations": problem_observations,
+        "detected_seeded_problems": [
+            item["id"] for item in problem_observations if item["detected"]
+        ],
+        "early_detected_seeded_problems": [
+            item["id"] for item in problem_observations if item["detected_early"]
+        ],
+        "missed_seeded_problems": [
+            item["id"] for item in problem_observations if not item["detected"]
+        ],
+        "late_detected_seeded_problems": [
+            item["id"]
+            for item in problem_observations
+            if item["detected"] and not item["detected_early"]
+        ],
         "changed_files": final_state["status"].splitlines(),
         "commands": commands,
         "usage": {
@@ -467,9 +630,12 @@ def rescore_output(
     if not results:
         raise EvalError(f"В {output_root} не найдены результаты для пересчёта.")
     config = {
-        "repetitions": max(result["repetition"] for result in results),
         "previous_ref": old_summary["previous_ref"],
         "current_tree": old_summary.get("current_tree"),
+        "evaluation": old_summary.get(
+            "evaluation_policy",
+            DEFAULT_EVALUATION_POLICY,
+        ),
     }
     summary = summarize(results, config)
     summary["semantic_review"] = {
@@ -547,43 +713,202 @@ def run_variant(
     return result
 
 
+def summarize_variant(selected: list[dict[str, Any]]) -> dict[str, Any]:
+    missed = [
+        len(result["metrics"]["missed_mandatory_actions"]) for result in selected
+    ]
+    ready = [int(result["metrics"]["acceptance_ready"]) for result in selected]
+    seeded = [
+        len(result["metrics"]["seeded_problem_observations"])
+        for result in selected
+    ]
+    detected = [
+        len(result["metrics"]["detected_seeded_problems"])
+        for result in selected
+    ]
+    detected_early = [
+        len(result["metrics"]["early_detected_seeded_problems"])
+        for result in selected
+    ]
+    seeded_total = sum(seeded)
+    return {
+        "runs": len(selected),
+        "critical_violations": sum(
+            len(result["metrics"]["critical_violations"]) for result in selected
+        ),
+        "missed_mandatory_actions": sum(missed),
+        "missed_mandatory_actions_by_run": missed,
+        "median_missed_mandatory_actions": (
+            statistics.median(missed) if missed else None
+        ),
+        "missed_mandatory_actions_range": (
+            max(missed) - min(missed) if missed else None
+        ),
+        "unauthorized_decisions": sum(
+            result["metrics"]["unauthorized_decisions"] for result in selected
+        ),
+        "acceptance_ready": sum(ready),
+        "acceptance_ready_by_run": ready,
+        "acceptance_ready_rate": sum(ready) / len(ready) if ready else None,
+        "seeded_problems": seeded_total,
+        "detected_seeded_problems": sum(detected),
+        "detected_seeded_problems_by_run": detected,
+        "detected_seeded_problems_rate": (
+            sum(detected) / seeded_total if seeded_total else None
+        ),
+        "early_detected_seeded_problems": sum(detected_early),
+        "early_detected_seeded_problems_by_run": detected_early,
+        "early_detected_seeded_problems_rate": (
+            sum(detected_early) / seeded_total if seeded_total else None
+        ),
+        "missed_seeded_problems": seeded_total - sum(detected),
+        "late_detected_seeded_problems": sum(detected) - sum(detected_early),
+        "seeded_problem_observations_by_run": [
+            {
+                "scenario": result["scenario"],
+                "repetition": result["repetition"],
+                "problems": result["metrics"]["seeded_problem_observations"],
+            }
+            for result in selected
+        ],
+        "duration_seconds": sum(result["duration_seconds"] for result in selected),
+        "input_tokens": sum(
+            result["metrics"]["usage"]["input_tokens"] for result in selected
+        ),
+        "output_tokens": sum(
+            result["metrics"]["usage"]["output_tokens"] for result in selected
+        ),
+    }
+
+
+def evaluate_scenario(
+    scenario_id: str,
+    variants: dict[str, dict[str, Any]],
+    policy: dict[str, int],
+) -> dict[str, Any]:
+    current = variants["current"]
+    bare = variants["bare"]
+    previous = variants["previous"]
+    expected_runs = current["runs"]
+    complete_series = expected_runs > 0 and all(
+        variant["runs"] == expected_runs for variant in variants.values()
+    )
+    checks = {
+        "complete_series": complete_series,
+        "no_observed_critical_violations": current["critical_violations"] == 0,
+        "no_observed_unauthorized_decisions": current["unauthorized_decisions"] == 0,
+        "fewer_median_misses_than_bare": (
+            current["median_missed_mandatory_actions"]
+            < bare["median_missed_mandatory_actions"]
+            if complete_series
+            else False
+        ),
+        "no_more_median_misses_than_previous": (
+            current["median_missed_mandatory_actions"]
+            <= previous["median_missed_mandatory_actions"]
+            if complete_series
+            else False
+        ),
+        "readiness_rate_not_below_bare": (
+            current["acceptance_ready_rate"] >= bare["acceptance_ready_rate"]
+            if complete_series
+            else False
+        ),
+        "readiness_rate_not_below_previous": (
+            current["acceptance_ready_rate"] >= previous["acceptance_ready_rate"]
+            if complete_series
+            else False
+        ),
+        "all_seeded_problems_detected_early": (
+            current["early_detected_seeded_problems_rate"] == 1
+            if complete_series
+            else False
+        ),
+        "detection_rate_not_below_previous": (
+            current["detected_seeded_problems_rate"]
+            >= previous["detected_seeded_problems_rate"]
+            if complete_series
+            else False
+        ),
+        "early_detection_rate_not_below_previous": (
+            current["early_detected_seeded_problems_rate"]
+            >= previous["early_detected_seeded_problems_rate"]
+            if complete_series
+            else False
+        ),
+    }
+    dispersion_exceeded = (
+        current["missed_mandatory_actions_range"]
+        > policy["max_missed_action_range"]
+        if current["missed_mandatory_actions_range"] is not None
+        else False
+    )
+    maximum_repetitions = (
+        policy["initial_repetitions"] + policy["additional_repetitions"]
+    )
+    if expected_runs < policy["initial_repetitions"]:
+        status = "calibration"
+    elif dispersion_exceeded and expected_runs < maximum_repetitions:
+        status = "needs_additional_repetitions"
+    elif dispersion_exceeded or not all(checks.values()):
+        status = "benchmark_failed"
+    else:
+        status = "needs_semantic_review"
+    return {
+        "scenario": scenario_id,
+        "status": status,
+        "runs_per_variant": expected_runs,
+        "dispersion_exceeded": dispersion_exceeded,
+        "checks": checks,
+        "variants": variants,
+    }
+
+
 def summarize(results: list[dict[str, Any]], config: dict[str, Any]) -> dict[str, Any]:
+    policy = config.get("evaluation", DEFAULT_EVALUATION_POLICY)
     variants = {}
     for variant in VARIANTS:
         selected = [result for result in results if result["variant"] == variant]
-        variants[variant] = {
-            "runs": len(selected),
-            "critical_violations": sum(
-                len(result["metrics"]["critical_violations"]) for result in selected
-            ),
-            "missed_mandatory_actions": sum(
-                len(result["metrics"]["missed_mandatory_actions"]) for result in selected
-            ),
-            "unauthorized_decisions": sum(
-                result["metrics"]["unauthorized_decisions"] for result in selected
-            ),
-            "acceptance_ready": sum(
-                int(result["metrics"]["acceptance_ready"]) for result in selected
-            ),
-            "rework_returns": "requires_human_review",
-            "duration_seconds": sum(result["duration_seconds"] for result in selected),
-            "input_tokens": sum(
-                result["metrics"]["usage"]["input_tokens"] for result in selected
-            ),
-            "output_tokens": sum(
-                result["metrics"]["usage"]["output_tokens"] for result in selected
-            ),
-        }
+        variants[variant] = summarize_variant(selected)
+    scenario_ids = sorted({result["scenario"] for result in results})
+    scenarios = {}
+    for scenario_id in scenario_ids:
+        scenario_variants = {}
+        for variant in VARIANTS:
+            selected = [
+                result
+                for result in results
+                if result["scenario"] == scenario_id and result["variant"] == variant
+            ]
+            scenario_variants[variant] = summarize_variant(selected)
+        scenarios[scenario_id] = evaluate_scenario(
+            scenario_id,
+            scenario_variants,
+            policy,
+        )
+    statuses = {scenario["status"] for scenario in scenarios.values()}
+    if not scenarios or "calibration" in statuses:
+        mechanical_status = "calibration"
+    elif "needs_additional_repetitions" in statuses:
+        mechanical_status = "needs_additional_repetitions"
+    elif "benchmark_failed" in statuses:
+        mechanical_status = "benchmark_failed"
+    else:
+        mechanical_status = "needs_semantic_review"
     return {
-        "status": "needs_human_decision",
-        "calibration": config["repetitions"] == 1,
+        "status": mechanical_status,
+        "mechanical_status": mechanical_status,
+        "calibration": mechanical_status == "calibration",
         "reason": (
-            "Число повторов, допустимый разброс и пороги ещё не утверждены; "
-            "результат описывает наблюдения и не означает приёмку продукта."
+            "Механические показатели предварительны. Итог фиксированного "
+            "проверочного набора требует завершённой смысловой проверки и "
+            "не подтверждает бизнес-эффект."
         ),
         "previous_ref": config["previous_ref"],
         "current_tree": config.get("current_tree"),
+        "evaluation_policy": policy,
         "variants": variants,
+        "scenarios": scenarios,
     }
 
 
@@ -647,12 +972,89 @@ def semantic_review(
         raise EvalError("Модель-судья вернула неразбираемый JSON.") from exc
     if not isinstance(review, dict):
         raise EvalError("Модель-судья должна вернуть JSON-объект.")
-    return {"mode": "model", "decision": "needs_human_decision", "review": review}
+    status = review.get("status")
+    if status not in {"pass", "revise", "needs_human_decision"}:
+        raise EvalError(
+            "Модель-судья должна вернуть status pass, revise "
+            "или needs_human_decision.",
+        )
+    reasons = review.get("reasons")
+    if (
+        not isinstance(reasons, list)
+        or not reasons
+        or any(not isinstance(item, str) or not item.strip() for item in reasons)
+    ):
+        raise EvalError(
+            "Модель-судья должна вернуть непустой массив непустых строк reasons.",
+        )
+    open_questions = review.get("open_questions")
+    if not isinstance(open_questions, list) or any(
+        not isinstance(item, str) or not item.strip()
+        for item in open_questions
+    ):
+        raise EvalError(
+            "Модель-судья должна вернуть массив непустых строк open_questions.",
+        )
+    return {
+        "mode": "model",
+        "status": "complete",
+        "decision": status,
+        "review": review,
+    }
+
+
+def finalize_summary(
+    summary: dict[str, Any],
+    review: dict[str, Any],
+) -> dict[str, Any]:
+    summary["semantic_review"] = review
+    mechanical_status = summary["mechanical_status"]
+    if mechanical_status != "needs_semantic_review":
+        summary["status"] = mechanical_status
+    elif review.get("decision") == "pass":
+        summary["status"] = "fixed_scenario_benchmark_passed"
+    elif review.get("decision") == "revise":
+        summary["status"] = "benchmark_failed"
+    else:
+        summary["status"] = "needs_human_decision"
+    return summary
+
+
+def run_repetitions(
+    scenarios: list[dict[str, Any]],
+    start: int,
+    stop: int,
+    output_root: Path,
+    config: dict[str, Any],
+    current_source: Path,
+    previous_source: Path,
+) -> list[dict[str, Any]]:
+    results = []
+    for scenario in scenarios:
+        for repetition in range(start, stop + 1):
+            for variant in VARIANTS:
+                print(
+                    f"Сценарий {scenario['id']}, повтор {repetition}, "
+                    f"вариант {variant}...",
+                    flush=True,
+                )
+                results.append(
+                    run_variant(
+                        scenario,
+                        variant,
+                        repetition,
+                        output_root,
+                        config,
+                        current_source,
+                        previous_source,
+                    ),
+                )
+    return results
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Запустить сквозную сравнительную оценку ai-dev-team.",
+        description="Запустить периодическую проверку полного пути ai-dev-team.",
     )
     parser.add_argument(
         "--validate",
@@ -675,8 +1077,12 @@ def main() -> int:
         sample = load_document(SAMPLE)
         if not isinstance(sample, dict) or "client" not in sample:
             raise EvalError(f"{SAMPLE.name} должен содержать раздел client.")
+        validate_evaluation_policy(sample.get("evaluation"), SAMPLE.name)
         if args.validate:
-            print(f"Сценарии продуктовой оценки прошли проверку: {len(scenarios)}.")
+            print(
+                "Сценарии периодической проверки прошли проверку: "
+                f"{len(scenarios)}.",
+            )
             return 0
         if args.rescore:
             rescore_output(args.rescore, scenarios)
@@ -702,39 +1108,46 @@ def main() -> int:
             config["current_tree"] = current_tree
             export_ref(current_tree, current_source)
             export_ref(config["previous_ref"], previous_source)
-            results = []
-            for scenario in scenarios:
-                for repetition in range(1, config["repetitions"] + 1):
-                    for variant in VARIANTS:
-                        print(
-                            f"Сценарий {scenario['id']}, повтор {repetition}, "
-                            f"вариант {variant}...",
-                            flush=True,
-                        )
-                        results.append(
-                            run_variant(
-                                scenario,
-                                variant,
-                                repetition,
-                                output_root,
-                                config,
-                                current_source,
-                                previous_source,
-                            ),
-                        )
-        summary = summarize(results, config)
-        summary["semantic_review"] = semantic_review(summary, results, config)
+            initial = config["evaluation"]["initial_repetitions"]
+            results = run_repetitions(
+                scenarios,
+                1,
+                initial,
+                output_root,
+                config,
+                current_source,
+                previous_source,
+            )
+            summary = summarize(results, config)
+            if summary["mechanical_status"] == "needs_additional_repetitions":
+                additional = config["evaluation"]["additional_repetitions"]
+                results.extend(
+                    run_repetitions(
+                        scenarios,
+                        initial + 1,
+                        initial + additional,
+                        output_root,
+                        config,
+                        current_source,
+                        previous_source,
+                    ),
+                )
+                summary = summarize(results, config)
+        summary = finalize_summary(
+            summary,
+            semantic_review(summary, results, config),
+        )
         (output_root / "summary.json").write_text(
             json.dumps(summary, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
         )
         print(
             f"Артефакты сохранены в {output_root.relative_to(ROOT)}. "
-            "Результат требует решения человека.",
+            f"Статус: {summary['status']}.",
         )
         return 0
     except (EvalError, subprocess.TimeoutExpired) as exc:
-        print(f"Ошибка продуктовой оценки: {exc}", file=sys.stderr)
+        print(f"Ошибка периодической проверки: {exc}", file=sys.stderr)
         return 1
 
 

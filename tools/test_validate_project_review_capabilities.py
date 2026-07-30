@@ -130,6 +130,35 @@ class CapabilityValidationTest(unittest.TestCase):
         ):
             MODULE.validate(self.root, self.classification)
 
+    def test_review_criteria_contract_passes(self) -> None:
+        entry = self.data["capabilities"][1]
+        entry["subject_discovery_required"] = True
+        entry["review_criteria"] = [
+            {
+                "id": "traceability",
+                "description": "Проверить направление связей.",
+                "coverage": "each_subject",
+            },
+        ]
+        self.write()
+        MODULE.validate(self.root, self.classification)
+
+    def test_unknown_review_criterion_coverage_fails(self) -> None:
+        entry = self.data["capabilities"][1]
+        entry["review_criteria"] = [
+            {
+                "id": "traceability",
+                "description": "Проверить направление связей.",
+                "coverage": "sometimes",
+            },
+        ]
+        self.write()
+        with self.assertRaisesRegex(
+            MODULE.CapabilityError,
+            "неизвестный охват критерия",
+        ):
+            MODULE.validate(self.root, self.classification)
+
 
 if __name__ == "__main__":
     unittest.main()

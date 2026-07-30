@@ -10,8 +10,8 @@ requires_access_check: true
 extracted_text:
   location: knowledge/data/clar/items/text/clean-architecture-martin-ru.local.txt
   format: txt
-  file_size_bytes: 923949
-  content_hash: sha256:3f8cea89e1a576905125a53d662f49a07db9f1a2508a1435729335bde96a2322
-  metadata_source: pdftotext
+  file_size_bytes: 925728
+  content_hash: sha256:5f93fad7e71325e632c803aab2a6a6dab5df09d4667413c04c4cc018213c79e1
+  metadata_source: Python 3 xml.etree.ElementTree
 known_limitations:
-- Полная текстовая выгрузка хранится только рядом с единицей под маркером `*.local.*` и не публикуется в Git.
+  - Полная текстовая выгрузка хранится только рядом с единицей под маркером `*.local.*` и не публикуется в Git.

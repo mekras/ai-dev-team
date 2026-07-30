@@ -1,0 +1,439 @@
+{
+  "schema_version": 1,
+  "graph": {
+    "name": "ai-dev-team",
+    "description": "Направления возможного влияния между источниками истины, переносимым ядром, проверками и поставкой продукта.",
+    "default_facet": "semantic",
+    "unmapped_paths": "block",
+    "ignore": [
+      ".git/**",
+      ".agents/**",
+      ".claude/**",
+      "apm_modules/**",
+      "local/**",
+      "node_modules/**"
+    ]
+  },
+  "nodes": [
+    {
+      "id": "concept",
+      "title": "Концепция продукта",
+      "kind": "concept",
+      "paths": ["docs/concept.md"],
+      "checks": ["ait-docs-concept"],
+      "review_stages": ["requirements"]
+    },
+    {
+      "id": "knowledge",
+      "title": "Корпус знаний",
+      "kind": "knowledge",
+      "paths": ["knowledge/**"],
+      "checks": ["kc-validation", "kc-impact-audit"],
+      "review_stages": ["repository", "requirements"]
+    },
+    {
+      "id": "requirements",
+      "title": "Требования продукта",
+      "kind": "requirements",
+      "paths": ["requirements.md", "docs/requirements.md", "docs/requirements/**"],
+      "checks": ["ait-req-management", "ait-req-validation"],
+      "review_stages": ["requirements"]
+    },
+    {
+      "id": "decisions",
+      "title": "Проектные решения и открытые задачи",
+      "kind": "decision",
+      "paths": ["BACKLOG.md", "docs/adr/**", "docs/pdr/**"],
+      "checks": ["ait-decisions", "ait-architecture"],
+      "review_stages": ["design"]
+    },
+    {
+      "id": "portable-core",
+      "title": "Переносимые роли, навыки и инструкции",
+      "kind": "implementation",
+      "paths": [".apm/**"],
+      "checks": ["ai-skill-development", "ait-code-review"],
+      "review_stages": ["code"]
+    },
+    {
+      "id": "tooling",
+      "title": "Средства разработки и проверки",
+      "kind": "implementation",
+      "paths": ["tools/**"],
+      "checks": ["ait-code-review"],
+      "review_stages": ["code"]
+    },
+    {
+      "id": "verification",
+      "title": "Постоянные проверки продукта",
+      "kind": "test",
+      "paths": ["evals/**", "tools/test_*.py"],
+      "checks": ["ait-code-testing", "ai-work-result-evaluation"],
+      "review_stages": ["tests", "assurance"]
+    },
+    {
+      "id": "project-docs",
+      "title": "Документация продукта и разработки",
+      "kind": "documentation",
+      "paths": [
+        "CHANGELOG.md",
+        "README.md",
+        "docs/development.md",
+        "docs/implementation-plan-managed-project-review.md",
+        "docs/knowledge.md",
+        "docs/overview.md",
+        "docs/roles.md"
+      ],
+      "checks": ["ait-writing", "ait-changelog"],
+      "review_stages": ["assurance"]
+    },
+    {
+      "id": "delivery",
+      "title": "Настройки разработки и поставки",
+      "kind": "delivery",
+      "paths": [
+        ".ai-dev-team-state.yml",
+        ".codex/**",
+        ".editorconfig",
+        ".gitignore",
+        ".markdownlint.json",
+        ".prettierignore",
+        ".prettierrc.json",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "LICENSE",
+        "apm.lock.yaml",
+        "apm.yml",
+        "evals.local.yml.sample",
+        "package-lock.json",
+        "package.json",
+        "product-evals.local.yml.sample",
+        "project-impact.json"
+      ],
+      "checks": ["ai-setup-apm", "ai-audit-project"],
+      "review_stages": ["repository", "assurance"]
+    }
+  ],
+  "edges": [
+    {
+      "from": "concept",
+      "to": "knowledge",
+      "relation": "constrains",
+      "facets": ["semantic"],
+      "rationale": "Состав и применение корпуса оцениваются относительно проблемы, цели и границ продукта."
+    },
+    {
+      "from": "concept",
+      "to": "requirements",
+      "relation": "constrains",
+      "facets": ["semantic"],
+      "rationale": "Требования раскрывают замысел продукта и не должны противоречить ему."
+    },
+    {
+      "from": "concept",
+      "to": "decisions",
+      "relation": "constrains",
+      "facets": ["semantic"],
+      "rationale": "Значимые решения должны объяснять путь к цели продукта."
+    },
+    {
+      "from": "concept",
+      "to": "portable-core",
+      "relation": "constrains",
+      "facets": ["semantic"],
+      "rationale": "Переносимое ядро воплощает выбранный способ достижения цели."
+    },
+    {
+      "from": "concept",
+      "to": "tooling",
+      "relation": "constrains",
+      "facets": ["semantic"],
+      "rationale": "Средства разработки должны поддерживать назначение и границы продукта."
+    },
+    {
+      "from": "concept",
+      "to": "verification",
+      "relation": "constrains",
+      "facets": ["semantic"],
+      "rationale": "Проверки должны доказывать свойства, значимые для цели продукта."
+    },
+    {
+      "from": "concept",
+      "to": "project-docs",
+      "relation": "constrains",
+      "facets": ["semantic", "structure", "documentation"],
+      "rationale": "Документация представляет назначение, границы и применение продукта."
+    },
+    {
+      "from": "concept",
+      "to": "delivery",
+      "relation": "constrains",
+      "facets": ["semantic"],
+      "rationale": "Способ поставки должен сохранять заявленный практический результат."
+    },
+    {
+      "from": "knowledge",
+      "to": "requirements",
+      "relation": "informs",
+      "facets": ["semantic", "data", "structure"],
+      "rationale": "Проверяемые источники и утверждения служат основанием требований."
+    },
+    {
+      "from": "knowledge",
+      "to": "decisions",
+      "relation": "informs",
+      "facets": ["semantic", "data", "structure"],
+      "rationale": "Проектные решения опираются на доступные источники и ограничения."
+    },
+    {
+      "from": "knowledge",
+      "to": "portable-core",
+      "relation": "constrains",
+      "facets": ["semantic", "data", "structure"],
+      "rationale": "Навыки и роли применяют знания проекта как проверяемое основание."
+    },
+    {
+      "from": "knowledge",
+      "to": "tooling",
+      "relation": "constrains",
+      "facets": ["data", "structure"],
+      "rationale": "Инструменты корпуса зависят от его договора и структуры данных."
+    },
+    {
+      "from": "knowledge",
+      "to": "verification",
+      "relation": "constrains",
+      "facets": ["semantic", "data", "structure"],
+      "rationale": "Проверки должны учитывать происхождение, ограничения и договор корпуса."
+    },
+    {
+      "from": "knowledge",
+      "to": "project-docs",
+      "relation": "informs",
+      "facets": ["semantic", "data", "structure", "documentation"],
+      "rationale": "Документация использует выводы корпуса и объясняет порядок работы с ним."
+    },
+    {
+      "from": "knowledge",
+      "to": "delivery",
+      "relation": "constrains",
+      "facets": ["data", "structure", "security"],
+      "rationale": "Поставка должна соблюдать режим хранения, доступа и публикации источников."
+    },
+    {
+      "from": "requirements",
+      "to": "decisions",
+      "relation": "constrains",
+      "facets": [
+        "semantic",
+        "interface",
+        "data",
+        "quality",
+        "security",
+        "reliability",
+        "operation"
+      ],
+      "rationale": "Архитектурные и проектные решения отвечают на требования и ограничения."
+    },
+    {
+      "from": "requirements",
+      "to": "portable-core",
+      "relation": "constrains",
+      "facets": [
+        "semantic",
+        "interface",
+        "data",
+        "quality",
+        "security",
+        "reliability",
+        "operation"
+      ],
+      "rationale": "Переносимое ядро реализует функциональные обязательства и свойства качества."
+    },
+    {
+      "from": "requirements",
+      "to": "tooling",
+      "relation": "constrains",
+      "facets": [
+        "interface",
+        "data",
+        "quality",
+        "security",
+        "reliability",
+        "operation",
+        "structure"
+      ],
+      "rationale": "Средства разработки обеспечивают проверяемость и операционные ограничения требований."
+    },
+    {
+      "from": "requirements",
+      "to": "verification",
+      "relation": "constrains",
+      "facets": [
+        "semantic",
+        "interface",
+        "data",
+        "quality",
+        "security",
+        "reliability",
+        "operation"
+      ],
+      "rationale": "Постоянные проверки подтверждают критерии приёмки и свойства качества."
+    },
+    {
+      "from": "requirements",
+      "to": "project-docs",
+      "relation": "documents",
+      "facets": [
+        "semantic",
+        "interface",
+        "data",
+        "quality",
+        "security",
+        "reliability",
+        "operation",
+        "structure",
+        "documentation"
+      ],
+      "rationale": "Документация объясняет предусмотренное поведение и ограничения продукта."
+    },
+    {
+      "from": "requirements",
+      "to": "delivery",
+      "relation": "constrains",
+      "facets": ["interface", "quality", "security", "reliability", "operation"],
+      "rationale": "Настройки и поставка должны обеспечивать внешние и качественные требования."
+    },
+    {
+      "from": "decisions",
+      "to": "portable-core",
+      "relation": "constrains",
+      "facets": [
+        "semantic",
+        "interface",
+        "data",
+        "quality",
+        "security",
+        "reliability",
+        "operation",
+        "structure"
+      ],
+      "rationale": "Переносимое ядро соблюдает принятые границы и контракты."
+    },
+    {
+      "from": "decisions",
+      "to": "tooling",
+      "relation": "constrains",
+      "facets": [
+        "interface",
+        "data",
+        "quality",
+        "security",
+        "reliability",
+        "operation",
+        "structure"
+      ],
+      "rationale": "Средства разработки реализуют функции пригодности и выбранные процессы."
+    },
+    {
+      "from": "decisions",
+      "to": "verification",
+      "relation": "constrains",
+      "facets": [
+        "semantic",
+        "interface",
+        "data",
+        "quality",
+        "security",
+        "reliability",
+        "operation",
+        "structure"
+      ],
+      "rationale": "Проверки контролируют соблюдение решений и условий их пересмотра."
+    },
+    {
+      "from": "decisions",
+      "to": "project-docs",
+      "relation": "informs",
+      "facets": ["semantic", "interface", "operation", "structure", "documentation"],
+      "rationale": "Документация должна отражать действующие решения и последствия для пользователя."
+    },
+    {
+      "from": "decisions",
+      "to": "delivery",
+      "relation": "constrains",
+      "facets": ["interface", "data", "security", "reliability", "operation", "structure"],
+      "rationale": "Поставка и настройки следуют принятым архитектурным и процессным решениям."
+    },
+    {
+      "from": "portable-core",
+      "to": "tooling",
+      "relation": "configures",
+      "facets": ["interface", "data", "structure"],
+      "rationale": "Изменение переносимого договора может потребовать поддержки в средствах разработки."
+    },
+    {
+      "from": "portable-core",
+      "to": "verification",
+      "relation": "verifies",
+      "facets": ["any"],
+      "rationale": "Изменение переносимого поведения требует пересмотреть постоянные проверки."
+    },
+    {
+      "from": "portable-core",
+      "to": "project-docs",
+      "relation": "documents",
+      "facets": ["semantic", "interface", "operation", "structure", "documentation"],
+      "rationale": "Пользовательские последствия переносимого ядра отражаются в документации."
+    },
+    {
+      "from": "portable-core",
+      "to": "delivery",
+      "relation": "packages",
+      "facets": ["any"],
+      "rationale": "Переносимые примитивы входят в пакет APM и клиентские проекции."
+    },
+    {
+      "from": "tooling",
+      "to": "verification",
+      "relation": "verifies",
+      "facets": ["any"],
+      "rationale": "Изменение средств проверки требует пересмотреть их тесты и результаты."
+    },
+    {
+      "from": "tooling",
+      "to": "project-docs",
+      "relation": "documents",
+      "facets": ["interface", "operation", "structure", "documentation"],
+      "rationale": "Команды и процедуры разработки должны оставаться воспроизводимыми."
+    },
+    {
+      "from": "tooling",
+      "to": "delivery",
+      "relation": "configures",
+      "facets": ["interface", "operation", "structure"],
+      "rationale": "Средства разработки зависят от настроек и состава поставки."
+    },
+    {
+      "from": "verification",
+      "to": "project-docs",
+      "relation": "informs",
+      "facets": ["quality", "operation", "structure", "documentation"],
+      "rationale": "Документация проверок должна соответствовать фактическому набору и результатам."
+    },
+    {
+      "from": "delivery",
+      "to": "verification",
+      "relation": "constrains",
+      "facets": ["interface", "operation", "structure", "security", "reliability"],
+      "rationale": "Изменение сборки, зависимостей или поставки требует повторной проверки пакета."
+    },
+    {
+      "from": "delivery",
+      "to": "project-docs",
+      "relation": "documents",
+      "facets": ["interface", "operation", "structure", "documentation"],
+      "rationale": "Инструкции установки и разработки должны соответствовать способу поставки."
+    }
+  ]
+}

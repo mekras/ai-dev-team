@@ -1,0 +1,32 @@
+statements:
+  - id: ATLS-001
+    source_id: ATLS
+    item_id: ATLS-source
+    kind: fact
+    status: verified
+    text: >-
+      Матрица MITRE ATLAS содержит технику LLM Prompt Injection для систем
+      генеративного ИИ.
+    excerpt: "LLM Prompt Injection"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: ATLAS Matrix for AI Systems
+      application: каталогизация угроз внедрения инструкций.
+    open_questions: []
+  - id: ATLS-002
+    source_id: ATLS
+    item_id: ATLS-source
+    kind: fact
+    status: verified
+    text: >-
+      ATLAS относит к агентной платформе компоненты ИИ, которые способны
+      автономно планировать, принимать решения и выполнять многошаговые
+      действия, в том числе с памятью, средствами и оркестрацией.
+    excerpt: "autonomously plan, decide, and execute multi-step actions"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Agentic AI platform
+      application: определение границы агентной ИИ-системы.
+    open_questions: []

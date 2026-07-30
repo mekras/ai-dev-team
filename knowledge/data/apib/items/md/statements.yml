@@ -753,7 +753,7 @@ statements:
   source_id: APIB
   item_id: APIB-md
   kind: observation
-  status: ready_for_review
+  status: verified
   text: Автор книги намеренно вводит собственный практический термин «HTTP API» / «JSON-over-HTTP
     API» (HTTP 1.1+, JSON, URL по стандарту, семантика вызовов по спецификации, отсутствие
     сознательных нарушений веб-стандартов) и избегает термина «REST API», поскольку у последнего
@@ -761,7 +761,7 @@ statements:
   excerpt: Что касается термина «REST API», то как мы покажем дальше, у него нет консистентного
     определения, поэтому его использования мы также стараемся избегать.
   artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/01-http-api-concepts.local.md
-  checked_at: '2026-07-17'
+  checked_at: '2026-07-28'
   scope:
     section_title: рабочее определение «HTTP API»
     application: аналитик.
@@ -928,7 +928,7 @@ statements:
   source_id: APIB
   item_id: APIB-md
   kind: inference
-  status: ready_for_review
+  status: verified
   text: Автор книги сознательно не использует термины «REST API» и «RESTful API» в последующих
     главах из-за их неформальности и отсутствия консистентного смысла, заменяя их термином
     «HTTP API».
@@ -937,7 +937,7 @@ statements:
     главах, фактически соответствует усреднённому представлению о «REST/RESTful API», как
     его можно найти в многочисленных учебных пособиях.
   artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/03-http-api-rest-myth.local.md
-  checked_at: '2026-07-17'
+  checked_at: '2026-07-28'
   scope:
     section_title: отказ от термина REST API
     application: аналитик.

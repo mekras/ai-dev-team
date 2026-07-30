@@ -27,7 +27,8 @@
       "purpose": "Проверка документации глазами целевого читателя",
       "participation": "check",
       "stage": "assurance",
-      "applicability": "model"
+      "applicability": "model",
+      "decision_paths": ["README.md"]
     },
     {
       "id": "role-legal",
@@ -108,7 +109,8 @@
       "purpose": "Проверка и исправление документации",
       "participation": "check",
       "stage": "assurance",
-      "applicability": "model"
+      "applicability": "model",
+      "decision_paths": ["README.md"]
     },
     {
       "id": "role-ux-specialist",
@@ -207,7 +209,24 @@
       "purpose": "Проверка концепции проекта",
       "participation": "check",
       "stage": "requirements",
-      "applicability": "model"
+      "applicability": "always",
+      "review_criteria": [
+        {
+          "id": "problem-goal-method-result",
+          "description": "Концепция согласованно объясняет проблему, цель, способ достижения и ожидаемый итог проекта.",
+          "coverage": "surface"
+        },
+        {
+          "id": "essential-frames",
+          "description": "Концепция называет существенные рамки, если без них замысел проекта становится неоднозначным, и не подменяет нормативные требования.",
+          "coverage": "surface"
+        },
+        {
+          "id": "meaning-and-modality",
+          "description": "Тезисы концепции не противоречат друг другу, сохраняют различие текущего состояния и цели и не подменены перечнем функций или технологий.",
+          "coverage": "surface"
+        }
+      ]
     },
     {
       "id": "skill-ait-docs-structure-audit",
@@ -244,6 +263,16 @@
       "participation": "check",
       "stage": "requirements",
       "applicability": "model"
+    },
+    {
+      "id": "skill-ait-impact-analysis",
+      "kind": "skill",
+      "path": ".apm/skills/ait-impact-analysis",
+      "purpose": "Сквозной анализ влияния по общему графу проекта",
+      "participation": "check",
+      "stage": "impact",
+      "applicability": "always",
+      "decision_paths": ["project-impact.json"]
     },
     {
       "id": "skill-ait-interface-design",
@@ -297,7 +326,8 @@
       "purpose": "Проверка главного пользовательского входа",
       "participation": "check",
       "stage": "assurance",
-      "applicability": "model"
+      "applicability": "model",
+      "decision_paths": ["README.md"]
     },
     {
       "id": "skill-ait-reconstructability",
@@ -360,7 +390,30 @@
       "purpose": "Поэтапная перепроверка требований",
       "participation": "check",
       "stage": "requirements",
-      "applicability": "model"
+      "applicability": "model",
+      "subject_discovery_required": true,
+      "review_criteria": [
+        {
+          "id": "level-and-solution-boundary",
+          "description": "Уровень требования определён правильно, а потребность, функция и проектное решение не смешаны.",
+          "coverage": "each_subject"
+        },
+        {
+          "id": "source-and-necessity",
+          "description": "У требования есть проверяемое основание, необходимость и владелец значимого решения.",
+          "coverage": "each_subject"
+        },
+        {
+          "id": "clarity-and-verifiability",
+          "description": "Обязательство сформулировано однозначно и допускает проверку без домысливания.",
+          "coverage": "each_subject"
+        },
+        {
+          "id": "set-consistency-and-traceability",
+          "description": "Набор не содержит противоречий, циклических оснований и необъяснённых разрывов связей между уровнями.",
+          "coverage": "surface"
+        }
+      ]
     },
     {
       "id": "skill-ait-req-specification",
@@ -495,7 +548,8 @@
       "purpose": "Проверка и исправление технического текста",
       "participation": "check",
       "stage": "assurance",
-      "applicability": "model"
+      "applicability": "model",
+      "decision_paths": ["README.md"]
     },
     {
       "id": "rule-ai-dev-team-connection",

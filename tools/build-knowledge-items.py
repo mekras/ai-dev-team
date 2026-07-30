@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import argparse
 import csv
 import html
 import os
@@ -504,7 +505,20 @@ def materialize_units(
         write_yaml(unit_dir / "statements.yml", statements_payload)
 
 
-def main() -> int:
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Перестроить производные элементы всего корпуса знаний.",
+    )
+    parser.add_argument(
+        "--all",
+        action="store_true",
+        required=True,
+        help="явно подтвердить перестроение всех элементов корпуса",
+    )
+    return parser.parse_args(argv)
+
+
+def rebuild_all() -> int:
     INDEX.mkdir(parents=True, exist_ok=True)
     global_items: list[dict[str, str]] = []
 
@@ -542,6 +556,11 @@ def main() -> int:
 
     write_yaml(INDEX / "items.yml", {"items": global_items})
     return 0
+
+
+def main(argv: list[str] | None = None) -> int:
+    parse_args(argv)
+    return rebuild_all()
 
 
 if __name__ == "__main__":

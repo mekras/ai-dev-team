@@ -3,12 +3,12 @@ statements:
   source_id: G250
   item_id: G250-normalized-G250-source.md
   kind: fact
-  status: ready_for_review
+  status: verified
   text: модель качества продукта включает функциональную пригодность, уровень производительности, совместимость,
     удобство использования, надёжность, защищённость, сопровождаемость, переносимость.
   excerpt: извлечение модели качества и характеристик «надёжность» и «сопровождаемость» с
   artifact: source.md
-  checked_at: '2026-06-26'
+  checked_at: '2026-07-28'
   scope:
     section_title: Восемь характеристик качества
     application: аналитик, архитектор, технический писатель.
@@ -17,12 +17,12 @@ statements:
   source_id: G250
   item_id: G250-normalized-G250-source.md
   kind: fact
-  status: ready_for_review
+  status: verified
   text: надёжность включает завершённость (maturity), готовность (availability), отказоустойчивость (fault
     tolerance), восстанавливаемость (recoverability).
   excerpt: (availability), отказоустойчивость (fault tolerance), восстанавливаемость
   artifact: source.md
-  checked_at: '2026-06-26'
+  checked_at: '2026-07-28'
   scope:
     section_title: Подхарактеристики надёжности
     application: аналитик, архитектор.
@@ -45,11 +45,11 @@ statements:
   source_id: G250
   item_id: G250-normalized-G250-source.md
   kind: observation
-  status: ready_for_review
+  status: verified
   text: стандарт идентичен `ISO/IEC 25010:2011`; существует более новая международная редакция `2023`.
   excerpt: Стандарт соответствует редакции `ISO/IEC 25010:2011`; есть международная
   artifact: source.md
-  checked_at: '2026-06-26'
+  checked_at: '2026-07-28'
   scope:
     section_title: Соответствие международному стандарту
     application: аналитик, технический писатель.
@@ -58,14 +58,14 @@ statements:
   source_id: G250
   item_id: G250-normalized-G250-source.md
   kind: fact
-  status: ready_for_review
+  status: verified
   text: сопровождаемость (maintainability) включает подхарактеристики — модульность (изменение одного
     компонента минимально влияет на другие), возможность многократного использования (reusability), анализируемость
     (простота оценки влияния изменений и диагностики), модифицируемость (простота изменения без внесения
     дефектов и снижения качества) и тестируемость (простота задания критериев тестирования и их проверки).
   excerpt: возможность многократного использования (reusability), анализируемость
   artifact: source.md
-  checked_at: '2026-06-29'
+  checked_at: '2026-07-28'
   scope:
     section_title: Подхарактеристики сопровождаемости
     application: аналитик (требования), архитектор.

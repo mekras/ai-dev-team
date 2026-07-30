@@ -22,6 +22,7 @@ PARTICIPATION = {
     "not_applicable",
 }
 APPLICABILITY = {"always", "model", "never"}
+CRITERION_COVERAGE = {"each_subject", "surface"}
 
 
 class CapabilityError(ValueError):
@@ -127,6 +128,57 @@ def validate(root: Path, classification: Path) -> None:
         if participation == "not_applicable" and applicability != "never":
             raise CapabilityError(
                 f"{identifier}: not_applicable требует applicability never",
+            )
+        discovery_required = raw_entry.get(
+            "subject_discovery_required",
+            False,
+        )
+        if not isinstance(discovery_required, bool):
+            raise CapabilityError(
+                f"{identifier}: subject_discovery_required должен быть bool",
+            )
+        review_criteria = raw_entry.get("review_criteria", [])
+        if not isinstance(review_criteria, list):
+            raise CapabilityError(
+                f"{identifier}: review_criteria должен быть массивом",
+            )
+        seen_criteria: set[str] = set()
+        for criterion_index, criterion in enumerate(review_criteria):
+            if not isinstance(criterion, dict):
+                raise CapabilityError(
+                    f"{identifier}: критерий {criterion_index} должен быть объектом",
+                )
+            criterion_id = require_string(
+                criterion,
+                "id",
+                f"{identifier}: критерий {criterion_index}",
+            )
+            if criterion_id in seen_criteria:
+                raise CapabilityError(
+                    f"{identifier}: повторяющийся критерий {criterion_id}",
+                )
+            seen_criteria.add(criterion_id)
+            require_string(
+                criterion,
+                "description",
+                f"{identifier}: критерий {criterion_id}",
+            )
+            coverage = require_string(
+                criterion,
+                "coverage",
+                f"{identifier}: критерий {criterion_id}",
+            )
+            if coverage not in CRITERION_COVERAGE:
+                raise CapabilityError(
+                    f"{identifier}: неизвестный охват критерия {coverage}",
+                )
+        if review_criteria and participation != "check":
+            raise CapabilityError(
+                f"{identifier}: review_criteria допустимы только для check",
+            )
+        if discovery_required and participation != "check":
+            raise CapabilityError(
+                f"{identifier}: обнаружение области допустимо только для check",
             )
 
     missing = sorted(set(actual) - seen_paths)

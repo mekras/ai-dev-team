@@ -1,0 +1,46 @@
+statements:
+  - id: OWSP-001
+    source_id: OWSP
+    item_id: OWSP-source
+    kind: fact
+    status: verified
+    text: >-
+      OWASP относит к внедрению инструкций изменение поведения или вывода LLM
+      пользовательским вводом непредусмотренным образом.
+    excerpt: "user prompts alter the LLM’s behavior or output"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: LLM01:2025 Prompt Injection
+      application: модель угроз приложений с LLM.
+    open_questions: []
+  - id: OWSP-002
+    source_id: OWSP
+    item_id: OWSP-source
+    kind: fact
+    status: verified
+    text: >-
+      OWASP различает прямое внедрение инструкций через запрос и косвенное
+      воздействие через внешнее содержимое.
+    excerpt: "directly or indirectly"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: LLM01:2025 Prompt Injection
+      application: классификация происхождения недоверенных инструкций.
+    open_questions: []
+  - id: OWSP-003
+    source_id: OWSP
+    item_id: OWSP-source
+    kind: fact
+    status: verified
+    text: >-
+      Agentic Security Initiative направлена на защиту автономных агентов и
+      многошаговых рабочих процессов ИИ.
+    excerpt: "Securing autonomous agents and multi-step AI workflows"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Agentic Security Initiative
+      application: определение области безопасности агентных ИИ-систем.
+    open_questions: []

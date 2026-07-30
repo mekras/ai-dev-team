@@ -20,28 +20,28 @@ items:
   path: data/afds/items/source/item.yml
   title: 'AFDS: обзор источника'
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: source_checked
   access: Смотри карточку источника и ограничения в knowledge/source-attribution.md.
 - id: AFDS-skill
   source_id: AFDS
   path: data/afds/items/skill/item.yml
   title: 'AFDS: frontend-design SKILL.md'
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: statements_extracted
   access: Внешний публичный файл; получать точечно по запросу.
 - id: AICM-source
   source_id: AICM
   path: data/aicm/items/source/item.yml
   title: CSA AI Controls Matrix
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: statements_extracted
   access: Внешний публичный каталог. Проверять условия доступа и версию перед использованием.
 - id: AIGD-source
   source_id: AIGD
   path: data/aigd/items/source/item.yml
   title: Совместные руководства по ИБ ИИ
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: statements_extracted
   access: Внешние публичные руководства. Получать релевантный документ по запросу.
 - id: AM32-motivation
   source_id: AM32
@@ -56,14 +56,14 @@ items:
   path: data/aphg/items/source/item.yml
   title: 'APHG: обзор источника'
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: source_checked
   access: Смотри карточку источника и ограничения в knowledge/source-attribution.md.
 - id: APHG-hig
   source_id: APHG
   path: data/aphg/items/hig/item.yml
-  title: 'APHG: Human Interface Guidelines'
+  title: 'APHG: UI Design Dos and Don’ts'
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: statements_extracted
   access: Внешний публичный сайт; получать точечно по запросу.
 - id: APIB-source
   source_id: APIB
@@ -406,7 +406,7 @@ items:
   path: data/atls/items/source/item.yml
   title: MITRE ATLAS
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: statements_extracted
   access: Внешняя публичная база знаний. Получать релевантные техники и меры по запросу.
 - id: AUGR-guide
   source_id: AUGR
@@ -978,21 +978,21 @@ items:
   path: data/dtcg/items/source/item.yml
   title: 'DTCG: обзор источника'
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: source_checked
   access: Смотри карточку источника и ограничения в knowledge/source-attribution.md.
 - id: DTCG-format
   source_id: DTCG
   path: data/dtcg/items/format/item.yml
   title: 'DTCG: спецификация формата дизайн-токенов'
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: statements_extracted
   access: Внешний публичный документ; получать точечно по запросу.
 - id: ENAI-source
   source_id: ENAI
   path: data/enai/items/source/item.yml
   title: 'ENISA: обзор источника'
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: statements_extracted
   access: Внешний публичный источник. Получать релевантные документы по запросу.
 - id: ESWO-source
   source_id: ESWO
@@ -2201,21 +2201,21 @@ items:
   path: data/impd/items/source/item.yml
   title: 'IMPD: обзор источника'
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: source_checked
   access: Смотри карточку источника и ограничения в knowledge/source-attribution.md.
 - id: IMPD-repository
   source_id: IMPD
   path: data/impd/items/repository/item.yml
   title: 'IMPD: репозиторий Impeccable'
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: statements_extracted
   access: Внешний публичный репозиторий; получать точечно по запросу.
 - id: IMPD-docs
   source_id: IMPD
   path: data/impd/items/docs/item.yml
   title: 'IMPD: документация Impeccable'
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: source_checked
   access: Внешний публичный сайт; получать точечно по запросу.
 - id: INMA-source
   source_id: INMA
@@ -2270,7 +2270,7 @@ items:
   path: data/isoa/items/source/item.yml
   title: 'ISO: обзор стандартов ИИ'
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: blocked
   access: Внешний источник. Полный текст получать только после проверки права доступа.
 - id: LFSP-source
   source_id: LFSP
@@ -2301,21 +2301,21 @@ items:
   path: data/md3/items/source/item.yml
   title: 'MD3: обзор источника'
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: source_checked
   access: Смотри карточку источника и ограничения в knowledge/source-attribution.md.
 - id: MD3-guidelines
   source_id: MD3
   path: data/md3/items/guidelines/item.yml
   title: 'MD3: Material Design 3'
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: statements_extracted
   access: Внешний публичный сайт; получать точечно по запросу.
 - id: MSAI-source
   source_id: MSAI
   path: data/msai/items/source/item.yml
   title: 'Microsoft: обзор моделирования угроз ИИ'
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: statements_extracted
   access: Внешний публичный источник. Получать релевантные страницы по запросу.
 - id: MSDL-source
   source_id: MSDL
@@ -2354,14 +2354,14 @@ items:
   path: data/nfrm/items/source/item.yml
   title: 'NFRM: обзор источника'
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: statements_extracted
   access: Смотри карточку источника и ограничения в knowledge/source-attribution.md.
 - id: NIST-source
   source_id: NIST
   path: data/nist/items/source/item.yml
   title: 'NIST: обзор источника'
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: statements_extracted
   access: Внешний публичный источник. Получать релевантные документы по запросу.
 - id: O523-source
   source_id: O523
@@ -2440,21 +2440,21 @@ items:
   path: data/opds/items/source/item.yml
   title: 'OPDS: обзор источника'
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: source_checked
   access: Смотри карточку источника и ограничения в knowledge/source-attribution.md.
 - id: OPDS-repository
   source_id: OPDS
   path: data/opds/items/repository/item.yml
   title: 'OPDS: репозиторий Open Design'
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: source_checked
   access: Внешний публичный репозиторий; получать точечно по запросу.
 - id: OPDS-quickstart
   source_id: OPDS
   path: data/opds/items/quickstart/item.yml
   title: 'OPDS: быстрый старт Open Design'
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: statements_extracted
   access: Внешний публичный файл; получать точечно по запросу.
 - id: OSIL-source
   source_id: OSIL
@@ -2477,7 +2477,7 @@ items:
   path: data/owsp/items/source/item.yml
   title: OWASP GenAI Security Project
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: statements_extracted
   access: Внешний публичный сайт. Получать релевантные каталоги по запросу.
 - id: OWTT-source
   source_id: OWTT
@@ -2740,7 +2740,7 @@ items:
   path: data/sbmt/items/source/item.yml
   title: 'Сбер: обзор источника о модели угроз ИИ'
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: blocked
   access: Внешняя страница. Нужны официальная полная версия и проверка условий доступа.
 - id: SCCO-source
   source_id: SCCO
@@ -3378,5 +3378,5 @@ items:
   path: data/ysafe/items/source/item.yml
   title: 'Yandex Cloud AI-SAFE: обзор источника'
   date_published: null
-  workflow_stage: indexed
+  workflow_stage: statements_extracted
   access: Внешний публичный источник. Получать релевантные страницы по запросу.

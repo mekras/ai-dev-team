@@ -1,13 +1,13 @@
 id: OWSP
 slug: owsp
 title: "OWASP GenAI Security Project — практические каталоги рисков для LLM и агентных приложений."
-status: candidate
+status: approved
 priority: high
 carrier_type: website
 source_kind: reference
 adapter: manual
 storage_strategy: external_reference
-processing_scope: metadata_only
+processing_scope: selected_fragments
 retrieval_mode: on_demand
 copy_policy: no_bulk_copy
 allowed_use: "Точечная проверка рисков и мер для LLM, RAG и агентных приложений."
@@ -21,7 +21,7 @@ access:
 reliability: community_reviewed
 stability: mutable
 refresh_policy: manual
-last_checked_at: "2026-07-18"
+last_checked_at: "2026-07-29"
 scope:
   includes: ["LLM", "RAG", "агентные приложения", "рекомендации по снижению рисков"]
   excludes: ["объявление соответствия требованиям без принятия компанией"]

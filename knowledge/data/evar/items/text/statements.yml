@@ -363,12 +363,12 @@ statements:
   source_id: EVAR
   item_id: EVAR-text
   kind: fact
-  status: ready_for_review
+  status: verified
   text: 'эволюционная архитектура поддерживает разработку, основанную на гипотезах и данных: функции выпускаются
     как проверяемые гипотезы, а решения о развитии опираются на собранные данные.'
-  excerpt: '`software-architecture`: эволюционная архитектура как стиль управления'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
+  excerpt: новой функции создавать гипотезы, а не устанавливать требования.
+  artifact: evolutionary-architecture-ru.local.txt
+  checked_at: '2026-07-28'
   scope:
     section_title: Разработка на основе гипотез и данных
     application: архитектор, менеджер проекта, аналитик.
@@ -377,12 +377,12 @@ statements:
   source_id: EVAR
   item_id: EVAR-text
   kind: fact
-  status: ready_for_review
+  status: verified
   text: квант архитектуры — независимо развёртываемый компонент с высокой степенью функциональной связности,
     включающий все структурные элементы, нужные системе для работы; в монолите квантом является всё приложение.
   excerpt: 'Квант архитектуры: независимо развёртываемый компонент с высокой'
   artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
+  checked_at: '2026-07-28'
   scope:
     section_title: Квант архитектуры
     application: архитектор.
@@ -664,12 +664,14 @@ statements:
   source_id: EVAR
   item_id: EVAR-text
   kind: fact
-  status: ready_for_review
-  text: внедрение эволюционной архитектуры требует культуры эксперимента — организационной готовности
-    проверять гипотезы, учиться на результатах и безопасно ошибаться.
-  excerpt: 'Глава 8 «Внедрение эволюционной архитектуры»: организационные факторы,'
-  artifact: ../source/normalized-source.md
-  checked_at: '2026-06-24'
+  status: verified
+  text: внедрение эволюционной архитектуры требует культуры эксперимента —
+    организационной готовности регулярно проверять новые технические и продуктовые
+    идеи небольшими экспериментами, интегрировать удачные результаты и использовать
+    пробные решения для изучения, а не для промышленной эксплуатации.
+  excerpt: опробования новых идей (с технической точки зрения и с точки зрения
+  artifact: evolutionary-architecture-ru.local.txt
+  checked_at: '2026-07-28'
   scope:
     section_title: Культура эксперимента
     application: менеджер проекта.

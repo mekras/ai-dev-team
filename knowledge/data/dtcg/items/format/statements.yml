@@ -1,0 +1,45 @@
+statements:
+  - id: DTCG-001
+    source_id: DTCG
+    item_id: DTCG-format
+    kind: fact
+    status: verified
+    text: >-
+      DTCG 2025.10 задаёт технический формат файла для обмена дизайн-токенами
+      между разными инструментами.
+    excerpt: "file format to exchange design tokens"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Abstract
+      application: обмен стилевыми решениями между инструментами.
+    open_questions: []
+  - id: DTCG-002
+    source_id: DTCG
+    item_id: DTCG-format
+    kind: fact
+    status: verified
+    text: >-
+      Дизайн-токены выражают проектные решения независимо от платформы и
+      создают общий словарь для разных дисциплин и технологий.
+    excerpt: "platform-agnostic way"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Introduction
+      application: переносимость дизайн-системы.
+    open_questions: []
+  - id: DTCG-003
+    source_id: DTCG
+    item_id: DTCG-format
+    kind: fact
+    status: verified
+    text: >-
+      Файл дизайн-токенов использует JSON, а имя и значение токена обязательны.
+    excerpt: "Name and value are both required"
+    artifact: normalized.md
+    checked_at: "2026-07-29"
+    scope:
+      section_title: Design token
+      application: машинно-проверяемое представление токенов.
+    open_questions: []
