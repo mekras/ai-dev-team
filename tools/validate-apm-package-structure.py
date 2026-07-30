@@ -109,7 +109,6 @@ REQUIRED_TEST_FRAGMENTS = (
     "validate-trigger-evals.py",
     "validate-skill-result-evals.py",
     "tools/validate-portable-corpus-references.py",
-    "npm run lint:md",
     "apm compile --validate --local-only --target codex",
     "apm compile --validate --local-only --target claude",
     "apm pack --dry-run",
@@ -199,7 +198,6 @@ SKIP_DIRS = {
     "apm_modules",
     "build",
     "local",
-    "node_modules",
 }
 
 

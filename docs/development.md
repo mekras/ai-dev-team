@@ -4,11 +4,10 @@
 
 ```shell
 apm install --frozen
-npm ci
 ```
 
-Команда APM использует цели `claude` и `codex` из `apm.yml`, а npm устанавливает
-точные версии из `package-lock.json`.
+Команда APM использует цели `claude` и `codex` из `apm.yml` и устанавливает
+точные версии из `apm.lock.yaml`.
 
 Чтобы обновить зависимости APM в пределах ограничений `apm.yml` и записать
 результат в `apm.lock.yaml`, выполните:

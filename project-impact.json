@@ -10,8 +10,7 @@
       ".agents/**",
       ".claude/**",
       "apm_modules/**",
-      "local/**",
-      "node_modules/**"
+      "local/**"
     ]
   },
   "nodes": [
@@ -35,7 +34,7 @@
       "id": "requirements",
       "title": "Требования продукта",
       "kind": "requirements",
-      "paths": ["requirements.md", "docs/requirements.md", "docs/requirements/**"],
+      "paths": ["docs/requirements.md", "docs/requirements/**"],
       "checks": ["ait-req-management", "ait-req-validation"],
       "review_stages": ["requirements"]
     },
@@ -96,17 +95,12 @@
         ".codex/**",
         ".editorconfig",
         ".gitignore",
-        ".markdownlint.json",
-        ".prettierignore",
-        ".prettierrc.json",
         "AGENTS.md",
         "CLAUDE.md",
         "LICENSE",
         "apm.lock.yaml",
         "apm.yml",
         "evals.local.yml.sample",
-        "package-lock.json",
-        "package.json",
         "product-evals.local.yml.sample",
         "project-impact.json"
       ],

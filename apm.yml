@@ -42,7 +42,7 @@ scripts:
     PYTHONDONTWRITEBYTECODE=1
     python3 "$validators/validate-skill-result-evals.py" "$target";
     python3 tools/validate-portable-corpus-references.py;
-    npm run lint:md; apm compile --validate --local-only --target codex;
+    apm compile --validate --local-only --target codex;
     apm compile --validate --local-only --target claude;
     apm pack --dry-run'
   evals: >-

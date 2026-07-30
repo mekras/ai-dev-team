@@ -464,7 +464,6 @@ apm install --frozen
 apm audit --ci
 python3 tools/validate-apm-package-structure.py
 python3 tools/validate-requirements-structure.py
-npm run lint:md
 apm run tests
 git diff --cached --check
 ```
