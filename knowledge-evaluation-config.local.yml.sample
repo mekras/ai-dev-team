@@ -1,0 +1,18 @@
+# Локальная настройка модельной проверки доступности знаний.
+#
+# Скопируйте файл в knowledge-evaluation-config.local.yml. Перед изменением
+# разрешений проверьте условия выбранных источников и допустимость моделей.
+adapters:
+  codex: tools/adapters/codex-knowledge-evaluation
+
+models:
+  inspector: codex:gpt-5.3-codex-spark
+  answerer: codex:gpt-5.3-codex-spark
+  judge: codex:gpt-5.6-luna
+
+timeout: 900
+closed_book: true
+
+permissions:
+  corpus_access_approved: false
+  source_evidence_to_judge_approved: false

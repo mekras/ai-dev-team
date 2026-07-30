@@ -1,0 +1,65 @@
+suite_version: 1
+id: ai-dev-team-knowledge
+description: >-
+  Открытая регрессионная выборка доступности знаний для задач разработки
+  навыков и правил проекта.
+cases:
+  - id: skill-evaluation-baseline-001
+    status: approved
+    source:
+      artifact: >-
+        data/askl/items/normalized-askl-pages-evaluating-skills-index.md/index.md
+      line_start: 56
+      line_end: 60
+      sha256: d5732e875529fa4ac498b30b4736bd1a2f253ecfbecb1be5c483ab2dfbd60456
+    target:
+      text: >-
+        Для оценки навыка каждый тестовый случай следует запускать как с
+        навыком, так и без него либо с предыдущей версией, чтобы получить базу
+        сравнения.
+      importance_class: procedure
+      importance_rationale: >-
+        Сравнение с базовым вариантом позволяет отличить вклад навыка от
+        результата, который модель получила бы без него.
+      limitations:
+        - >-
+          Предыдущая версия навыка является альтернативой запуску без навыка,
+          а не обязательным третьим вариантом.
+    acceptable_answers:
+      - >-
+        Выполнить один и тот же тестовый случай с навыком и без него либо с
+        предыдущей версией, затем сравнить результаты.
+    must_not_claim:
+      - "Для оценки достаточно выполнить тестовый случай только с навыком."
+      - >-
+        Каждый тестовый случай обязательно нужно запускать во всех трёх
+        вариантах.
+    corpus_expectation:
+      representation: partial
+      statement_ids:
+        - ASKL-008
+    questions:
+      - id: skill-evaluation-baseline-001-direct
+        type: direct
+        text: >-
+          Какой базовый способ сравнения следует использовать при проверке
+          навыка?
+      - id: skill-evaluation-baseline-001-paraphrase
+        type: paraphrase
+        text: >-
+          Как организовать два прохода одного сценария, чтобы результат
+          улучшения было с чем сопоставить?
+    provenance:
+      target_author: codex/root/project-revalidation-20260730
+    review:
+      target_entailment: confirmed
+      target_reviewer: codex/gpt-5.6-luna/019fb345-2fdf-7a32-b6bf-adc06ac388e2
+      question_answerability: confirmed
+      question_reviewer: codex/gpt-5.6-luna/019fb346-7422-7852-921f-f81d858df3f2
+    access_review:
+      source_evidence_to_judge: approved
+      reviewed_by: owner/project-revalidation-20260730
+      rationale: >-
+        Владелец разрешил модельную проверку; выбранный фрагмент относится к
+        публичному источнику ASKL с лицензией CC BY 4.0 и не содержит закрытых
+        сведений.

@@ -168,6 +168,39 @@ python3 -m unittest tools/test_product_evals.py
 python3 tools/run-product-evals.py --rescore local/product-evals/<запуск>
 ```
 
+## Проверка доступности знаний
+
+`apm run tests` проверяет структуру открытого набора
+`knowledge-evaluation.yml`, существование опорных фрагментов и их хэши. Эта
+детерминированная проверка не вызывает модель и не измеряет качество поиска.
+
+Для базового модельного прогона скопируйте локальную настройку:
+
+```shell
+cp knowledge-evaluation-config.local.yml.sample \
+  knowledge-evaluation-config.local.yml
+```
+
+Проверьте допустимость передачи корпуса и опорных фрагментов выбранным моделям,
+затем задайте оба разрешения в локальном файле. Настройка и результаты исключены
+из Git. Запустите проверку:
+
+```shell
+mkdir -p local/knowledge-evaluation
+python3 \
+  .agents/skills/kc-retrieval-evaluation/scripts/run-evaluation-suite.py \
+  knowledge-evaluation.yml \
+  --config knowledge-evaluation-config.local.yml \
+  --corpus-root knowledge \
+  --output local/knowledge-evaluation/baseline.local.json \
+  --force
+```
+
+Отчёт раздельно показывает представленность целевого смысла в утверждениях,
+корректность и обоснованность ответа через корпус, самоотчёт об основании и
+результат без корпуса. Открытая выборка мала и пригодна для регрессии, но не
+представляет весь корпус и не подтверждает полный эффект продукта.
+
 ## Выпуск версии
 
 Перед тегом новой версии обновите `CHANGELOG.md`:
