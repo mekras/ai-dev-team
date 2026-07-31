@@ -22,7 +22,7 @@ from contextlib import contextmanager
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path, PurePosixPath
-from typing import Any
+from typing import Any, Callable
 
 try:
     import yaml
@@ -86,6 +86,7 @@ BLOCKER_CODES = {
     "user_prohibited",
     "owner_decision_required",
 }
+ACCESS_BLOCKER_CODES = {"access_unavailable", "source_unavailable"}
 BLOCKER_ACTIONS = {
     "access_unavailable": "Предоставить доступ или выбрать разрешённый маршрут получения.",
     "source_unavailable": "Указать доступный экземпляр источника или исключить его из области прохода.",
@@ -118,6 +119,39 @@ SENSITIVE_SETTING_NAMES = {"token", "password", "cookie", "secret", "authorizati
 
 class OperationsError(RuntimeError):
     """The project operations contract or its observable state is invalid."""
+
+
+def process_is_alive(pid: int) -> bool:
+    """Return whether a locally recorded child process is still alive."""
+    if pid <= 0:
+        return False
+    try:
+        os.kill(pid, 0)
+    except ProcessLookupError:
+        return False
+    except PermissionError:
+        return True
+    return True
+
+
+def process_started_ticks(pid: int) -> str | None:
+    """Return the Linux process start tick when it is available."""
+    try:
+        payload = Path(f"/proc/{pid}/stat").read_text(encoding="utf-8")
+        fields = payload.rsplit(") ", maxsplit=1)[1].split()
+        return fields[19]
+    except (IndexError, OSError):
+        return None
+
+
+def active_process_matches(active: dict[str, Any]) -> bool:
+    pid = active.get("pid")
+    if not isinstance(pid, int) or not process_is_alive(pid):
+        return False
+    expected_ticks = active.get("process_started_ticks")
+    if not isinstance(expected_ticks, str) or not expected_ticks:
+        return False
+    return process_started_ticks(pid) == expected_ticks
 
 
 @dataclass(frozen=True)
@@ -408,6 +442,29 @@ def has_statements(item: CorpusItem) -> bool:
     return bool(item.item_dir and (item.item_dir / "statements.yml").is_file())
 
 
+def validate_access_escalation(
+    blocker_code: Any,
+    automatic_attempts: Any,
+    subject: str,
+) -> None:
+    """Reject a one-shot access failure presented as a human blocker."""
+    if blocker_code not in ACCESS_BLOCKER_CODES:
+        return
+    if not isinstance(automatic_attempts, list):
+        raise OperationsError(
+            f"{subject} с blocker_code={blocker_code} должен сохранять не менее двух автоматических попыток доступа."
+        )
+    attempts = {
+        attempt.strip()
+        for attempt in automatic_attempts
+        if isinstance(attempt, str) and attempt.strip()
+    }
+    if len(attempts) < 2:
+        raise OperationsError(
+            f"{subject} с blocker_code={blocker_code} должен сохранять не менее двух разных автоматических попыток доступа."
+        )
+
+
 def statement_processing_tasks(item: CorpusItem, root: Path) -> list[tuple[str, dict[str, str]]]:
     if not item.item_dir or item.stage in {"blocked", "rejected"}:
         return []
@@ -459,6 +516,9 @@ def statement_processing_tasks(item: CorpusItem, root: Path) -> list[tuple[str, 
                     raise OperationsError(
                         f"Заблокированное утверждение {task_id} должно задавать blocker_code."
                     )
+                validate_access_escalation(
+                    blocker_code, statement.get("automatic_attempts"), f"Заблокированное утверждение {task_id}"
+                )
                 tasks.append(
                     (
                         "human_decision",
@@ -482,6 +542,9 @@ def statement_processing_tasks(item: CorpusItem, root: Path) -> list[tuple[str, 
                 raise OperationsError(
                     f"Заблокированное утверждение {task_id} должно задавать blocker_code."
                 )
+            validate_access_escalation(
+                blocker_code, statement.get("automatic_attempts"), f"Заблокированное утверждение {task_id}"
+            )
             tasks.append(
                 (
                     "human_decision",
@@ -566,6 +629,9 @@ def queue_name(
             raise OperationsError(
                 f"Заблокированная единица {item.item_id} должна задавать blocker_code."
             )
+        validate_access_escalation(
+            blocker_code, item.value("automatic_attempts"), f"Заблокированная единица {item.item_id}"
+        )
         return "human_decision", "workflow_stage=blocked", blocker_code
     if stage in {"source_checked", "rejected", ""}:
         return None
@@ -748,6 +814,8 @@ def git_file_fingerprints(root: Path) -> dict[str, str]:
     ignored_paths = set(git_file_paths(root, "--others", "--ignored", "--exclude-standard"))
     fingerprints: dict[str, str] = {}
     for relative in visible_paths + sorted(ignored_paths):
+        if relative == ".local" or relative.startswith(".local/"):
+            continue
         path = root / relative
         try:
             path.parent.resolve().relative_to(root)
@@ -853,7 +921,12 @@ def command_paths_allowed(paths: set[str], allowed_prefixes: list[str]) -> bool:
     return all(any(path == prefix or path.startswith(f"{prefix}/") for prefix in allowed_prefixes) for path in paths)
 
 
-def run_commands(root: Path, operations: dict[str, Any], stage: str) -> list[CommandResult]:
+def run_commands(
+    root: Path,
+    operations: dict[str, Any],
+    stage: str,
+    activity_callback: Callable[[dict[str, Any] | None], None] | None = None,
+) -> list[CommandResult]:
     results: list[CommandResult] = []
     for position, command in enumerate(configured_commands(operations, stage), start=1):
         command_id = command.get("id")
@@ -872,16 +945,61 @@ def run_commands(root: Path, operations: dict[str, Any], stage: str) -> list[Com
             resolve_inside(root, path, f"write_paths команды {command_id}")
         command_cwd = resolve_inside(root, cwd, f"working_directory команды {command_id}")
         before = git_file_fingerprints(root)
-        try:
-            process = subprocess.run(argv, cwd=command_cwd, capture_output=True, text=True)
-        except OSError as exc:
-            raise OperationsError(f"Не удалось запустить команду {command_id}: {exc}") from exc
+        started_at = datetime.now(UTC).isoformat()
+        if activity_callback is not None:
+            activity_callback(
+                {
+                    "pid": None,
+                    "command_id": command_id,
+                    "started_at": started_at,
+                    "heartbeat_at": started_at,
+                    "launch_state": "starting",
+                }
+            )
+        with (
+            tempfile.TemporaryFile(mode="w+t", encoding="utf-8") as stdout_stream,
+            tempfile.TemporaryFile(mode="w+t", encoding="utf-8") as stderr_stream,
+        ):
+            try:
+                process = subprocess.Popen(
+                    argv,
+                    cwd=command_cwd,
+                    stdout=stdout_stream,
+                    stderr=stderr_stream,
+                    text=True,
+                )
+            except OSError as exc:
+                if activity_callback is not None:
+                    activity_callback(None)
+                raise OperationsError(f"Не удалось запустить команду {command_id}: {exc}") from exc
+            identity = {
+                "pid": process.pid,
+                "command_id": command_id,
+                "started_at": started_at,
+                "heartbeat_at": started_at,
+                "process_started_ticks": process_started_ticks(process.pid),
+            }
+            if activity_callback is not None:
+                activity_callback(identity)
+            while process.poll() is None:
+                if activity_callback is not None:
+                    activity_callback({**identity, "heartbeat_at": datetime.now(UTC).isoformat()})
+                try:
+                    process.wait(timeout=1)
+                except subprocess.TimeoutExpired:
+                    continue
+            stdout_stream.seek(0)
+            stderr_stream.seek(0)
+            stdout = stdout_stream.read()
+            stderr = stderr_stream.read()
+            if activity_callback is not None:
+                activity_callback(None)
         after = git_file_fingerprints(root)
         changed = changed_fingerprint_paths(before, after)
         if not command_paths_allowed(changed, write_paths):
             paths = ", ".join(sorted(changed)) or "нет"
             raise OperationsError(f"Команда {command_id} изменила файлы вне write_paths: {paths}")
-        output = "\n".join(part for part in (process.stdout.strip(), process.stderr.strip()) if part)
+        output = "\n".join(part for part in (stdout.strip(), stderr.strip()) if part)
         results.append(CommandResult(command_id, process.returncode, tuple(sorted(changed)), output))
         if process.returncode != 0 and command.get("required", True):
             break
@@ -1058,6 +1176,17 @@ def render_report(
                 "- завершённые глобальные стадии: "
                 f"{', '.join(run_state.get('completed_global_stages', [])) or 'нет'}"
             ),
+            (
+                "- активный исполнитель: "
+                + (
+                    f"{run_state['active_executor'].get('queue', 'неизвестная очередь')} "
+                    f"({run_state['active_executor'].get('command_id', 'неизвестная команда')}, "
+                    f"PID {run_state['active_executor'].get('pid', 'неизвестен')}, "
+                    f"heartbeat {run_state['active_executor'].get('heartbeat_at', 'неизвестен')})"
+                    if isinstance(run_state.get('active_executor'), dict)
+                    else "нет"
+                )
+            ),
             "",
         ]
     for name in QUEUE_ORDER:
@@ -1164,6 +1293,51 @@ def read_run_state(path: Path) -> dict[str, Any] | None:
             f"Состояние прохода {path} содержит неверные глобальные стадии."
         )
     return data
+
+
+def reconcile_interrupted_run_state(
+    path: Path,
+    previous: dict[str, Any] | None,
+) -> dict[str, Any] | None:
+    """Turn an orphaned running state into a resumable pause before a new run."""
+    if previous is None or previous.get("status") != "running":
+        return previous
+    active = previous.get("active_executor")
+    if isinstance(active, dict) and active_process_matches(active):
+        raise OperationsError(
+            "В сохранённом состоянии указан живой исполнитель. Дождитесь его завершения, "
+            "чтобы не создать дублирующий запуск."
+        )
+    reason_code = "executor_interrupted"
+    message = (
+        "Предыдущий исполнитель исчез без итоговой записи. Проход поставлен на "
+        "возобновляемую паузу, очередь сохранена без заявления о работе."
+    )
+    if isinstance(active, dict) and (
+        not isinstance(active.get("pid"), int)
+        or (
+            process_is_alive(active["pid"])
+            and (
+                not isinstance(active.get("process_started_ticks"), str)
+                or process_started_ticks(active["pid"]) is None
+            )
+        )
+    ):
+        reason_code = "executor_identity_unknown"
+        message = (
+            "Контроллер был прерван в момент запуска команды, до фиксации PID. "
+            "Автоматическое продолжение запрещено, чтобы не создать дублирующий запуск."
+        )
+    recovered = {
+        **previous,
+        "status": "failed" if reason_code == "executor_identity_unknown" else "paused_limit",
+        "reason_code": reason_code,
+        "updated_at": datetime.now(UTC).isoformat(),
+        "active_executor": None,
+        "message": message,
+    }
+    write_run_state(path, recovered)
+    return recovered
 
 
 def write_run_state(path: Path, state: dict[str, Any]) -> None:
@@ -1302,6 +1476,7 @@ def start_run_state(
         "human_decision_group_overflow": overflow,
         "completed_global_stages": completed_global_stages,
         "resource_waiting": [],
+        "active_executor": None,
         "queues": queues,
         "message": "Попытка автономного прохода начата.",
     }
@@ -1329,6 +1504,7 @@ def finish_run_state(
         "human_decision_group_overflow": overflow,
         "completed_global_stages": list(result.completed_global_stages),
         "resource_waiting": list(result.resource_waiting),
+        "active_executor": None,
         "queues": result.queues,
         "message": result.message,
     }
@@ -1340,6 +1516,7 @@ def run_pipeline(
     operations: dict[str, Any],
     max_steps: int | None,
     completed_global_stages: set[str],
+    activity_callback: Callable[[dict[str, Any] | None, dict[str, list[dict[str, str]]]], None] | None = None,
 ) -> PipelineResult:
     normalized_names = normalized_artifacts(operations)
     queues = build_run_queues(
@@ -1426,7 +1603,19 @@ def run_pipeline(
             )
         before = stage_fingerprint(queues, queue)
         try:
-            stage_results = run_commands(root, operations, queue)
+            stage_results = run_commands(
+                root,
+                operations,
+                queue,
+                (
+                    lambda activity: activity_callback(
+                        {**activity, "queue": queue} if activity is not None else None,
+                        queues,
+                    )
+                    if activity_callback is not None
+                    else None
+                ),
+            )
         except OperationsError as exc:
             queues = build_run_queues(
                 corpus_root,
@@ -1469,6 +1658,8 @@ def run_pipeline(
             root,
             completed_global_stages,
         )
+        if activity_callback is not None:
+            activity_callback(None, queues)
         if stage_fingerprint(queues, queue) == before:
             return PipelineResult(
                 "failed",
@@ -1494,6 +1685,11 @@ def parse_args() -> argparse.Namespace:
         "--run-pipeline",
         action="store_true",
         help="Продолжать автономный проход по очередям до терминального состояния.",
+    )
+    parser.add_argument(
+        "--reconcile-state",
+        action="store_true",
+        help="Сверить сохранённое running-состояние с живым исполнителем без запуска очереди.",
     )
     parser.add_argument(
         "--max-steps",
@@ -1538,6 +1734,8 @@ def main() -> int:
         raise OperationsError("--max-steps требует --run-pipeline.")
     if args.run_pipeline and (args.run_commands or args.run_adapters):
         raise OperationsError("--run-pipeline нельзя совмещать с запуском одной стадии или адаптеров.")
+    if args.reconcile_state and (args.run_pipeline or args.run_commands or args.run_adapters):
+        raise OperationsError("--reconcile-state нельзя совмещать с запуском операций.")
     if args.operational_policy and not (args.operational_check or args.run_pipeline):
         raise OperationsError("--operational-policy требует --operational-check или --run-pipeline.")
     if not args.run_pipeline:
@@ -1569,6 +1767,15 @@ def main() -> int:
         with run_state_lock(destination_state):
             attempt_started_at = datetime.now(UTC).isoformat()
             previous_state = read_run_state(destination_state)
+            previous_state = reconcile_interrupted_run_state(destination_state, previous_state)
+            if (
+                previous_state is not None
+                and previous_state.get("reason_code") == "executor_identity_unknown"
+            ):
+                raise OperationsError(
+                    "Нельзя автоматически продолжить проход без надёжной идентичности "
+                    "предыдущего исполнителя. Сначала подтвердите отсутствие его последствий."
+                )
             resumable = previous_state is not None and previous_state.get("status") != "completed"
             completed_global_stages = set(
                 previous_state.get("completed_global_stages", []) if resumable else []
@@ -1621,12 +1828,25 @@ def main() -> int:
                 )
             else:
                 try:
+                    def persist_activity(
+                        activity: dict[str, Any] | None,
+                        current_queues: dict[str, list[dict[str, str]]],
+                    ) -> None:
+                        running_state["active_executor"] = activity
+                        running_state["queues"] = current_queues
+                        running_state["available_task_count"] = available_task_count(current_queues)
+                        running_state["blocked_task_count"] = len(current_queues["human_decision"])
+                        running_state["blocker_codes"] = blocker_codes(current_queues)
+                        running_state["updated_at"] = datetime.now(UTC).isoformat()
+                        write_run_state(destination_state, running_state)
+
                     pipeline_result = run_pipeline(
                         root,
                         corpus_root,
                         operations,
                         args.max_steps,
                         completed_global_stages,
+                        persist_activity,
                     )
                 except OperationsError as exc:
                     current_queues = build_run_queues(
@@ -1690,6 +1910,18 @@ def main() -> int:
             print(report)
         print(f"Состояние прохода записано: {repo_relative(root, destination_state)}")
         return RUN_EXIT_CODES[pipeline_result.status]
+    if args.reconcile_state:
+        if not operations_path:
+            raise OperationsError("Для --reconcile-state нужен параметр --operations.")
+        destination_state = state_path(root, operations, args.state)
+        with run_state_lock(destination_state):
+            state = reconcile_interrupted_run_state(destination_state, read_run_state(destination_state))
+        if state is None:
+            print("Состояние прохода ещё не создавалось.")
+            return 0
+        print(render_report(corpus_root, state["queues"], [], None, [], None, state))
+        print(f"Состояние прохода записано: {repo_relative(root, destination_state)}")
+        return RUN_EXIT_CODES[state["status"]]
     if args.run_commands:
         if not operations_path:
             raise OperationsError("Для --run-commands нужен параметр --operations.")

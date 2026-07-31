@@ -5,9 +5,11 @@ from __future__ import annotations
 
 import fcntl
 import json
+import os
 import subprocess
 import sys
 import tempfile
+import time
 from pathlib import Path
 from textwrap import dedent
 
@@ -497,6 +499,9 @@ def add_grouped_human_decisions(root: Path) -> None:
         "    status: blocked\n"
         "    workflow_stage: blocked\n"
         "    blocker_code: access_unavailable\n"
+        "    automatic_attempts:\n"
+        "      - \"Проверен основной URL.\"\n"
+        "      - \"Проверен разрешённый альтернативный маршрут.\"\n"
         "  - id: TEST-BLOCKED-STORAGE\n"
         "    title: \"Нужно выбрать хранение\"\n"
         "    access: \"Внутренний материал.\"\n"
@@ -817,6 +822,116 @@ def main() -> int:
             locked = run(root, "--run-pipeline", expected=2)
         if "уже выполняется другим процессом" not in locked.stderr:
             raise AssertionError("Одновременный исполнитель не был остановлен блокировкой состояния.")
+
+    with tempfile.TemporaryDirectory() as temporary:
+        root = Path(temporary)
+        build_corpus(root)
+        executor_path = root / "advance-content-selection.py"
+        executor_path.write_text(
+            (
+                "import sys\nsys.stdout.write('x' * 131072)\nsys.stdout.flush()\n"
+                "import time\ntime.sleep(1)\n"
+                + executor_path.read_text(encoding="utf-8")
+            ),
+            encoding="utf-8",
+        )
+        subprocess.run(["git", "init", "--quiet"], cwd=root, check=True)
+        subprocess.run(["git", "add", "-A"], cwd=root, check=True)
+        process = subprocess.Popen(
+            [sys.executable, str(SCRIPT), "knowledge", "--operations", "operations.yml", "--run-pipeline", "--max-steps", "1"],
+            cwd=root,
+            text=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+        state_path = root / ".local" / "state" / "corpus-pipeline.json"
+        for _ in range(20):
+            if state_path.is_file():
+                state = json.loads(state_path.read_text(encoding="utf-8"))
+                if isinstance(state.get("active_executor"), dict):
+                    break
+            time.sleep(0.1)
+        else:
+            process.kill()
+            raise AssertionError("Долгая команда не сохранила активного исполнителя.")
+        active = state["active_executor"]
+        if active.get("queue") != "content_selection" or not active.get("heartbeat_at"):
+            process.kill()
+            raise AssertionError("Состояние не сохранило очередь и heartbeat активной команды.")
+        stdout, stderr = process.communicate(timeout=10)
+        if process.returncode != 10:
+            raise AssertionError(f"Долгая команда не завершила ожидаемую попытку.\n{stdout}\n{stderr}")
+
+    with tempfile.TemporaryDirectory() as temporary:
+        root = Path(temporary)
+        build_corpus(root)
+        subprocess.run(["git", "init", "--quiet"], cwd=root, check=True)
+        subprocess.run(["git", "add", "-A"], cwd=root, check=True)
+        state_path = root / ".local" / "state" / "corpus-pipeline.json"
+        write(
+            state_path,
+            """
+            {
+              "contract_version": 1,
+              "run_id": "interrupted-run",
+              "status": "running",
+              "reason_code": "attempt_started",
+              "started_at": "2026-07-31T10:00:00+00:00",
+              "updated_at": "2026-07-31T10:00:00+00:00",
+              "completed_at": null,
+              "attempts": 1,
+              "steps": 0,
+              "available_task_count": 1,
+              "blocked_task_count": 0,
+              "blocker_codes": [],
+              "human_decision_groups": [],
+              "human_decision_group_count": 0,
+              "human_decision_group_overflow": 0,
+              "completed_global_stages": [],
+              "resource_waiting": [],
+              "active_executor": {"pid": 999999, "queue": "content_selection", "command_id": "lost", "started_at": "2026-07-31T10:00:00+00:00", "heartbeat_at": "2026-07-31T10:00:00+00:00"},
+              "queues": {"content_selection": [], "fetch": [], "transcribe": [], "normalize": [], "statements": [], "traceability": [], "semantic_review": [], "strong_review": [], "corroboration": [], "source_check": [], "concepts": [], "impact_audit": [], "apply_changes": [], "corpus_validation": [], "human_decision": []},
+              "message": "Устаревшее состояние."
+            }
+            """,
+        )
+        reconciled = run(root, "--reconcile-state", expected=10)
+        state = json.loads(state_path.read_text(encoding="utf-8"))
+        if state["status"] != "paused_limit" or state["reason_code"] != "executor_interrupted":
+            raise AssertionError("Брошенное running-состояние не переведено в возобновляемую паузу.")
+        if "активный исполнитель: нет" not in reconciled.stdout:
+            raise AssertionError("Сверка не показала отсутствие живого исполнителя.")
+        state["status"] = "running"
+        state["reason_code"] = "attempt_started"
+        state["active_executor"] = {
+            "pid": os.getpid(),
+            "queue": "content_selection",
+            "command_id": "unknown-identity",
+            "started_at": "2026-07-31T10:00:00+00:00",
+            "heartbeat_at": "2026-07-31T10:00:00+00:00",
+        }
+        state_path.write_text(json.dumps(state), encoding="utf-8")
+        unknown_identity = run(root, "--reconcile-state", expected=1)
+        state = json.loads(state_path.read_text(encoding="utf-8"))
+        if state["reason_code"] != "executor_identity_unknown" or "Автоматическое продолжение запрещено" not in state["message"]:
+            raise AssertionError("Живой PID без надёжной идентичности не остановил автоматическое продолжение.")
+        if "status: failed" not in unknown_identity.stdout:
+            raise AssertionError("Сверка не показала терминальное состояние неизвестного исполнителя.")
+
+    with tempfile.TemporaryDirectory() as temporary:
+        root = Path(temporary)
+        build_corpus(root)
+        items_path = root / "knowledge" / "data" / "test" / "items.yml"
+        items_path.write_text(
+            items_path.read_text(encoding="utf-8").replace(
+                "blocker_code: owner_decision_required",
+                "blocker_code: source_unavailable\n    automatic_attempts:\n      - \"Одна попытка DNS.\"",
+            ),
+            encoding="utf-8",
+        )
+        invalid = run(root, expected=2)
+        if "двух разных автоматических попыток доступа" not in invalid.stderr:
+            raise AssertionError("Одиночная неудача доступа была принята как внешний блокер.")
 
     with tempfile.TemporaryDirectory() as temporary:
         root = Path(temporary)
