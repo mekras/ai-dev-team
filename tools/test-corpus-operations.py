@@ -433,6 +433,89 @@ def add_no_progress_fetch_executor(root: Path) -> None:
     )
 
 
+def add_resource_deferred_fetch_and_statements_executor(root: Path) -> None:
+    write(
+        root / "advance-statements.py",
+        """
+        from pathlib import Path
+
+        path = Path("knowledge/data/test/items.yml")
+        text = path.read_text(encoding="utf-8")
+        old = '''  - id: TEST-NORMALIZED
+            title: "Нормализован"
+            access: "Открытый тестовый источник."
+            status: active
+            workflow_stage: normalized'''
+        new = old.replace("workflow_stage: normalized", "workflow_stage: rejected")
+        if old not in text:
+            raise SystemExit("test statements item was not found")
+        path.write_text(text.replace(old, new), encoding="utf-8")
+        card = Path("knowledge/data/test/documents/normalized/item.yml")
+        card.write_text(
+            card.read_text(encoding="utf-8").replace(
+                "workflow_stage: normalized",
+                "workflow_stage: rejected",
+            ),
+            encoding="utf-8",
+        )
+        """,
+    )
+    path = root / "operations.yml"
+    text = path.read_text(encoding="utf-8")
+    addition = (
+        "  fetch:\n"
+        "    resources:\n"
+        "      min_free_disk_bytes: 1000000000000000000000000000000\n"
+        "      estimated_peak_disk_bytes: 0\n"
+        "    commands:\n"
+        "      - id: unavailable-heavy-fetch\n"
+        f"        argv: [{sys.executable}, -c, \"raise SystemExit('must not run')\"]\n"
+        "        working_directory: .\n"
+        "        write_paths: [knowledge/data]\n"
+        "        required: true\n"
+        "  statements:\n"
+        "    commands:\n"
+        "      - id: process-ready-statements\n"
+        f"        argv: [{sys.executable}, advance-statements.py]\n"
+        "        working_directory: .\n"
+        "        write_paths: [knowledge/data/test]\n"
+        "        required: true\n"
+    )
+    path.write_text(
+        text.replace("\nadapters:\n", f"\n{addition}adapters:\n"),
+        encoding="utf-8",
+    )
+
+
+def add_grouped_human_decisions(root: Path) -> None:
+    path = root / "knowledge" / "data" / "test" / "items.yml"
+    text = path.read_text(encoding="utf-8")
+    addition = (
+        "  - id: TEST-BLOCKED-ACCESS\n"
+        "    title: \"Нужен доступ\"\n"
+        "    access: \"Доступ отсутствует.\"\n"
+        "    status: blocked\n"
+        "    workflow_stage: blocked\n"
+        "    blocker_code: access_unavailable\n"
+        "  - id: TEST-BLOCKED-STORAGE\n"
+        "    title: \"Нужно выбрать хранение\"\n"
+        "    access: \"Внутренний материал.\"\n"
+        "    status: blocked\n"
+        "    workflow_stage: blocked\n"
+        "    blocker_code: storage_not_permitted\n"
+    )
+    path.write_text(text + addition, encoding="utf-8")
+    operations = root / "operations.yml"
+    operations.write_text(
+        operations.read_text(encoding="utf-8").replace(
+            "stages:\n",
+            "human_attention:\n  max_active_groups: 2\nstages:\n",
+            1,
+        ),
+        encoding="utf-8",
+    )
+
+
 def make_pipeline_executor_violate_write_scope(root: Path) -> None:
     path = root / "operations.yml"
     text = path.read_text(encoding="utf-8")
@@ -482,6 +565,46 @@ def run(root: Path, *arguments: str, expected: int = 0) -> subprocess.CompletedP
 
 
 def main() -> int:
+    with tempfile.TemporaryDirectory() as temporary:
+        root = Path(temporary)
+        build_corpus(root)
+        add_resource_deferred_fetch_and_statements_executor(root)
+        subprocess.run(["git", "init", "--quiet"], cwd=root, check=True)
+        subprocess.run(["git", "add", "-A"], cwd=root, check=True)
+        continued = run(root, "--run-pipeline", "--max-steps", "2", expected=10)
+        state = json.loads(
+            (root / ".local" / "state" / "corpus-pipeline.json").read_text(encoding="utf-8")
+        )
+        if "process-ready-statements" not in continued.stdout:
+            raise AssertionError("Ресурсно недоступная ранняя очередь остановила готовую позднюю очередь.")
+        if not any(
+            item["queue"] == "fetch" and "disk_bytes_required=" in item["reason"]
+            for item in state["resource_waiting"]
+        ):
+            raise AssertionError("Состояние не сохранило причину отложенной тяжёлой очереди.")
+
+    with tempfile.TemporaryDirectory() as temporary:
+        root = Path(temporary)
+        build_corpus(root)
+        add_grouped_human_decisions(root)
+        reject_automated_work(root, keep_blocked=True)
+        subprocess.run(["git", "init", "--quiet"], cwd=root, check=True)
+        subprocess.run(["git", "add", "-A"], cwd=root, check=True)
+        run(root, "--run-pipeline", expected=20)
+        state = json.loads(
+            (root / ".local" / "state" / "corpus-pipeline.json").read_text(encoding="utf-8")
+        )
+        if state["blocked_task_count"] != 3:
+            raise AssertionError("Группировка потеряла исходные элементы внешнего хвоста.")
+        if (
+            state["human_decision_group_count"] != 3
+            or len(state["human_decision_groups"]) != 2
+            or state["human_decision_group_overflow"] != 1
+        ):
+            raise AssertionError("Бюджет активных групп решений применён неверно.")
+        if not all("action_required" in group for group in state["human_decision_groups"]):
+            raise AssertionError("Группа внешнего решения не называет требуемое действие.")
+
     with tempfile.TemporaryDirectory() as temporary:
         root = Path(temporary)
         build_corpus(root)
@@ -586,6 +709,23 @@ def main() -> int:
             raise AssertionError("Настройки с явным секретом не были отклонены.")
         operations_path.write_text(
             operations_path.read_text(encoding="utf-8").replace("\ntoken: secret-value\n", "\n"),
+            encoding="utf-8",
+        )
+        operations_path.write_text(
+            operations_path.read_text(encoding="utf-8").replace(
+                "operations_version: 1",
+                "operations_version: 1\nhuman_attention:\n  max_active_groups: 0",
+            ),
+            encoding="utf-8",
+        )
+        invalid_attention = run(root, expected=2)
+        if "max_active_groups" not in invalid_attention.stderr:
+            raise AssertionError("Недопустимый бюджет внимания не был отклонён.")
+        operations_path.write_text(
+            operations_path.read_text(encoding="utf-8").replace(
+                "\nhuman_attention:\n  max_active_groups: 0",
+                "",
+            ),
             encoding="utf-8",
         )
 

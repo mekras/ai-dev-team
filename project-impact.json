@@ -24,6 +24,14 @@
       "review_stages": ["requirements"]
     },
     {
+      "id": "product-principles",
+      "title": "Принципы продукта",
+      "kind": "other",
+      "paths": ["docs/product-principles.md"],
+      "checks": ["ait-req-analysis", "ait-writing"],
+      "review_stages": ["requirements"]
+    },
+    {
       "id": "requirements",
       "title": "Требования проекта",
       "kind": "requirements",
@@ -105,10 +113,17 @@
   "edges": [
     {
       "from": "concept",
-      "to": "requirements",
+      "to": "product-principles",
       "relation": "constrains",
       "facets": ["semantic"],
-      "rationale": "Требования раскрывают концепцию в виде проверяемых обязательств."
+      "rationale": "Принципы раскрывают концепцию как общие критерии выбора поведения продукта."
+    },
+    {
+      "from": "product-principles",
+      "to": "requirements",
+      "relation": "constrains",
+      "facets": ["semantic", "quality", "reliability"],
+      "rationale": "Требования превращают принципы продукта в проверяемые обязательства."
     },
     {
       "from": "requirements",

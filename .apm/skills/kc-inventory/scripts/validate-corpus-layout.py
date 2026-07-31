@@ -171,6 +171,19 @@ BLOCKER_CODES = {
     "owner_decision_required",
 }
 
+PROJECT_PROFILES = {"public", "restricted_internal"}
+ACTION_POLICY_FIELDS = {
+    "acquire",
+    "process",
+    "retain_uncertain",
+    "retain_sensitive",
+    "tracked_storage",
+    "external_disclosure",
+    "delete",
+    "irreversible_transform",
+    "secrets_in_tracked_storage",
+}
+
 OPERATIONAL_FINDING_KINDS = {
     "access-secret",
     "credentialed-url",
@@ -679,7 +692,29 @@ class Validator:
             self.allowed_stages = set(stages)
 
         self.add_value_errors("corpus.yml", contract)
+        self.validate_action_policy(contract)
         self.validate_contract_legacy_layers(contract)
+
+    def validate_action_policy(self, contract: dict[str, Any]) -> None:
+        profile = contract.get("project_profile")
+        policy = contract.get("action_policy")
+        if profile is None and policy is None:
+            return
+        if profile not in PROJECT_PROFILES:
+            allowed = ", ".join(sorted(PROJECT_PROFILES))
+            self.errors.append(f"corpus.yml: project_profile must be one of: {allowed}")
+        if not isinstance(policy, dict):
+            self.errors.append("corpus.yml: action_policy must be a mapping")
+            return
+        missing = sorted(ACTION_POLICY_FIELDS - policy.keys())
+        if missing:
+            self.errors.append(
+                "corpus.yml: action_policy missing required keys: " + ", ".join(missing)
+            )
+        if policy.get("secrets_in_tracked_storage") != "prohibit":
+            self.errors.append(
+                "corpus.yml: action_policy.secrets_in_tracked_storage must be prohibit"
+            )
 
     def validate_contract_legacy_layers(self, contract: dict[str, Any]) -> None:
         structural_sections = ("tracked_data", "local_data", "source_units", "indexes", "reports")

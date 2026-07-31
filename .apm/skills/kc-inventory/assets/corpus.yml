@@ -1,5 +1,21 @@
 contract_version: 1
 
+# Профиль помогает выбрать стартовый набор правил, но эффективная политика
+# всегда записывается явно. Для закрытого внутреннего корпуса используйте
+# restricted_internal и настройте действия по тем же полям.
+project_profile: public
+
+action_policy:
+  acquire: allow_with_source_constraints
+  process: allow
+  retain_uncertain: retain_with_quality_metadata
+  retain_sensitive: project_storage_rules
+  tracked_storage: public_safe_only
+  external_disclosure: publication_review
+  delete: owner_decision
+  irreversible_transform: owner_decision
+  secrets_in_tracked_storage: prohibit
+
 tracked_data:
   root: data
   source_pattern: data/<source>/source.yml

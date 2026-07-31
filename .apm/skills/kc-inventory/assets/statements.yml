@@ -30,3 +30,8 @@ statements:
     corroboration: single_source # single_source | independently_confirmed | conflict | not_applicable
     limitations: []
     open_questions: []
+    # Только для настоящего blocked после автоматических попыток:
+    # blocker_code: owner_decision_required
+    # action_required: "Принять точное решение владельца."
+    # automatic_attempts:
+    #   - "Неизвестное сохранено явно."

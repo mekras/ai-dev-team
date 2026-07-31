@@ -431,6 +431,45 @@ def main() -> int:
     with tempfile.TemporaryDirectory() as tmp:
         root = Path(tmp)
         write_minimal_corpus(root)
+        contract = root / "corpus.yml"
+        contract.write_text(
+            contract.read_text(encoding="utf-8")
+            + """
+project_profile: restricted_internal
+action_policy:
+  acquire: allow_with_source_constraints
+  process: allow
+  retain_uncertain: retain_with_quality_metadata
+  retain_sensitive: retain_with_access_metadata
+  tracked_storage: restricted_project_rules
+  external_disclosure: owner_decision
+  delete: owner_decision
+  irreversible_transform: owner_decision
+  secrets_in_tracked_storage: prohibit
+""",
+            encoding="utf-8",
+        )
+        assert_passes(root)
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
+        contract = root / "corpus.yml"
+        contract.write_text(
+            contract.read_text(encoding="utf-8")
+            + """
+project_profile: restricted_internal
+action_policy:
+  process: allow
+  secrets_in_tracked_storage: allow
+""",
+            encoding="utf-8",
+        )
+        assert_fails_with(root, "action_policy missing required keys")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        write_minimal_corpus(root)
         write_statement(root)
         assert_passes(root)
 

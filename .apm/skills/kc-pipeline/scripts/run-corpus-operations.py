@@ -13,6 +13,7 @@ import fcntl
 import hashlib
 import json
 import os
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -53,6 +54,9 @@ GLOBAL_STAGES = (
     "apply_changes",
     "corpus_validation",
 )
+PRIMARY_QUEUES = tuple(
+    name for name in QUEUE_ORDER if name not in {*GLOBAL_STAGES, "human_decision"}
+)
 AUTOMATED_QUEUES = tuple(name for name in QUEUE_ORDER if name != "human_decision")
 RUN_STATUSES = {
     "running",
@@ -82,6 +86,20 @@ BLOCKER_CODES = {
     "user_prohibited",
     "owner_decision_required",
 }
+BLOCKER_ACTIONS = {
+    "access_unavailable": "Предоставить доступ или выбрать разрешённый маршрут получения.",
+    "source_unavailable": "Указать доступный экземпляр источника или исключить его из области прохода.",
+    "provenance_missing": "Подтвердить происхождение материала или запретить его использование.",
+    "write_scope_violation": "Разрешить точную область записи или изменить исполнитель.",
+    "storage_not_permitted": "Выбрать разрешённый способ хранения.",
+    "publication_not_permitted": "Разрешить публикацию либо оставить материал во внутреннем слое.",
+    "credential_exposure": "Удалить секрет из отслеживаемого слоя и заменить способ доступа.",
+    "conflicting_change": "Выбрать способ совместить конфликтующие изменения.",
+    "validation_failed": "Устранить ошибку проверки или принять документированное исключение.",
+    "user_prohibited": "Изменить явный запрет пользователя или исключить действие.",
+    "owner_decision_required": "Принять указанное решение владельца проекта.",
+}
+DEFAULT_MAX_ACTIVE_DECISION_GROUPS = 20
 ADAPTER_STATUSES = {
     "synced",
     "partial",
@@ -184,6 +202,7 @@ class PipelineResult:
     steps: int
     message: str
     completed_global_stages: tuple[str, ...] = ()
+    resource_waiting: tuple[dict[str, str], ...] = ()
 
 
 def require_yaml() -> None:
@@ -309,7 +328,50 @@ def load_operations(path: Path | None) -> dict[str, Any]:
     if version != 1:
         raise OperationsError("Поддерживается только operations_version: 1.")
     reject_sensitive_settings(data)
+    validate_operation_extensions(data)
     return data
+
+
+def validate_operation_extensions(data: dict[str, Any]) -> None:
+    attention = data.get("human_attention")
+    if attention is not None:
+        if not isinstance(attention, dict):
+            raise OperationsError("human_attention должен быть словарём.")
+        maximum = attention.get(
+            "max_active_groups", DEFAULT_MAX_ACTIVE_DECISION_GROUPS
+        )
+        if (
+            not isinstance(maximum, int)
+            or isinstance(maximum, bool)
+            or not 1 <= maximum <= 100
+        ):
+            raise OperationsError(
+                "human_attention.max_active_groups должен быть целым числом от 1 до 100."
+            )
+    stages = data.get("stages")
+    if stages is None:
+        return
+    if not isinstance(stages, dict):
+        raise OperationsError("stages должен быть словарём.")
+    for stage, settings in stages.items():
+        if not isinstance(stage, str) or not isinstance(settings, dict):
+            raise OperationsError("Каждая стадия должна иметь строковое имя и словарь настроек.")
+        task_contract = settings.get("task_contract")
+        if task_contract is not None and task_contract != "compound_media":
+            raise OperationsError(
+                f"stages.{stage}.task_contract поддерживает только compound_media."
+            )
+        resources = settings.get("resources")
+        if resources is None:
+            continue
+        if not isinstance(resources, dict):
+            raise OperationsError(f"stages.{stage}.resources должен быть словарём.")
+        for name in ("min_free_disk_bytes", "estimated_peak_disk_bytes"):
+            value = resources.get(name, 0)
+            if not isinstance(value, int) or isinstance(value, bool) or value < 0:
+                raise OperationsError(
+                    f"stages.{stage}.resources.{name} должен быть целым числом байтов."
+                )
 
 
 def reject_sensitive_settings(value: Any, path: str = "") -> None:
@@ -374,6 +436,11 @@ def statement_processing_tasks(item: CorpusItem, root: Path) -> list[tuple[str, 
             "path": repo_relative(root, path),
             "title": str(statement.get("text", "")),
         }
+        escalation = {
+            key: statement[key]
+            for key in ("action_required", "automatic_attempts")
+            if key in statement
+        }
         if contract_version != 2:
             status = statement.get("status")
             if status == "candidate":
@@ -397,6 +464,7 @@ def statement_processing_tasks(item: CorpusItem, root: Path) -> list[tuple[str, 
                         "human_decision",
                         {
                             **base,
+                            **escalation,
                             "reason": "устаревший status=blocked требует конкретного решения или блокера",
                             "blocker_code": blocker_code,
                         },
@@ -419,6 +487,7 @@ def statement_processing_tasks(item: CorpusItem, root: Path) -> list[tuple[str, 
                     "human_decision",
                     {
                         **base,
+                        **escalation,
                         "reason": f"заблокированы проверки: {', '.join(sorted(blocked_stages))}",
                         "blocker_code": blocker_code,
                     },
@@ -531,6 +600,14 @@ def build_queues(items: list[CorpusItem], normalized_names: tuple[str, ...], roo
         }
         if blocker_code is not None:
             task["blocker_code"] = blocker_code
+            action_required = item.value("action_required")
+            automatic_attempts = item.value("automatic_attempts")
+            if isinstance(action_required, str) and action_required:
+                task["action_required"] = action_required
+            if isinstance(automatic_attempts, list) and all(
+                isinstance(attempt, str) and attempt for attempt in automatic_attempts
+            ):
+                task["automatic_attempts"] = automatic_attempts
         queues[name].append(task)
     return queues
 
@@ -729,6 +806,49 @@ def configured_commands(operations: dict[str, Any], stage: str) -> list[dict[str
     return [command for command in commands if isinstance(command, dict)]
 
 
+def stage_resource_reason(root: Path, operations: dict[str, Any], stage: str) -> str | None:
+    stages = operations.get("stages")
+    stage_data = stages.get(stage) if isinstance(stages, dict) else None
+    resources = stage_data.get("resources") if isinstance(stage_data, dict) else None
+    if resources is None:
+        return None
+    if not isinstance(resources, dict):
+        raise OperationsError(f"stages.{stage}.resources должен быть словарём.")
+    values: dict[str, int] = {}
+    for name in ("min_free_disk_bytes", "estimated_peak_disk_bytes"):
+        value = resources.get(name, 0)
+        if not isinstance(value, int) or isinstance(value, bool) or value < 0:
+            raise OperationsError(f"stages.{stage}.resources.{name} должен быть целым числом байтов.")
+        values[name] = value
+    required = values["min_free_disk_bytes"] + values["estimated_peak_disk_bytes"]
+    available = shutil.disk_usage(root).free
+    if available < required:
+        return f"disk_bytes_required={required}, disk_bytes_available={available}"
+    return None
+
+
+def runnable_queue(
+    root: Path,
+    operations: dict[str, Any],
+    queues: dict[str, list[dict[str, str]]],
+) -> tuple[str | None, tuple[dict[str, str], ...]]:
+    pending_primary = [name for name in PRIMARY_QUEUES if queues[name]]
+    candidates = pending_primary
+    if not candidates:
+        candidates = [name for name in GLOBAL_STAGES if queues[name]][:1]
+    waiting: list[dict[str, str]] = []
+    for stage in candidates:
+        if not configured_commands(operations, stage):
+            waiting.append({"queue": stage, "reason": "executor_not_configured"})
+            continue
+        reason = stage_resource_reason(root, operations, stage)
+        if reason is not None:
+            waiting.append({"queue": stage, "reason": reason})
+            continue
+        return stage, tuple(waiting)
+    return None, tuple(waiting)
+
+
 def command_paths_allowed(paths: set[str], allowed_prefixes: list[str]) -> bool:
     return all(any(path == prefix or path.startswith(f"{prefix}/") for prefix in allowed_prefixes) for path in paths)
 
@@ -922,6 +1042,19 @@ def render_report(
             f"- задач с внешним блокером: {run_state['blocked_task_count']}",
             f"- коды внешних блокеров: {', '.join(run_state.get('blocker_codes', [])) or 'нет'}",
             (
+                "- активных групп решений: "
+                f"{len(run_state.get('human_decision_groups', []))} "
+                f"из {run_state.get('human_decision_group_count', 0)}"
+            ),
+            (
+                "- групп за пределами бюджета внимания: "
+                f"{run_state.get('human_decision_group_overflow', 0)}"
+            ),
+            (
+                "- очередей в ожидании ресурсов: "
+                f"{len(run_state.get('resource_waiting', []))}"
+            ),
+            (
                 "- завершённые глобальные стадии: "
                 f"{', '.join(run_state.get('completed_global_stages', [])) or 'нет'}"
             ),
@@ -1076,15 +1209,81 @@ def blocker_codes(queues: dict[str, list[dict[str, str]]]) -> list[str]:
     )
 
 
+def max_active_decision_groups(operations: dict[str, Any]) -> int:
+    settings = operations.get("human_attention")
+    if settings is None:
+        return DEFAULT_MAX_ACTIVE_DECISION_GROUPS
+    if not isinstance(settings, dict):
+        raise OperationsError("human_attention должен быть словарём.")
+    value = settings.get("max_active_groups", DEFAULT_MAX_ACTIVE_DECISION_GROUPS)
+    if not isinstance(value, int) or isinstance(value, bool) or not 1 <= value <= 100:
+        raise OperationsError("human_attention.max_active_groups должен быть целым числом от 1 до 100.")
+    return value
+
+
+def decision_groups(
+    queues: dict[str, list[dict[str, str]]],
+    operations: dict[str, Any],
+) -> tuple[list[dict[str, Any]], int, int]:
+    grouped: dict[tuple[str, str], dict[str, Any]] = {}
+    for entry in queues["human_decision"]:
+        blocker_code = entry.get("blocker_code", "owner_decision_required")
+        reason = entry.get("reason", "")
+        action_required = entry.get("action_required")
+        if not isinstance(action_required, str) or not action_required:
+            action_required = BLOCKER_ACTIONS.get(
+                blocker_code, "Принять решение, недоступное автоматическому исполнителю."
+            )
+        decision_material = f"{action_required}\n{reason}"
+        key = (blocker_code, decision_material)
+        group = grouped.setdefault(
+            key,
+            {
+                "decision_key": (
+                    f"{blocker_code}:"
+                    f"{hashlib.sha256(decision_material.encode('utf-8')).hexdigest()[:12]}"
+                ),
+                "blocker_code": blocker_code,
+                "action_required": action_required,
+                "reason": reason,
+                "affected_count": 0,
+                "automatic_attempts": [],
+                "examples": [],
+            },
+        )
+        group["affected_count"] += 1
+        attempts = entry.get("automatic_attempts")
+        if isinstance(attempts, list):
+            for attempt in attempts:
+                if (
+                    isinstance(attempt, str)
+                    and attempt
+                    and attempt not in group["automatic_attempts"]
+                ):
+                    group["automatic_attempts"].append(attempt)
+        if len(group["examples"]) < 3:
+            group["examples"].append(
+                {
+                    "id": entry.get("id", ""),
+                    "path": entry.get("path", ""),
+                }
+            )
+    groups = [grouped[key] for key in sorted(grouped)]
+    maximum = max_active_decision_groups(operations)
+    return groups[:maximum], len(groups), max(0, len(groups) - maximum)
+
+
 def start_run_state(
     previous: dict[str, Any] | None,
     queues: dict[str, list[dict[str, str]]],
     attempt_started_at: str,
+    operations: dict[str, Any],
 ) -> dict[str, Any]:
     resumable = previous is not None and previous.get("status") != "completed"
     completed_global_stages = (
         list(previous.get("completed_global_stages", [])) if resumable else []
     )
+    active_groups, group_count, overflow = decision_groups(queues, operations)
     return {
         "contract_version": 1,
         "run_id": previous["run_id"] if resumable else str(uuid.uuid4()),
@@ -1098,14 +1297,23 @@ def start_run_state(
         "available_task_count": available_task_count(queues),
         "blocked_task_count": len(queues["human_decision"]),
         "blocker_codes": blocker_codes(queues),
+        "human_decision_groups": active_groups,
+        "human_decision_group_count": group_count,
+        "human_decision_group_overflow": overflow,
         "completed_global_stages": completed_global_stages,
+        "resource_waiting": [],
         "queues": queues,
         "message": "Попытка автономного прохода начата.",
     }
 
 
-def finish_run_state(running: dict[str, Any], result: PipelineResult) -> dict[str, Any]:
+def finish_run_state(
+    running: dict[str, Any],
+    result: PipelineResult,
+    operations: dict[str, Any],
+) -> dict[str, Any]:
     now = datetime.now(UTC).isoformat()
+    active_groups, group_count, overflow = decision_groups(result.queues, operations)
     return {
         **running,
         "status": result.status,
@@ -1116,7 +1324,11 @@ def finish_run_state(running: dict[str, Any], result: PipelineResult) -> dict[st
         "available_task_count": available_task_count(result.queues),
         "blocked_task_count": len(result.queues["human_decision"]),
         "blocker_codes": blocker_codes(result.queues),
+        "human_decision_groups": active_groups,
+        "human_decision_group_count": group_count,
+        "human_decision_group_overflow": overflow,
         "completed_global_stages": list(result.completed_global_stages),
+        "resource_waiting": list(result.resource_waiting),
         "queues": result.queues,
         "message": result.message,
     }
@@ -1138,12 +1350,55 @@ def run_pipeline(
     )
     results: list[CommandResult] = []
     steps = 0
+    resource_waiting: dict[str, str] = {}
+
     def completed_stages() -> tuple[str, ...]:
         return tuple(stage for stage in GLOBAL_STAGES if stage in completed_global_stages)
 
     while True:
-        queue = next_automated_queue(queues)
+        if (
+            max_steps is not None
+            and steps >= max_steps
+            and any(queues[name] for name in AUTOMATED_QUEUES)
+        ):
+            return PipelineResult(
+                "paused_limit",
+                "step_limit_reached",
+                queues,
+                tuple(results),
+                steps,
+                "Лимит попытки исчерпан. Проход не завершён и будет продолжен из сохранённой очереди.",
+                completed_stages(),
+                tuple(
+                    {"queue": name, "reason": reason}
+                    for name, reason in sorted(resource_waiting.items())
+                    if queues[name]
+                ),
+            )
+        queue, waiting = runnable_queue(root, operations, queues)
+        resource_waiting.update(
+            {entry["queue"]: entry["reason"] for entry in waiting}
+        )
+        if queue is not None:
+            resource_waiting.pop(queue, None)
         if queue is None:
+            automatic_tail = any(queues[name] for name in AUTOMATED_QUEUES)
+            if automatic_tail:
+                waiting_entries = tuple(
+                    {"queue": name, "reason": reason}
+                    for name, reason in sorted(resource_waiting.items())
+                    if queues[name]
+                )
+                return PipelineResult(
+                    "paused_resources",
+                    "no_runnable_automatic_task",
+                    queues,
+                    tuple(results),
+                    steps,
+                    "Автоматический хвост остался, но ни одна готовая очередь сейчас не исполнима.",
+                    completed_stages(),
+                    waiting_entries,
+                )
             if queues["human_decision"]:
                 return PipelineResult(
                     "waiting_external",
@@ -1153,6 +1408,11 @@ def run_pipeline(
                     steps,
                     "Доступная работа исчерпана. Проход ждёт перечисленных внешних решений.",
                     completed_stages(),
+                    tuple(
+                        {"queue": name, "reason": reason}
+                        for name, reason in sorted(resource_waiting.items())
+                        if queues[name]
+                    ),
                 )
             return PipelineResult(
                 "completed",
@@ -1162,26 +1422,7 @@ def run_pipeline(
                 steps,
                 "Все очереди прохода пусты.",
                 completed_stages(),
-            )
-        if max_steps is not None and steps >= max_steps:
-            return PipelineResult(
-                "paused_limit",
-                "step_limit_reached",
-                queues,
-                tuple(results),
-                steps,
-                "Лимит попытки исчерпан. Проход не завершён и будет продолжен из сохранённой очереди.",
-                completed_stages(),
-            )
-        if not configured_commands(operations, queue):
-            return PipelineResult(
-                "paused_resources",
-                "executor_not_configured",
-                queues,
-                tuple(results),
-                steps,
-                f"Для очереди {queue} не зарегистрирован исполнитель.",
-                completed_stages(),
+                (),
             )
         before = stage_fingerprint(queues, queue)
         try:
@@ -1335,7 +1576,9 @@ def main() -> int:
             initial_queues = (
                 previous_state["queues"] if previous_state is not None else empty_queues()
             )
-            running_state = start_run_state(previous_state, initial_queues, attempt_started_at)
+            running_state = start_run_state(
+                previous_state, initial_queues, attempt_started_at, operations
+            )
             write_run_state(destination_state, running_state)
             try:
                 operational_check = run_operational_check(root, corpus_root, policy)
@@ -1427,7 +1670,7 @@ def main() -> int:
                             "Итоговая проверка обнаружила ошибки договора или блокеры публикации.",
                             pipeline_result.completed_global_stages,
                         )
-            run_state = finish_run_state(running_state, pipeline_result)
+            run_state = finish_run_state(running_state, pipeline_result, operations)
             write_run_state(destination_state, run_state)
         report = render_report(
             corpus_root,
