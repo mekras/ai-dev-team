@@ -1,0 +1,52 @@
+id: SQLT
+slug: sqlt
+title: >-
+  Официальная документация SQLite о типах столбцов, ограничениях CREATE TABLE,
+  внешних ключах и таблицах STRICT.
+status: approved
+priority: high
+carrier_type: website
+source_kind: reference
+long_source: false
+adapter: manual
+storage_strategy: index_only
+processing_scope: selected_fragments
+retrieval_mode: on_demand
+copy_policy: no_bulk_copy
+allowed_use: >-
+  Точечная проверка физического отображения модели в SQLite, включая типы,
+  значения по умолчанию, ключи и ограничения целостности.
+requires_access_check: true
+url: https://www.sqlite.org/lang_createtable.html
+locator: https://www.sqlite.org/docs.html
+public_reference: https://www.sqlite.org/stricttables.html
+license_or_terms: >-
+  Официальная документация SQLite доступна публично. Полный сайт в корпус не
+  копируется.
+access:
+  default: >-
+    Официальные страницы доступны публично. Проверять редакцию SQLite и дату
+    изменения страницы перед значимым применением.
+reliability: official
+stability: mutable
+refresh_policy: manual
+last_checked_at: "2026-07-31"
+scope:
+  includes:
+    - объявленные типы и динамическая типизация SQLite
+    - PRIMARY KEY, UNIQUE, NOT NULL, CHECK и FOREIGN KEY
+    - значения по умолчанию и сгенерированные столбцы
+    - таблицы STRICT
+  excludes:
+    - семантическая предметная модель
+    - переносимость ограничений на другие СУБД
+known_limitations:
+  - Поведение SQLite отличается от СУБД со строгой статической типизацией.
+items:
+  - id: SQLT-schema-constraints
+    source_id: SQLT
+    title: "SQLite: типы и ограничения схемы"
+    access: Официальные страницы SQLite доступны публично.
+    status: approved
+    workflow_stage: source_checked
+    path: items/schema-constraints/item.yml

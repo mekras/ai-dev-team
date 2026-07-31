@@ -1,99 +1,451 @@
+statement_contract_version: 2
+source_id: INMA
+item_id: INMA-fragment-personas
 statements:
-- id: INMA-006
-  source_id: INMA
-  item_id: INMA-fragment-personas
-  kind: fact
-  status: ready_for_review
-  text: персонажи полезны как конкретные воображаемые пользователи, которые помогают команде не проектировать
-    для размытых обобщений и личных предпочтений разработчиков.
-  excerpt: воображаемые пользователи, которые помогают удерживать проектирование от
-  artifact: personas-goals-scenarios.md
-  checked_at: '2026-06-25'
-  scope:
-    section_title: Наблюдения
-    application: роль UX, выявление требований, анализ пользовательских сегментов.
-  open_questions: []
-- id: INMA-007
-  source_id: INMA
-  item_id: INMA-fragment-personas
-  kind: fact
-  status: ready_for_review
-  text: персонажи должны быть достаточно конкретными и устойчивыми, чтобы сохранять фокус проектирования
-    под давлением разработки.
-  excerpt: Персонажи должны быть достаточно конкретными, чтобы сохранять устойчивость под
-  artifact: personas-goals-scenarios.md
-  checked_at: '2026-06-25'
-  scope:
-    section_title: Наблюдения
-    application: правила подготовки UX-материалов и пользовательских моделей.
-  open_questions: []
-- id: INMA-008
-  source_id: INMA
-  item_id: INMA-fragment-personas
-  kind: fact
-  status: ready_for_review
-  text: 'цели пользователя отличаются от задач: задачи меняются вместе с технологией, а цели остаются
-    более устойчивыми и лучше подходят как основание проектирования.'
-  excerpt: 'Автор отделяет цели от задач: задачи меняются вместе с технологией, а цели'
-  artifact: personas-goals-scenarios.md
-  checked_at: '2026-06-25'
-  scope:
-    section_title: Наблюдения
-    application: requirements-analysis, роль UX, проектирование сценариев.
-  open_questions: []
-- id: INMA-009
-  source_id: INMA
-  item_id: INMA-fragment-personas
-  kind: fact
-  status: ready_for_review
-  text: качественное проектирование взаимодействия помогает пользователю достигать практических целей,
-    не мешая личным целям, включая сохранение достоинства и ощущение контроля.
-  excerpt: конкретного пользователя.
-  artifact: personas-goals-scenarios.md
-  checked_at: '2026-06-25'
-  scope:
-    section_title: Наблюдения
-    application: критерии готовности результата роли UX и проверка пользовательских сценариев.
-  open_questions: []
-- id: INMA-010
-  source_id: INMA
-  item_id: INMA-fragment-personas
-  kind: fact
-  status: ready_for_review
-  text: сценарий описывает, как персонаж применяет продукт для достижения цели; сценарии помогают проверять
-    проектные предположения и смотреть на продукт с позиции персонажа.
-  excerpt: как краткое описание применения продукта персонажем для достижения цели.
-  artifact: personas-goals-scenarios.md
-  checked_at: '2026-06-25'
-  scope:
-    section_title: Наблюдения
-    application: requirements-specification, UX-проектирование, requirements-validation.
-  open_questions: []
-- id: INMA-011
-  source_id: INMA
-  item_id: INMA-fragment-personas
-  kind: fact
-  status: ready_for_review
-  text: сценарии полезнее описывать с достаточным охватом от начала до конца, а не как исчерпывающую детализацию
-    каждого шага.
-  excerpt: Сценарии полезнее описывать с достаточным охватом от начала до конца, а не
-  artifact: personas-goals-scenarios.md
-  checked_at: '2026-06-25'
-  scope:
-    section_title: Наблюдения
-    application: запись вариантов использования и пользовательских сценариев.
-  open_questions: []
-- id: INMA-012
-  source_id: INMA
-  item_id: INMA-fragment-personas
-  kind: fact
-  status: ready_for_review
-  text: проектировочные усилия нужно концентрировать на повседневных и обязательных сценариях; исключительные
-    ситуации не должны доминировать над опытом основного использования.
-  excerpt: сценарии, а исключительные ситуации не должны доминировать над опытом
-  artifact: personas-goals-scenarios.md
-  checked_at: '2026-06-25'
-  scope:
-    section_title: Наблюдения
-    application: приоритизация UX-работы, проверка интерфейса и пользовательских сценариев.
-  open_questions: []
+  - id: INMA-006
+    source_id: INMA
+    item_id: INMA-fragment-personas
+    kind: fact
+    text: >-
+      Персонажи дают проектировщику конкретных воображаемых
+      пользователей вместо размытого обобщения.
+    excerpt: персонажей как проектировочный инструмент
+    artifact: personas-goals-scenarios.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: глава 9, строки 5100–5405 локальной текстовой выгрузки
+    scope:
+      applies_to: [проектирование взаимодействия]
+      does_not_apply_to: [статистическая сегментация рынка]
+    processing_status: &complete
+      extraction: complete
+      traceability: passed
+      semantic_review: passed
+      strong_review: not_required
+      corroboration_check: complete
+    source_role: primary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: historical
+    corroboration: single_source
+    limitations:
+      - Это метод проектирования, а не демографическая классификация.
+    open_questions: []
+
+  - id: INMA-007
+    source_id: INMA
+    item_id: INMA-fragment-personas
+    kind: fact
+    text: >-
+      Персонаж должен быть достаточно конкретным, чтобы удерживать
+      фокус проектирования под давлением разработки.
+    excerpt: сохранять устойчивость под давлением разработки
+    artifact: personas-goals-scenarios.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: глава 9, строки 5100–5405 локальной текстовой выгрузки
+    scope:
+      applies_to: [подготовка персонажа]
+      does_not_apply_to: [выбор персонажа без исследования]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: historical
+    corroboration: single_source
+    limitations: []
+    open_questions: []
+
+  - id: INMA-008
+    source_id: INMA
+    item_id: INMA-fragment-personas
+    kind: fact
+    text: >-
+      Цели пользователя устойчивее задач, которые меняются вместе с
+      технологией, и поэтому лучше подходят как основа проектирования.
+    excerpt: задачи меняются вместе с технологией
+    artifact: personas-goals-scenarios.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: глава 10, раздел «Задачи не являются целями», строки 6051–6076
+    scope:
+      applies_to: [выявление целей, проектирование взаимодействия]
+      does_not_apply_to: [отказ от анализа задач после выявления цели]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations: []
+    open_questions: []
+
+  - id: INMA-009
+    source_id: INMA
+    item_id: INMA-fragment-personas
+    kind: fact
+    text: >-
+      Личные цели конкретного пользователя нельзя подменять целями
+      корпорации. Взаимодействие должно помогать достигать рабочего результата,
+      не мешая личным целям.
+    excerpt: личные цели человека при этом нельзя подменять
+    artifact: personas-goals-scenarios.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: глава 10, строки 6037–6047 и 6207–6213
+    scope:
+      applies_to: [личные и практические цели персонажа]
+      does_not_apply_to: [автоматическое принятие корпоративной цели за личную]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations:
+      - Конкретные личные цели нужно подтверждать данными о персонаже.
+    open_questions: []
+
+  - id: INMA-010
+    source_id: INMA
+    item_id: INMA-fragment-personas
+    kind: fact
+    text: >-
+      Сценарий кратко описывает, как персонаж применяет продукт для
+      достижения цели и помогает проверять проектные предположения.
+    excerpt: краткое описание применения продукта
+    artifact: personas-goals-scenarios.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: глава 11, строки 7211–7318
+    scope:
+      applies_to: [проектирование сценария]
+      does_not_apply_to: [детальный псевдокод интерфейса]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations: []
+    open_questions: []
+
+  - id: INMA-011
+    source_id: INMA
+    item_id: INMA-fragment-personas
+    kind: fact
+    text: >-
+      Сценарий должен охватывать путь от начала до цели без преждевременной
+      исчерпывающей детализации каждого шага.
+    excerpt: с достаточным охватом от начала до конца
+    artifact: personas-goals-scenarios.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: глава 11, строки 7211–7318
+    scope:
+      applies_to: [ранний сценарий]
+      does_not_apply_to: [окончательная спецификация деталей]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations: []
+    open_questions: []
+
+  - id: INMA-012
+    source_id: INMA
+    item_id: INMA-fragment-personas
+    kind: fact
+    text: >-
+      Проектировочные усилия нужно сосредоточить на повседневных и обязательных
+      сценариях, не давая исключительным случаям доминировать.
+    excerpt: повседневные, обязательные и исключительные сценарии
+    artifact: personas-goals-scenarios.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: глава 11, строки 7211–7318
+    scope:
+      applies_to: [приоритизация сценариев]
+      does_not_apply_to: [игнорирование критических исключений]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations: []
+    open_questions: []
+
+  - id: INMA-013
+    source_id: INMA
+    item_id: INMA-fragment-personas
+    kind: fact
+    text: >-
+      Цель — это конечное состояние, а задача — переходный процесс, нужный
+      для достижения цели.
+    excerpt: Цель — конечное состояние
+    artifact: personas-goals-scenarios.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: глава 10, раздел «Задачи не являются целями», строки 6049–6053
+    scope:
+      applies_to: [классификация кандидата в цель]
+      does_not_apply_to: [проектная цель без пользователя]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations: []
+    open_questions: []
+
+  - id: INMA-014
+    source_id: INMA
+    item_id: INMA-fragment-personas
+    kind: fact
+    text: >-
+      Одной цели могут служить разные и даже противоположные задачи, поэтому
+      задача сама по себе не раскрывает конечный результат.
+    excerpt: одну цель можно достичь разными
+    artifact: personas-goals-scenarios.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: глава 10, строки 6054–6074
+    scope:
+      applies_to: [проверка кандидата в цель]
+      does_not_apply_to: [отказ от изучения задач]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations: []
+    open_questions: []
+
+  - id: INMA-015
+    source_id: INMA
+    item_id: INMA-fragment-personas
+    kind: fact
+    text: >-
+      К личным целям источник относит нежелание чувствовать себя глупо,
+      нежелание ошибаться, желание выполнять адекватный объём работы и
+      не скучать.
+    excerpt: не чувствовать себя глупо
+    artifact: personas-goals-scenarios.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: глава 10, раздел «Личные цели», строки 6289–6331
+    scope:
+      applies_to: [личные цели персонажа]
+      does_not_apply_to: [автоматическое присвоение всех целей каждому персонажу]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations:
+      - Список — ориентир для проверки, а не замена исследования персонажа.
+    open_questions: []
+
+  - id: INMA-016
+    source_id: INMA
+    item_id: INMA-fragment-personas
+    kind: fact
+    text: >-
+      Источник различает личные, корпоративные, практические и ложные цели.
+    excerpt: Виды целей
+    artifact: personas-goals-scenarios.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: глава 10, строки 6289–6423
+    scope:
+      applies_to: [классификация целей]
+      does_not_apply_to: [уровни целей варианта использования]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations: []
+    open_questions: []
+
+  - id: INMA-017
+    source_id: INMA
+    item_id: INMA-fragment-personas
+    kind: fact
+    text: >-
+      Практическая цель связывает рабочий результат пользователя с целями
+      организации, но не отменяет личные цели этого пользователя.
+    excerpt: практические цели связывают рабочий результат
+    artifact: personas-goals-scenarios.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: глава 10, раздел «Практические цели», строки 6365–6399
+    scope:
+      applies_to: [рабочий результат персонажа]
+      does_not_apply_to: [корпоративная цель без пользователя]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations: []
+    open_questions: []
+
+  - id: INMA-018
+    source_id: INMA
+    item_id: INMA-fragment-personas
+    kind: fact
+    text: >-
+      Функции, инструменты и технические методы не являются целями, если
+      описывают средство, а не конечный результат. Классификация зависит от
+      контекста.
+    excerpt: средства как будто это результаты
+    artifact: personas-goals-scenarios.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: глава 10, раздел «Ложные цели», строки 6401–6439
+    scope:
+      applies_to: [проверка ложной цели]
+      does_not_apply_to: [запрет технических целей в ином контексте]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations:
+      - Техническое свойство может быть подлинной целью в другой предметной области.
+    open_questions: []
+
+  - id: INMA-019
+    source_id: INMA
+    item_id: INMA-fragment-personas
+    kind: observation
+    text: >-
+      Пример Дженнифер показывает, что один рабочий результат может объединить
+      настройку, наблюдение и изменение сети в одно целостное взаимодействие.
+    excerpt: чтобы дела в офисе шли без сбоев
+    artifact: personas-goals-scenarios.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: глава 10, строки 6097–6147
+    scope:
+      applies_to: [проектирование вокруг цели]
+      does_not_apply_to: [копирование конкретного сетевого интерфейса]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: historical
+    corroboration: not_applicable
+    limitations:
+      - Пример калибрует метод, но не задаёт готовое решение для другого продукта.
+    open_questions: []
+
+  - id: INMA-020
+    source_id: INMA
+    item_id: INMA-fragment-personas
+    kind: observation
+    text: >-
+      Пример теленовостей показывает, что целью может быть не разовое создание
+      объекта, а его постоянная готовность с постепенным улучшением.
+    excerpt: постоянно готовая к эфиру передача
+    artifact: personas-goals-scenarios.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: глава 10, раздел «Целеориентированные телевизионные новости»
+    scope:
+      applies_to: [непрерывно изменяемый рабочий результат]
+      does_not_apply_to: [любой редактор документов]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: historical
+    corroboration: not_applicable
+    limitations:
+      - Пример применим к результатам, которые должны оставаться готовыми после каждого изменения.
+    open_questions: []
+
+  - id: INMA-021
+    source_id: INMA
+    item_id: INMA-fragment-personas
+    kind: observation
+    text: >-
+      Пример учителей показывает, что анализ только рабочих задач может пропустить
+      цель видеть собственную успешность и расти профессионально.
+    excerpt: видеть, насколько успешно он работает
+    artifact: personas-goals-scenarios.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: глава 10, раздел «Целеориентированное управление классом»
+    scope:
+      applies_to: [выявление неочевидной цели]
+      does_not_apply_to: [уверенность в точности данных без сверки]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: historical
+    corroboration: not_applicable
+    limitations:
+      - Пример не даёт права приписывать аналогичную цель другому персонажу без данных.
+    open_questions: []
+
+  - id: INMA-022
+    source_id: INMA
+    item_id: INMA-fragment-personas
+    kind: observation
+    text: >-
+      Пример телевизора показывает, что упрощение задачи не заменяет достижения
+      личных целей. Первый опыт должен сразу давать полезный результат, не унижать
+      пользователя и позволять отложить сложные возможности.
+    excerpt: продукт должен сразу дать полезный результат
+    artifact: personas-goals-scenarios.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: глава 10, строки 6207–6269
+    scope:
+      applies_to: [первый опыт и постепенное раскрытие возможностей]
+      does_not_apply_to: [точная копия поведения телевизора]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: historical
+    corroboration: not_applicable
+    limitations:
+      - Пример иллюстрирует принцип, а не задаёт обязательную последовательность экранов.
+    open_questions: []
+
+  - id: INMA-023
+    source_id: INMA
+    item_id: INMA-fragment-personas
+    kind: fact
+    text: >-
+      Пользователь готов приложить дополнительные усилия, если ожидает соразмерное
+      дополнительное вознаграждение.
+    excerpt: Пользователь готов приложить дополнительные усилия
+    artifact: personas-goals-scenarios.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: глава 10, раздел «Принцип соразмерности усилий»
+    scope:
+      applies_to: [постепенное раскрытие возможностей]
+      does_not_apply_to: [оправдание любой нагрузки на пользователя]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations: []
+    open_questions: []

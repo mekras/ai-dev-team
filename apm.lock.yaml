@@ -1,5 +1,5 @@
 lockfile_version: '2'
-generated_at: '2026-07-31T08:48:37.477845+00:00'
+generated_at: '2026-07-31T20:50:38.841215+00:00'
 apm_version: 0.26.0
 dependencies:
 - repo_url: mekras/ai-agent-supervisor
@@ -1044,978 +1044,6 @@ dependencies:
 deployments:
 - kind: project-relative
   target: agents
-  value: .agents/skills/ai-agents-md-maintenance
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-agents-md-maintenance/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:6f601b69582b53e1f61c346e2f0b7ef5e6e01234cceb7bb619b0fc78413bdd10
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-agents-md-maintenance/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:05e699217942e098edf51051faa39b53f5291745355773550be548d7f7cb757c
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-agents-md-maintenance/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:95840908a3b29b5a037408194bd1972a2c89e0258fcb188c4eaab4008456fb5d
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-agents-md-maintenance/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:7aaf02d10279520fa5fb67b1f6cf9b8efa11cad91b48fa1d6b73a5e7fc3713cf
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-agents-md-maintenance/references/content-guidelines.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:70b7f23fb22a8f64684f4d0a09b06f13702feff8a9b1e8f68e16c19c68785e4c
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-agents-md-maintenance/references/maintenance-checklist.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:5f6f266d52791e360a5fb7e955234af92d977ff4e1a55e8edbdb1c2cd061c1e5
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-audit-agents-md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-audit-agents-md/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:b93a3be4e1de60ea058496e791bf1b203cbbea4a39c4b73725057446157bd041
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-audit-agents-md/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:1d11ca26399aee551283b2f47e1242dd1512aa60a543fef825c615f36f25008b
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-audit-agents-md/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:801e7505ccdf76c620db57cf8c65905151e52b72b780943057e936ccad8d17df
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-audit-agents-md/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:acb0db0d50ac390d3a91e4376d216456e94ad820fa45e3a8726c458d84d35ea9
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-audit-agents-md/references/review-checklist.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:ff271d0eae1cf04ebadd09b571fdfafad56e464769729f65f9bc2fddda0912f1
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-audit-project
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-audit-project/README.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:544cc560eefb29ccccb09dccf1776da2fab69adc879f100e767c9eba3e4f8830
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-audit-project/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:75172451482463d0e104a0cd38ab409f0957ce1babf3db51b11787fbe95b6bf8
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-audit-project/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:62751df088e54d7af03ed9e576d328a3169ccf3b506892923b2da1cecab86066
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-audit-project/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:59ee68f6cd42056b6d96b551b866b22eff1b76bfbc864b3e174ff4706cbd989b
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-audit-project/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:bd8f5fa969ec02c33f2447b12843714d9bff5b3d3184a663a9ab11f9545100e1
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-audit-project/references/audit-checklist.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:51b43d3591dea9be637a182af597697f868ad33b666f9a16b0a95e896ffbe3dd
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-data-collection
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-data-collection/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:451c8b7c9e58494cdcb8be5880dd436cf89fc41138c44ee569610d1ed72dd492
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-data-collection/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:639845c0e32aa1992db3700b1446a09b0ec816853f8eca3610f4bece610d3fb8
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-data-collection/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:60d0a771168c5ed9c7ce797c52f74390d1b284d220d0f9c3edc9598baf3c248c
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-data-collection/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:9dd2a96d572bc8dd9ba32403ffe91eda6f100cb4874d797d7dabb331333fe78a
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-data-collection/references/data-collection-procedure.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:daf2a7d09644e9bd2369c03ea9a3e7e7ba7b20b70dde772809d6ecab48523c77
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-rule-failure-analysis
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-rule-failure-analysis/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:14eb07e778c025aa84a07db8c9fb2fddb7a43fdde4ee478772508067e6f100cd
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-rule-failure-analysis/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:d0dee7cbd260f74c793e1236f87e6e3d64fc03c9682b96d161f3300e6d930755
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-rule-failure-analysis/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:9e1c933ef08145bdbf0bf30f1e75b10d407fc4d503ead6cfd26431f65f279aaf
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-rule-failure-analysis/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:c8b46792bf5d52d1bb190b3519039ac9da85065a066ff2a4a494d6b453eb281c
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-apm
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-apm/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:ef7397b5d15db8e5bc224c39006bc746e4bbd3577a3c45457ecd4cccbeac8060
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-apm/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:8dc1fd4084ecd54dcde1a6e7f46147784e4e2c340999bf0e498a8f7115f16e4d
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-apm/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:f49c3320dd41b61f5b5066cf5e0ef38cd32a23d5bb308521e67a38667a1e0469
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-apm/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:a4aa5992acf8901ef2c6afea39ea5b66e706689e3bc5c94216ba29fb7f27bad4
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-apm/references/apm-collection-settings.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:993801567fe35e1910a5e629f2918897f30ab9022866320a918f1f94767ac97e
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-apm/references/tooling-installers.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:3c9c948579d9c6c14410161c985981a219659df5f1e523edd1fa2956dba83f0e
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-apm/scripts/eval-tools/adapters/claude
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:7510f98995313414d5b88bbb498130e6e6cf36b58a860ef719bc9c2ebdcf3497
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-apm/scripts/eval-tools/adapters/codex
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:219694bf0806d701dc8e60df17e92375d06ba06134ea9b2849899ce6e965b138
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-apm/scripts/eval-tools/check-eval-tools-drift.py
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:a6092cafa778e9ab55d523980096726d6126a610ac06e041356f436fd2e33d59
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-apm/scripts/eval-tools/evals.local.yml.sample
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:d280153242d39c3c379e5c4cfdce6f9c247ff4eb0e7fab5403c21d80d0b6f2c2
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-apm/scripts/eval-tools/manifest.txt
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:c179e84ed13f6b9f7de62e28592e8e52b7c60e8d1267c527f0faf85d69077382
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-apm/scripts/eval-tools/run-skill-evals.py
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:41d5609252bacae26f3464027b5354b44da78c5d30e0d008302d3a14a707a05f
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-apm/scripts/eval-tools/test-run-skill-evals.py
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:6e80eff02f4ae40ce8e7bdeaf2fade0da03b6c6d789c875c2c7526aa6e0d18ea
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-apm/scripts/eval-tools/validate-fixture-evals.py
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:d0c3d7bcf74d0f2ceba722c543ac840ca14cdaf3dbe757111b96589262deb681
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-apm/scripts/eval-tools/validate-hidden-unicode.py
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:9d9fe8d891d0d40026c176c324eac37c431fde139986b10460b5cc771a11f154
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-apm/scripts/eval-tools/validate-skill-descriptions.py
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:c0cdc72683bcbfc78c7a3449045ec2ded90df3404206fc0e19653d1bb99e2ea8
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-apm/scripts/eval-tools/validate-skill-result-evals.py
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:bb9b70ea7e6e7e368bb4de6c97b3a7bd7cc1fedb2df47dca20a4bd8ed6d52b84
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-apm/scripts/eval-tools/validate-trigger-evals.py
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:a06e9d4ea16fdc1358d89f0109589e0e745312c1a489106bf7737306cf208f7c
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-apm/scripts/install-eval-tools
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:39642ddbb67782bf99c4912164549b544b74fa3913e559b05bbe5118f2665464
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-apm/scripts/setup-apm-collection
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:d329255145f00e3fb3634d0a68f3c7bf0bd5ea2c815791a1ef7220a101e0ae46
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-apm/scripts/validate-apm-git-boundary.py
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:12c3ef6dc598bc8bb00af5f513677619abbcd166fde6c66de15ee59472fed7d5
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-hooks
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-hooks/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:181257a798da934ebd8813953d9c8c526469cbcfc6432d7eb8793d58bec3db67
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-hooks/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:ec5bce4608cf49faefd68b8e22ffa0a7c5a278b116a0a612df716623726b0ec9
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-hooks/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:bca5e5e1b9388ff2f2d09c61bcd873ad8d361a08bc1b07dcc1bf4bedd3c19b79
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-hooks/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:f6af75425e1762572018a9c7cccabb0a43d9459241cbe03ba4514c3737764044
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-project
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-project/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:388620c2b4a3b5a4c5ebf74e691d7736aa88041b45b4d6d5650ed54498729b69
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-project/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:65760493984e14edb658a8823c33baa0c66d82ed20533e8373949f7af8985819
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-project/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:0d8620192c70322e17985dbe5a12236b1e18a9adaf6774a2f1366a8757a7034d
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-project/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:111bb2d6a2aea1b97d90aea12606c9ad5b61f525715d14e97b30982ad3f74dee
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-subagents
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-subagents/README.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:1800564703384025dbf8b01cd04738bbe8fe31aac45b3521e41bc2f4e59feff0
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-subagents/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:db32787adcad0f934d7c9d08c5d8057b53e4bbe84e80f10f4d97731f4aa1db60
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-subagents/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:50616249cd0fe1d3c269967ea69d5da1b59ff72874471bae9ac43b0b97b0d077
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-subagents/assets/subagents.local.toml.sample
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:8b965e1aef1c2d437472b7b656370292c560105ad838d4706f627a93776d8002
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-subagents/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:12fe553009ad5dad5be4d866105fbc251f6b085a389e579c48f36efea5b6b84e
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-subagents/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:4006e914d254e246f5da59746daa41e8b94aff1b655ca4531fb8ce996cb2dfbe
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-subagents/references/operation-policy.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:5bb5f9faf5ebcad0836f604338d4936c2c9d1bed74074a760c94951fbeb04a1c
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-subagents/references/routing-patterns.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:4be177b3e1184f36d335ec7a32feea13c6f7dfe3c4e3182a2f67e5eb71e7166a
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-subagents/scripts/adapters/claude-role
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:3882e7b39f316caa72a8fdf249732b8b78586e1a8bf73f4bf1664cb7bb75b2bc
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-subagents/scripts/adapters/codex
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:65b4af9227d2f3da49fab266fceb8554232d22370162a3be735e01b7484d46bf
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-subagents/scripts/adapters/codex-role
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:2757e41f7ab9da8dc50985ff33aa75ee040c508ff30a6dab442bc117b38dfbea
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-subagents/scripts/analyze-subagent-sessions
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:82ede2c860f4199db67cfbf81f78627138d170424cd11c3581ce8894f89e6167
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-subagents/scripts/check-subagent-models
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:eb0cf29428c2698fc6d0ed20ee7fd56e814b3b4e9dd37cb3ecc2fd8f5e48fd4e
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-subagents/scripts/codex-model-subagent
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:79e34dd168f7e3fe900eaf6d8d4b6c91d85a745905f083bf3b3a9c4dd7322fb9
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-subagents/scripts/codex-usage-report
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:aafed670a550a3a774a97dabc4f74bbc8efaa37b640b019af0c69bcbd70d5d44
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-subagents/scripts/discover-subagent-models
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:08c3d82330507d947ae99c7cb24bf6895d58599f82522356c8bbf9c70d349c84
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-subagents/scripts/install-claude-tools
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:063a4c60d1a998939b2f84d44f8ea5b3632e502e2c90d0c1f2ef7b405f050902
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-subagents/scripts/install-codex-tools
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:cfa2b6d96c05df019612e9048dbf04893356612cd37f5425e74e51aa9677d4e8
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-subagents/scripts/install-subagent-tools
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:9afbe2bb2b92044058e3258af3542c760cde91cc2466a1ef1ac56daf8f27038b
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-subagents/scripts/run-execution-class
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:20e6ac14da950b47e6d9442bef6763baf4add3c764767c123550a8b3fc7cad81
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-setup-subagents/scripts/run-subagent-role
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:3ab8ef808e6af5866ef24ddf46de06490f816e6d0fb7ba71e35b37f8506e9986
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-skill-development
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-skill-development/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:60f16fd76767b83aba6a170a4b15e31c8d3e81987ce055f7f73e6559fc98548f
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-skill-development/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:97eb372906c5c91208106f8324d19b98ff270cbf1334633390b37ad917b1aaaf
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-skill-development/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:9055f01981aa9db8060757171dec122837bd70cefa17443fd434660f4cccc28b
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-skill-development/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:aabd1a71634a6868b0453222eeb488f2683caba6f0c4320398d8d72178dc30b9
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-skill-development/references/project-specific-skills.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:abd65beebc90abd19682081e51d71993414208fdf79a63a9b76690180cebe263
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-skill-development/references/review-checklist.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:c26b829f4ed71f5a090456952d59c3b20ab70a1ed55194cc080256ae2e5aafb3
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-skill-development/references/script-decision.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:2ca70a35c72e99f3d4d995fb8ce2612f1736ef608c523c16168f2064e752fb9c
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-skill-development/references/validation.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:ff8ae07ae727c2e86bc45adc3cbc9c9257eb298a50df177910710d98a14d446d
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-work-control
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-work-control/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:8f0a22a3e5b98452938ddad578627564030cb300f74523e325daa17cb92babc3
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-work-control/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:78f3cd8ddba3ab8743dc591f462c7943650b0c4fb05c0985431ad92ce35e77ac
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-work-control/assets/work-control-template.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:db53dac0d0d643aa7eef3b1e1fe495ef9fe8f8caf5b33480e3df94dd80cd9f46
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-work-control/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:12ae4d50f84caf4505e56c1dd766e9d72db84f4e94fa691e8a6190aab11c5662
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-work-control/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:5a889f6b5f6ea2680ed717283598acf09e5ddef2d68b8b858ab5e20533e51994
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-work-control/references/work-control.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:e280b6d60b57c330b0cef5c17abd7c06881b5769bfa31f791991c11a4be958e5
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-work-result-evaluation
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-work-result-evaluation/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:1eddd652510ba3efbcd611d8f59415513c3fb581694441e905e028972378146c
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-work-result-evaluation/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:8f2f2bdde7bc46631638721e3f266f83b6fc29e4d30f43a25b90e93a681b5bba
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-work-result-evaluation/assets/work-result-evaluation-case-template.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:0bc87c07ed3942a7c0bb1b40e0916aa25df44b7af3ebd38042b07cec84cd2e39
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-work-result-evaluation/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:10a766abcca3dc21a4edc9695feaa352f277badb0ba130bd334e6fe3fe2218f5
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-work-result-evaluation/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:53886909d51af15cf1a76ba85a62564e21d6508076552042437437fcd055e654
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ai-work-result-evaluation/references/work-result-evaluation.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-agent-supervisor
-  active_owner: mekras/ai-agent-supervisor
-  content_hash: sha256:80e7a25161b08f657a335bd83f66e7d17ed7250fb49a5f3b83bfa86a99387fd5
-- kind: project-relative
-  target: agents
   value: .agents/skills/ait-analysis
   runtime: null
   scope: project
@@ -2094,7 +1122,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:8e2af55510b4b78e47161f5528ff4fd43d66b40b628851a73790e2413b5da727
+  content_hash: sha256:61785c5f3e554c2c2e0ff9fc5cb519cad4fbdec3ed60b047e847fed56b527883
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-architecture/evals/result-scenarios.json
@@ -2103,7 +1131,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:67b1bf3efb51e88391a26ec3419d21aee657bfa80c9f27665e6e01ef4d20ee2c
+  content_hash: sha256:7fe294711536524d400dc777c5cfcad6b28c80980aaeca8348c74a68511c0024
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-architecture/evals/triggers.json
@@ -2112,7 +1140,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:22b9ce8c3e30b56e53698f3f3ba766b39099e8922e5b51106a2700917f8a68f9
+  content_hash: sha256:ee96e9231387cc1b38866a00d01458668d55c9a1123f303cfe31826dab9d538d
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-architecture/references/api-design.md
@@ -2148,7 +1176,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:c2eda61c2fafa6106049c350a3678aab7a6a6f056ebaa4ffaf7539ec740054f2
+  content_hash: sha256:0d06f0792469d63f9090b580dd8380462aa9ff2a0f19ca38a059b1b780d0311e
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-architecture/references/clean-architecture.md
@@ -2178,6 +1206,15 @@ deployments:
   content_hash: sha256:a2f3931181e68617194f829f35f6e2fa23018aa6538d9062109cc4b736dcdb76
 - kind: project-relative
   target: agents
+  value: .agents/skills/ait-architecture/references/data-modeling.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:4a3252b35923ac6549d78a00a0f3f8bd1dbd527ddaf69994db3e5d74c33e7e14
+- kind: project-relative
+  target: agents
   value: .agents/skills/ait-architecture/references/decomposition.md
   runtime: null
   scope: project
@@ -2202,7 +1239,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:7ecaa350a2e6eeb48585810484d1ba07f046b0bfcbc9d2ae9c12bc515d2b08ae
+  content_hash: sha256:b13bc7e17d9c39954f429245fdb07a57fa1e63a9d37e18bf56a4b2cee781920d
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-architecture/references/evolutionary-architecture.md
@@ -4011,7 +3048,16 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:e9ce50ff5f255ab707c1f16b42a73ea61ee8ca532124ac8a167bba815c09074d
+  content_hash: sha256:6f3e503e98f2607c9672823b415e73d511899cc7db7a6b3d59b40d4b4e5c6d38
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-ux-design/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:432a677f203a961a1ccf7f365ba6cf7fb2460c3af7adcd965017fa4f8504969a
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-ux-design/evals/triggers.json
@@ -4020,7 +3066,16 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:10bd90253eaabc6e2eb360c72fefecc0e9c14b4d5ffa6743d91c68366a0d6fb7
+  content_hash: sha256:7848570f387ece137ab839d8e4317c02385d5b34a859eef567b60915a1f77184
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-ux-design/references/user-goals.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:9ab13e6ad604936980b71d41d1ef7e249824692ba68621ad8be28bd2bbae4165
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-writing
@@ -4075,1383 +3130,6 @@ deployments:
   - .
   active_owner: .
   content_hash: sha256:ff5b56a332fa8ac234a7162b77047f8627f3753310116e1c8b8cad99d26caee2
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-analysis
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-analysis/README.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-analysis/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:219b5974d8aa6db17d105ccf9e52e92fbc0fcacf348c5a8068d1a9f09d49b065
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-analysis/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:5136e3fcf9dfa59d02c1ef756f8ab3ac58927ce761fe83e0ee2ba7aea4251688
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-analysis/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:623aafbc07184ffe3f66bcbe5b16c10781c727cbb888bc784c9f17c80613e7cd
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-analysis/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:f698aa2a1f20bbe7d97a4cba0a5147353e56877a72271fe55c7c3a289eac6b49
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-analysis/references/derived-statements.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:9f4a266bbc5fa5476394b2195f4533b1a2e2ce272f4cc41b1b00f3abe6618c73
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-concepts
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-concepts/README.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-concepts/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:4b9409e9bb5e3e0b4b34a063b03c78e5718c4f09eb1d0b166a5053a8236cc1a6
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-concepts/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:400d7b1413fa747edb42aecaadde8feb4b9713ebc8277984346626db64da2d35
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-concepts/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:8ab1bf57fccafd98cd11318d8031810680726f54760c23851c6aa5101b630b84
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-concepts/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:35b9c649af2e0db7dc6f0a98af25c7431cfc726accbfeb4000d901cac24fc5f2
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-concepts/references/concept-record.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:2bc772f52c459f80959113a06b46a62dad39618704ce7a0a50c3067a5493f3b7
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-impact-audit
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-impact-audit/README.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-impact-audit/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:2d1cc2477aa177237bc6964117b3ae0b8aed31c5bb133f847ff66382eb79a2cb
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-impact-audit/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:523f8c63711f3a871e102024d43acf65114103bf185e51c98f01750183f49579
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-impact-audit/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:752f2cc566a3d22c19374c88137f3ee50262c445aa69f6e59ea92c0bab57e936
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-impact-audit/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:34de47add67661dde7033cc1eb87233b5d7764c3a2691a7bd4b1b9f84d89732e
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-impact-audit/references/impact-report.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:e1f050aeec80dcb1408181c3d651e64a5526cc51f2e763bfad1420199d56d04e
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-inventory
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-inventory/README.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-inventory/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:60b259240e0fff064be84451f19302d2331e9401c83b6e36e6915b5df1b2a80e
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-inventory/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:c5616a693609c607ce667d2b3bfd76fa534bd29cc07d7c7665af0b7c3a39dbac
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-inventory/assets/corpus.yml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:d159efe81ee6a0ceb15b8c9ca85dad5edfb6bfcd95fbcc1def391d933f869b8d
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-inventory/assets/derived-statements.yml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:ba6122f444f381ee415734ea9e1b28f942bc4f9e9451dc9a5295ce7bf98cb71b
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-inventory/assets/item.yml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:3e2cbbd0e2cba7953b504d80c34e3921a3ca60120bfd114d266e0150b47ca4b5
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-inventory/assets/operational-check.yml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:a961c2f0471c22f33d012a31b55f0d2216482897be2e87eca27e9318a7a1c57b
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-inventory/assets/source-carrier-types.yml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:5e39c6abcfe70f8b8ba6b40105ddc101663c48f5858ce25a1a62beadd53c4080
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-inventory/assets/source-kinds.yml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:febedd3b65db5ea5ce3ea616507251fcc9cf0c41bf772bb86dd982a516f86667
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-inventory/assets/source-map.yml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:4158c047ecb80bb41b6cd21b017eea773dfc0f7ed854b1679fc6bf661684d7e2
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-inventory/assets/source.yml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:6d3dbac81adf513676f00464541057d0e8eb0e7895bf019f20ad8c377310d894
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-inventory/assets/statement-kinds.yml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:673882a85ae64b1ee8055947230ba7fc8eff3ebb00b244124a89adafa73e14b4
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-inventory/assets/statements.yml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:6bc622ab47e3bfe2d3b48e698ddb826300bcd97c0f028dde7651bc527acbc608
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-inventory/assets/sync-report.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:d3f6d7380f46e6923ce9b6e9ec68f7d62bfb4e9e6a58e6ee4a5ae1e66b9fef45
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-inventory/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:3f1721cab910cbac5227f87631815665e65c8f8e5ecc86ec0ccdbc783f73ae5b
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-inventory/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:6104fd06d479ecd50655127a9d6637a0ffed44798d54c3ed441cfcb057a0de50
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-inventory/references/corpus-layout-contract.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:7db39c990179f87d39153fca0cd3b856c7e5b09bbdfa1b746f42a4d1e488eb2e
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-inventory/references/local-book-source.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:2354dfd12b9d56ef0b8ec3998ab6bd992037c8655da56a2f50e6df6efb8a66d3
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-inventory/references/manifest-and-registry.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:e897a2d60e07c1595324630e41c4bce9b9a78530c27475ba46eeee62cf09a8fa
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-inventory/references/primary-data-layer.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:5c566a89fc99a15116c25fd4ba06dbcba2485a28e4e6dc4a518d1c234ebe3a52
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-inventory/references/technical-report.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:ab66df0afe7b67a965e19bbd88ae04b494532c3d7e2091e0a64be02b661eedcb
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-inventory/scripts/validate-corpus-layout.py
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:7ff7e32ee2cfb56aa69dbec85c44c44fd6387d6fd36c0357c993558af2b4f7d2
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-normalization
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-normalization/README.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-normalization/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:23b7dff4054ab80d2870cf1138820e026776e5ead7403f36a3753b6c0f5098d0
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-normalization/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:34dbc9ab27ed2c73bd435d36da423c5c4608a656904077fb5a3ba6eaed218e60
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-normalization/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:211e8c540a585b2df1a15475f64ad0c0980a257416b14d9c68c00a4ac942b5e6
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-normalization/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:0f6da208e3148d33b4f0efbaace94747be2b2052b9e79223aebdad9379cd9e10
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-pipeline
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-pipeline/README.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:3caf71e8b020b442a01a38703d711dff8dc3b39f3577e1801c1cffc84c3a77df
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-pipeline/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:9cf88ef12a694812b5b14581e8b1d16399c7786af2b2f46359d38740b5872553
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-pipeline/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:c0a5d03d883075121cd931936d0c0dc8144fb27abc4f69fbc1d5bc80841d4d40
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-pipeline/assets/operations.yml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:0945656cb2c92737220e75b6d3a7ad462055a0f5d82978ceccc9710967da9058
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-pipeline/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:3d23498b139390d4a542a4dbe170bc3a90974071d0129b4c165526e8f24410f3
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-pipeline/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:62bd62142bc4ef3c677c36a5b69c0a0371160f641d6bb98051e247a2b8258f54
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-pipeline/references/adapter-contract.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:2cb475b0af4516380c015699a646227a149daaa8cd8de2a29d80c442ec8e26b9
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-pipeline/references/operations-contract.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:cea7c2550d5d124ca2b16a46b8567b83a20eaea51adbc982d4abe8f117fc9193
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-pipeline/references/workflow-contract.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:ab54c240ce4b23a6d63270a0f771282c394ce68c5bd39f767e4065e53b0293de
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-pipeline/scripts/run-corpus-operations.py
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:75a0d83536f223ea3d747925a01c9fd3751d1f5f2306da5b4611519537af1049
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-retrieval-evaluation
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-retrieval-evaluation/README.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:5eeebad995868818f917732970acba27433102ecdcc6e96c85a79a1e0a12f546
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-retrieval-evaluation/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:b7f52e646243d845394abb587279c19e60b8f0d0efc15414d87af4e7ee387ea4
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-retrieval-evaluation/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:381585c695118708ae6efdf6c6b8fe1ddb148948e7d8ab8b4fcbce4bab44a067
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-retrieval-evaluation/assets/evaluation-config.yml.sample
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:8cc0a7509352dce6a760eaea4b1c0abc0063a28de6b982ad3422f638a4433ed8
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-retrieval-evaluation/assets/evaluation-suite.yml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:755456be367aec4b5ac6220f0a338117ed24005d07bc35492e89ec3b032be588
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-retrieval-evaluation/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:932b50e7950b3099ec52dee005fdb0828b9d6d940056798a7cdddb241323d202
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-retrieval-evaluation/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:022cbbcf2c5a239247476d5243f66361059595b20ebb483912bb93d4f01c4d49
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-retrieval-evaluation/references/evaluation-protocol.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:e4ca60cdf6d9ce79a6de97ca9b494591cc95a97e439585fe0cacadb4efa99a88
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-retrieval-evaluation/scripts/evaluation_suite.py
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:cc0a649e1d583a79c0bfc9990045e11c384e13e202116acf4aa1498ca7e7a677
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-retrieval-evaluation/scripts/run-evaluation-suite.py
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:2ed77378bee3a91928bdd71c491bfa7af16edc9e0b042e61a89682d53328ac47
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-retrieval-evaluation/scripts/sample-source-sections.py
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:e86f25d00a8e8ec12008e1104ab8e3902dec81086b7daef801e24389a0d79802
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-retrieval-evaluation/scripts/validate-evaluation-suite.py
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:b4c9652578f77c79c3858648197b68f686669959bdc14ddfe1805277ee162d29
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-setup
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-setup/README.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:30a19dac14a9e2da6434306f27ccfa3be6bf732062566abc9648cbcfa213bad4
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-setup/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:635e2d07210bcd290549bc6fe8a298a7a954ae814e4c44e2d07c7cb05fe23583
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-setup/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:ac85735a3278bc36c4fb1dff6674a0d659e435a6e0c6f2e3dc6ac41ebb66b1c7
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-setup/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:bb50c231bac124792f26ac3e643a2601861efde8967810f1d202c1fc3e9fe142
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-setup/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:42b0c877a79b4678ca9e26e6239c258c97fceea067c688f6258f6b6300da6b15
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-setup/references/agents-instructions.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:aa314f7b79446c1e1a9cadf2a8dcc1b22fe6564218e0d8a39ab4ec9cae225813
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-sources-add
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-sources-add/README.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:900010106e503f34334df961ccb3f9db58393e74e401c69f290d46e892a783c0
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-sources-add/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:77491b36f146ddf2fd2e52df35894060449dde1945b491dafa37aab728327865
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-sources-add/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:5645fbc469a75f08156d6d34689db7b734e7f93beb2a5a7976217de3f2b0f6d5
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-sources-add/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:62800c5aecf61af7b91b93a72f06847ccaff2a324d14be949aed022720d3f6f2
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-sources-add/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:02c5f6c3f360a72e6862106fbfec7e5bae6defe9d797ae819485fb6846b45206
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-sources-add/references/source-contract.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:43046b4f443835c819de878b5af8b6923b4c383e1e9e67b7586c61ef081eb21c
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-statements
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-statements/README.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-statements/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:725daaa69935a3d89096939532511c0abf28732a333729a6a9f32db0b555ecab
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-statements/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:93f06a280391d6b11adbd6a6a262720cc1d45f2156fc28d6740181f9d26ce1a2
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-statements/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:cff6717d9a8dada04d4fbc37b7de3fdef039766a9f636ef0f9731a8d421fdc41
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-statements/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:787671c2452d92bfa5fa76e066e3882a231ebc5f4de12f9c59babe66ae36f431
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-statements/references/extraction-coverage.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:6faa514246694c8d3e93439b7272b9c2e5b271d32ef719373a68db484c92225d
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-statements/references/statement-ids.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:ab4f0ac3734fd9d1b94dbbaf341d99d72b4126b4016ffd49261a15bb43e6933c
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-status
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-status/README.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-status/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:0c7dff393c8239cb693acb53ce66517db50511514913213e4d664e5441772ca7
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-status/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:d4a50f2cc34b11f35de7bd605df4561f9feaca3bcd311d975f7d1e7f1e10b3bc
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-status/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:b9fea4467136bd8adbe1737efab2164703f0cfc7a548086a647bfa435835e252
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-status/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:60ce53cbfc3b6e68848d46b65fccc9d21aa77d9de1561667470cfb196553c978
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-transcription
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-transcription/README.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:2b03605ab72900573575b6bbabdd4432ca1b53178305c212472c20d885735c58
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-transcription/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:d4724cef6ae565796c747dfef7f46b6df35a66c3f5589294a3aef5ea02bae108
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-transcription/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:2652705f7d1feba992465291e2d3177555fb2741954452d55c08f87eabe258df
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-transcription/assets/transcription.yml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:fbef21da74cf03ebce5db46d820d27cf8eb5879b58e37fd815071a6c101ae47f
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-transcription/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:694d33f0bf073e5e0adbe89cda3b129d65ea2ff827db242702b13ca77bf201d1
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-transcription/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:04b6c3a55e9003121d18975163286bc886b13614ef870c154426686325b23ade
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-transcription/references/transcription-contract.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:fcb8f32d990644cb2d0204024599be7d228bbb8ead81f97f48fd17318a8a9909
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-transcription/scripts/validate-transcription-result.py
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:9ea9a7edc8c4f88b093e3eb0d212db4a61fe5a8014e31951f5c448362f556c58
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-validation
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-validation/README.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-validation/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:a5b8434623b8c81c5f9c1cfc03c456e8d56f723a0e150aef6245b50dec6252c8
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-validation/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:a78265a4fc56ffe101c18a9ae4217c166267744ceb9dc56c550db167e1d57c5d
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-validation/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:2b95c4902ab99add3e08046571ccdd1ccb8087d1eb0d415756d2a52afc6933e8
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-validation/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:da105b6d2f806db447ae93b9bfaf583eb4bb8f4f1f8c1e86e09a61c97371723f
-- kind: project-relative
-  target: agents
-  value: .agents/skills/kc-validation/references/corpus-checklist.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:70bfe03beca8ff3741ece311a0dafc8fdbb08842efe15b857dec92754cf3bc0b
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-check
-  runtime: null
-  scope: project
-  owners:
-  - talkstream/ru-text
-  active_owner: talkstream/ru-text
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-check/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - talkstream/ru-text
-  active_owner: talkstream/ru-text
-  content_hash: sha256:696f422c0a56e84793e8f83ae32e88ee00c2b792082b459dd91ef3467b629d71
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-lang
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-russian-language
-  active_owner: mekras/ai-russian-language
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-lang/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-russian-language
-  active_owner: mekras/ai-russian-language
-  content_hash: sha256:b9b010dfbe86176a48d493d794e33998fca07526350273b3cfdb7252784762de
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-lang/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-russian-language
-  active_owner: mekras/ai-russian-language
-  content_hash: sha256:df9717b4771de60e542b34bb9b3411a40ad66b76fa61e72b98483aad3e2a575a
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-lang/assets/ru-text-LICENSE.txt
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-russian-language
-  active_owner: mekras/ai-russian-language
-  content_hash: sha256:37ea601e35a544e6a4b08b1c5cb126543b2ea6dc14b23620f12bdc11a00ba839
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-lang/assets/strict-replacements.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-russian-language
-  active_owner: mekras/ai-russian-language
-  content_hash: sha256:f38bd8549f10d7f9aa5b091c4249031c67c2472a9f3a59756197fe88444e883b
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-lang/evals/compose.jsonl
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-russian-language
-  active_owner: mekras/ai-russian-language
-  content_hash: sha256:02b8c0c527e7667def07a6169dff52e05053040db12cafdd32039042a093b4e3
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-lang/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-russian-language
-  active_owner: mekras/ai-russian-language
-  content_hash: sha256:11f1451c79da8ea427d34c9c66188f64baa8357874dd69cbbadc249b39b64d41
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-lang/references/development-rules.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-russian-language
-  active_owner: mekras/ai-russian-language
-  content_hash: sha256:e9300f58b71cb18ef826064c61b7de34bc55dc78d8384bbba50666f01a0000c5
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-lang/references/main-rules.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-russian-language
-  active_owner: mekras/ai-russian-language
-  content_hash: sha256:3ec5d98a6361992fb687ba1678ca23f4fc96001c72cd8f5a0f18b9c76dac6ff1
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-lang/references/strict-rules.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-russian-language
-  active_owner: mekras/ai-russian-language
-  content_hash: sha256:82ecb6c85dedac551073891fe0992ba394cc0edd1151b7bd46f374716bb8d497
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-lang/references/technical-russian.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/ai-russian-language
-  active_owner: mekras/ai-russian-language
-  content_hash: sha256:a32aaaae7f5ab9d534d9459bda616323d059701b1850d3ea35a43294012c0e18
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-score
-  runtime: null
-  scope: project
-  owners:
-  - talkstream/ru-text
-  active_owner: talkstream/ru-text
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-score/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - talkstream/ru-text
-  active_owner: talkstream/ru-text
-  content_hash: sha256:7908db7614e2dcc7a2426f32bc47055edadd0b7f3763253d0f45c261713978ab
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-text
-  runtime: null
-  scope: project
-  owners:
-  - talkstream/ru-text
-  active_owner: talkstream/ru-text
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-text/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - talkstream/ru-text
-  active_owner: talkstream/ru-text
-  content_hash: sha256:d7ec7837f9f2e7ef3b21a9a97c36878f3c699f5ed54eec1f61c01a186b402e78
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-text/agents/gemini.yaml
-  runtime: null
-  scope: project
-  owners:
-  - talkstream/ru-text
-  active_owner: talkstream/ru-text
-  content_hash: sha256:806a0fa6a47c6a0e7273951c2ae86c2b7ce388f6281839d5b0159d0dc41b0be0
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-text/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - talkstream/ru-text
-  active_owner: talkstream/ru-text
-  content_hash: sha256:0679625d13b901b08b459778fbce37d86552132df214b9a1b921f07181c7c205
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-text/references/addenda.md
-  runtime: null
-  scope: project
-  owners:
-  - talkstream/ru-text
-  active_owner: talkstream/ru-text
-  content_hash: sha256:c9a06699cf1365edfca2397ab699e04c9caa0176115105d6dcb80fd25d14f0d8
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-text/references/anti-patterns.md
-  runtime: null
-  scope: project
-  owners:
-  - talkstream/ru-text
-  active_owner: talkstream/ru-text
-  content_hash: sha256:09e507ecd09ff3ecb30a4f96a9ed0f36a42ef868045b4a8740d0903c1452ea0b
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-text/references/business-writing.md
-  runtime: null
-  scope: project
-  owners:
-  - talkstream/ru-text
-  active_owner: talkstream/ru-text
-  content_hash: sha256:689895e01768e129b38ffebf0dff14f577c32b677040d361d301a561fc97b2ae
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-text/references/editorial-grammar.md
-  runtime: null
-  scope: project
-  owners:
-  - talkstream/ru-text
-  active_owner: talkstream/ru-text
-  content_hash: sha256:d33e7358d1fec6a2d4afb7c99df55eec183a7e2eafefb4a86ca6ff3c268ddf77
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-text/references/editorial-punctuation.md
-  runtime: null
-  scope: project
-  owners:
-  - talkstream/ru-text
-  active_owner: talkstream/ru-text
-  content_hash: sha256:e8ff8979eaed30635b3181482454e94791b9fa86f2e8b28bb22e41bcced6b32b
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-text/references/info-style.md
-  runtime: null
-  scope: project
-  owners:
-  - talkstream/ru-text
-  active_owner: talkstream/ru-text
-  content_hash: sha256:ed755dbcebbbcd275a722d9fda1bfedd74f58fd5cfd702cf6a3fa9b81b0fc50b
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-text/references/scoring.md
-  runtime: null
-  scope: project
-  owners:
-  - talkstream/ru-text
-  active_owner: talkstream/ru-text
-  content_hash: sha256:2556092becd94f05a5795631f06d506810eb061a85dda0594b8033580fc94bf2
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-text/references/sources.md
-  runtime: null
-  scope: project
-  owners:
-  - talkstream/ru-text
-  active_owner: talkstream/ru-text
-  content_hash: sha256:008e6bb32e64877b91d06eeb81e3e369004a29d03627550439215165d795045b
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-text/references/typography.md
-  runtime: null
-  scope: project
-  owners:
-  - talkstream/ru-text
-  active_owner: talkstream/ru-text
-  content_hash: sha256:474efb4258cffcb85ca9ca1bc7a0a46052e8e1b5712318b268b9a62ba17d591d
-- kind: project-relative
-  target: agents
-  value: .agents/skills/ru-text/references/ux-writing.md
-  runtime: null
-  scope: project
-  owners:
-  - talkstream/ru-text
-  active_owner: talkstream/ru-text
-  content_hash: sha256:7802bc126bff4f754e4eeb0f8b986dd967ac876c038d23a0a63b5846248b4cee
-- kind: project-relative
-  target: agents
-  value: .agents/skills/transcript-analysis
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/transcript-analysis/README.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-- kind: project-relative
-  target: agents
-  value: .agents/skills/transcript-analysis/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:5a2ec5787d546490d5831e40e2dcf854b46665084379b4de5847d93ea5e53565
-- kind: project-relative
-  target: agents
-  value: .agents/skills/transcript-analysis/agents/openai.yaml
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:cfeb2363e7bcfdad0909b531658048945cc6888560ae78d706f96ca078f327d3
-- kind: project-relative
-  target: agents
-  value: .agents/skills/transcript-analysis/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:fd20ff8a9594cdf2def183e9f4eec2e654c7eef1da8bce6ab475075ca3eec55c
-- kind: project-relative
-  target: agents
-  value: .agents/skills/transcript-analysis/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - mekras/project-knowlege-corpus
-  active_owner: mekras/project-knowlege-corpus
-  content_hash: sha256:4dd2a72292e983a42abdf0e0b6b168abec1f4fec9c62c79a4f3345b8c18117a9
 - kind: project-relative
   target: claude
   value: .claude/agents/analyst.md
@@ -5568,7 +3246,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:caf7279c59f4f4620508610e9b628c2f7f83294a8d788ecd21fd27625dbe6045
+  content_hash: sha256:ab52342d145822be7dc75cecb68a74fedec173b2c3ac6f8a2206fb6c534d2b87
 - kind: project-relative
   target: claude
   value: .claude/rules/ai-dev-team-connection.md
@@ -6630,7 +4308,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:8e2af55510b4b78e47161f5528ff4fd43d66b40b628851a73790e2413b5da727
+  content_hash: sha256:61785c5f3e554c2c2e0ff9fc5cb519cad4fbdec3ed60b047e847fed56b527883
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-architecture/evals/result-scenarios.json
@@ -6639,7 +4317,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:67b1bf3efb51e88391a26ec3419d21aee657bfa80c9f27665e6e01ef4d20ee2c
+  content_hash: sha256:7fe294711536524d400dc777c5cfcad6b28c80980aaeca8348c74a68511c0024
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-architecture/evals/triggers.json
@@ -6648,7 +4326,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:22b9ce8c3e30b56e53698f3f3ba766b39099e8922e5b51106a2700917f8a68f9
+  content_hash: sha256:ee96e9231387cc1b38866a00d01458668d55c9a1123f303cfe31826dab9d538d
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-architecture/references/api-design.md
@@ -6684,7 +4362,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:c2eda61c2fafa6106049c350a3678aab7a6a6f056ebaa4ffaf7539ec740054f2
+  content_hash: sha256:0d06f0792469d63f9090b580dd8380462aa9ff2a0f19ca38a059b1b780d0311e
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-architecture/references/clean-architecture.md
@@ -6714,6 +4392,15 @@ deployments:
   content_hash: sha256:a2f3931181e68617194f829f35f6e2fa23018aa6538d9062109cc4b736dcdb76
 - kind: project-relative
   target: claude
+  value: .claude/skills/ait-architecture/references/data-modeling.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:4a3252b35923ac6549d78a00a0f3f8bd1dbd527ddaf69994db3e5d74c33e7e14
+- kind: project-relative
+  target: claude
   value: .claude/skills/ait-architecture/references/decomposition.md
   runtime: null
   scope: project
@@ -6738,7 +4425,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:7ecaa350a2e6eeb48585810484d1ba07f046b0bfcbc9d2ae9c12bc515d2b08ae
+  content_hash: sha256:b13bc7e17d9c39954f429245fdb07a57fa1e63a9d37e18bf56a4b2cee781920d
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-architecture/references/evolutionary-architecture.md
@@ -8547,7 +6234,16 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:e9ce50ff5f255ab707c1f16b42a73ea61ee8ca532124ac8a167bba815c09074d
+  content_hash: sha256:6f3e503e98f2607c9672823b415e73d511899cc7db7a6b3d59b40d4b4e5c6d38
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ait-ux-design/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:432a677f203a961a1ccf7f365ba6cf7fb2460c3af7adcd965017fa4f8504969a
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-ux-design/evals/triggers.json
@@ -8556,7 +6252,16 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:10bd90253eaabc6e2eb360c72fefecc0e9c14b4d5ffa6743d91c68366a0d6fb7
+  content_hash: sha256:7848570f387ece137ab839d8e4317c02385d5b34a859eef567b60915a1f77184
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ait-ux-design/references/user-goals.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:9ab13e6ad604936980b71d41d1ef7e249824692ba68621ad8be28bd2bbae4165
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-writing
@@ -9988,6 +7693,2472 @@ deployments:
   - mekras/project-knowlege-corpus
   active_owner: mekras/project-knowlege-corpus
   content_hash: sha256:4dd2a72292e983a42abdf0e0b6b168abec1f4fec9c62c79a4f3345b8c18117a9
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-agents-md-maintenance
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-agents-md-maintenance/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:6f601b69582b53e1f61c346e2f0b7ef5e6e01234cceb7bb619b0fc78413bdd10
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-agents-md-maintenance/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:05e699217942e098edf51051faa39b53f5291745355773550be548d7f7cb757c
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-agents-md-maintenance/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:95840908a3b29b5a037408194bd1972a2c89e0258fcb188c4eaab4008456fb5d
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-agents-md-maintenance/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:7aaf02d10279520fa5fb67b1f6cf9b8efa11cad91b48fa1d6b73a5e7fc3713cf
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-agents-md-maintenance/references/content-guidelines.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:70b7f23fb22a8f64684f4d0a09b06f13702feff8a9b1e8f68e16c19c68785e4c
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-agents-md-maintenance/references/maintenance-checklist.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:5f6f266d52791e360a5fb7e955234af92d977ff4e1a55e8edbdb1c2cd061c1e5
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-audit-agents-md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-audit-agents-md/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:b93a3be4e1de60ea058496e791bf1b203cbbea4a39c4b73725057446157bd041
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-audit-agents-md/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:1d11ca26399aee551283b2f47e1242dd1512aa60a543fef825c615f36f25008b
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-audit-agents-md/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:801e7505ccdf76c620db57cf8c65905151e52b72b780943057e936ccad8d17df
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-audit-agents-md/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:acb0db0d50ac390d3a91e4376d216456e94ad820fa45e3a8726c458d84d35ea9
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-audit-agents-md/references/review-checklist.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:ff271d0eae1cf04ebadd09b571fdfafad56e464769729f65f9bc2fddda0912f1
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-audit-project
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-audit-project/README.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:544cc560eefb29ccccb09dccf1776da2fab69adc879f100e767c9eba3e4f8830
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-audit-project/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:75172451482463d0e104a0cd38ab409f0957ce1babf3db51b11787fbe95b6bf8
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-audit-project/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:62751df088e54d7af03ed9e576d328a3169ccf3b506892923b2da1cecab86066
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-audit-project/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:59ee68f6cd42056b6d96b551b866b22eff1b76bfbc864b3e174ff4706cbd989b
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-audit-project/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:bd8f5fa969ec02c33f2447b12843714d9bff5b3d3184a663a9ab11f9545100e1
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-audit-project/references/audit-checklist.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:51b43d3591dea9be637a182af597697f868ad33b666f9a16b0a95e896ffbe3dd
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-data-collection
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-data-collection/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:451c8b7c9e58494cdcb8be5880dd436cf89fc41138c44ee569610d1ed72dd492
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-data-collection/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:639845c0e32aa1992db3700b1446a09b0ec816853f8eca3610f4bece610d3fb8
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-data-collection/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:60d0a771168c5ed9c7ce797c52f74390d1b284d220d0f9c3edc9598baf3c248c
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-data-collection/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:9dd2a96d572bc8dd9ba32403ffe91eda6f100cb4874d797d7dabb331333fe78a
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-data-collection/references/data-collection-procedure.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:daf2a7d09644e9bd2369c03ea9a3e7e7ba7b20b70dde772809d6ecab48523c77
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-rule-failure-analysis
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-rule-failure-analysis/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:14eb07e778c025aa84a07db8c9fb2fddb7a43fdde4ee478772508067e6f100cd
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-rule-failure-analysis/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:d0dee7cbd260f74c793e1236f87e6e3d64fc03c9682b96d161f3300e6d930755
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-rule-failure-analysis/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:9e1c933ef08145bdbf0bf30f1e75b10d407fc4d503ead6cfd26431f65f279aaf
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-rule-failure-analysis/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:c8b46792bf5d52d1bb190b3519039ac9da85065a066ff2a4a494d6b453eb281c
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-apm
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-apm/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:ef7397b5d15db8e5bc224c39006bc746e4bbd3577a3c45457ecd4cccbeac8060
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-apm/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:8dc1fd4084ecd54dcde1a6e7f46147784e4e2c340999bf0e498a8f7115f16e4d
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-apm/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:f49c3320dd41b61f5b5066cf5e0ef38cd32a23d5bb308521e67a38667a1e0469
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-apm/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:a4aa5992acf8901ef2c6afea39ea5b66e706689e3bc5c94216ba29fb7f27bad4
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-apm/references/apm-collection-settings.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:993801567fe35e1910a5e629f2918897f30ab9022866320a918f1f94767ac97e
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-apm/references/tooling-installers.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:3c9c948579d9c6c14410161c985981a219659df5f1e523edd1fa2956dba83f0e
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-apm/scripts/eval-tools/adapters/claude
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:7510f98995313414d5b88bbb498130e6e6cf36b58a860ef719bc9c2ebdcf3497
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-apm/scripts/eval-tools/adapters/codex
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:219694bf0806d701dc8e60df17e92375d06ba06134ea9b2849899ce6e965b138
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-apm/scripts/eval-tools/check-eval-tools-drift.py
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:a6092cafa778e9ab55d523980096726d6126a610ac06e041356f436fd2e33d59
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-apm/scripts/eval-tools/evals.local.yml.sample
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:d280153242d39c3c379e5c4cfdce6f9c247ff4eb0e7fab5403c21d80d0b6f2c2
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-apm/scripts/eval-tools/manifest.txt
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:c179e84ed13f6b9f7de62e28592e8e52b7c60e8d1267c527f0faf85d69077382
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-apm/scripts/eval-tools/run-skill-evals.py
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:41d5609252bacae26f3464027b5354b44da78c5d30e0d008302d3a14a707a05f
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-apm/scripts/eval-tools/test-run-skill-evals.py
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:6e80eff02f4ae40ce8e7bdeaf2fade0da03b6c6d789c875c2c7526aa6e0d18ea
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-apm/scripts/eval-tools/validate-fixture-evals.py
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:d0c3d7bcf74d0f2ceba722c543ac840ca14cdaf3dbe757111b96589262deb681
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-apm/scripts/eval-tools/validate-hidden-unicode.py
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:9d9fe8d891d0d40026c176c324eac37c431fde139986b10460b5cc771a11f154
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-apm/scripts/eval-tools/validate-skill-descriptions.py
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:c0cdc72683bcbfc78c7a3449045ec2ded90df3404206fc0e19653d1bb99e2ea8
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-apm/scripts/eval-tools/validate-skill-result-evals.py
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:bb9b70ea7e6e7e368bb4de6c97b3a7bd7cc1fedb2df47dca20a4bd8ed6d52b84
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-apm/scripts/eval-tools/validate-trigger-evals.py
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:a06e9d4ea16fdc1358d89f0109589e0e745312c1a489106bf7737306cf208f7c
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-apm/scripts/install-eval-tools
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:39642ddbb67782bf99c4912164549b544b74fa3913e559b05bbe5118f2665464
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-apm/scripts/setup-apm-collection
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:d329255145f00e3fb3634d0a68f3c7bf0bd5ea2c815791a1ef7220a101e0ae46
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-apm/scripts/validate-apm-git-boundary.py
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:12c3ef6dc598bc8bb00af5f513677619abbcd166fde6c66de15ee59472fed7d5
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-hooks
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-hooks/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:181257a798da934ebd8813953d9c8c526469cbcfc6432d7eb8793d58bec3db67
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-hooks/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:ec5bce4608cf49faefd68b8e22ffa0a7c5a278b116a0a612df716623726b0ec9
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-hooks/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:bca5e5e1b9388ff2f2d09c61bcd873ad8d361a08bc1b07dcc1bf4bedd3c19b79
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-hooks/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:f6af75425e1762572018a9c7cccabb0a43d9459241cbe03ba4514c3737764044
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-project
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-project/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:388620c2b4a3b5a4c5ebf74e691d7736aa88041b45b4d6d5650ed54498729b69
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-project/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:65760493984e14edb658a8823c33baa0c66d82ed20533e8373949f7af8985819
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-project/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:0d8620192c70322e17985dbe5a12236b1e18a9adaf6774a2f1366a8757a7034d
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-project/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:111bb2d6a2aea1b97d90aea12606c9ad5b61f525715d14e97b30982ad3f74dee
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-subagents
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-subagents/README.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:1800564703384025dbf8b01cd04738bbe8fe31aac45b3521e41bc2f4e59feff0
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-subagents/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:db32787adcad0f934d7c9d08c5d8057b53e4bbe84e80f10f4d97731f4aa1db60
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-subagents/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:50616249cd0fe1d3c269967ea69d5da1b59ff72874471bae9ac43b0b97b0d077
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-subagents/assets/subagents.local.toml.sample
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:8b965e1aef1c2d437472b7b656370292c560105ad838d4706f627a93776d8002
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-subagents/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:12fe553009ad5dad5be4d866105fbc251f6b085a389e579c48f36efea5b6b84e
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-subagents/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:4006e914d254e246f5da59746daa41e8b94aff1b655ca4531fb8ce996cb2dfbe
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-subagents/references/operation-policy.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:5bb5f9faf5ebcad0836f604338d4936c2c9d1bed74074a760c94951fbeb04a1c
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-subagents/references/routing-patterns.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:4be177b3e1184f36d335ec7a32feea13c6f7dfe3c4e3182a2f67e5eb71e7166a
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-subagents/scripts/adapters/claude-role
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:3882e7b39f316caa72a8fdf249732b8b78586e1a8bf73f4bf1664cb7bb75b2bc
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-subagents/scripts/adapters/codex
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:65b4af9227d2f3da49fab266fceb8554232d22370162a3be735e01b7484d46bf
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-subagents/scripts/adapters/codex-role
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:2757e41f7ab9da8dc50985ff33aa75ee040c508ff30a6dab442bc117b38dfbea
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-subagents/scripts/analyze-subagent-sessions
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:82ede2c860f4199db67cfbf81f78627138d170424cd11c3581ce8894f89e6167
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-subagents/scripts/check-subagent-models
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:eb0cf29428c2698fc6d0ed20ee7fd56e814b3b4e9dd37cb3ecc2fd8f5e48fd4e
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-subagents/scripts/codex-model-subagent
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:79e34dd168f7e3fe900eaf6d8d4b6c91d85a745905f083bf3b3a9c4dd7322fb9
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-subagents/scripts/codex-usage-report
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:aafed670a550a3a774a97dabc4f74bbc8efaa37b640b019af0c69bcbd70d5d44
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-subagents/scripts/discover-subagent-models
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:08c3d82330507d947ae99c7cb24bf6895d58599f82522356c8bbf9c70d349c84
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-subagents/scripts/install-claude-tools
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:063a4c60d1a998939b2f84d44f8ea5b3632e502e2c90d0c1f2ef7b405f050902
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-subagents/scripts/install-codex-tools
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:cfa2b6d96c05df019612e9048dbf04893356612cd37f5425e74e51aa9677d4e8
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-subagents/scripts/install-subagent-tools
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:9afbe2bb2b92044058e3258af3542c760cde91cc2466a1ef1ac56daf8f27038b
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-subagents/scripts/run-execution-class
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:20e6ac14da950b47e6d9442bef6763baf4add3c764767c123550a8b3fc7cad81
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-setup-subagents/scripts/run-subagent-role
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:3ab8ef808e6af5866ef24ddf46de06490f816e6d0fb7ba71e35b37f8506e9986
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-skill-development
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-skill-development/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:60f16fd76767b83aba6a170a4b15e31c8d3e81987ce055f7f73e6559fc98548f
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-skill-development/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:97eb372906c5c91208106f8324d19b98ff270cbf1334633390b37ad917b1aaaf
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-skill-development/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:9055f01981aa9db8060757171dec122837bd70cefa17443fd434660f4cccc28b
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-skill-development/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:aabd1a71634a6868b0453222eeb488f2683caba6f0c4320398d8d72178dc30b9
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-skill-development/references/project-specific-skills.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:abd65beebc90abd19682081e51d71993414208fdf79a63a9b76690180cebe263
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-skill-development/references/review-checklist.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:c26b829f4ed71f5a090456952d59c3b20ab70a1ed55194cc080256ae2e5aafb3
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-skill-development/references/script-decision.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:2ca70a35c72e99f3d4d995fb8ce2612f1736ef608c523c16168f2064e752fb9c
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-skill-development/references/validation.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:ff8ae07ae727c2e86bc45adc3cbc9c9257eb298a50df177910710d98a14d446d
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-work-control
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-work-control/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:8f0a22a3e5b98452938ddad578627564030cb300f74523e325daa17cb92babc3
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-work-control/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:78f3cd8ddba3ab8743dc591f462c7943650b0c4fb05c0985431ad92ce35e77ac
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-work-control/assets/work-control-template.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:db53dac0d0d643aa7eef3b1e1fe495ef9fe8f8caf5b33480e3df94dd80cd9f46
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-work-control/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:12ae4d50f84caf4505e56c1dd766e9d72db84f4e94fa691e8a6190aab11c5662
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-work-control/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:5a889f6b5f6ea2680ed717283598acf09e5ddef2d68b8b858ab5e20533e51994
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-work-control/references/work-control.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:e280b6d60b57c330b0cef5c17abd7c06881b5769bfa31f791991c11a4be958e5
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-work-result-evaluation
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-work-result-evaluation/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:1eddd652510ba3efbcd611d8f59415513c3fb581694441e905e028972378146c
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-work-result-evaluation/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:8f2f2bdde7bc46631638721e3f266f83b6fc29e4d30f43a25b90e93a681b5bba
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-work-result-evaluation/assets/work-result-evaluation-case-template.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:0bc87c07ed3942a7c0bb1b40e0916aa25df44b7af3ebd38042b07cec84cd2e39
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-work-result-evaluation/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:10a766abcca3dc21a4edc9695feaa352f277badb0ba130bd334e6fe3fe2218f5
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-work-result-evaluation/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:53886909d51af15cf1a76ba85a62564e21d6508076552042437437fcd055e654
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ai-work-result-evaluation/references/work-result-evaluation.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-agent-supervisor
+  active_owner: mekras/ai-agent-supervisor
+  content_hash: sha256:80e7a25161b08f657a335bd83f66e7d17ed7250fb49a5f3b83bfa86a99387fd5
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-analysis
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-analysis/README.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-analysis/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:219b5974d8aa6db17d105ccf9e52e92fbc0fcacf348c5a8068d1a9f09d49b065
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-analysis/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:5136e3fcf9dfa59d02c1ef756f8ab3ac58927ce761fe83e0ee2ba7aea4251688
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-analysis/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:623aafbc07184ffe3f66bcbe5b16c10781c727cbb888bc784c9f17c80613e7cd
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-analysis/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:f698aa2a1f20bbe7d97a4cba0a5147353e56877a72271fe55c7c3a289eac6b49
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-analysis/references/derived-statements.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:9f4a266bbc5fa5476394b2195f4533b1a2e2ce272f4cc41b1b00f3abe6618c73
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-concepts
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-concepts/README.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-concepts/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:4b9409e9bb5e3e0b4b34a063b03c78e5718c4f09eb1d0b166a5053a8236cc1a6
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-concepts/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:400d7b1413fa747edb42aecaadde8feb4b9713ebc8277984346626db64da2d35
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-concepts/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:8ab1bf57fccafd98cd11318d8031810680726f54760c23851c6aa5101b630b84
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-concepts/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:35b9c649af2e0db7dc6f0a98af25c7431cfc726accbfeb4000d901cac24fc5f2
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-concepts/references/concept-record.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:2bc772f52c459f80959113a06b46a62dad39618704ce7a0a50c3067a5493f3b7
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-impact-audit
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-impact-audit/README.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-impact-audit/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:2d1cc2477aa177237bc6964117b3ae0b8aed31c5bb133f847ff66382eb79a2cb
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-impact-audit/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:523f8c63711f3a871e102024d43acf65114103bf185e51c98f01750183f49579
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-impact-audit/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:752f2cc566a3d22c19374c88137f3ee50262c445aa69f6e59ea92c0bab57e936
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-impact-audit/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:34de47add67661dde7033cc1eb87233b5d7764c3a2691a7bd4b1b9f84d89732e
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-impact-audit/references/impact-report.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:e1f050aeec80dcb1408181c3d651e64a5526cc51f2e763bfad1420199d56d04e
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-inventory
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-inventory/README.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-inventory/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:60b259240e0fff064be84451f19302d2331e9401c83b6e36e6915b5df1b2a80e
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-inventory/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:c5616a693609c607ce667d2b3bfd76fa534bd29cc07d7c7665af0b7c3a39dbac
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-inventory/assets/corpus.yml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:d159efe81ee6a0ceb15b8c9ca85dad5edfb6bfcd95fbcc1def391d933f869b8d
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-inventory/assets/derived-statements.yml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:ba6122f444f381ee415734ea9e1b28f942bc4f9e9451dc9a5295ce7bf98cb71b
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-inventory/assets/item.yml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:3e2cbbd0e2cba7953b504d80c34e3921a3ca60120bfd114d266e0150b47ca4b5
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-inventory/assets/operational-check.yml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:a961c2f0471c22f33d012a31b55f0d2216482897be2e87eca27e9318a7a1c57b
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-inventory/assets/source-carrier-types.yml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:5e39c6abcfe70f8b8ba6b40105ddc101663c48f5858ce25a1a62beadd53c4080
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-inventory/assets/source-kinds.yml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:febedd3b65db5ea5ce3ea616507251fcc9cf0c41bf772bb86dd982a516f86667
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-inventory/assets/source-map.yml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:4158c047ecb80bb41b6cd21b017eea773dfc0f7ed854b1679fc6bf661684d7e2
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-inventory/assets/source.yml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:6d3dbac81adf513676f00464541057d0e8eb0e7895bf019f20ad8c377310d894
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-inventory/assets/statement-kinds.yml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:673882a85ae64b1ee8055947230ba7fc8eff3ebb00b244124a89adafa73e14b4
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-inventory/assets/statements.yml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:6bc622ab47e3bfe2d3b48e698ddb826300bcd97c0f028dde7651bc527acbc608
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-inventory/assets/sync-report.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:d3f6d7380f46e6923ce9b6e9ec68f7d62bfb4e9e6a58e6ee4a5ae1e66b9fef45
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-inventory/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:3f1721cab910cbac5227f87631815665e65c8f8e5ecc86ec0ccdbc783f73ae5b
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-inventory/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:6104fd06d479ecd50655127a9d6637a0ffed44798d54c3ed441cfcb057a0de50
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-inventory/references/corpus-layout-contract.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:7db39c990179f87d39153fca0cd3b856c7e5b09bbdfa1b746f42a4d1e488eb2e
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-inventory/references/local-book-source.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:2354dfd12b9d56ef0b8ec3998ab6bd992037c8655da56a2f50e6df6efb8a66d3
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-inventory/references/manifest-and-registry.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:e897a2d60e07c1595324630e41c4bce9b9a78530c27475ba46eeee62cf09a8fa
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-inventory/references/primary-data-layer.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:5c566a89fc99a15116c25fd4ba06dbcba2485a28e4e6dc4a518d1c234ebe3a52
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-inventory/references/technical-report.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:ab66df0afe7b67a965e19bbd88ae04b494532c3d7e2091e0a64be02b661eedcb
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-inventory/scripts/validate-corpus-layout.py
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:7ff7e32ee2cfb56aa69dbec85c44c44fd6387d6fd36c0357c993558af2b4f7d2
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-normalization
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-normalization/README.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-normalization/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:23b7dff4054ab80d2870cf1138820e026776e5ead7403f36a3753b6c0f5098d0
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-normalization/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:34dbc9ab27ed2c73bd435d36da423c5c4608a656904077fb5a3ba6eaed218e60
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-normalization/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:211e8c540a585b2df1a15475f64ad0c0980a257416b14d9c68c00a4ac942b5e6
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-normalization/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:0f6da208e3148d33b4f0efbaace94747be2b2052b9e79223aebdad9379cd9e10
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-pipeline
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-pipeline/README.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:3caf71e8b020b442a01a38703d711dff8dc3b39f3577e1801c1cffc84c3a77df
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-pipeline/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:9cf88ef12a694812b5b14581e8b1d16399c7786af2b2f46359d38740b5872553
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-pipeline/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:c0a5d03d883075121cd931936d0c0dc8144fb27abc4f69fbc1d5bc80841d4d40
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-pipeline/assets/operations.yml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:0945656cb2c92737220e75b6d3a7ad462055a0f5d82978ceccc9710967da9058
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-pipeline/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:3d23498b139390d4a542a4dbe170bc3a90974071d0129b4c165526e8f24410f3
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-pipeline/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:62bd62142bc4ef3c677c36a5b69c0a0371160f641d6bb98051e247a2b8258f54
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-pipeline/references/adapter-contract.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:2cb475b0af4516380c015699a646227a149daaa8cd8de2a29d80c442ec8e26b9
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-pipeline/references/operations-contract.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:cea7c2550d5d124ca2b16a46b8567b83a20eaea51adbc982d4abe8f117fc9193
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-pipeline/references/workflow-contract.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:ab54c240ce4b23a6d63270a0f771282c394ce68c5bd39f767e4065e53b0293de
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-pipeline/scripts/run-corpus-operations.py
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:75a0d83536f223ea3d747925a01c9fd3751d1f5f2306da5b4611519537af1049
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-retrieval-evaluation
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-retrieval-evaluation/README.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:5eeebad995868818f917732970acba27433102ecdcc6e96c85a79a1e0a12f546
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-retrieval-evaluation/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:b7f52e646243d845394abb587279c19e60b8f0d0efc15414d87af4e7ee387ea4
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-retrieval-evaluation/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:381585c695118708ae6efdf6c6b8fe1ddb148948e7d8ab8b4fcbce4bab44a067
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-retrieval-evaluation/assets/evaluation-config.yml.sample
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:8cc0a7509352dce6a760eaea4b1c0abc0063a28de6b982ad3422f638a4433ed8
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-retrieval-evaluation/assets/evaluation-suite.yml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:755456be367aec4b5ac6220f0a338117ed24005d07bc35492e89ec3b032be588
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-retrieval-evaluation/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:932b50e7950b3099ec52dee005fdb0828b9d6d940056798a7cdddb241323d202
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-retrieval-evaluation/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:022cbbcf2c5a239247476d5243f66361059595b20ebb483912bb93d4f01c4d49
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-retrieval-evaluation/references/evaluation-protocol.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:e4ca60cdf6d9ce79a6de97ca9b494591cc95a97e439585fe0cacadb4efa99a88
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-retrieval-evaluation/scripts/evaluation_suite.py
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:cc0a649e1d583a79c0bfc9990045e11c384e13e202116acf4aa1498ca7e7a677
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-retrieval-evaluation/scripts/run-evaluation-suite.py
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:2ed77378bee3a91928bdd71c491bfa7af16edc9e0b042e61a89682d53328ac47
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-retrieval-evaluation/scripts/sample-source-sections.py
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:e86f25d00a8e8ec12008e1104ab8e3902dec81086b7daef801e24389a0d79802
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-retrieval-evaluation/scripts/validate-evaluation-suite.py
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:b4c9652578f77c79c3858648197b68f686669959bdc14ddfe1805277ee162d29
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-setup
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-setup/README.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:30a19dac14a9e2da6434306f27ccfa3be6bf732062566abc9648cbcfa213bad4
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-setup/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:635e2d07210bcd290549bc6fe8a298a7a954ae814e4c44e2d07c7cb05fe23583
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-setup/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:ac85735a3278bc36c4fb1dff6674a0d659e435a6e0c6f2e3dc6ac41ebb66b1c7
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-setup/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:bb50c231bac124792f26ac3e643a2601861efde8967810f1d202c1fc3e9fe142
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-setup/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:42b0c877a79b4678ca9e26e6239c258c97fceea067c688f6258f6b6300da6b15
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-setup/references/agents-instructions.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:aa314f7b79446c1e1a9cadf2a8dcc1b22fe6564218e0d8a39ab4ec9cae225813
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-sources-add
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-sources-add/README.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:900010106e503f34334df961ccb3f9db58393e74e401c69f290d46e892a783c0
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-sources-add/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:77491b36f146ddf2fd2e52df35894060449dde1945b491dafa37aab728327865
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-sources-add/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:5645fbc469a75f08156d6d34689db7b734e7f93beb2a5a7976217de3f2b0f6d5
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-sources-add/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:62800c5aecf61af7b91b93a72f06847ccaff2a324d14be949aed022720d3f6f2
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-sources-add/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:02c5f6c3f360a72e6862106fbfec7e5bae6defe9d797ae819485fb6846b45206
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-sources-add/references/source-contract.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:43046b4f443835c819de878b5af8b6923b4c383e1e9e67b7586c61ef081eb21c
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-statements
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-statements/README.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-statements/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:725daaa69935a3d89096939532511c0abf28732a333729a6a9f32db0b555ecab
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-statements/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:93f06a280391d6b11adbd6a6a262720cc1d45f2156fc28d6740181f9d26ce1a2
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-statements/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:cff6717d9a8dada04d4fbc37b7de3fdef039766a9f636ef0f9731a8d421fdc41
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-statements/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:787671c2452d92bfa5fa76e066e3882a231ebc5f4de12f9c59babe66ae36f431
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-statements/references/extraction-coverage.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:6faa514246694c8d3e93439b7272b9c2e5b271d32ef719373a68db484c92225d
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-statements/references/statement-ids.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:ab4f0ac3734fd9d1b94dbbaf341d99d72b4126b4016ffd49261a15bb43e6933c
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-status
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-status/README.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-status/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:0c7dff393c8239cb693acb53ce66517db50511514913213e4d664e5441772ca7
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-status/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:d4a50f2cc34b11f35de7bd605df4561f9feaca3bcd311d975f7d1e7f1e10b3bc
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-status/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:b9fea4467136bd8adbe1737efab2164703f0cfc7a548086a647bfa435835e252
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-status/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:60ce53cbfc3b6e68848d46b65fccc9d21aa77d9de1561667470cfb196553c978
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-transcription
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-transcription/README.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:2b03605ab72900573575b6bbabdd4432ca1b53178305c212472c20d885735c58
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-transcription/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:d4724cef6ae565796c747dfef7f46b6df35a66c3f5589294a3aef5ea02bae108
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-transcription/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:2652705f7d1feba992465291e2d3177555fb2741954452d55c08f87eabe258df
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-transcription/assets/transcription.yml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:fbef21da74cf03ebce5db46d820d27cf8eb5879b58e37fd815071a6c101ae47f
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-transcription/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:694d33f0bf073e5e0adbe89cda3b129d65ea2ff827db242702b13ca77bf201d1
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-transcription/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:04b6c3a55e9003121d18975163286bc886b13614ef870c154426686325b23ade
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-transcription/references/transcription-contract.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:fcb8f32d990644cb2d0204024599be7d228bbb8ead81f97f48fd17318a8a9909
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-transcription/scripts/validate-transcription-result.py
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:9ea9a7edc8c4f88b093e3eb0d212db4a61fe5a8014e31951f5c448362f556c58
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-validation
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-validation/README.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-validation/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:a5b8434623b8c81c5f9c1cfc03c456e8d56f723a0e150aef6245b50dec6252c8
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-validation/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:a78265a4fc56ffe101c18a9ae4217c166267744ceb9dc56c550db167e1d57c5d
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-validation/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:2b95c4902ab99add3e08046571ccdd1ccb8087d1eb0d415756d2a52afc6933e8
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-validation/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:da105b6d2f806db447ae93b9bfaf583eb4bb8f4f1f8c1e86e09a61c97371723f
+- kind: project-relative
+  target: codex
+  value: .agents/skills/kc-validation/references/corpus-checklist.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:70bfe03beca8ff3741ece311a0dafc8fdbb08842efe15b857dec92754cf3bc0b
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-check
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-check/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:696f422c0a56e84793e8f83ae32e88ee00c2b792082b459dd91ef3467b629d71
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-lang
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-russian-language
+  active_owner: mekras/ai-russian-language
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-lang/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-russian-language
+  active_owner: mekras/ai-russian-language
+  content_hash: sha256:b9b010dfbe86176a48d493d794e33998fca07526350273b3cfdb7252784762de
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-lang/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-russian-language
+  active_owner: mekras/ai-russian-language
+  content_hash: sha256:df9717b4771de60e542b34bb9b3411a40ad66b76fa61e72b98483aad3e2a575a
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-lang/assets/ru-text-LICENSE.txt
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-russian-language
+  active_owner: mekras/ai-russian-language
+  content_hash: sha256:37ea601e35a544e6a4b08b1c5cb126543b2ea6dc14b23620f12bdc11a00ba839
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-lang/assets/strict-replacements.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-russian-language
+  active_owner: mekras/ai-russian-language
+  content_hash: sha256:f38bd8549f10d7f9aa5b091c4249031c67c2472a9f3a59756197fe88444e883b
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-lang/evals/compose.jsonl
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-russian-language
+  active_owner: mekras/ai-russian-language
+  content_hash: sha256:02b8c0c527e7667def07a6169dff52e05053040db12cafdd32039042a093b4e3
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-lang/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-russian-language
+  active_owner: mekras/ai-russian-language
+  content_hash: sha256:11f1451c79da8ea427d34c9c66188f64baa8357874dd69cbbadc249b39b64d41
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-lang/references/development-rules.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-russian-language
+  active_owner: mekras/ai-russian-language
+  content_hash: sha256:e9300f58b71cb18ef826064c61b7de34bc55dc78d8384bbba50666f01a0000c5
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-lang/references/main-rules.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-russian-language
+  active_owner: mekras/ai-russian-language
+  content_hash: sha256:3ec5d98a6361992fb687ba1678ca23f4fc96001c72cd8f5a0f18b9c76dac6ff1
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-lang/references/strict-rules.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-russian-language
+  active_owner: mekras/ai-russian-language
+  content_hash: sha256:82ecb6c85dedac551073891fe0992ba394cc0edd1151b7bd46f374716bb8d497
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-lang/references/technical-russian.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/ai-russian-language
+  active_owner: mekras/ai-russian-language
+  content_hash: sha256:a32aaaae7f5ab9d534d9459bda616323d059701b1850d3ea35a43294012c0e18
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-score
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-score/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:7908db7614e2dcc7a2426f32bc47055edadd0b7f3763253d0f45c261713978ab
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-text
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-text/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:d7ec7837f9f2e7ef3b21a9a97c36878f3c699f5ed54eec1f61c01a186b402e78
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-text/agents/gemini.yaml
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:806a0fa6a47c6a0e7273951c2ae86c2b7ce388f6281839d5b0159d0dc41b0be0
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-text/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:0679625d13b901b08b459778fbce37d86552132df214b9a1b921f07181c7c205
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-text/references/addenda.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:c9a06699cf1365edfca2397ab699e04c9caa0176115105d6dcb80fd25d14f0d8
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-text/references/anti-patterns.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:09e507ecd09ff3ecb30a4f96a9ed0f36a42ef868045b4a8740d0903c1452ea0b
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-text/references/business-writing.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:689895e01768e129b38ffebf0dff14f577c32b677040d361d301a561fc97b2ae
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-text/references/editorial-grammar.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:d33e7358d1fec6a2d4afb7c99df55eec183a7e2eafefb4a86ca6ff3c268ddf77
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-text/references/editorial-punctuation.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:e8ff8979eaed30635b3181482454e94791b9fa86f2e8b28bb22e41bcced6b32b
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-text/references/info-style.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:ed755dbcebbbcd275a722d9fda1bfedd74f58fd5cfd702cf6a3fa9b81b0fc50b
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-text/references/scoring.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:2556092becd94f05a5795631f06d506810eb061a85dda0594b8033580fc94bf2
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-text/references/sources.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:008e6bb32e64877b91d06eeb81e3e369004a29d03627550439215165d795045b
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-text/references/typography.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:474efb4258cffcb85ca9ca1bc7a0a46052e8e1b5712318b268b9a62ba17d591d
+- kind: project-relative
+  target: codex
+  value: .agents/skills/ru-text/references/ux-writing.md
+  runtime: null
+  scope: project
+  owners:
+  - talkstream/ru-text
+  active_owner: talkstream/ru-text
+  content_hash: sha256:7802bc126bff4f754e4eeb0f8b986dd967ac876c038d23a0a63b5846248b4cee
+- kind: project-relative
+  target: codex
+  value: .agents/skills/transcript-analysis
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/transcript-analysis/README.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+- kind: project-relative
+  target: codex
+  value: .agents/skills/transcript-analysis/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:5a2ec5787d546490d5831e40e2dcf854b46665084379b4de5847d93ea5e53565
+- kind: project-relative
+  target: codex
+  value: .agents/skills/transcript-analysis/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:cfeb2363e7bcfdad0909b531658048945cc6888560ae78d706f96ca078f327d3
+- kind: project-relative
+  target: codex
+  value: .agents/skills/transcript-analysis/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:fd20ff8a9594cdf2def183e9f4eec2e654c7eef1da8bce6ab475075ca3eec55c
+- kind: project-relative
+  target: codex
+  value: .agents/skills/transcript-analysis/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - mekras/project-knowlege-corpus
+  active_owner: mekras/project-knowlege-corpus
+  content_hash: sha256:4dd2a72292e983a42abdf0e0b6b168abec1f4fec9c62c79a4f3345b8c18117a9
+- kind: project-relative
+  target: codex
+  value: .codex/agents/analyst.toml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:413cba0c5201c93838ec5820e01409242f875106f0f9d4ca1d526e4331631545
+- kind: project-relative
+  target: codex
+  value: .codex/agents/coder.toml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:2349110058391c4cf5aef9f15679ba59d2e372c40ad0a31a27a5fab0f9589c6d
+- kind: project-relative
+  target: codex
+  value: .codex/agents/documentation-reader.toml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:df385d427877feb672f91e38d90a1115dbe1d9c8b81688fb5da2d96933ee4223
+- kind: project-relative
+  target: codex
+  value: .codex/agents/legal.toml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:8f9e2b09b13e26821fa86963442c24c6acd79dc4d0f05cc6869d2c1e3fb851ac
+- kind: project-relative
+  target: codex
+  value: .codex/agents/normalizer.toml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:e4564cf987fd974833fa5bf2d879d8d8b1db357457eb284ca097670562fded55
+- kind: project-relative
+  target: codex
+  value: .codex/agents/project-manager.toml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:107ed875b64ebe972258f4276d1c8cb6b4d3ebf51cafc9f6c1436b4ea3eb5a70
+- kind: project-relative
+  target: codex
+  value: .codex/agents/reliability-engineer.toml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:0b0cfdb980136e2998ec402d264f07efd706cd80a3e0338ebea4c2f7fc050443
+- kind: project-relative
+  target: codex
+  value: .codex/agents/security-engineer.toml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:aa1cea2ad9bcad7cdad1f19bf10cdbf055620b0bfb8ebc70140d914bb5c779b2
+- kind: project-relative
+  target: codex
+  value: .codex/agents/software-architect.toml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:3c7674b93abc09eb7b4cac9603c0799c3ab59a6899b7532fcbae694346bfed14
+- kind: project-relative
+  target: codex
+  value: .codex/agents/source-inventory.toml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:e219b8a3da50480d458cce6e050360ee7419eccb3ce5727ff1788ccb34371ba4
+- kind: project-relative
+  target: codex
+  value: .codex/agents/statement-extractor.toml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:1c4c38aa335c5dfbcb4d24ab0ed6f80be011d8be4c13b03bc5189e92ffdf5581
+- kind: project-relative
+  target: codex
+  value: .codex/agents/technical-writer.toml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:897d306e51d31482502e9cb5466ad8889d11edead33c6dba33a0e74e9b17c703
+- kind: project-relative
+  target: codex
+  value: .codex/agents/ux-specialist.toml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:d91df000f8720a1a23427e5cbed70dd18fdcfb4c6df7191bb2c6603d463d3238
 local_deployed_files:
 - .agents/skills/ait-analysis
 - .agents/skills/ait-analysis/SKILL.md
@@ -10007,6 +10178,7 @@ local_deployed_files:
 - .agents/skills/ait-architecture/references/clean-architecture.md
 - .agents/skills/ait-architecture/references/component-design.md
 - .agents/skills/ait-architecture/references/core-principles.md
+- .agents/skills/ait-architecture/references/data-modeling.md
 - .agents/skills/ait-architecture/references/decomposition.md
 - .agents/skills/ait-architecture/references/distributed-tradeoffs.md
 - .agents/skills/ait-architecture/references/domain-modeling.md
@@ -10211,7 +10383,9 @@ local_deployed_files:
 - .agents/skills/ait-ux-audit/evals/triggers.json
 - .agents/skills/ait-ux-design
 - .agents/skills/ait-ux-design/SKILL.md
+- .agents/skills/ait-ux-design/evals/result-scenarios.json
 - .agents/skills/ait-ux-design/evals/triggers.json
+- .agents/skills/ait-ux-design/references/user-goals.md
 - .agents/skills/ait-writing
 - .agents/skills/ait-writing/SKILL.md
 - .agents/skills/ait-writing/assets/document-design-template.md
@@ -10250,6 +10424,7 @@ local_deployed_files:
 - .claude/skills/ait-architecture/references/clean-architecture.md
 - .claude/skills/ait-architecture/references/component-design.md
 - .claude/skills/ait-architecture/references/core-principles.md
+- .claude/skills/ait-architecture/references/data-modeling.md
 - .claude/skills/ait-architecture/references/decomposition.md
 - .claude/skills/ait-architecture/references/distributed-tradeoffs.md
 - .claude/skills/ait-architecture/references/domain-modeling.md
@@ -10454,32 +10629,48 @@ local_deployed_files:
 - .claude/skills/ait-ux-audit/evals/triggers.json
 - .claude/skills/ait-ux-design
 - .claude/skills/ait-ux-design/SKILL.md
+- .claude/skills/ait-ux-design/evals/result-scenarios.json
 - .claude/skills/ait-ux-design/evals/triggers.json
+- .claude/skills/ait-ux-design/references/user-goals.md
 - .claude/skills/ait-writing
 - .claude/skills/ait-writing/SKILL.md
 - .claude/skills/ait-writing/assets/document-design-template.md
 - .claude/skills/ait-writing/assets/documentation-structure-template.md
 - .claude/skills/ait-writing/evals/result-scenarios.json
 - .claude/skills/ait-writing/evals/triggers.json
+- .codex/agents/analyst.toml
+- .codex/agents/coder.toml
+- .codex/agents/documentation-reader.toml
+- .codex/agents/legal.toml
+- .codex/agents/normalizer.toml
+- .codex/agents/project-manager.toml
+- .codex/agents/reliability-engineer.toml
+- .codex/agents/security-engineer.toml
+- .codex/agents/software-architect.toml
+- .codex/agents/source-inventory.toml
+- .codex/agents/statement-extractor.toml
+- .codex/agents/technical-writer.toml
+- .codex/agents/ux-specialist.toml
 local_deployed_file_hashes:
   .agents/skills/ait-analysis/SKILL.md: sha256:e39f9a73dfcfa12928a8d30640758408186ead74dffd1f4c95505419de30ee99
   .agents/skills/ait-analysis/evals/triggers.json: sha256:a8137c3527cf1880fe996f54dbb96c219023f21bfc9c0462119a0966692c14a7
   .agents/skills/ait-arch-revalidation/SKILL.md: sha256:9058d1f3aff9b63cb4e69e5de0e9c61abf39f1e836328d3c715d1b4355f496bb
   .agents/skills/ait-arch-revalidation/evals/result-scenarios.json: sha256:f3ddde3ca30761cb474266b9f1419c4811851f8e53a0119ac570784c00c8b314
   .agents/skills/ait-arch-revalidation/evals/triggers.json: sha256:3581658f9e0a38b741138f8a0f3dcc29653b19ee47e9ea2380f87e3c9dae56bf
-  .agents/skills/ait-architecture/SKILL.md: sha256:8e2af55510b4b78e47161f5528ff4fd43d66b40b628851a73790e2413b5da727
-  .agents/skills/ait-architecture/evals/result-scenarios.json: sha256:67b1bf3efb51e88391a26ec3419d21aee657bfa80c9f27665e6e01ef4d20ee2c
-  .agents/skills/ait-architecture/evals/triggers.json: sha256:22b9ce8c3e30b56e53698f3f3ba766b39099e8922e5b51106a2700917f8a68f9
+  .agents/skills/ait-architecture/SKILL.md: sha256:61785c5f3e554c2c2e0ff9fc5cb519cad4fbdec3ed60b047e847fed56b527883
+  .agents/skills/ait-architecture/evals/result-scenarios.json: sha256:7fe294711536524d400dc777c5cfcad6b28c80980aaeca8348c74a68511c0024
+  .agents/skills/ait-architecture/evals/triggers.json: sha256:ee96e9231387cc1b38866a00d01458668d55c9a1123f303cfe31826dab9d538d
   .agents/skills/ait-architecture/references/api-design.md: sha256:08f6833c1038f0a878b83134de25c6ab9ecc18bfbd0f7e88d1f18e8e03faa485
   .agents/skills/ait-architecture/references/architectural-decisions.md: sha256:5b21f52f4e56e6df4ae87d9b2a283a4d489161da95fe4544057c7ea8da430527
   .agents/skills/ait-architecture/references/architectural-forces.md: sha256:294c768028669e56c03fe1174b752a728ec8b9b992e0cc086a4d05cea3c46961
-  .agents/skills/ait-architecture/references/architecture-documentation.md: sha256:c2eda61c2fafa6106049c350a3678aab7a6a6f056ebaa4ffaf7539ec740054f2
+  .agents/skills/ait-architecture/references/architecture-documentation.md: sha256:0d06f0792469d63f9090b580dd8380462aa9ff2a0f19ca38a059b1b780d0311e
   .agents/skills/ait-architecture/references/clean-architecture.md: sha256:c6b4379752d2d38e7af23ba0bfe9676f3a89913a9dc9830053d504bfafc1ebb8
   .agents/skills/ait-architecture/references/component-design.md: sha256:997d1f283aacdb8c4a9bc3ab589b3da0916967f59555d03072750b4da79085e6
   .agents/skills/ait-architecture/references/core-principles.md: sha256:a2f3931181e68617194f829f35f6e2fa23018aa6538d9062109cc4b736dcdb76
+  .agents/skills/ait-architecture/references/data-modeling.md: sha256:4a3252b35923ac6549d78a00a0f3f8bd1dbd527ddaf69994db3e5d74c33e7e14
   .agents/skills/ait-architecture/references/decomposition.md: sha256:34dd146e443c7d25dda20c96326f6f6cc75d294f61136a181bdafcf909ef94ce
   .agents/skills/ait-architecture/references/distributed-tradeoffs.md: sha256:982e5f4a60ee41c0a142bf07077dee7742a952b88674d0aae0c242d4bc71c753
-  .agents/skills/ait-architecture/references/domain-modeling.md: sha256:7ecaa350a2e6eeb48585810484d1ba07f046b0bfcbc9d2ae9c12bc515d2b08ae
+  .agents/skills/ait-architecture/references/domain-modeling.md: sha256:b13bc7e17d9c39954f429245fdb07a57fa1e63a9d37e18bf56a4b2cee781920d
   .agents/skills/ait-architecture/references/evolutionary-architecture.md: sha256:2dd19c458e7496ce56ce05508bab948ddf9af58afe364086ff6927b004aee50b
   .agents/skills/ait-architecture/references/organization-principles.md: sha256:fd04b132cb771943631b97555b65eed9858ed8e4ce164b350973ff24197125ee
   .agents/skills/ait-architecture/references/quality-criteria.md: sha256:da50dc7e9216578be8fa50afb407934d8bf00a8d27b32f67302627bce1505e03
@@ -10641,8 +10832,10 @@ local_deployed_file_hashes:
   .agents/skills/ait-ui-kit/references/ui-kit-workflow.md: sha256:280306f0114c6167a38e48a220fee7ef16078d2127a7cdbe9c85271e9ddded53
   .agents/skills/ait-ux-audit/SKILL.md: sha256:6517fc217ecfc6c2649c0c1012ecf5fa9af122aa9ced07e30ebf02cc5f117d1a
   .agents/skills/ait-ux-audit/evals/triggers.json: sha256:3bfc02dfa96de5f68a75f77fb071404fcb9a0e78265463901299345576fd6400
-  .agents/skills/ait-ux-design/SKILL.md: sha256:e9ce50ff5f255ab707c1f16b42a73ea61ee8ca532124ac8a167bba815c09074d
-  .agents/skills/ait-ux-design/evals/triggers.json: sha256:10bd90253eaabc6e2eb360c72fefecc0e9c14b4d5ffa6743d91c68366a0d6fb7
+  .agents/skills/ait-ux-design/SKILL.md: sha256:6f3e503e98f2607c9672823b415e73d511899cc7db7a6b3d59b40d4b4e5c6d38
+  .agents/skills/ait-ux-design/evals/result-scenarios.json: sha256:432a677f203a961a1ccf7f365ba6cf7fb2460c3af7adcd965017fa4f8504969a
+  .agents/skills/ait-ux-design/evals/triggers.json: sha256:7848570f387ece137ab839d8e4317c02385d5b34a859eef567b60915a1f77184
+  .agents/skills/ait-ux-design/references/user-goals.md: sha256:9ab13e6ad604936980b71d41d1ef7e249824692ba68621ad8be28bd2bbae4165
   .agents/skills/ait-writing/SKILL.md: sha256:8624eaf38b92bbacbbdf41d6483361255e6a53ce4d3d8f8128f20be966b9b226
   .agents/skills/ait-writing/assets/document-design-template.md: sha256:ce2a51b05a4c231777d5bbf6e9f406a38ae988d34d10cbc02e22d22a73689189
   .agents/skills/ait-writing/assets/documentation-structure-template.md: sha256:b146cf88845fe0543c05ab2586c148e0a9007cb1983fe9058d738b92cf708a11
@@ -10660,26 +10853,27 @@ local_deployed_file_hashes:
   .claude/agents/source-inventory.md: sha256:74b4f2dafdc4284df6daba8800413b2dacd1b57316055831d58405406fa8b52a
   .claude/agents/statement-extractor.md: sha256:705358fad86d5bd40aed99133e12eee56d3c1d55f4a32baf74cfba36b8f92bde
   .claude/agents/technical-writer.md: sha256:12272907b3d9115299ba62c70de74bacf277148608ab25e5a1d0013e848572a3
-  .claude/agents/ux-specialist.md: sha256:caf7279c59f4f4620508610e9b628c2f7f83294a8d788ecd21fd27625dbe6045
+  .claude/agents/ux-specialist.md: sha256:ab52342d145822be7dc75cecb68a74fedec173b2c3ac6f8a2206fb6c534d2b87
   .claude/rules/ai-dev-team-connection.md: sha256:8760b51f99f846da11e9e7a3ddf7f9b6ab8fc0dcfbb504b58120361fcd3e8577
   .claude/skills/ait-analysis/SKILL.md: sha256:e39f9a73dfcfa12928a8d30640758408186ead74dffd1f4c95505419de30ee99
   .claude/skills/ait-analysis/evals/triggers.json: sha256:a8137c3527cf1880fe996f54dbb96c219023f21bfc9c0462119a0966692c14a7
   .claude/skills/ait-arch-revalidation/SKILL.md: sha256:9058d1f3aff9b63cb4e69e5de0e9c61abf39f1e836328d3c715d1b4355f496bb
   .claude/skills/ait-arch-revalidation/evals/result-scenarios.json: sha256:f3ddde3ca30761cb474266b9f1419c4811851f8e53a0119ac570784c00c8b314
   .claude/skills/ait-arch-revalidation/evals/triggers.json: sha256:3581658f9e0a38b741138f8a0f3dcc29653b19ee47e9ea2380f87e3c9dae56bf
-  .claude/skills/ait-architecture/SKILL.md: sha256:8e2af55510b4b78e47161f5528ff4fd43d66b40b628851a73790e2413b5da727
-  .claude/skills/ait-architecture/evals/result-scenarios.json: sha256:67b1bf3efb51e88391a26ec3419d21aee657bfa80c9f27665e6e01ef4d20ee2c
-  .claude/skills/ait-architecture/evals/triggers.json: sha256:22b9ce8c3e30b56e53698f3f3ba766b39099e8922e5b51106a2700917f8a68f9
+  .claude/skills/ait-architecture/SKILL.md: sha256:61785c5f3e554c2c2e0ff9fc5cb519cad4fbdec3ed60b047e847fed56b527883
+  .claude/skills/ait-architecture/evals/result-scenarios.json: sha256:7fe294711536524d400dc777c5cfcad6b28c80980aaeca8348c74a68511c0024
+  .claude/skills/ait-architecture/evals/triggers.json: sha256:ee96e9231387cc1b38866a00d01458668d55c9a1123f303cfe31826dab9d538d
   .claude/skills/ait-architecture/references/api-design.md: sha256:08f6833c1038f0a878b83134de25c6ab9ecc18bfbd0f7e88d1f18e8e03faa485
   .claude/skills/ait-architecture/references/architectural-decisions.md: sha256:5b21f52f4e56e6df4ae87d9b2a283a4d489161da95fe4544057c7ea8da430527
   .claude/skills/ait-architecture/references/architectural-forces.md: sha256:294c768028669e56c03fe1174b752a728ec8b9b992e0cc086a4d05cea3c46961
-  .claude/skills/ait-architecture/references/architecture-documentation.md: sha256:c2eda61c2fafa6106049c350a3678aab7a6a6f056ebaa4ffaf7539ec740054f2
+  .claude/skills/ait-architecture/references/architecture-documentation.md: sha256:0d06f0792469d63f9090b580dd8380462aa9ff2a0f19ca38a059b1b780d0311e
   .claude/skills/ait-architecture/references/clean-architecture.md: sha256:c6b4379752d2d38e7af23ba0bfe9676f3a89913a9dc9830053d504bfafc1ebb8
   .claude/skills/ait-architecture/references/component-design.md: sha256:997d1f283aacdb8c4a9bc3ab589b3da0916967f59555d03072750b4da79085e6
   .claude/skills/ait-architecture/references/core-principles.md: sha256:a2f3931181e68617194f829f35f6e2fa23018aa6538d9062109cc4b736dcdb76
+  .claude/skills/ait-architecture/references/data-modeling.md: sha256:4a3252b35923ac6549d78a00a0f3f8bd1dbd527ddaf69994db3e5d74c33e7e14
   .claude/skills/ait-architecture/references/decomposition.md: sha256:34dd146e443c7d25dda20c96326f6f6cc75d294f61136a181bdafcf909ef94ce
   .claude/skills/ait-architecture/references/distributed-tradeoffs.md: sha256:982e5f4a60ee41c0a142bf07077dee7742a952b88674d0aae0c242d4bc71c753
-  .claude/skills/ait-architecture/references/domain-modeling.md: sha256:7ecaa350a2e6eeb48585810484d1ba07f046b0bfcbc9d2ae9c12bc515d2b08ae
+  .claude/skills/ait-architecture/references/domain-modeling.md: sha256:b13bc7e17d9c39954f429245fdb07a57fa1e63a9d37e18bf56a4b2cee781920d
   .claude/skills/ait-architecture/references/evolutionary-architecture.md: sha256:2dd19c458e7496ce56ce05508bab948ddf9af58afe364086ff6927b004aee50b
   .claude/skills/ait-architecture/references/organization-principles.md: sha256:fd04b132cb771943631b97555b65eed9858ed8e4ce164b350973ff24197125ee
   .claude/skills/ait-architecture/references/quality-criteria.md: sha256:da50dc7e9216578be8fa50afb407934d8bf00a8d27b32f67302627bce1505e03
@@ -10841,10 +11035,25 @@ local_deployed_file_hashes:
   .claude/skills/ait-ui-kit/references/ui-kit-workflow.md: sha256:280306f0114c6167a38e48a220fee7ef16078d2127a7cdbe9c85271e9ddded53
   .claude/skills/ait-ux-audit/SKILL.md: sha256:6517fc217ecfc6c2649c0c1012ecf5fa9af122aa9ced07e30ebf02cc5f117d1a
   .claude/skills/ait-ux-audit/evals/triggers.json: sha256:3bfc02dfa96de5f68a75f77fb071404fcb9a0e78265463901299345576fd6400
-  .claude/skills/ait-ux-design/SKILL.md: sha256:e9ce50ff5f255ab707c1f16b42a73ea61ee8ca532124ac8a167bba815c09074d
-  .claude/skills/ait-ux-design/evals/triggers.json: sha256:10bd90253eaabc6e2eb360c72fefecc0e9c14b4d5ffa6743d91c68366a0d6fb7
+  .claude/skills/ait-ux-design/SKILL.md: sha256:6f3e503e98f2607c9672823b415e73d511899cc7db7a6b3d59b40d4b4e5c6d38
+  .claude/skills/ait-ux-design/evals/result-scenarios.json: sha256:432a677f203a961a1ccf7f365ba6cf7fb2460c3af7adcd965017fa4f8504969a
+  .claude/skills/ait-ux-design/evals/triggers.json: sha256:7848570f387ece137ab839d8e4317c02385d5b34a859eef567b60915a1f77184
+  .claude/skills/ait-ux-design/references/user-goals.md: sha256:9ab13e6ad604936980b71d41d1ef7e249824692ba68621ad8be28bd2bbae4165
   .claude/skills/ait-writing/SKILL.md: sha256:8624eaf38b92bbacbbdf41d6483361255e6a53ce4d3d8f8128f20be966b9b226
   .claude/skills/ait-writing/assets/document-design-template.md: sha256:ce2a51b05a4c231777d5bbf6e9f406a38ae988d34d10cbc02e22d22a73689189
   .claude/skills/ait-writing/assets/documentation-structure-template.md: sha256:b146cf88845fe0543c05ab2586c148e0a9007cb1983fe9058d738b92cf708a11
   .claude/skills/ait-writing/evals/result-scenarios.json: sha256:e42d95d0fb8acc78afb95de81be71994bdbc597f2589e87e4bce03d970ce54e4
   .claude/skills/ait-writing/evals/triggers.json: sha256:ff5b56a332fa8ac234a7162b77047f8627f3753310116e1c8b8cad99d26caee2
+  .codex/agents/analyst.toml: sha256:413cba0c5201c93838ec5820e01409242f875106f0f9d4ca1d526e4331631545
+  .codex/agents/coder.toml: sha256:2349110058391c4cf5aef9f15679ba59d2e372c40ad0a31a27a5fab0f9589c6d
+  .codex/agents/documentation-reader.toml: sha256:df385d427877feb672f91e38d90a1115dbe1d9c8b81688fb5da2d96933ee4223
+  .codex/agents/legal.toml: sha256:8f9e2b09b13e26821fa86963442c24c6acd79dc4d0f05cc6869d2c1e3fb851ac
+  .codex/agents/normalizer.toml: sha256:e4564cf987fd974833fa5bf2d879d8d8b1db357457eb284ca097670562fded55
+  .codex/agents/project-manager.toml: sha256:107ed875b64ebe972258f4276d1c8cb6b4d3ebf51cafc9f6c1436b4ea3eb5a70
+  .codex/agents/reliability-engineer.toml: sha256:0b0cfdb980136e2998ec402d264f07efd706cd80a3e0338ebea4c2f7fc050443
+  .codex/agents/security-engineer.toml: sha256:aa1cea2ad9bcad7cdad1f19bf10cdbf055620b0bfb8ebc70140d914bb5c779b2
+  .codex/agents/software-architect.toml: sha256:3c7674b93abc09eb7b4cac9603c0799c3ab59a6899b7532fcbae694346bfed14
+  .codex/agents/source-inventory.toml: sha256:e219b8a3da50480d458cce6e050360ee7419eccb3ce5727ff1788ccb34371ba4
+  .codex/agents/statement-extractor.toml: sha256:1c4c38aa335c5dfbcb4d24ab0ed6f80be011d8be4c13b03bc5189e92ffdf5581
+  .codex/agents/technical-writer.toml: sha256:897d306e51d31482502e9cb5466ad8889d11edead33c6dba33a0e74e9b17c703
+  .codex/agents/ux-specialist.toml: sha256:d91df000f8720a1a23427e5cbed70dd18fdcfb4c6df7191bb2c6603d463d3238

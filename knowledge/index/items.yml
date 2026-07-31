@@ -1,4 +1,11 @@
 items:
+- id: A42D-domain-model
+  source_id: A42D
+  path: data/a42d/items/domain-model/item.yml
+  title: 'arc42: предметная модель и модель данных'
+  date_published: null
+  workflow_stage: source_checked
+  access: Официальные страницы доступны по CC BY-SA 4.0 с обязательной атрибуцией.
 - id: ADRG-source
   source_id: ADRG
   path: data/adrg/items/source/item.yml
@@ -941,6 +948,20 @@ items:
   workflow_stage: statements_extracted
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/ddia/ и общие
     ограничения в knowledge/source-attribution.md.
+- id: DDRF-reference
+  source_id: DDRF
+  path: data/ddrf/items/reference/item.yml
+  title: DDD Reference
+  date_published: null
+  workflow_stage: source_checked
+  access: Официальная страница и PDF доступны по CC BY 4.0 с обязательной атрибуцией.
+- id: DMAV-guidance
+  source_id: DMAV
+  path: data/dmav/items/guidance/item.yml
+  title: 'SEI: модель данных как архитектурное представление'
+  date_published: null
+  workflow_stage: source_checked
+  access: Официальная страница и PDF доступны публично. Полный текст не копировать.
 - id: DSCT-source
   source_id: DSCT
   path: data/dsct/items/source/item.yml
@@ -2196,6 +2217,22 @@ items:
   workflow_stage: statements_extracted
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/hwd/ и общие
     ограничения в knowledge/source-attribution.md.
+- id: I111-standard
+  source_id: I111
+  path: data/i111/items/standard/item.yml
+  title: ISO/IEC 11179-31:2023
+  date_published: null
+  workflow_stage: blocked
+  access: Только библиографические метаданные. Содержимое предназначено для проверки
+    человеком при наличии разрешённого доступа.
+- id: I420-standard
+  source_id: I420
+  path: data/i420/items/standard/item.yml
+  title: ISO/IEC/IEEE 42010:2022
+  date_published: null
+  workflow_stage: blocked
+  access: Только библиографические метаданные. Содержимое предназначено для проверки
+    человеком при наличии разрешённого доступа.
 - id: IMPD-source
   source_id: IMPD
   path: data/impd/items/source/item.yml
@@ -2222,7 +2259,7 @@ items:
   path: data/inma/items/source/item.yml
   title: 'INMA: обзор источника'
   date_published: null
-  workflow_stage: statements_extracted
+  workflow_stage: normalized
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/inma/ и общие
     ограничения в knowledge/source-attribution.md.
 - id: INMA-pdf
@@ -2230,7 +2267,7 @@ items:
   path: data/inma/items/pdf/item.yml
   title: 'INMA: pdf'
   date_published: null
-  workflow_stage: statements_extracted
+  workflow_stage: fetched
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/inma/ и общие
     ограничения в knowledge/source-attribution.md.
 - id: INMA-text
@@ -2238,7 +2275,7 @@ items:
   path: data/inma/items/text/item.yml
   title: 'INMA: text'
   date_published: null
-  workflow_stage: statements_extracted
+  workflow_stage: raw_transcribed
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/inma/ и общие
     ограничения в knowledge/source-attribution.md.
 - id: INMA-fragment-process
@@ -2272,6 +2309,13 @@ items:
   date_published: null
   workflow_stage: blocked
   access: Внешний источник. Полный текст получать только после проверки права доступа.
+- id: JSVL-validation
+  source_id: JSVL
+  path: data/jsvl/items/validation/item.yml
+  title: 'JSON Schema Draft 2020-12: Validation'
+  date_published: null
+  workflow_stage: source_checked
+  access: Официальная спецификация доступна публично. Полный текст не копировать.
 - id: LFSP-source
   source_id: LFSP
   path: data/lfsp/items/source/item.yml
@@ -2902,6 +2946,13 @@ items:
   workflow_stage: statements_extracted
   access: Внешний публичный документ. Использовать выбранные фрагменты по правилам
     карточки источника.
+- id: SQLT-schema-constraints
+  source_id: SQLT
+  path: data/sqlt/items/schema-constraints/item.yml
+  title: 'SQLite: типы и ограничения схемы'
+  date_published: null
+  workflow_stage: source_checked
+  access: Официальные страницы SQLite доступны публично.
 - id: SREQ-source
   source_id: SREQ
   path: data/sreq/items/source/item.yml
@@ -3020,6 +3071,13 @@ items:
   workflow_stage: statements_extracted
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/todo/ и общие
     ограничения в knowledge/source-attribution.md.
+- id: UMOC-specifications
+  source_id: UMOC
+  path: data/umoc/items/specifications/item.yml
+  title: OMG UML 2.5.1 и OCL 2.4
+  date_published: null
+  workflow_stage: source_checked
+  access: Официальные страницы и PDF доступны публично. Полные тексты не копировать.
 - id: VSCD-source
   source_id: VSCD
   path: data/vscd/items/source/item.yml

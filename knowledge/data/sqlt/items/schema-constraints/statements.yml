@@ -1,0 +1,126 @@
+statement_contract_version: 2
+source_id: SQLT
+item_id: SQLT-schema-constraints
+statements:
+  - id: SQLT-001
+    source_id: SQLT
+    item_id: SQLT-schema-constraints
+    kind: fact
+    text: >-
+      Определение таблицы SQLite может задавать объявленные типы, значения по
+      умолчанию, ключи, уникальность, отсутствие `NULL`, проверочные условия,
+      внешние ключи и вычисляемые столбцы.
+    excerpt: "constraints on the table content"
+    artifact: normalized.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: "CREATE TABLE, разделы 2 и 3"
+    scope:
+      applies_to: [физическая схема SQLite]
+      does_not_apply_to: [предметная семантика свойств]
+    processing_status: &complete
+      extraction: complete
+      traceability: passed
+      semantic_review: passed
+      strong_review: not_required
+      corroboration_check: complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: independently_confirmed
+    limitations: []
+    open_questions: []
+  - id: SQLT-002
+    source_id: SQLT
+    item_id: SQLT-schema-constraints
+    kind: fact
+    text: >-
+      В обычной таблице SQLite объявленный тип столбца определяет склонность
+      преобразования и сам по себе не запрещает хранить значение другого типа.
+    excerpt: "uses dynamic typing"
+    artifact: normalized.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: "Datatypes In SQLite, раздел 1"
+    scope:
+      applies_to: [обычные таблицы SQLite]
+      does_not_apply_to: [таблицы STRICT]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations: []
+    open_questions: []
+  - id: SQLT-003
+    source_id: SQLT
+    item_id: SQLT-schema-constraints
+    kind: fact
+    text: >-
+      Таблица SQLite `STRICT` требует объявить тип каждого столбца и отвергает
+      значение, которое нельзя без потерь привести к этому типу.
+    excerpt: "Every column definition must specify"
+    artifact: normalized.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: "STRICT Tables, раздел 2"
+    scope:
+      applies_to: [таблицы SQLite STRICT]
+      does_not_apply_to: [обычные таблицы SQLite]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: independently_confirmed
+    limitations: []
+    open_questions: []
+  - id: SQLT-004
+    source_id: SQLT
+    item_id: SQLT-schema-constraints
+    kind: fact
+    text: >-
+      Внешний ключ SQLite обеспечивает существование связанной строки, а запрет
+      отсутствующего значения требует отдельного ограничения `NOT NULL`.
+    excerpt: "foreign key constraint"
+    artifact: normalized.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: "Foreign Key Support, раздел 1"
+    scope:
+      applies_to: [ссылочная целостность SQLite]
+      does_not_apply_to: [обязательность связи без NOT NULL]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: independently_confirmed
+    limitations:
+      - Включение проверки внешних ключей зависит от настройки соединения.
+    open_questions: []
+  - id: SQLT-005
+    source_id: SQLT
+    item_id: SQLT-schema-constraints
+    kind: limitation
+    text: >-
+      Физические ограничения SQLite не определяют смысл предметного свойства и
+      не переносятся автоматически на другие СУБД.
+    excerpt: "unlike most SQL databases"
+    artifact: normalized.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: "CREATE TABLE, раздел 3.1, и Datatypes In SQLite, раздел 1"
+    scope:
+      applies_to: [границы применения документации SQLite]
+      does_not_apply_to: [логическая или концептуальная модель]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: independently_confirmed
+    limitations: []
+    open_questions: []

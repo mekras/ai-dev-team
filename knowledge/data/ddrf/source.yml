@@ -1,0 +1,52 @@
+id: DDRF
+slug: ddrf
+title: >-
+  Eric Evans: DDD Reference, авторское краткое изложение определений и
+  шаблонов предметно-ориентированного проектирования.
+status: approved
+priority: high
+carrier_type: document
+source_kind: reference
+long_source: false
+adapter: manual
+storage_strategy: index_only
+processing_scope: selected_fragments
+retrieval_mode: on_demand
+copy_policy: fragments_only
+allowed_use: >-
+  Точечная проверка понятий Entity, Value Object, Aggregate, Bounded Context и
+  правил поддержания инвариантов с обязательной атрибуцией.
+requires_access_check: true
+url: https://www.domainlanguage.com/ddd/reference/
+locator: https://www.domainlanguage.com/ddd/reference/
+public_reference: https://www.domainlanguage.com/ddd/reference/
+license_or_terms: Creative Commons Attribution 4.0 International.
+access:
+  default: >-
+    Официальная страница и PDF доступны публично. При использовании нужна
+    атрибуция Эрика Эванса и ссылка на лицензию CC BY 4.0.
+reliability: author
+stability: stable
+refresh_policy: manual
+last_checked_at: "2026-07-31"
+scope:
+  includes:
+    - сущности и объекты-значения
+    - агрегаты и границы согласованности
+    - ограниченные контексты
+    - инварианты предметной модели
+  excludes:
+    - полное обучение DDD
+    - обязательное применение DDD во всех проектах
+known_limitations:
+  - Справочник краток и предполагает знакомство с принципами DDD.
+items:
+  - id: DDRF-reference
+    source_id: DDRF
+    title: "DDD Reference"
+    access: >-
+      Официальная страница и PDF доступны по CC BY 4.0 с обязательной
+      атрибуцией.
+    status: approved
+    workflow_stage: source_checked
+    path: items/reference/item.yml

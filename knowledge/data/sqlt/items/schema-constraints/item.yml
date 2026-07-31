@@ -1,0 +1,31 @@
+id: SQLT-schema-constraints
+source_id: SQLT
+title: "SQLite: типы и ограничения схемы"
+url: https://www.sqlite.org/lang_createtable.html
+access: Официальные страницы SQLite доступны публично.
+status: approved
+workflow_stage: source_checked
+processing_scope: selected_fragments
+retrieval_mode: on_demand
+copy_policy: no_bulk_copy
+allowed_use: >-
+  Получать только релевантные страницы о типах и ограничениях с фиксацией даты
+  проверки и версии SQLite, когда она существенна.
+requires_access_check: true
+related_urls:
+  - https://www.sqlite.org/datatype3.html
+  - https://www.sqlite.org/foreignkeys.html
+  - https://www.sqlite.org/stricttables.html
+known_limitations:
+  - Ограничения SQLite являются физическим отображением, а не источником смысла.
+files:
+  tracked:
+    - normalized.md
+    - statements.yml
+processing_notes:
+  - >-
+    Проверены официальные страницы CREATE TABLE, Datatypes In SQLite, Foreign
+    Key Support и STRICT Tables.
+  - >-
+    Нормализованы типы и ограничения физической схемы. Извлечены проверяемые
+    утверждения с границами применения.

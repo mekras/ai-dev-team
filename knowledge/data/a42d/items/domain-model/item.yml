@@ -1,0 +1,32 @@
+id: A42D-domain-model
+source_id: A42D
+title: "arc42: предметная модель и модель данных"
+url: https://docs.arc42.org/tips/8-5/
+access: >-
+  Официальные страницы доступны по CC BY-SA 4.0 с обязательной атрибуцией.
+status: approved
+workflow_stage: source_checked
+processing_scope: selected_fragments
+retrieval_mode: on_demand
+copy_policy: fragments_only
+allowed_use: >-
+  Получать только рекомендации о месте модели и её связи с глоссарием с
+  сохранением атрибуции и условий CC BY-SA 4.0.
+requires_access_check: true
+related_urls:
+  - https://docs.arc42.org/tips/8-6/
+  - https://docs.arc42.org/tips/8-7/
+license: CC-BY-SA-4.0
+license_url: https://creativecommons.org/licenses/by-sa/4.0/
+known_limitations:
+  - Рекомендации не задают полный состав свойств логической модели.
+files:
+  tracked:
+    - normalized.md
+    - statements.yml
+processing_notes:
+  - >-
+    Проверены рекомендации 8-5, 8-6 и 8-7 и условия CC BY-SA 4.0.
+  - >-
+    Нормализованы положения о месте модели в архитектурной документации, её
+    связи с глоссарием и минимальном обзоре данных.

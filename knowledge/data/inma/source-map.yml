@@ -1,0 +1,222 @@
+source_map_version: 1
+source_id: INMA
+long_source: true
+updated_at: "2026-07-31"
+
+extraction_passport:
+  format: pdf
+  file_size_bytes: 2700338
+  content_hash: >-
+    sha256:3fa271b514b631c6bc7ce0d9d0bac1923caa01ac9955a9686190ffc7174fe2d2
+  metadata_source: pdfinfo
+  extraction_tool: pdftotext
+  extraction_status: >-
+    Текст извлечён локально. Нормализованы только выбранные
+    фрагменты, поэтому сплошное извлечение знаний не завершено.
+  publication_safety: >-
+    В Git хранятся только метаданные, краткие производные фрагменты
+    и утверждения. Полный PDF и текст остаются в локальном слое.
+
+structure:
+  units:
+    - id: front-matter
+      title: Об авторе, благодарности и предисловия
+      type: front_matter
+      order: 1
+      locator: строки 1–335 локальной текстовой выгрузки
+    - id: introduction
+      title: Введение
+      type: introduction
+      order: 2
+      locator: строки 336–826 локальной текстовой выгрузки
+    - id: chapter-01
+      title: Загадки века информации
+      type: chapter
+      order: 3
+      locator: глава 1, строки 827–1401
+    - id: chapter-02
+      title: Когнитивное сопротивление
+      type: chapter
+      order: 4
+      locator: глава 2, строки 1402–2157
+    - id: chapter-03
+      title: Пустая трата денег
+      type: chapter
+      order: 5
+      locator: глава 3, строки 2158–2863
+    - id: chapter-04
+      title: Танцующий медведь
+      type: chapter
+      order: 6
+      locator: глава 4, строки 2864–3278
+    - id: chapter-05
+      title: Нелояльность клиентов
+      type: chapter
+      order: 7
+      locator: глава 5, строки 3279–3584
+    - id: chapter-06
+      title: Психбольница в руках пациентов
+      type: chapter
+      order: 8
+      locator: глава 6, строки 3585–4058
+    - id: chapter-07
+      title: Homo Logicus
+      type: chapter
+      order: 9
+      locator: глава 7, строки 4059–4429
+    - id: chapter-08
+      title: Отмирающая культура
+      type: chapter
+      order: 10
+      locator: глава 8, строки 4430–5095
+    - id: chapter-09
+      title: Проектирование для удовольствия
+      type: chapter
+      order: 11
+      locator: глава 9, строки 5096–6008
+    - id: chapter-10
+      title: Проектирование ради результата
+      type: chapter
+      order: 12
+      locator: глава 10, строки 6009–7210
+    - id: chapter-11
+      title: Проектирование для людей
+      type: chapter
+      order: 13
+      locator: глава 11, строки 7211–8025
+    - id: chapter-12
+      title: В отчаянных поисках эргономики
+      type: chapter
+      order: 14
+      locator: глава 12, строки 8026–8537
+    - id: chapter-13
+      title: Управляемый процесс
+      type: chapter
+      order: 15
+      locator: глава 13, строки 8538–9244
+    - id: chapter-14
+      title: Мощь и удовольствие
+      type: chapter
+      order: 16
+      locator: глава 14, строки 9245–9620
+
+coverage:
+  units:
+    - unit_id: front-matter
+      status: postponed
+      reason: Сплошное извлечение знаний ещё не выполнено.
+      artifacts: []
+      statements: []
+    - unit_id: introduction
+      status: postponed
+      reason: Есть частичный фрагмент, но сплошной охват не проверен.
+      artifacts:
+        - items/fragment-process/process-before-code.md
+      statements:
+        - items/fragment-process/statements.yml#INMA-001
+        - items/fragment-process/statements.yml#INMA-002
+        - items/fragment-process/statements.yml#INMA-003
+    - unit_id: chapter-01
+      status: postponed
+      reason: Сплошное извлечение знаний ещё не выполнено.
+      artifacts: []
+      statements: []
+    - unit_id: chapter-02
+      status: postponed
+      reason: Сплошное извлечение знаний ещё не выполнено.
+      artifacts: []
+      statements: []
+    - unit_id: chapter-03
+      status: postponed
+      reason: Сплошное извлечение знаний ещё не выполнено.
+      artifacts: []
+      statements: []
+    - unit_id: chapter-04
+      status: postponed
+      reason: Сплошное извлечение знаний ещё не выполнено.
+      artifacts: []
+      statements: []
+    - unit_id: chapter-05
+      status: postponed
+      reason: Сплошное извлечение знаний ещё не выполнено.
+      artifacts: []
+      statements: []
+    - unit_id: chapter-06
+      status: postponed
+      reason: Сплошное извлечение знаний ещё не выполнено.
+      artifacts: []
+      statements: []
+    - unit_id: chapter-07
+      status: postponed
+      reason: Сплошное извлечение знаний ещё не выполнено.
+      artifacts: []
+      statements: []
+    - unit_id: chapter-08
+      status: postponed
+      reason: Сплошное извлечение знаний ещё не выполнено.
+      artifacts: []
+      statements: []
+    - unit_id: chapter-09
+      status: postponed
+      reason: Персонажи обработаны частично, сплошной охват главы не проверен.
+      artifacts:
+        - items/fragment-personas/personas-goals-scenarios.md
+      statements:
+        - items/fragment-personas/statements.yml#INMA-006
+        - items/fragment-personas/statements.yml#INMA-007
+    - unit_id: chapter-10
+      status: postponed
+      reason: >-
+        Разделы о целях и их примерах обработаны. Остальная часть
+        главы о поведении и вежливости продукта ещё не извлечена.
+      artifacts:
+        - items/fragment-personas/personas-goals-scenarios.md
+      statements:
+        - items/fragment-personas/statements.yml#INMA-008
+        - items/fragment-personas/statements.yml#INMA-009
+        - items/fragment-personas/statements.yml#INMA-013
+        - items/fragment-personas/statements.yml#INMA-014
+        - items/fragment-personas/statements.yml#INMA-015
+        - items/fragment-personas/statements.yml#INMA-016
+        - items/fragment-personas/statements.yml#INMA-017
+        - items/fragment-personas/statements.yml#INMA-018
+        - items/fragment-personas/statements.yml#INMA-019
+        - items/fragment-personas/statements.yml#INMA-020
+        - items/fragment-personas/statements.yml#INMA-021
+        - items/fragment-personas/statements.yml#INMA-022
+        - items/fragment-personas/statements.yml#INMA-023
+    - unit_id: chapter-11
+      status: postponed
+      reason: Сценарии обработаны частично, сплошной охват главы не проверен.
+      artifacts:
+        - items/fragment-personas/personas-goals-scenarios.md
+      statements:
+        - items/fragment-personas/statements.yml#INMA-010
+        - items/fragment-personas/statements.yml#INMA-011
+        - items/fragment-personas/statements.yml#INMA-012
+    - unit_id: chapter-12
+      status: postponed
+      reason: Сплошное извлечение знаний ещё не выполнено.
+      artifacts: []
+      statements: []
+    - unit_id: chapter-13
+      status: postponed
+      reason: Сплошное извлечение знаний ещё не выполнено.
+      artifacts: []
+      statements: []
+    - unit_id: chapter-14
+      status: postponed
+      reason: Сплошное извлечение знаний ещё не выполнено.
+      artifacts: []
+      statements: []
+
+quality_limitations:
+  - >-
+    Текстовая выгрузка содержит переносы строк и артефакты PDF. Спорные
+    места нужно сверять с локальным PDF.
+publication_limitations:
+  - Полный текст книги не публикуется в Git.
+  - В отслеживаемый слой попадают только краткие производные материалы.
+local_inputs:
+  - items/pdf/inmates-are-running-the-asylum-ru.local.pdf
+  - items/text/inmates-are-running-the-asylum-ru.local.txt

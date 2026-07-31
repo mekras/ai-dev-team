@@ -1,0 +1,17 @@
+items:
+  - id: I420-standard
+    source_id: I420
+    title: "ISO/IEC/IEEE 42010:2022"
+    access: >-
+      Только библиографические метаданные. Содержимое предназначено для
+      проверки человеком при наличии разрешённого доступа.
+    status: candidate
+    workflow_stage: blocked
+    blocker_code: publication_not_permitted
+    action_required: >-
+      Предоставить письменное разрешение ISO на обработку содержимого
+      средствами ИИ.
+    automatic_attempts:
+      - Проверены официальные условия ISO.
+      - Выбран режим хранения только библиографических метаданных.
+    path: items/standard/item.yml

@@ -1,0 +1,152 @@
+statement_contract_version: 2
+source_id: DMAV
+item_id: DMAV-guidance
+statements:
+  - id: DMAV-001
+    source_id: DMAV
+    item_id: DMAV-guidance
+    kind: fact
+    text: >-
+      Модель данных может быть архитектурным представлением, если структура
+      данных влияет на устройство и свойства программной системы.
+    excerpt: "architectural view"
+    artifact: normalized.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: "раздел 9"
+    scope:
+      applies_to: [архитектурное описание систем, структура данных]
+      does_not_apply_to: [обязательная структура документации любого проекта]
+    processing_status: &complete
+      extraction: complete
+      traceability: passed
+      semantic_review: passed
+      strong_review: not_required
+      corroboration_check: complete
+    source_role: primary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: aging
+    corroboration: independently_confirmed
+    limitations:
+      - Рекомендация опубликована в 2009 году.
+    open_questions: []
+  - id: DMAV-002
+    source_id: DMAV
+    item_id: DMAV-guidance
+    kind: fact
+    text: >-
+      Архитектурное описание модели данных должно включать не только
+      диаграмму, но и обоснования решений, точки изменчивости и связи с другими
+      представлениями.
+    excerpt: "beyond the diagram"
+    artifact: normalized.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: "раздел 1.1"
+    scope:
+      applies_to: [архитектурная документация]
+      does_not_apply_to: [предписание одного шаблона документа]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: aging
+    corroboration: independently_confirmed
+    limitations: []
+    open_questions: []
+  - id: DMAV-003
+    source_id: DMAV
+    item_id: DMAV-guidance
+    kind: fact
+    text: >-
+      Концептуальная модель отражает сущности, отношения и свойства предметной
+      области, логическая приближает их к классу технологии хранения, а
+      физическая описывает реализацию и оптимизации.
+    excerpt: "Conceptual. Logical. Physical."
+    artifact: normalized.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: "раздел 2"
+    scope:
+      applies_to: [различение уровней модели данных]
+      does_not_apply_to: [обязательное создание трёх отдельных документов]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: aging
+    corroboration: single_source
+    limitations: []
+    open_questions: []
+  - id: DMAV-004
+    source_id: DMAV
+    item_id: DMAV-guidance
+    kind: fact
+    text: >-
+      Описание сущности может включать смысл, атрибуты, тип и обязательность
+      каждого атрибута, идентификатор и ограничения отдельных или совместных
+      значений.
+    excerpt: "data type, size"
+    artifact: normalized.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: "раздел 3.1"
+    scope:
+      applies_to: [состав модели данных]
+      does_not_apply_to: [выбор конкретной нотации]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: aging
+    corroboration: independently_confirmed
+    limitations: []
+    open_questions: []
+  - id: DMAV-005
+    source_id: DMAV
+    item_id: DMAV-guidance
+    kind: fact
+    text: >-
+      Отношение между сущностями следует характеризовать видом связи и
+      кратностью участников.
+    excerpt: "qualified by the cardinality"
+    artifact: normalized.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: "раздел 3.2"
+    scope:
+      applies_to: [отношения модели данных]
+      does_not_apply_to: [только реляционные базы данных]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: aging
+    corroboration: independently_confirmed
+    limitations: []
+    open_questions: []
+  - id: DMAV-006
+    source_id: DMAV
+    item_id: DMAV-guidance
+    kind: limitation
+    text: >-
+      Детали физической схемы относятся к архитектурной документации только
+      тогда, когда фиксируют значимое решение или влияют на требуемые свойства
+      системы.
+    excerpt: "architectural decisions"
+    artifact: normalized.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: "разделы 2 и 3.1"
+    scope:
+      applies_to: [отбор архитектурно значимых деталей]
+      does_not_apply_to: [полная документация базы данных]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: aging
+    corroboration: independently_confirmed
+    limitations: []
+    open_questions: []

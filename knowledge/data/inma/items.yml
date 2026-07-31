@@ -5,7 +5,7 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/inma/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
+  workflow_stage: normalized
   path: items/source/item.yml
 - id: INMA-pdf
   source_id: INMA
@@ -13,7 +13,7 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/inma/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
+  workflow_stage: fetched
   path: items/pdf/item.yml
 - id: INMA-text
   source_id: INMA
@@ -21,7 +21,7 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/inma/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
+  workflow_stage: raw_transcribed
   path: items/text/item.yml
 - id: INMA-fragment-process
   source_id: INMA

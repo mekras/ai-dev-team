@@ -1,0 +1,60 @@
+id: I111
+slug: i111
+title: >-
+  ISO/IEC 11179-31:2023 о регистрации спецификаций элементов данных, понятий,
+  областей значений, типов данных и допустимых значений.
+status: candidate
+priority: high
+carrier_type: document
+source_kind: normative
+long_source: false
+adapter: manual
+storage_strategy: external_reference
+processing_scope: metadata_only
+retrieval_mode: blocked
+copy_policy: metadata_only
+allowed_use: >-
+  Хранение библиографических метаданных и передача стандарта человеку для
+  проверки при наличии разрешённого доступа.
+requires_access_check: true
+url: https://www.iso.org/standard/78925.html
+locator: https://www.iso.org/standard/78925.html
+public_reference: https://www.iso.org/standard/78925.html
+license_or_terms: >-
+  ISO запрещает использование своих материалов средствами ИИ без отдельного
+  письменного разрешения. Содержимое стандарта и страницы не обрабатывается.
+access:
+  default: >-
+    Внешний источник для человека. Агент не должен получать или обрабатывать
+    содержимое без отдельного разрешения ISO.
+reliability: official
+stability: versioned
+refresh_policy: manual
+last_checked_at: "2026-07-31"
+scope:
+  includes:
+    - элементы данных и их понятия
+    - типы данных и области допустимых значений
+    - единицы измерения и правила вычисления
+  excludes:
+    - физическое представление данных
+    - локальная копия или пересказ стандарта средствами ИИ
+known_limitations:
+  - Содержательная обработка требует отдельного разрешения ISO.
+items:
+  - id: I111-standard
+    source_id: I111
+    title: "ISO/IEC 11179-31:2023"
+    access: >-
+      Только библиографические метаданные. Содержимое предназначено для
+      проверки человеком при наличии разрешённого доступа.
+    status: candidate
+    workflow_stage: blocked
+    blocker_code: publication_not_permitted
+    action_required: >-
+      Предоставить письменное разрешение ISO на обработку содержимого
+      средствами ИИ.
+    automatic_attempts:
+      - Проверены официальные условия ISO.
+      - Выбран режим хранения только библиографических метаданных.
+    path: items/standard/item.yml

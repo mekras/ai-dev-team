@@ -1,0 +1,29 @@
+id: UMOC-specifications
+source_id: UMOC
+title: "OMG UML 2.5.1 и OCL 2.4"
+url: https://www.omg.org/spec/UML/2.5.1
+access: >-
+  Официальные страницы и PDF доступны публично. Полные тексты не копировать.
+status: approved
+workflow_stage: source_checked
+processing_scope: selected_fragments
+retrieval_mode: on_demand
+copy_policy: no_bulk_copy
+allowed_use: >-
+  Получать только нужные нормативные разделы с сохранением номера раздела,
+  версии и уведомления об авторских правах.
+requires_access_check: true
+related_urls:
+  - https://www.omg.org/spec/OCL/2.4/
+known_limitations:
+  - Точные ограничения модели нужно связывать с выбранной нотацией проекта.
+files:
+  tracked:
+    - normalized.md
+    - statements.yml
+processing_notes:
+  - >-
+    Проверены официальные карточки редакций и ссылки на нормативные PDF.
+  - >-
+    Нормализованы выбранные разделы UML о типах, свойствах, кратностях,
+    перечислениях и ограничениях, а также разделы OCL об инвариантах.

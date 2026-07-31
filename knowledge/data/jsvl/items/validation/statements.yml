@@ -1,0 +1,149 @@
+statement_contract_version: 2
+source_id: JSVL
+item_id: JSVL-validation
+statements:
+  - id: JSVL-001
+    source_id: JSVL
+    item_id: JSVL-validation
+    kind: fact
+    text: >-
+      JSON Schema использует `type`, чтобы ограничить экземпляр одним или
+      несколькими типами JSON.
+    excerpt: "type matches"
+    artifact: normalized.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: "раздел 6.1.1"
+    scope:
+      applies_to: [структурная проверка JSON]
+      does_not_apply_to: [семантический тип предметной области]
+    processing_status: &complete
+      extraction: complete
+      traceability: passed
+      semantic_review: passed
+      strong_review: not_required
+      corroboration_check: complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: independently_confirmed
+    limitations: []
+    open_questions: []
+  - id: JSVL-002
+    source_id: JSVL
+    item_id: JSVL-validation
+    kind: fact
+    text: >-
+      `enum` задаёт закрытый набор допустимых значений, а `const` — одно
+      допустимое значение.
+    excerpt: "one of the elements"
+    artifact: normalized.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: "разделы 6.1.2–6.1.3"
+    scope:
+      applies_to: [ограничения значений JSON]
+      does_not_apply_to: [динамические справочники без фиксации версии]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: independently_confirmed
+    limitations: []
+    open_questions: []
+  - id: JSVL-003
+    source_id: JSVL
+    item_id: JSVL-validation
+    kind: fact
+    text: >-
+      Для числовых значений JSON Schema задаёт кратность, включительные и
+      исключительные верхние и нижние границы.
+    excerpt: "inclusive upper limit"
+    artifact: normalized.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: "раздел 6.2"
+    scope:
+      applies_to: [числовые ограничения JSON]
+      does_not_apply_to: [единицы измерения и предметный смысл числа]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations: []
+    open_questions: []
+  - id: JSVL-004
+    source_id: JSVL
+    item_id: JSVL-validation
+    kind: fact
+    text: >-
+      Для строк JSON Schema задаёт минимальную и максимальную длину и
+      соответствие регулярному выражению.
+    excerpt: "Validation Keywords for Strings"
+    artifact: normalized.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: "раздел 6.3"
+    scope:
+      applies_to: [строковые ограничения JSON]
+      does_not_apply_to: [проверка существования внешнего объекта]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations: []
+    open_questions: []
+  - id: JSVL-005
+    source_id: JSVL
+    item_id: JSVL-validation
+    kind: fact
+    text: >-
+      Для массивов и объектов JSON Schema задаёт ограничения размера,
+      уникальности элементов, числа свойств и обязательного присутствия
+      свойств.
+    excerpt: "required"
+    artifact: normalized.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: "разделы 6.4–6.5"
+    scope:
+      applies_to: [структура массивов и объектов JSON]
+      does_not_apply_to: [согласованность нескольких ресурсов]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: independently_confirmed
+    limitations: []
+    open_questions: []
+  - id: JSVL-006
+    source_id: JSVL
+    item_id: JSVL-validation
+    kind: limitation
+    text: >-
+      `format` не гарантирует проверку значения без явного выбора словаря
+      утверждений и поддержки этой возможности реализацией.
+    excerpt: "disabled by default"
+    artifact: normalized.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: "разделы 7.2.1–7.2.2"
+    scope:
+      applies_to: [применение format в JSON Schema 2020-12]
+      does_not_apply_to: [реализации с отдельно подтверждённым режимом]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations:
+      - Поведение зависит от словаря и реализации.
+    open_questions: []

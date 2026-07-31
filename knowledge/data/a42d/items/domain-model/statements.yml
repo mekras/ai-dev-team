@@ -1,0 +1,102 @@
+statement_contract_version: 2
+source_id: A42D
+item_id: A42D-domain-model
+statements:
+  - id: A42D-001
+    source_id: A42D
+    item_id: A42D-domain-model
+    kind: fact
+    text: >-
+      Предметную модель удобно документировать как сквозную архитектурную
+      концепцию, когда её элементы используются несколькими архитектурными
+      блоками.
+    excerpt: "crosscutting topic"
+    artifact: normalized.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: "Tip 8-5, Business or domain information is crosscutting"
+    scope:
+      applies_to: [архитектурная документация по arc42]
+      does_not_apply_to: [единственная допустимая структура документации]
+    processing_status: &complete
+      extraction: complete
+      traceability: passed
+      semantic_review: passed
+      strong_review: not_required
+      corroboration_check: complete
+    source_role: primary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: current
+    corroboration: independently_confirmed
+    limitations: []
+    open_questions: []
+  - id: A42D-002
+    source_id: A42D
+    item_id: A42D-domain-model
+    kind: fact
+    text: >-
+      Если проект не создаёт полную предметную модель, arc42 рекомендует как
+      минимум документировать логическую модель данных.
+    excerpt: "simple alternatives"
+    artifact: normalized.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: "Tip 8-5, Domain Model and simple alternatives"
+    scope:
+      applies_to: [архитектурное описание предметных данных]
+      does_not_apply_to: [обязательное применение DDD]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: current
+    corroboration: independently_confirmed
+    limitations: []
+    open_questions: []
+  - id: A42D-003
+    source_id: A42D
+    item_id: A42D-domain-model
+    kind: fact
+    text: >-
+      Графический обзор предметной модели можно связать с текстовыми
+      определениями в глоссарии, оставив в обзоре понятия и отношения.
+    excerpt: "graphical overview"
+    artifact: normalized.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: "Tip 8-6"
+    scope:
+      applies_to: [разделение обзора и определений]
+      does_not_apply_to: [дублирование определений в двух местах]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations: []
+    open_questions: []
+  - id: A42D-004
+    source_id: A42D
+    item_id: A42D-domain-model
+    kind: fact
+    text: >-
+      Минимальная модель данных должна давать обзор основных структур данных
+      системы и значимых отношений между ними.
+    excerpt: "fundamental data structures"
+    artifact: normalized.md
+    checked_at: "2026-07-31"
+    checked_by: primary-agent
+    locator: "Tip 8-7"
+    scope:
+      applies_to: [минимальный обзор модели данных]
+      does_not_apply_to: [полная физическая схема базы данных]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: current
+    corroboration: independently_confirmed
+    limitations: []
+    open_questions: []

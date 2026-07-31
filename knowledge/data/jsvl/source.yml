@@ -1,0 +1,53 @@
+id: JSVL
+slug: jsvl
+title: >-
+  JSON Schema Draft 2020-12: официальный словарь структурной проверки данных
+  JSON.
+status: approved
+priority: high
+carrier_type: web_page
+source_kind: normative
+long_source: false
+adapter: manual
+storage_strategy: external_reference
+processing_scope: selected_fragments
+retrieval_mode: on_demand
+copy_policy: no_bulk_copy
+allowed_use: >-
+  Точечная проверка типов JSON, перечислений, констант, диапазонов, длины,
+  шаблонов, обязательных свойств и ограничений коллекций.
+requires_access_check: true
+url: https://json-schema.org/draft/2020-12/json-schema-validation
+locator: https://json-schema.org/draft/2020-12/json-schema-validation
+public_reference: https://json-schema.org/draft/2020-12/
+license_or_terms: >-
+  Документ опубликован по условиям IETF Trust. Кодовые компоненты имеют
+  отдельные условия Revised BSD License.
+access:
+  default: >-
+    Официальная спецификация доступна публично. Перед копированием фрагментов
+    проверять условия IETF Trust и статус документа.
+reliability: official
+stability: versioned
+refresh_policy: manual
+last_checked_at: "2026-07-31"
+scope:
+  includes:
+    - типы и допустимые значения JSON
+    - числовые и строковые ограничения
+    - обязательные свойства и ограничения коллекций
+    - различие проверки и аннотации format
+  excludes:
+    - семантическая предметная модель
+    - автоматическое отображение в схему базы данных
+known_limitations:
+  - Draft 2020-12 опубликован как Internet-Draft, а не стандарт ISO.
+items:
+  - id: JSVL-validation
+    source_id: JSVL
+    title: "JSON Schema Draft 2020-12: Validation"
+    access: >-
+      Официальная спецификация доступна публично. Полный текст не копировать.
+    status: approved
+    workflow_stage: source_checked
+    path: items/validation/item.yml

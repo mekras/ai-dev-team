@@ -1,0 +1,29 @@
+id: DDRF-reference
+source_id: DDRF
+title: "DDD Reference"
+url: https://www.domainlanguage.com/ddd/reference/
+access: >-
+  Официальная страница и PDF доступны по CC BY 4.0 с обязательной атрибуцией.
+status: approved
+workflow_stage: source_checked
+processing_scope: selected_fragments
+retrieval_mode: on_demand
+copy_policy: fragments_only
+allowed_use: >-
+  Получать релевантные определения и шаблоны с указанием автора, источника и
+  лицензии.
+requires_access_check: true
+license: CC-BY-4.0
+license_url: https://creativecommons.org/licenses/by/4.0/
+known_limitations:
+  - Краткие определения не заменяют объяснение и контекст полной книги.
+files:
+  tracked:
+    - normalized.md
+    - statements.yml
+processing_notes:
+  - >-
+    Проверены редакция 2015 года, авторство и лицензия CC BY 4.0.
+  - >-
+    Нормализованы определения модели, ограниченного контекста,
+    объекта-значения и агрегата. Извлечены проверяемые утверждения.

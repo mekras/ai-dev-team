@@ -4,6 +4,209 @@ description: >-
   Открытая регрессионная выборка доступности знаний для задач разработки
   навыков и правил проекта.
 cases:
+  - id: data-model-documentation-001
+    status: approved
+    source:
+      artifact: data/a42d/items/domain-model/normalized.md
+      line_start: 6
+      line_end: 16
+      sha256: 7fb3d17543813021029e235a79c2ebb9c66f52a8fbcf2477da0b3fbc14e344ca
+    target:
+      text: >-
+        Предметную модель уместно документировать как сквозную архитектурную
+        концепцию. Её графический обзор следует связать с точными определениями
+        терминов в глоссарии.
+      importance_class: rule
+      importance_rationale: >-
+        Правило помогает определить место модели данных в проектной
+        документации и не оставлять диаграмму без определений.
+      limitations:
+        - >-
+          arc42 предлагает этот способ организации, но не устанавливает
+          единственную допустимую структуру документации.
+        - >-
+          Если полноценная предметная модель не нужна, допустима логическая
+          модель данных с основными структурами и отношениями.
+    acceptable_answers:
+      - >-
+        Разместить обзор предметной модели среди сквозных архитектурных
+        концепций, а определения терминов — в глоссарии и связать их ссылками.
+    must_not_claim:
+      - >-
+        Предметная модель обязана находиться в одном и том же разделе любого
+        проекта.
+      - "Для модели данных достаточно одной диаграммы без пояснений."
+    corpus_expectation:
+      representation: present
+      statement_ids:
+        - A42D-001
+        - A42D-003
+    questions:
+      - id: data-model-documentation-001-direct
+        type: direct
+        text: >-
+          Где в архитектурной документации разместить предметную модель и как
+          связать её с определениями терминов?
+      - id: data-model-documentation-001-paraphrase
+        type: paraphrase
+        text: >-
+          Как оформить общий обзор сущностей и понятий системы, чтобы он не
+          остался изолированной схемой?
+      - id: data-model-documentation-001-application
+        type: application
+        text: >-
+          В проекте есть диаграмма основных сущностей, но термины пояснены
+          отдельно. Как включить эти материалы в архитектурное описание?
+    provenance:
+      target_author: codex/root/data-model-evaluation-20260731
+    review:
+      target_entailment: confirmed
+      target_reviewer: >-
+        codex/gpt-5.3-codex-spark/target-entailment-1785530747
+      question_answerability: confirmed
+      question_reviewer: >-
+        codex/gpt-5.3-codex-spark/question-answerability-1785530747
+    access_review:
+      source_evidence_to_judge: approved
+      reviewed_by: owner/session-019fb91a-03a3-7b33-9a99-0ed1bf03eb8e
+      rationale: >-
+        Владелец поручил выполнить модельные проверки добавленных публичных
+        источников. Судье передаётся только нормализованный краткий фрагмент.
+
+  - id: data-model-property-contract-001
+    status: approved
+    source:
+      artifact: data/umoc/items/specifications/normalized.md
+      line_start: 7
+      line_end: 26
+      sha256: 02143f176cd5a3d6f0aeb79ec03c2c3fd420a07c7755bd3043e2ba9d99ea7662
+    target:
+      text: >-
+        Контракт свойства модели должен задавать тип допустимых значений и
+        кратность через нижнюю и верхнюю границы. При необходимости он также
+        фиксирует перечисление значений, упорядоченность, уникальность и
+        ограничения, которые обязаны выполняться.
+      importance_class: criterion
+      importance_rationale: >-
+        Критерий предотвращает модель с нетипизированными свойствами и без
+        проверяемых границ допустимых значений.
+      limitations:
+        - >-
+          UML и OCL задают средства выражения модели, но не требуют применять
+          именно эти языки в каждом проекте.
+        - >-
+          Перечисление, упорядоченность и уникальность нужны только там, где
+          они выражают правила предметной области.
+    acceptable_answers:
+      - >-
+        Для свойства указать тип, нижнюю и верхнюю границы кратности, а при
+        необходимости — допустимое перечисление, порядок, уникальность и
+        инварианты.
+    must_not_claim:
+      - "Для свойства достаточно указать только его имя."
+      - >-
+        Каждое свойство обязательно должно быть коллекцией с уникальными и
+        упорядоченными значениями.
+    corpus_expectation:
+      representation: present
+      statement_ids:
+        - UMOC-001
+        - UMOC-002
+        - UMOC-004
+        - UMOC-005
+    questions:
+      - id: data-model-property-contract-001-direct
+        type: direct
+        text: >-
+          Какие сведения о допустимых значениях и количестве значений нужно
+          зафиксировать для свойства модели?
+      - id: data-model-property-contract-001-paraphrase
+        type: paraphrase
+        text: >-
+          Чем дополнить имя атрибута, чтобы модель позволяла проверить его
+          значения и число присваиваний?
+      - id: data-model-property-contract-001-application
+        type: application
+        text: >-
+          У сущности перечислены атрибуты без типов и границ. Что добавить,
+          чтобы их контракт стал проверяемым?
+    provenance:
+      target_author: codex/root/data-model-evaluation-20260731
+    review:
+      target_entailment: confirmed
+      target_reviewer: >-
+        codex/gpt-5.3-codex-spark/target-entailment-1785530747
+      question_answerability: confirmed
+      question_reviewer: >-
+        codex/gpt-5.3-codex-spark/question-answerability-1785530747
+    access_review:
+      source_evidence_to_judge: approved
+      reviewed_by: owner/session-019fb91a-03a3-7b33-9a99-0ed1bf03eb8e
+      rationale: >-
+        Владелец поручил выполнить модельные проверки добавленных публичных
+        источников. Судье передаётся только нормализованный краткий фрагмент.
+
+  - id: data-model-levels-001
+    status: approved
+    source:
+      artifact: data/dmav/items/guidance/normalized.md
+      line_start: 16
+      line_end: 20
+      sha256: 21a65d94fb8920b77f72675a24e3ef18ec7bb302db4bca3afa263b7a792916df
+    target:
+      text: >-
+        Концептуальная модель описывает предметную область для общения с
+        заинтересованными лицами, логическая приближает её к выбранному классу
+        технологии хранения, а физическая фиксирует реализацию и оптимизации.
+      importance_class: definition
+      importance_rationale: >-
+        Различение уровней не позволяет преждевременно подменить смысл
+        предметной области деталями конкретного хранилища.
+      limitations:
+        - Не всякая деталь физической схемы архитектурно значима.
+    acceptable_answers:
+      - >-
+        Концептуальный уровень удерживает предметный смысл, логический учитывает
+        класс хранения, физический описывает реализацию и её оптимизации.
+    must_not_claim:
+      - "Концептуальная модель должна содержать детали физической схемы."
+      - "Все детали физической схемы являются архитектурными решениями."
+    corpus_expectation:
+      representation: present
+      statement_ids:
+        - DMAV-003
+    questions:
+      - id: data-model-levels-001-direct
+        type: direct
+        text: >-
+          Чем различаются концептуальная, логическая и физическая модели
+          данных?
+      - id: data-model-levels-001-paraphrase
+        type: paraphrase
+        text: >-
+          Как развести описание предметной области, выбор класса хранения и
+          детали реализации данных?
+      - id: data-model-levels-001-application
+        type: application
+        text: >-
+          Команда сразу добавляет индексы и параметры СУБД в обзор бизнес-
+          сущностей. Как разделить модель по уровням?
+    provenance:
+      target_author: codex/root/data-model-evaluation-20260731
+    review:
+      target_entailment: confirmed
+      target_reviewer: >-
+        codex/gpt-5.3-codex-spark/target-entailment-1785530747
+      question_answerability: confirmed
+      question_reviewer: >-
+        codex/gpt-5.3-codex-spark/question-answerability-1785530747
+    access_review:
+      source_evidence_to_judge: approved
+      reviewed_by: owner/session-019fb91a-03a3-7b33-9a99-0ed1bf03eb8e
+      rationale: >-
+        Владелец поручил выполнить модельные проверки добавленных публичных
+        источников. Судье передаётся только нормализованный краткий фрагмент.
+
   - id: skill-evaluation-baseline-001
     status: approved
     source:

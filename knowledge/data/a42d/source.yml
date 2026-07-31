@@ -1,0 +1,51 @@
+id: A42D
+slug: a42d
+title: >-
+  Официальные рекомендации arc42 о месте предметной модели и логической модели
+  данных в архитектурной документации.
+status: approved
+priority: high
+carrier_type: website
+source_kind: reference
+long_source: false
+adapter: manual
+storage_strategy: index_only
+processing_scope: selected_fragments
+retrieval_mode: on_demand
+copy_policy: fragments_only
+allowed_use: >-
+  Точечная проверка размещения общей предметной модели в разделе сквозных
+  концепций и связи графического обзора с глоссарием.
+requires_access_check: true
+url: https://docs.arc42.org/tips/8-5/
+locator: https://docs.arc42.org/section-8/
+public_reference: https://docs.arc42.org/tips/8-7/
+license_or_terms: Creative Commons Attribution-ShareAlike 4.0 International.
+access:
+  default: >-
+    Официальные страницы доступны публично. Производные материалы требуют
+    атрибуции и совместимой лицензии CC BY-SA 4.0.
+reliability: official
+stability: mutable
+refresh_policy: manual
+last_checked_at: "2026-07-31"
+scope:
+  includes:
+    - предметная модель как сквозная архитектурная концепция
+    - логическая модель данных как минимальная альтернатива
+    - связь модели с глоссарием
+  excludes:
+    - единственная обязательная структура документации
+    - готовая модель данных конкретного проекта
+known_limitations:
+  - arc42 предлагает структуру документации, но не нормативную схему данных.
+items:
+  - id: A42D-domain-model
+    source_id: A42D
+    title: "arc42: предметная модель и модель данных"
+    access: >-
+      Официальные страницы доступны по CC BY-SA 4.0 с обязательной
+      атрибуцией.
+    status: approved
+    workflow_stage: source_checked
+    path: items/domain-model/item.yml
