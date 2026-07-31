@@ -24,6 +24,30 @@
       "review_stages": ["requirements"]
     },
     {
+      "id": "requirements",
+      "title": "Требования проекта",
+      "kind": "requirements",
+      "paths": ["docs/requirements.md"],
+      "checks": [
+        "ait-req-analysis",
+        "ait-req-management",
+        "ait-req-validation"
+      ],
+      "review_stages": ["requirements"]
+    },
+    {
+      "id": "architecture",
+      "title": "Архитектура проекта",
+      "kind": "architecture",
+      "paths": ["docs/architecture.md"],
+      "checks": [
+        "ait-arch-revalidation",
+        "ait-architecture",
+        "ait-decisions"
+      ],
+      "review_stages": ["design"]
+    },
+    {
       "id": "published-skills",
       "title": "Публикуемые навыки",
       "kind": "implementation",
@@ -81,17 +105,91 @@
   "edges": [
     {
       "from": "concept",
-      "to": "published-skills",
+      "to": "requirements",
       "relation": "constrains",
-      "facets": ["semantic", "documentation"],
-      "rationale": "Навыки реализуют назначение коллекции и не должны расходиться с её концепцией."
+      "facets": ["semantic"],
+      "rationale": "Требования раскрывают концепцию в виде проверяемых обязательств."
     },
     {
-      "from": "concept",
+      "from": "requirements",
+      "to": "architecture",
+      "relation": "constrains",
+      "facets": [
+        "semantic",
+        "interface",
+        "data",
+        "quality",
+        "reliability",
+        "security",
+        "structure"
+      ],
+      "rationale": "Архитектура реализует архитектурно значимые требования через границы, зависимости, контракты и функции пригодности."
+    },
+    {
+      "from": "architecture",
+      "to": "published-skills",
+      "relation": "constrains",
+      "facets": [
+        "semantic",
+        "interface",
+        "data",
+        "operation",
+        "quality",
+        "reliability",
+        "security",
+        "structure"
+      ],
+      "rationale": "Публикуемые навыки должны сохранять документированные границы, зависимости, интерфейсы и качества коллекции."
+    },
+    {
+      "from": "architecture",
+      "to": "user-documentation",
+      "relation": "constrains",
+      "facets": ["semantic", "interface", "documentation", "structure"],
+      "rationale": "Документация должна согласованно объяснять архитектурные границы, пользовательские потоки и публичные интерфейсы."
+    },
+    {
+      "from": "architecture",
+      "to": "delivery",
+      "relation": "constrains",
+      "facets": ["interface", "operation", "quality", "structure"],
+      "rationale": "Поставка должна сохранять архитектурную границу одной переносимой APM-коллекции и её поддерживаемые среды."
+    },
+    {
+      "from": "architecture",
+      "to": "quality-tooling",
+      "relation": "constrains",
+      "facets": [
+        "interface",
+        "data",
+        "operation",
+        "quality",
+        "reliability",
+        "security",
+        "structure"
+      ],
+      "rationale": "Средства проверки реализуют функции пригодности архитектуры и контролируют её дрейф."
+    },
+    {
+      "from": "requirements",
+      "to": "published-skills",
+      "relation": "constrains",
+      "facets": ["semantic", "interface", "data", "quality"],
+      "rationale": "Публикуемые навыки реализуют функциональные, информационные и качественные требования коллекции."
+    },
+    {
+      "from": "requirements",
       "to": "user-documentation",
       "relation": "constrains",
       "facets": ["semantic", "documentation"],
-      "rationale": "Пользовательская документация объясняет назначение коллекции и должна сохранять её смысл."
+      "rationale": "Пользовательская документация должна согласованно объяснять предусмотренные требованиями задачи, поведение и ограничения."
+    },
+    {
+      "from": "requirements",
+      "to": "quality-tooling",
+      "relation": "constrains",
+      "facets": ["semantic", "quality"],
+      "rationale": "Проверки должны подтверждать критерии приёмки и сохранять покрытие требований."
     },
     {
       "from": "published-skills",

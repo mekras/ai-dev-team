@@ -647,21 +647,30 @@ def rebuild_indexes(corpus_root: Path, root: Path) -> tuple[int, int]:
     return len(item_rows), len(statement_rows)
 
 
-def git_file_fingerprints(root: Path) -> dict[str, str]:
+def git_file_paths(root: Path, *arguments: str) -> list[str]:
     result = subprocess.run(
-        ["git", "ls-files", "-z", "--cached", "--others", "--exclude-standard"],
+        ["git", "ls-files", "-z", *arguments],
         cwd=root,
         capture_output=True,
         text=False,
     )
     if result.returncode != 0:
         raise OperationsError("Для --run-commands проект должен быть рабочей областью Git.")
-    fingerprints: dict[str, str] = {}
+    paths: list[str] = []
     for raw_path in result.stdout.split(b"\0"):
         if not raw_path:
             continue
         relative = raw_path.decode("utf-8", errors="strict")
         relative_path(relative, "Путь файла Git")
+        paths.append(relative)
+    return paths
+
+
+def git_file_fingerprints(root: Path) -> dict[str, str]:
+    visible_paths = git_file_paths(root, "--cached", "--others", "--exclude-standard")
+    ignored_paths = set(git_file_paths(root, "--others", "--ignored", "--exclude-standard"))
+    fingerprints: dict[str, str] = {}
+    for relative in visible_paths + sorted(ignored_paths):
         path = root / relative
         try:
             path.parent.resolve().relative_to(root)
@@ -673,8 +682,23 @@ def git_file_fingerprints(root: Path) -> dict[str, str]:
                 payload = os.readlink(path).encode("utf-8", errors="surrogateescape")
                 kind = b"symlink\0"
             elif path.is_file():
-                payload = path.read_bytes()
-                kind = b"file\0"
+                if relative in ignored_paths:
+                    payload = "\0".join(
+                        str(value)
+                        for value in (
+                            metadata.st_dev,
+                            metadata.st_ino,
+                            metadata.st_nlink,
+                            metadata.st_size,
+                            metadata.st_mtime_ns,
+                            metadata.st_ctime_ns,
+                            getattr(metadata, "st_blocks", 0),
+                        )
+                    ).encode("ascii")
+                    kind = b"ignored-file-metadata\0"
+                else:
+                    payload = path.read_bytes()
+                    kind = b"file\0"
             else:
                 continue
         except OSError as exc:

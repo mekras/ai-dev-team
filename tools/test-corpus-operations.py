@@ -333,6 +333,17 @@ def build_corpus(root: Path) -> None:
                 write_paths:
                   - knowledge/data/test
                 required: true
+          ignored_bad_write:
+            commands:
+              - id: overwrite-ignored-file-outside-scope
+                argv:
+                  - {sys.executable}
+                  - -c
+                  - "from pathlib import Path; Path('.private/source.txt').write_text('changed ignored material', encoding='utf-8')"
+                working_directory: .
+                write_paths:
+                  - knowledge/data/test
+                required: true
           concepts:
             commands:
               - id: check-concepts
@@ -374,6 +385,8 @@ def build_corpus(root: Path) -> None:
         """,
     )
     write(root / "outside.txt", "original\n")
+    write(root / ".gitignore", ".private/\n")
+    write(root / ".private" / "source.txt", "original ignored material\n")
 
 
 def reject_automated_work(root: Path, *, keep_blocked: bool) -> None:
@@ -542,6 +555,9 @@ def main() -> int:
         forbidden_write = run(root, "--run-commands", "--stage", "bad_write", expected=2)
         if "вне write_paths: outside.txt" not in forbidden_write.stderr:
             raise AssertionError("Изменение уже отслеживаемого файла вне write_paths не обнаружено.")
+        ignored_write = run(root, "--run-commands", "--stage", "ignored_bad_write", expected=2)
+        if "вне write_paths: .private/source.txt" not in ignored_write.stderr:
+            raise AssertionError("Изменение игнорируемого файла вне write_paths не обнаружено.")
 
         adapter_marker = root / "knowledge" / "data" / "test" / "adapter-marker.yml"
         adapters = run(root, "--run-adapters", "--source", "TEST")
