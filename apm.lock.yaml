@@ -1,5 +1,5 @@
 lockfile_version: '2'
-generated_at: '2026-07-31T20:50:38.841215+00:00'
+generated_at: '2026-07-31T21:25:49.786922+00:00'
 apm_version: 0.26.0
 dependencies:
 - repo_url: mekras/ai-agent-supervisor
@@ -1122,7 +1122,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:61785c5f3e554c2c2e0ff9fc5cb519cad4fbdec3ed60b047e847fed56b527883
+  content_hash: sha256:df9935797a4bf43762e21232adc3a6975e29d196e3132e1df3ccbf35cb1dbd2b
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-architecture/evals/result-scenarios.json
@@ -1131,7 +1131,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:7fe294711536524d400dc777c5cfcad6b28c80980aaeca8348c74a68511c0024
+  content_hash: sha256:94017d6162157c6fd8ca158a3712c91309d3238e0e10b0ee5972b40f2ba7790b
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-architecture/evals/triggers.json
@@ -1212,7 +1212,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:4a3252b35923ac6549d78a00a0f3f8bd1dbd527ddaf69994db3e5d74c33e7e14
+  content_hash: sha256:8547dbba2a9be80f11d7e4057c6afb1b7e9bb7104d80dd19756c478d727e0f08
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-architecture/references/decomposition.md
@@ -2094,7 +2094,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:182e87a439375a49a0e9b33485601538603ac5ee3b966886178cc5eca2733856
+  content_hash: sha256:0b37bfee24774443be5944bd5a7982f226a1dc8561f71b4a26ab7a0864241f9a
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-readme/evals/openclaw-skills-regression.md
@@ -4308,7 +4308,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:61785c5f3e554c2c2e0ff9fc5cb519cad4fbdec3ed60b047e847fed56b527883
+  content_hash: sha256:df9935797a4bf43762e21232adc3a6975e29d196e3132e1df3ccbf35cb1dbd2b
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-architecture/evals/result-scenarios.json
@@ -4317,7 +4317,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:7fe294711536524d400dc777c5cfcad6b28c80980aaeca8348c74a68511c0024
+  content_hash: sha256:94017d6162157c6fd8ca158a3712c91309d3238e0e10b0ee5972b40f2ba7790b
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-architecture/evals/triggers.json
@@ -4398,7 +4398,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:4a3252b35923ac6549d78a00a0f3f8bd1dbd527ddaf69994db3e5d74c33e7e14
+  content_hash: sha256:8547dbba2a9be80f11d7e4057c6afb1b7e9bb7104d80dd19756c478d727e0f08
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-architecture/references/decomposition.md
@@ -5280,7 +5280,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:182e87a439375a49a0e9b33485601538603ac5ee3b966886178cc5eca2733856
+  content_hash: sha256:0b37bfee24774443be5944bd5a7982f226a1dc8561f71b4a26ab7a0864241f9a
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-readme/evals/openclaw-skills-regression.md
@@ -10657,8 +10657,8 @@ local_deployed_file_hashes:
   .agents/skills/ait-arch-revalidation/SKILL.md: sha256:9058d1f3aff9b63cb4e69e5de0e9c61abf39f1e836328d3c715d1b4355f496bb
   .agents/skills/ait-arch-revalidation/evals/result-scenarios.json: sha256:f3ddde3ca30761cb474266b9f1419c4811851f8e53a0119ac570784c00c8b314
   .agents/skills/ait-arch-revalidation/evals/triggers.json: sha256:3581658f9e0a38b741138f8a0f3dcc29653b19ee47e9ea2380f87e3c9dae56bf
-  .agents/skills/ait-architecture/SKILL.md: sha256:61785c5f3e554c2c2e0ff9fc5cb519cad4fbdec3ed60b047e847fed56b527883
-  .agents/skills/ait-architecture/evals/result-scenarios.json: sha256:7fe294711536524d400dc777c5cfcad6b28c80980aaeca8348c74a68511c0024
+  .agents/skills/ait-architecture/SKILL.md: sha256:df9935797a4bf43762e21232adc3a6975e29d196e3132e1df3ccbf35cb1dbd2b
+  .agents/skills/ait-architecture/evals/result-scenarios.json: sha256:94017d6162157c6fd8ca158a3712c91309d3238e0e10b0ee5972b40f2ba7790b
   .agents/skills/ait-architecture/evals/triggers.json: sha256:ee96e9231387cc1b38866a00d01458668d55c9a1123f303cfe31826dab9d538d
   .agents/skills/ait-architecture/references/api-design.md: sha256:08f6833c1038f0a878b83134de25c6ab9ecc18bfbd0f7e88d1f18e8e03faa485
   .agents/skills/ait-architecture/references/architectural-decisions.md: sha256:5b21f52f4e56e6df4ae87d9b2a283a4d489161da95fe4544057c7ea8da430527
@@ -10667,7 +10667,7 @@ local_deployed_file_hashes:
   .agents/skills/ait-architecture/references/clean-architecture.md: sha256:c6b4379752d2d38e7af23ba0bfe9676f3a89913a9dc9830053d504bfafc1ebb8
   .agents/skills/ait-architecture/references/component-design.md: sha256:997d1f283aacdb8c4a9bc3ab589b3da0916967f59555d03072750b4da79085e6
   .agents/skills/ait-architecture/references/core-principles.md: sha256:a2f3931181e68617194f829f35f6e2fa23018aa6538d9062109cc4b736dcdb76
-  .agents/skills/ait-architecture/references/data-modeling.md: sha256:4a3252b35923ac6549d78a00a0f3f8bd1dbd527ddaf69994db3e5d74c33e7e14
+  .agents/skills/ait-architecture/references/data-modeling.md: sha256:8547dbba2a9be80f11d7e4057c6afb1b7e9bb7104d80dd19756c478d727e0f08
   .agents/skills/ait-architecture/references/decomposition.md: sha256:34dd146e443c7d25dda20c96326f6f6cc75d294f61136a181bdafcf909ef94ce
   .agents/skills/ait-architecture/references/distributed-tradeoffs.md: sha256:982e5f4a60ee41c0a142bf07077dee7742a952b88674d0aae0c242d4bc71c753
   .agents/skills/ait-architecture/references/domain-modeling.md: sha256:b13bc7e17d9c39954f429245fdb07a57fa1e63a9d37e18bf56a4b2cee781920d
@@ -10747,7 +10747,7 @@ local_deployed_file_hashes:
   .agents/skills/ait-project-revalidation/scripts/project_review.py: sha256:1a7b2ae33eba1e9fc7f9ea522d6ed7663c0a7500c007b39ac242f038456acf09
   .agents/skills/ait-readme/SKILL.md: sha256:28a1f4d83f1fe75e8451f126176f708c729e7002472248ead69f899a9f8c49cb
   .agents/skills/ait-readme/evals/apm-skill-collection.md: sha256:9fe6e4ccafe389d25111bbe4447b77f90e3740ddd207dcb0815fe15ac1da87ca
-  .agents/skills/ait-readme/evals/installation-vs-project-connection.md: sha256:182e87a439375a49a0e9b33485601538603ac5ee3b966886178cc5eca2733856
+  .agents/skills/ait-readme/evals/installation-vs-project-connection.md: sha256:0b37bfee24774443be5944bd5a7982f226a1dc8561f71b4a26ab7a0864241f9a
   .agents/skills/ait-readme/evals/openclaw-skills-regression.md: sha256:40ed2f8d8fc08eea02dd347524cc551d5744847edf2db0bac1f70f77985d5bfd
   .agents/skills/ait-readme/evals/result-scenarios.json: sha256:dacf56ea5318188866cfb5748f70cb332122a2c7e4acc5d47293cd7ea83f553f
   .agents/skills/ait-readme/evals/triggers.json: sha256:095c8649d0fc0e8eb8d0b42245146515f32f05ec7d8d3c7c594047564b7f9a61
@@ -10860,8 +10860,8 @@ local_deployed_file_hashes:
   .claude/skills/ait-arch-revalidation/SKILL.md: sha256:9058d1f3aff9b63cb4e69e5de0e9c61abf39f1e836328d3c715d1b4355f496bb
   .claude/skills/ait-arch-revalidation/evals/result-scenarios.json: sha256:f3ddde3ca30761cb474266b9f1419c4811851f8e53a0119ac570784c00c8b314
   .claude/skills/ait-arch-revalidation/evals/triggers.json: sha256:3581658f9e0a38b741138f8a0f3dcc29653b19ee47e9ea2380f87e3c9dae56bf
-  .claude/skills/ait-architecture/SKILL.md: sha256:61785c5f3e554c2c2e0ff9fc5cb519cad4fbdec3ed60b047e847fed56b527883
-  .claude/skills/ait-architecture/evals/result-scenarios.json: sha256:7fe294711536524d400dc777c5cfcad6b28c80980aaeca8348c74a68511c0024
+  .claude/skills/ait-architecture/SKILL.md: sha256:df9935797a4bf43762e21232adc3a6975e29d196e3132e1df3ccbf35cb1dbd2b
+  .claude/skills/ait-architecture/evals/result-scenarios.json: sha256:94017d6162157c6fd8ca158a3712c91309d3238e0e10b0ee5972b40f2ba7790b
   .claude/skills/ait-architecture/evals/triggers.json: sha256:ee96e9231387cc1b38866a00d01458668d55c9a1123f303cfe31826dab9d538d
   .claude/skills/ait-architecture/references/api-design.md: sha256:08f6833c1038f0a878b83134de25c6ab9ecc18bfbd0f7e88d1f18e8e03faa485
   .claude/skills/ait-architecture/references/architectural-decisions.md: sha256:5b21f52f4e56e6df4ae87d9b2a283a4d489161da95fe4544057c7ea8da430527
@@ -10870,7 +10870,7 @@ local_deployed_file_hashes:
   .claude/skills/ait-architecture/references/clean-architecture.md: sha256:c6b4379752d2d38e7af23ba0bfe9676f3a89913a9dc9830053d504bfafc1ebb8
   .claude/skills/ait-architecture/references/component-design.md: sha256:997d1f283aacdb8c4a9bc3ab589b3da0916967f59555d03072750b4da79085e6
   .claude/skills/ait-architecture/references/core-principles.md: sha256:a2f3931181e68617194f829f35f6e2fa23018aa6538d9062109cc4b736dcdb76
-  .claude/skills/ait-architecture/references/data-modeling.md: sha256:4a3252b35923ac6549d78a00a0f3f8bd1dbd527ddaf69994db3e5d74c33e7e14
+  .claude/skills/ait-architecture/references/data-modeling.md: sha256:8547dbba2a9be80f11d7e4057c6afb1b7e9bb7104d80dd19756c478d727e0f08
   .claude/skills/ait-architecture/references/decomposition.md: sha256:34dd146e443c7d25dda20c96326f6f6cc75d294f61136a181bdafcf909ef94ce
   .claude/skills/ait-architecture/references/distributed-tradeoffs.md: sha256:982e5f4a60ee41c0a142bf07077dee7742a952b88674d0aae0c242d4bc71c753
   .claude/skills/ait-architecture/references/domain-modeling.md: sha256:b13bc7e17d9c39954f429245fdb07a57fa1e63a9d37e18bf56a4b2cee781920d
@@ -10950,7 +10950,7 @@ local_deployed_file_hashes:
   .claude/skills/ait-project-revalidation/scripts/project_review.py: sha256:1a7b2ae33eba1e9fc7f9ea522d6ed7663c0a7500c007b39ac242f038456acf09
   .claude/skills/ait-readme/SKILL.md: sha256:28a1f4d83f1fe75e8451f126176f708c729e7002472248ead69f899a9f8c49cb
   .claude/skills/ait-readme/evals/apm-skill-collection.md: sha256:9fe6e4ccafe389d25111bbe4447b77f90e3740ddd207dcb0815fe15ac1da87ca
-  .claude/skills/ait-readme/evals/installation-vs-project-connection.md: sha256:182e87a439375a49a0e9b33485601538603ac5ee3b966886178cc5eca2733856
+  .claude/skills/ait-readme/evals/installation-vs-project-connection.md: sha256:0b37bfee24774443be5944bd5a7982f226a1dc8561f71b4a26ab7a0864241f9a
   .claude/skills/ait-readme/evals/openclaw-skills-regression.md: sha256:40ed2f8d8fc08eea02dd347524cc551d5744847edf2db0bac1f70f77985d5bfd
   .claude/skills/ait-readme/evals/result-scenarios.json: sha256:dacf56ea5318188866cfb5748f70cb332122a2c7e4acc5d47293cd7ea83f553f
   .claude/skills/ait-readme/evals/triggers.json: sha256:095c8649d0fc0e8eb8d0b42245146515f32f05ec7d8d3c7c594047564b7f9a61
