@@ -7,12 +7,12 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-INDEX = ROOT / "docs" / "requirements.md"
-REQUIREMENTS_ROOT = ROOT / "docs" / "requirements"
+INDEX = ROOT / "docs" / "05-requirements" / "README.md"
+REQUIREMENTS_ROOT = ROOT / "docs" / "05-requirements"
 
 CATEGORIES = {
     "business": ("bt", "БТ", (1, 2, 3)),
-    "functional": ("ft", "ФТ", tuple(range(1, 32))),
+    "functional": ("ft", "ФТ", tuple(range(1, 37))),
     "quality": ("kach", "КАЧ", tuple(range(1, 10))),
     "rules": ("pr", "ПР", tuple(range(1, 9))),
     "user": ("pt", "ПТ", (1, 2, 3, 5, 6, 7)),
@@ -43,36 +43,40 @@ def check_index(expected: dict[Path, str]) -> None:
     inline_requirements = INLINE_REQUIREMENT_RE.findall(text)
     if inline_requirements:
         fail(
-            "docs/requirements.md defines requirements inline: "
+            "docs/05-requirements/README.md defines requirements inline: "
             + ", ".join(sorted(set(inline_requirements))),
         )
     entries = re.findall(
-        r"^- \[([^]]+)\]\((requirements/[^)]+\.md)\)$",
+        r"^- \[([^]]+)\]\(((?:business|functional|quality|rules|user)/"
+        r"[^)]+\.md)\)$",
         text,
         flags=re.MULTILINE,
     )
     linked_paths = [INDEX.parent / link for _, link in entries]
 
     if len(linked_paths) != len(set(linked_paths)):
-        fail("docs/requirements.md contains duplicate requirement index entries")
+        fail(
+            "docs/05-requirements/README.md contains duplicate requirement "
+            "index entries",
+        )
 
     missing = sorted(set(expected) - set(linked_paths))
     unexpected = sorted(set(linked_paths) - set(expected))
     if missing:
         fail(
-            "docs/requirements.md does not link: "
+            "docs/05-requirements/README.md does not link: "
             + ", ".join(str(path.relative_to(ROOT)) for path in missing),
         )
     if unexpected:
         fail(
-            "docs/requirements.md links unexpected files: "
+            "docs/05-requirements/README.md links unexpected files: "
             + ", ".join(str(path.relative_to(ROOT)) for path in unexpected),
         )
     for label, link in entries:
         path = INDEX.parent / link
         if not label.startswith(expected[path]):
             fail(
-                f"docs/requirements.md labels {link} as {label!r}, "
+                f"docs/05-requirements/README.md labels {link} as {label!r}, "
                 f"expected {expected[path]}",
             )
         heading = re.search(
@@ -82,7 +86,8 @@ def check_index(expected: dict[Path, str]) -> None:
         )
         if heading is None or label != heading.group(1):
             fail(
-                "docs/requirements.md must use the full requirement title "
+                "docs/05-requirements/README.md must use the full requirement "
+                "title "
                 f"from {link}",
             )
 
@@ -145,12 +150,16 @@ def check_requirement_file(path: Path, identifier: str) -> None:
                 f"{path.relative_to(ROOT)} must state when the business "
                 "requirement is fulfilled before listing evidence",
             )
-    if "[К списку требований](../../requirements.md)" not in text:
+    if "[К списку требований](../README.md)" not in text:
         fail(f"{path.relative_to(ROOT)} has no link to the requirements index")
 
 
 def check_tree(expected: dict[Path, str]) -> None:
-    actual = set(REQUIREMENTS_ROOT.rglob("*.md"))
+    actual = {
+        path
+        for path in REQUIREMENTS_ROOT.rglob("*.md")
+        if path != INDEX
+    }
     missing = sorted(set(expected) - actual)
     unexpected = sorted(actual - set(expected))
     if missing:

@@ -18,7 +18,7 @@
       "id": "concept",
       "title": "Концепция продукта",
       "kind": "concept",
-      "paths": ["docs/concept.md"],
+      "paths": ["docs/01-concept/README.md"],
       "checks": ["ait-docs-concept"],
       "review_stages": ["requirements"]
     },
@@ -34,7 +34,7 @@
       "id": "requirements",
       "title": "Требования продукта",
       "kind": "requirements",
-      "paths": ["docs/requirements.md", "docs/requirements/**"],
+      "paths": ["docs/05-requirements/README.md", "docs/05-requirements/**"],
       "checks": ["ait-req-management", "ait-req-validation"],
       "review_stages": ["requirements"]
     },
@@ -42,7 +42,12 @@
       "id": "decisions",
       "title": "Проектные решения и открытые задачи",
       "kind": "decision",
-      "paths": ["BACKLOG.md", "docs/adr/**", "docs/pdr/**"],
+      "paths": [
+        "BACKLOG.md",
+        "docs/06-architecture/adr/**",
+        "docs/04-product/pdr/**",
+        "docs/meta/DDR/**"
+      ],
       "checks": ["ait-decisions", "ait-architecture"],
       "review_stages": ["design"]
     },
@@ -81,11 +86,19 @@
       "paths": [
         "CHANGELOG.md",
         "README.md",
-        "docs/development.md",
-        "docs/implementation-plan-managed-project-review.md",
-        "docs/knowledge.md",
-        "docs/overview.md",
-        "docs/roles.md"
+        "docs/README.md",
+        "docs/02-use-cases/**",
+        "docs/03-hypotheses/**",
+        "docs/04-product/README.md",
+        "docs/04-product/roles.md",
+        "docs/06-architecture/README.md",
+        "docs/07-design/**",
+        "docs/meta/README.md",
+        "docs/meta/DDR/**",
+        "docs/reference/**",
+        "docs/user/**",
+        "docs/operations/**",
+        "docs/reports/**"
       ],
       "checks": ["ait-writing", "ait-changelog"],
       "review_stages": ["assurance"]
@@ -305,6 +318,13 @@
     },
     {
       "from": "decisions",
+      "to": "knowledge",
+      "relation": "governs",
+      "facets": ["semantic", "data", "structure"],
+      "rationale": "Решения о канонических сведениях задают договор корпуса и его данные."
+    },
+    {
+      "from": "decisions",
       "to": "portable-core",
       "relation": "constrains",
       "facets": [
@@ -324,6 +344,7 @@
       "to": "tooling",
       "relation": "constrains",
       "facets": [
+        "semantic",
         "interface",
         "data",
         "quality",

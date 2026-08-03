@@ -1,38 +1,89 @@
-# Слой согласования понятий
+# Канонический понятийный аппарат продукта
 #
-# Промежуточный указательный слой между корпусом знаний (`knowledge/data/`) и
-# продуктом (`.apm/skills/`). Назначение: закрепить основную форму понятия,
-# собрать синонимы по источникам и РАЗРЕШИТЬ конфликты и ложные противоречия
-# между утверждениями разных источников до того, как из них строится навык.
+# Файл закрепляет краткие определения, границы, формы, синонимы, обоснования и
+# связи понятий продукта. Он согласует расхождения форм и ложные противоречия
+# между источниками до применения понятия в документации, навыках и решениях.
 #
 # Принципы:
-# - слой НЕ хранит контент (примеры, шаблоны, прозу) — только указатели и
-#   мета-синтез (согласование). Содержание живёт в навыках, обоснования — в
-#   утверждениях корпуса.
+# - файл хранит краткое нормативное содержание понятия, но не примеры,
+#   сценарии, шаблоны или развёрнутую прозу. Такие материалы остаются в своих
+#   предметных артефактах.
 # - основная форма выбирается по правилу: нормативный источник > профильный
 #   первичный источник > проверяемый синтез нескольких источников с явным
 #   разрешением коллизий.
-# - запись заводится по требованию: понятие встречается в ≥2 источниках или
-#   вызывает коллизию.
-# Решение о слое: docs/adr/0001-concepts-reconciliation-layer.md
+# - запись заводится для понятия, определяющего обязательства, границы,
+#   поведение, состав или свойства продукта, а также при коллизии источников.
+# Решение о слое:
+# docs/06-architecture/adr/0001-canonical-product-conceptual-model.md
 #
 # Поля записи:
 #   id                 — устойчивый идентификатор (kebab-case)
-#   primary_ru         — основная русская форма
+#   primary            — каноническая основная форма по договору корпуса
+#   primary_ru         — основная русская форма, сохранённая для совместимости
+#   definition         — краткое определение понятия
+#   boundaries         — включаемые и исключаемые случаи
 #   forms_ru/forms_en  — допустимые альтернативные формы
 #   authority          — источник основной формы
 #   defined_by         — идентификаторы утверждений-обоснований
 #   cite_as            — какие источники показывать пользователю или указывать
 #                        как основание в производных материалах
-#   covered_in         — где в продукте лежит содержание
+#   covered_in         — места применения понятия в продукте, не его определение
 #   synonyms_by_source — какой термин использует каждый источник
 #   reconciliation     — разрешение согласований и конфликтов между источниками
 #   collisions         — омонимы и понятия, которые нельзя путать
 #   gaps               — известные разрывы (со ссылкой на BACKLOG.md)
 
+concept_contract_version: 2
 concepts:
+  - id: persona
+    primary: персонаж
+    primary_ru: персонаж
+    definition: >-
+      Проектировочная модель представителя целевой группы, описывающая его
+      цели, контекст и существенные характеристики для принятия решений.
+    boundaries:
+      includes: [модель пользователя для проектирования]
+      excludes: [реальный человек, должность, статистический сегмент]
+    forms_ru: [персона]
+    forms_en: [persona]
+    authority:
+      type: project-decision-and-source
+      ref: INMA-006, INMA-007
+    authority_note: >-
+      Явное терминологическое решение пользователя ai-dev-team. INMA
+      подтверждает понятие как проектировочный инструмент, но не выбирает между
+      русскими формами «персонаж» и «персона».
+    defined_by: [INMA-006, INMA-007]
+    cite_as: [INMA]
+    covered_in:
+      - ait-ux-design/SKILL.md
+      - ait-ux-audit/SKILL.md
+      - ../agents/ux-specialist.agent.md
+    synonyms_by_source:
+      INMA: персонаж
+      user-decision: персонаж — основная форма, персона — синоним
+    reconciliation:
+      - >-
+        В текстах продукта используется «персонаж». Форму «персона» можно
+        распознавать как синоним во входных материалах, но не выбирать как
+        основную при создании нового текста.
+    collisions:
+      - >-
+        Не путать персонажа как конкретную проектировочную модель пользователя
+        со статистическим сегментом, должностью или любым реальным человеком.
+    relationships:
+      - type: informs
+        target: user-goal
+
   - id: guiding-statement
+    primary: направляющее положение
     primary_ru: направляющее положение
+    definition: >-
+      Общее положение, которое направляет выбор и может служить основанием для
+      требований, но само не задаёт проверяемое поведение системы.
+    boundaries:
+      includes: [цели, принципы и политики как основания решений]
+      excludes: [проверяемое требование к системе]
     forms_ru:
       - общий ориентир
       - принцип
@@ -42,7 +93,10 @@ concepts:
       - guiding statement
       - principle
       - policy
-    authority: >-
+    authority:
+      type: source-synthesis
+      ref: AM32-003, TG10-003, BMM-002
+    authority_note: >-
       AM32, TG10 и BMM разделяют цели, принципы, политики и требования.
       Нейтральная основная форма обозначает их общую направляющую функцию, но
       не объединяет исходные метамодели.
@@ -86,10 +140,20 @@ concepts:
         Business Policy BMM взаимозаменяемыми.
 
   - id: architecture-principle
+    primary: архитектурный принцип
     primary_ru: архитектурный принцип
+    definition: >-
+      Направляющее положение, определяющее устойчивые критерии выбора
+      архитектурных решений.
+    boundaries:
+      includes: [принцип, направляющий архитектурный выбор]
+      excludes: [проверяемое требование, бизнес-политика без архитектурного контекста]
     forms_ru: [направляющий архитектурный принцип]
     forms_en: [architecture principle, principle]
-    authority: >-
+    authority:
+      type: source-synthesis
+      ref: AM32-003, TG10-003
+    authority_note: >-
       AM32 и TG10. Общая русская форма совпадает, а значения не объединяются.
     defined_by: [AM32-003, AM32-004, TG10-003, TG10-004]
     cite_as: [AM32, TG10, BMM]
@@ -118,7 +182,14 @@ concepts:
     related_concepts: [guiding-statement]
 
   - id: project-reconstructability
+    primary: реконструируемость проекта
     primary_ru: реконструируемость проекта
+    definition: >-
+      Свойство проекта, позволяющее повторно создать его значимые артефакты из
+      канонических спецификаций и проверить полученный результат.
+    boundaries:
+      includes: [повторное создание из спецификаций]
+      excludes: [восстановление после отказа, побитово воспроизводимая сборка]
     forms_ru:
       - восстановление проекта по спецификациям
       - реконструируемая кодовая база
@@ -126,7 +197,10 @@ concepts:
       - project reconstructability
       - rebuildability
       - rebuildable codebase
-    authority: >-
+    authority:
+      type: source-synthesis
+      ref: SDDP-002, SPKT-001, AUGR-001
+    authority_note: >-
       SDDP и SPKT задают первичность спецификации, а AUGR — повторное создание
       кодовой базы и проверку результата. Основная форма обозначает
       проверяемое свойство, общее для этих подходов.
@@ -141,7 +215,7 @@ concepts:
     cite_as: [SDDP, SPKT, AUGR]
     covered_in:
       - ait-reconstructability/SKILL.md
-      - ../../docs/requirements/functional/ft-19.md
+      - ../../docs/05-requirements/functional/ft-19.md
     synonyms_by_source:
       SDDP: spec-as-source
       SPKT: specification-driven development
@@ -163,10 +237,20 @@ concepts:
         повторное создание исходного кода и проверяться по поведению.
 
   - id: project-profile
+    primary: профиль проекта
     primary_ru: профиль проекта
+    definition: >-
+      Многомерное описание условий проекта, определяющих применимый процесс,
+      вопросы настройки и проверки.
+    boundaries:
+      includes: [формы результата, пользователи, взаимодействие и поставка]
+      excludes: [один язык, стек или методология]
     forms_ru: [характер проекта, тип проекта, класс проекта]
     forms_en: [project profile, project type, project class]
-    authority: >-
+    authority:
+      type: primary-source
+      ref: SREQ-076
+    authority_note: >-
       SREQ показывает, что условия и класс проекта изменяют применимый процесс.
       Форма «профиль» обозначает многомерное описание этих условий, а не один
       закрытый класс.
@@ -174,7 +258,7 @@ concepts:
     cite_as: [SREQ]
     covered_in:
       - ait-setup/references/setup-dialogue.md
-      - ../../docs/requirements/functional/ft-18.md
+      - ../../docs/05-requirements/functional/ft-18.md
     synonyms_by_source:
       SREQ: класс проекта
     reconciliation:
@@ -191,10 +275,19 @@ concepts:
         способов поставки.
 
   - id: commit-message-scheme
+    primary: схема сообщений коммитов
     primary_ru: схема сообщений коммитов
+    definition: >-
+      Набор правил структуры и формулировки сообщений коммитов.
+    boundaries:
+      includes: [соглашение о формате сообщения коммита]
+      excludes: [политика состава коммита, выпуск версии]
     forms_ru: [схема оформления коммитов]
     forms_en: [commit message convention, commit guidelines]
-    authority: >-
+    authority:
+      type: source-synthesis
+      ref: CCMT-001, GTMJ-001, PGIT-001
+    authority_note: >-
       CCMT, GTMJ и PGIT описывают разные правила структуры и формулировки
       сообщений. Основная форма обозначает класс таких правил без выбора одной
       схемы.
@@ -218,9 +311,16 @@ concepts:
         добавления файлов в индекс Git или выпуска версии.
 
   - id: personal-data
+    primary: персональные данные
     primary_ru: персональные данные
+    definition: Сведения, относящиеся к прямо или косвенно определённому физическому лицу.
+    boundaries:
+      includes: [сведения об идентифицируемом физическом лице]
+      excludes: [обезличенные сведения без возможности идентификации]
     forms_en: [personal data]
-    authority: RUPD
+    authority:
+      type: normative-source
+      ref: RUPD-001
     defined_by: [RUPD-001]
     cite_as: [RUPD, RKN]
     covered_in:
@@ -238,9 +338,18 @@ concepts:
         оценивается по применимым нормам и фактам конкретной обработки.
 
   - id: personal-data-operator
+    primary: оператор персональных данных
     primary_ru: оператор персональных данных
+    definition: >-
+      Лицо, самостоятельно или совместно с другими определяющее цели и условия
+      обработки персональных данных.
+    boundaries:
+      includes: [лицо, определяющее цели и условия обработки]
+      excludes: [лицо, обрабатывающее данные только по поручению]
     forms_en: [personal data operator, controller]
-    authority: RUPD
+    authority:
+      type: normative-source
+      ref: RUPD-001
     defined_by: [RUPD-001, RUPD-003, RKN-001]
     cite_as: [RUPD, RKN]
     covered_in:
@@ -259,9 +368,18 @@ concepts:
         оператора обязанность определить цели и условия обработки.
 
   - id: personal-data-processing
+    primary: обработка персональных данных
     primary_ru: обработка персональных данных
+    definition: >-
+      Действие или совокупность действий с персональными данными, выполняемые
+      с использованием средств автоматизации или без них.
+    boundaries:
+      includes: [сбор, хранение, использование и иные операции с данными]
+      excludes: [одно лишь правовое основание обработки]
     forms_en: [personal data processing]
-    authority: RUPD
+    authority:
+      type: normative-source
+      ref: RUPD-002
     defined_by: [RUPD-002, RUPD-003, RKN-002, RKN-003]
     cite_as: [RUPD, RKN]
     covered_in:
@@ -280,10 +398,19 @@ concepts:
         самостоятельное универсальное основание.
 
   - id: prompt-injection
+    primary: внедрение инструкций
     primary_ru: внедрение инструкций
+    definition: >-
+      Воздействие недоверенным содержимым, побуждающее ИИ-систему изменить
+      установленные инструкции или поведение.
+    boundaries:
+      includes: [прямая и косвенная инъекция промпта]
+      excludes: [обычный пользовательский запрос, доверенная системная инструкция]
     forms_ru: [инъекция промпта, внедрение инструкций в запрос]
     forms_en: [prompt injection, indirect prompt injection]
-    authority: OWSP
+    authority:
+      type: primary-source
+      ref: OWSP-001
     defined_by: [OWSP-001, OWSP-002, ATLS-001]
     cite_as: [OWSP, ATLS]
     covered_in:
@@ -301,10 +428,19 @@ concepts:
         изменением установленного поведения.
 
   - id: agentic-ai-system
+    primary: агентная ИИ-система
     primary_ru: агентная ИИ-система
+    definition: >-
+      ИИ-система, использующая средства и способная совершать действия с
+      последствиями за пределами текстового ответа.
+    boundaries:
+      includes: [ИИ-агент с доступом к средствам]
+      excludes: [языковая модель без средств и полномочий на действия]
     forms_ru: [ИИ-агент, агент с действиями от имени человека]
     forms_en: [agentic AI system, AI agent]
-    authority: OWSP и ATLS
+    authority:
+      type: source-synthesis
+      ref: OWSP-003, ATLS-002
     defined_by: [OWSP-003, ATLS-002]
     cite_as: [OWSP, ATLS]
     covered_in:
@@ -322,10 +458,20 @@ concepts:
         частью агентной ИИ-системы, но не равна ей.
 
   - id: hypothesis-record
+    primary: запись гипотезы
     primary_ru: запись гипотезы
+    definition: >-
+      Сохраняемая запись проверяемого предположения, его свидетельств и
+      результата попытки опровержения.
+    boundaries:
+      includes: [гипотеза с предсказанием и проверкой]
+      excludes: [идея, открытый вопрос, принятое решение]
     forms_ru: [запись проектной гипотезы]
     forms_en: [hypothesis record]
-    authority: >-
+    authority:
+      type: source-synthesis
+      ref: EVAR-026, CHAE-003
+    authority_note: >-
       EVAR связывает эволюционные изменения с гипотезами и данными, а CHAE —
       проверяемое предположение с попыткой опровержения. Основная форма
       обозначает сохраняемый след такой проверки.
@@ -351,10 +497,19 @@ concepts:
       - не путать с идеей или открытым вопросом без проверяемого предсказания.
 
   - id: decision-record
+    primary: запись решения
     primary_ru: запись решения
+    definition: >-
+      Сохраняемая запись контекста, вариантов, выбранного решения и его
+      последствий.
+    boundaries:
+      includes: [запись проектного или архитектурного решения]
+      excludes: [гипотеза, само решение без записи]
     forms_ru: [запись проектного решения]
     forms_en: [decision record]
-    authority: ADRG
+    authority:
+      type: primary-source
+      ref: ADRG-014
     defined_by: [ADRG-014, ADRG-001]
     cite_as: [ADRG]
     covered_in:
@@ -374,10 +529,18 @@ concepts:
         записи решения; см. architectural-decision-record.
 
   - id: decision-record-status
+    primary: статус записи решения
     primary_ru: статус записи решения
+    definition: >-
+      Состояние записи решения в её жизненном цикле рассмотрения и действия.
+    boundaries:
+      includes: [состояние предложенного или принятого решения]
+      excludes: [оценка качества решения]
     forms_ru: [статус записи решения, статус решения, статусная модель решений]
     forms_en: [decision status, ADR status]
-    authority: ADRG
+    authority:
+      type: primary-source
+      ref: ADRG-011
     defined_by: [ADRG-011]
     cite_as: [ADRG]
     covered_in:
@@ -407,10 +570,18 @@ concepts:
         уже рассмотрено.
 
   - id: architectural-decision-record
+    primary: запись архитектурного решения (ADR)
     primary_ru: запись архитектурного решения (ADR)
+    definition: >-
+      Запись значимого архитектурного решения, его контекста и последствий.
+    boundaries:
+      includes: [ADR как документированное архитектурное решение]
+      excludes: [само архитектурное решение, организационная запись решения]
     forms_ru: [запись архитектурного решения, запись ADR, ADR]
     forms_en: [architectural decision record, ADR]
-    authority: ADRG
+    authority:
+      type: source-synthesis
+      ref: ADRG-001, SAHP-007
     defined_by: [ADRG-001, SAHP-007]
     cite_as: [ADRG, SAHP]
     covered_in:
@@ -429,9 +600,16 @@ concepts:
         дисциплина записи — в ait-decisions.
 
   - id: architectural-decision
+    primary: архитектурное решение
     primary_ru: архитектурное решение
+    definition: Решение, существенно влияющее на архитектуру системы.
+    boundaries:
+      includes: [выбор, формирующий архитектуру]
+      excludes: [запись решения, незначительный локальный выбор]
     forms_en: [architectural decision, AD]
-    authority: ADRG
+    authority:
+      type: primary-source
+      ref: ADRG-002
     defined_by: [ADRG-002]
     cite_as: [ADRG]
     covered_in:
@@ -443,9 +621,16 @@ concepts:
         decision-workflow.md).
 
   - id: architecturally-significant-requirement
+    primary: архитектурно значимое требование
     primary_ru: архитектурно значимое требование
+    definition: Требование, оказывающее существенное влияние на архитектуру системы.
+    boundaries:
+      includes: [требование, ограничивающее архитектурный выбор]
+      excludes: [характеристика качества без влияния на архитектуру]
     forms_en: [architecturally significant requirement, ASR]
-    authority: ADRG
+    authority:
+      type: primary-source
+      ref: ADRG-002
     defined_by: [ADRG-002]
     cite_as: [ADRG, G250]
     covered_in:
@@ -462,10 +647,17 @@ concepts:
         разных понятия.
 
   - id: nygard-adr-template
+    primary: шаблон Найгарда
     primary_ru: шаблон Найгарда
+    definition: Шаблон ADR с разделами «Контекст», «Решение» и «Последствия».
+    boundaries:
+      includes: [структура записи ADR]
+      excludes: [любая запись решения без этой структуры]
     forms_ru: [шаблон Найгарда]
     forms_en: [Nygard, Nygard ADR]
-    authority: ADRG
+    authority:
+      type: source-synthesis
+      ref: ADRG-005, SAHP-007
     defined_by: [ADRG-005, SAHP-007]
     cite_as: [ADRG, SAHP]
     covered_in:
@@ -478,9 +670,16 @@ concepts:
         Nygard.
 
   - id: architectural-quantum
+    primary: архитектурный квант
     primary_ru: архитектурный квант
+    definition: Независимо развёртываемая часть системы с высокой внутренней связностью.
+    boundaries:
+      includes: [самостоятельно развёртываемая архитектурная единица]
+      excludes: [произвольный модуль или сервис]
     forms_en: [architectural quantum]
-    authority: SAHP
+    authority:
+      type: primary-source
+      ref: SAHP-014
     defined_by: [SAHP-014]
     cite_as: [SAHP]
     covered_in:
@@ -492,19 +691,33 @@ concepts:
   # «Архитектура и проектирование: определения должны быть простыми».
 
   - id: service
+    primary: сервис
     primary_ru: сервис
+    definition: Автономно развёртываемый компонент, предоставляющий бизнес-возможность.
+    boundaries:
+      includes: [самостоятельно развёртываемый компонент]
+      excludes: [любой модуль или библиотека]
     forms_en: [service]
-    authority: SAHP
+    authority:
+      type: primary-source
+      ref: SAHP-012
     defined_by: [SAHP-012]
     cite_as: [SAHP]
     synonyms_by_source:
       SAHP: сервис
 
   - id: coupling
+    primary: сопряжение
     primary_ru: сопряжение
+    definition: Степень зависимости одного модуля или компонента от другого.
+    boundaries:
+      includes: [межмодульная зависимость]
+      excludes: [связность элементов внутри одного модуля]
     forms_ru: [сопряжение]
     forms_en: [coupling]
-    authority: SAHP
+    authority:
+      type: primary-source
+      ref: SAHP-012
     defined_by: [SAHP-012]
     cite_as: [SAHP]
     covered_in:
@@ -525,10 +738,17 @@ concepts:
         свойства.
 
   - id: cohesion
+    primary: связность
     primary_ru: связность
+    definition: Степень смысловой и функциональной близости элементов внутри модуля.
+    boundaries:
+      includes: [внутренняя согласованность модуля]
+      excludes: [зависимость между модулями]
     forms_ru: [связность, высокая связность]
     forms_en: [cohesion]
-    authority: CCMP
+    authority:
+      type: source-synthesis
+      ref: CCMP-005, CLCD-015, DDDE-045
     defined_by: [CCMP-005, CLCD-015, DDDE-045]
     cite_as: [CCMP, CLCD, DDDE]
     covered_in:
@@ -545,7 +765,12 @@ concepts:
       - не путать связность (cohesion) с сопряжением (coupling).
 
   - id: single-source-of-truth
+    primary: единственное авторитетное представление знания (DRY)
     primary_ru: единственное авторитетное представление знания (DRY)
+    definition: Единственное место, в котором авторитетно задаётся конкретное знание.
+    boundaries:
+      includes: [устранение истинного дублирования знания]
+      excludes: [случайно похожие, но независимые сведения]
     forms_ru: [
         единственное авторитетное представление знания,
         единый источник
@@ -553,7 +778,9 @@ concepts:
         принцип DRY,
       ]
     forms_en: [single source of truth, DRY, don't repeat yourself]
-    authority: CLAR
+    authority:
+      type: primary-source
+      ref: CLAR-050
     defined_by: [CLAR-050, CLAR-020]
     cite_as: [CLAR]
     covered_in:
@@ -568,73 +795,129 @@ concepts:
         дублирование определяется синхронностью изменений, а не похожестью.
 
   - id: component
+    primary: компонент
     primary_ru: компонент
+    definition: Часть системы с определённой ответственностью и границей взаимодействия.
+    boundaries:
+      includes: [архитектурная часть системы]
+      excludes: [произвольный файл или класс]
     forms_en: [component]
-    authority: SAHP
+    authority:
+      type: primary-source
+      ref: SAHP-012
     defined_by: [SAHP-012]
     cite_as: [SAHP]
     synonyms_by_source:
       SAHP: компонент
 
   - id: synchronous-interaction
+    primary: синхронное взаимодействие
     primary_ru: синхронное взаимодействие
+    definition: Взаимодействие, при котором инициатор ожидает завершения ответа.
+    boundaries:
+      includes: [запрос с ожиданием результата]
+      excludes: [сообщение с независимым продолжением работы]
     forms_en: [synchronous interaction]
-    authority: SAHP
+    authority:
+      type: primary-source
+      ref: SAHP-055
     defined_by: [SAHP-055]
     cite_as: [SAHP]
     synonyms_by_source:
       SAHP: синхронные взаимодействия
 
   - id: asynchronous-interaction
+    primary: асинхронное взаимодействие
     primary_ru: асинхронное взаимодействие
+    definition: Взаимодействие, при котором инициатор не ожидает немедленного завершения.
+    boundaries:
+      includes: [сообщение или событие с отложенной обработкой]
+      excludes: [синхронный запрос с ожиданием ответа]
     forms_en: [asynchronous interaction]
-    authority: SAHP
+    authority:
+      type: primary-source
+      ref: SAHP-055
     defined_by: [SAHP-055]
     cite_as: [SAHP]
     synonyms_by_source:
       SAHP: асинхронные взаимодействия
 
   - id: orchestration
+    primary: оркестрованная координация
     primary_ru: оркестрованная координация
+    definition: Координация взаимодействий центральным участником, управляющим ходом процесса.
+    boundaries:
+      includes: [центральный координатор взаимодействий]
+      excludes: [распределённая координация без центрального управляющего]
     forms_ru: [организованная координация]
     forms_en: [orchestration]
-    authority: SAHP
+    authority:
+      type: primary-source
+      ref: SAHP-055
     defined_by: [SAHP-055]
     cite_as: [SAHP]
     synonyms_by_source:
       SAHP: организованная (оркестрованная) координация
 
   - id: choreography
+    primary: хореографическая координация
     primary_ru: хореографическая координация
+    definition: Распределённая координация, в которой участники следуют общим правилам.
+    boundaries:
+      includes: [взаимодействие без центрального управляющего]
+      excludes: [централизованная оркестрация]
     forms_en: [choreography]
-    authority: SAHP
+    authority:
+      type: primary-source
+      ref: SAHP-055
     defined_by: [SAHP-055]
     cite_as: [SAHP]
     synonyms_by_source:
       SAHP: хореографическая координация
 
   - id: atomicity
+    primary: атомарность
     primary_ru: атомарность
+    definition: Свойство операции, при котором она завершается целиком либо не имеет эффекта.
+    boundaries:
+      includes: [неделимость результата операции]
+      excludes: [порядок доставки сообщений, согласованность данных]
     forms_en: [atomicity]
-    authority: SAHP
+    authority:
+      type: primary-source
+      ref: SAHP-055
     defined_by: [SAHP-055]
     cite_as: [SAHP]
     synonyms_by_source:
       SAHP: атомарность
 
   - id: contract
+    primary: контракт
     primary_ru: контракт
+    definition: Явно согласованное описание обязательств и правил взаимодействия сторон.
+    boundaries:
+      includes: [интерфейсные обязательства и правила]
+      excludes: [внутренняя реализация без внешнего обязательства]
     forms_en: [contract]
-    authority: SAHP
+    authority:
+      type: primary-source
+      ref: SAHP-040
     defined_by: [SAHP-040]
     cite_as: [SAHP]
     synonyms_by_source:
       SAHP: контракт
 
   - id: quality-model
+    primary: модель качества (ГОСТ Р ИСО/МЭК 25010)
     primary_ru: модель качества (ГОСТ Р ИСО/МЭК 25010)
+    definition: Модель характеристик и подхарактеристик качества продукта по ГОСТ 25010.
+    boundaries:
+      includes: [восемь характеристик качества продукта]
+      excludes: [произвольный перечень нефункциональных требований]
     forms_en: [ISO/IEC 25010 quality model]
-    authority: G250
+    authority:
+      type: normative-source
+      ref: G250-001
     defined_by: [G250-001, G250-004]
     cite_as: [G250]
     covered_in:
@@ -643,9 +926,16 @@ concepts:
       G250: модель качества продукта (восемь характеристик)
 
   - id: maintainability
+    primary: сопровождаемость
     primary_ru: сопровождаемость
+    definition: Способность продукта эффективно изменяться и поддерживаться.
+    boundaries:
+      includes: [характеристика качества сопровождения]
+      excludes: [ремонтопригодность оборудования]
     forms_en: [maintainability]
-    authority: G250
+    authority:
+      type: normative-source
+      ref: G250-005
     defined_by: [G250-005, G250-001]
     cite_as: [G250, SAHP]
     covered_in:
@@ -659,9 +949,16 @@ concepts:
         оборудования, ГОСТ 27.002) и с «пригодностью решения».
 
   - id: deployability
+    primary: развёртываемость
     primary_ru: развёртываемость
+    definition: Способность системы к безопасному и независимому развёртыванию изменений.
+    boundaries:
+      includes: [независимое развёртывание, частота релизов, конвейер]
+      excludes: [одна только устанавливаемость]
     forms_en: [deployability]
-    authority: SAHP
+    authority:
+      type: source-synthesis
+      ref: SAHP-011, EVAR-027
     defined_by: [SAHP-011, EVAR-027]
     cite_as: [SAHP, EVAR]
     covered_in:
@@ -680,9 +977,16 @@ concepts:
       - не сводить к «устанавливаемости» (installability) — это уже понятие.
 
   - id: scalability
+    primary: масштабируемость
     primary_ru: масштабируемость
+    definition: Способность системы сохранять свойства при росте нагрузки или объёма.
+    boundaries:
+      includes: [рост нагрузки и ресурсов во времени]
+      excludes: [реакция на кратковременный пик]
     forms_en: [scalability]
-    authority: SAHP
+    authority:
+      type: primary-source
+      ref: SAHP-056
     defined_by: [SAHP-056]
     cite_as: [SAHP]
     covered_in:
@@ -698,9 +1002,16 @@ concepts:
         рост во времени, адаптируемость про мгновенные всплески.
 
   - id: adaptability-peak-load
+    primary: адаптируемость к пиковым нагрузкам
     primary_ru: адаптируемость к пиковым нагрузкам
+    definition: Способность системы быстро приспосабливаться к пиковому изменению нагрузки.
+    boundaries:
+      includes: [эластичная реакция на пик]
+      excludes: [адаптируемость переносимости по ГОСТ 25010]
     forms_en: [adaptability, elasticity]
-    authority: SAHP
+    authority:
+      type: primary-source
+      ref: SAHP-056
     defined_by: [SAHP-056]
     cite_as: [SAHP]
     covered_in:
@@ -718,9 +1029,16 @@ concepts:
         свойства.
 
   - id: availability
+    primary: готовность (доступность)
     primary_ru: готовность (доступность)
+    definition: Способность продукта быть работоспособным и доступным при необходимости.
+    boundaries:
+      includes: [подхарактеристика надёжности]
+      excludes: [масштабируемость, отказоустойчивость как самостоятельные свойства]
     forms_en: [availability]
-    authority: G250
+    authority:
+      type: normative-source
+      ref: G250-002
     defined_by: [G250-002]
     cite_as: [G250, SAHP]
     covered_in:
@@ -734,9 +1052,16 @@ concepts:
         нормативу, SAHP использует «доступность». Покрыта навыком ait-reliability.
 
   - id: fault-tolerance
+    primary: отказоустойчивость
     primary_ru: отказоустойчивость
+    definition: Способность продукта функционировать при отказе компонентов или сбоях.
+    boundaries:
+      includes: [сохранение функции при отказе]
+      excludes: [готовность без рассмотрения отказов]
     forms_en: [fault tolerance]
-    authority: G250
+    authority:
+      type: normative-source
+      ref: G250-002
     defined_by: [G250-002]
     cite_as: [G250, DSCT]
     covered_in:
@@ -747,9 +1072,16 @@ concepts:
       G250: отказоустойчивость
 
   - id: component-based-decomposition
+    primary: декомпозиция на основе компонентов
     primary_ru: декомпозиция на основе компонентов
+    definition: Разделение системы на компоненты по ответственности и границам.
+    boundaries:
+      includes: [выделение компонентов и их границ]
+      excludes: [разбиение только по техническим слоям]
     forms_en: [component-based decomposition]
-    authority: SAHP
+    authority:
+      type: primary-source
+      ref: SAHP-058
     defined_by: [SAHP-058, SAHP-059, SAHP-063]
     cite_as: [SAHP]
     covered_in:
@@ -758,9 +1090,16 @@ concepts:
       SAHP: декомпозиция на основе компонентов
 
   - id: tactical-forking
+    primary: тактическое ветвление
     primary_ru: тактическое ветвление
+    definition: Временное разделение реализации для локального выбора или эксперимента.
+    boundaries:
+      includes: [временная развилка в реализации]
+      excludes: [постоянная архитектурная декомпозиция]
     forms_en: [tactical forking]
-    authority: SAHP
+    authority:
+      type: primary-source
+      ref: SAHP-058
     defined_by: [SAHP-058]
     cite_as: [SAHP]
     covered_in:
@@ -769,10 +1108,17 @@ concepts:
       SAHP: тактическое ветвление
 
   - id: afferent-coupling
+    primary: афферентное сопряжение
     primary_ru: афферентное сопряжение
+    definition: Количество внешних компонентов, зависящих от данного компонента.
+    boundaries:
+      includes: [Fan-in, входящая зависимость]
+      excludes: [исходящая зависимость, внутренняя связность]
     forms_ru: [Fan-in]
     forms_en: [afferent coupling, Ca]
-    authority: SAHP
+    authority:
+      type: primary-source
+      ref: SAHP-060
     defined_by: [SAHP-060]
     cite_as: [SAHP]
     covered_in:
@@ -785,10 +1131,17 @@ concepts:
         «сопряжению»).
 
   - id: efferent-coupling
+    primary: эфферентное сопряжение
     primary_ru: эфферентное сопряжение
+    definition: Количество внешних компонентов, от которых зависит данный компонент.
+    boundaries:
+      includes: [Fan-out, исходящая зависимость]
+      excludes: [входящая зависимость, внутренняя связность]
     forms_ru: [Fan-out]
     forms_en: [efferent coupling, Ce]
-    authority: SAHP
+    authority:
+      type: primary-source
+      ref: SAHP-060
     defined_by: [SAHP-060]
     cite_as: [SAHP]
     covered_in:
@@ -800,9 +1153,16 @@ concepts:
         каноническая форма «эфферентное сопряжение».
 
   - id: fitness-function
+    primary: функция пригодности
     primary_ru: функция пригодности
+    definition: Автоматизированная проверка, измеряющая соблюдение архитектурного свойства.
+    boundaries:
+      includes: [проверяемая архитектурная характеристика]
+      excludes: [общая оценка пригодности, ремонтопригодность]
     forms_en: [fitness function]
-    authority: SAHP
+    authority:
+      type: source-synthesis
+      ref: SAHP-008, EVAR-027
     defined_by: [SAHP-008, SAHP-061, SAHP-062]
     cite_as: [SAHP, EVAR]
     covered_in:
@@ -817,9 +1177,16 @@ concepts:
         пригодности» это НЕ функции пригодности.
 
   - id: data-disintegration-drivers
+    primary: силы дезинтеграции данных
     primary_ru: силы дезинтеграции данных
+    definition: Факторы, создающие необходимость разделять данные между границами.
+    boundaries:
+      includes: [факторы разделения данных]
+      excludes: [факторы разделения гранулярности сервисов]
     forms_en: [data disintegrators]
-    authority: SAHP
+    authority:
+      type: primary-source
+      ref: SAHP-064
     defined_by: [SAHP-064]
     cite_as: [SAHP]
     covered_in:
@@ -831,9 +1198,16 @@ concepts:
         разделение сервисов, эти про разделение данных.
 
   - id: data-integration-drivers
+    primary: силы интеграции данных
     primary_ru: силы интеграции данных
+    definition: Факторы, создающие необходимость интегрировать данные через границы.
+    boundaries:
+      includes: [факторы объединения данных]
+      excludes: [факторы интеграции гранулярности сервисов]
     forms_en: [data integrators]
-    authority: SAHP
+    authority:
+      type: primary-source
+      ref: SAHP-065
     defined_by: [SAHP-065]
     cite_as: [SAHP]
     covered_in:
@@ -844,9 +1218,16 @@ concepts:
       - не путать с силами интеграции гранулярности сервисов (глава 7).
 
   - id: database-type-selection
+    primary: выбор типа базы данных
     primary_ru: выбор типа базы данных
+    definition: Выбор хранилища данных по требованиям к модели, доступу и эксплуатации.
+    boundaries:
+      includes: [обоснование типа хранилища]
+      excludes: [выбор конкретного поставщика базы данных]
     forms_en: [database type selection, polyglot persistence]
-    authority: SAHP
+    authority:
+      type: primary-source
+      ref: SAHP-067
     defined_by: [SAHP-067]
     cite_as: [SAHP]
     covered_in:
@@ -855,9 +1236,16 @@ concepts:
       SAHP: выбор типа базы данных
 
   - id: code-reuse-patterns
+    primary: паттерны повторного использования кода
     primary_ru: паттерны повторного использования кода
+    definition: Способы повторного использования кода при сохранении ясных границ изменений.
+    boundaries:
+      includes: [паттерны организации повторного использования]
+      excludes: [безусловное устранение любого сходства]
     forms_en: [code reuse patterns]
-    authority: SAHP
+    authority:
+      type: primary-source
+      ref: SAHP-068
     defined_by: [SAHP-068]
     cite_as: [SAHP]
     covered_in:
@@ -866,9 +1254,16 @@ concepts:
       SAHP: паттерны повторного использования
 
   - id: distributed-data-access
+    primary: распределённый доступ к данным
     primary_ru: распределённый доступ к данным
+    definition: Доступ к данным, размещённым в нескольких автономных границах системы.
+    boundaries:
+      includes: [обращение к данным через распределённые границы]
+      excludes: [локальный доступ к единому хранилищу]
     forms_en: [distributed data access]
-    authority: SAHP
+    authority:
+      type: primary-source
+      ref: SAHP-069
     defined_by: [SAHP-069]
     cite_as: [SAHP]
     covered_in:
@@ -877,9 +1272,16 @@ concepts:
       SAHP: распределённый доступ к данным
 
   - id: transactional-saga
+    primary: транзакционная сага
     primary_ru: транзакционная сага
+    definition: Последовательность локальных транзакций с компенсирующими действиями при сбое.
+    boundaries:
+      includes: [распределённая последовательность локальных транзакций]
+      excludes: [единая атомарная транзакция]
     forms_en: [transactional saga]
-    authority: SAHP
+    authority:
+      type: primary-source
+      ref: SAHP-070
     defined_by: [SAHP-070]
     cite_as: [SAHP]
     covered_in:
@@ -888,10 +1290,17 @@ concepts:
       SAHP: транзакционная сага
 
   - id: http-api
+    primary: HTTP API
     primary_ru: HTTP API
+    definition: Прикладной программный интерфейс, использующий HTTP и представления ресурсов.
+    boundaries:
+      includes: [JSON-over-HTTP API]
+      excludes: [туннелирование RPC через HTTP, REST как архитектурный стиль]
     forms_ru: [JSON-over-HTTP API]
     forms_en: [HTTP API, JSON-over-HTTP API]
-    authority: APIB
+    authority:
+      type: primary-source
+      ref: APIB-113
     defined_by: [APIB-113, APIB-123]
     cite_as: [APIB, RADR]
     covered_in:
@@ -928,10 +1337,18 @@ concepts:
         (APIB-120, APIB-122).
 
   - id: domain-model
+    primary: предметная модель
     primary_ru: предметная модель
+    definition: Модель понятий предметной области, их поведения и правил.
+    boundaries:
+      includes: [предметные понятия, поведение и правила]
+      excludes: [физическая схема БД, формат внешнего API, модель данных]
     forms_ru: [модель предметной области]
     forms_en: [domain model]
-    authority: >-
+    authority:
+      type: source-synthesis
+      ref: DDRF-001, DDDE-002, A42D-001
+    authority_note: >-
       DDRF и DDDE — авторские источники Эрика Эванса. A42D подтверждает место
       общей предметной модели в архитектурной документации.
     defined_by: [DDRF-001, DDRF-002, A42D-001, DDDE-002, DDDE-100]
@@ -960,7 +1377,12 @@ concepts:
         Не путать с физической схемой базы данных или форматом внешнего API.
 
   - id: data-model
+    primary: модель данных
     primary_ru: модель данных
+    definition: Представление структуры данных, их типов, отношений и ограничений.
+    boundaries:
+      includes: [концептуальная, логическая и физическая модель данных]
+      excludes: [полная предметная модель, диаграмма без ограничений]
     forms_ru:
       - концептуальная модель данных
       - логическая модель данных
@@ -970,7 +1392,10 @@ concepts:
       - conceptual data model
       - logical data model
       - physical data model
-    authority: >-
+    authority:
+      type: source-synthesis
+      ref: DMAV-001, A42D-002
+    authority_note: >-
       DMAV определяет уровни и архитектурную роль модели данных. A42D
       подтверждает логическую модель данных как минимальный архитектурный обзор.
     defined_by:
@@ -1006,10 +1431,18 @@ concepts:
         логической моделью данных.
 
   - id: model-property
+    primary: свойство модели
     primary_ru: свойство модели
+    definition: Типизированное свойство элемента модели с семантикой и ограничениями.
+    boundaries:
+      includes: [атрибут сущности, свойство JSON, столбец как отображение]
+      excludes: [один технический тип без предметного смысла]
     forms_ru: [атрибут сущности, свойство данных, столбец]
     forms_en: [property, attribute, column]
-    authority: >-
+    authority:
+      type: source-synthesis
+      ref: UMOC-001, DMAV-004
+    authority_note: >-
       UMOC нормативно определяет типизированное свойство. DMAV связывает
       атрибут сущности с типом и ограничениями, JSVL и SQLT показывают его
       технические отображения.
@@ -1047,7 +1480,12 @@ concepts:
         умолчанию.
 
   - id: user-goal
+    primary: пользовательская цель
     primary_ru: пользовательская цель
+    definition: Конечное состояние, которого конкретный пользователь стремится достичь.
+    boundaries:
+      includes: [цель пользователя, персонажа или основного действующего лица]
+      excludes: [задача, функция, инструмент, техническое свойство]
     forms_ru:
       - цель пользователя
       - цель персонажа
@@ -1056,7 +1494,10 @@ concepts:
       - user goal
       - persona goal
       - primary actor goal
-    authority: >-
+    authority:
+      type: source-synthesis
+      ref: INMA-008, SMFR-001
+    authority_note: >-
       INMA определяет цель в целеориентированном проектировании, а
       SMFR связывает цель действующего лица с вариантом использования.
     defined_by:

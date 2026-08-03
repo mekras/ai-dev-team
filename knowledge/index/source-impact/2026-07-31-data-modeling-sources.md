@@ -28,7 +28,7 @@ ISO/IEC 11179-31:2023 и ISO/IEC/IEEE 42010:2022 проверены только
 - `.apm/skills/ait-architecture/references/domain-modeling.md`.
 - `.apm/skills/ait-architecture/references/architecture-documentation.md`.
 - проверки результата и срабатывания навыка `ait-architecture`.
-- слой согласования понятий `knowledge/concepts.yml`.
+- канонический понятийный аппарат `knowledge/concepts.yml`.
 
 Код приложений и требования проекта не менялись. Источники задают общую
 практику работы агента, а не требования к конкретной программной системе.

@@ -20,7 +20,7 @@ SPEC.loader.exec_module(VALIDATOR)
 
 class BusinessRequirementValidationTests(unittest.TestCase):
     def write_requirement(self, root: Path, text: str) -> Path:
-        path = root / "docs/requirements/business/bt-1.md"
+        path = root / "docs/05-requirements/business/bt-1.md"
         path.parent.mkdir(parents=True)
         path.write_text(text, encoding="utf-8")
         return path
@@ -36,7 +36,7 @@ class BusinessRequirementValidationTests(unittest.TestCase):
         self.check(
             """# БТ-1. Понятное требование
 
-[К списку требований](../../requirements.md)
+[К списку требований](../README.md)
 
 ## Требование
 
@@ -56,7 +56,7 @@ class BusinessRequirementValidationTests(unittest.TestCase):
                 self.check(
                     """# БТ-1
 
-[К списку требований](../../requirements.md)
+[К списку требований](../README.md)
 
 ## Требование
 
@@ -74,7 +74,7 @@ class BusinessRequirementValidationTests(unittest.TestCase):
                 self.check(
                     """# БТ-1. Понятное требование
 
-[К списку требований](../../requirements.md)
+[К списку требований](../README.md)
 
 ## Требование
 
@@ -92,7 +92,7 @@ class BusinessRequirementValidationTests(unittest.TestCase):
                 self.check(
                     """# БТ-1. Понятное требование
 
-[К списку требований](../../requirements.md)
+[К списку требований](../README.md)
 
 ## Требование
 
@@ -117,12 +117,12 @@ class RequirementTitleValidationTests(unittest.TestCase):
     ) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            path = root / f"docs/requirements/{category}/{filename}"
+            path = root / f"docs/05-requirements/{category}/{filename}"
             path.parent.mkdir(parents=True)
             path.write_text(
                 f"""# {heading}
 
-[К списку требований](../../requirements.md)
+[К списку требований](../README.md)
 
 ## Требование
 
@@ -150,13 +150,13 @@ class RequirementTitleValidationTests(unittest.TestCase):
     def test_index_requires_full_title_for_every_requirement(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            index = root / "docs/requirements.md"
-            requirement = root / "docs/requirements/functional/ft-1.md"
+            index = root / "docs/05-requirements/README.md"
+            requirement = root / "docs/05-requirements/functional/ft-1.md"
             requirement.parent.mkdir(parents=True)
             index.write_text(
                 """# Требования
 
-- [ФТ-1](requirements/functional/ft-1.md)
+- [ФТ-1](functional/ft-1.md)
 """,
                 encoding="utf-8",
             )

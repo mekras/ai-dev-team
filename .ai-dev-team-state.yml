@@ -30,9 +30,9 @@ setup:
     status: present
     journals:
       - kind: ADR
-        path: docs/adr/
+        path: docs/06-architecture/adr/
         record_pattern: NNNN-<slug>.md
-        index: docs/adr/README.md
+        index: docs/06-architecture/adr/README.md
   knowledge:
     status: present
     path: knowledge/

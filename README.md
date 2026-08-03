@@ -20,7 +20,7 @@
   профильных проверок
 
 Полный состав и назначение специализаций описаны в
-[обзоре продукта](docs/overview.md) и [справочнике ролей](docs/roles.md).
+[обзоре продукта](docs/04-product/README.md) и [справочнике ролей](docs/04-product/roles.md).
 
 ## Подключение к проекту
 
@@ -73,7 +73,7 @@ apm install mekras/ai-dev-team#^0.23.0 --target codex
 ```
 
 Продукт сам подберёт применимые проверки. Подробное описание находится в
-[требовании к полной проверке](docs/requirements/user/pt-7.md).
+[требовании к полной проверке](docs/05-requirements/user/pt-7.md).
 
 ## Обновление продукта
 
@@ -106,9 +106,9 @@ apm update mekras/ai-dev-team --target codex
 
 ## Документация
 
-- [Концепция](docs/concept.md)
-- [Обзор продукта](docs/overview.md)
-- [Роли команды](docs/roles.md)
-- [Требования к продукту](docs/requirements.md)
-- [Корпус знаний проекта](docs/knowledge.md)
-- [Разработка продукта](docs/development.md)
+- [Концепция](docs/01-concept/README.md)
+- [Обзор продукта](docs/04-product/README.md)
+- [Роли команды](docs/04-product/roles.md)
+- [Требования к продукту](docs/05-requirements/README.md)
+- [Корпус знаний проекта](docs/user/knowledge.md)
+- [Разработка продукта](docs/operations/development.md)

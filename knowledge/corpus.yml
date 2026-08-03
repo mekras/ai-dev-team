@@ -1,6 +1,14 @@
-contract_version: 1
+contract_version: 2
+conceptual_model:
+  path: concepts.yml
+  role: canonical_product_conceptual_model
+  content: >
+    Краткие определения, границы, формы, синонимы, обоснования и связи
+    понятий продукта. Примеры, сценарии, шаблоны и развёрнутая проза
+    остаются в специализированных артефактах.
 tracked_data:
   root: data
+  concepts: concepts.yml
   source_pattern: data/<source>/source.yml
   source_unit_pattern: data/<source>/<units>/<unit>/item.yml
   statement_pattern: data/<source>/<units>/<unit>/statements.yml

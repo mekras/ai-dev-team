@@ -10,7 +10,7 @@
 - Карта охвата: `knowledge/data/apib/source-map.yml` (61/61 глав)
 - Извлечённые утверждения: `knowledge/data/apib/items/text/statements.yml` —
   добавлены `APIB-072`–`APIB-185` (114 утверждений)
-- Слой согласования понятий: `knowledge/concepts.yml`, запись `http-api`
+- Канонический понятийный аппарат: `knowledge/concepts.yml`, запись `http-api`
 - Дата проверки: `2026-07-17`
 
 ## Границы аудита
@@ -19,7 +19,7 @@
 
 - `.apm/skills/ait-architecture/SKILL.md`
 - `.apm/skills/ait-architecture/references/api-design.md`
-- `knowledge/concepts.yml` (слой согласования понятий)
+- `knowledge/concepts.yml` (канонический понятийный аппарат)
 - смежные поверхности: `ait-sec-threat-modeling/SKILL.md`,
   `ait-architecture/references/reliability.md`, `ait-interface-design/SKILL.md`
   (указатели по решению владельца)

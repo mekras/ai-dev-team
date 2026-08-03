@@ -12,15 +12,16 @@ dependencies:
   apm:
     - mekras/ai-russian-language#2.1.0
     - mekras/ai-agent-supervisor#^2.1.0
-    - mekras/project-knowlege-corpus#0.17.0
+    - mekras/project-knowlege-corpus#0.19.0
 scripts:
   tests: >-
-    sh -c 'set -e; target="${APM_EVAL_PATH:-.apm/skills}";
+    sh -c 'set -e; export PYTHONDONTWRITEBYTECODE=1;
+    target="${APM_EVAL_PATH:-.apm/skills}";
     validators=".agents/skills/ai-setup-apm/scripts/eval-tools";
     python3 tools/validate-apm-package-structure.py;
     python3 tools/validate-project-review-capabilities.py;
     python3 tools/validate-requirements-structure.py;
-    PYTHONDONTWRITEBYTECODE=1 python3 -m unittest
+    python3 -m unittest
     tools/test_build_knowledge_items.py
     tools/test_impact_graph.py
     tools/test_project_review.py
@@ -42,7 +43,6 @@ scripts:
     APM_SKILL_DESCRIPTION_TOTAL_MAX_CHARS=2400
     python3 "$validators/validate-skill-descriptions.py" "$target";
     python3 "$validators/validate-trigger-evals.py" "$target" --require-all;
-    PYTHONDONTWRITEBYTECODE=1
     python3 "$validators/validate-skill-result-evals.py" "$target";
     python3 tools/validate-portable-corpus-references.py;
     apm compile --validate --local-only --target codex;

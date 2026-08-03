@@ -142,9 +142,13 @@ FORBIDDEN_TEXT = (
 )
 
 PORTABLE_CORE_FORBIDDEN_PATTERNS = (
-    (r"docs/adr/\d{4}-", "fixed project ADR path"),
     (
-        r"docs/requirements/(?:business|constraints|functional|quality|rules|user)/"
+        r"docs/(?:06-architecture/adr|adr)/\d{4}-",
+        "fixed project ADR path",
+    ),
+    (
+        r"docs/(?:05-requirements|requirements)/"
+        r"(?:business|constraints|functional|quality|rules|user)/"
         r"(?:bt|ogr|ft|kach|pr|pt)-\d+\.md",
         "project requirement path",
     ),
@@ -241,6 +245,11 @@ def check_manifest() -> None:
     tests = manifest.get("scripts", {}).get("tests")
     if not isinstance(tests, str) or "validate-apm-package-structure.py" not in tests:
         fail("apm.yml scripts.tests must run the package structure validator")
+    if "export PYTHONDONTWRITEBYTECODE=1" not in tests:
+        fail(
+            "apm.yml scripts.tests must disable Python bytecode generation "
+            "for the whole test process"
+        )
     missing_test_fragments = [
         fragment for fragment in REQUIRED_TEST_FRAGMENTS if fragment not in tests
     ]
@@ -363,7 +372,7 @@ def check_organization_principles_contract() -> None:
                     f"instead of applying the reference: {paraphrase!r}",
                 )
 
-    requirement = ROOT / "docs/requirements/rules/pr-6.md"
+    requirement = ROOT / "docs/05-requirements/rules/pr-6.md"
     requirement_text = requirement.read_text(encoding="utf-8")
     for marker in (
         "Ссылка не считается соблюдением DRY",
@@ -376,7 +385,7 @@ def check_organization_principles_contract() -> None:
 
 def check_decision_status_contract() -> None:
     status_paths = (
-        ROOT / "docs/requirements/functional/ft-7.md",
+        ROOT / "docs/05-requirements/functional/ft-7.md",
         ROOT / ".apm/skills/ait-decisions/SKILL.md",
         ROOT / ".apm/skills/ait-decisions/references/decision-workflow.md",
         ROOT / ".apm/skills/ait-decisions/references/decision-templates.md",
@@ -403,13 +412,13 @@ def check_decision_status_contract() -> None:
 
 def check_decision_initiative_contract() -> None:
     required_markers = {
-        "docs/requirements/functional/ft-8.md": (
+        "docs/05-requirements/functional/ft-8.md": (
             "setup.decision_records.status: declined",
             "договор журнала",
             "первое принятое решение",
             "незаписанное решение",
         ),
-        "docs/requirements/functional/ft-7.md": (
+        "docs/05-requirements/functional/ft-7.md": (
             "?DR-NNNN.md",
             "Существующее соглашение проекта",
             "решения о миграции",
@@ -466,7 +475,7 @@ def check_decision_initiative_contract() -> None:
 
 def check_decision_before_action_contract() -> None:
     required_markers = {
-        "docs/requirements/functional/ft-9.md": (
+        "docs/05-requirements/functional/ft-9.md": (
             "Самопроверка автора не засчитывается",
             "остановку до решения человека",
         ),
@@ -497,7 +506,7 @@ def check_decision_before_action_contract() -> None:
 
 def check_interface_quality_contract() -> None:
     required_markers = {
-        "docs/requirements/functional/ft-10.md": (
+        "docs/05-requirements/functional/ft-10.md": (
             "обязательной проверки веб-интерфейса",
             "Сценарий ручной приёмки",
             "предлагает UI Kit",
@@ -547,7 +556,7 @@ def check_interface_quality_contract() -> None:
 
 def check_setup_dialogue_contract() -> None:
     required_markers = {
-        "docs/requirements/functional/ft-18.md": (
+        "docs/05-requirements/functional/ft-18.md": (
             "setup.project_profile",
             "несколько форм",
             "ответить номером",
@@ -592,31 +601,31 @@ def check_setup_dialogue_contract() -> None:
 
 def check_commit_message_scheme_contract() -> None:
     required_markers = {
-        "docs/requirements/functional/ft-17.md": (
+        "docs/05-requirements/functional/ft-17.md": (
             "нескольких поддерживаемых схем",
             "setup.commit_messages",
             "рабочее правило проекта",
             "не объединяет",
         ),
-        "docs/pdr/README.md": (
+        "docs/04-product/pdr/README.md": (
             "Product Decision Record (PDR)",
             "PDR-0001",
             "PDR-0002",
             "PDR-0003",
         ),
-        "docs/pdr/PDR-0001-conventional-commits.md": (
+        "docs/04-product/pdr/PDR-0001-conventional-commits.md": (
             "Статус:",
             "## Достоинства",
             "## Недостатки",
             "## Решение",
         ),
-        "docs/pdr/PDR-0002-gitmoji.md": (
+        "docs/04-product/pdr/PDR-0002-gitmoji.md": (
             "Статус:",
             "## Достоинства",
             "## Недостатки",
             "## Решение",
         ),
-        "docs/pdr/PDR-0003-pro-git-commit-guidelines.md": (
+        "docs/04-product/pdr/PDR-0003-pro-git-commit-guidelines.md": (
             "Статус:",
             "## Достоинства",
             "## Недостатки",
@@ -671,9 +680,9 @@ def check_commit_message_scheme_contract() -> None:
         "Заменено",
     }
     for relative_path in (
-        "docs/pdr/PDR-0001-conventional-commits.md",
-        "docs/pdr/PDR-0002-gitmoji.md",
-        "docs/pdr/PDR-0003-pro-git-commit-guidelines.md",
+        "docs/04-product/pdr/PDR-0001-conventional-commits.md",
+        "docs/04-product/pdr/PDR-0002-gitmoji.md",
+        "docs/04-product/pdr/PDR-0003-pro-git-commit-guidelines.md",
     ):
         text = (ROOT / relative_path).read_text(encoding="utf-8")
         status_match = re.search(r"^- Статус: (.+)$", text, re.MULTILINE)
@@ -683,7 +692,7 @@ def check_commit_message_scheme_contract() -> None:
 
 def check_requirements_elicitation_contract() -> None:
     required_markers = {
-        "docs/requirements/functional/ft-11.md": (
+        "docs/05-requirements/functional/ft-11.md": (
             "требования-кандидаты с типом, основанием и статусом",
             "не должны считаться утверждённой",
         ),
@@ -714,7 +723,7 @@ def check_requirements_elicitation_contract() -> None:
 
 def check_twelve_factor_contract() -> None:
     required_markers = {
-        "docs/requirements/functional/ft-12.md": (
+        "docs/05-requirements/functional/ft-12.md": (
             "предлагает создать ADR",
             "не создаёт и не принимает ADR без согласия",
             "TFA-014",
@@ -722,7 +731,7 @@ def check_twelve_factor_contract() -> None:
         ".apm/skills/ait-twelve-factor/SKILL.md": (
             "статус: `применима`, `частично применима` или `неприменима`",
             "предложи создать ADR до проектирования решений по факторам",
-            "принимай ADR без согласия владельца проекта",
+            "принимай ADR без согласия человека с соответствующими полномочиями",
         ),
         ".apm/skills/ait-twelve-factor/evals/result-scenarios.json": (
             "ait-twelve-factor-result-early-applicable-saas-adr",
@@ -750,7 +759,7 @@ def check_twelve_factor_contract() -> None:
 
 def check_reconstructability_contract() -> None:
     required_markers = {
-        "docs/requirements/functional/ft-19.md": (
+        "docs/05-requirements/functional/ft-19.md": (
             "канонические входы, контур исполнения",
             "поведенческая\nэквивалентность",
             "Обычная ветка текущего рабочего дерева не",
@@ -761,7 +770,7 @@ def check_reconstructability_contract() -> None:
             "Побитовую идентичность требуй только",
             "пользовательские данные ради проверки",
             "Обычная ветка в текущем рабочем дереве не считается изоляцией",
-            "Не создавай и не принимай запись без решения владельца",
+            "Не создавай и не принимай запись без явного решения",
         ),
         ".apm/skills/ait-reconstructability/evals/result-scenarios.json": (
             "ait-reconstructability-result-applicable-safe-slice",
@@ -793,7 +802,7 @@ def check_reconstructability_contract() -> None:
 
 def check_connection_effort_contract() -> None:
     required_markers = {
-        "docs/requirements/quality/kach-1.md": (
+        "docs/05-requirements/quality/kach-1.md": (
             "## Единица измерения",
             "отдельная смысловая операция",
             "Конец пути — продукт установлен",
@@ -827,7 +836,7 @@ def check_portability_contract() -> None:
         fail("apm.yml must validate the portable package for claude and codex")
 
     required_markers = {
-        "docs/requirements/quality/kach-2.md": (
+        "docs/05-requirements/quality/kach-2.md": (
             "Инструментальное исключение допустимо",
             "условие пересмотра или удаления исключения",
             "для `codex` и",
@@ -906,7 +915,7 @@ def check_deployed_skill_references() -> None:
 
 def check_internal_structure_independence_contract() -> None:
     required_markers = {
-        "docs/requirements/quality/kach-3.md": (
+        "docs/05-requirements/quality/kach-3.md": (
             "К публичному контракту относятся",
             "Внутренними считаются расположение исходников",
             "не создаёт действий в целевом проекте",
@@ -935,7 +944,7 @@ def check_internal_structure_independence_contract() -> None:
 
 def check_human_readable_communication_contract() -> None:
     required_markers = {
-        "docs/requirements/quality/kach-4.md": (
+        "docs/05-requirements/quality/kach-4.md": (
             "В создаваемых текстах для человека, включая сообщения",
             "При каждом употреблении",
             "оставляет его без понятного представления.",
@@ -1013,7 +1022,7 @@ def check_human_readable_communication_contract() -> None:
         "впервые упомянут",
     )
     for relative_path in (
-        "docs/requirements/quality/kach-4.md",
+        "docs/05-requirements/quality/kach-4.md",
         ".apm/skills/ait-project-revalidation/SKILL.md",
         ".apm/skills/ait-project-revalidation/references/workflow.md",
     ):
@@ -1028,7 +1037,7 @@ def check_human_readable_communication_contract() -> None:
 
 def check_concise_text_contract() -> None:
     required_markers = {
-        "docs/requirements/quality/kach-5.md": (
+        "docs/05-requirements/quality/kach-5.md": (
             "Удаление допустимо",
             "Лаконичность не служит основанием",
             "требует домысливания",
@@ -1056,7 +1065,7 @@ def check_concise_text_contract() -> None:
 
 def check_decision_record_quality_contract() -> None:
     required_markers = {
-        "docs/requirements/quality/kach-6.md": (
+        "docs/05-requirements/quality/kach-6.md": (
             "вариант без него или проверенное",
             "При общей «дыре»",
             "не выдумывая фиктивный вариант",
@@ -1119,7 +1128,7 @@ def check_adr_objective_rationale_contract() -> None:
 
 def check_knowledge_basis_contract() -> None:
     required_markers = {
-        "docs/requirements/rules/pr-4.md": (
+        "docs/05-requirements/rules/pr-4.md": (
             "Значимым считается изменение",
             "Формального сообщения",
             "validate-knowledge-operational.py",
@@ -1160,7 +1169,7 @@ def check_knowledge_basis_contract() -> None:
 
 def check_self_application_contract() -> None:
     required_markers = {
-        "docs/requirements/rules/pr-5.md": (
+        "docs/05-requirements/rules/pr-5.md": (
             "Авторитетный переносимый источник",
             "apm install --frozen",
             "тело каждой продуктовой роли",
@@ -1170,7 +1179,7 @@ def check_self_application_contract() -> None:
             "изменяй только в `.apm/`",
             "apm audit --ci",
         ),
-        "docs/development.md": (
+        "docs/operations/development.md": (
             "## Самоприменение продукта",
             "правьте сгенерированную копию",
             "mini_mechanical",
@@ -1232,7 +1241,7 @@ def check_self_application_contract() -> None:
 
 def check_user_development_journey_contract() -> None:
     required_markers = {
-        "docs/requirements/user/pt-1.md": (
+        "docs/05-requirements/user/pt-1.md": (
             "Продукт должен позволять пользователю",
             "Пользователь не должен заранее знать",
             "Эти исходы завершают",
@@ -1266,12 +1275,12 @@ def check_user_development_journey_contract() -> None:
 
 def check_free_form_goal_contract() -> None:
     required_markers = {
-        "docs/requirements/user/pt-1.md": (
+        "docs/05-requirements/user/pt-1.md": (
             "достаточно описать хотя бы один из трёх элементов",
             "Продукт не должен требовать",
             "заполнить шаблон или анкету",
         ),
-        "docs/requirements/functional/ft-11.md": (
+        "docs/05-requirements/functional/ft-11.md": (
             "отделять подтверждённые сведения",
             "остановить следующий шаг на одном вопросе",
             "не должны считаться утверждённой",
@@ -1302,12 +1311,12 @@ def check_free_form_goal_contract() -> None:
 
 def check_client_target_contract() -> None:
     required_markers = {
-        "docs/requirements/user/pt-3.md": (
+        "docs/05-requirements/user/pt-3.md": (
             "создавать и изменять файлы только для тех клиентских",
             "не настраивает остальные",
             "не ограничивает пользователя одним клиентским инструментом",
         ),
-        "docs/requirements/functional/ft-3.md": (
+        "docs/05-requirements/functional/ft-3.md": (
             "должна содержать ровно одну явную цель",
             "`--target claude`",
             "Значение `all`",
@@ -1582,12 +1591,12 @@ def check_owner_decision_pattern_contract() -> None:
 
 def check_result_acceptance_contract() -> None:
     required_markers = {
-        "docs/requirements/user/pt-1.md": (
+        "docs/05-requirements/user/pt-1.md": (
             "Вместе с итоговым результатом продукт должен передать пользователю",
             "Продукт должен считать результат принятым только после",
             "явный выбор: принять результат или вернуть его на доработку",
         ),
-        "docs/requirements/functional/ft-2.md": (
+        "docs/05-requirements/functional/ft-2.md": (
             "Результат, который не достиг порога пригодности",
             "Частично проверенный результат можно передать только",
             "Контроль должен оставлять проверяемый след",
@@ -1640,14 +1649,14 @@ def check_result_acceptance_contract() -> None:
 
 def check_end_to_end_business_contract() -> None:
     required_markers = {
-        "docs/requirements/business/bt-1.md": (
+        "docs/05-requirements/business/bt-1.md": (
             "# БТ-1. Целостный контур агентной разработки",
             "Продукт должен предоставлять",
             "Контур должен связывать",
             "БТ-1 считается выполненным",
             "Сквозной сценарий в новом целевом проекте",
         ),
-        "docs/requirements/functional/ft-1.md": (
+        "docs/05-requirements/functional/ft-1.md": (
             "помогать человеку формулировать цель",
             "В сквозном сценарии пользователь описывает цель",
         ),
@@ -1673,7 +1682,7 @@ def check_end_to_end_business_contract() -> None:
 
 def check_product_evaluation_contract() -> None:
     required_markers = {
-        "docs/requirements/business/bt-2.md": (
+        "docs/05-requirements/business/bt-2.md": (
             "# БТ-2. Раннее выявление ошибок и упущений",
             "наиболее ранней стадии разработки",
             "постоянное направление развития",
@@ -1681,7 +1690,7 @@ def check_product_evaluation_contract() -> None:
             "не подтверждают снижение стоимости",
             "статистика применения",
         ),
-        "docs/requirements/functional/ft-26.md": (
+        "docs/05-requirements/functional/ft-26.md": (
             "# ФТ-26. Раннее назначение проверок",
             "вероятные классы ошибок, недостатков и упущений",
             "первую стадию",
@@ -1735,7 +1744,7 @@ def check_product_evaluation_contract() -> None:
             '"problem_class": "decision"',
             '"problem_class": "implementation"',
         ),
-        "docs/adr/0013-product-evidence-levels.md": (
+        "docs/06-architecture/adr/0013-product-evidence-levels.md": (
             "разделяются на три уровня",
             "`fixed_scenario_benchmark_passed`",
             "не подтверждает бизнес-эффект",
@@ -1757,7 +1766,7 @@ def check_product_evaluation_contract() -> None:
                 )
 
     requirement_text = (
-        ROOT / "docs/requirements/business/bt-2.md"
+        ROOT / "docs/05-requirements/business/bt-2.md"
     ).read_text(encoding="utf-8")
     unsupported_claims = (
         "системное применение практик уменьшает число дефектов",
@@ -1777,7 +1786,7 @@ def check_product_evaluation_contract() -> None:
 
 def check_priority_tradeoff_contract() -> None:
     required_markers = {
-        "docs/requirements/business/bt-3.md": (
+        "docs/05-requirements/business/bt-3.md": (
             "Продукт должен повышать эффективность разработки ПО",
             "не ниже уровня",
             "не считается улучшением",
@@ -1785,14 +1794,14 @@ def check_priority_tradeoff_contract() -> None:
             "ПР-8. Надёжность и качество до эффективности",
             "БТ-3 считается выполненным",
         ),
-        "docs/requirements/quality/kach-9.md": (
+        "docs/05-requirements/quality/kach-9.md": (
             "Принятая продуктом задача должна проходить",
             "проверяемый результат передан на приёмку",
             "явный запрос решения",
             "названо препятствие",
             "доля успешных запусков",
         ),
-        "docs/requirements/rules/pr-8.md": (
+        "docs/05-requirements/rules/pr-8.md": (
             "применимые границы надёжности и качества",
             "Эффективность сравнивается только",
             "допустимо только по явному решению владельца",
@@ -1829,7 +1838,7 @@ def check_priority_tradeoff_contract() -> None:
                 )
 
     requirement_text = (
-        ROOT / "docs/requirements/business/bt-3.md"
+        ROOT / "docs/05-requirements/business/bt-3.md"
     ).read_text(encoding="utf-8")
     if "Прочие требования и задачи не должны ухудшать эти качества" in (
         requirement_text
@@ -2072,12 +2081,12 @@ def check_installation_contract() -> None:
 
 def check_project_impact_graph_contract() -> None:
     required_markers = {
-        "docs/requirements/functional/ft-25.md": (
+        "docs/05-requirements/functional/ft-25.md": (
             "полной транзитивной глубине",
             "verified_no_impact",
             "project-impact.json",
         ),
-        "docs/requirements/rules/pr-7.md": (
+        "docs/05-requirements/rules/pr-7.md": (
             "После изменения любого проектного артефакта",
             "полное транзитивное замыкание",
         ),
