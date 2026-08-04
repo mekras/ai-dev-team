@@ -12,7 +12,7 @@ REQUIREMENTS_ROOT = ROOT / "docs" / "05-requirements"
 
 CATEGORIES = {
     "business": ("bt", "БТ", (1, 2, 3)),
-    "functional": ("ft", "ФТ", tuple(range(1, 37))),
+    "functional": ("ft", "ФТ", tuple(range(1, 38))),
     "quality": ("kach", "КАЧ", tuple(range(1, 10))),
     "rules": ("pr", "ПР", tuple(range(1, 9))),
     "user": ("pt", "ПТ", (1, 2, 3, 5, 6, 7)),
