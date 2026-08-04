@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -202,6 +203,30 @@ class SelectiveVerificationTests(unittest.TestCase):
 
         self.assertEqual(completed.returncode, 0)
         self.assertEqual(json.loads(completed.stdout)["status"], "passed")
+
+    def test_import_does_not_write_bytecode(self) -> None:
+        scripts = self.root / "scripts"
+        scripts.mkdir()
+        for name in ("selective_verification.py", "impact_graph.py"):
+            shutil.copy2(SCRIPT.parent / name, scripts / name)
+
+        completed = subprocess.run(
+            [
+                sys.executable,
+                str(scripts / "selective_verification.py"),
+                "validate",
+                "--repo",
+                str(self.repo),
+                "--config",
+                str(self.repo / "project-verification.json"),
+            ],
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+
+        self.assertEqual(completed.returncode, 0)
+        self.assertFalse((scripts / "__pycache__").exists())
 
     def test_clean_tree_does_not_run_a_check(self) -> None:
         code, report = self.invoke()

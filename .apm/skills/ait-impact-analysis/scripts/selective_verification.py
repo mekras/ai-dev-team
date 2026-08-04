@@ -15,6 +15,8 @@ import time
 from pathlib import Path, PurePosixPath
 from typing import Any
 
+sys.dont_write_bytecode = True
+
 import impact_graph
 
 
