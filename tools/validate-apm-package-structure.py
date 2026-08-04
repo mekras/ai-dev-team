@@ -977,6 +977,8 @@ def check_human_readable_communication_contract() -> None:
             "служебный код статуса",
             "заменяй объяснение списком",
             "технических обозначений",
+            "отдельную проверку KACH-4",
+            "предыдущем абзаце не делает повторное голое",
         ),
         ".apm/skills/ait-project-revalidation/SKILL.md": (
             "при каждом употреблении",
@@ -1001,9 +1003,11 @@ def check_human_readable_communication_contract() -> None:
         ),
         ".apm/skills/ait-routing/evals/result-scenarios.json": (
             "ait-routing-routing-result-explain-technical-status",
+            "ait-routing-routing-result-human-readable-final-report",
             "waiting_decision объяснён как ожидание решения владельца",
             "interrupted объяснён как прерывание проверки",
             "не показывать служебный статус без понятного описания",
+            "обязательная предфинальная проверка понятности итогового сообщения",
         ),
     }
     for relative_path, markers in required_markers.items():
