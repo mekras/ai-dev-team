@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "graph": {
     "name": "example-project",
     "description": "Направления возможного влияния между частями проекта.",
@@ -12,6 +12,8 @@
       "id": "concept",
       "title": "Концепция проекта",
       "kind": "concept",
+      "semantic_type": "концепция проекта",
+      "authority": "canonical",
       "paths": ["docs/concept.md"],
       "checks": ["ait-docs-concept"]
     },
@@ -19,6 +21,8 @@
       "id": "requirements",
       "title": "Требования",
       "kind": "requirements",
+      "semantic_type": "требования продукта",
+      "authority": "canonical",
       "paths": ["docs/requirements.md", "docs/requirements/**"],
       "checks": ["ait-req-management", "ait-req-validation"]
     }

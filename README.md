@@ -32,13 +32,13 @@
 Для Claude:
 
 ```shell
-apm install mekras/ai-dev-team#^0.23.0 --target claude
+apm install mekras/ai-dev-team#^0.24.0 --target claude
 ```
 
 Для Codex:
 
 ```shell
-apm install mekras/ai-dev-team#^0.23.0 --target codex
+apm install mekras/ai-dev-team#^0.24.0 --target codex
 ```
 
 После установки откройте выбранный инструмент для общения с агентами в корне

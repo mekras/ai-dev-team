@@ -101,6 +101,45 @@ def sample_graph() -> dict:
 
 
 class ImpactGraphTests(unittest.TestCase):
+    def test_version_two_distinguishes_artifact_from_representation(self) -> None:
+        data = sample_graph()
+        data["schema_version"] = 2
+        for node in data["nodes"]:
+            node["semantic_type"] = f"{node['id']} artifact"
+            node["authority"] = "canonical"
+
+        graph = impact_graph.validate_graph(data)
+        result = impact_graph.trace_result(
+            graph,
+            [],
+            ["docs/concept.md"],
+            "semantic",
+        )
+
+        self.assertEqual(result["changed"][0]["id"], "concept")
+        self.assertEqual(
+            next(item for item in result["affected"] if item["id"] == "requirements")
+            ["semantic_type"],
+            "requirements artifact",
+        )
+
+    def test_version_two_rejects_canonical_artifact_without_canonical_view(self) -> None:
+        data = sample_graph()
+        data["schema_version"] = 2
+        for node in data["nodes"]:
+            node["semantic_type"] = f"{node['id']} artifact"
+            node["authority"] = "canonical"
+        data["nodes"][0]["representations"] = [
+            {"path": "docs/concept.md", "role": "navigation"},
+        ]
+        data["nodes"][0].pop("paths")
+
+        with self.assertRaisesRegex(
+            impact_graph.ContractError,
+            "canonical artifact requires a canonical representation",
+        ):
+            impact_graph.validate_graph(data)
+
     def test_trace_reaches_full_depth_and_reports_paths(self) -> None:
         graph = impact_graph.validate_graph(sample_graph())
         result = impact_graph.trace_result(

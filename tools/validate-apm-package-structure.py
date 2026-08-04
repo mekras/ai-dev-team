@@ -2094,6 +2094,7 @@ def check_project_impact_graph_contract() -> None:
             "impact_graph.py",
             "human_decision",
             "coverage --graph",
+            "смысловые артефакты",
         ),
         ".apm/skills/ait-routing/SKILL.md": (
             "setup.impact_graph.path",
@@ -2109,6 +2110,10 @@ def check_project_impact_graph_contract() -> None:
             "ait-impact-analysis",
             "review_stages",
             "общий граф проекта",
+        ),
+        ".apm/skills/ait-docs-structure-audit/SKILL.md": (
+            "смысловой артефакт",
+            "единый граф проекта",
         ),
         ".apm/skills/ait-setup/assets/project-AGENTS.md": (
             "Граф влияния проекта",
@@ -2134,8 +2139,8 @@ def check_project_impact_graph_contract() -> None:
         graph = json.loads(graph_path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
         fail(f"cannot read project-impact.json: {exc}")
-    if graph.get("schema_version") != 1:
-        fail("project-impact.json must use schema_version 1")
+    if graph.get("schema_version") != 2:
+        fail("project-impact.json must use schema_version 2")
 
 
 def main() -> None:

@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "graph": {
     "name": "ai-dev-team",
     "description": "Направления возможного влияния между источниками истины, переносимым ядром, проверками и поставкой продукта.",
@@ -18,6 +18,8 @@
       "id": "concept",
       "title": "Концепция продукта",
       "kind": "concept",
+      "semantic_type": "концепция продукта",
+      "authority": "canonical",
       "paths": ["docs/01-concept/README.md"],
       "checks": ["ait-docs-concept"],
       "review_stages": ["requirements"]
@@ -26,15 +28,55 @@
       "id": "knowledge",
       "title": "Корпус знаний",
       "kind": "knowledge",
+      "semantic_type": "проверяемый корпус знаний",
+      "authority": "canonical",
       "paths": ["knowledge/**"],
       "checks": ["kc-validation", "kc-impact-audit"],
       "review_stages": ["repository", "requirements"]
     },
     {
-      "id": "use-cases",
-      "title": "Персонажи и варианты использования",
+      "id": "personas",
+      "title": "Модели пользователей",
       "kind": "requirements",
-      "paths": ["docs/02-use-cases/**"],
+      "semantic_type": "модели пользователей",
+      "authority": "canonical",
+      "representations": [
+        {
+          "path": "docs/02-use-cases/personas/**",
+          "role": "canonical"
+        }
+      ],
+      "checks": ["ait-ux-design", "ait-req-validation"],
+      "review_stages": ["requirements"]
+    },
+    {
+      "id": "use-cases",
+      "title": "Варианты использования",
+      "kind": "requirements",
+      "semantic_type": "варианты использования",
+      "authority": "canonical",
+      "representations": [
+        {
+          "path": "docs/02-use-cases/README.md",
+          "role": "navigation"
+        },
+        {
+          "path": "docs/02-use-cases/01-general/**",
+          "role": "canonical"
+        },
+        {
+          "path": "docs/02-use-cases/02-summary/**",
+          "role": "supporting"
+        },
+        {
+          "path": "docs/02-use-cases/03-user/**",
+          "role": "supporting"
+        },
+        {
+          "path": "docs/02-use-cases/04-subfunctions/**",
+          "role": "supporting"
+        }
+      ],
       "checks": ["ait-ux-design", "ait-req-validation"],
       "review_stages": ["requirements"]
     },
@@ -42,6 +84,8 @@
       "id": "requirements",
       "title": "Требования продукта",
       "kind": "requirements",
+      "semantic_type": "требования продукта",
+      "authority": "canonical",
       "paths": ["docs/05-requirements/README.md", "docs/05-requirements/**"],
       "checks": ["ait-req-management", "ait-req-validation"],
       "review_stages": ["requirements"]
@@ -50,6 +94,8 @@
       "id": "decisions",
       "title": "Проектные решения и открытые задачи",
       "kind": "decision",
+      "semantic_type": "проектные решения и открытые задачи",
+      "authority": "canonical",
       "paths": [
         "BACKLOG.md",
         "docs/06-architecture/adr/**",
@@ -63,6 +109,8 @@
       "id": "portable-core",
       "title": "Переносимые роли, навыки и инструкции",
       "kind": "implementation",
+      "semantic_type": "переносимое ядро агентной разработки",
+      "authority": "canonical",
       "paths": [".apm/**"],
       "checks": ["ai-skill-development", "ait-code-review"],
       "review_stages": ["code"]
@@ -71,6 +119,8 @@
       "id": "tooling",
       "title": "Средства разработки и проверки",
       "kind": "implementation",
+      "semantic_type": "средства разработки и проверки",
+      "authority": "supporting",
       "paths": ["tools/**"],
       "checks": ["ait-code-review"],
       "review_stages": ["code"]
@@ -79,6 +129,8 @@
       "id": "verification",
       "title": "Постоянные проверки продукта",
       "kind": "test",
+      "semantic_type": "проверки свойств продукта",
+      "authority": "derived",
       "paths": [
         "evals/**",
         "knowledge-evaluation.yml",
@@ -91,6 +143,8 @@
       "id": "project-docs",
       "title": "Документация продукта и разработки",
       "kind": "documentation",
+      "semantic_type": "навигационные и поясняющие представления продукта",
+      "authority": "supporting",
       "paths": [
         "CHANGELOG.md",
         "README.md",
@@ -114,6 +168,8 @@
       "id": "delivery",
       "title": "Настройки разработки и поставки",
       "kind": "delivery",
+      "semantic_type": "договор поставки и настройки разработки",
+      "authority": "canonical",
       "paths": [
         ".ai-dev-team-state.yml",
         ".codex/**",
@@ -136,10 +192,17 @@
   "edges": [
     {
       "from": "concept",
+      "to": "personas",
+      "relation": "constrains",
+      "facets": ["semantic"],
+      "rationale": "Модели пользователей должны объяснять цели и контекст, значимые для цели продукта."
+    },
+    {
+      "from": "concept",
       "to": "use-cases",
       "relation": "constrains",
       "facets": ["semantic"],
-      "rationale": "Персонажи и варианты использования раскрывают цель продукта через цели действующих лиц и наблюдаемые результаты."
+      "rationale": "Варианты использования раскрывают цель продукта через цели действующих лиц и наблюдаемые результаты."
     },
     {
       "from": "concept",
@@ -199,10 +262,24 @@
     },
     {
       "from": "knowledge",
+      "to": "personas",
+      "relation": "informs",
+      "facets": ["semantic", "data"],
+      "rationale": "Проверяемые сведения о пользователях и целях служат основанием моделей пользователей."
+    },
+    {
+      "from": "knowledge",
       "to": "use-cases",
       "relation": "informs",
       "facets": ["semantic", "data"],
-      "rationale": "Проверяемые сведения о пользователях, целях и сценариях служат основанием вариантов использования."
+      "rationale": "Проверяемые сведения о целях и сценариях служат основанием вариантов использования."
+    },
+    {
+      "from": "personas",
+      "to": "use-cases",
+      "relation": "informs",
+      "facets": ["semantic", "interface", "quality"],
+      "rationale": "Модели пользователей уточняют цели и контекст, в которых проверяются варианты использования."
     },
     {
       "from": "knowledge",

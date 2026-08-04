@@ -13,7 +13,8 @@ from pathlib import Path, PurePosixPath
 from typing import Any
 
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
+SUPPORTED_SCHEMA_VERSIONS = {1, 2}
 NODE_ID_RE = re.compile(r"^[a-z][a-z0-9-]*$")
 NODE_KINDS = {
     "concept",
@@ -61,6 +62,14 @@ REVIEW_STAGES = {
     "tests",
     "assurance",
     "impact",
+}
+AUTHORITIES = {"canonical", "supporting", "derived"}
+REPRESENTATION_ROLES = {
+    "canonical",
+    "supporting",
+    "navigation",
+    "implementation",
+    "verification",
 }
 STATUSES = {
     "updated",
@@ -149,9 +158,11 @@ def load_graph(path: Path) -> dict[str, Any]:
 def validate_graph(data: Any) -> dict[str, Any]:
     root = require_mapping(data, "root")
     reject_unknown(root, {"schema_version", "graph", "nodes", "edges"}, "root")
-    if root.get("schema_version") != SCHEMA_VERSION:
+    schema_version = root.get("schema_version")
+    if schema_version not in SUPPORTED_SCHEMA_VERSIONS:
         raise ContractError(
-            f"root.schema_version: expected {SCHEMA_VERSION}",
+            "root.schema_version: expected one of "
+            + ", ".join(str(version) for version in sorted(SUPPORTED_SCHEMA_VERSIONS)),
         )
 
     graph = require_mapping(root.get("graph"), "root.graph")
@@ -195,11 +206,25 @@ def validate_graph(data: Any) -> dict[str, Any]:
     for index, raw_node in enumerate(nodes):
         location = f"root.nodes[{index}]"
         node = require_mapping(raw_node, location)
-        reject_unknown(
-            node,
-            {"id", "title", "kind", "paths", "checks", "review_stages"},
-            location,
-        )
+        allowed_fields = {
+            "id",
+            "title",
+            "kind",
+            "checks",
+            "review_stages",
+        }
+        if schema_version == 1:
+            allowed_fields.add("paths")
+        else:
+            allowed_fields.update(
+                {
+                    "semantic_type",
+                    "authority",
+                    "paths",
+                    "representations",
+                },
+            )
+        reject_unknown(node, allowed_fields, location)
         node_id = require_string(node.get("id"), f"{location}.id")
         if not NODE_ID_RE.fullmatch(node_id):
             raise ContractError(f"{location}.id: unsupported identifier")
@@ -210,14 +235,85 @@ def validate_graph(data: Any) -> dict[str, Any]:
         kind = require_string(node.get("kind"), f"{location}.kind")
         if kind not in NODE_KINDS:
             raise ContractError(f"{location}.kind: unsupported kind {kind!r}")
-        node["paths"] = [
-            normalize_path(item, f"{location}.paths[{path_index}]")
-            for path_index, item in enumerate(
-                require_list(node.get("paths"), f"{location}.paths", nonempty=True),
-            )
-        ]
-        if len(node["paths"]) != len(set(node["paths"])):
-            raise ContractError(f"{location}.paths: duplicate values")
+        if schema_version == 1:
+            node["paths"] = [
+                normalize_path(item, f"{location}.paths[{path_index}]")
+                for path_index, item in enumerate(
+                    require_list(
+                        node.get("paths"),
+                        f"{location}.paths",
+                        nonempty=True,
+                    ),
+                )
+            ]
+            if len(node["paths"]) != len(set(node["paths"])):
+                raise ContractError(f"{location}.paths: duplicate values")
+        else:
+            require_string(node.get("semantic_type"), f"{location}.semantic_type")
+            authority = require_string(node.get("authority"), f"{location}.authority")
+            if authority not in AUTHORITIES:
+                raise ContractError(
+                    f"{location}.authority: unsupported authority {authority!r}",
+                )
+            representations = node.get("representations")
+            if representations is None:
+                paths = require_list(
+                    node.get("paths"),
+                    f"{location}.paths",
+                    nonempty=True,
+                )
+                default_role = (
+                    "canonical" if authority == "canonical" else "supporting"
+                )
+                representations = [
+                    {"path": path, "role": default_role}
+                    for path in paths
+                ]
+            else:
+                representations = require_list(
+                    representations,
+                    f"{location}.representations",
+                    nonempty=True,
+                )
+            normalized_representations = []
+            representation_paths: set[str] = set()
+            for representation_index, raw_representation in enumerate(representations):
+                representation_location = (
+                    f"{location}.representations[{representation_index}]"
+                )
+                representation = require_mapping(raw_representation, representation_location)
+                reject_unknown(
+                    representation,
+                    {"path", "role"},
+                    representation_location,
+                )
+                path = normalize_path(
+                    representation.get("path"),
+                    f"{representation_location}.path",
+                )
+                role = require_string(
+                    representation.get("role"),
+                    f"{representation_location}.role",
+                )
+                if role not in REPRESENTATION_ROLES:
+                    raise ContractError(
+                        f"{representation_location}.role: unsupported role {role!r}",
+                    )
+                if path in representation_paths:
+                    raise ContractError(
+                        f"{location}.representations: duplicate path {path!r}",
+                    )
+                representation_paths.add(path)
+                normalized_representations.append({"path": path, "role": role})
+            if authority == "canonical" and not any(
+                item["role"] == "canonical"
+                for item in normalized_representations
+            ):
+                raise ContractError(
+                    f"{location}: canonical artifact requires a canonical representation",
+                )
+            node["representations"] = normalized_representations
+            node["paths"] = [item["path"] for item in normalized_representations]
         validate_string_list(
             node.get("checks"),
             f"{location}.checks",
@@ -405,6 +501,8 @@ def trace_result(
                 "id": node_id,
                 "title": nodes[node_id]["title"],
                 "kind": nodes[node_id]["kind"],
+                "semantic_type": nodes[node_id].get("semantic_type"),
+                "authority": nodes[node_id].get("authority"),
                 "facets": [],
                 "paths": [],
                 "checks": nodes[node_id]["checks"],
