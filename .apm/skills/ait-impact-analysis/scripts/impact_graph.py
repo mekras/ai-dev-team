@@ -65,7 +65,7 @@ REVIEW_STAGES = {
 STATUSES = {
     "updated",
     "verified_no_impact",
-    "owner_decision",
+    "human_decision",
     "blocked",
 }
 PASSING_STATUSES = {"updated", "verified_no_impact"}

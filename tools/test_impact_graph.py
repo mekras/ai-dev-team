@@ -220,12 +220,16 @@ class ImpactGraphTests(unittest.TestCase):
             [
                 "requirements=updated",
                 "implementation=verified_no_impact",
-                "tests=owner_decision",
+                "tests=human_decision",
             ],
         )
 
         self.assertEqual(exit_code, 3)
         self.assertEqual(assessed["blocking_statuses"], ["tests"])
+
+    def test_legacy_owner_decision_status_is_rejected(self) -> None:
+        with self.assertRaisesRegex(impact_graph.ContractError, "unsupported status"):
+            impact_graph.parse_statuses(["tests=owner_decision"])
 
     def test_invalid_edge_target_is_rejected(self) -> None:
         data = sample_graph()

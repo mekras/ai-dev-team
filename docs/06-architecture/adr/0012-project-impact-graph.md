@@ -105,7 +105,7 @@ ADR-0009 через переносимый договор, детерминир�
 
 - `updated`
 - `verified_no_impact`
-- `owner_decision`
+- `human_decision`
 - `blocked`
 
 Завершение допустимо только при итогах `updated` и `verified_no_impact` для всех

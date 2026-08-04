@@ -2092,7 +2092,7 @@ def check_project_impact_graph_contract() -> None:
         ),
         ".apm/skills/ait-impact-analysis/SKILL.md": (
             "impact_graph.py",
-            "owner_decision",
+            "human_decision",
             "coverage --graph",
         ),
         ".apm/skills/ait-routing/SKILL.md": (

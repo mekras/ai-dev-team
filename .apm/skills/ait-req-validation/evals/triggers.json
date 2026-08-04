@@ -20,6 +20,12 @@
       "rationale": "Нужна проверка качества готового варианта использования."
     },
     {
+      "id": "ait-req-validation-requirements-validation-positive-use-case-responsibility",
+      "prompt": "Проверь, не приписывают ли гарантии системе решения и действия человека.",
+      "should_trigger": true,
+      "rationale": "Нужна проверка готовности гарантий варианта использования."
+    },
+    {
       "id": "ait-req-validation-requirements-validation-positive-conceptual-tests",
       "prompt": "Составь концептуальные тесты по этим требованиям, чтобы найти пропущенные сценарии и неоднозначности.",
       "should_trigger": true,

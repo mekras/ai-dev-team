@@ -1,7 +1,7 @@
 source_map_version: 1
 source_id: INMA
 long_source: true
-updated_at: "2026-07-31"
+updated_at: "2026-08-03"
 
 extraction_passport:
   format: pdf
@@ -158,12 +158,19 @@ coverage:
       statements: []
     - unit_id: chapter-09
       status: postponed
-      reason: Персонажи обработаны частично, сплошной охват главы не проверен.
+      reason: >-
+        Основные разделы о выявлении и конкретизации персонажей обработаны,
+        но сплошной охват главы не проверен.
       artifacts:
         - items/fragment-personas/personas-goals-scenarios.md
       statements:
         - items/fragment-personas/statements.yml#INMA-006
         - items/fragment-personas/statements.yml#INMA-007
+        - items/fragment-personas/statements.yml#INMA-024
+        - items/fragment-personas/statements.yml#INMA-025
+        - items/fragment-personas/statements.yml#INMA-026
+        - items/fragment-personas/statements.yml#INMA-027
+        - items/fragment-personas/statements.yml#INMA-028
     - unit_id: chapter-10
       status: postponed
       reason: >-

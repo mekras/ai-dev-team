@@ -113,7 +113,7 @@
 
 - `updated`
 - `verified_no_impact`
-- `owner_decision`
+- `human_decision`
 - `blocked`
 
 Команда `assess` завершается успешно, только если все затронутые вершины имеют

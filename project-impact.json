@@ -31,6 +31,14 @@
       "review_stages": ["repository", "requirements"]
     },
     {
+      "id": "use-cases",
+      "title": "Персонажи и варианты использования",
+      "kind": "requirements",
+      "paths": ["docs/02-use-cases/**"],
+      "checks": ["ait-ux-design", "ait-req-validation"],
+      "review_stages": ["requirements"]
+    },
+    {
       "id": "requirements",
       "title": "Требования продукта",
       "kind": "requirements",
@@ -87,7 +95,6 @@
         "CHANGELOG.md",
         "README.md",
         "docs/README.md",
-        "docs/02-use-cases/**",
         "docs/03-hypotheses/**",
         "docs/04-product/README.md",
         "docs/04-product/roles.md",
@@ -127,6 +134,13 @@
     }
   ],
   "edges": [
+    {
+      "from": "concept",
+      "to": "use-cases",
+      "relation": "constrains",
+      "facets": ["semantic"],
+      "rationale": "Персонажи и варианты использования раскрывают цель продукта через цели действующих лиц и наблюдаемые результаты."
+    },
     {
       "from": "concept",
       "to": "knowledge",
@@ -185,6 +199,13 @@
     },
     {
       "from": "knowledge",
+      "to": "use-cases",
+      "relation": "informs",
+      "facets": ["semantic", "data"],
+      "rationale": "Проверяемые сведения о пользователях, целях и сценариях служат основанием вариантов использования."
+    },
+    {
+      "from": "knowledge",
       "to": "requirements",
       "relation": "informs",
       "facets": ["semantic", "data", "structure"],
@@ -231,6 +252,27 @@
       "relation": "constrains",
       "facets": ["data", "structure", "security"],
       "rationale": "Поставка должна соблюдать режим хранения, доступа и публикации источников."
+    },
+    {
+      "from": "use-cases",
+      "to": "requirements",
+      "relation": "informs",
+      "facets": ["semantic", "interface", "quality"],
+      "rationale": "Цели действующих лиц и наблюдаемые результаты служат основанием пользовательских и функциональных требований."
+    },
+    {
+      "from": "use-cases",
+      "to": "decisions",
+      "relation": "informs",
+      "facets": ["semantic", "interface", "quality"],
+      "rationale": "Продуктовые и архитектурные решения проверяются относительно целей и границ вариантов использования."
+    },
+    {
+      "from": "use-cases",
+      "to": "project-docs",
+      "relation": "constrains",
+      "facets": ["semantic", "documentation"],
+      "rationale": "Последующие разделы продуктовой вертикали и пользовательские материалы должны сохранять цели и границы вариантов использования."
     },
     {
       "from": "requirements",

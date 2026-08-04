@@ -37,23 +37,25 @@ statements:
     item_id: INMA-fragment-personas
     kind: fact
     text: >-
-      Персонаж должен быть достаточно конкретным, чтобы удерживать
-      фокус проектирования под давлением разработки.
-    excerpt: сохранять устойчивость под давлением разработки
+      Персонаж должен быть достаточно подробным и конкретным, чтобы удерживать
+      фокус проектирования под давлением разработки. Для этого подробность
+      важнее идеальной правильности первоначального описания.
+    excerpt: подробность важнее идеальной правильности
     artifact: personas-goals-scenarios.md
-    checked_at: "2026-07-31"
+    checked_at: "2026-08-03"
     checked_by: primary-agent
     locator: глава 9, строки 5100–5405 локальной текстовой выгрузки
     scope:
       applies_to: [подготовка персонажа]
-      does_not_apply_to: [выбор персонажа без исследования]
+      does_not_apply_to: [подтверждение статистической репрезентативности]
     processing_status: *complete
     source_role: primary
     evidence_strength: moderate
     confidence: high
     temporal_status: historical
     corroboration: single_source
-    limitations: []
+    limitations:
+      - Конкретность делает персонажа пригодным для проектирования, но не доказывает его статистическую репрезентативность.
     open_questions: []
 
   - id: INMA-008
@@ -90,7 +92,7 @@ statements:
       не мешая личным целям.
     excerpt: личные цели человека при этом нельзя подменять
     artifact: personas-goals-scenarios.md
-    checked_at: "2026-07-31"
+    checked_at: "2026-08-03"
     checked_by: primary-agent
     locator: глава 10, строки 6037–6047 и 6207–6213
     scope:
@@ -103,7 +105,7 @@ statements:
     temporal_status: current
     corroboration: single_source
     limitations:
-      - Конкретные личные цели нужно подтверждать данными о персонаже.
+      - Личную цель нельзя автоматически переносить на персонажа из должности или типового списка. Её основание или статус проектировочного предположения должны быть явными.
     open_questions: []
 
   - id: INMA-010
@@ -236,7 +238,7 @@ statements:
       не скучать.
     excerpt: не чувствовать себя глупо
     artifact: personas-goals-scenarios.md
-    checked_at: "2026-07-31"
+    checked_at: "2026-08-03"
     checked_by: primary-agent
     locator: глава 10, раздел «Личные цели», строки 6289–6331
     scope:
@@ -249,7 +251,7 @@ statements:
     temporal_status: current
     corroboration: single_source
     limitations:
-      - Список — ориентир для проверки, а не замена исследования персонажа.
+      - Список калибрует поиск и может дать проектировочное предположение, но не подтверждает цель конкретного персонажа сам по себе.
     open_questions: []
 
   - id: INMA-016
@@ -384,7 +386,7 @@ statements:
       цель видеть собственную успешность и расти профессионально.
     excerpt: видеть, насколько успешно он работает
     artifact: personas-goals-scenarios.md
-    checked_at: "2026-07-31"
+    checked_at: "2026-08-03"
     checked_by: primary-agent
     locator: глава 10, раздел «Целеориентированное управление классом»
     scope:
@@ -397,7 +399,7 @@ statements:
     temporal_status: historical
     corroboration: not_applicable
     limitations:
-      - Пример не даёт права приписывать аналогичную цель другому персонажу без данных.
+      - Аналогичная цель другого персонажа остаётся проектировочным предположением, пока её не поддерживает контекст или наблюдение.
     open_questions: []
 
   - id: INMA-022
@@ -448,4 +450,132 @@ statements:
     temporal_status: current
     corroboration: single_source
     limitations: []
+    open_questions: []
+
+  - id: INMA-024
+    source_id: INMA
+    item_id: INMA-fragment-personas
+    kind: fact
+    text: >-
+      Персонажи и их цели выявляют и уточняют совместно в итеративном процессе,
+      который может начинаться с разумного правдоподобного приближения.
+    excerpt: персонажи и их цели уточняются совместно
+    artifact: personas-goals-scenarios.md
+    checked_at: "2026-08-03"
+    checked_by: primary-agent
+    locator: глава 9, строки 5131–5148 локальной текстовой выгрузки
+    scope:
+      applies_to: [выявление персонажей и целей]
+      does_not_apply_to: [объявление первого приближения подтверждённым наблюдением]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations:
+      - Начальное приближение требует последующей проверки на согласованность и пригодность для проектирования.
+    open_questions: []
+
+  - id: INMA-025
+    source_id: INMA
+    item_id: INMA-fragment-personas
+    kind: fact
+    text: >-
+      Персонаж остаётся воображаемой проектировочной моделью. Реальные
+      пользователи служат ценным основанием для изучения, но опытный
+      проектировщик может синтезировать подходящего персонажа с первой попытки.
+    excerpt: опытный проектировщик способен синтезировать
+    artifact: personas-goals-scenarios.md
+    checked_at: "2026-08-03"
+    checked_by: primary-agent
+    locator: глава 9, строки 5122–5135 и 5290–5298 локальной текстовой выгрузки
+    scope:
+      applies_to: [синтез проектировочного персонажа]
+      does_not_apply_to: [отказ от изучения предметной области]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations:
+      - Синтез не позволяет выдавать вымышленные сведения за результаты исследования.
+    open_questions: []
+
+  - id: INMA-026
+    source_id: INMA
+    item_id: INMA-fragment-personas
+    kind: fact
+    text: >-
+      Состав персонажей определяется различиями в целях и мотивах. Существенно
+      разные стремления требуют отдельных персонажей, а эквивалентные цели и
+      потребности позволяют объединить разные роли в один персонаж.
+    excerpt: различия в целях и мотивах определяют состав персонажей
+    artifact: personas-goals-scenarios.md
+    checked_at: "2026-08-03"
+    checked_by: primary-agent
+    locator: глава 9, строки 5376–5379 и 5608–5618 локальной текстовой выгрузки
+    scope:
+      applies_to: [разделение и объединение персонажей]
+      does_not_apply_to: [разделение только по должности или демографии]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations:
+      - Цели и мотивы уточняются вместе с контекстом персонажа, а не выводятся из названия роли.
+    open_questions: []
+
+  - id: INMA-027
+    source_id: INMA
+    item_id: INMA-fragment-personas
+    kind: fact
+    text: >-
+      Персонажа следует развивать как определённого человека с конкретными
+      биографическими, личностными и ситуационными подробностями. Такие детали
+      делают модель реальной для команды и уменьшают её эластичность.
+    excerpt: другие отличительные подробности
+    artifact: personas-goals-scenarios.md
+    checked_at: "2026-08-03"
+    checked_by: primary-agent
+    locator: глава 9, раздел «Персонаж должен быть конкретным», строки 5278–5298
+    scope:
+      applies_to: [описание проектировочного персонажа]
+      does_not_apply_to: [статистический профиль аудитории]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations:
+      - Набор подробностей должен оставаться внутренне согласованным и правдоподобным.
+    open_questions: []
+
+  - id: INMA-028
+    source_id: INMA
+    item_id: INMA-fragment-personas
+    kind: fact
+    text: >-
+      Имя необходимо для представления персонажа как конкретного человека, а
+      портрет помогает сделать его более реальным для участников проекта.
+    excerpt: Имя необходимо
+    artifact: personas-goals-scenarios.md
+    checked_at: "2026-08-03"
+    checked_by: primary-agent
+    locator: глава 9, раздел «Персонаж должен быть конкретным», строки 5299–5316
+    scope:
+      applies_to: [представление персонажа команде]
+      does_not_apply_to: [доказательство правильности или репрезентативности]
+    processing_status: *complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations:
+      - Имя и портрет дополняют развитое описание, но не заменяют цели, мотивацию и поведение.
     open_questions: []

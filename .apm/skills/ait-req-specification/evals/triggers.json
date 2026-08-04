@@ -26,6 +26,12 @@
       "rationale": "Нужно записать требования в формате варианта использования."
     },
     {
+      "id": "ait-req-specification-requirements-specification-positive-use-case-guarantees",
+      "prompt": "Перепиши гарантии в полном варианте использования и сохрани остальные разделы карточки.",
+      "should_trigger": true,
+      "rationale": "Изменение формулировок готового варианта использования относится к записи требований."
+    },
+    {
       "id": "ait-req-specification-requirements-specification-positive-quality-requirement",
       "prompt": "Запиши требование к производительности так, чтобы оно было измеримым и проверяемым.",
       "should_trigger": true,
