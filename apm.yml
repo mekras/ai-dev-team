@@ -11,7 +11,7 @@ includes: auto
 dependencies:
   apm:
     - mekras/ai-russian-language#2.1.0
-    - mekras/ai-agent-supervisor#^2.1.0
+    - mekras/ai-agent-supervisor#2.3.1
     - mekras/project-knowlege-corpus#0.19.0
 scripts:
   tests: >-
@@ -45,6 +45,7 @@ scripts:
     python3 "$validators/validate-skill-descriptions.py" "$target";
     python3 "$validators/validate-trigger-evals.py" "$target" --require-all;
     python3 "$validators/validate-skill-result-evals.py" "$target";
+    python3 "$validators/validate-skill-portability.py" "$target";
     python3 tools/validate-portable-corpus-references.py;
     apm compile --validate --local-only --target codex;
     apm compile --validate --local-only --target claude;

@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import fnmatch
 import hashlib
+import importlib
 import json
 import os
 import re
@@ -17,7 +18,7 @@ from typing import Any
 
 sys.dont_write_bytecode = True
 
-import impact_graph
+impact_graph = importlib.import_module("impact_graph")
 
 
 SCHEMA_VERSION = 1

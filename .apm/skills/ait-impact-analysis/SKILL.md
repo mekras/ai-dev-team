@@ -4,6 +4,9 @@ role: project-manager
 description: >
   Сквозной анализ влияния изменений по графу проекта и выбор обязательных
   детерминированных проверок.
+compatibility: >
+  P0 не требует запуска поставляемого кода. P1 требует Python 3.10 или новее
+  для необязательных сценариев проверки графа.
 ---
 
 # Сквозной анализ влияния
@@ -11,6 +14,19 @@ description: >
 Используй единый граф проекта, чтобы после изменения найти все потенциально
 затронутые части на полной глубине зависимостей, выбрать обязательные
 детерминированные проверки и направить профильную проверку.
+
+## Переносимость
+
+P0: найди граф по корневым инструкциям проекта, прочитай его договор и вручную
+проследи связи от изменённого представления до неподвижной точки. Для каждой
+достигнутой вершины назначь профильную проверку и зафиксируй итог. Этот маршрут
+даёт основной результат без запуска поставляемого кода, сети или оболочки.
+
+P1: сценарии из каталога `scripts/` проверяют граф и ускоряют расчёт. Перед
+запуском установи, доступен ли Python 3.10 или новее, и перейди в каталог
+навыка. Используй имя команды Python, найденное в этой среде. Если Python
+недоступен или его версия не подходит, выполни P0 и отметь, что автоматическая
+проверка не выполнена. Не устанавливай интерпретатор или пакеты.
 
 ## Когда применять
 
@@ -32,11 +48,11 @@ description: >
 1. Найди путь к графу в корневых инструкциях агента или в поле
    `setup.impact_graph.path` файла `.ai-dev-team-state.yml`. Если граф не
    настроен, останови изменение и направь проект в `ait-setup`.
-2. Прочитай [договор графа](references/impact-graph-contract.md) и выполни:
+2. Прочитай [договор графа](references/impact-graph-contract.md). При доступном
+   P1 проверь граф:
 
    ```shell
-   python3 \
-     .agents/skills/ait-impact-analysis/scripts/impact_graph.py \
+   <команда Python 3> scripts/impact_graph.py \
      validate --graph project-impact.json
    ```
 
@@ -50,8 +66,7 @@ description: >
    запускает обязательные проверки либо берёт успешный результат из кеша.
 
    ```shell
-   python3 \
-     .agents/skills/ait-impact-analysis/scripts/selective_verification.py \
+   <команда Python 3> scripts/selective_verification.py \
      run --repo . --config project-verification.json --base origin/main
    ```
 
@@ -62,8 +77,7 @@ description: >
 5. Получи полное транзитивное влияние:
 
    ```shell
-   python3 \
-     .agents/skills/ait-impact-analysis/scripts/impact_graph.py \
+   <команда Python 3> scripts/impact_graph.py \
      trace --graph project-impact.json \
      --changed-path docs/concept.md \
      --facet semantic
@@ -81,8 +95,7 @@ description: >
 8. Проверь завершённость тем же набором входов:
 
    ```shell
-   python3 \
-     .agents/skills/ait-impact-analysis/scripts/impact_graph.py \
+   <команда Python 3> scripts/impact_graph.py \
      assess --graph project-impact.json \
      --changed-path docs/concept.md \
      --facet semantic \
@@ -108,8 +121,7 @@ description: >
 обоснование. Затем выполни структурную проверку и проверку покрытия:
 
 ```shell
-python3 \
-  .agents/skills/ait-impact-analysis/scripts/impact_graph.py \
+<команда Python 3> scripts/impact_graph.py \
   coverage --graph project-impact.json --repo .
 ```
 
@@ -138,8 +150,7 @@ python3 \
 4. Проверь объявление до первого запуска:
 
    ```shell
-   python3 \
-     .agents/skills/ait-impact-analysis/scripts/selective_verification.py \
+   <команда Python 3> scripts/selective_verification.py \
      validate --repo . --config project-verification.json
    ```
 
