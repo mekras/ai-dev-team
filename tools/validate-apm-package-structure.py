@@ -28,6 +28,12 @@ REQUIRED_APM_DEPENDENCIES = {
     "mekras/project-knowlege-corpus",
 }
 
+REQUIRED_PACKAGE_TARGETS = {
+    "agent-skills",
+    "claude",
+    "codex",
+}
+
 REQUIRED_SKILLS = {
     "ait-docs-concept",
     "ait-setup",
@@ -108,6 +114,7 @@ REQUIRED_TEST_FRAGMENTS = (
     "validate-skill-descriptions.py",
     "validate-trigger-evals.py",
     "validate-skill-result-evals.py",
+    "run-skill-script-contract-tests.py",
     "tools/validate-portable-corpus-references.py",
     "apm compile --validate --local-only --target codex",
     "apm compile --validate --local-only --target claude",
@@ -832,8 +839,11 @@ def check_connection_effort_contract() -> None:
 
 def check_portability_contract() -> None:
     manifest = read_yaml(ROOT / "apm.yml")
-    if set(manifest.get("targets", [])) != {"claude", "codex"}:
-        fail("apm.yml must validate the portable package for claude and codex")
+    if set(manifest.get("targets", [])) != REQUIRED_PACKAGE_TARGETS:
+        fail(
+            "apm.yml must validate the portable package for agent-skills, "
+            "claude and codex"
+        )
 
     required_markers = {
         "docs/05-requirements/quality/kach-2.md": (

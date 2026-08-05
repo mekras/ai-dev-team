@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "reject-project-without-git-repository",
+      "script": "scripts/project_review.py",
+      "fixture": "evals/script-fixtures/minimal-git-project",
+      "command": [
+        "{python}",
+        "{script}",
+        "inventory",
+        "--repo",
+        "{fixture}",
+        "--classification",
+        "{fixture}/capabilities.json"
+      ],
+      "expect": {
+        "exit_code": 1,
+        "stderr_contains": ["not a git repository"]
+      }
+    }
+  ]
+}

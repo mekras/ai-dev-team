@@ -4,6 +4,7 @@ description: Команда агентной разработки ПО
 author: mekras
 license: MIT
 targets:
+  - agent-skills
   - claude
   - codex
 type: hybrid
@@ -11,7 +12,7 @@ includes: auto
 dependencies:
   apm:
     - mekras/ai-russian-language#2.1.0
-    - mekras/ai-agent-supervisor#2.3.1
+    - mekras/ai-agent-supervisor#2.3.3
     - mekras/project-knowlege-corpus#0.19.0
 scripts:
   tests: >-
@@ -27,6 +28,7 @@ scripts:
     tools/test_selective_verification.py
     tools/test_project_review.py
     tools/test_validate_requirements_structure.py
+    tools/test_validate_apm_package_structure.py
     tools/test_validate_project_review_capabilities.py;
     python3 .apm/skills/ait-impact-analysis/scripts/impact_graph.py
     validate --graph project-impact.json;
@@ -46,6 +48,7 @@ scripts:
     python3 "$validators/validate-trigger-evals.py" "$target" --require-all;
     python3 "$validators/validate-skill-result-evals.py" "$target";
     python3 "$validators/validate-skill-portability.py" "$target";
+    python3 "$validators/run-skill-script-contract-tests.py" "$target";
     python3 tools/validate-portable-corpus-references.py;
     apm compile --validate --local-only --target codex;
     apm compile --validate --local-only --target claude;

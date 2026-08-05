@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "validate-minimal-impact-graph",
+      "script": "scripts/impact_graph.py",
+      "fixture": "evals/script-fixtures/minimal-project",
+      "command": [
+        "{python}",
+        "{script}",
+        "validate",
+        "--graph",
+        "{fixture}/project-impact.json"
+      ],
+      "expect": {
+        "stdout_contains": ["\"status\": \"ok\""]
+      }
+    },
+    {
+      "id": "validate-minimal-verification-config",
+      "script": "scripts/selective_verification.py",
+      "fixture": "evals/script-fixtures/minimal-project",
+      "command": [
+        "{python}",
+        "{script}",
+        "validate",
+        "--repo",
+        "{fixture}",
+        "--config",
+        "{fixture}/project-verification.json"
+      ],
+      "expect": {
+        "stdout_contains": ["\"status\": \"passed\""]
+      }
+    }
+  ]
+}
