@@ -2597,6 +2597,110 @@ class ProjectReviewTest(unittest.TestCase):
                 self.root,
             )
 
+    def test_requirements_revalidation_waits_for_ontology_predecessors(self) -> None:
+        for name in ("ait-req-revalidation", "ait-req-validation", "ait-ux-design"):
+            skill = f"---\nname: {name}\ndescription: Проверяет проект.\n---\n"
+            self.write(f".agents/skills/{name}/SKILL.md", skill)
+            self.write(f".claude/skills/{name}/SKILL.md", skill)
+        classification = json.loads(self.classification.read_text(encoding="utf-8"))
+        classification["capabilities"].extend(
+            [
+                {
+                    "id": "skill-ait-req-revalidation",
+                    "kind": "skill",
+                    "path": ".apm/skills/ait-req-revalidation",
+                    "purpose": "Полная проверка требований",
+                    "participation": "check",
+                    "stage": "requirements",
+                    "applicability": "model",
+                    "ontology_scope": {"node_kinds": ["requirements"]},
+                },
+                {
+                    "id": "skill-ait-req-validation",
+                    "kind": "skill",
+                    "path": ".apm/skills/ait-req-validation",
+                    "purpose": "Проверка требований",
+                    "participation": "check",
+                    "stage": "requirements",
+                    "applicability": "model",
+                },
+                {
+                    "id": "skill-ait-ux-design",
+                    "kind": "skill",
+                    "path": ".apm/skills/ait-ux-design",
+                    "purpose": "Проверка пользовательской модели",
+                    "participation": "check",
+                    "stage": "design",
+                    "applicability": "model",
+                },
+            ],
+        )
+        self.classification.write_text(json.dumps(classification), encoding="utf-8")
+        self.write("docs/users/alex.md", "# Алекс\n")
+        self.write("docs/scenarios/create.md", "# Создание\n")
+        self.write("docs/specification.md", "# Требования\n")
+        self.write(
+            "project-impact.json",
+            json.dumps(
+                {
+                    "nodes": [
+                        {
+                            "id": "personas",
+                            "title": "Модели пользователей",
+                            "kind": "requirements",
+                            "paths": ["docs/users/**"],
+                            "checks": ["ait-ux-design"],
+                            "review_stages": ["requirements"],
+                        },
+                        {
+                            "id": "use-cases",
+                            "title": "Варианты использования",
+                            "kind": "requirements",
+                            "paths": ["docs/scenarios/**"],
+                            "checks": ["ait-req-validation"],
+                            "review_stages": ["requirements"],
+                        },
+                        {
+                            "id": "requirements",
+                            "title": "Требования",
+                            "kind": "requirements",
+                            "paths": ["docs/specification.md"],
+                            "checks": ["ait-req-validation"],
+                            "review_stages": ["requirements"],
+                        },
+                    ],
+                    "edges": [
+                        {"from": "personas", "to": "use-cases"},
+                        {"from": "use-cases", "to": "requirements"},
+                    ],
+                },
+            ),
+        )
+        run("git", "add", "docs", "project-impact.json", cwd=self.root)
+        state = self.new_state(self.root, "manual", None, False)
+
+        with self.assertRaisesRegex(
+            MODULE.ReviewError,
+            "(?=.*Модели пользователей)(?=.*Варианты использования)",
+        ):
+            MODULE.start_application(
+                state,
+                argparse.Namespace(
+                    id="requirements-revalidation",
+                    stage="requirements",
+                    capability="skill:ait-req-revalidation",
+                    finding=None,
+                    method="review",
+                    surface="Полный набор требований.",
+                    action="Проверить требования после их оснований.",
+                    priority_rationale="Требования зависят от моделей и сценариев.",
+                    subject=[],
+                    subject_index=[],
+                    subject_pattern=["docs/specification.md"],
+                ),
+                self.root,
+            )
+
     def test_subject_index_expands_linked_business_requirements(self) -> None:
         self.write(
             "docs/requirements.md",

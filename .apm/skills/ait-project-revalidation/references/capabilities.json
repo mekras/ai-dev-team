@@ -405,8 +405,9 @@
       "participation": "check",
       "stage": "requirements",
       "applicability": "model",
-      "activation_patterns": ["docs/03-requirements/**", "**/requirements/**", "**/требования/**"],
-      "required_subject_patterns": ["docs/03-requirements/**", "**/requirements/**", "**/требования/**"],
+      "ontology_scope": {
+        "node_kinds": ["requirements"]
+      },
       "subject_discovery_required": true,
       "review_criteria": [
         {

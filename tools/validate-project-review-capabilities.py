@@ -180,6 +180,25 @@ def validate(root: Path, classification: Path) -> None:
             raise CapabilityError(
                 f"{identifier}: обнаружение области допустимо только для check",
             )
+        ontology_scope = raw_entry.get("ontology_scope")
+        if ontology_scope is not None:
+            node_kinds = (
+                ontology_scope.get("node_kinds")
+                if isinstance(ontology_scope, dict)
+                else None
+            )
+            if (
+                not isinstance(node_kinds, list)
+                or not node_kinds
+                or not all(isinstance(kind, str) and kind for kind in node_kinds)
+            ):
+                raise CapabilityError(
+                    f"{identifier}: ontology_scope требует node_kinds",
+                )
+            if participation != "check" or stage is None:
+                raise CapabilityError(
+                    f"{identifier}: ontology_scope допустима только для проверки этапа",
+                )
 
     missing = sorted(set(actual) - seen_paths)
     if missing:

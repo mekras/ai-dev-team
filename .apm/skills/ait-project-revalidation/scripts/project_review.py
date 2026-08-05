@@ -19,10 +19,11 @@ from typing import Any, Iterable
 from urllib.parse import unquote
 
 
-STATE_SCHEMA_VERSION = 10
+STATE_SCHEMA_VERSION = 11
 CLASSIFICATION_VERSION = 1
 CONCEPT_CAPABILITY_ID = "skill-ait-docs-concept"
 KNOWLEDGE_CAPABILITY_NAME = "kc-validation"
+PROJECT_IMPACT_FILE = "project-impact.json"
 TERMINAL_STATES = {"complete", "complete_with_accepted_risks"}
 PROCESS_STATES = {
     "running",
@@ -427,6 +428,7 @@ def inventory(
                     [],
                 ),
                 "semantic_required": core_entry.get("semantic_required", False),
+                "ontology_scope": core_entry.get("ontology_scope"),
             }
         else:
             dependency_origins = [
@@ -464,19 +466,150 @@ def workspace_id(repo: Path) -> str:
     return stable_hash({"repo": str(repo), "git_dir": git_dir})
 
 
+def project_ontology(repo: Path) -> dict[str, Any] | None:
+    path = repo / PROJECT_IMPACT_FILE
+    if not path.is_file():
+        return None
+    graph = load_json(path)
+    nodes = graph.get("nodes")
+    edges = graph.get("edges")
+    if not isinstance(nodes, list) or not isinstance(edges, list):
+        raise ReviewError("граф проекта должен содержать вершины и связи")
+    by_id: dict[str, dict[str, Any]] = {}
+    predecessors: dict[str, set[str]] = {}
+    for node in nodes:
+        if not isinstance(node, dict) or not isinstance(node.get("id"), str):
+            raise ReviewError("вершина графа должна иметь идентификатор")
+        identifier = node["id"]
+        if identifier in by_id:
+            raise ReviewError("граф содержит повторяющийся идентификатор вершины")
+        representations = node.get("representations")
+        if representations is None:
+            representations = [
+                {"path": item} for item in node.get("paths", [])
+            ]
+        paths = {
+            item["path"]
+            for item in representations
+            if isinstance(item, dict) and isinstance(item.get("path"), str)
+        }
+        checks = node.get("checks")
+        if not isinstance(checks, list) or not all(
+            isinstance(item, str) for item in checks
+        ):
+            raise ReviewError("вершина графа должна перечислять профильные проверки")
+        by_id[identifier] = {
+            "id": identifier,
+            "title": node.get("title", identifier),
+            "kind": node.get("kind"),
+            "review_stages": node.get("review_stages", []),
+            "checks": checks,
+            "paths": paths,
+        }
+        predecessors[identifier] = set()
+    for edge in edges:
+        if not isinstance(edge, dict):
+            raise ReviewError("связь графа должна быть объектом")
+        source = edge.get("from")
+        target = edge.get("to")
+        if source not in by_id or target not in by_id:
+            raise ReviewError("связь графа ссылается на неизвестную вершину")
+        predecessors[target].add(source)
+    return {"nodes": by_id, "predecessors": predecessors}
+
+
+def upstream_nodes(
+    ontology: dict[str, Any],
+    targets: Iterable[str],
+) -> set[str]:
+    pending = list(targets)
+    result: set[str] = set()
+    predecessors = ontology["predecessors"]
+    while pending:
+        current = pending.pop()
+        for predecessor in predecessors[current]:
+            if predecessor not in result:
+                result.add(predecessor)
+                pending.append(predecessor)
+    return result
+
+
+def ontology_scope_for_decision(
+    classification: dict[str, Any],
+    ontology: dict[str, Any] | None,
+    snapshot: dict[str, Any],
+) -> dict[str, Any] | None:
+    scope = classification.get("ontology_scope")
+    if scope is None:
+        return None
+    if not isinstance(scope, dict) or not isinstance(scope.get("node_kinds"), list):
+        raise ReviewError("область онтологии возможности задана неверно")
+    if ontology is None:
+        return {"targets": [], "prerequisites": [], "missing_graph": True}
+    node_kinds = set(scope["node_kinds"])
+    stage = classification.get("stage")
+    candidates = {
+        identifier
+        for identifier, node in ontology["nodes"].items()
+        if node["kind"] in node_kinds and stage in node["review_stages"]
+    }
+    targets = sorted(
+        identifier
+        for identifier in candidates
+        if not any(
+            identifier in ontology["predecessors"][other]
+            for other in candidates
+        )
+    )
+    if not targets:
+        return {"targets": [], "prerequisites": []}
+    prerequisites = sorted(upstream_nodes(ontology, targets) - set(targets))
+    def scoped_node(identifier: str) -> dict[str, Any]:
+        node = dict(ontology["nodes"][identifier])
+        node["subjects"] = sorted(
+            reference
+            for reference in snapshot["files"]
+            if any(
+                fnmatch.fnmatch(reference, pattern)
+                for pattern in node["paths"]
+            )
+        )
+        return node
+    return {
+        "targets": [scoped_node(identifier) for identifier in targets],
+        "prerequisites": [scoped_node(identifier) for identifier in prerequisites],
+    }
+
+
 def initial_capability_decisions(
     capability_inventory: dict[str, Any],
     snapshot: dict[str, Any],
+    repo: Path | None = None,
 ) -> dict[str, Any]:
+    ontology = project_ontology(repo) if repo is not None else None
+    ontology_checks = {
+        check
+        for node in (ontology or {"nodes": {}})["nodes"].values()
+        for check in node["checks"]
+    }
     decisions: dict[str, Any] = {}
     for item in capability_inventory["capabilities"]:
         classification = item["classification"]
+        ontology_scope = ontology_scope_for_decision(
+            classification,
+            ontology,
+            snapshot,
+        )
         activation_patterns = classification.get("activation_patterns", [])
         activated = any(
             fnmatch.fnmatch(reference, pattern)
             for reference in snapshot["files"]
             for pattern in activation_patterns
         )
+        if item.get("name") in ontology_checks:
+            activated = True
+        if ontology_scope is not None:
+            activated = bool(ontology_scope["targets"])
         decisions[item["id"]] = {
             "input_hash": item["input_hash"],
             "origin": item["origin"],
@@ -508,6 +641,7 @@ def initial_capability_decisions(
                 [],
             ),
             "semantic_required": classification.get("semantic_required", False),
+            "ontology_scope": ontology_scope,
         }
     return decisions
 
@@ -567,6 +701,7 @@ def new_state(
         "capability_decisions": initial_capability_decisions(
             capability_inventory,
             snapshot,
+            repo,
         ),
         "stages": {
             stage: {
@@ -1178,12 +1313,49 @@ def required_subjects_for_decision(
     decision: dict[str, Any],
     snapshot: dict[str, Any],
 ) -> set[str]:
+    ontology_scope = decision.get("ontology_scope")
+    if ontology_scope is not None:
+        return {
+            subject
+            for node in ontology_scope["targets"]
+            for subject in node["subjects"]
+        }
     patterns = decision.get("required_subject_patterns", [])
     return {
         reference
         for reference in snapshot["files"]
         if any(fnmatch.fnmatch(reference, pattern) for pattern in patterns)
     }
+
+
+def unverified_ontology_prerequisites(
+    state: dict[str, Any],
+    decision: dict[str, Any],
+) -> list[str]:
+    scope = decision.get("ontology_scope")
+    if scope is None:
+        return []
+    identifiers_by_name = {
+        item["name"]: item["id"]
+        for item in state["capability_inventory"]["capabilities"]
+    }
+    completed = completed_capability_applications(state)
+    missing: list[str] = []
+    for node in scope["prerequisites"]:
+        paths = node["subjects"]
+        if not paths:
+            missing.append(f"{node['title']} (нет обнаруженных представлений)")
+            continue
+        for check in node["checks"]:
+            identifier = identifiers_by_name.get(check)
+            applications = completed.get(identifier, []) if identifier else []
+            if not any(
+                application.get("outcome") == "passed"
+                and application_covers_paths(application, paths)
+                for application in applications
+            ):
+                missing.append(f"{node['title']} ({check})")
+    return sorted(set(missing))
 
 
 def concept_capability(state: dict[str, Any]) -> str:
@@ -1749,6 +1921,11 @@ def start_application(
         decision = state["capability_decisions"].get(args.capability)
         if not decision:
             raise ReviewError(f"неизвестная возможность {args.capability}")
+        ontology_scope = decision.get("ontology_scope")
+        if isinstance(ontology_scope, dict) and ontology_scope.get("missing_graph"):
+            raise ReviewError(
+                "полная смысловая проверка требует project-impact.json",
+            )
         if (
             decision["status"] != "classified"
             or decision["applicable"] is not True
@@ -1774,6 +1951,25 @@ def start_application(
         decision = finding.get("decision") or {}
         if decision.get("value") != "fix":
             raise ReviewError("проверка исправления требует решения fix")
+    if args.capability:
+        ontology_scope = decision.get("ontology_scope")
+        if isinstance(ontology_scope, dict):
+            missing_targets = [
+                node["title"]
+                for node in ontology_scope.get("targets", [])
+                if not node["subjects"]
+            ]
+            if missing_targets:
+                raise ReviewError(
+                    "целевая вершина не имеет обнаруженных представлений: "
+                    + ", ".join(sorted(missing_targets)),
+                )
+        missing_prerequisites = unverified_ontology_prerequisites(state, decision)
+        if missing_prerequisites:
+            raise ReviewError(
+                "до проверки зависимой вершины не подтверждены её основания: "
+                + ", ".join(missing_prerequisites),
+            )
     if state["status"] != "running":
         raise ReviewError("начать применение можно только в состоянии running")
 
@@ -2581,9 +2777,9 @@ def record_check(
 
 def migrate_state(state: dict[str, Any]) -> None:
     source_version = state.get("schema_version")
-    if source_version not in {1, 2, 3, 4, 5, 6, 7, 8}:
+    if source_version not in {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}:
         raise ReviewError(
-            "миграция поддерживает состояния версий 1–8",
+            "миграция поддерживает состояния версий 1–10",
         )
     invalidated_applications = len(state.get("applications", {}))
     invalidated_checks = len(state.get("checks", {}))
@@ -3441,6 +3637,7 @@ def refresh(state: dict[str, Any], repo: Path) -> None:
     state["capability_decisions"] = initial_capability_decisions(
         new_inventory,
         new_snapshot,
+        repo,
     )
     new_items = {
         item["id"]: item
@@ -3467,6 +3664,7 @@ def refresh(state: dict[str, Any], repo: Path) -> None:
                 [],
             )
             previous["semantic_required"] = decision.get("semantic_required", False)
+            previous["ontology_scope"] = decision.get("ontology_scope")
             state["capability_decisions"][identifier] = previous
 
     changed_capabilities = [
