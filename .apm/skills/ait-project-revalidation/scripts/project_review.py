@@ -19,7 +19,7 @@ from typing import Any, Iterable
 from urllib.parse import unquote
 
 
-STATE_SCHEMA_VERSION = 9
+STATE_SCHEMA_VERSION = 10
 CLASSIFICATION_VERSION = 1
 CONCEPT_CAPABILITY_ID = "skill-ait-docs-concept"
 KNOWLEDGE_CAPABILITY_NAME = "kc-validation"
@@ -421,6 +421,12 @@ def inventory(
                     "subject_discovery_required",
                     False,
                 ),
+                "activation_patterns": core_entry.get("activation_patterns", []),
+                "required_subject_patterns": core_entry.get(
+                    "required_subject_patterns",
+                    [],
+                ),
+                "semantic_required": core_entry.get("semantic_required", False),
             }
         else:
             dependency_origins = [
@@ -460,10 +466,17 @@ def workspace_id(repo: Path) -> str:
 
 def initial_capability_decisions(
     capability_inventory: dict[str, Any],
+    snapshot: dict[str, Any],
 ) -> dict[str, Any]:
     decisions: dict[str, Any] = {}
     for item in capability_inventory["capabilities"]:
         classification = item["classification"]
+        activation_patterns = classification.get("activation_patterns", [])
+        activated = any(
+            fnmatch.fnmatch(reference, pattern)
+            for reference in snapshot["files"]
+            for pattern in activation_patterns
+        )
         decisions[item["id"]] = {
             "input_hash": item["input_hash"],
             "origin": item["origin"],
@@ -471,12 +484,18 @@ def initial_capability_decisions(
             "participation": classification["participation"],
             "stage": classification["stage"],
             "applicable": (
-                True if classification.get("applicability") == "always" else None
+                True
+                if classification.get("applicability") == "always" or activated
+                else None
             ),
             "reason": (
                 "Поставляемая классификация требует применения."
                 if classification.get("applicability") == "always"
-                else None
+                else (
+                    "В репозитории найдены предметы обязательной проверки."
+                    if activated
+                    else None
+                )
             ),
             "decision_paths": classification.get("decision_paths", []),
             "review_criteria": classification.get("review_criteria", []),
@@ -484,6 +503,11 @@ def initial_capability_decisions(
                 "subject_discovery_required",
                 False,
             ),
+            "required_subject_patterns": classification.get(
+                "required_subject_patterns",
+                [],
+            ),
+            "semantic_required": classification.get("semantic_required", False),
         }
     return decisions
 
@@ -520,6 +544,7 @@ def new_state(
             "управляемый режим требует доказанного контроллера продолжения",
         )
     capability_inventory = inventory(repo)
+    snapshot = repository_snapshot(repo)
     stages = load_core_classification()["stages"]
     timestamp = now()
     state = {
@@ -537,9 +562,12 @@ def new_state(
             "Найти концепцию по указателю в корневых инструкциях и "
             "зарегистрировать предмет её проверки."
         ),
-        "snapshot": repository_snapshot(repo),
+        "snapshot": snapshot,
         "capability_inventory": capability_inventory,
-        "capability_decisions": initial_capability_decisions(capability_inventory),
+        "capability_decisions": initial_capability_decisions(
+            capability_inventory,
+            snapshot,
+        ),
         "stages": {
             stage: {
                 "status": "pending",
@@ -651,6 +679,15 @@ def classify_capability(state: dict[str, Any], args: argparse.Namespace) -> None
     if not args.reason or not args.reason.strip():
         raise ReviewError("классификация требует непустое основание")
     decision = state["capability_decisions"][args.id]
+    required_subjects = required_subjects_for_decision(
+        decision,
+        state["snapshot"],
+    )
+    if required_subjects and args.applicable != "yes":
+        raise ReviewError(
+            "обнаруженный предмет требует профильную смысловую проверку: "
+            + ", ".join(sorted(required_subjects)[:10]),
+        )
     previous_stage = decision.get("stage")
     decision.update(
         {
@@ -1137,6 +1174,18 @@ def inventory_item(state: dict[str, Any], capability: str) -> dict[str, Any]:
     raise ReviewError(f"возможность {capability} отсутствует в инвентаризации")
 
 
+def required_subjects_for_decision(
+    decision: dict[str, Any],
+    snapshot: dict[str, Any],
+) -> set[str]:
+    patterns = decision.get("required_subject_patterns", [])
+    return {
+        reference
+        for reference in snapshot["files"]
+        if any(fnmatch.fnmatch(reference, pattern) for pattern in patterns)
+    }
+
+
 def concept_capability(state: dict[str, Any]) -> str:
     matches = [
         item["id"]
@@ -1546,6 +1595,26 @@ def start_application(
     knowledge_status = knowledge.get("status")
     knowledge_proven = knowledge_review_is_proven(state)
     knowledge_phase = getattr(args, "knowledge_phase", None)
+    if knowledge_phase is not None:
+        if knowledge_phase not in {"technical", "semantic"}:
+            raise ReviewError("неизвестная фаза проверки корпуса знаний")
+        if knowledge_status == "absent":
+            raise ReviewError(
+                "--knowledge-phase недопустим, когда корпус знаний отсутствует",
+            )
+        if (
+            args.capability != knowledge.get("capability")
+            or args.capability != knowledge_capability(state)
+            or args.stage != "repository"
+        ):
+            raise ReviewError(
+                "фаза корпуса доступна только возможности kc-validation "
+                "в области repository",
+            )
+        if not knowledge.get("root") or not knowledge.get("subjects"):
+            raise ReviewError(
+                "фаза корпуса требует найденный корень и состав корпуса",
+            )
     is_concept_attempt = (
         args.capability is not None
         and args.capability == concept.get("capability")
@@ -1711,7 +1780,10 @@ def start_application(
     semantic_trace_required = args.method == "review" or (
         bool(args.capability)
         and decision["participation"] == "check"
-        and args.stage in SEMANTIC_STAGES
+        and (
+            args.stage in SEMANTIC_STAGES
+            or decision.get("semantic_required", False)
+        )
     )
     current = repository_snapshot(repo)
     subject_indexes = getattr(args, "subject_index", [])
@@ -1733,6 +1805,17 @@ def start_application(
         subject_indexes,
         subject_patterns,
     )
+    if args.capability:
+        required_subjects = required_subjects_for_decision(decision, current)
+        actual_subjects = {
+            item["reference"] for item in subject_scope
+        }
+        missing_subjects = sorted(required_subjects - actual_subjects)
+        if missing_subjects:
+            raise ReviewError(
+                "обязательная проверка не охватывает все обнаруженные предметы: "
+                + ", ".join(missing_subjects[:10]),
+            )
     if is_concept_attempt:
         required_subjects = {
             item["reference"] for item in concept.get("subjects", [])
@@ -2774,7 +2857,16 @@ def knowledge_review_is_proven(state: dict[str, Any]) -> bool:
     if not isinstance(knowledge, dict):
         return False
     if knowledge.get("status") == "absent":
-        return bool(knowledge.get("evidence")) and not knowledge.get("root")
+        return (
+            bool(knowledge.get("evidence"))
+            and knowledge.get("root") is None
+            and not knowledge.get("subjects")
+            and knowledge.get("capability") is None
+            and knowledge.get("technical_application") is None
+            and knowledge.get("technical_outcome") is None
+            and knowledge.get("semantic_application") is None
+            and knowledge.get("semantic_outcome") is None
+        )
     if knowledge.get("status") != "checked":
         return False
     if (
@@ -2797,10 +2889,13 @@ def knowledge_review_is_proven(state: dict[str, Any]) -> bool:
         technical.get("status") != "complete"
         or technical.get("outcome") not in {"failed", "passed"}
         or technical.get("knowledge_phase") != "technical"
+        or technical.get("stage") != "repository"
+        or technical.get("method") not in {"inspection", "validation"}
         or semantic.get("status") != "complete"
         or semantic.get("outcome") != "passed"
         or semantic.get("decision") != "accept"
         or semantic.get("knowledge_phase") != "semantic"
+        or semantic.get("stage") != "repository"
         or semantic.get("method") != "review"
         or semantic.get("semantic_contract_version") != 2
         or semantic.get("capability") != knowledge.get("capability")
@@ -2846,6 +2941,38 @@ def knowledge_review_is_proven(state: dict[str, Any]) -> bool:
         if application.get("evidence_fingerprint") != expected_fingerprint:
             return False
     return True
+
+
+def validate_knowledge_phase_application(
+    state: dict[str, Any],
+    knowledge: dict[str, Any],
+    application_id: str | None,
+    phase: str,
+    expected_status: str,
+) -> dict[str, Any]:
+    if not application_id:
+        raise ReviewError(f"фаза корпуса {phase} не связана с применением")
+    application = state.get("applications", {}).get(application_id)
+    if not isinstance(application, dict):
+        raise ReviewError(f"фаза корпуса {phase} ссылается на неизвестное применение")
+    if (
+        application.get("knowledge_phase") != phase
+        or application.get("capability") != knowledge.get("capability")
+        or application.get("stage") != "repository"
+        or application.get("status") != expected_status
+    ):
+        raise ReviewError(
+            "фаза корпуса должна относиться к kc-validation в области "
+            "repository",
+        )
+    if phase == "technical" and application.get("method") not in {
+        "inspection",
+        "validation",
+    }:
+        raise ReviewError("техническая фаза корпуса использует недопустимый способ")
+    if phase == "semantic" and application.get("method") != "review":
+        raise ReviewError("смысловая фаза корпуса требует способ review")
+    return application
 
 
 def validate_completion(state: dict[str, Any], target: str) -> None:
@@ -3311,7 +3438,10 @@ def refresh(state: dict[str, Any], repo: Path) -> None:
 
     old_decisions = state["capability_decisions"]
     state["capability_inventory"] = new_inventory
-    state["capability_decisions"] = initial_capability_decisions(new_inventory)
+    state["capability_decisions"] = initial_capability_decisions(
+        new_inventory,
+        new_snapshot,
+    )
     new_items = {
         item["id"]: item
         for item in new_inventory["capabilities"]
@@ -3332,6 +3462,11 @@ def refresh(state: dict[str, Any], repo: Path) -> None:
                 "subject_discovery_required",
                 False,
             )
+            previous["required_subject_patterns"] = decision.get(
+                "required_subject_patterns",
+                [],
+            )
+            previous["semantic_required"] = decision.get("semantic_required", False)
             state["capability_decisions"][identifier] = previous
 
     changed_capabilities = [
@@ -3423,6 +3558,119 @@ def validate_state(state: dict[str, Any]) -> None:
         "absent",
     }:
         raise ReviewError("неизвестно состояние обязательной проверки корпуса")
+    knowledge_status = knowledge["status"]
+    if knowledge_status == "absent":
+        forbidden = (
+            knowledge.get("root") is not None
+            or bool(knowledge.get("subjects"))
+            or knowledge.get("capability") is not None
+            or knowledge.get("technical_application") is not None
+            or knowledge.get("technical_outcome") is not None
+            or knowledge.get("semantic_application") is not None
+            or knowledge.get("semantic_outcome") is not None
+        )
+        if forbidden or not knowledge.get("evidence"):
+            raise ReviewError(
+                "отсутствующий корпус не допускает техническую или "
+                "смысловую фазу",
+            )
+    elif knowledge_status != "pending":
+        if (
+            not knowledge.get("root")
+            or not knowledge.get("subjects")
+            or not knowledge.get("evidence")
+            or knowledge.get("capability") != knowledge_capability(state)
+        ):
+            raise ReviewError(
+                "найденный корпус требует корень, состав и возможность "
+                "kc-validation",
+            )
+        if any(
+            not item.get("reference") or not item.get("sha256")
+            for item in knowledge["subjects"]
+        ):
+            raise ReviewError("состав корпуса содержит неполное свидетельство")
+        technical_states = {
+            "technical_running",
+            "technical_blocked",
+            "admitted",
+            "admitted_with_limits",
+            "semantic_running",
+            "semantic_failed",
+            "checked",
+        }
+        if knowledge_status in technical_states:
+            technical = validate_knowledge_phase_application(
+                state,
+                knowledge,
+                knowledge.get("technical_application"),
+                "technical",
+                "running" if knowledge_status == "technical_running" else "complete",
+            )
+            if knowledge_status == "technical_blocked" and (
+                technical.get("outcome") != "failed"
+            ):
+                raise ReviewError("technical_blocked требует неуспешный допуск")
+            if knowledge_status == "admitted" and (
+                technical.get("outcome") != "passed"
+            ):
+                raise ReviewError("admitted требует успешный технический допуск")
+            if knowledge_status == "admitted_with_limits" and (
+                technical.get("outcome") != "failed"
+            ):
+                raise ReviewError(
+                    "admitted_with_limits требует допуск с ограничениями",
+                )
+        if knowledge_status in {"semantic_running", "semantic_failed", "checked"}:
+            semantic = validate_knowledge_phase_application(
+                state,
+                knowledge,
+                knowledge.get("semantic_application"),
+                "semantic",
+                "running" if knowledge_status == "semantic_running" else "complete",
+            )
+            if knowledge_status == "checked" and (
+                semantic.get("outcome") != "passed"
+                or semantic.get("decision") != "accept"
+            ):
+                raise ReviewError(
+                    "checked требует принятую успешную смысловую проверку",
+                )
+    if knowledge_status in {"pending", "located"} and any(
+        knowledge.get(field) is not None
+        for field in (
+            "technical_application",
+            "technical_outcome",
+            "semantic_application",
+            "semantic_outcome",
+        )
+    ):
+        raise ReviewError(
+            "корпус без запущенной фазы не допускает сохранённое применение",
+        )
+    if knowledge_status == "technical_running" and (
+        knowledge.get("technical_outcome") is not None
+        or knowledge.get("semantic_application") is not None
+        or knowledge.get("semantic_outcome") is not None
+    ):
+        raise ReviewError(
+            "техническая фаза не допускает результат или смысловое применение",
+        )
+    if knowledge_status in {
+        "technical_blocked",
+        "admitted",
+        "admitted_with_limits",
+    } and (
+        knowledge.get("semantic_application") is not None
+        or knowledge.get("semantic_outcome") is not None
+    ):
+        raise ReviewError(
+            "смысловая фаза не начата, но уже сохранена в состоянии корпуса",
+        )
+    if knowledge_status == "semantic_running" and (
+        knowledge.get("semantic_outcome") is not None
+    ):
+        raise ReviewError("активная смысловая фаза не может иметь результат")
     if knowledge.get("status") == "checked" and not knowledge_review_is_proven(
         state,
     ):
@@ -3734,7 +3982,11 @@ def main() -> None:
             return
         if args.operation == "validate":
             validate_state(state)
-            print("Project review state OK")
+            if state["status"] in TERMINAL_STATES:
+                print("Project review is complete")
+            else:
+                print("Project review state is internally consistent; "
+                      "review remains in progress")
             return
         if args.operation == "restart":
             restarted, archive = restart_review(

@@ -833,6 +833,101 @@ class ProjectReviewTest(unittest.TestCase):
         self.assertEqual(state["knowledge_review"]["status"], "absent")
         self.assertTrue(MODULE.knowledge_review_is_proven(state))
 
+    def test_absent_knowledge_rejects_unrelated_technical_phase(self) -> None:
+        state = self.pending_concept_state()
+        self.complete_concept_review(state)
+        MODULE.record_knowledge_discovery(
+            state,
+            argparse.Namespace(
+                result="absent",
+                root=None,
+                evidence=["Корпус знаний в проекте не объявлен."],
+            ),
+            self.root,
+        )
+
+        with self.assertRaisesRegex(
+            MODULE.ReviewError,
+            "knowledge-phase недопустим",
+        ):
+            MODULE.start_application(
+                state,
+                argparse.Namespace(
+                    id="security-technical-phase",
+                    stage="repository",
+                    capability="skill:core-check",
+                    finding=None,
+                    method="validation",
+                    surface="Граница безопасности.",
+                    action="Проверить границу безопасности.",
+                    priority_rationale="Проверка относится к репозиторию.",
+                    knowledge_phase="technical",
+                    subject=[],
+                    subject_index=[],
+                    subject_pattern=[],
+                ),
+                self.root,
+            )
+
+    def test_validate_rejects_phase_recorded_for_absent_knowledge(self) -> None:
+        state = self.pending_concept_state()
+        self.complete_concept_review(state)
+        MODULE.record_knowledge_discovery(
+            state,
+            argparse.Namespace(
+                result="absent",
+                root=None,
+                evidence=["Корпус знаний в проекте не объявлен."],
+            ),
+            self.root,
+        )
+        state["knowledge_review"]["technical_application"] = "security-check"
+
+        with self.assertRaisesRegex(
+            MODULE.ReviewError,
+            "отсутствующий корпус",
+        ):
+            MODULE.validate_state(state)
+
+    def test_validate_rejects_phase_before_knowledge_admission(self) -> None:
+        state = self.pending_concept_state()
+        self.complete_concept_review(state)
+        self.locate_knowledge(state)
+        state["knowledge_review"]["technical_application"] = "security-check"
+
+        with self.assertRaisesRegex(
+            MODULE.ReviewError,
+            "без запущенной фазы",
+        ):
+            MODULE.validate_state(state)
+
+    def test_validate_rejects_knowledge_phase_in_another_stage(self) -> None:
+        state = self.pending_concept_state()
+        self.complete_concept_review(state)
+        self.complete_knowledge_review(state)
+        technical = state["knowledge_review"]["technical_application"]
+        state["applications"][technical]["stage"] = "assurance"
+
+        with self.assertRaisesRegex(
+            MODULE.ReviewError,
+            "фаза корпуса должна относиться",
+        ):
+            MODULE.validate_state(state)
+
+    def test_validate_does_not_report_running_review_as_complete(self) -> None:
+        state = self.pending_concept_state()
+        MODULE.atomic_write(MODULE.state_path(self.root), state)
+        arguments = [str(SCRIPT), "validate", "--repo", str(self.root)]
+        output = io.StringIO()
+
+        with (
+            mock.patch.object(sys, "argv", arguments),
+            mock.patch.object(sys, "stdout", output),
+        ):
+            MODULE.main()
+
+        self.assertIn("remains in progress", output.getvalue())
+
     def test_technical_admission_precedes_semantic_knowledge_review(self) -> None:
         state = self.pending_concept_state()
         self.complete_concept_review(state)
@@ -1437,6 +1532,46 @@ class ProjectReviewTest(unittest.TestCase):
         self.assertEqual(
             state["history"][-1]["invalidated_mandatory_reviews"],
             ["concept"],
+        )
+
+    def test_content_pattern_makes_check_mandatory(self) -> None:
+        inventory = {
+            "capabilities": [
+                {
+                    "id": "skill-docs",
+                    "classification": {
+                        "status": "classified",
+                        "participation": "check",
+                        "stage": "assurance",
+                        "applicability": "model",
+                        "activation_patterns": ["docs/**/*.md"],
+                    },
+                    "input_hash": "hash",
+                    "origin": "core",
+                },
+            ],
+        }
+        snapshot = {"files": {"docs/guide/start.md": "hash"}}
+
+        decisions = MODULE.initial_capability_decisions(inventory, snapshot)
+
+        self.assertTrue(decisions["skill-docs"]["applicable"])
+
+    def test_required_subject_patterns_cover_full_discovered_class(self) -> None:
+        decision = {"required_subject_patterns": ["docs/**/*.md"]}
+        snapshot = {
+            "files": {
+                "docs/guide/first.md": "first",
+                "docs/guide/second.md": "second",
+                "README.md": "readme",
+            },
+        }
+
+        required = MODULE.required_subjects_for_decision(decision, snapshot)
+
+        self.assertEqual(
+            required,
+            {"docs/guide/first.md", "docs/guide/second.md"},
         )
 
     def test_confirmed_external_paths_require_reason(self) -> None:
@@ -3132,7 +3267,7 @@ class ProjectReviewTest(unittest.TestCase):
         for stage in state["stages"].values():
             stage["status"] = "complete"
         MODULE.migrate_state(state)
-        self.assertEqual(state["schema_version"], 9)
+        self.assertEqual(state["schema_version"], MODULE.STATE_SCHEMA_VERSION)
         self.assertEqual(state["checks"], {})
         self.assertEqual(state["applications"], {})
         self.assertEqual(state["stages"]["repository"]["status"], "pending")
@@ -3151,7 +3286,7 @@ class ProjectReviewTest(unittest.TestCase):
 
         MODULE.migrate_state(state)
 
-        self.assertEqual(state["schema_version"], 9)
+        self.assertEqual(state["schema_version"], MODULE.STATE_SCHEMA_VERSION)
         self.assertEqual(state["applications"], {})
         self.assertEqual(state["stages"]["repository"]["status"], "pending")
         self.assertIn("найти концепцию", state["next_action"].lower())
@@ -3171,7 +3306,7 @@ class ProjectReviewTest(unittest.TestCase):
 
         MODULE.migrate_state(state)
 
-        self.assertEqual(state["schema_version"], 9)
+        self.assertEqual(state["schema_version"], MODULE.STATE_SCHEMA_VERSION)
         self.assertEqual(state["applications"], {})
         self.assertEqual(state["stages"]["repository"]["status"], "pending")
         self.assertIn("найти концепцию", state["next_action"].lower())
@@ -3191,7 +3326,7 @@ class ProjectReviewTest(unittest.TestCase):
 
         MODULE.migrate_state(state)
 
-        self.assertEqual(state["schema_version"], 9)
+        self.assertEqual(state["schema_version"], MODULE.STATE_SCHEMA_VERSION)
         self.assertEqual(state["applications"], {})
         self.assertEqual(state["stages"]["requirements"]["status"], "pending")
 
@@ -3215,7 +3350,7 @@ class ProjectReviewTest(unittest.TestCase):
 
         MODULE.migrate_state(state)
 
-        self.assertEqual(state["schema_version"], 9)
+        self.assertEqual(state["schema_version"], MODULE.STATE_SCHEMA_VERSION)
         self.assertEqual(state["applications"], {})
         self.assertEqual(state["stages"]["requirements"]["status"], "pending")
 
@@ -3231,7 +3366,7 @@ class ProjectReviewTest(unittest.TestCase):
 
         MODULE.migrate_state(state)
 
-        self.assertEqual(state["schema_version"], 9)
+        self.assertEqual(state["schema_version"], MODULE.STATE_SCHEMA_VERSION)
         self.assertEqual(state["status"], "running")
         self.assertEqual(state["applications"], {})
         self.assertIsNone(state["decision_brief"])
@@ -3252,7 +3387,7 @@ class ProjectReviewTest(unittest.TestCase):
 
         MODULE.migrate_state(state)
 
-        self.assertEqual(state["schema_version"], 9)
+        self.assertEqual(state["schema_version"], MODULE.STATE_SCHEMA_VERSION)
         self.assertEqual(state["applications"], {})
         self.assertEqual(state["findings"], {})
         self.assertEqual(state["concept_review"]["status"], "pending")
@@ -3269,7 +3404,7 @@ class ProjectReviewTest(unittest.TestCase):
 
         MODULE.migrate_state(state)
 
-        self.assertEqual(state["schema_version"], 9)
+        self.assertEqual(state["schema_version"], MODULE.STATE_SCHEMA_VERSION)
         self.assertEqual(state["knowledge_review"]["status"], "pending")
         self.assertEqual(state["applications"], {})
         self.assertIn("найти концепцию", state["next_action"].lower())
@@ -3324,7 +3459,10 @@ class ProjectReviewTest(unittest.TestCase):
             MODULE.main()
 
         _, restored = MODULE.load_state(self.root)
-        self.assertEqual(restored["schema_version"], 9)
+        self.assertEqual(
+            restored["schema_version"],
+            MODULE.STATE_SCHEMA_VERSION,
+        )
         self.assertEqual(restored["status"], "running")
         self.assertEqual(restored["concept_review"]["status"], "pending")
 

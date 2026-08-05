@@ -235,7 +235,15 @@
       "purpose": "Проверка структуры документации",
       "participation": "check",
       "stage": "assurance",
-      "applicability": "model"
+      "applicability": "model",
+      "activation_patterns": ["docs/*.md", "docs/**/*.md"],
+      "required_subject_patterns": ["docs/*.md", "docs/**/*.md"],
+      "subject_discovery_required": true,
+      "semantic_required": true,
+      "review_criteria": [
+        {"id": "document-role-and-authority", "description": "Каждый документ имеет установленное смысловое назначение и понятный источник авторитета.", "coverage": "each_subject"},
+        {"id": "structure-navigation-and-dependencies", "description": "Структура, входные точки и связи документов помогают читателю находить нужный материал и не скрывают производителей или потребителей артефактов.", "coverage": "surface"}
+      ]
     },
     {
       "id": "skill-ait-docs-structure-design",
@@ -272,7 +280,13 @@
       "participation": "check",
       "stage": "impact",
       "applicability": "always",
-      "decision_paths": ["project-impact.json"]
+      "decision_paths": ["project-impact.json"],
+      "required_subject_patterns": ["project-impact.json"],
+      "semantic_required": true,
+      "review_criteria": [
+        {"id": "graph-artifact-and-edge-truth", "description": "Узлы графа соответствуют реальным артефактам, а каждое существенное ребро выражает действительную зависимость, а не только формальную ссылку.", "coverage": "surface"},
+        {"id": "graph-coverage-and-transitivity", "description": "Граф охватывает существенные зависимости между основаниями, требованиями, дизайном, реализацией, проверками и документацией и позволяет вычислить их транзитивное влияние.", "coverage": "surface"}
+      ]
     },
     {
       "id": "skill-ait-interface-design",
@@ -391,6 +405,8 @@
       "participation": "check",
       "stage": "requirements",
       "applicability": "model",
+      "activation_patterns": ["docs/03-requirements/**", "**/requirements/**", "**/требования/**"],
+      "required_subject_patterns": ["docs/03-requirements/**", "**/requirements/**", "**/требования/**"],
       "subject_discovery_required": true,
       "review_criteria": [
         {
@@ -530,7 +546,15 @@
       "purpose": "Проверка обоснованности пользовательского опыта",
       "participation": "check",
       "stage": "design",
-      "applicability": "model"
+      "applicability": "model",
+      "activation_patterns": ["**/persona*/**", "**/personas/**", "**/персонаж*/**", "**/ux/**"],
+      "required_subject_patterns": ["**/persona*/**", "**/personas/**", "**/персонаж*/**", "**/ux/**"],
+      "subject_discovery_required": true,
+      "semantic_required": true,
+      "review_criteria": [
+        {"id": "persona-goals-and-specificity", "description": "Каждый персонаж различим по целям, мотивам, контексту и значимым особенностям, а не по должности или перечню функций.", "coverage": "each_subject"},
+        {"id": "ux-traceability", "description": "Цели персонажей и сценарии прослеживаются до решений продукта без подмены целей функциями.", "coverage": "surface"}
+      ]
     },
     {
       "id": "skill-ait-ux-design",
@@ -549,7 +573,14 @@
       "participation": "check",
       "stage": "assurance",
       "applicability": "model",
-      "decision_paths": ["README.md"]
+      "decision_paths": ["README.md"],
+      "activation_patterns": ["docs/*.md", "docs/**/*.md"],
+      "required_subject_patterns": ["docs/*.md", "docs/**/*.md"],
+      "subject_discovery_required": true,
+      "semantic_required": true,
+      "review_criteria": [
+        {"id": "document-purpose-and-clarity", "description": "Каждый документ сохраняет своё назначение, не противоречит авторитетным основаниям и даёт читателю понятное следующее действие или вывод.", "coverage": "each_subject"}
+      ]
     },
     {
       "id": "rule-ai-dev-team-connection",
