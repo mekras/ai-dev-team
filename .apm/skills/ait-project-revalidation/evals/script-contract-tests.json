@@ -7,7 +7,11 @@
       "command_prefix": [
         "inventory"
       ],
-      "inputs": []
+      "inputs": [
+        "AGENTS.md",
+        "CLAUDE.md",
+        "apm.lock.yaml"
+      ]
     },
     {
       "id": "project-review-init",
@@ -15,7 +19,11 @@
       "command_prefix": [
         "init"
       ],
-      "inputs": []
+      "inputs": [
+        "CLAUDE.md",
+        "apm.lock.yaml",
+        "project-impact.json"
+      ]
     },
     {
       "id": "project-review-restart",
@@ -23,7 +31,11 @@
       "command_prefix": [
         "restart"
       ],
-      "inputs": []
+      "inputs": [
+        "CLAUDE.md",
+        "apm.lock.yaml",
+        "project-impact.json"
+      ]
     },
     {
       "id": "project-review-show",
@@ -47,7 +59,10 @@
       "command_prefix": [
         "refresh"
       ],
-      "inputs": []
+      "inputs": [
+        "CLAUDE.md",
+        "apm.lock.yaml"
+      ]
     },
     {
       "id": "project-review-accept-snapshot",
@@ -55,7 +70,10 @@
       "command_prefix": [
         "accept-snapshot"
       ],
-      "inputs": []
+      "inputs": [
+        "CLAUDE.md",
+        "apm.lock.yaml"
+      ]
     },
     {
       "id": "project-review-next",
@@ -209,6 +227,36 @@
       "expect": {
         "stdout_contains": [
           "\"capabilities\": []"
+        ]
+      }
+    },
+    {
+      "id": "inventory-optional-inputs",
+      "script": "scripts/project_review.py",
+      "fixture": "evals/script-fixtures/minimal-git-project-with-optional-inputs",
+      "prepare": [
+        [
+          "git",
+          "init",
+          "{fixture}"
+        ]
+      ],
+      "command": [
+        "{python}",
+        "{script}",
+        "inventory",
+        "--repo",
+        "{fixture}",
+        "--classification",
+        "{fixture}/capabilities.json"
+      ],
+      "covers": [
+        "project-review-inventory"
+      ],
+      "expect": {
+        "stdout_contains": [
+          "\"name\": \"AGENTS\"",
+          "\"name\": \"CLAUDE\""
         ]
       }
     },

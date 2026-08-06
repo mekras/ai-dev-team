@@ -155,7 +155,7 @@
         [
           "{python}",
           "-c",
-          "from pathlib import Path; path = Path('src/module.py'); path.parent.mkdir(); path.write_text('changed\\n', encoding='utf-8')"
+          "from pathlib import Path; path = Path('src/module.py'); path.parent.mkdir(exist_ok=True); path.write_text('changed\\n', encoding='utf-8')"
         ]
       ],
       "command": [
