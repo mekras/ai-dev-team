@@ -107,6 +107,7 @@ def run_git(repo: Path, *arguments: str) -> bytes:
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         check=False,
+        env={**os.environ, "LC_ALL": "C", "LANGUAGE": "C"},
     )
     if completed.returncode:
         detail = completed.stderr.decode("utf-8", errors="replace").strip()

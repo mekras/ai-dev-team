@@ -5,7 +5,11 @@
     "description": "Минимальный проект для контрактного сценария.",
     "default_facet": "semantic",
     "unmapped_paths": "block",
-    "ignore": [".git/**"]
+    "ignore": [
+      ".git/**",
+      "project-impact.json",
+      "project-verification.json"
+    ]
   },
   "nodes": [
     {
