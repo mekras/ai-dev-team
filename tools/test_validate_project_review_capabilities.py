@@ -107,6 +107,24 @@ class CapabilityValidationTest(unittest.TestCase):
         with self.assertRaisesRegex(MODULE.CapabilityError, "не существует"):
             MODULE.validate(self.root, self.classification)
 
+    def test_external_component_is_explicitly_allowed(self) -> None:
+        entry = self.entry(
+            "skill-external",
+            "skill",
+            ".external/skills/example",
+        )
+        entry["external"] = True
+        self.data["capabilities"].append(entry)
+        self.write()
+        MODULE.validate(self.root, self.classification)
+
+    def test_external_component_cannot_hide_local_component(self) -> None:
+        entry = self.data["capabilities"][1]
+        entry["external"] = True
+        self.write()
+        with self.assertRaisesRegex(MODULE.CapabilityError, "не может быть локальным"):
+            MODULE.validate(self.root, self.classification)
+
     def test_not_applicable_component_remains_accounted_for(self) -> None:
         entry = self.data["capabilities"][1]
         entry["participation"] = "not_applicable"

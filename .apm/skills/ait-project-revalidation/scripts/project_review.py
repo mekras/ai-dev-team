@@ -567,6 +567,7 @@ def ontology_scope_for_decision(
     prerequisites = sorted(upstream_nodes(ontology, targets) - set(targets))
     def scoped_node(identifier: str) -> dict[str, Any]:
         node = dict(ontology["nodes"][identifier])
+        node["paths"] = sorted(node["paths"])
         node["subjects"] = sorted(
             reference
             for reference in snapshot["files"]

@@ -1,6 +1,15 @@
 {
   "schema_version": 1,
   "name": "fixture",
-  "nodes": [],
+  "nodes": [
+    {
+      "id": "concept",
+      "title": "Концепция",
+      "kind": "concept",
+      "paths": ["docs/concept.md"],
+      "checks": ["ait-docs-concept"],
+      "review_stages": ["requirements"]
+    }
+  ],
   "edges": []
 }

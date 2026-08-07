@@ -334,6 +334,19 @@
       "applicability": "always"
     },
     {
+      "id": "skill-kc-validation",
+      "kind": "skill",
+      "path": ".apm/skills/kc-validation",
+      "external": true,
+      "purpose": "Проверка целостности и применимости корпуса знаний",
+      "participation": "check",
+      "stage": "repository",
+      "applicability": "model",
+      "activation_patterns": ["knowledge/**"],
+      "subject_discovery_required": true,
+      "semantic_required": true
+    },
+    {
       "id": "skill-ait-readme",
       "kind": "skill",
       "path": ".apm/skills/ait-readme",

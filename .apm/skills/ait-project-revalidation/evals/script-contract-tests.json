@@ -1,5 +1,12 @@
 {
   "version": 2,
+  "unexercised_functions": [
+    {
+      "script": "scripts/project_review.py",
+      "function": "record_check",
+      "reason": "Защитный отказ для удалённой команды. Публичный маршрут использует start-application и finish-application."
+    }
+  ],
   "operations": [
     {
       "id": "project-review-inventory",
@@ -1490,6 +1497,116 @@
           "\"status\": \"running\""
         ]
       }
+    },
+    {
+      "id": "record-knowledge-found-workflow",
+      "script": "scripts/project_review.py",
+      "fixture": "evals/script-fixtures/knowledge-workflow-project",
+      "prepare": [
+        ["{python}", "-c", "import shutil\nshutil.move('.agents/skills/ait-docs-concept/SKILL.md.fixture', '.agents/skills/ait-docs-concept/SKILL.md')\n"],
+        ["git", "init", "{fixture}"],
+        ["git", "-C", "{fixture}", "add", "-A"],
+        ["git", "-C", "{fixture}", "-c", "user.email=contract@example.invalid", "-c", "user.name=Contract", "commit", "-m", "init"],
+        ["{python}", "{script}", "init", "--repo", "{fixture}", "--mode", "manual"],
+        ["{python}", "{script}", "record-concept", "--repo", "{fixture}", "--result", "found", "--instructions", "AGENTS.md", "--concept", "docs/concept.md", "--evidence", "AGENTS.md указывает концепцию"],
+        ["{python}", "{script}", "classify", "--repo", "{fixture}", "--id", "rule:AGENTS", "--participation", "not_applicable", "--applicable", "no", "--reason", "Правило не является отдельной проверкой"],
+        ["{python}", "{script}", "start-application", "--repo", "{fixture}", "--id", "concept-check", "--stage", "requirements", "--capability", "skill:ait-docs-concept", "--method", "review", "--surface", "docs/concept.md", "--action", "Проверить концепцию", "--priority-rationale", "Концепция задаёт основание проверки", "--subject", "docs/concept.md"],
+        ["{python}", "{script}", "record-observation", "--repo", "{fixture}", "--application", "concept-check", "--artifact", "docs/concept.md", "--start-line", "1", "--end-line", "3", "--criterion-id", "problem-goal-method-result", "--result", "supports", "--note", "Четыре элемента согласованы"],
+        ["{python}", "{script}", "record-observation", "--repo", "{fixture}", "--application", "concept-check", "--artifact", "docs/concept.md", "--start-line", "1", "--end-line", "3", "--criterion-id", "essential-frames", "--result", "supports", "--note", "Рамки не противоречат замыслу"],
+        ["{python}", "{script}", "record-observation", "--repo", "{fixture}", "--application", "concept-check", "--artifact", "docs/concept.md", "--start-line", "1", "--end-line", "3", "--criterion-id", "meaning-and-modality", "--result", "supports", "--note", "Смысловых противоречий нет"],
+        ["{python}", "{script}", "finish-application", "--repo", "{fixture}", "--application", "concept-check", "--outcome", "passed", "--decision", "accept", "--evidence", "observation-001", "--evidence", "observation-002", "--evidence", "observation-003", "--artifact", "docs/concept.md", "--coverage", "Критерии проверены по концепции", "--claim", "Концепция содержит основание проекта", "--claim-support", "observation-001", "--challenge", "Есть ли скрытое противоречие", "--challenge-outcome", "refuted", "--challenge-support", "observation-001"]
+      ],
+      "command": ["{python}", "{script}", "record-knowledge", "--repo", "{fixture}", "--result", "found", "--root", "knowledge", "--evidence", "Корпус находится в knowledge"],
+      "covers": ["project-review-record-knowledge"],
+      "expect": {
+        "stdout_contains": ["\"status\": \"running\""]
+      }
+    },
+    {
+      "id": "init-ontology-scope-workflow",
+      "script": "scripts/project_review.py",
+      "fixture": "evals/script-fixtures/knowledge-workflow-project",
+      "prepare": [
+        ["git", "init", "{fixture}"],
+        ["git", "-C", "{fixture}", "add", "-A"],
+        ["git", "-C", "{fixture}", "-c", "user.email=contract@example.invalid", "-c", "user.name=Contract", "commit", "-m", "init"]
+      ],
+      "command": ["{python}", "{script}", "init", "--repo", "{fixture}", "--mode", "manual"],
+      "covers": ["project-review-init"],
+      "expect": {
+        "stdout_contains": ["\"ontology_scope\""]
+      }
+    },
+    {
+      "id": "start-knowledge-technical-workflow",
+      "script": "scripts/project_review.py",
+      "fixture": "evals/script-fixtures/knowledge-workflow-project",
+      "prepare": [
+        ["{python}", "prepare.py", "{script}", "{fixture}", "knowledge"]
+      ],
+      "command": [
+        "{python}", "{script}", "start-application", "--repo", "{fixture}",
+        "--id", "knowledge-technical", "--stage", "repository", "--capability",
+        "skill:kc-validation", "--method", "validation", "--surface",
+        "knowledge/index.md", "--action", "Проверить структуру корпуса",
+        "--priority-rationale", "Корпус обязателен после концепции",
+        "--knowledge-phase", "technical", "--subject-index", "knowledge/index.md"
+      ],
+      "covers": ["project-review-start-application"],
+      "expect": {
+        "stdout_contains": ["\"status\": \"running\""]
+      }
+    },
+    {
+      "id": "refresh-changed-capability-workflow",
+      "script": "scripts/project_review.py",
+      "fixture": "evals/script-fixtures/knowledge-workflow-project",
+      "prepare": [
+        ["git", "init", "{fixture}"],
+        ["git", "-C", "{fixture}", "add", "-A"],
+        ["git", "-C", "{fixture}", "-c", "user.email=contract@example.invalid", "-c", "user.name=Contract", "commit", "-m", "init"],
+        ["{python}", "{script}", "init", "--repo", "{fixture}", "--mode", "manual"],
+        ["{python}", "-c", "from pathlib import Path\np = Path('.agents/skills/kc-validation/SKILL.md')\np.write_text(p.read_text(encoding='utf-8') + '\\nИзменение.\\n', encoding='utf-8')\n"]
+      ],
+      "command": ["{python}", "{script}", "refresh", "--repo", "{fixture}"],
+      "covers": ["project-review-refresh"],
+      "expect": {"stdout_contains": ["\"status\": \"running\""]}
+    },
+    {
+      "id": "start-ontology-requirements-workflow",
+      "script": "scripts/project_review.py",
+      "fixture": "evals/script-fixtures/knowledge-workflow-project",
+      "prepare": [["{python}", "prepare.py", "{script}", "{fixture}", "semantic"]],
+      "command": [
+        "{python}", "{script}", "start-application", "--repo", "{fixture}",
+        "--id", "requirements-check", "--stage", "requirements", "--capability",
+        "skill:ait-req-revalidation", "--method", "review", "--surface",
+        "docs/concept.md", "--action", "Проверить требования", "--priority-rationale",
+        "Требования определяют последующую работу", "--subject-pattern", "docs/*.md"
+      ],
+      "covers": ["project-review-start-application"],
+      "expect": {"stdout_contains": ["\"status\": \"running\""]}
+    },
+    {
+      "id": "complete-repository-stage-workflow",
+      "script": "scripts/project_review.py",
+      "fixture": "evals/script-fixtures/knowledge-workflow-project",
+      "prepare": [
+        ["{python}", "prepare.py", "{script}", "{fixture}", "semantic"],
+        ["{python}", "{script}", "stage", "--repo", "{fixture}", "--name", "repository", "--status", "running"]
+      ],
+      "command": ["{python}", "{script}", "stage", "--repo", "{fixture}", "--name", "repository", "--status", "complete"],
+      "covers": ["project-review-stage"],
+      "expect": {"stdout_contains": ["\"status\": \"running\""]}
+    },
+    {
+      "id": "complete-full-workflow",
+      "script": "scripts/project_review.py",
+      "fixture": "evals/script-fixtures/knowledge-workflow-project",
+      "prepare": [["{python}", "prepare.py", "{script}", "{fixture}", "complete"]],
+      "command": ["{python}", "{script}", "transition", "--repo", "{fixture}", "--to", "complete"],
+      "covers": ["project-review-transition"],
+      "expect": {"stdout_contains": ["\"status\": \"complete\""]}
     },
     {
       "id": "stage-code-full-workflow",

@@ -89,6 +89,7 @@ def validate(root: Path, classification: Path) -> None:
     actual = actual_components(root)
     seen_ids: set[str] = set()
     seen_paths: set[str] = set()
+    external_paths: set[str] = set()
     for index, raw_entry in enumerate(entries):
         if not isinstance(raw_entry, dict):
             raise CapabilityError(f"запись {index} должна быть объектом")
@@ -104,9 +105,18 @@ def validate(root: Path, classification: Path) -> None:
         if path in seen_paths:
             raise CapabilityError(f"повторяющийся путь: {path}")
         seen_paths.add(path)
-        if path not in actual:
+        external = raw_entry.get("external", False)
+        if not isinstance(external, bool):
+            raise CapabilityError(f"{identifier}: external должен быть bool")
+        if external:
+            if path in actual:
+                raise CapabilityError(
+                    f"{identifier}: внешний компонент не может быть локальным",
+                )
+            external_paths.add(path)
+        elif path not in actual:
             raise CapabilityError(f"{identifier}: компонент не существует: {path}")
-        if actual[path][0] != kind:
+        elif actual[path][0] != kind:
             raise CapabilityError(
                 f"{identifier}: вид {kind} не соответствует пути {path}",
             )
@@ -205,7 +215,7 @@ def validate(root: Path, classification: Path) -> None:
         raise CapabilityError(
             "нет классификации для компонентов: " + ", ".join(missing),
         )
-    orphaned = sorted(seen_paths - set(actual))
+    orphaned = sorted(seen_paths - set(actual) - external_paths)
     if orphaned:
         raise CapabilityError(
             "классификация ссылается на отсутствующие компоненты: "

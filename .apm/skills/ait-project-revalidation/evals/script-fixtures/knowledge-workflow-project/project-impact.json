@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "knowledge-workflow",
+  "nodes": [
+    {
+      "id": "concept",
+      "title": "Концепция",
+      "kind": "concept",
+      "paths": ["docs/concept.md"],
+      "checks": ["ait-docs-concept"],
+      "review_stages": ["requirements"]
+    },
+    {
+      "id": "requirements",
+      "title": "Требования",
+      "kind": "requirements",
+      "paths": ["docs/concept.md"],
+      "checks": ["ait-req-revalidation"],
+      "review_stages": ["requirements"]
+    }
+  ],
+  "edges": [
+    {"from": "concept", "to": "requirements"}
+  ]
+}

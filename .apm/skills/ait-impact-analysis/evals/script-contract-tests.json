@@ -76,6 +76,24 @@
       }
     },
     {
+      "id": "trace-minimal-impact-graph-by-node",
+      "script": "scripts/impact_graph.py",
+      "fixture": "evals/script-fixtures/minimal-project",
+      "command": [
+        "{python}",
+        "{script}",
+        "trace",
+        "--graph",
+        "{fixture}/project-impact.json",
+        "--changed-node",
+        "implementation:quality"
+      ],
+      "covers": ["impact-graph-trace"],
+      "expect": {
+        "stdout_contains": ["\"id\": \"tests\""]
+      }
+    },
+    {
       "id": "assess-minimal-impact-graph",
       "script": "scripts/impact_graph.py",
       "fixture": "evals/script-fixtures/minimal-project",
