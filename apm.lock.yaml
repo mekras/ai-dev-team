@@ -1,5 +1,5 @@
 lockfile_version: '2'
-generated_at: '2026-08-07T20:17:10.568373+00:00'
+generated_at: '2026-08-07T20:20:52.056704+00:00'
 apm_version: 0.27.0
 dependencies:
 - repo_url: mekras/ai-agent-supervisor
@@ -5496,7 +5496,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:e744b2ce58f66f0e0d0390639bee23d3a2841f53689f4754dfbb15bf2e432914
+  content_hash: sha256:be652d65dfaf426f588a9241ffebb46ca2162a3d083e005734666d198e0e496b
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-routing/evals/result-scenarios.json
@@ -5514,7 +5514,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:7405e5df1456e69cf476030bc50a8b9e46bf01c50cb0543eab7a6adfb9a63662
+  content_hash: sha256:2cf991936e23f606b377a621202ddd8b85740df9397a656eb96b8a4cf92a8e7c
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-routing/references/skill-index.md
@@ -6216,7 +6216,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:1129c2410f69d8882355a6faa64c38c99333a0339586a1f95e2243e130672e31
+  content_hash: sha256:452a28e4d4185e5f4a849d2971f6e5362ac09867b6fc8b5821bdd74eddbcdc06
 - kind: project-relative
   target: claude
   value: .claude/skills/ai-agents-md-maintenance
@@ -9204,7 +9204,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:e744b2ce58f66f0e0d0390639bee23d3a2841f53689f4754dfbb15bf2e432914
+  content_hash: sha256:be652d65dfaf426f588a9241ffebb46ca2162a3d083e005734666d198e0e496b
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-routing/evals/result-scenarios.json
@@ -9222,7 +9222,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:7405e5df1456e69cf476030bc50a8b9e46bf01c50cb0543eab7a6adfb9a63662
+  content_hash: sha256:2cf991936e23f606b377a621202ddd8b85740df9397a656eb96b8a4cf92a8e7c
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-routing/references/skill-index.md
@@ -12031,9 +12031,9 @@ local_deployed_file_hashes:
   .agents/skills/ait-req-validation/SKILL.md: sha256:bee809908077d10229468d05fbb91d7f6ed2d57b529a4021e87ad663239e86eb
   .agents/skills/ait-req-validation/evals/result-scenarios.json: sha256:892b128ed30c4f7895e478da87fb056683085032ac58885462037490a0b2ae69
   .agents/skills/ait-req-validation/evals/triggers.json: sha256:51f0be0044202c0e2e11d90b11cb97e79eeddfe6b09be05a76ecb3b7f223ac0d
-  .agents/skills/ait-routing/SKILL.md: sha256:e744b2ce58f66f0e0d0390639bee23d3a2841f53689f4754dfbb15bf2e432914
+  .agents/skills/ait-routing/SKILL.md: sha256:be652d65dfaf426f588a9241ffebb46ca2162a3d083e005734666d198e0e496b
   .agents/skills/ait-routing/evals/result-scenarios.json: sha256:0932cedd5d0bff697de51df5bbc57c50e6d19b6367148f27c0ad23b1f96bd9e2
-  .agents/skills/ait-routing/evals/triggers.json: sha256:7405e5df1456e69cf476030bc50a8b9e46bf01c50cb0543eab7a6adfb9a63662
+  .agents/skills/ait-routing/evals/triggers.json: sha256:2cf991936e23f606b377a621202ddd8b85740df9397a656eb96b8a4cf92a8e7c
   .agents/skills/ait-routing/references/skill-index.md: sha256:f3ad4b530016c4907d54e27426136ccb6c87dc182b5f2e374f6d5025102b5624
   .agents/skills/ait-scrum/SKILL.md: sha256:f1fd2ddc464b330ea8ebbfc629a254eb9d8865558b8ce44e79f605dccbde0923
   .agents/skills/ait-scrum/evals/triggers.json: sha256:e04873eaeb1ca9cf70ef88ff8ecc119b9e1293bd06f7058a9e0d1d57e4968749
@@ -12099,7 +12099,7 @@ local_deployed_file_hashes:
   .claude/agents/statement-extractor.md: sha256:705358fad86d5bd40aed99133e12eee56d3c1d55f4a32baf74cfba36b8f92bde
   .claude/agents/technical-writer.md: sha256:c3b9eb276a188c8587172ad9e77fe7d18d052c0f5e1eeb67822fb78197697269
   .claude/agents/ux-specialist.md: sha256:4d6e22a22e67980f3ef7f8cd302da9c7d37263849138de412ce85195e476f1e6
-  .claude/rules/ai-dev-team-connection.md: sha256:1129c2410f69d8882355a6faa64c38c99333a0339586a1f95e2243e130672e31
+  .claude/rules/ai-dev-team-connection.md: sha256:452a28e4d4185e5f4a849d2971f6e5362ac09867b6fc8b5821bdd74eddbcdc06
   .claude/skills/ait-analysis/SKILL.md: sha256:eb64cd4696bd0ff134e81f9cd2064e408678370b5670a7f5dc654f8c00c412b9
   .claude/skills/ait-analysis/evals/result-scenarios.json: sha256:6ff7d42fc202737fd6335dfa30a7ec15ba6e659f2fd1ae78a7439ecd98f49aa1
   .claude/skills/ait-analysis/evals/triggers.json: sha256:a8137c3527cf1880fe996f54dbb96c219023f21bfc9c0462119a0966692c14a7
@@ -12275,9 +12275,9 @@ local_deployed_file_hashes:
   .claude/skills/ait-req-validation/SKILL.md: sha256:bee809908077d10229468d05fbb91d7f6ed2d57b529a4021e87ad663239e86eb
   .claude/skills/ait-req-validation/evals/result-scenarios.json: sha256:892b128ed30c4f7895e478da87fb056683085032ac58885462037490a0b2ae69
   .claude/skills/ait-req-validation/evals/triggers.json: sha256:51f0be0044202c0e2e11d90b11cb97e79eeddfe6b09be05a76ecb3b7f223ac0d
-  .claude/skills/ait-routing/SKILL.md: sha256:e744b2ce58f66f0e0d0390639bee23d3a2841f53689f4754dfbb15bf2e432914
+  .claude/skills/ait-routing/SKILL.md: sha256:be652d65dfaf426f588a9241ffebb46ca2162a3d083e005734666d198e0e496b
   .claude/skills/ait-routing/evals/result-scenarios.json: sha256:0932cedd5d0bff697de51df5bbc57c50e6d19b6367148f27c0ad23b1f96bd9e2
-  .claude/skills/ait-routing/evals/triggers.json: sha256:7405e5df1456e69cf476030bc50a8b9e46bf01c50cb0543eab7a6adfb9a63662
+  .claude/skills/ait-routing/evals/triggers.json: sha256:2cf991936e23f606b377a621202ddd8b85740df9397a656eb96b8a4cf92a8e7c
   .claude/skills/ait-routing/references/skill-index.md: sha256:f3ad4b530016c4907d54e27426136ccb6c87dc182b5f2e374f6d5025102b5624
   .claude/skills/ait-scrum/SKILL.md: sha256:f1fd2ddc464b330ea8ebbfc629a254eb9d8865558b8ce44e79f605dccbde0923
   .claude/skills/ait-scrum/evals/triggers.json: sha256:e04873eaeb1ca9cf70ef88ff8ecc119b9e1293bd06f7058a9e0d1d57e4968749
