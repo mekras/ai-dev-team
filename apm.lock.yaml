@@ -6054,7 +6054,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:26e8bb40891fc2da8a99437f6246110d971a8caa0e4f738413de8108099c43e8
+  content_hash: sha256:b63db17371461bcdd849f5b331c2a1f1a884e76cbdfcf2efbfb13e7a69e232b0
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-writing/assets/document-design-template.md
@@ -6081,7 +6081,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:f511613a2954511150cf476f88ed4a944525f8efffadbb7738836890c30f564e
+  content_hash: sha256:be871d3834c8917028241c6854d5104408dd857152820ff36cc2ee23dad0c6be
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-writing/evals/triggers.json
@@ -6198,7 +6198,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:c3b9eb276a188c8587172ad9e77fe7d18d052c0f5e1eeb67822fb78197697269
+  content_hash: sha256:4dd58985f2c9b1d9cdb92b26333cbd98d76ba27392c6ce6725bd4723f1efbdcc
 - kind: project-relative
   target: claude
   value: .claude/agents/ux-specialist.md
@@ -9762,7 +9762,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:26e8bb40891fc2da8a99437f6246110d971a8caa0e4f738413de8108099c43e8
+  content_hash: sha256:b63db17371461bcdd849f5b331c2a1f1a884e76cbdfcf2efbfb13e7a69e232b0
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-writing/assets/document-design-template.md
@@ -9789,7 +9789,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:f511613a2954511150cf476f88ed4a944525f8efffadbb7738836890c30f564e
+  content_hash: sha256:be871d3834c8917028241c6854d5104408dd857152820ff36cc2ee23dad0c6be
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-writing/evals/triggers.json
@@ -11283,7 +11283,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:e503857ad8d7b6480a2806c9f3133ca0c87518813c261ef4a5bfea0619f7c37e
+  content_hash: sha256:e2bd16bc2bba6ba052fb2e1a38c26c726ac35cce6cc85ed4486e48c6ec43e511
 - kind: project-relative
   target: codex
   value: .codex/agents/ux-specialist.toml
@@ -12081,10 +12081,10 @@ local_deployed_file_hashes:
   .agents/skills/ait-ux-design/evals/triggers.json: sha256:ef8b6d10926db781b56f5038feb9fc03ff18b66200b00be3df0023d6bc13460c
   .agents/skills/ait-ux-design/references/personas.md: sha256:9093f0a6aa7a976db31be3b7a64601588f5339d6ddee43823dcf312e97032200
   .agents/skills/ait-ux-design/references/user-goals.md: sha256:a3de3020555de633d98cf134ec25218821629162a449133bb2a239bfa450cc77
-  .agents/skills/ait-writing/SKILL.md: sha256:26e8bb40891fc2da8a99437f6246110d971a8caa0e4f738413de8108099c43e8
+  .agents/skills/ait-writing/SKILL.md: sha256:b63db17371461bcdd849f5b331c2a1f1a884e76cbdfcf2efbfb13e7a69e232b0
   .agents/skills/ait-writing/assets/document-design-template.md: sha256:ce2a51b05a4c231777d5bbf6e9f406a38ae988d34d10cbc02e22d22a73689189
   .agents/skills/ait-writing/assets/documentation-structure-template.md: sha256:7afad3e0a89dbebd8f73f7bcd82debe497ff9b7e6519cf34bc4ecc7f8fb7c10b
-  .agents/skills/ait-writing/evals/result-scenarios.json: sha256:f511613a2954511150cf476f88ed4a944525f8efffadbb7738836890c30f564e
+  .agents/skills/ait-writing/evals/result-scenarios.json: sha256:be871d3834c8917028241c6854d5104408dd857152820ff36cc2ee23dad0c6be
   .agents/skills/ait-writing/evals/triggers.json: sha256:ff5b56a332fa8ac234a7162b77047f8627f3753310116e1c8b8cad99d26caee2
   .claude/agents/analyst.md: sha256:66955c904443e3406a8dde57a8288a2956389c2880f3c43936409c523df52c78
   .claude/agents/coder.md: sha256:1615c9d56bd5cab1948c699e37f051a3b2c9a3b7c049d92106589a8c0f53b36f
@@ -12097,7 +12097,7 @@ local_deployed_file_hashes:
   .claude/agents/software-architect.md: sha256:c16c4bab5c5acc269cbef4dcbc9f978af967107acc7c48ce41c31888ef75afc8
   .claude/agents/source-inventory.md: sha256:74b4f2dafdc4284df6daba8800413b2dacd1b57316055831d58405406fa8b52a
   .claude/agents/statement-extractor.md: sha256:705358fad86d5bd40aed99133e12eee56d3c1d55f4a32baf74cfba36b8f92bde
-  .claude/agents/technical-writer.md: sha256:c3b9eb276a188c8587172ad9e77fe7d18d052c0f5e1eeb67822fb78197697269
+  .claude/agents/technical-writer.md: sha256:4dd58985f2c9b1d9cdb92b26333cbd98d76ba27392c6ce6725bd4723f1efbdcc
   .claude/agents/ux-specialist.md: sha256:4d6e22a22e67980f3ef7f8cd302da9c7d37263849138de412ce85195e476f1e6
   .claude/rules/ai-dev-team-connection.md: sha256:452a28e4d4185e5f4a849d2971f6e5362ac09867b6fc8b5821bdd74eddbcdc06
   .claude/skills/ait-analysis/SKILL.md: sha256:eb64cd4696bd0ff134e81f9cd2064e408678370b5670a7f5dc654f8c00c412b9
@@ -12325,10 +12325,10 @@ local_deployed_file_hashes:
   .claude/skills/ait-ux-design/evals/triggers.json: sha256:ef8b6d10926db781b56f5038feb9fc03ff18b66200b00be3df0023d6bc13460c
   .claude/skills/ait-ux-design/references/personas.md: sha256:9093f0a6aa7a976db31be3b7a64601588f5339d6ddee43823dcf312e97032200
   .claude/skills/ait-ux-design/references/user-goals.md: sha256:a3de3020555de633d98cf134ec25218821629162a449133bb2a239bfa450cc77
-  .claude/skills/ait-writing/SKILL.md: sha256:26e8bb40891fc2da8a99437f6246110d971a8caa0e4f738413de8108099c43e8
+  .claude/skills/ait-writing/SKILL.md: sha256:b63db17371461bcdd849f5b331c2a1f1a884e76cbdfcf2efbfb13e7a69e232b0
   .claude/skills/ait-writing/assets/document-design-template.md: sha256:ce2a51b05a4c231777d5bbf6e9f406a38ae988d34d10cbc02e22d22a73689189
   .claude/skills/ait-writing/assets/documentation-structure-template.md: sha256:7afad3e0a89dbebd8f73f7bcd82debe497ff9b7e6519cf34bc4ecc7f8fb7c10b
-  .claude/skills/ait-writing/evals/result-scenarios.json: sha256:f511613a2954511150cf476f88ed4a944525f8efffadbb7738836890c30f564e
+  .claude/skills/ait-writing/evals/result-scenarios.json: sha256:be871d3834c8917028241c6854d5104408dd857152820ff36cc2ee23dad0c6be
   .claude/skills/ait-writing/evals/triggers.json: sha256:ff5b56a332fa8ac234a7162b77047f8627f3753310116e1c8b8cad99d26caee2
   .codex/agents/analyst.toml: sha256:413cba0c5201c93838ec5820e01409242f875106f0f9d4ca1d526e4331631545
   .codex/agents/coder.toml: sha256:2349110058391c4cf5aef9f15679ba59d2e372c40ad0a31a27a5fab0f9589c6d
@@ -12341,5 +12341,5 @@ local_deployed_file_hashes:
   .codex/agents/software-architect.toml: sha256:0304ebe244e75332e1702d214044c481fe323abadb457e838acd935d3ebaf54a
   .codex/agents/source-inventory.toml: sha256:e219b8a3da50480d458cce6e050360ee7419eccb3ce5727ff1788ccb34371ba4
   .codex/agents/statement-extractor.toml: sha256:1c4c38aa335c5dfbcb4d24ab0ed6f80be011d8be4c13b03bc5189e92ffdf5581
-  .codex/agents/technical-writer.toml: sha256:e503857ad8d7b6480a2806c9f3133ca0c87518813c261ef4a5bfea0619f7c37e
+  .codex/agents/technical-writer.toml: sha256:e2bd16bc2bba6ba052fb2e1a38c26c726ac35cce6cc85ed4486e48c6ec43e511
   .codex/agents/ux-specialist.toml: sha256:7965dc88a6deec36a7c6072ca659c7bd805ecde7860627235598cb550d7bbf7a
