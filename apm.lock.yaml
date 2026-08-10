@@ -1,5 +1,5 @@
 lockfile_version: '2'
-generated_at: '2026-08-10T06:49:24.321107+00:00'
+generated_at: '2026-08-10T14:45:02.825734+00:00'
 apm_version: 0.28.0
 dependencies:
 - repo_url: mekras/ai-agent-supervisor
@@ -517,9 +517,9 @@ dependencies:
 - repo_url: mekras/ai-russian-language
   name: ai-russian-language
   host: github.com
-  resolved_commit: 79dc9b402b65222bef3bc0da40cd3fe4f007473e
-  resolved_ref: 2.1.2
-  version: 2.1.2
+  resolved_commit: ffe5d44f52130ab397cf328e4ed7f7676a2becec
+  resolved_ref: 2.1.3
+  version: 2.1.3
   package_type: apm_package
   deployed_files:
   - .agents/skills/ru-lang
@@ -549,26 +549,26 @@ dependencies:
     .agents/skills/ru-lang/agents/openai.yaml: sha256:df9717b4771de60e542b34bb9b3411a40ad66b76fa61e72b98483aad3e2a575a
     .agents/skills/ru-lang/assets/ru-text-LICENSE.txt: sha256:37ea601e35a544e6a4b08b1c5cb126543b2ea6dc14b23620f12bdc11a00ba839
     .agents/skills/ru-lang/assets/strict-replacements.md: sha256:f38bd8549f10d7f9aa5b091c4249031c67c2472a9f3a59756197fe88444e883b
-    .agents/skills/ru-lang/evals/compose.jsonl: sha256:8d72bde5e846e363f3bde0291a216d2c8b7e93f2fb1b120679b57536b5bfd7c2
+    .agents/skills/ru-lang/evals/compose.jsonl: sha256:b4d15688ad6ccb9e29d1c705fe187d924ea7fb2d5c39132b89b2a37ad811c1a0
     .agents/skills/ru-lang/evals/triggers.json: sha256:11f1451c79da8ea427d34c9c66188f64baa8357874dd69cbbadc249b39b64d41
     .agents/skills/ru-lang/references/development-rules.md: sha256:e9300f58b71cb18ef826064c61b7de34bc55dc78d8384bbba50666f01a0000c5
-    .agents/skills/ru-lang/references/main-rules.md: sha256:6ceee458b7db1c04c022296d7c3302e747ad8a8c1870477136bad05ca30cf1fe
+    .agents/skills/ru-lang/references/main-rules.md: sha256:d342f6bf6d68d77f8fd3d95379e50a7448870c5c6fe13cc88efeedbcddb2a491
     .agents/skills/ru-lang/references/strict-rules.md: sha256:82ecb6c85dedac551073891fe0992ba394cc0edd1151b7bd46f374716bb8d497
     .agents/skills/ru-lang/references/technical-russian.md: sha256:a32aaaae7f5ab9d534d9459bda616323d059701b1850d3ea35a43294012c0e18
     .claude/skills/ru-lang/SKILL.md: sha256:b9b010dfbe86176a48d493d794e33998fca07526350273b3cfdb7252784762de
     .claude/skills/ru-lang/agents/openai.yaml: sha256:df9717b4771de60e542b34bb9b3411a40ad66b76fa61e72b98483aad3e2a575a
     .claude/skills/ru-lang/assets/ru-text-LICENSE.txt: sha256:37ea601e35a544e6a4b08b1c5cb126543b2ea6dc14b23620f12bdc11a00ba839
     .claude/skills/ru-lang/assets/strict-replacements.md: sha256:f38bd8549f10d7f9aa5b091c4249031c67c2472a9f3a59756197fe88444e883b
-    .claude/skills/ru-lang/evals/compose.jsonl: sha256:8d72bde5e846e363f3bde0291a216d2c8b7e93f2fb1b120679b57536b5bfd7c2
+    .claude/skills/ru-lang/evals/compose.jsonl: sha256:b4d15688ad6ccb9e29d1c705fe187d924ea7fb2d5c39132b89b2a37ad811c1a0
     .claude/skills/ru-lang/evals/triggers.json: sha256:11f1451c79da8ea427d34c9c66188f64baa8357874dd69cbbadc249b39b64d41
     .claude/skills/ru-lang/references/development-rules.md: sha256:e9300f58b71cb18ef826064c61b7de34bc55dc78d8384bbba50666f01a0000c5
-    .claude/skills/ru-lang/references/main-rules.md: sha256:6ceee458b7db1c04c022296d7c3302e747ad8a8c1870477136bad05ca30cf1fe
+    .claude/skills/ru-lang/references/main-rules.md: sha256:d342f6bf6d68d77f8fd3d95379e50a7448870c5c6fe13cc88efeedbcddb2a491
     .claude/skills/ru-lang/references/strict-rules.md: sha256:82ecb6c85dedac551073891fe0992ba394cc0edd1151b7bd46f374716bb8d497
     .claude/skills/ru-lang/references/technical-russian.md: sha256:a32aaaae7f5ab9d534d9459bda616323d059701b1850d3ea35a43294012c0e18
-  content_hash: sha256:badf0f254476ec4196adad240eb9b966b527124f17d6a4b1122dc3628e0f3a45
-  constraint: 2.1.2
-  resolved_tag: 2.1.2
-  resolved_at: '2026-08-10T06:49:13+00:00'
+  content_hash: sha256:42d08368b4f63deff3b2379a315b4a4ecd0bafc83732058e27e46eca34c0ab24
+  constraint: 2.1.3
+  resolved_tag: 2.1.3
+  resolved_at: '2026-08-10T14:44:52+00:00'
   declared_license: MIT
 - repo_url: mekras/project-knowlege-corpus
   name: project-knowledge-corpus
@@ -3444,7 +3444,7 @@ deployments:
   owners:
   - mekras/ai-russian-language
   active_owner: mekras/ai-russian-language
-  content_hash: sha256:8d72bde5e846e363f3bde0291a216d2c8b7e93f2fb1b120679b57536b5bfd7c2
+  content_hash: sha256:b4d15688ad6ccb9e29d1c705fe187d924ea7fb2d5c39132b89b2a37ad811c1a0
 - kind: project-relative
   target: agent-skills
   value: .agents/skills/ru-lang/evals/triggers.json
@@ -3471,7 +3471,7 @@ deployments:
   owners:
   - mekras/ai-russian-language
   active_owner: mekras/ai-russian-language
-  content_hash: sha256:6ceee458b7db1c04c022296d7c3302e747ad8a8c1870477136bad05ca30cf1fe
+  content_hash: sha256:d342f6bf6d68d77f8fd3d95379e50a7448870c5c6fe13cc88efeedbcddb2a491
 - kind: project-relative
   target: agent-skills
   value: .agents/skills/ru-lang/references/strict-rules.md
@@ -10932,7 +10932,7 @@ deployments:
   owners:
   - mekras/ai-russian-language
   active_owner: mekras/ai-russian-language
-  content_hash: sha256:8d72bde5e846e363f3bde0291a216d2c8b7e93f2fb1b120679b57536b5bfd7c2
+  content_hash: sha256:b4d15688ad6ccb9e29d1c705fe187d924ea7fb2d5c39132b89b2a37ad811c1a0
 - kind: project-relative
   target: claude
   value: .claude/skills/ru-lang/evals/triggers.json
@@ -10959,7 +10959,7 @@ deployments:
   owners:
   - mekras/ai-russian-language
   active_owner: mekras/ai-russian-language
-  content_hash: sha256:6ceee458b7db1c04c022296d7c3302e747ad8a8c1870477136bad05ca30cf1fe
+  content_hash: sha256:d342f6bf6d68d77f8fd3d95379e50a7448870c5c6fe13cc88efeedbcddb2a491
 - kind: project-relative
   target: claude
   value: .claude/skills/ru-lang/references/strict-rules.md
