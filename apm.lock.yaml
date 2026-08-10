@@ -3966,7 +3966,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:58f4e3acca4421deca1358df1c081b5ab3630a479de801e5a8f5d7fde7795a1f
+  content_hash: sha256:8393a41e78aabe8df76c9eab8cda1b23b45cb93166e2896f77463b29f32cff9c
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-changelog/assets/changelog-template.md
@@ -3984,7 +3984,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:75af9d17d11f596606e1fb5dee9e1c37a2779d823925ff88c386c54bd1ce9d17
+  content_hash: sha256:99e4cb9add2abc1e9c3d5ae622a8cb9e0e3e74a604351689a0c3f60edf70c6be
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-changelog/evals/triggers.json
@@ -7674,7 +7674,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:58f4e3acca4421deca1358df1c081b5ab3630a479de801e5a8f5d7fde7795a1f
+  content_hash: sha256:8393a41e78aabe8df76c9eab8cda1b23b45cb93166e2896f77463b29f32cff9c
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-changelog/assets/changelog-template.md
@@ -7692,7 +7692,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:75af9d17d11f596606e1fb5dee9e1c37a2779d823925ff88c386c54bd1ce9d17
+  content_hash: sha256:99e4cb9add2abc1e9c3d5ae622a8cb9e0e3e74a604351689a0c3f60edf70c6be
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-changelog/evals/triggers.json
@@ -11882,9 +11882,9 @@ local_deployed_file_hashes:
   .agents/skills/ait-architecture/references/reliability.md: sha256:adf8e538af01ddaab91a9f73dfd89ec1202982958fe9a256513965e22bc28714
   .agents/skills/ait-architecture/references/system-complexity.md: sha256:b0750f0b1342bd7a9cf825bca96c963350884a3f8665712e1b6df3035749975f
   .agents/skills/ait-architecture/references/task-protocol.md: sha256:fc3d3453338acc78022997228463b61a7f9f36b212a17163b0b417d2ae0ac182
-  .agents/skills/ait-changelog/SKILL.md: sha256:58f4e3acca4421deca1358df1c081b5ab3630a479de801e5a8f5d7fde7795a1f
+  .agents/skills/ait-changelog/SKILL.md: sha256:8393a41e78aabe8df76c9eab8cda1b23b45cb93166e2896f77463b29f32cff9c
   .agents/skills/ait-changelog/assets/changelog-template.md: sha256:43644f939888cb6fcd514ded875bd165eb7ea935d592f758c5884bcb18565074
-  .agents/skills/ait-changelog/evals/result-scenarios.json: sha256:75af9d17d11f596606e1fb5dee9e1c37a2779d823925ff88c386c54bd1ce9d17
+  .agents/skills/ait-changelog/evals/result-scenarios.json: sha256:99e4cb9add2abc1e9c3d5ae622a8cb9e0e3e74a604351689a0c3f60edf70c6be
   .agents/skills/ait-changelog/evals/triggers.json: sha256:1ad6e3f98d31d078afc51b11bb122945c482fd4854a9b16b4569bd00394b622d
   .agents/skills/ait-code-construction/SKILL.md: sha256:6e8b4544bb2979e382d4b2930eeea0c831d27becf7ef7fb9b50d1491654852aa
   .agents/skills/ait-code-construction/evals/result-scenarios.json: sha256:18f14aed4bcb8e2a928c85241bd22d90e17f307f944f44c10ae0174db4e3397c
@@ -12126,9 +12126,9 @@ local_deployed_file_hashes:
   .claude/skills/ait-architecture/references/reliability.md: sha256:adf8e538af01ddaab91a9f73dfd89ec1202982958fe9a256513965e22bc28714
   .claude/skills/ait-architecture/references/system-complexity.md: sha256:b0750f0b1342bd7a9cf825bca96c963350884a3f8665712e1b6df3035749975f
   .claude/skills/ait-architecture/references/task-protocol.md: sha256:fc3d3453338acc78022997228463b61a7f9f36b212a17163b0b417d2ae0ac182
-  .claude/skills/ait-changelog/SKILL.md: sha256:58f4e3acca4421deca1358df1c081b5ab3630a479de801e5a8f5d7fde7795a1f
+  .claude/skills/ait-changelog/SKILL.md: sha256:8393a41e78aabe8df76c9eab8cda1b23b45cb93166e2896f77463b29f32cff9c
   .claude/skills/ait-changelog/assets/changelog-template.md: sha256:43644f939888cb6fcd514ded875bd165eb7ea935d592f758c5884bcb18565074
-  .claude/skills/ait-changelog/evals/result-scenarios.json: sha256:75af9d17d11f596606e1fb5dee9e1c37a2779d823925ff88c386c54bd1ce9d17
+  .claude/skills/ait-changelog/evals/result-scenarios.json: sha256:99e4cb9add2abc1e9c3d5ae622a8cb9e0e3e74a604351689a0c3f60edf70c6be
   .claude/skills/ait-changelog/evals/triggers.json: sha256:1ad6e3f98d31d078afc51b11bb122945c482fd4854a9b16b4569bd00394b622d
   .claude/skills/ait-code-construction/SKILL.md: sha256:6e8b4544bb2979e382d4b2930eeea0c831d27becf7ef7fb9b50d1491654852aa
   .claude/skills/ait-code-construction/evals/result-scenarios.json: sha256:18f14aed4bcb8e2a928c85241bd22d90e17f307f944f44c10ae0174db4e3397c
