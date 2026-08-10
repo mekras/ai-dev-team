@@ -104,7 +104,7 @@ if mode in {"technical", "semantic", "complete"}:
         "Есть ли недоступный материал корпуса", "--challenge-outcome", "refuted",
         "--challenge-support", "observation-001", "--command", "true",
     )
-if mode in {"semantic", "complete"}:
+if mode in {"semantic", "complete", "blocking"}:
     call(
         "start-application", "--id", "knowledge-semantic", "--stage",
         "repository", "--capability", "skill:kc-validation", "--method", "review",
@@ -133,7 +133,7 @@ if mode in {"semantic", "complete"}:
         "observation-001", "--challenge", "Есть ли разрыв между индексом и утверждением",
         "--challenge-outcome", "refuted", "--challenge-support", "observation-001",
     )
-if mode == "complete":
+if mode in {"complete", "blocking"}:
     call(
         "start-application", "--id", "requirements-check", "--stage",
         "requirements", "--capability", "skill:ait-req-revalidation", "--method",
@@ -141,25 +141,38 @@ if mode == "complete":
         "Проверить требования", "--priority-rationale",
         "Требования определяют последующую работу", "--subject-pattern", "docs/*.md",
     )
-    for criterion, note in (
-        ("level-and-solution-boundary", "Уровень зафиксирован."),
-        ("source-and-necessity", "Основание связано с концепцией."),
-        ("clarity-and-verifiability", "Формулировка проверяема."),
-        ("set-consistency-and-traceability", "Связь с концепцией сохранена."),
+    for criterion, note, result in (
+        (
+            "level-and-solution-boundary",
+            "Требование смешано с решением.",
+            "problem" if mode == "blocking" else "supports",
+        ),
+        ("source-and-necessity", "Основание связано с концепцией.", "supports"),
+        ("clarity-and-verifiability", "Формулировка проверяема.", "supports"),
+        ("set-consistency-and-traceability", "Связь с концепцией сохранена.", "supports"),
     ):
         call(
             "record-observation", "--application", "requirements-check",
             "--artifact", "docs/concept.md", "--start-line", "1", "--end-line", "3",
-            "--criterion-id", criterion, "--result", "supports", "--note", note,
+            "--criterion-id", criterion, "--result", result, "--note", note,
+        )
+    if mode == "blocking":
+        call(
+            "record-finding", "--id", "requirements-blocker", "--stage",
+            "requirements", "--summary", "Требование смешано с решением.",
+            "--blocking", "--evidence", "Наблюдение requirements-check:001",
+            "--observation", "observation-001", "--allowed-path",
+            "docs/concept.md", "--verification", "Повторно проверить требования.",
         )
     call(
         "finish-application", "--application", "requirements-check", "--outcome",
-        "passed", "--decision", "accept", "--evidence", "requirements-evidence",
+        "failed" if mode == "blocking" else "passed", "--decision",
+        "reject" if mode == "blocking" else "accept", "--evidence", "requirements-evidence",
         "--artifact", "docs/concept.md", "--coverage", "Требования проверены",
-        "--claim", "Требования согласованы с концепцией", "--claim-support",
+        "--claim", "Требования требуют исправления" if mode == "blocking" else "Требования согласованы с концепцией", "--claim-support",
         "observation-001", "--challenge", "Есть ли разрыв с концепцией",
-        "--challenge-outcome", "refuted", "--challenge-support", "observation-001",
+        "--challenge-outcome", "confirmed" if mode == "blocking" else "refuted", "--challenge-support", "observation-001",
     )
-    for stage in ("repository", "requirements", "design", "code", "tests", "assurance", "impact"):
+    for stage in ("repository", "requirements", "design", "code", "tests", "assurance", "impact") if mode == "complete" else ():
         call("stage", "--name", stage, "--status", "running")
         call("stage", "--name", stage, "--status", "complete")

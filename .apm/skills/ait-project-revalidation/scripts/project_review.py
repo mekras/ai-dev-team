@@ -1975,6 +1975,26 @@ def start_application(
     if state["status"] != "running":
         raise ReviewError("начать применение можно только в состоянии running")
 
+    open_blocking_findings = [
+        identifier
+        for identifier, finding in state["findings"].items()
+        if finding.get("blocking") and finding.get("status") == "open"
+    ]
+    if open_blocking_findings:
+        required_capabilities = set(
+            unready_finding_capabilities(state, open_blocking_findings),
+        )
+        if (
+            args.finding not in open_blocking_findings
+            and args.capability not in required_capabilities
+        ):
+            raise ReviewError(
+                "открытая блокирующая проблема запрещает несвязанное "
+                "применение: сначала подготовьте решение по проблеме "
+                + ", ".join(sorted(open_blocking_findings))
+                + " или выполните связанную проверку поверхности",
+            )
+
     semantic_trace_required = args.method == "review" or (
         bool(args.capability)
         and decision["participation"] == "check"

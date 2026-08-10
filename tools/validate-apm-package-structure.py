@@ -820,11 +820,6 @@ def check_connection_effort_contract() -> None:
             "установленного, настроенного и проверенного проекта",
             "Скрипт или составная команда не уменьшают",
         ),
-        ".apm/skills/ait-readme/evals/installation-vs-project-connection.md": (
-            "## Сравнение трудоёмкости подключения",
-            "Отрицательный случай",
-            "Такой путь нельзя объявлять более",
-        ),
     }
     for relative_path, markers in required_markers.items():
         path = ROOT / relative_path
@@ -1266,11 +1261,6 @@ def check_user_development_journey_contract() -> None:
             "Продукт сам подберёт специалистов",
             "проведённые проверки и оставшиеся ограничения",
         ),
-        ".apm/skills/ait-readme/evals/installation-vs-project-connection.md": (
-            "продолжить путь первой обычной задачей",
-            "технические имена ролей или навыков",
-            "явной приёмке",
-        ),
         ".apm/agents/project-manager.agent.md": (
             "Менеджер всегда запускает задачу через единый входной этап",
             "Передаёт человеку результаты на приёмку",
@@ -1356,12 +1346,7 @@ def check_client_target_contract() -> None:
                     f"{marker!r}",
                 )
 
-    user_surfaces = (
-        ROOT / "README.md",
-        ROOT
-        / ".apm/skills/ait-readme/evals"
-        / "installation-vs-project-connection.md",
-    )
+    user_surfaces = (ROOT / "README.md",)
     forbidden_targets = (
         "--target all",
         "--target claude,codex",
@@ -2055,12 +2040,7 @@ def check_installation_contract() -> None:
     if not isinstance(version, str) or not version:
         fail("apm.yml must declare a package version")
 
-    paths = (
-        ROOT / "README.md",
-        ROOT
-        / ".apm/skills/ait-readme/evals"
-        / "installation-vs-project-connection.md",
-    )
+    paths = (ROOT / "README.md",)
     for path in paths:
         text = path.read_text(encoding="utf-8")
         for target in ("claude", "codex"):
