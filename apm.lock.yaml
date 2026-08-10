@@ -5802,7 +5802,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:1c4bd7703d6ff3ac1eaafd3ed72103b0ee9a7f5360338751e47ec1857ff1935e
+  content_hash: sha256:ca652d71bf2a995bc1a83620462303e39367586c16214e943131c133b8c3b09d
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-setup/assets/minimal-files.md
@@ -5829,7 +5829,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:cbd13d56ccdb039bab006efce9429139cfac20bf4080dbc8687f42354df1d669
+  content_hash: sha256:7a8c1177b70a3f853fb8e288b212477ddeb180dced4a2bcaf77ae3ea12ff3d04
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-setup/evals/triggers.json
@@ -5847,7 +5847,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:c9e170522f166ad783badf92000ae41e3d140d0c3ade7e519d35a8455159e251
+  content_hash: sha256:2b1d18b1cb91e29783547161380ed552c4317963697a2282c550e6eb863652e1
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-twelve-factor
@@ -9510,7 +9510,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:1c4bd7703d6ff3ac1eaafd3ed72103b0ee9a7f5360338751e47ec1857ff1935e
+  content_hash: sha256:ca652d71bf2a995bc1a83620462303e39367586c16214e943131c133b8c3b09d
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-setup/assets/minimal-files.md
@@ -9537,7 +9537,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:cbd13d56ccdb039bab006efce9429139cfac20bf4080dbc8687f42354df1d669
+  content_hash: sha256:7a8c1177b70a3f853fb8e288b212477ddeb180dced4a2bcaf77ae3ea12ff3d04
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-setup/evals/triggers.json
@@ -9555,7 +9555,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:c9e170522f166ad783badf92000ae41e3d140d0c3ade7e519d35a8455159e251
+  content_hash: sha256:2b1d18b1cb91e29783547161380ed552c4317963697a2282c550e6eb863652e1
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-twelve-factor
@@ -12058,12 +12058,12 @@ local_deployed_file_hashes:
   .agents/skills/ait-sec-threat-modeling/references/risk-and-validation.md: sha256:41f93989c4c54a8476ab029f2eeb34ac4043636f0d5d8049a49bb9a51040e240
   .agents/skills/ait-sec-tooling/SKILL.md: sha256:4fad09faaa1df6374b3f59f5bf5d86885d86b46b527296acab9ab018f3b2d3b6
   .agents/skills/ait-sec-tooling/evals/triggers.json: sha256:2326a3a717462754f4057a4d9bb54b8ba94c9682dec204642fc7a392ce5cb8b1
-  .agents/skills/ait-setup/SKILL.md: sha256:1c4bd7703d6ff3ac1eaafd3ed72103b0ee9a7f5360338751e47ec1857ff1935e
+  .agents/skills/ait-setup/SKILL.md: sha256:ca652d71bf2a995bc1a83620462303e39367586c16214e943131c133b8c3b09d
   .agents/skills/ait-setup/assets/minimal-files.md: sha256:7a33c1c7b8b50441795816b2c8143e4a510566dc7b24941f6ea946541666e309
   .agents/skills/ait-setup/assets/project-AGENTS.md: sha256:3b20d49739f3ed8b280cbeb7ac092e68ee3f7c72889154cf17b92ce4d821cf65
-  .agents/skills/ait-setup/evals/result-scenarios.json: sha256:cbd13d56ccdb039bab006efce9429139cfac20bf4080dbc8687f42354df1d669
+  .agents/skills/ait-setup/evals/result-scenarios.json: sha256:7a8c1177b70a3f853fb8e288b212477ddeb180dced4a2bcaf77ae3ea12ff3d04
   .agents/skills/ait-setup/evals/triggers.json: sha256:02daa8fb1359043841322338fdd866640c2d8c5fbcad34562b2cb8f8fbc5d5fb
-  .agents/skills/ait-setup/references/setup-dialogue.md: sha256:c9e170522f166ad783badf92000ae41e3d140d0c3ade7e519d35a8455159e251
+  .agents/skills/ait-setup/references/setup-dialogue.md: sha256:2b1d18b1cb91e29783547161380ed552c4317963697a2282c550e6eb863652e1
   .agents/skills/ait-twelve-factor/SKILL.md: sha256:26ec9adbf9ce4f8511837ad9fa46015f3ed84748ca853ac22ba445952b798572
   .agents/skills/ait-twelve-factor/evals/result-scenarios.json: sha256:b23ffa4bb87193823a2cc4aebe58d667f28d9542b9d815ce8fb3753c2c9770df
   .agents/skills/ait-twelve-factor/evals/triggers.json: sha256:325cabbae6ce7d57d897458583fe0764142861f706fdcd21211fa0a0c056df08
@@ -12302,12 +12302,12 @@ local_deployed_file_hashes:
   .claude/skills/ait-sec-threat-modeling/references/risk-and-validation.md: sha256:41f93989c4c54a8476ab029f2eeb34ac4043636f0d5d8049a49bb9a51040e240
   .claude/skills/ait-sec-tooling/SKILL.md: sha256:4fad09faaa1df6374b3f59f5bf5d86885d86b46b527296acab9ab018f3b2d3b6
   .claude/skills/ait-sec-tooling/evals/triggers.json: sha256:2326a3a717462754f4057a4d9bb54b8ba94c9682dec204642fc7a392ce5cb8b1
-  .claude/skills/ait-setup/SKILL.md: sha256:1c4bd7703d6ff3ac1eaafd3ed72103b0ee9a7f5360338751e47ec1857ff1935e
+  .claude/skills/ait-setup/SKILL.md: sha256:ca652d71bf2a995bc1a83620462303e39367586c16214e943131c133b8c3b09d
   .claude/skills/ait-setup/assets/minimal-files.md: sha256:7a33c1c7b8b50441795816b2c8143e4a510566dc7b24941f6ea946541666e309
   .claude/skills/ait-setup/assets/project-AGENTS.md: sha256:3b20d49739f3ed8b280cbeb7ac092e68ee3f7c72889154cf17b92ce4d821cf65
-  .claude/skills/ait-setup/evals/result-scenarios.json: sha256:cbd13d56ccdb039bab006efce9429139cfac20bf4080dbc8687f42354df1d669
+  .claude/skills/ait-setup/evals/result-scenarios.json: sha256:7a8c1177b70a3f853fb8e288b212477ddeb180dced4a2bcaf77ae3ea12ff3d04
   .claude/skills/ait-setup/evals/triggers.json: sha256:02daa8fb1359043841322338fdd866640c2d8c5fbcad34562b2cb8f8fbc5d5fb
-  .claude/skills/ait-setup/references/setup-dialogue.md: sha256:c9e170522f166ad783badf92000ae41e3d140d0c3ade7e519d35a8455159e251
+  .claude/skills/ait-setup/references/setup-dialogue.md: sha256:2b1d18b1cb91e29783547161380ed552c4317963697a2282c550e6eb863652e1
   .claude/skills/ait-twelve-factor/SKILL.md: sha256:26ec9adbf9ce4f8511837ad9fa46015f3ed84748ca853ac22ba445952b798572
   .claude/skills/ait-twelve-factor/evals/result-scenarios.json: sha256:b23ffa4bb87193823a2cc4aebe58d667f28d9542b9d815ce8fb3753c2c9770df
   .claude/skills/ait-twelve-factor/evals/triggers.json: sha256:325cabbae6ce7d57d897458583fe0764142861f706fdcd21211fa0a0c056df08
