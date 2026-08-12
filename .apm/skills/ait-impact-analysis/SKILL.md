@@ -44,14 +44,14 @@ P1: сценарии из каталога `scripts/` проверяют гра�
 ## Обязательный порядок
 
 1. Найди путь к графу в корневых инструкциях агента или в поле
-   `setup.impact_graph.path` файла `.ai-dev-team-state.yml`. Если граф не
+   `setup.impact_graph.path` файла `.ai-dev-team/state.yml`. Если граф не
    настроен, останови изменение и направь проект в `ait-setup`.
 2. Прочитай [договор графа](references/impact-graph-contract.md). При доступном
    P1 проверь граф:
 
    ```shell
    <команда Python 3> scripts/impact_graph.py \
-     validate --graph project-impact.json
+     validate --graph .ai-dev-team/project-impact.json
    ```
 
 3. Установи изменённые пути или вершины и аспект изменения. Не считай любое
@@ -65,7 +65,7 @@ P1: сценарии из каталога `scripts/` проверяют гра�
 
    ```shell
    <команда Python 3> scripts/selective_verification.py \
-     run --repo . --config project-verification.json --base origin/main
+     run --repo . --config .ai-dev-team/project-verification.json --base origin/main
    ```
 
    Передай модели только отчёт сценария, указанные в нём области и ограниченный
@@ -76,7 +76,7 @@ P1: сценарии из каталога `scripts/` проверяют гра�
 
    ```shell
    <команда Python 3> scripts/impact_graph.py \
-     trace --graph project-impact.json \
+     trace --graph .ai-dev-team/project-impact.json \
      --changed-path docs/concept.md \
      --facet semantic
    ```
@@ -94,7 +94,7 @@ P1: сценарии из каталога `scripts/` проверяют гра�
 
    ```shell
    <команда Python 3> scripts/impact_graph.py \
-     assess --graph project-impact.json \
+     assess --graph .ai-dev-team/project-impact.json \
      --changed-path docs/concept.md \
      --facet semantic \
      --status requirements=updated \
@@ -120,7 +120,7 @@ P1: сценарии из каталога `scripts/` проверяют гра�
 
 ```shell
 <команда Python 3> scripts/impact_graph.py \
-  coverage --graph project-impact.json --repo .
+  coverage --graph .ai-dev-team/project-impact.json --repo .
 ```
 
 Граф хранит смысловые артефакты, их файловые представления, маршруты влияния и
@@ -149,7 +149,7 @@ P1: сценарии из каталога `scripts/` проверяют гра�
 
    ```shell
    <команда Python 3> scripts/selective_verification.py \
-     validate --repo . --config project-verification.json
+     validate --repo . --config .ai-dev-team/project-verification.json
    ```
 
 Кеш хранится в каталоге Git целевого проекта и содержит только успешные

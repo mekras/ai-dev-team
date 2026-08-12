@@ -338,7 +338,8 @@ class ImpactGraphTests(unittest.TestCase):
 
     def test_cli_uses_only_json_contract(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:
-            graph_path = Path(temporary_directory) / "project-impact.json"
+            graph_path = Path(temporary_directory) / ".ai-dev-team/project-impact.json"
+            graph_path.parent.mkdir()
             graph_path.write_text(
                 json.dumps(sample_graph()),
                 encoding="utf-8",

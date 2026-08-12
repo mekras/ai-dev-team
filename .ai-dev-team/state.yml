@@ -38,7 +38,7 @@ setup:
     path: knowledge/
   impact_graph:
     status: present
-    path: project-impact.json
+    path: .ai-dev-team/project-impact.json
     schema_version: 1
   interface_checks:
     level: recommended
@@ -54,11 +54,9 @@ setup:
     derived_paths:
       - .apm/**
       - tools/**
-    change_record:
-      path_pattern: docs/changes/<change-id>.md
     approval: before-implementation
     exception_policy:
-      record: docs/changes/<change-id>.md
+      path_pattern: .ai-dev-team/exceptions/<exception-id>.md
       required_fields: [reason, owner, scope, expires_at, reconciliation_condition]
     review_condition: >-
       systematic-false-blocks-or-specification-maintenance-cost-exceeds-benefit

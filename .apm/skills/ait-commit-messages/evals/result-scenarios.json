@@ -202,7 +202,7 @@
     },
     {
       "id": "ait-commit-messages-result-custom",
-      "prompt": "Проект выбрал custom. В AGENTS.md и .ai-dev-team-state.yml закреплено правило: «<категория> — <результат>». Примеры: «Документация — добавлено описание API», «Тесты — исправлена проверка входа». В индексе добавлена проверка пустого адреса электронной почты. Подготовь сообщение коммита.",
+      "prompt": "Проект выбрал custom. В AGENTS.md и .ai-dev-team/state.yml закреплено правило: «<категория> — <результат>». Примеры: «Документация — добавлено описание API», «Тесты — исправлена проверка входа». В индексе добавлена проверка пустого адреса электронной почты. Подготовь сообщение коммита.",
       "input_files": [
         {
           "path": ".apm/skills/ait-commit-messages/SKILL.md",
@@ -266,7 +266,7 @@
     },
     {
       "id": "ait-commit-messages-result-conflicting-settings-stop",
-      "prompt": "В AGENTS.md выбрана gitmoji, а в .ai-dev-team-state.yml записана conventional-commits. Подготовь сообщение коммита.",
+      "prompt": "В AGENTS.md выбрана gitmoji, а в .ai-dev-team/state.yml записана conventional-commits. Подготовь сообщение коммита.",
       "input_files": [
         {
           "path": ".apm/skills/ait-commit-messages/SKILL.md",
@@ -306,7 +306,7 @@
         ]
       },
       "application_evidence": [
-        "результат явно называет AGENTS.md и .ai-dev-team-state.yml",
+        "результат явно называет AGENTS.md и .ai-dev-team/state.yml",
         "результат не содержит готового сообщения",
         "результат соблюдает assertions и не нарушает must_not"
       ],

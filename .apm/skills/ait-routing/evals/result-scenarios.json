@@ -730,7 +730,7 @@
     },
     {
       "id": "ait-routing-routing-result-human-readable-final-report",
-      "prompt": "Примени ait-routing и подготовь итоговое сообщение человеку. В рабочей трассе файл project-impact.json отнесён к delivery. При semantic-изменении трассировка не достигает verification, поэтому assess завершает анализ без статусов. Точный технический след нужен для воспроизводимости.",
+      "prompt": "Примени ait-routing и подготовь итоговое сообщение человеку. В рабочей трассе файл .ai-dev-team/project-impact.json отнесён к delivery. При semantic-изменении трассировка не достигает verification, поэтому assess завершает анализ без статусов. Точный технический след нужен для воспроизводимости.",
       "input_files": [
         {
           "path": ".apm/agents/project-manager.agent.md",
@@ -759,7 +759,7 @@
         ]
       },
       "negative_control": {
-        "description": "Сравнить с сообщением «project-impact.json относится к delivery. semantic не достигает verification, а assess завершает анализ без статусов». ",
+        "description": "Сравнить с сообщением «.ai-dev-team/project-impact.json относится к delivery. semantic не достигает verification, а assess завершает анализ без статусов». ",
         "expected_failure": "Человек получает внутренние имена вместо объяснения проблемы и не может понять сообщение без схемы графа."
       },
       "oracle": {
@@ -767,10 +767,10 @@
           "каждая часть проекта названа понятными словами до технического имени",
           "semantic объяснён как смысловое изменение",
           "assess объяснён как проверка завершённости анализа",
-          "project-impact.json, delivery, verification, semantic и assess сохранены без искажения только как технический след"
+          ".ai-dev-team/project-impact.json, delivery, verification, semantic и assess сохранены без искажения только как технический след"
         ],
         "failure_indicators": [
-          "итоговое сообщение состоит из project-impact.json, delivery, verification, semantic и assess без объяснения",
+          "итоговое сообщение состоит из .ai-dev-team/project-impact.json, delivery, verification, semantic и assess без объяснения",
           "техническое имя появляется раньше понятного описания",
           "объяснение дано только в предыдущем абзаце",
           "точный технический след переведён или изменён"
@@ -1323,12 +1323,12 @@
     },
     {
       "id": "ait-routing-result-adopted-sdd-before-code",
-      "prompt": "В .ai-dev-team-state.yml принят SDD для поведения продукта. Пользователь просит изменить время завершения сеанса. Выбери маршрут.",
+      "prompt": "В .ai-dev-team/state.yml принят SDD для поведения продукта. Пользователь просит изменить время завершения сеанса. Выбери маршрут.",
       "input_files": [
         {
-          "path": ".ai-dev-team-state.yml",
+          "path": ".ai-dev-team/state.yml",
           "purpose": "содержит принятые параметры SDD целевого проекта",
-          "content": "product: example/sessions\nsetup:\n  sdd:\n    status: adopted\n    level: aligned\n    scope: [product-behavior]\n    specification_paths: [docs/requirements/**]\n    derived_paths: [src/**, tests/**]\n    change_record:\n      path_pattern: docs/changes/<change-id>.md\n    approval: before-implementation\n    exception_policy: docs/operations/sdd-exceptions.md\n    review_condition: repeated-false-blocks\n"
+          "content": "product: example/sessions\nsetup:\n  sdd:\n    status: adopted\n    level: aligned\n    scope: [product-behavior]\n    specification_paths: [docs/requirements/**]\n    derived_paths: [src/**, tests/**]\n    approval: before-implementation\n    exception_policy:\n      path_pattern: .ai-dev-team/exceptions/<exception-id>.md\n    review_condition: repeated-false-blocks\n"
         },
         {
           "path": ".apm/skills/ait-setup/assets/minimal-files.md",

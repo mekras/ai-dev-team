@@ -2,11 +2,11 @@
   "schema_version": 1,
   "verification": {
     "name": "Пример целевого проекта",
-    "impact_graph": "project-impact.json",
+    "impact_graph": ".ai-dev-team/project-impact.json",
     "full_checks": ["python-tests"],
     "full_coverage_paths": [
-      "project-impact.json",
-      "project-verification.json",
+      ".ai-dev-team/project-impact.json",
+      ".ai-dev-team/project-verification.json",
       "pyproject.toml",
       "uv.lock",
       "package.json",
@@ -15,8 +15,8 @@
       ".github/**"
     ],
     "global_inputs": [
-      "project-impact.json",
-      "project-verification.json",
+      ".ai-dev-team/project-impact.json",
+      ".ai-dev-team/project-verification.json",
       "pyproject.toml",
       "uv.lock"
     ],

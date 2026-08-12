@@ -42,7 +42,7 @@
 
 - [ait-setup](../../../.apm/skills/ait-setup/SKILL.md) предлагает журналы при
   настройке и сохраняет отказ в поле `setup.decision_records` файла
-  `.ai-dev-team-state.yml`.
+  `.ai-dev-team/state.yml`.
 - [ait-docs-structure-design][a] предлагает журналы при проектировании места
   решений в документации.
 - [ait-decisions](../../../.apm/skills/ait-decisions/SKILL.md) предлагает журнал

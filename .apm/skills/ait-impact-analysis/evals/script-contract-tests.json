@@ -48,7 +48,7 @@
         "{script}",
         "validate",
         "--graph",
-        "{fixture}/project-impact.json"
+        "{fixture}/.ai-dev-team/project-impact.json"
       ],
       "covers": ["impact-graph-validate"],
       "expect": {
@@ -64,7 +64,7 @@
         "{script}",
         "trace",
         "--graph",
-        "{fixture}/project-impact.json",
+        "{fixture}/.ai-dev-team/project-impact.json",
         "--changed-path",
         "src/module.py",
         "--facet",
@@ -84,7 +84,7 @@
         "{script}",
         "trace",
         "--graph",
-        "{fixture}/project-impact.json",
+        "{fixture}/.ai-dev-team/project-impact.json",
         "--changed-node",
         "implementation:quality"
       ],
@@ -102,7 +102,7 @@
         "{script}",
         "assess",
         "--graph",
-        "{fixture}/project-impact.json",
+        "{fixture}/.ai-dev-team/project-impact.json",
         "--changed-path",
         "src/module.py",
         "--facet",
@@ -124,7 +124,7 @@
         "{script}",
         "coverage",
         "--graph",
-        "{fixture}/project-impact.json",
+        "{fixture}/.ai-dev-team/project-impact.json",
         "--repo",
         "{fixture}"
       ],
@@ -144,7 +144,7 @@
         "--repo",
         "{fixture}",
         "--config",
-        "{fixture}/project-verification.json"
+        "{fixture}/.ai-dev-team/project-verification.json"
       ],
       "covers": ["selective-verification-validate"],
       "expect": {
@@ -183,7 +183,7 @@
         "--repo",
         "{fixture}",
         "--config",
-        "{fixture}/project-verification.json",
+        "{fixture}/.ai-dev-team/project-verification.json",
         "--base",
         "HEAD"
       ],

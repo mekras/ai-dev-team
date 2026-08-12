@@ -2640,7 +2640,7 @@ class ProjectReviewTest(unittest.TestCase):
         self.write("docs/scenarios/create.md", "# Создание\n")
         self.write("docs/specification.md", "# Требования\n")
         self.write(
-            "project-impact.json",
+            ".ai-dev-team/project-impact.json",
             json.dumps(
                 {
                     "nodes": [
@@ -2676,7 +2676,7 @@ class ProjectReviewTest(unittest.TestCase):
                 },
             ),
         )
-        run("git", "add", "docs", "project-impact.json", cwd=self.root)
+        run("git", "add", "docs", ".ai-dev-team/project-impact.json", cwd=self.root)
         state = self.new_state(self.root, "manual", None, False)
 
         with self.assertRaisesRegex(

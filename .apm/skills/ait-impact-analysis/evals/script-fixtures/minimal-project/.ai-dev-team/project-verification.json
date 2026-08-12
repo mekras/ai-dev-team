@@ -2,10 +2,10 @@
   "schema_version": 1,
   "verification": {
     "name": "Минимальный проект",
-    "impact_graph": "project-impact.json",
+    "impact_graph": ".ai-dev-team/project-impact.json",
     "full_checks": ["python-version"],
-    "full_coverage_paths": ["project-impact.json", "project-verification.json"],
-    "global_inputs": ["project-impact.json", "project-verification.json"]
+    "full_coverage_paths": [".ai-dev-team/project-impact.json", ".ai-dev-team/project-verification.json"],
+    "global_inputs": [".ai-dev-team/project-impact.json", ".ai-dev-team/project-verification.json"]
   },
   "areas": [
     {

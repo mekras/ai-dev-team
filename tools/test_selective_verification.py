@@ -62,7 +62,7 @@ def graph() -> dict:
                 "id": "configuration",
                 "title": "Настройки",
                 "kind": "configuration",
-                "paths": ["requirements.txt", "project-verification.json"],
+                "paths": ["requirements.txt", ".ai-dev-team/project-verification.json"],
                 "checks": ["configuration-check"],
             },
         ],
@@ -84,16 +84,16 @@ def configuration(counter: Path, result: str = "ok") -> dict:
         "schema_version": 1,
         "verification": {
             "name": "Тестовый проект",
-            "impact_graph": "project-impact.json",
+            "impact_graph": ".ai-dev-team/project-impact.json",
             "full_checks": ["local-check", "full-check"],
             "full_coverage_paths": [
-                "project-impact.json",
-                "project-verification.json",
+                ".ai-dev-team/project-impact.json",
+                ".ai-dev-team/project-verification.json",
                 "requirements.txt",
             ],
             "global_inputs": [
-                "project-impact.json",
-                "project-verification.json",
+                ".ai-dev-team/project-impact.json",
+                ".ai-dev-team/project-verification.json",
                 "requirements.txt",
             ],
             "output_limit": 160,
@@ -153,11 +153,11 @@ class SelectiveVerificationTests(unittest.TestCase):
         )
         self.counter = self.root / "counter.txt"
         write(
-            self.repo / "project-impact.json",
+            self.repo / ".ai-dev-team/project-impact.json",
             json.dumps(graph(), ensure_ascii=False, indent=2),
         )
         write(
-            self.repo / "project-verification.json",
+            self.repo / ".ai-dev-team/project-verification.json",
             json.dumps(configuration(self.counter), ensure_ascii=False, indent=2),
         )
         git(self.repo, "add", ".")
@@ -175,7 +175,7 @@ class SelectiveVerificationTests(unittest.TestCase):
                 "--repo",
                 str(self.repo),
                 "--config",
-                str(self.repo / "project-verification.json"),
+                str(self.repo / ".ai-dev-team/project-verification.json"),
                 "--base",
                 "HEAD",
             ],
@@ -194,7 +194,7 @@ class SelectiveVerificationTests(unittest.TestCase):
                 "--repo",
                 str(self.repo),
                 "--config",
-                str(self.repo / "project-verification.json"),
+                str(self.repo / ".ai-dev-team/project-verification.json"),
             ],
             check=False,
             capture_output=True,
@@ -218,7 +218,7 @@ class SelectiveVerificationTests(unittest.TestCase):
                 "--repo",
                 str(self.repo),
                 "--config",
-                str(self.repo / "project-verification.json"),
+                str(self.repo / ".ai-dev-team/project-verification.json"),
             ],
             check=False,
             capture_output=True,
@@ -330,10 +330,10 @@ class SelectiveVerificationTests(unittest.TestCase):
     def test_failed_check_is_not_cached(self) -> None:
         write(self.repo / "src" / "local.py", "VALUE = 2\n")
         write(
-            self.repo / "project-verification.json",
+            self.repo / ".ai-dev-team/project-verification.json",
             json.dumps(configuration(self.counter, "fail"), ensure_ascii=False, indent=2),
         )
-        git(self.repo, "add", "project-verification.json")
+        git(self.repo, "add", ".ai-dev-team/project-verification.json")
         git(self.repo, "commit", "-m", "Настроена неуспешная проверка")
         write(self.repo / "src" / "local.py", "VALUE = 3\n")
 

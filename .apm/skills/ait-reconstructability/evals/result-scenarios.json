@@ -240,10 +240,10 @@
     },
     {
       "id": "ait-reconstructability-result-adopted-sdd-handoff",
-      "prompt": "Владелец принял SDD уровня aligned для поведения и внешних контрактов. Канонические спецификации находятся в docs/requirements/**, производные артефакты — в src/** и tests/**, записи изменений — в docs/changes/<change-id>.md. Подтверждение требуется до реализации, исключения регулирует docs/operations/sdd-exceptions.md. Зафиксируй решение и передай его в настройку проекта.",
+      "prompt": "Владелец принял SDD уровня aligned для поведения и внешних контрактов. Канонические спецификации находятся в docs/requirements/**, производные артефакты — в src/** и tests/**. Подтверждение требуется до реализации, исключения записываются в .ai-dev-team/exceptions/<exception-id>.md. Зафиксируй решение и передай его в настройку проекта.",
       "input_files": [
         {
-          "path": ".ai-dev-team-state.yml",
+          "path": ".ai-dev-team/state.yml",
           "purpose": "существующее состояние целевого проекта до записи SDD",
           "content": "product: example/catalog\nsetup:\n  project_profile:\n    forms: [software-product]\n"
         },

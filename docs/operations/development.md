@@ -45,7 +45,7 @@ apm audit --ci
 разработку этого репозитория. Они не входят в переносимое ядро `.apm/`.
 
 Локальная политика классов исполнения задаётся в игнорируемом
-`subagents.local.toml`. Переносимый запускатель поставляет
+`.ai-dev-team/local/subagents.toml`. Переносимый запускатель поставляет
 `ai-agent-supervisor`: вызывайте
 `.agents/skills/ai-setup-subagents/scripts/run-execution-class` напрямую или
 скопируйте его и адаптеры в `tools/` установщиками навыка. Запускатель сохраняет
@@ -119,7 +119,7 @@ python3 tools/check-knowledge-sources.py
 ```
 
 Скрипт не меняет корпус и складывает отчёт о запуске в
-`.local/reports/corpus-source-check.md` вне Git. Ответ `403` от защиты сайта от
+`.ai-dev-team/local/reports/corpus-source-check.md` вне Git. Ответ `403` от защиты сайта от
 роботов он отделяет от настоящей недоступности.
 
 После изменения навыка, классификации или маршрутизации выполните полную
@@ -148,10 +148,10 @@ apm run tests
 ```shell
 python3 \
   .apm/skills/ait-impact-analysis/scripts/impact_graph.py \
-  validate --graph project-impact.json
+  validate --graph .ai-dev-team/project-impact.json
 python3 \
   .apm/skills/ait-impact-analysis/scripts/impact_graph.py \
-  coverage --graph project-impact.json --repo .
+  coverage --graph .ai-dev-team/project-impact.json --repo .
 ```
 
 Полный транзитивный обход, циклы, аспекты и барьер завершённости покрывает
@@ -171,12 +171,12 @@ python3 -m unittest tools/test_impact_graph.py
 apm run product-evals
 ```
 
-При первом запуске команда создаст `product-evals.local.yml` из образца. Укажите
+При первом запуске команда создаст `.ai-dev-team/local/product-evals.yml` из образца. Укажите
 в локальном файле клиент, его адаптер и модель, затем повторите запуск. Средство
 выполнит три сценария с известными проблемами в требованиях, решениях и
 реализации. Каждый сценарий выполняется без продукта, с текущим рабочим деревом
 и с предыдущим принятым выпуском. Артефакты попадут в игнорируемый каталог
-`local/product-evals/`.
+`.ai-dev-team/local/product-evals/`.
 
 Это фиксированный проверочный набор, а не представительная выборка реальных
 проектов. Он показывает, какие известные проблемы обнаружила каждая версия и на
@@ -206,7 +206,7 @@ python3 -m unittest tools/test_product_evals.py
 повторного вызова модели:
 
 ```shell
-python3 tools/run-product-evals.py --rescore local/product-evals/<запуск>
+python3 tools/run-product-evals.py --rescore .ai-dev-team/local/product-evals/<запуск>
 ```
 
 ## Проверка доступности знаний
@@ -218,8 +218,8 @@ python3 tools/run-product-evals.py --rescore local/product-evals/<запуск>
 Для базового модельного прогона скопируйте локальную настройку:
 
 ```shell
-cp knowledge-evaluation-config.local.yml.sample \
-  knowledge-evaluation-config.local.yml
+cp .ai-dev-team/local/knowledge-evaluation.yml.sample \
+  .ai-dev-team/local/knowledge-evaluation.yml
 ```
 
 Проверьте допустимость передачи корпуса и опорных фрагментов выбранным моделям,
@@ -227,13 +227,13 @@ cp knowledge-evaluation-config.local.yml.sample \
 из Git. Запустите проверку:
 
 ```shell
-mkdir -p local/knowledge-evaluation
+mkdir -p .ai-dev-team/local/knowledge-evaluation
 python3 \
   .agents/skills/kc-retrieval-evaluation/scripts/run-evaluation-suite.py \
   knowledge-evaluation.yml \
-  --config knowledge-evaluation-config.local.yml \
+  --config .ai-dev-team/local/knowledge-evaluation.yml \
   --corpus-root knowledge \
-  --output local/knowledge-evaluation/baseline.local.json \
+  --output .ai-dev-team/local/knowledge-evaluation/baseline.local.json \
   --force
 ```
 

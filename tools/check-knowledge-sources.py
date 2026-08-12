@@ -24,7 +24,9 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 KNOWLEDGE = ROOT / "knowledge"
-DEFAULT_REPORT = ROOT / ".local" / "reports" / "corpus-source-check.md"
+DEFAULT_REPORT = (
+    ROOT / ".ai-dev-team" / "local" / "reports" / "corpus-source-check.md"
+)
 
 LOCATOR_FIELDS = ("url", "locator", "public_reference")
 USER_AGENT = "ai-dev-team-corpus-source-check/1"
@@ -224,7 +226,7 @@ def main(argv: list[str] | None = None) -> int:
         "--report",
         type=Path,
         default=DEFAULT_REPORT,
-        help="путь отчёта о запуске (по умолчанию .local/reports)",
+        help="путь отчёта о запуске (по умолчанию .ai-dev-team/local/reports)",
     )
     parser.add_argument(
         "--timeout",

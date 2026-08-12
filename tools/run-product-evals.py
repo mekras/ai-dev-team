@@ -22,8 +22,8 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 SCENARIOS = ROOT / "evals" / "product-scenarios.yml"
-CONFIG = ROOT / "product-evals.local.yml"
-SAMPLE = ROOT / "product-evals.local.yml.sample"
+CONFIG = ROOT / ".ai-dev-team/local/product-evals.yml"
+SAMPLE = ROOT / ".ai-dev-team/local/product-evals.yml.sample"
 VARIANTS = ("bare", "current", "previous")
 EARLIEST_DETECTION_STAGES = (
     "requirements_review",
@@ -600,10 +600,10 @@ def rescore_output(
     scenarios: list[dict[str, Any]],
 ) -> dict[str, Any]:
     """Обновить показатели сохранённого запуска текущими правилами оценки."""
-    allowed_root = (ROOT / "local" / "product-evals").resolve()
+    allowed_root = (ROOT / ".ai-dev-team" / "local" / "product-evals").resolve()
     output_root = output_root.resolve()
     if allowed_root not in output_root.parents:
-        raise EvalError("Пересчитывать можно только local/product-evals/<запуск>.")
+        raise EvalError("Пересчитывать можно только .ai-dev-team/local/product-evals/<запуск>.")
     summary_path = output_root / "summary.json"
     if not summary_path.is_file():
         raise EvalError(f"Не найдена сводка запуска: {summary_path}.")
@@ -1096,7 +1096,7 @@ def main() -> int:
         if config is None:
             return 0
         timestamp = dt.datetime.now().strftime("%Y%m%d-%H%M%S")
-        output_root = ROOT / "local" / "product-evals" / timestamp
+        output_root = ROOT / ".ai-dev-team" / "local" / "product-evals" / timestamp
         output_root.mkdir(parents=True)
         with tempfile.TemporaryDirectory(prefix="ai-dev-team-snapshots-") as temp:
             snapshots = Path(temp)

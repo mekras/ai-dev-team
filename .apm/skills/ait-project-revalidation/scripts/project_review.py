@@ -23,7 +23,7 @@ STATE_SCHEMA_VERSION = 11
 CLASSIFICATION_VERSION = 1
 CONCEPT_CAPABILITY_ID = "skill-ait-docs-concept"
 KNOWLEDGE_CAPABILITY_NAME = "kc-validation"
-PROJECT_IMPACT_FILE = "project-impact.json"
+PROJECT_IMPACT_FILE = ".ai-dev-team/project-impact.json"
 TERMINAL_STATES = {"complete", "complete_with_accepted_risks"}
 PROCESS_STATES = {
     "running",
@@ -1926,7 +1926,7 @@ def start_application(
         ontology_scope = decision.get("ontology_scope")
         if isinstance(ontology_scope, dict) and ontology_scope.get("missing_graph"):
             raise ReviewError(
-                "полная смысловая проверка требует project-impact.json",
+                "полная смысловая проверка требует .ai-dev-team/project-impact.json",
             )
         if (
             decision["status"] != "classified"

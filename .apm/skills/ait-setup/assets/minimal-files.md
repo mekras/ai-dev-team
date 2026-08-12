@@ -28,7 +28,7 @@
 
 Проект использует `ai-dev-team`.
 
-Параметры настройки проекта для `ait-setup` хранятся в `.ai-dev-team-state.yml`.
+Параметры настройки проекта для `ait-setup` хранятся в `.ai-dev-team/state.yml`.
 
 Оставляй в этом файле только локальные рабочие правила, которые нужны агенту во
 время обычных задач.
@@ -42,7 +42,7 @@
 
 ## Граф влияния проекта
 
-Граф влияния находится в `project-impact.json`.
+Граф влияния находится в `.ai-dev-team/project-impact.json`.
 
 После любого изменения сопоставь изменённые пути и выполни полный транзитивный
 анализ через `ait-impact-analysis`. Не завершай задачу с несопоставленным путём
@@ -58,7 +58,7 @@
 - Не записывай секреты, токены, пароли и приватные ключи в файлы проекта.
 ```
 
-## .ai-dev-team-state.yml
+## .ai-dev-team/state.yml
 
 ```yaml
 product: mekras/ai-dev-team
@@ -91,7 +91,7 @@ setup:
     path: knowledge/
   impact_graph:
     status: present
-    path: project-impact.json
+    path: .ai-dev-team/project-impact.json
     schema_version: 1
 ```
 
@@ -109,10 +109,9 @@ setup:
     scope: [product-behavior, external-contracts]
     specification_paths: [docs/requirements/**]
     derived_paths: [src/**, tests/**]
-    change_record:
-      path_pattern: docs/changes/<change-id>.md
     approval: before-implementation
-    exception_policy: docs/operations/sdd-exceptions.md
+    exception_policy:
+      path_pattern: .ai-dev-team/exceptions/<exception-id>.md
     review_condition: repeated-false-blocks-or-excessive-maintenance-cost
 ```
 
@@ -120,7 +119,7 @@ setup:
 `status: declined`. Для временной остановки укажи `status: suspended`, причину и
 условие возобновления.
 
-## project-impact.json
+## .ai-dev-team/project-impact.json
 
 Используй `ait-impact-analysis/assets/project-impact-template.json` как
 начальную структуру. Адаптируй вершины, пути, проверки и рёбра к фактическому

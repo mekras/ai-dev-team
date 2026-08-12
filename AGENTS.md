@@ -87,7 +87,7 @@
 ## Разработка на основе спецификаций
 
 Режим разработки на основе спецификаций принят для поведения продукта и внешних
-договоров. Его параметры находятся в `.ai-dev-team-state.yml`, решение — в
+договоров. Его параметры находятся в `.ai-dev-team/state.yml`, решение — в
 `docs/06-architecture/adr/0015-persistent-specification-driven-development.md`.
 
 Для задачи в этой области до реализации используй `ait-sdd`: классифицируй
@@ -97,7 +97,7 @@
 
 ## Граф влияния проекта
 
-Граф влияния проекта находится в `project-impact.json`.
+Граф влияния проекта находится в `.ai-dev-team/project-impact.json`.
 
 После любого изменения применяй `ait-impact-analysis`: сопоставь изменённые
 пути, обоснуй аспект, вычисли влияние на полную транзитивную глубину и закрой
@@ -185,14 +185,15 @@
   стандартный ввод в
   `.agents/skills/ai-setup-subagents/scripts/run-subagent-role`. Указывай роль,
   только явно нужные входные файлы через `--input`, локальную настройку
-  `subagents.local.toml` и каталог журналов `--out local/subagents`.
+  `.ai-dev-team/local/subagents.toml` и каталог журналов
+  `--out .ai-dev-team/local/subagents`.
 
   ```bash
   printf '%s\n' '<инструкция>' |
     .agents/skills/ai-setup-subagents/scripts/run-subagent-role <роль> \
-      --config subagents.local.toml \
+      --config .ai-dev-team/local/subagents.toml \
       --input <файл> \
-      --out local/subagents
+      --out .ai-dev-team/local/subagents
   ```
 
   Для `luna_patch_worker` каждый `--input` должен быть разрешённой целью записи;

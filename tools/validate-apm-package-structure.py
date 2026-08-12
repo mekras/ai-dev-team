@@ -107,8 +107,8 @@ REQUIRED_TEST_FRAGMENTS = (
     "test_validate_requirements_structure.py",
     "test_validate_project_review_capabilities.py",
     "test_impact_graph.py",
-    "impact_graph.py validate --graph project-impact.json",
-    "impact_graph.py coverage --graph project-impact.json --repo .",
+    "impact_graph.py validate --graph .ai-dev-team/project-impact.json",
+    "impact_graph.py coverage --graph .ai-dev-team/project-impact.json --repo .",
     "validate-knowledge-operational.py",
     "validate-corpus-layout.py",
     "validate-hidden-unicode.py",
@@ -851,6 +851,18 @@ def check_persistent_sdd_contract() -> None:
                     f"{marker!r}",
                 )
 
+    no_duplicate_change_records = (
+        ".apm/skills/ait-sdd/SKILL.md",
+        ".apm/skills/ait-setup/assets/minimal-files.md",
+        ".apm/skills/ait-setup/references/setup-dialogue.md",
+    )
+    for relative_path in no_duplicate_change_records:
+        text = (ROOT / relative_path).read_text(encoding="utf-8")
+        if "change_record:" in text:
+            fail(
+                f"{relative_path} configures a duplicate SDD change record",
+            )
+
 
 def check_connection_effort_contract() -> None:
     required_markers = {
@@ -1417,7 +1429,7 @@ def check_client_target_contract() -> None:
 
 def check_requirement_basis_contract() -> None:
     requirement_root = ROOT / "docs/requirements"
-    graph = json.loads((ROOT / "project-impact.json").read_text(encoding="utf-8"))
+    graph = json.loads((ROOT / ".ai-dev-team/project-impact.json").read_text(encoding="utf-8"))
     nodes = graph["nodes"]
     semantic_edges: dict[str, set[str]] = {}
     for edge in graph["edges"]:
@@ -1751,7 +1763,7 @@ def check_product_evaluation_contract() -> None:
             "Пользователь не обязан знать внутренние роли и навыки",
             "все доступные проверки каждой задаче",
         ),
-        "product-evals.local.yml.sample": (
+        ".ai-dev-team/local/product-evals.yml.sample": (
             "Фиксированный набор не подтверждает",
             "не представляет всё",
             "не подтверждает бизнес-эффект",
@@ -2123,7 +2135,7 @@ def check_project_impact_graph_contract() -> None:
         "docs/05-requirements/functional/ft-25.md": (
             "полной транзитивной глубине",
             "verified_no_impact",
-            "project-impact.json",
+            ".ai-dev-team/project-impact.json",
         ),
         "docs/05-requirements/rules/pr-7.md": (
             "После изменения любого проектного артефакта",
@@ -2142,7 +2154,7 @@ def check_project_impact_graph_contract() -> None:
         ),
         ".apm/skills/ait-setup/SKILL.md": (
             "setup.impact_graph",
-            "project-impact.json",
+            ".ai-dev-team/project-impact.json",
             "граф влияния",
         ),
         ".apm/skills/ait-project-revalidation/SKILL.md": (
@@ -2160,7 +2172,7 @@ def check_project_impact_graph_contract() -> None:
         ),
         "AGENTS.md": (
             "Граф влияния проекта",
-            "project-impact.json",
+            ".ai-dev-team/project-impact.json",
         ),
     }
     for relative_path, markers in required_markers.items():
@@ -2173,13 +2185,13 @@ def check_project_impact_graph_contract() -> None:
                     f"{marker!r}",
                 )
 
-    graph_path = ROOT / "project-impact.json"
+    graph_path = ROOT / ".ai-dev-team/project-impact.json"
     try:
         graph = json.loads(graph_path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
-        fail(f"cannot read project-impact.json: {exc}")
+        fail(f"cannot read .ai-dev-team/project-impact.json: {exc}")
     if graph.get("schema_version") != 2:
-        fail("project-impact.json must use schema_version 2")
+        fail(".ai-dev-team/project-impact.json must use schema_version 2")
 
 
 def main() -> None:

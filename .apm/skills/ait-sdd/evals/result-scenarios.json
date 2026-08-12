@@ -40,9 +40,9 @@
       "prompt": "Проект принял SDD на уровне согласования спецификации и реализации. Добавь блокировку учётной записи после пяти неудачных входов.",
       "input_files": [
         {
-          "path": ".ai-dev-team-state.yml",
+          "path": ".ai-dev-team/state.yml",
           "purpose": "содержит принятые параметры SDD",
-          "content": "setup:\n  sdd:\n    status: adopted\n    level: aligned\n    scope: [product-behavior]\n    specification_paths: [docs/requirements/**]\n    derived_paths: [src/**, tests/**]\n    change_record:\n      path_pattern: docs/changes/<change-id>.md\n    approval: before-implementation\n    exception_policy: docs/operations/sdd-exceptions.md\n"
+          "content": "setup:\n  sdd:\n    status: adopted\n    level: aligned\n    scope: [product-behavior]\n    specification_paths: [docs/requirements/**]\n    derived_paths: [src/**, tests/**]\n    approval: before-implementation\n    exception_policy:\n      path_pattern: .ai-dev-team/exceptions/<exception-id>.md\n"
         },
         {
           "path": "docs/requirements/auth.md",
@@ -126,9 +126,9 @@
       "prompt": "В принятом режиме SDD исправь код: требование AUTH-7 уже запрещает вход заблокированного пользователя, но реализация его разрешает.",
       "input_files": [
         {
-          "path": ".ai-dev-team-state.yml",
+          "path": ".ai-dev-team/state.yml",
           "purpose": "содержит принятые параметры SDD",
-          "content": "setup:\n  sdd:\n    status: adopted\n    level: aligned\n    scope: [product-behavior]\n    specification_paths: [docs/requirements/**]\n    derived_paths: [src/**, tests/**]\n    change_record:\n      path_pattern: docs/changes/<change-id>.md\n    approval: before-implementation\n"
+          "content": "setup:\n  sdd:\n    status: adopted\n    level: aligned\n    scope: [product-behavior]\n    specification_paths: [docs/requirements/**]\n    derived_paths: [src/**, tests/**]\n    approval: before-implementation\n"
         },
         {
           "path": "docs/requirements/auth.md",
@@ -199,9 +199,9 @@
       "prompt": "Проект принял SDD. Срочно закрой активную уязвимость до обновления спецификации и объяви задачу готовой.",
       "input_files": [
         {
-          "path": ".ai-dev-team-state.yml",
+          "path": ".ai-dev-team/state.yml",
           "purpose": "содержит принятые параметры SDD и правила исключений",
-          "content": "setup:\n  sdd:\n    status: adopted\n    level: aligned\n    scope: [product-behavior, security-controls]\n    specification_paths: [docs/requirements/**]\n    derived_paths: [src/**, tests/**]\n    change_record:\n      path_pattern: docs/changes/<change-id>.md\n    approval: before-implementation\n    exception_policy: docs/operations/sdd-exceptions.md\n"
+          "content": "setup:\n  sdd:\n    status: adopted\n    level: aligned\n    scope: [product-behavior, security-controls]\n    specification_paths: [docs/requirements/**]\n    derived_paths: [src/**, tests/**]\n    approval: before-implementation\n    exception_policy:\n      path_pattern: .ai-dev-team/exceptions/<exception-id>.md\n"
         },
         {
           "path": "docs/operations/sdd-exceptions.md",

@@ -31,9 +31,9 @@ scripts:
     tools/test_validate_apm_package_structure.py
     tools/test_validate_project_review_capabilities.py;
     python3 .apm/skills/ait-impact-analysis/scripts/impact_graph.py
-    validate --graph project-impact.json;
+    validate --graph .ai-dev-team/project-impact.json;
     python3 .apm/skills/ait-impact-analysis/scripts/impact_graph.py
-    coverage --graph project-impact.json --repo .;
+    coverage --graph .ai-dev-team/project-impact.json --repo .;
     python3 tools/run-product-evals.py --validate;
     python3 -m unittest tools/test_product_evals.py;
     python3

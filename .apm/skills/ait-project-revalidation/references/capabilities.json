@@ -280,8 +280,8 @@
       "participation": "check",
       "stage": "impact",
       "applicability": "always",
-      "decision_paths": ["project-impact.json"],
-      "required_subject_patterns": ["project-impact.json"],
+      "decision_paths": [".ai-dev-team/project-impact.json"],
+      "required_subject_patterns": [".ai-dev-team/project-impact.json"],
       "semantic_required": true,
       "review_criteria": [
         {"id": "graph-artifact-and-edge-truth", "description": "Узлы графа соответствуют реальным артефактам, а каждое существенное ребро выражает действительную зависимость, а не только формальную ссылку.", "coverage": "surface"},

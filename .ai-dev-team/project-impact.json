@@ -100,7 +100,7 @@
         "BACKLOG.md",
         "docs/06-architecture/adr/**",
         "docs/04-product/pdr/**",
-        "docs/changes/**",
+        ".ai-dev-team/exceptions/**",
         "docs/meta/DDR/**"
       ],
       "checks": ["ait-decisions", "ait-architecture"],
@@ -172,7 +172,7 @@
       "semantic_type": "договор поставки и настройки разработки",
       "authority": "canonical",
       "paths": [
-        ".ai-dev-team-state.yml",
+        ".ai-dev-team/state.yml",
         ".codex/**",
         ".editorconfig",
         ".gitignore",
@@ -181,10 +181,11 @@
         "LICENSE",
         "apm.lock.yaml",
         "apm.yml",
-        "evals.local.yml.sample",
-        "knowledge-evaluation-config.local.yml.sample",
-        "product-evals.local.yml.sample",
-        "project-impact.json"
+        ".ai-dev-team/local/evals.yml.sample",
+        ".ai-dev-team/local/knowledge-evaluation.yml.sample",
+        ".ai-dev-team/local/product-evals.yml.sample",
+        ".ai-dev-team/project-verification.json",
+        ".ai-dev-team/project-impact.json"
       ],
       "checks": ["ai-setup-apm", "ai-audit-project"],
       "review_stages": ["repository", "assurance"]
