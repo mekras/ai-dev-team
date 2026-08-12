@@ -5,58 +5,58 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/odcm/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/source/item.yml
+  workflow_stage: normalized
+  path: items/source
 - id: ODCM-licenses
   source_id: ODCM
   title: 'ODCM: licenses'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/odcm/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
+  workflow_stage: source_checked
   url: https://opendatacommons.org/licenses/
-  path: items/licenses/item.yml
+  path: items/licenses
 - id: ODCM-odbl
   source_id: ODCM
   title: 'ODCM: odbl'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/odcm/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
+  workflow_stage: source_checked
   url: https://opendatacommons.org/licenses/odbl/
-  path: items/odbl/item.yml
+  path: items/odbl
 - id: ODCM-by
   source_id: ODCM
   title: 'ODCM: by'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/odcm/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
+  workflow_stage: fetched
   url: https://opendatacommons.org/licenses/by/
-  path: items/by/item.yml
+  path: items/by
 - id: ODCM-pddl
   source_id: ODCM
   title: 'ODCM: pddl'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/odcm/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
+  workflow_stage: fetched
   url: https://opendatacommons.org/licenses/pddl/
-  path: items/pddl/item.yml
+  path: items/pddl
 - id: ODCM-faq-licenses
   source_id: ODCM
   title: 'ODCM: faq-licenses'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/odcm/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
+  workflow_stage: source_checked
   url: https://opendatacommons.org/faq/licenses/
-  path: items/faq-licenses/item.yml
+  path: items/faq-licenses
 - id: ODCM-primary-ODCM-page-index.tsv
   source_id: ODCM
   title: 'ODCM: page-index.tsv'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/odcm/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/primary-odcm-page-index.tsv/item.yml
+  workflow_stage: source_checked
+  path: items/primary-odcm-page-index.tsv

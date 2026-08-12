@@ -1,0 +1,33 @@
+statement_contract_version: 2
+source_id: SPDX
+item_id: SPDX-license-expressions
+statements:
+  - id: SPDX-006
+    source_id: SPDX
+    item_id: SPDX-license-expressions
+    kind: limitation
+    text: >-
+      Нормализованный снимок страницы выражений SPDX содержит только
+      перенаправление, поэтому он не пригоден для извлечения правил выражений.
+    excerpt: Redirecting to
+    artifact: normalized.md
+    checked_at: "2026-08-12"
+    checked_by: primary-agent
+    locator: вся нормализованная страница
+    scope:
+      applies_to: [этот снимок страницы]
+      does_not_apply_to: [целевой документ версии 3.0.1]
+    processing_status:
+      extraction: complete
+      traceability: passed
+      semantic_review: passed
+      strong_review: not_required
+      corroboration_check: complete
+    source_role: primary
+    evidence_strength: weak
+    confidence: high
+    temporal_status: current
+    corroboration: not_applicable
+    limitations:
+      - Для содержательных утверждений нужен снимок целевой страницы.
+    open_questions: []

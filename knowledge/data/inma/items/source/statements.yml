@@ -1,0 +1,32 @@
+statement_contract_version: 2
+source_id: INMA
+item_id: INMA-source
+statements:
+  - id: INMA-029
+    source_id: INMA
+    item_id: INMA-source
+    kind: limitation
+    text: >-
+      Обзорный слой книги не подтверждает полное извлечение: карта охвата
+      отмечает ещё не обработанные части.
+    excerpt: Карта охвата показывает незавершённую обработку.
+    artifact: normalized-source.md
+    checked_at: "2026-08-12"
+    checked_by: primary-agent
+    locator: раздел «Ограничения»
+    scope:
+      applies_to: [полнота извлечения по книге]
+      does_not_apply_to: [ранее обработанные фрагменты]
+    processing_status:
+      extraction: complete
+      traceability: passed
+      semantic_review: passed
+      strong_review: not_required
+      corroboration_check: complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: unknown
+    corroboration: single_source
+    limitations: [Карта охвата содержит отложенные части книги.]
+    open_questions: []

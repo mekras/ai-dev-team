@@ -1,0 +1,32 @@
+statement_contract_version: 2
+source_id: WTDG
+item_id: WTDG-writing-mindshare
+statements:
+  - id: WTDG-085
+    source_id: WTDG
+    item_id: WTDG-writing-mindshare
+    kind: fact
+    text: >-
+      Структура документации должна давать пользователю ответ на вопрос, куда
+      поместить материал.
+    excerpt: You need to have an answer to the “Where do I put it?” question.
+    artifact: normalized.md
+    checked_at: "2026-08-12"
+    checked_by: primary-agent
+    locator: раздел Build a taxonomy
+    scope:
+      applies_to: [таксономия документации]
+      does_not_apply_to: [отсутствие правил размещения]
+    processing_status:
+      extraction: complete
+      traceability: passed
+      semantic_review: passed
+      strong_review: not_required
+      corroboration_check: complete
+    source_role: secondary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations: []
+    open_questions: []

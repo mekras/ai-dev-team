@@ -6,15 +6,15 @@ items:
       knowledge/source-attribution.md."
     status: candidate
     workflow_stage: source_checked
-    path: items/source/item.yml
+    path: items/source
   - id: IMPD-repository
     source_id: IMPD
     title: "IMPD: репозиторий Impeccable"
     access: "Внешний публичный репозиторий; получать точечно по запросу."
     status: candidate
-    workflow_stage: statements_extracted
+    workflow_stage: source_checked
     url: "https://github.com/pbakaus/impeccable"
-    path: items/repository/item.yml
+    path: items/repository
   - id: IMPD-docs
     source_id: IMPD
     title: "IMPD: документация Impeccable"
@@ -22,4 +22,4 @@ items:
     status: candidate
     workflow_stage: source_checked
     url: "https://impeccable.style/docs/impeccable/"
-    path: items/docs/item.yml
+    path: items/docs

@@ -1,0 +1,33 @@
+statement_contract_version: 2
+source_id: XEM7
+item_id: XEM7-article
+statements:
+  - id: XEM7-006
+    source_id: XEM7
+    item_id: XEM7-article
+    kind: limitation
+    text: >-
+      Снимок статьи X не содержит её текста, поскольку страница требует
+      JavaScript. Содержательные утверждения по нему не извлечены.
+    excerpt: JavaScript is not available.
+    artifact: normalized.md
+    checked_at: "2026-08-12"
+    checked_by: primary-agent
+    locator: вся нормализованная страница
+    scope:
+      applies_to: [этот снимок страницы]
+      does_not_apply_to: [содержимое исходной статьи]
+    processing_status:
+      extraction: complete
+      traceability: passed
+      semantic_review: passed
+      strong_review: not_required
+      corroboration_check: complete
+    source_role: primary
+    evidence_strength: weak
+    confidence: high
+    temporal_status: current
+    corroboration: not_applicable
+    limitations:
+      - Для извлечения нужен разрешённый способ получить текст статьи.
+    open_questions: []

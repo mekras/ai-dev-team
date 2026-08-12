@@ -21,7 +21,7 @@ access:
 reliability: vendor
 stability: mutable
 refresh_policy: manual
-last_checked_at: "2026-08-05"
+last_checked_at: "2026-08-12"
 scope:
   includes: ["модель угроз ИИ", "кибербезопасность ИИ"]
   excludes: ["содержательные утверждения без официальной полной версии"]
@@ -34,3 +34,5 @@ processing_notes:
     него сайт отдаёт страницу блокировки WAF (code=user_blocked) вместо
     содержания. Две разные автоматические попытки доступа зафиксированы
     в knowledge/data/sbmt/items/source/item.yml."
+  - "2026-08-12: системный сертификат проходит TLS, но WAF возвращает
+    JavaScript-защиту вместо статьи. Владелец отложил обработку источника."

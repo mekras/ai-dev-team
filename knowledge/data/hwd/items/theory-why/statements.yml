@@ -1,0 +1,47 @@
+statements:
+- id: HWD-039
+  source_id: HWD
+  item_id: HWD-theory-why
+  kind: fact
+  status: ready_for_review
+  text: В приведённом источником опросе GitHub 2017 года неполная или устаревшая
+    документация названа проблемой для 93 % респондентов.
+  excerpt: Неполная или устаревшая документация является широко распространенной
+    проблемой, наблюдаемой 93% респондентов.
+  artifact: why.rst
+  checked_at: 2026-08-11
+  scope:
+    section_title: Главная проблема
+    application: оценка значимости документации.
+  open_questions: []
+- id: HWD-040
+  source_id: HWD
+  item_id: HWD-theory-why
+  kind: fact
+  status: ready_for_review
+  text: Документация снижает риск утраты незаписанных знаний при выбытии
+    участников команды.
+  excerpt: Наличие хорошей документации позволяет ощутимо снизить влияние
+    фактора кирпича на развитие продукта.
+  artifact: why.rst
+  checked_at: 2026-08-11
+  scope:
+    section_title: Борьба с фактором кирпича
+    application: сохранение знаний команды.
+  open_questions: []
+- id: HWD-041
+  source_id: HWD
+  item_id: HWD-theory-why
+  kind: observation
+  status: ready_for_review
+  text: Источник рассматривает структурированную документацию с примерами и
+    руководствами как конкурентное преимущество продукта при сходной
+    функциональности.
+  excerpt: При прочих равных выбор всегда будет в пользу хорошо
+    документированного продукта.
+  artifact: why.rst
+  checked_at: 2026-08-11
+  scope:
+    section_title: Конкурентное преимущество
+    application: оценка ценности документации.
+  open_questions: []

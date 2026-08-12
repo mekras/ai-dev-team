@@ -5,49 +5,49 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/spdx/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/source/item.yml
+  workflow_stage: source_checked
+  path: items/source
 - id: SPDX-licenses
   source_id: SPDX
   title: 'SPDX: licenses'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/spdx/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
+  workflow_stage: source_checked
   url: https://spdx.org/licenses/
-  path: items/licenses/item.yml
+  path: items/licenses
 - id: SPDX-exceptions-index
   source_id: SPDX
   title: 'SPDX: exceptions-index'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/spdx/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
+  workflow_stage: fetched
   url: https://spdx.org/licenses/exceptions-index.html
-  path: items/exceptions-index/item.yml
+  path: items/exceptions-index
 - id: SPDX-license-expressions
   source_id: SPDX
   title: 'SPDX: license-expressions'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/spdx/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
+  workflow_stage: fetched
   url: https://spdx.github.io/spdx-spec/latest/annexes/spdx-license-expressions/
-  path: items/license-expressions/item.yml
+  path: items/license-expressions
 - id: SPDX-matching-guidelines
   source_id: SPDX
   title: 'SPDX: matching-guidelines'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/spdx/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
+  workflow_stage: source_checked
   url: https://spdx.github.io/spdx-spec/latest/annexes/license-matching-guidelines-and-templates/
-  path: items/matching-guidelines/item.yml
+  path: items/matching-guidelines
 - id: SPDX-primary-SPDX-page-index.tsv
   source_id: SPDX
   title: 'SPDX: page-index.tsv'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/spdx/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/primary-spdx-page-index.tsv/item.yml
+  workflow_stage: source_checked
+  path: items/primary-spdx-page-index.tsv

@@ -1,0 +1,29 @@
+statements:
+- id: HWD-033
+  source_id: HWD
+  item_id: HWD-guides-product-api
+  kind: fact
+  status: ready_for_review
+  text: Справочник API должен давать разработчикам сведения, необходимые для
+    успешного использования API.
+  excerpt: предоставить разработчикам все необходимые сведения для успешного
+    использования API.
+  artifact: api.rst
+  checked_at: 2026-08-11
+  scope:
+    section_title: Назначение
+    application: подготовка справочника API.
+  open_questions: []
+- id: HWD-034
+  source_id: HWD
+  item_id: HWD-guides-product-api
+  kind: fact
+  status: ready_for_review
+  text: Вид API служит главным фактором выбора формата его описания.
+  excerpt: Это главный фактор, определяющий возможные форматы.
+  artifact: api.rst
+  checked_at: 2026-08-11
+  scope:
+    section_title: Вид API
+    application: выбор формата документации API.
+  open_questions: []

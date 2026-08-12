@@ -2,12 +2,8 @@ id: ISOA-source
 title: "ISO: обзор стандартов ИИ"
 url: "https://www.iso.org/standard/42001"
 access: "Внешний источник. Полный текст получать только после проверки права доступа."
-status: candidate
-workflow_stage: blocked
-blocker_code: publication_not_permitted
-blocker_reason: >-
-  Условия ISO запрещают использовать материалы организации средствами ИИ без
-  отдельного разрешения.
+status: approved
+workflow_stage: source_checked
 processing_scope: metadata_only
 retrieval_mode: on_demand
 copy_policy: no_bulk_copy
@@ -19,3 +15,4 @@ known_limitations: ["Статус и доступность каждой ред�
 processing_notes:
   - "2026-07-29 содержательная обработка остановлена до получения отдельного
     разрешения ISO."
+  - "2026-08-12 пользователь подтвердил, что разрешения не будет."

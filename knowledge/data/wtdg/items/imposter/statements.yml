@@ -1,0 +1,35 @@
+statement_contract_version: 2
+source_id: WTDG
+item_id: WTDG-imposter
+statements:
+  - id: WTDG-079
+    source_id: WTDG
+    item_id: WTDG-imposter
+    kind: fact
+    text: >-
+      Техническому писателю следует синтезировать знания участников продукта в
+      форме, полезной пользователям, а не стремиться знать всё.
+    excerpt: >-
+      Your role isn’t to know everything, but to synthesise the knowledge of
+      everyone working on your product in form that is of most benefit to your
+      users.
+    artifact: normalized.md
+    checked_at: "2026-08-12"
+    checked_by: primary-agent
+    locator: раздел Dealing with knowledge gaps
+    scope:
+      applies_to: [роль технического писателя]
+      does_not_apply_to: [полнота предметных знаний одного автора]
+    processing_status:
+      extraction: complete
+      traceability: passed
+      semantic_review: passed
+      strong_review: not_required
+      corroboration_check: complete
+    source_role: secondary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations: []
+    open_questions: []

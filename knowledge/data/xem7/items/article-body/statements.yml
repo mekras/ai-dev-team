@@ -1,0 +1,35 @@
+statement_contract_version: 2
+source_id: XEM7
+item_id: XEM7-article-body
+statements:
+  - id: XEM7-008
+    source_id: XEM7
+    item_id: XEM7-article-body
+    kind: limitation
+    text: >-
+      Публичный манифест локального снимка статьи не заменяет её полный текст
+      и не служит основанием для содержательных утверждений.
+    excerpt: >-
+      Этот файл не заменяет локальный полный снимок и не должен использоваться
+      как его содержательный пересказ.
+    artifact: index.md
+    checked_at: "2026-08-12"
+    checked_by: primary-agent
+    locator: раздел «Ограничения»
+    scope:
+      applies_to: [публичный манифест локального снимка]
+      does_not_apply_to: [локальный полный снимок]
+    processing_status:
+      extraction: complete
+      traceability: passed
+      semantic_review: passed
+      strong_review: not_required
+      corroboration_check: complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: not_applicable
+    limitations:
+      - Полный текст не публикуется в Git без отдельного правового основания.
+    open_questions: []

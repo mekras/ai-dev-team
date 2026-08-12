@@ -1,0 +1,34 @@
+statement_contract_version: 2
+source_id: INMA
+item_id: INMA-text
+statements:
+  - id: INMA-030
+    source_id: INMA
+    item_id: INMA-text
+    kind: limitation
+    text: >-
+      Дальнейшее извлечение из полной выгрузки книги требует опоры на карту
+      охвата, поскольку источник длинный.
+    excerpt: >-
+      Дальнейшее извлечение утверждений требует карты охвата разделов, поскольку
+      это длинный источник.
+    artifact: normalized.md
+    checked_at: "2026-08-12"
+    checked_by: primary-agent
+    locator: заключительный абзац
+    scope:
+      applies_to: [дальнейшее извлечение из полной книги]
+      does_not_apply_to: [локальная выгрузка без карты охвата]
+    processing_status:
+      extraction: complete
+      traceability: passed
+      semantic_review: passed
+      strong_review: not_required
+      corroboration_check: complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: unknown
+    corroboration: single_source
+    limitations: [Полный текст не публикуется в Git.]
+    open_questions: []

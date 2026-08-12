@@ -4,21 +4,21 @@ items:
     title: "Conventional Commits 1.0.0: обзор источника"
     access: Внешний публичный источник; использовать точечно.
     status: approved
-    workflow_stage: statements_extracted
-    path: items/source/item.yml
+    workflow_stage: source_checked
+    path: items/source
   - id: CCMT-specification
     source_id: CCMT
     title: "Conventional Commits 1.0.0: спецификация"
     access: Внешний публичный источник; сохранён краткий нормализованный обзор.
     status: approved
-    workflow_stage: statements_extracted
+    workflow_stage: source_checked
     url: https://www.conventionalcommits.org/en/v1.0.0/
-    path: items/specification/item.yml
+    path: items/specification
   - id: CCMT-ecosystem
     source_id: CCMT
     title: "Conventional Commits: экосистема"
     access: Внешний публичный источник; сохранён краткий нормализованный обзор.
     status: approved
-    workflow_stage: statements_extracted
+    workflow_stage: source_checked
     url: https://www.conventionalcommits.org/en/about/
-    path: items/ecosystem/item.yml
+    path: items/ecosystem

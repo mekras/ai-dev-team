@@ -1,0 +1,35 @@
+statement_contract_version: 2
+source_id: WTDG
+item_id: WTDG-writing-reStructuredText
+statements:
+  - id: WTDG-086
+    source_id: WTDG
+    item_id: WTDG-writing-reStructuredText
+    kind: fact
+    text: >-
+      reStructuredText — лёгкий язык разметки, применяемый в генераторах
+      статических сайтов, например Sphinx.
+    excerpt: >-
+      reStructuredText is a lightweight markup language, so it’s easier to read
+      in plain-text format compared to heavier markup languages like DITA and
+      other XML-based formats.
+    artifact: normalized.md
+    checked_at: "2026-08-12"
+    checked_by: primary-agent
+    locator: раздел What is reStructuredText?
+    scope:
+      applies_to: [reStructuredText]
+      does_not_apply_to: [все языки разметки]
+    processing_status:
+      extraction: complete
+      traceability: passed
+      semantic_review: passed
+      strong_review: not_required
+      corroboration_check: complete
+    source_role: secondary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations: []
+    open_questions: []

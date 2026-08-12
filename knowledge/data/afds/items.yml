@@ -6,12 +6,12 @@ items:
       knowledge/source-attribution.md."
     status: approved
     workflow_stage: source_checked
-    path: items/source/item.yml
+    path: items/source
   - id: AFDS-skill
     source_id: AFDS
     title: "AFDS: frontend-design SKILL.md"
     access: "Внешний публичный файл; получать точечно по запросу."
     status: approved
-    workflow_stage: statements_extracted
+    workflow_stage: source_checked
     url: "https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md"
-    path: items/skill/item.yml
+    path: items/skill

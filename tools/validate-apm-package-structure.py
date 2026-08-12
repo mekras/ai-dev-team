@@ -59,6 +59,7 @@ REQUIRED_SKILLS = {
     "ait-readme",
     "ait-reconstructability",
     "ait-reliability",
+    "ait-sdd",
     "ait-req-analysis",
     "ait-req-elicitation",
     "ait-req-management",
@@ -807,6 +808,50 @@ def check_reconstructability_contract() -> None:
                 )
 
 
+def check_persistent_sdd_contract() -> None:
+    required_markers = {
+        "docs/05-requirements/functional/ft-38.md": (
+            "`specification_change`",
+            "`implementation_correction`",
+            "`verified_no_spec_impact`",
+            "`exception`",
+            "считывается в новой сессии",
+        ),
+        ".apm/skills/ait-sdd/SKILL.md": (
+            "До изменения производного артефакта",
+            "Не подгоняй правильную спецификацию под ошибочную реализацию",
+            "Через `ai-setup-hooks` предлагай только проверки наблюдаемых",
+        ),
+        ".apm/skills/ait-routing/SKILL.md": (
+            "поле `setup.sdd`. При `status: adopted`",
+            "включи `ait-sdd` до реализации",
+        ),
+        ".apm/skills/ait-setup/SKILL.md": (
+            "для принятого режима сохрани `status: adopted`",
+            "применяла `ait-sdd` без повторного выбора подхода",
+        ),
+        ".apm/skills/ait-setup/assets/minimal-files.md": (
+            "sdd:",
+            "status: adopted",
+            "specification_paths:",
+        ),
+        ".apm/skills/ait-sdd/evals/result-scenarios.json": (
+            "ait-sdd-result-behavior-change-before-code",
+            "ait-sdd-result-bug-keeps-correct-spec",
+            "ait-sdd-result-emergency-exception",
+        ),
+    }
+    for relative_path, markers in required_markers.items():
+        path = ROOT / relative_path
+        text = path.read_text(encoding="utf-8")
+        for marker in markers:
+            if marker not in text:
+                fail(
+                    f"{relative_path} is missing persistent SDD marker "
+                    f"{marker!r}",
+                )
+
+
 def check_connection_effort_contract() -> None:
     required_markers = {
         "docs/05-requirements/quality/kach-1.md": (
@@ -905,7 +950,7 @@ def check_codex_routing_reachability() -> None:
     for marker in required_markers:
         if marker not in text:
             fail(f"compiled Codex AGENTS.md is missing routing loader {marker!r}")
-    if "## Передача результата" in text:
+    if "\n## Обязательный первый ответ\n" in text:
         fail("compiled Codex AGENTS.md contains the routing protocol instead of a loader")
 
 
@@ -1140,7 +1185,7 @@ def check_knowledge_basis_contract() -> None:
         "docs/05-requirements/rules/pr-4.md": (
             "Значимым считается изменение",
             "Формального сообщения",
-            "validate-knowledge-operational.py",
+            "контроль блокеров доступа",
         ),
         ".apm/agents/project-manager.agent.md": (
             "Проверка основания в корпусе знаний",
@@ -2150,6 +2195,7 @@ def main() -> None:
     check_requirements_elicitation_contract()
     check_twelve_factor_contract()
     check_reconstructability_contract()
+    check_persistent_sdd_contract()
     check_connection_effort_contract()
     check_portability_contract()
     check_codex_routing_reachability()

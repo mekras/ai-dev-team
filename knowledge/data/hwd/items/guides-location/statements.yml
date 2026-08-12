@@ -1,0 +1,30 @@
+statements:
+- id: HWD-031
+  source_id: HWD
+  item_id: HWD-guides-location
+  kind: fact
+  status: ready_for_review
+  text: Выбор места хранения документации следует делать с учётом аудитории
+    читателей.
+  excerpt: Осознанный выбор места хранения документации возможен только после
+    того, как вы определились с читательской аудиторией.
+  artifact: location.rst
+  checked_at: 2026-08-11
+  scope:
+    section_title: Внутренние читатели
+    application: выбор хранилища документации.
+  open_questions: []
+- id: HWD-032
+  source_id: HWD
+  item_id: HWD-guides-location
+  kind: fact
+  status: ready_for_review
+  text: Документацию к исходному коду для команды продукта рекомендуется хранить
+    рядом с кодом в системе управления версиями.
+  excerpt: размещайте как можно ближе к коду.
+  artifact: location.rst
+  checked_at: 2026-08-11
+  scope:
+    section_title: Команда продукта
+    application: размещение технической документации.
+  open_questions: []

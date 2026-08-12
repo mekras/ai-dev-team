@@ -1,0 +1,106 @@
+# Операционный контур корпуса знаний.
+#
+# Механические очереди выполняются проектными командами: их результат выводится
+# из данных без смыслового решения. Смысловые очереди остаются за агентом и
+# профильными навыками kc-*, потому что их результат требует суждения.
+#
+# Исполнители механических очередей:
+#   traceability      — tools/check-knowledge-index.py
+#   source_check      — tools/check-knowledge-sources.py
+#   corpus_validation — tools/validate-knowledge-operational.py
+#   fetch             — остаётся ручной, см. пояснение ниже
+#   transcribe        — исполнителя нет, аудио- и видеоисточников в корпусе нет
+#
+# Смысловые очереди без команды: content_selection, normalize, statements,
+# semantic_review, strong_review, corroboration, concepts, impact_audit,
+# apply_changes. Их ведёт агент через навыки kc-* по маршруту kc-pipeline.
+#
+# Очередь получения материала (fetch) не автоматизирована намеренно: у всех
+# источников способ получения указан как ручной, большинство хранится по
+# стратегии внешней ссылки или точечного получения, а часть запрещает массовое
+# копирование. Общий загрузчик нарушил бы эти ограничения.
+
+operations_version: 1
+
+report:
+  path: .local/reports/corpus-operations.md
+
+run_state:
+  path: .local/state/corpus-pipeline.json
+
+human_attention:
+  max_active_groups: 20
+
+normalized_artifacts:
+  - normalized.md
+  - message.md
+  - stenogram.txt
+
+stages:
+  # Сверка производных указателей с отслеживаемыми данными. Пересборку
+  # выполняет переносимое средство kc-pipeline, скрипт только вызывает его и
+  # сравнивает результат. Средство считает пути от текущего каталога, поэтому
+  # вызывается с рабочим каталогом в корне корпуса: валидатор раскладки
+  # kc-inventory ожидает пути относительно корня корпуса.
+  #
+  # По умолчанию проверка ничего не оставляет в рабочем дереве. Пересборка
+  # выполняется тем же скриптом с --write и пишет только в knowledge/index.
+  traceability:
+    commands:
+      - id: check-corpus-index
+        argv: [python3, tools/check-knowledge-index.py]
+        working_directory: .
+        write_paths: []
+        required: true
+
+  # Проверка публичных адресов источников. Требует сети, поэтому запуск без
+  # доступа в сеть не останавливает проход.
+  source_check:
+    commands:
+      - id: check-source-locators
+        argv: [python3, tools/check-knowledge-sources.py]
+        working_directory: .
+        write_paths: [.local/reports]
+        required: false
+
+  # Канонический аппарат проверяется после закрытия первичных очередей.
+  # Содержательную сверку выполняет агент через kc-concepts, а команда защищает
+  # машиночитаемые ссылки и договор слоя.
+  concepts:
+    commands:
+      - id: validate-corpus-concepts
+        argv:
+          - python3
+          - .agents/skills/kc-inventory/scripts/validate-corpus-layout.py
+          - knowledge
+          - --strict-concepts
+        working_directory: .
+        write_paths: [.local/reports]
+        required: true
+
+  # Содержательный аудит влияния ведёт агент через kc-impact-audit. Тест графа
+  # подтверждает, что его техническая основа остаётся исполнимой.
+  impact_audit:
+    commands:
+      - id: test-project-impact-graph
+        argv: [python3, -B, tools/test_impact_graph.py]
+        working_directory: .
+        write_paths: [.local/reports]
+        required: true
+
+  # Перед итоговой проверкой сверяется производный индекс корпуса.
+  apply_changes:
+    commands:
+      - id: check-corpus-index
+        argv: [python3, tools/check-knowledge-index.py, --write]
+        working_directory: .
+        write_paths: [knowledge/index]
+        required: true
+
+  corpus_validation:
+    commands:
+      - id: validate-corpus
+        argv: [python3, tools/validate-knowledge-operational.py]
+        working_directory: .
+        write_paths: [.local/reports]
+        required: true

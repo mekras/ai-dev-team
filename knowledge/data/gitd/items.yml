@@ -4,13 +4,13 @@ items:
     title: "Git: обзор документации"
     access: Внешний публичный источник; использовать точечно.
     status: approved
-    workflow_stage: statements_extracted
-    path: items/source/item.yml
+    workflow_stage: source_checked
+    path: items/source
   - id: GITD-commit-message-support
     source_id: GITD
     title: "Git: средства подготовки и проверки сообщений"
     access: Внешний публичный источник; сохранён краткий нормализованный обзор.
     status: approved
-    workflow_stage: statements_extracted
+    workflow_stage: source_checked
     url: https://git-scm.com/docs/githooks
-    path: items/commit-message-support/item.yml
+    path: items/commit-message-support

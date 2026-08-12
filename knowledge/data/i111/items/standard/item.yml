@@ -6,15 +6,12 @@ date_published: "2023-01"
 access: >-
   Только библиографические метаданные. Содержимое предназначено для проверки
   человеком при наличии разрешённого доступа.
-status: candidate
-workflow_stage: blocked
-blocker_code: publication_not_permitted
-action_required: >-
-  Предоставить письменное разрешение ISO на обработку содержимого средствами
-  ИИ, если требуется извлечение утверждений.
+status: approved
+workflow_stage: source_checked
 automatic_attempts:
   - Проверены официальные условия ISO.
   - Выбран режим хранения только библиографических метаданных.
+  - Пользователь подтвердил, что письменного разрешения ISO не будет.
 processing_scope: metadata_only
 retrieval_mode: blocked
 copy_policy: metadata_only

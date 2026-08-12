@@ -1,0 +1,34 @@
+statement_contract_version: 2
+source_id: WTDG
+item_id: WTDG-ux-writing
+statements:
+  - id: WTDG-081
+    source_id: WTDG
+    item_id: WTDG-ux-writing
+    kind: fact
+    text: >-
+      UX-письмо создаёт видимый пользователю текст интерфейса, например кнопки,
+      подписи и сообщения об ошибках.
+    excerpt: >-
+      UX writing is the practice of creating text that users see in the interface
+      of a software, e.g. buttons, labels, error messages, etc
+    artifact: normalized.md
+    checked_at: "2026-08-12"
+    checked_by: primary-agent
+    locator: вводный абзац
+    scope:
+      applies_to: [текст программного интерфейса]
+      does_not_apply_to: [внутренняя техническая документация]
+    processing_status:
+      extraction: complete
+      traceability: passed
+      semantic_review: passed
+      strong_review: not_required
+      corroboration_check: complete
+    source_role: secondary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations: []
+    open_questions: []

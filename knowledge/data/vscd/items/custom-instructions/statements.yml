@@ -1,0 +1,34 @@
+statement_contract_version: 2
+source_id: VSCD
+item_id: VSCD-custom-instructions
+statements:
+  - id: VSCD-006
+    source_id: VSCD
+    item_id: VSCD-custom-instructions
+    kind: fact
+    text: >-
+      VS Code добавляет все файлы пользовательских инструкций проекта в контекст
+      чата без гарантированного порядка.
+    excerpt: >-
+      If you have multiple instruction files in your project, VS Code combines
+      and adds them to the chat context, no specific order is guaranteed.
+    artifact: normalized.md
+    checked_at: "2026-08-12"
+    checked_by: primary-agent
+    locator: раздел Types of instruction files
+    scope:
+      applies_to: [несколько файлов инструкций VS Code]
+      does_not_apply_to: [порядок отдельных инструкций]
+    processing_status:
+      extraction: complete
+      traceability: passed
+      semantic_review: passed
+      strong_review: not_required
+      corroboration_check: complete
+    source_role: primary
+    evidence_strength: strong
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations: []
+    open_questions: []

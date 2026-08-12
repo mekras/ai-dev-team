@@ -4,22 +4,22 @@ items:
     title: Реестр операторов персональных данных
     access: Внешний публичный портал Роскомнадзора.
     status: approved
-    workflow_stage: statements_extracted
+    workflow_stage: source_checked
     url: https://pd.rkn.gov.ru/operators-registry/
-    path: items/registry/item.yml
+    path: items/registry
   - id: RKN-incidents
     source_id: RKN
     title: Уведомление об инциденте с персональными данными
     access: Внешний публичный портал Роскомнадзора.
     status: approved
-    workflow_stage: statements_extracted
+    workflow_stage: source_checked
     url: https://pd.rkn.gov.ru/incidents/
-    path: items/incidents/item.yml
+    path: items/incidents
   - id: RKN-cross-border
     source_id: RKN
     title: Трансграничная передача персональных данных
     access: Внешний публичный портал Роскомнадзора.
     status: approved
-    workflow_stage: statements_extracted
+    workflow_stage: source_checked
     url: https://pd.rkn.gov.ru/cross-border-transmission/
-    path: items/cross-border/item.yml
+    path: items/cross-border

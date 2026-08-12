@@ -1,0 +1,34 @@
+statement_contract_version: 2
+source_id: WTDG
+item_id: WTDG-tools
+statements:
+  - id: WTDG-080
+    source_id: WTDG
+    item_id: WTDG-tools
+    kind: fact
+    text: >-
+      Sphinx преобразует reStructuredText и Markdown через MyST Parser в HTML,
+      PDF и другие форматы.
+    excerpt: >-
+      It converts reStructuredText (and Markdown via MyST Parser) into HTML,
+      PDF, and other formats.
+    artifact: normalized.md
+    checked_at: "2026-08-12"
+    checked_by: primary-agent
+    locator: раздел Sphinx
+    scope:
+      applies_to: [генератор документации Sphinx]
+      does_not_apply_to: [все генераторы документации]
+    processing_status:
+      extraction: complete
+      traceability: passed
+      semantic_review: passed
+      strong_review: not_required
+      corroboration_check: complete
+    source_role: secondary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations: []
+    open_questions: []

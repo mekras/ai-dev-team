@@ -99,6 +99,27 @@ setup:
 `status: declined`. Поле `applied_version` добавляй после завершённого
 пересмотра проекта под конкретную версию `ai-dev-team`.
 
+После явного решения о разработке на основе спецификаций добавь в `setup`
+отдельный блок. Не включай его в профиль проекта:
+
+```yaml
+  sdd:
+    status: adopted
+    level: aligned
+    scope: [product-behavior, external-contracts]
+    specification_paths: [docs/requirements/**]
+    derived_paths: [src/**, tests/**]
+    change_record:
+      path_pattern: docs/changes/<change-id>.md
+    approval: before-implementation
+    exception_policy: docs/operations/sdd-exceptions.md
+    review_condition: repeated-false-blocks-or-excessive-maintenance-cost
+```
+
+Используй фактические пути и область проекта. Для явного отказа достаточно
+`status: declined`. Для временной остановки укажи `status: suspended`, причину и
+условие возобновления.
+
 ## project-impact.json
 
 Используй `ait-impact-analysis/assets/project-impact-template.json` как

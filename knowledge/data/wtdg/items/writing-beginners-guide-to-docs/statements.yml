@@ -1,0 +1,30 @@
+statement_contract_version: 2
+source_id: WTDG
+item_id: WTDG-writing-beginners-guide-to-docs
+statements:
+  - id: WTDG-083
+    source_id: WTDG
+    item_id: WTDG-writing-beginners-guide-to-docs
+    kind: fact
+    text: Пользователям следует дать нужную информацию, но не слишком много.
+    excerpt: Give users the information they need, but not too much.
+    artifact: normalized.md
+    checked_at: "2026-08-12"
+    checked_by: primary-agent
+    locator: раздел What to include in software documentation
+    scope:
+      applies_to: [объём пользовательской документации]
+      does_not_apply_to: [сокрытие необходимой информации]
+    processing_status:
+      extraction: complete
+      traceability: passed
+      semantic_review: passed
+      strong_review: not_required
+      corroboration_check: complete
+    source_role: secondary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations: []
+    open_questions: []

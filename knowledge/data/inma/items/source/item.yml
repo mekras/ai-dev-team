@@ -3,10 +3,11 @@ source_id: INMA
 title: 'INMA: обзор источника'
 access: Смотри карточку единицы и связанные артефакты в knowledge/data/inma/ и общие ограничения в knowledge/source-attribution.md.
 status: approved
-workflow_stage: normalized
+workflow_stage: source_checked
 files:
   tracked:
   - source.md
   - page-index.tsv
   - normalized-source.md
   - ../../source-map.yml
+  - statements.yml

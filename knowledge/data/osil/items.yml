@@ -5,14 +5,14 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/osil/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/source/item.yml
+  workflow_stage: source_checked
+  path: items/source
 - id: OSIL-licenses
   source_id: OSIL
   title: 'OSIL: licenses'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/osil/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
+  workflow_stage: source_checked
   url: https://opensource.org/licenses
-  path: items/licenses/item.yml
+  path: items/licenses

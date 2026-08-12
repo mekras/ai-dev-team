@@ -5,8 +5,8 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/source/item.yml
+  workflow_stage: source_checked
+  path: items/source
 - id: WTDG-about
   source_id: WTDG
   title: About Write the Docs — Write the Docs
@@ -14,8 +14,8 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/about/item.yml
+  workflow_stage: source_checked
+  path: items/about
 - id: WTDG-choosing-tools
   source_id: WTDG
   title: Choosing tools for documentation — Write the Docs
@@ -23,8 +23,8 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/choosing-tools/item.yml
+  workflow_stage: fetched
+  path: items/choosing-tools
 - id: WTDG-contributing
   source_id: WTDG
   title: Contributing to the Write the Docs guide — Write the Docs
@@ -32,8 +32,8 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/contributing/item.yml
+  workflow_stage: source_checked
+  path: items/contributing
 - id: WTDG-imposter
   source_id: WTDG
   title: Conquering imposter syndrome — Write the Docs
@@ -41,8 +41,8 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/imposter/item.yml
+  workflow_stage: fetched
+  path: items/imposter
 - id: WTDG-seo
   source_id: WTDG
   title: Search engine optimization (SEO) for documentation — Write the Docs
@@ -50,8 +50,8 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/seo/item.yml
+  workflow_stage: source_checked
+  path: items/seo
 - id: WTDG-starting
   source_id: WTDG
   title: 'Getting started: documentation best practices for developers — Write the
@@ -60,8 +60,8 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/starting/item.yml
+  workflow_stage: source_checked
+  path: items/starting
 - id: WTDG-tools
   source_id: WTDG
   title: Tools for documentation writing — Write the Docs
@@ -69,8 +69,8 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/tools/item.yml
+  workflow_stage: fetched
+  path: items/tools
 - id: WTDG-ux-writing
   source_id: WTDG
   title: UX writing — Write the Docs
@@ -78,8 +78,8 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/ux-writing/item.yml
+  workflow_stage: fetched
+  path: items/ux-writing
 - id: WTDG-writing-accessibility
   source_id: WTDG
   title: 'Accessibility guidelines: for writing and beyond — Write the Docs'
@@ -87,8 +87,8 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/writing-accessibility/item.yml
+  workflow_stage: fetched
+  path: items/writing-accessibility
 - id: WTDG-writing-asciidoc
   source_id: WTDG
   title: Introduction to AsciiDoc — Write the Docs
@@ -96,8 +96,8 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/writing-asciidoc/item.yml
+  workflow_stage: source_checked
+  path: items/writing-asciidoc
 - id: WTDG-writing-beginners-guide-to-docs
   source_id: WTDG
   title: How to write software documentation — Write the Docs
@@ -105,8 +105,8 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/writing-beginners-guide-to-docs/item.yml
+  workflow_stage: fetched
+  path: items/writing-beginners-guide-to-docs
 - id: WTDG-writing-docs-principles
   source_id: WTDG
   title: Documentation principles — Write the Docs
@@ -114,8 +114,8 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/writing-docs-principles/item.yml
+  workflow_stage: fetched
+  path: items/writing-docs-principles
 - id: WTDG-writing-markdown
   source_id: WTDG
   title: Introduction to Markdown — Write the Docs
@@ -123,8 +123,8 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/writing-markdown/item.yml
+  workflow_stage: source_checked
+  path: items/writing-markdown
 - id: WTDG-writing-mindshare
   source_id: WTDG
   title: Building documentation mindshare in a company — Write the Docs
@@ -132,8 +132,8 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/writing-mindshare/item.yml
+  workflow_stage: fetched
+  path: items/writing-mindshare
 - id: WTDG-writing-reStructuredText
   source_id: WTDG
   title: Introduction to reStructuredText — Write the Docs
@@ -141,8 +141,8 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/writing-restructuredtext/item.yml
+  workflow_stage: fetched
+  path: items/writing-restructuredtext
 - id: WTDG-writing-reducing-bias
   source_id: WTDG
   title: Reducing bias in your writing — Write the Docs
@@ -150,8 +150,8 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/writing-reducing-bias/item.yml
+  workflow_stage: fetched
+  path: items/writing-reducing-bias
 - id: WTDG-writing-style-guides
   source_id: WTDG
   title: Style Guides — Write the Docs
@@ -159,8 +159,8 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/writing-style-guides/item.yml
+  workflow_stage: fetched
+  path: items/writing-style-guides
 - id: WTDG-writing-support-team
   source_id: WTDG
   title: Producing documentation inside a Support team — Write the Docs
@@ -168,8 +168,8 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/writing-support-team/item.yml
+  workflow_stage: source_checked
+  path: items/writing-support-team
 - id: WTDG-writing-xml
   source_id: WTDG
   title: Introduction to XML — Write the Docs
@@ -177,101 +177,101 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/writing-xml/item.yml
+  workflow_stage: source_checked
+  path: items/writing-xml
 - id: WTDG-normalized-WTDG-overview-source.md
   source_id: WTDG
   title: 'WTDG: overview-source.md'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/normalized-wtdg-overview-source.md/item.yml
+  workflow_stage: source_checked
+  path: items/normalized-wtdg-overview-source.md
 - id: WTDG-normalized-WTDG-pages-writing-docs-principles-index.md
   source_id: WTDG
   title: 'WTDG: index.md'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/normalized-wtdg-pages-writing-docs-principles-index.md/item.yml
+  workflow_stage: source_checked
+  path: items/normalized-wtdg-pages-writing-docs-principles-index.md
 - id: WTDG-normalized-WTDG-pages-writing-beginners-guide-to-docs-index.md
   source_id: WTDG
   title: 'WTDG: index.md'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/normalized-wtdg-pages-writing-beginners-guide-to-docs-index.md/item.yml
+  workflow_stage: source_checked
+  path: items/normalized-wtdg-pages-writing-beginners-guide-to-docs-index.md
 - id: WTDG-normalized-WTDG-pages-writing-mindshare-index.md
   source_id: WTDG
   title: 'WTDG: index.md'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/normalized-wtdg-pages-writing-mindshare-index.md/item.yml
+  workflow_stage: source_checked
+  path: items/normalized-wtdg-pages-writing-mindshare-index.md
 - id: WTDG-normalized-WTDG-pages-writing-style-guides-index.md
   source_id: WTDG
   title: 'WTDG: index.md'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/normalized-wtdg-pages-writing-style-guides-index.md/item.yml
+  workflow_stage: source_checked
+  path: items/normalized-wtdg-pages-writing-style-guides-index.md
 - id: WTDG-normalized-WTDG-pages-writing-accessibility-index.md
   source_id: WTDG
   title: 'WTDG: index.md'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/normalized-wtdg-pages-writing-accessibility-index.md/item.yml
+  workflow_stage: source_checked
+  path: items/normalized-wtdg-pages-writing-accessibility-index.md
 - id: WTDG-normalized-WTDG-pages-writing-reducing-bias-index.md
   source_id: WTDG
   title: 'WTDG: index.md'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/normalized-wtdg-pages-writing-reducing-bias-index.md/item.yml
+  workflow_stage: source_checked
+  path: items/normalized-wtdg-pages-writing-reducing-bias-index.md
 - id: WTDG-normalized-WTDG-pages-ux-writing-index.md
   source_id: WTDG
   title: 'WTDG: index.md'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/normalized-wtdg-pages-ux-writing-index.md/item.yml
+  workflow_stage: source_checked
+  path: items/normalized-wtdg-pages-ux-writing-index.md
 - id: WTDG-normalized-WTDG-pages-choosing-tools-index.md
   source_id: WTDG
   title: 'WTDG: index.md'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/normalized-wtdg-pages-choosing-tools-index.md/item.yml
+  workflow_stage: source_checked
+  path: items/normalized-wtdg-pages-choosing-tools-index.md
 - id: WTDG-normalized-WTDG-pages-tools-index.md
   source_id: WTDG
   title: 'WTDG: index.md'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/normalized-wtdg-pages-tools-index.md/item.yml
+  workflow_stage: source_checked
+  path: items/normalized-wtdg-pages-tools-index.md
 - id: WTDG-normalized-WTDG-pages-imposter-index.md
   source_id: WTDG
   title: 'WTDG: index.md'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/normalized-wtdg-pages-imposter-index.md/item.yml
+  workflow_stage: source_checked
+  path: items/normalized-wtdg-pages-imposter-index.md
 - id: WTDG-normalized-WTDG-source.md
   source_id: WTDG
   title: 'WTDG: source.md'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/wtdg/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/normalized-wtdg-source.md/item.yml
+  workflow_stage: source_checked
+  path: items/normalized-wtdg-source.md

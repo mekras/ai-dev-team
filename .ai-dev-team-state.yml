@@ -1,5 +1,5 @@
 product: mekras/ai-dev-team
-updated_at: 2026-07-29
+updated_at: 2026-08-11
 setup:
   operating_context:
     kind: mixed
@@ -42,3 +42,26 @@ setup:
     schema_version: 1
   interface_checks:
     level: recommended
+  sdd:
+    status: adopted
+    level: aligned
+    scope: [product-behavior, external-contracts]
+    specification_paths:
+      - docs/01-concept/**
+      - docs/02-use-cases/**
+      - docs/05-requirements/**
+      - docs/06-architecture/adr/**
+    derived_paths:
+      - .apm/**
+      - tools/**
+    change_record:
+      path_pattern: docs/changes/<change-id>.md
+    approval: before-implementation
+    exception_policy:
+      record: docs/changes/<change-id>.md
+      required_fields: [reason, owner, scope, expires_at, reconciliation_condition]
+    review_condition: >-
+      systematic-false-blocks-or-specification-maintenance-cost-exceeds-benefit
+  license:
+    author: Михаил Красильников
+    identifier: MIT

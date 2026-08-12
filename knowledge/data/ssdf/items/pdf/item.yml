@@ -3,7 +3,14 @@ source_id: SSDF
 title: 'SSDF: pdf'
 access: Смотри карточку единицы и связанные артефакты в knowledge/data/ssdf/ и общие ограничения в knowledge/source-attribution.md.
 status: approved
-workflow_stage: fetched
+workflow_stage: source_checked
+processing_scope: selected_fragments
+retrieval_mode: on_demand
+copy_policy: no_bulk_copy
+allowed_use: Использовать нормализованный текст и краткие утверждения.
+automatic_attempts:
+  - "2026-08-12: PDF найден в отслеживаемом слое."
+  - "2026-08-12: pdftotext -layout воспроизвёл текстовую выгрузку без различий."
 files:
   tracked:
   - nist-sp-800-218.pdf

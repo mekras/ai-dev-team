@@ -1,0 +1,3 @@
+# REUSE Specification
+
+REUSE Specification

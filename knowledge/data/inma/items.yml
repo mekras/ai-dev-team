@@ -6,15 +6,15 @@ items:
     ограничения в knowledge/source-attribution.md.
   status: approved
   workflow_stage: normalized
-  path: items/source/item.yml
+  path: items/source
 - id: INMA-pdf
   source_id: INMA
   title: 'INMA: pdf'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/inma/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: fetched
-  path: items/pdf/item.yml
+  workflow_stage: source_checked
+  path: items/pdf
 - id: INMA-text
   source_id: INMA
   title: 'INMA: text'
@@ -22,28 +22,28 @@ items:
     ограничения в knowledge/source-attribution.md.
   status: approved
   workflow_stage: raw_transcribed
-  path: items/text/item.yml
+  path: items/text
 - id: INMA-fragment-process
   source_id: INMA
   title: 'INMA: fragment-process'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/inma/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/fragment-process/item.yml
+  workflow_stage: source_checked
+  path: items/fragment-process
 - id: INMA-fragment-features
   source_id: INMA
   title: 'INMA: fragment-features'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/inma/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/fragment-features/item.yml
+  workflow_stage: source_checked
+  path: items/fragment-features
 - id: INMA-fragment-personas
   source_id: INMA
   title: 'INMA: fragment-personas'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/inma/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/fragment-personas/item.yml
+  workflow_stage: source_checked
+  path: items/fragment-personas

@@ -5,22 +5,22 @@ items:
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/vscd/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/source/item.yml
+  workflow_stage: source_checked
+  path: items/source
 - id: VSCD-custom-instructions
   source_id: VSCD
   title: 'VSCD: custom-instructions'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/vscd/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
+  workflow_stage: fetched
   url: https://code.visualstudio.com/docs/agent-customization/custom-instructions
-  path: items/custom-instructions/item.yml
+  path: items/custom-instructions
 - id: VSCD-normalized-VSCD-pages-custom-instructions-index.md
   source_id: VSCD
   title: 'VSCD: index.md'
   access: Смотри карточку единицы и связанные артефакты в knowledge/data/vscd/ и общие
     ограничения в knowledge/source-attribution.md.
   status: approved
-  workflow_stage: statements_extracted
-  path: items/normalized-vscd-pages-custom-instructions-index.md/item.yml
+  workflow_stage: source_checked
+  path: items/normalized-vscd-pages-custom-instructions-index.md

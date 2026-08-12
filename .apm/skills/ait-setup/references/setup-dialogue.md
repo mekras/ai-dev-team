@@ -300,6 +300,7 @@ Git». Это нарушает диалоговый режим `ait-setup`.
 - журнал изменений: `CHANGELOG.md`, `NEWS.md` или `HISTORY.md`;
 - журналы решений;
 - корпус знаний;
+- разработка на основе спецификаций либо основание, почему оценка не требуется;
 - граф влияния проекта и указатель на него в корневых инструкциях агента;
 - уровень интерфейсных проверок либо основание, почему он не требуется;
 - `.gitignore`;
@@ -586,6 +587,7 @@ Git». Это нарушает диалоговый режим `ait-setup`.
 - статус журналов решений и их пути;
 - статус корпуса знаний и его путь;
 - статус графа влияния, его путь и версию схемы;
+- статус и параметры принятой разработки на основе спецификаций;
 - уровень интерфейсных проверок для проекта с пользовательским интерфейсом;
 - выбранную схему сообщений коммитов для проекта с Git;
 - сведения о локальном слое клиентских инструкций, если они важны для безопасной
@@ -627,6 +629,17 @@ setup:
     status: present
     path: project-impact.json
     schema_version: 1
+  sdd:
+    status: adopted
+    level: aligned
+    scope: [product-behavior, external-contracts]
+    specification_paths: [docs/requirements/**]
+    derived_paths: [src/**, tests/**]
+    change_record:
+      path_pattern: docs/changes/<change-id>.md
+    approval: before-implementation
+    exception_policy: docs/operations/sdd-exceptions.md
+    review_condition: repeated-false-blocks-or-excessive-maintenance-cost
   interface_checks:
     level: recommended
 ```
@@ -635,6 +648,12 @@ setup:
 решению проекта, используй `status: declined` в соответствующем поле. Для отказа
 от журналов решений записывай `setup.decision_records.status: declined` и не
 добавляй `journals`.
+
+Блок `setup.sdd` добавляй только после решения владельца. Для принятого режима
+используй `status: adopted` и фактические значения остальных полей. Для отказа
+используй `status: declined`. Для временной остановки используй
+`status: suspended`, `reason` и `resume_condition`. Не выводи подход из профиля
+проекта и не выбирай уровень без `ait-reconstructability`.
 
 Граф влияния не получает статус `declined`. Если его нельзя достоверно построить
 по фактическому составу и направлениям зависимостей, сохраняй

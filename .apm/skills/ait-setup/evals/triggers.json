@@ -86,6 +86,12 @@
       "rationale": "Выбор постоянного правила Git относится к настройке проекта."
     },
     {
+      "id": "ait-setup-positive-adopt-sdd",
+      "prompt": "Закрепи выбранный режим SDD в настройке проекта.",
+      "should_trigger": true,
+      "rationale": "Принятый подход нужно сохранить и сделать доступным обычным задачам."
+    },
+    {
       "id": "ait-setup-negative-readme-only",
       "prompt": "Обнови README.md: добавь команду установки и ссылку на документацию.",
       "should_trigger": false,

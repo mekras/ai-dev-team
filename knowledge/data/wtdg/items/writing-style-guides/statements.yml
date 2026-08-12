@@ -1,0 +1,33 @@
+statement_contract_version: 2
+source_id: WTDG
+item_id: WTDG-writing-style-guides
+statements:
+  - id: WTDG-088
+    source_id: WTDG
+    item_id: WTDG-writing-style-guides
+    kind: fact
+    text: >-
+      Руководство по стилю содержит стандарты написания и проектирования
+      содержания.
+    excerpt: >-
+      A style guide contains a set of standards for writing and designing content.
+    artifact: normalized.md
+    checked_at: "2026-08-12"
+    checked_by: primary-agent
+    locator: вводный абзац
+    scope:
+      applies_to: [руководство по стилю документации]
+      does_not_apply_to: [единичные редакторские решения]
+    processing_status:
+      extraction: complete
+      traceability: passed
+      semantic_review: passed
+      strong_review: not_required
+      corroboration_check: complete
+    source_role: secondary
+    evidence_strength: moderate
+    confidence: high
+    temporal_status: current
+    corroboration: single_source
+    limitations: []
+    open_questions: []

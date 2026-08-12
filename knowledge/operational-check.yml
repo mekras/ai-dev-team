@@ -80,6 +80,11 @@ rules:
     reason: >-
       Совпадение является ISBN источника, а не контактом; проверено 2026-07-18.
   - kind: personal-data
+    path: data/hwd/items/_include-refs-asylum/normalized.md
+    action: suppress
+    reason: >-
+      Совпадение является ISBN источника, а не контактом; проверено 2026-08-12.
+  - kind: personal-data
     path: data/sahp/items/source/source.md
     action: suppress
     reason: >-
