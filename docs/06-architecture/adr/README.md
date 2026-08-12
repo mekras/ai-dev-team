@@ -2,7 +2,7 @@
 
 Архитектурные решения по самому продукту `ai-dev-team`. Общая дисциплина и
 шаблоны записей решений — в навыке `ait-decisions`
-(`references/decision-workflow.md`, `references/decision-templates.md`);
+(`references/decision-workflow.md`, `references/decision-templates.md`),
 архитектурная ось — в навыке `ait-architecture`
 (`references/architectural-decisions.md`).
 
