@@ -74,9 +74,34 @@ class ProductEvalTest(unittest.TestCase):
             for scenario in scenarios
             for problem in scenario["seeded_problems"]
         }
+        self.assertTrue(
+            {"requirements", "decision", "implementation", "documentation"}
+            <= classes,
+        )
+
+    def test_documentation_audit_runs_in_a_clean_consumer_fixture(self):
+        scenarios = MODULE.validate_scenarios(
+            MODULE.load_document(MODULE.SCENARIOS),
+        )
+        scenario = next(
+            item
+            for item in scenarios
+            if item["id"] == "documentation-structure-audit-portability"
+        )
+
+        self.assertNotIn(".apm", scenario["files"])
+        graph = MODULE.json.loads(
+            scenario["files"][".ai-dev-team/project-impact.json"],
+        )
+        self.assertEqual(1, graph["schema_version"])
+        self.assertIn("docs/07-ux/personas/operator.md", scenario["files"])
         self.assertEqual(
-            {"requirements", "decision", "implementation"},
-            classes,
+            {
+                "portable-audit-without-apm-source",
+                "version-one-graph-hides-semantic-model",
+                "personas-after-requirements-hide-dependency",
+            },
+            {item["id"] for item in scenario["seeded_problems"]},
         )
 
     def test_seeded_problem_is_recorded_at_first_detection_stage(self):

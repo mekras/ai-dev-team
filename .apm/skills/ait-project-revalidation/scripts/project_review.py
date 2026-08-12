@@ -241,12 +241,14 @@ def load_json(path: Path) -> dict[str, Any]:
 
 
 def classification_name(entry: dict[str, Any]) -> str:
-    path = Path(entry["path"])
-    if entry["kind"] == "skill":
-        return path.name
-    if entry["kind"] == "role":
-        return path.name.removesuffix(".agent.md")
-    return path.name.removesuffix(".instructions.md")
+    name = entry.get("name")
+    if isinstance(name, str) and name:
+        return name
+    path = entry.get("path")
+    if not isinstance(path, str):
+        raise ReviewError("возможность должна иметь логическое имя")
+    legacy = Path(path).name
+    return legacy.removesuffix(".agent.md").removesuffix(".instructions.md")
 
 
 def load_core_classification(path: Path | None = None) -> dict[str, Any]:
@@ -341,23 +343,31 @@ def component_description(path: Path) -> str | None:
     return frontmatter_description(text) or first_paragraph(text)
 
 
-def candidate_components(repo: Path) -> list[tuple[str, str, Path]]:
+def candidate_components(
+    repo: Path,
+    classification: dict[str, Any],
+) -> list[tuple[str, str, Path]]:
     candidates: list[tuple[str, str, Path]] = []
-    for base in (".agents/skills", ".claude/skills", ".codex/skills"):
-        for path in sorted((repo / base).glob("*/SKILL.md")):
-            candidates.append(("skill", path.parent.name, path))
-    for path in sorted((repo / ".claude/agents").glob("*.md")):
-        candidates.append(("role", path.stem, path))
-    for path in sorted((repo / ".codex/agents").glob("*.toml")):
-        candidates.append(("role", path.stem, path))
-    for path in sorted((repo / ".agents/agents").glob("*.md")):
-        candidates.append(("role", path.stem, path))
-    for path in sorted((repo / ".claude/rules").glob("*.md")):
-        candidates.append(("rule", path.stem, path))
-    for name in ("AGENTS.md", "CLAUDE.md"):
-        path = repo / name
-        if path.is_file():
-            candidates.append(("rule", path.stem, path))
+    deployed = dependency_owners(repo / "apm.lock.yaml")
+    available = {repo / relative for relative in deployed}
+    available.update(path for path in repo.rglob("*") if path.is_file())
+    for entry in classification["capabilities"]:
+        kind = entry["kind"]
+        name = classification_name(entry)
+        for path in sorted(available):
+            is_skill = path.name == "SKILL.md" and path.parent.name == name
+            is_named_file = path.stem == name
+            if path.is_file() and (
+                (kind == "skill" and is_skill)
+                or (kind in {"role", "rule"} and is_named_file)
+            ):
+                candidates.append((kind, name, path))
+    known = {(kind, name, path) for kind, name, path in candidates}
+    for path in sorted(available):
+        if path.name == "SKILL.md":
+            candidate = ("skill", path.parent.name, path)
+            if candidate not in known:
+                candidates.append(candidate)
     return candidates
 
 
@@ -372,7 +382,7 @@ def inventory(
     }
     owners = dependency_owners(repo / "apm.lock.yaml")
     merged: dict[tuple[str, str], dict[str, Any]] = {}
-    for kind, name, path in candidate_components(repo):
+    for kind, name, path in candidate_components(repo, core):
         key = (kind, name)
         relative = path.relative_to(repo).as_posix()
         item = merged.setdefault(

@@ -336,7 +336,7 @@ class ImpactGraphTests(unittest.TestCase):
         self.assertEqual(result["mapped_paths"], 2)
         self.assertEqual(result["unmapped_paths"], [])
 
-    def test_cli_uses_only_json_contract(self) -> None:
+    def test_cli_reports_legacy_graph_as_semantically_incomplete(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:
             graph_path = Path(temporary_directory) / ".ai-dev-team/project-impact.json"
             graph_path.parent.mkdir()
@@ -357,8 +357,36 @@ class ImpactGraphTests(unittest.TestCase):
                 text=True,
             )
 
+        self.assertEqual(completed.returncode, 3, completed.stderr)
+        result = json.loads(completed.stdout)
+        self.assertEqual(result["status"], "incomplete")
+        self.assertFalse(result["semantic_model"])
+        self.assertEqual(
+            result["problems"][0]["code"],
+            "semantic-model-unavailable",
+        )
+
+    def test_cli_accepts_semantic_graph(self) -> None:
+        data = sample_graph()
+        data["schema_version"] = 2
+        for node in data["nodes"]:
+            node["semantic_type"] = f"{node['id']} artifact"
+            node["authority"] = "canonical"
+
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            graph_path = Path(temporary_directory) / "project-impact.json"
+            graph_path.write_text(json.dumps(data), encoding="utf-8")
+            completed = subprocess.run(
+                ["python3", str(SCRIPT), "validate", "--graph", str(graph_path)],
+                check=False,
+                capture_output=True,
+                text=True,
+            )
+
         self.assertEqual(completed.returncode, 0, completed.stderr)
-        self.assertEqual(json.loads(completed.stdout)["status"], "ok")
+        result = json.loads(completed.stdout)
+        self.assertEqual(result["status"], "ok")
+        self.assertTrue(result["semantic_model"])
 
 
 if __name__ == "__main__":

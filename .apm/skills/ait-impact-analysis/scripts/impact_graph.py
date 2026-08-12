@@ -78,6 +78,7 @@ STATUSES = {
     "blocked",
 }
 PASSING_STATUSES = {"updated", "verified_no_impact"}
+SEMANTIC_GRAPH_SCHEMA_VERSION = 2
 
 
 class ContractError(ValueError):
@@ -632,6 +633,34 @@ def coverage_result(graph: dict[str, Any], repo: Path) -> tuple[dict[str, Any], 
     return result, 0
 
 
+def validation_result(graph: dict[str, Any]) -> tuple[dict[str, Any], int]:
+    result = {
+        "graph": graph["graph"]["name"],
+        "nodes": len(graph["nodes"]),
+        "edges": len(graph["edges"]),
+        "schema_version": graph["schema_version"],
+    }
+    if graph["schema_version"] != SEMANTIC_GRAPH_SCHEMA_VERSION:
+        result.update(
+            {
+                "status": "incomplete",
+                "semantic_model": False,
+                "problems": [
+                    {
+                        "code": "semantic-model-unavailable",
+                        "message": (
+                            "schema_version 1 has no semantic types, authorities, "
+                            "or representation roles"
+                        ),
+                    },
+                ],
+            },
+        )
+        return result, 3
+    result.update({"status": "ok", "semantic_model": True, "problems": []})
+    return result, 0
+
+
 def add_trace_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--graph", required=True, type=Path)
     parser.add_argument("--changed-node", action="append", default=[])
@@ -670,15 +699,9 @@ def main() -> int:
     try:
         graph = load_graph(args.graph)
         if args.command == "validate":
-            emit(
-                {
-                    "graph": graph["graph"]["name"],
-                    "nodes": len(graph["nodes"]),
-                    "edges": len(graph["edges"]),
-                    "status": "ok",
-                },
-            )
-            return 0
+            result, exit_code = validation_result(graph)
+            emit(result)
+            return exit_code
         if args.command == "coverage":
             result, exit_code = coverage_result(graph, args.repo)
             emit(result)

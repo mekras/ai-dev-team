@@ -77,7 +77,7 @@
 
 Если задача касается не одного документа, а структуры корпуса документации,
 сначала используй
-`skills/ait-writing/assets/documentation-structure-template.md`.
+`./documentation-structure-template.md`.
 
 ## Находимость
 

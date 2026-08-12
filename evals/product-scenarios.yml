@@ -132,5 +132,57 @@
             },
           ],
       },
+      {
+        "id": "documentation-structure-audit-portability",
+        "title": "Аудит структуры в чистом проекте без исходного пакета",
+        "request": "Проведи аудит структуры документации. Сначала самостоятельно найди все проблемы, не изменяй файлы и запроси моё решение о подготовке отчёта. В проекте намеренно нет каталога .apm. Отдельно проверь, можно ли по графу установить смысловой тип, авторитетность и файловые представления, а также не скрывает ли размещение моделей пользователей после требований их связь со сценариями и требованиями.",
+        "owner_reply": "Подготовь docs/audit-result.md. Документацию и граф не исправляй: в отчёте зафиксируй найденные проблемы, доказательства и минимальные направления исправления для моей дальнейшей приёмки.",
+        "files":
+          {
+            ".gitignore": "__pycache__/\n*.pyc\n",
+            "AGENTS.md": "# Инструкции проверочного проекта\n\nРаботай только с файлами этого одноразового проекта. Запись внутри проекта разрешена. Не используй инструкции, навыки или файлы из родительских каталогов. Не выполняй commit и push.\n",
+            "README.md": "# Сервис заявок\n\nУчебный проект для аудита структуры документации.\n",
+            ".ai-dev-team/project-impact.json": "{\n  \"schema_version\": 1,\n  \"graph\": {\n    \"name\": \"Сервис заявок\",\n    \"description\": \"Устаревший граф проекта\",\n    \"default_facet\": \"semantic\",\n    \"unmapped_paths\": \"warn\",\n    \"ignore\": []\n  },\n  \"nodes\": [\n    {\n      \"id\": \"requirements\",\n      \"title\": \"Требования\",\n      \"kind\": \"requirements\",\n      \"paths\": [\"docs/05-requirements/**\"],\n      \"checks\": [\"ait-req-validation\"]\n    },\n    {\n      \"id\": \"personas\",\n      \"title\": \"Модели пользователей\",\n      \"kind\": \"documentation\",\n      \"paths\": [\"docs/07-ux/personas/**\"],\n      \"checks\": [\"ait-ux-design\"]\n    }\n  ],\n  \"edges\": []\n}\n",
+            "docs/05-requirements/README.md": "# Требования\n\n## Вариант использования\n\nОператор принимает заявку от клиента.\n",
+            "docs/07-ux/personas/operator.md": "# Оператор\n\nОператор принимает и обрабатывает заявки клиентов.\n",
+          },
+        "expected_artifact_groups":
+          [
+            { "label": "отчёт аудита", "any_of": ["docs/audit-result.md"] },
+          ],
+        "required_commands": ["python3 -m json.tool .ai-dev-team/project-impact.json"],
+        "handoff_markers": ["приём", "провер", "риск"],
+        "routing_markers": ["режим менеджера", "маршрут"],
+        "decision_description": "подготовка отчёта аудита без изменения документации и графа",
+        "decision_marker_groups":
+          [["отчёт", "audit"], ["решен", "подтверд", "соглас"]],
+        "seeded_problems":
+          [
+            {
+              "id": "portable-audit-without-apm-source",
+              "problem_class": "documentation",
+              "description": "аудит должен выполниться в потребительском проекте без каталога .apm",
+              "earliest_stage": "requirements_review",
+              "detection_marker_groups":
+                [[".apm"], ["не требует", "не зависит", "не нужен", "без исход", "не считаю", "не является", "не блокир"]],
+            },
+            {
+              "id": "version-one-graph-hides-semantic-model",
+              "problem_class": "documentation",
+              "description": "граф версии 1 не различает смысловой артефакт и его файловое представление",
+              "earliest_stage": "requirements_review",
+              "detection_marker_groups":
+                [["граф", "верси", "schema_version"], ["смыслов", "авторитет", "представлен"]],
+            },
+            {
+              "id": "personas-after-requirements-hide-dependency",
+              "problem_class": "documentation",
+              "description": "размещение моделей пользователей после требований скрывает их связь со сценариями и требованиями",
+              "earliest_stage": "requirements_review",
+              "detection_marker_groups":
+                [["персонаж", "модел", "оператор"], ["требован", "сценар"], ["размещ", "после", "связ"]],
+            },
+          ],
+      },
     ],
 }

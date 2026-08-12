@@ -29,6 +29,7 @@ scripts:
     tools/test_project_review.py
     tools/test_validate_requirements_structure.py
     tools/test_validate_apm_package_structure.py
+    tools/test_skill_deployment_portability.py
     tools/test_validate_project_review_capabilities.py;
     python3 .apm/skills/ait-impact-analysis/scripts/impact_graph.py
     validate --graph .ai-dev-team/project-impact.json;

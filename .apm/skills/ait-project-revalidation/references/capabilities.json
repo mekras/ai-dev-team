@@ -5,7 +5,7 @@
     {
       "id": "role-analyst",
       "kind": "role",
-      "path": ".apm/agents/analyst.agent.md",
+      "name": "analyst",
       "purpose": "Анализ оснований, требований и смысловых связей",
       "participation": "check",
       "stage": "requirements",
@@ -14,7 +14,7 @@
     {
       "id": "role-coder",
       "kind": "role",
-      "path": ".apm/agents/coder.agent.md",
+      "name": "coder",
       "purpose": "Проверка и исправление реализации и тестов",
       "participation": "check",
       "stage": "code",
@@ -23,7 +23,7 @@
     {
       "id": "role-documentation-reader",
       "kind": "role",
-      "path": ".apm/agents/documentation-reader.agent.md",
+      "name": "documentation-reader",
       "purpose": "Проверка документации глазами целевого читателя",
       "participation": "check",
       "stage": "assurance",
@@ -33,7 +33,7 @@
     {
       "id": "role-legal",
       "kind": "role",
-      "path": ".apm/agents/legal.agent.md",
+      "name": "legal",
       "purpose": "Проверка юридически значимых ограничений",
       "participation": "check",
       "stage": "assurance",
@@ -42,7 +42,7 @@
     {
       "id": "role-normalizer",
       "kind": "role",
-      "path": ".apm/agents/normalizer.agent.md",
+      "name": "normalizer",
       "purpose": "Подготовка производных представлений первичных данных",
       "participation": "preparation",
       "stage": "repository",
@@ -51,7 +51,7 @@
     {
       "id": "role-project-manager",
       "kind": "role",
-      "path": ".apm/agents/project-manager.agent.md",
+      "name": "project-manager",
       "purpose": "Маршрутизация этапов и решений человека",
       "participation": "preparation",
       "stage": "repository",
@@ -60,7 +60,7 @@
     {
       "id": "role-reliability-engineer",
       "kind": "role",
-      "path": ".apm/agents/reliability-engineer.agent.md",
+      "name": "reliability-engineer",
       "purpose": "Проверка надёжности и эксплуатации",
       "participation": "check",
       "stage": "assurance",
@@ -69,7 +69,7 @@
     {
       "id": "role-security-engineer",
       "kind": "role",
-      "path": ".apm/agents/security-engineer.agent.md",
+      "name": "security-engineer",
       "purpose": "Проверка безопасности и управления доступом",
       "participation": "check",
       "stage": "assurance",
@@ -78,7 +78,7 @@
     {
       "id": "role-software-architect",
       "kind": "role",
-      "path": ".apm/agents/software-architect.agent.md",
+      "name": "software-architect",
       "purpose": "Проверка архитектурных границ и решений",
       "participation": "check",
       "stage": "design",
@@ -87,7 +87,7 @@
     {
       "id": "role-source-inventory",
       "kind": "role",
-      "path": ".apm/agents/source-inventory.agent.md",
+      "name": "source-inventory",
       "purpose": "Проверка происхождения и учёта источников",
       "participation": "check",
       "stage": "repository",
@@ -96,7 +96,7 @@
     {
       "id": "role-statement-extractor",
       "kind": "role",
-      "path": ".apm/agents/statement-extractor.agent.md",
+      "name": "statement-extractor",
       "purpose": "Извлечение проверяемых утверждений из источников",
       "participation": "preparation",
       "stage": "repository",
@@ -105,7 +105,7 @@
     {
       "id": "role-technical-writer",
       "kind": "role",
-      "path": ".apm/agents/technical-writer.agent.md",
+      "name": "technical-writer",
       "purpose": "Проверка и исправление документации",
       "participation": "check",
       "stage": "assurance",
@@ -115,7 +115,7 @@
     {
       "id": "role-ux-specialist",
       "kind": "role",
-      "path": ".apm/agents/ux-specialist.agent.md",
+      "name": "ux-specialist",
       "purpose": "Проверка пользовательского опыта и дизайна",
       "participation": "check",
       "stage": "design",
@@ -124,7 +124,7 @@
     {
       "id": "skill-ait-analysis",
       "kind": "skill",
-      "path": ".apm/skills/ait-analysis",
+      "name": "ait-analysis",
       "purpose": "Анализ материалов, выводов и пробелов",
       "participation": "check",
       "stage": "requirements",
@@ -133,7 +133,7 @@
     {
       "id": "skill-ait-arch-revalidation",
       "kind": "skill",
-      "path": ".apm/skills/ait-arch-revalidation",
+      "name": "ait-arch-revalidation",
       "purpose": "Поэтапная перепроверка архитектуры",
       "participation": "check",
       "stage": "design",
@@ -142,7 +142,7 @@
     {
       "id": "skill-ait-architecture",
       "kind": "skill",
-      "path": ".apm/skills/ait-architecture",
+      "name": "ait-architecture",
       "purpose": "Проверка архитектуры и значимых решений",
       "participation": "check",
       "stage": "design",
@@ -151,7 +151,7 @@
     {
       "id": "skill-ait-changelog",
       "kind": "skill",
-      "path": ".apm/skills/ait-changelog",
+      "name": "ait-changelog",
       "purpose": "Проверка журнала изменений",
       "participation": "check",
       "stage": "assurance",
@@ -160,7 +160,7 @@
     {
       "id": "skill-ait-code-construction",
       "kind": "skill",
-      "path": ".apm/skills/ait-code-construction",
+      "name": "ait-code-construction",
       "purpose": "Исправление реализации",
       "participation": "correction",
       "stage": "code",
@@ -169,7 +169,7 @@
     {
       "id": "skill-ait-code-review",
       "kind": "skill",
-      "path": ".apm/skills/ait-code-review",
+      "name": "ait-code-review",
       "purpose": "Обзор готового кода",
       "participation": "check",
       "stage": "code",
@@ -178,7 +178,7 @@
     {
       "id": "skill-ait-code-testing",
       "kind": "skill",
-      "path": ".apm/skills/ait-code-testing",
+      "name": "ait-code-testing",
       "purpose": "Проектирование и проверка тестов разработчика",
       "participation": "check",
       "stage": "tests",
@@ -187,7 +187,7 @@
     {
       "id": "skill-ait-commit-messages",
       "kind": "skill",
-      "path": ".apm/skills/ait-commit-messages",
+      "name": "ait-commit-messages",
       "purpose": "Проверка сообщений коммитов",
       "participation": "constraint",
       "stage": "repository",
@@ -196,7 +196,7 @@
     {
       "id": "skill-ait-decisions",
       "kind": "skill",
-      "path": ".apm/skills/ait-decisions",
+      "name": "ait-decisions",
       "purpose": "Проверка значимых проектных решений",
       "participation": "check",
       "stage": "design",
@@ -205,7 +205,7 @@
     {
       "id": "skill-ait-docs-concept",
       "kind": "skill",
-      "path": ".apm/skills/ait-docs-concept",
+      "name": "ait-docs-concept",
       "purpose": "Проверка концепции проекта",
       "participation": "check",
       "stage": "requirements",
@@ -231,7 +231,7 @@
     {
       "id": "skill-ait-docs-structure-audit",
       "kind": "skill",
-      "path": ".apm/skills/ait-docs-structure-audit",
+      "name": "ait-docs-structure-audit",
       "purpose": "Проверка структуры документации",
       "participation": "check",
       "stage": "assurance",
@@ -248,7 +248,7 @@
     {
       "id": "skill-ait-docs-structure-design",
       "kind": "skill",
-      "path": ".apm/skills/ait-docs-structure-design",
+      "name": "ait-docs-structure-design",
       "purpose": "Исправление структуры документации",
       "participation": "correction",
       "stage": "assurance",
@@ -257,7 +257,7 @@
     {
       "id": "skill-ait-docs-structure-rules",
       "kind": "skill",
-      "path": ".apm/skills/ait-docs-structure-rules",
+      "name": "ait-docs-structure-rules",
       "purpose": "Ограничения структуры документации",
       "participation": "constraint",
       "stage": "assurance",
@@ -266,7 +266,7 @@
     {
       "id": "skill-ait-hypotheses",
       "kind": "skill",
-      "path": ".apm/skills/ait-hypotheses",
+      "name": "ait-hypotheses",
       "purpose": "Проверка проектных гипотез",
       "participation": "check",
       "stage": "requirements",
@@ -275,7 +275,7 @@
     {
       "id": "skill-ait-impact-analysis",
       "kind": "skill",
-      "path": ".apm/skills/ait-impact-analysis",
+      "name": "ait-impact-analysis",
       "purpose": "Сквозной анализ влияния по общему графу проекта",
       "participation": "check",
       "stage": "impact",
@@ -291,7 +291,7 @@
     {
       "id": "skill-ait-interface-design",
       "kind": "skill",
-      "path": ".apm/skills/ait-interface-design",
+      "name": "ait-interface-design",
       "purpose": "Проверка и исправление интерфейсов",
       "participation": "check",
       "stage": "design",
@@ -300,7 +300,7 @@
     {
       "id": "skill-ait-licensing",
       "kind": "skill",
-      "path": ".apm/skills/ait-licensing",
+      "name": "ait-licensing",
       "purpose": "Проверка лицензий и совместимости",
       "participation": "check",
       "stage": "assurance",
@@ -309,7 +309,7 @@
     {
       "id": "skill-ait-personal-data",
       "kind": "skill",
-      "path": ".apm/skills/ait-personal-data",
+      "name": "ait-personal-data",
       "purpose": "Проверка обработки персональных данных",
       "participation": "check",
       "stage": "assurance",
@@ -318,7 +318,7 @@
     {
       "id": "skill-ait-private-knowledge",
       "kind": "skill",
-      "path": ".apm/skills/ait-private-knowledge",
+      "name": "ait-private-knowledge",
       "purpose": "Проверка границы приватных знаний",
       "participation": "check",
       "stage": "repository",
@@ -327,7 +327,7 @@
     {
       "id": "skill-ait-project-revalidation",
       "kind": "skill",
-      "path": ".apm/skills/ait-project-revalidation",
+      "name": "ait-project-revalidation",
       "purpose": "Координация полной проверки",
       "participation": "preparation",
       "stage": "repository",
@@ -336,7 +336,7 @@
     {
       "id": "skill-kc-validation",
       "kind": "skill",
-      "path": ".apm/skills/kc-validation",
+      "name": "kc-validation",
       "external": true,
       "purpose": "Проверка целостности и применимости корпуса знаний",
       "participation": "check",
@@ -349,7 +349,7 @@
     {
       "id": "skill-ait-readme",
       "kind": "skill",
-      "path": ".apm/skills/ait-readme",
+      "name": "ait-readme",
       "purpose": "Проверка главного пользовательского входа",
       "participation": "check",
       "stage": "assurance",
@@ -359,7 +359,7 @@
     {
       "id": "skill-ait-reconstructability",
       "kind": "skill",
-      "path": ".apm/skills/ait-reconstructability",
+      "name": "ait-reconstructability",
       "purpose": "Проверка реконструируемости проекта",
       "participation": "check",
       "stage": "repository",
@@ -368,7 +368,7 @@
     {
       "id": "skill-ait-reliability",
       "kind": "skill",
-      "path": ".apm/skills/ait-reliability",
+      "name": "ait-reliability",
       "purpose": "Проверка надёжности и устойчивости",
       "participation": "check",
       "stage": "assurance",
@@ -377,7 +377,7 @@
     {
       "id": "skill-ait-req-analysis",
       "kind": "skill",
-      "path": ".apm/skills/ait-req-analysis",
+      "name": "ait-req-analysis",
       "purpose": "Анализ требований",
       "participation": "check",
       "stage": "requirements",
@@ -386,7 +386,7 @@
     {
       "id": "skill-ait-req-elicitation",
       "kind": "skill",
-      "path": ".apm/skills/ait-req-elicitation",
+      "name": "ait-req-elicitation",
       "purpose": "Проверка источников и выявления требований",
       "participation": "check",
       "stage": "requirements",
@@ -395,7 +395,7 @@
     {
       "id": "skill-ait-req-management",
       "kind": "skill",
-      "path": ".apm/skills/ait-req-management",
+      "name": "ait-req-management",
       "purpose": "Проверка статусов, связей и изменений требований",
       "participation": "check",
       "stage": "requirements",
@@ -404,7 +404,7 @@
     {
       "id": "skill-ait-req-refactoring",
       "kind": "skill",
-      "path": ".apm/skills/ait-req-refactoring",
+      "name": "ait-req-refactoring",
       "purpose": "Исправление структуры требований без изменения смысла",
       "participation": "correction",
       "stage": "requirements",
@@ -413,7 +413,7 @@
     {
       "id": "skill-ait-req-revalidation",
       "kind": "skill",
-      "path": ".apm/skills/ait-req-revalidation",
+      "name": "ait-req-revalidation",
       "purpose": "Поэтапная перепроверка требований",
       "participation": "check",
       "stage": "requirements",
@@ -448,7 +448,7 @@
     {
       "id": "skill-ait-req-specification",
       "kind": "skill",
-      "path": ".apm/skills/ait-req-specification",
+      "name": "ait-req-specification",
       "purpose": "Исправление записи требований",
       "participation": "correction",
       "stage": "requirements",
@@ -457,7 +457,7 @@
     {
       "id": "skill-ait-req-validation",
       "kind": "skill",
-      "path": ".apm/skills/ait-req-validation",
+      "name": "ait-req-validation",
       "purpose": "Проверка требований и критериев приёмки",
       "participation": "check",
       "stage": "requirements",
@@ -466,7 +466,7 @@
     {
       "id": "skill-ait-routing",
       "kind": "skill",
-      "path": ".apm/skills/ait-routing",
+      "name": "ait-routing",
       "purpose": "Построение маршрута полной проверки",
       "participation": "preparation",
       "stage": "repository",
@@ -475,7 +475,7 @@
     {
       "id": "skill-ait-scrum",
       "kind": "skill",
-      "path": ".apm/skills/ait-scrum",
+      "name": "ait-scrum",
       "purpose": "Проверка организации разработки по Scrum",
       "participation": "check",
       "stage": "repository",
@@ -484,7 +484,7 @@
     {
       "id": "skill-ait-sdd",
       "kind": "skill",
-      "path": ".apm/skills/ait-sdd",
+      "name": "ait-sdd",
       "purpose": "Ограничения принятой разработки на основе спецификаций",
       "participation": "constraint",
       "stage": "requirements",
@@ -493,7 +493,7 @@
     {
       "id": "skill-ait-sec-access-control",
       "kind": "skill",
-      "path": ".apm/skills/ait-sec-access-control",
+      "name": "ait-sec-access-control",
       "purpose": "Проверка управления доступом",
       "participation": "check",
       "stage": "assurance",
@@ -502,7 +502,7 @@
     {
       "id": "skill-ait-sec-ai",
       "kind": "skill",
-      "path": ".apm/skills/ait-sec-ai",
+      "name": "ait-sec-ai",
       "purpose": "Проверка безопасности использования ИИ",
       "participation": "check",
       "stage": "assurance",
@@ -511,7 +511,7 @@
     {
       "id": "skill-ait-sec-audit",
       "kind": "skill",
-      "path": ".apm/skills/ait-sec-audit",
+      "name": "ait-sec-audit",
       "purpose": "Аудит внедрённых мер защиты",
       "participation": "check",
       "stage": "assurance",
@@ -520,7 +520,7 @@
     {
       "id": "skill-ait-sec-threat-modeling",
       "kind": "skill",
-      "path": ".apm/skills/ait-sec-threat-modeling",
+      "name": "ait-sec-threat-modeling",
       "purpose": "Проверка модели угроз",
       "participation": "check",
       "stage": "assurance",
@@ -529,7 +529,7 @@
     {
       "id": "skill-ait-sec-tooling",
       "kind": "skill",
-      "path": ".apm/skills/ait-sec-tooling",
+      "name": "ait-sec-tooling",
       "purpose": "Проверка средств безопасности",
       "participation": "check",
       "stage": "assurance",
@@ -538,7 +538,7 @@
     {
       "id": "skill-ait-setup",
       "kind": "skill",
-      "path": ".apm/skills/ait-setup",
+      "name": "ait-setup",
       "purpose": "Исправление настроек проекта",
       "participation": "correction",
       "stage": "repository",
@@ -547,7 +547,7 @@
     {
       "id": "skill-ait-twelve-factor",
       "kind": "skill",
-      "path": ".apm/skills/ait-twelve-factor",
+      "name": "ait-twelve-factor",
       "purpose": "Проверка применимости The Twelve-Factor App",
       "participation": "check",
       "stage": "design",
@@ -556,7 +556,7 @@
     {
       "id": "skill-ait-ui-kit",
       "kind": "skill",
-      "path": ".apm/skills/ait-ui-kit",
+      "name": "ait-ui-kit",
       "purpose": "Проверка и исправление UI Kit",
       "participation": "check",
       "stage": "design",
@@ -565,7 +565,7 @@
     {
       "id": "skill-ait-ux-audit",
       "kind": "skill",
-      "path": ".apm/skills/ait-ux-audit",
+      "name": "ait-ux-audit",
       "purpose": "Проверка обоснованности пользовательского опыта",
       "participation": "check",
       "stage": "design",
@@ -582,7 +582,7 @@
     {
       "id": "skill-ait-ux-design",
       "kind": "skill",
-      "path": ".apm/skills/ait-ux-design",
+      "name": "ait-ux-design",
       "purpose": "Проверка и исправление пользовательских сценариев",
       "participation": "check",
       "stage": "design",
@@ -591,7 +591,7 @@
     {
       "id": "skill-ait-writing",
       "kind": "skill",
-      "path": ".apm/skills/ait-writing",
+      "name": "ait-writing",
       "purpose": "Проверка и исправление технического текста",
       "participation": "check",
       "stage": "assurance",
@@ -608,7 +608,7 @@
     {
       "id": "rule-ai-dev-team-connection",
       "kind": "rule",
-      "path": ".apm/instructions/ai-dev-team-connection.instructions.md",
+      "name": "ai-dev-team-connection",
       "purpose": "Ограничения подключения и маршрутизации продукта",
       "participation": "constraint",
       "stage": "repository",
