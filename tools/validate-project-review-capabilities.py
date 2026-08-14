@@ -67,6 +67,22 @@ def require_string(entry: dict[str, Any], key: str, identifier: str) -> str:
     return value
 
 
+def component_path(entry: dict[str, Any], kind: str, identifier: str) -> str:
+    """Вернуть путь компонента, сохраняя совместимость старой схемы."""
+    path = entry.get("path")
+    if path is not None:
+        if not isinstance(path, str) or not path.strip():
+            raise CapabilityError(f"{identifier}: поле path должно быть строкой")
+        return path
+
+    name = require_string(entry, "name", identifier)
+    if kind == "role":
+        return f".apm/agents/{name}.agent.md"
+    if kind == "skill":
+        return f".apm/skills/{name}"
+    return f".apm/instructions/{name}.instructions.md"
+
+
 def validate(root: Path, classification: Path) -> None:
     data = load_document(classification)
     if data.get("version") != 1:
@@ -101,7 +117,7 @@ def validate(root: Path, classification: Path) -> None:
         kind = require_string(raw_entry, "kind", identifier)
         if kind not in KINDS:
             raise CapabilityError(f"{identifier}: неизвестный kind {kind}")
-        path = require_string(raw_entry, "path", identifier)
+        path = component_path(raw_entry, kind, identifier)
         if path in seen_paths:
             raise CapabilityError(f"повторяющийся путь: {path}")
         seen_paths.add(path)

@@ -613,6 +613,24 @@
       "participation": "constraint",
       "stage": "repository",
       "applicability": "always"
+    },
+    {
+      "id": "rule-agents",
+      "kind": "rule",
+      "name": "AGENTS",
+      "external": true,
+      "purpose": "Локальные инструкции агента целевого проекта",
+      "participation": "not_applicable",
+      "applicability": "never"
+    },
+    {
+      "id": "rule-claude",
+      "kind": "rule",
+      "name": "CLAUDE",
+      "external": true,
+      "purpose": "Локальные инструкции Claude целевого проекта",
+      "participation": "not_applicable",
+      "applicability": "never"
     }
   ]
 }

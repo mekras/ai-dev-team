@@ -1,15 +1,29 @@
+statement_contract_version: 2
+source_id: ADRG
+item_id: ADRG-normalized-ADRG-source.md
 statements:
 - id: ADRG-001
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   kind: fact
-  status: verified
   text: 'Architectural Decision Record (ADR) — запись, фиксирующая одно архитектурное
     решение (AD) вместе с его обоснованием, компромиссами и последствиями.'
   excerpt: Architectural Decision Record (ADR) — запись, фиксирующая одно AD вместе
     с его обоснованием, компромиссами и последствиями.
   artifact: source.md
   checked_at: '2026-07-28'
+  processing_status: &verified
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
   scope:
     section_title: Базовые определения
     application: архитектор, технический писатель — назначение формата ADR.
@@ -18,7 +32,6 @@ statements:
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   kind: fact
-  status: verified
   text: Architectural Decision (AD) — обоснованный проектный выбор, отвечающий на функциональное
     или нефункциональное требование, значимое для архитектуры; Architecturally Significant
     Requirement (ASR) — требование, измеримо влияющее на архитектуру и качество системы.
@@ -26,6 +39,13 @@ statements:
     на архитектуру и качество системы.
   artifact: source.md
   checked_at: '2026-07-28'
+  processing_status: *verified
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
   scope:
     section_title: Базовые определения
     application: архитектор — отбор архитектурно значимых решений.
@@ -34,12 +54,23 @@ statements:
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   kind: fact
-  status: ready_for_review
   text: формат ADR впервые предложил Майкл Найгард в статье «Documenting Architecture
     Decisions» (`2011`).
   excerpt: Майкл Найгард в статье «Documenting Architecture Decisions» (`2011`)
   artifact: source.md
-  checked_at: '2026-06-29'
+  checked_at: '2026-08-13'
+  processing_status: &pending
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
   scope:
     section_title: Происхождение формата
     application: архитектор — контекст и происхождение практики ADR.
@@ -48,7 +79,6 @@ statements:
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   kind: fact
-  status: ready_for_review
   text: сайт adr.github.io ставит три цели — обосновать пользу фиксации архитектурных
     решений и закрепить единую терминологию, развивать инструменты поддержки ADR и
     собирать общедоступные ресурсы по управлению архитектурными знаниями (AKM) и ADR.
@@ -57,7 +87,14 @@ statements:
     гибкой итеративной разработки; собирать общедоступные ресурсы по управлению архитектурными
     знаниями (AKM) и ADR.'
   artifact: source.md
-  checked_at: '2026-06-29'
+  checked_at: '2026-08-13'
+  processing_status: *pending
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
   scope:
     section_title: Назначение сайта
     application: архитектор — навигация по ресурсам сообщества ADR.
@@ -66,13 +103,19 @@ statements:
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   kind: fact
-  status: verified
   text: классический шаблон Nygard ADR состоит из разделов title, status, context,
     decision, consequences.
   excerpt: 'Nygard ADR — классическая структура: title, status, context, decision,
     consequences;'
   artifact: source.md
   checked_at: '2026-07-28'
+  processing_status: *verified
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
   scope:
     section_title: Шаблоны ADR
     application: архитектор, технический писатель — выбор структуры ADR.
@@ -81,14 +124,20 @@ statements:
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   kind: fact
-  status: ready_for_review
   text: 'шаблон MADR (Markdown Architectural Decision Records) делает упор на анализ
     компромиссов: рассмотренные варианты с плюсами и минусами и метаданные (статус,
     участники).'
   excerpt: 'MADR (Markdown Architectural Decision Records) — упор на анализ компромиссов:
     рассмотренные варианты с плюсами и минусами, метаданные (статус, участники);'
   artifact: source.md
-  checked_at: '2026-06-29'
+  checked_at: '2026-08-13'
+  processing_status: *pending
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
   scope:
     section_title: Шаблоны ADR
     application: архитектор — фиксация альтернатив и компромиссов.
@@ -97,13 +146,19 @@ statements:
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   kind: fact
-  status: ready_for_review
   text: 'формат Y-Statement задаёт краткую запись решения по схеме: «in the context
     of … facing … we decided for … to achieve … accepting …».'
   excerpt: 'Y-Statement — краткий формат: «in the context of … facing … we decided
     for … to achieve … accepting …»;'
   artifact: source.md
-  checked_at: '2026-06-29'
+  checked_at: '2026-08-13'
+  processing_status: *pending
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
   scope:
     section_title: Шаблоны ADR
     application: архитектор — компактная фиксация решения.
@@ -112,14 +167,20 @@ statements:
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   kind: fact
-  status: ready_for_review
   text: среди шаблонов перечислен шаблон международного стандарта ISO/IEC/IEEE 42010:2011
     (девять информационных элементов в приложении A); сайт не предписывает один шаблон,
     а перечисляет варианты и отмечает существование других форматов.
   excerpt: Каталог шаблонов ADR; сайт не предписывает один шаблон, а перечисляет варианты
     и отмечает существование других форматов
   artifact: source.md
-  checked_at: '2026-06-29'
+  checked_at: '2026-08-13'
+  processing_status: *pending
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
   scope:
     section_title: Шаблоны ADR
     application: архитектор — выбор шаблона под потребности команды.
@@ -128,13 +189,19 @@ statements:
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   kind: fact
-  status: ready_for_review
   text: раздел практик вводит тест архитектурной значимости (Architectural Significance
     Test) для определения того, какие решения заслуживают оформления как ADR.
   excerpt: тест архитектурной значимости (Architectural Significance Test) — какие
     решения заслуживают оформления как ADR;
   artifact: source.md
-  checked_at: '2026-06-29'
+  checked_at: '2026-08-13'
+  processing_status: *pending
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
   scope:
     section_title: Практики принятия решений
     application: архитектор — отбор решений, требующих ADR.
@@ -143,14 +210,20 @@ statements:
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   kind: fact
-  status: ready_for_review
   text: раздел практик описывает критерии готовности решения (Definition of Ready)
     и завершённости (Definition of Done — доказательства, критерии и альтернативы,
     согласие, документирование, план реализации или пересмотра).
   excerpt: 'завершённости (Definition of Done: доказательства, критерии и альтернативы,
     согласие, документирование, план реализации или пересмотра);'
   artifact: source.md
-  checked_at: '2026-06-29'
+  checked_at: '2026-08-13'
+  processing_status: *pending
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
   scope:
     section_title: Практики принятия решений
     application: архитектор — контроль качества решения перед фиксацией.
@@ -159,11 +232,17 @@ statements:
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   kind: fact
-  status: verified
   text: 'жизненный цикл решения проходит статусы: proposed, accepted, deprecated, superseded.'
   excerpt: 'статусы решения: proposed, accepted, deprecated, superseded;'
   artifact: source.md
   checked_at: '2026-07-28'
+  processing_status: *verified
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
   scope:
     section_title: Статусы решения
     application: архитектор — сопровождение и пересмотр решений.
@@ -172,12 +251,18 @@ statements:
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   kind: fact
-  status: ready_for_review
   text: раздел практик рекомендует рецензирование решений с чек-листами и каталогом
     антипаттернов, а также модель постепенного внедрения практики (adoption model).
   excerpt: рецензирование решений с чек-листами и каталогом антипаттернов;
   artifact: source.md
-  checked_at: '2026-06-29'
+  checked_at: '2026-08-13'
+  processing_status: *pending
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
   scope:
     section_title: Практики принятия решений
     application: архитектор — внедрение и контроль качества ADR.
@@ -186,14 +271,20 @@ statements:
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   kind: fact
-  status: ready_for_review
   text: сайт ведёт каталог инструментов фиксации решений по категориям — создание
     и сопровождение файлов решений (например `adr-tools`, `Log4brains`, `dotnet-adr`,
     `ADR Manager`, `pyadr`), инструменты рядом с кодом и инструменты управления архитектурой
     (`ArchUnit`, `docToolchain`, `Structurizr`); отдельно помечены неподдерживаемые.
   excerpt: Каталог инструментов фиксации решений, сгруппированных по категориям
   artifact: source.md
-  checked_at: '2026-06-29'
+  checked_at: '2026-08-13'
+  processing_status: *pending
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
   scope:
     section_title: Инструменты фиксации решений
     application: архитектор — выбор инструментов ведения ADR.
@@ -202,12 +293,18 @@ statements:
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   kind: fact
-  status: verified
   text: подход ADR в материалах сайта допускает расширение с архитектурных решений
     на любые организационные решения.
   excerpt: расширение подхода с архитектурных решений на любые организационные.
   artifact: source.md
   checked_at: '2026-07-28'
+  processing_status: *verified
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
   scope:
     section_title: Область применения ADR
     application: архитектор, менеджер — фиксация решений за пределами архитектуры.
@@ -216,7 +313,6 @@ statements:
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   kind: fact
-  status: ready_for_review
   text: 'формат Y-Statement задаёт слоты: «в контексте <сценарий или пользовательская
     история>, сталкиваясь с <проблема>, мы выбрали <вариант>, чтобы достичь <качество>,
     принимая <недостаток>»; расширенная форма добавляет «отвергнув <другие варианты>»
@@ -224,7 +320,14 @@ statements:
   excerpt: 'Y-Statement — краткий формат: «in the context of … facing … we decided
     for … to achieve … accepting …»;'
   artifact: source.md
-  checked_at: '2026-06-29'
+  checked_at: '2026-08-13'
+  processing_status: *pending
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
   scope:
     section_title: Шаблоны ADR
     application: архитектор — компактная фиксация решения с обоснованием.

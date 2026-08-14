@@ -11,6 +11,14 @@
       "review_stages": ["requirements"]
     },
     {
+      "id": "knowledge",
+      "title": "Корпус знаний",
+      "kind": "knowledge",
+      "paths": ["knowledge/corpus.yml"],
+      "checks": ["kc-validation"],
+      "review_stages": ["repository"]
+    },
+    {
       "id": "requirements",
       "title": "Требования",
       "kind": "requirements",
@@ -20,6 +28,7 @@
     }
   ],
   "edges": [
-    {"from": "concept", "to": "requirements"}
+    {"from": "concept", "to": "requirements"},
+    {"from": "knowledge", "to": "requirements"}
   ]
 }

@@ -76,24 +76,29 @@ statements:
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   path: data/adrg/items/normalized-adrg-source.md/statements.yml
-  status: verified
+  status: null
   kind: fact
   text: Architectural Decision Record (ADR) — запись, фиксирующая одно архитектурное
     решение (AD) вместе с его обоснованием, компромиссами и последствиями.
   artifact: source.md
   checked_at: '2026-07-28'
-  processing_status: null
-  source_role: null
-  evidence_strength: null
-  confidence: null
-  temporal_status: null
-  corroboration: null
-  limitations: null
+  processing_status: &id002
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
 - id: ADRG-002
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   path: data/adrg/items/normalized-adrg-source.md/statements.yml
-  status: verified
+  status: null
   kind: fact
   text: Architectural Decision (AD) — обоснованный проектный выбор, отвечающий на
     функциональное или нефункциональное требование, значимое для архитектуры; Architecturally
@@ -101,242 +106,247 @@ statements:
     качество системы.
   artifact: source.md
   checked_at: '2026-07-28'
-  processing_status: null
-  source_role: null
-  evidence_strength: null
-  confidence: null
-  temporal_status: null
-  corroboration: null
-  limitations: null
+  processing_status: *id002
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
 - id: ADRG-003
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   path: data/adrg/items/normalized-adrg-source.md/statements.yml
-  status: ready_for_review
+  status: null
   kind: fact
   text: формат ADR впервые предложил Майкл Найгард в статье «Documenting Architecture
     Decisions» (`2011`).
   artifact: source.md
-  checked_at: '2026-06-29'
-  processing_status: null
-  source_role: null
-  evidence_strength: null
-  confidence: null
-  temporal_status: null
-  corroboration: null
-  limitations: null
+  checked_at: '2026-08-13'
+  processing_status: &id003
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
 - id: ADRG-004
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   path: data/adrg/items/normalized-adrg-source.md/statements.yml
-  status: ready_for_review
+  status: null
   kind: fact
   text: сайт adr.github.io ставит три цели — обосновать пользу фиксации архитектурных
     решений и закрепить единую терминологию, развивать инструменты поддержки ADR и
     собирать общедоступные ресурсы по управлению архитектурными знаниями (AKM) и ADR.
   artifact: source.md
-  checked_at: '2026-06-29'
-  processing_status: null
-  source_role: null
-  evidence_strength: null
-  confidence: null
-  temporal_status: null
-  corroboration: null
-  limitations: null
+  checked_at: '2026-08-13'
+  processing_status: *id003
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
 - id: ADRG-005
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   path: data/adrg/items/normalized-adrg-source.md/statements.yml
-  status: verified
+  status: null
   kind: fact
   text: классический шаблон Nygard ADR состоит из разделов title, status, context,
     decision, consequences.
   artifact: source.md
   checked_at: '2026-07-28'
-  processing_status: null
-  source_role: null
-  evidence_strength: null
-  confidence: null
-  temporal_status: null
-  corroboration: null
-  limitations: null
+  processing_status: *id002
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
 - id: ADRG-006
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   path: data/adrg/items/normalized-adrg-source.md/statements.yml
-  status: ready_for_review
+  status: null
   kind: fact
   text: 'шаблон MADR (Markdown Architectural Decision Records) делает упор на анализ
     компромиссов: рассмотренные варианты с плюсами и минусами и метаданные (статус,
     участники).'
   artifact: source.md
-  checked_at: '2026-06-29'
-  processing_status: null
-  source_role: null
-  evidence_strength: null
-  confidence: null
-  temporal_status: null
-  corroboration: null
-  limitations: null
+  checked_at: '2026-08-13'
+  processing_status: *id003
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
 - id: ADRG-007
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   path: data/adrg/items/normalized-adrg-source.md/statements.yml
-  status: ready_for_review
+  status: null
   kind: fact
   text: 'формат Y-Statement задаёт краткую запись решения по схеме: «in the context
     of … facing … we decided for … to achieve … accepting …».'
   artifact: source.md
-  checked_at: '2026-06-29'
-  processing_status: null
-  source_role: null
-  evidence_strength: null
-  confidence: null
-  temporal_status: null
-  corroboration: null
-  limitations: null
+  checked_at: '2026-08-13'
+  processing_status: *id003
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
 - id: ADRG-008
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   path: data/adrg/items/normalized-adrg-source.md/statements.yml
-  status: ready_for_review
+  status: null
   kind: fact
   text: среди шаблонов перечислен шаблон международного стандарта ISO/IEC/IEEE 42010:2011
     (девять информационных элементов в приложении A); сайт не предписывает один шаблон,
     а перечисляет варианты и отмечает существование других форматов.
   artifact: source.md
-  checked_at: '2026-06-29'
-  processing_status: null
-  source_role: null
-  evidence_strength: null
-  confidence: null
-  temporal_status: null
-  corroboration: null
-  limitations: null
+  checked_at: '2026-08-13'
+  processing_status: *id003
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
 - id: ADRG-009
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   path: data/adrg/items/normalized-adrg-source.md/statements.yml
-  status: ready_for_review
+  status: null
   kind: fact
   text: раздел практик вводит тест архитектурной значимости (Architectural Significance
     Test) для определения того, какие решения заслуживают оформления как ADR.
   artifact: source.md
-  checked_at: '2026-06-29'
-  processing_status: null
-  source_role: null
-  evidence_strength: null
-  confidence: null
-  temporal_status: null
-  corroboration: null
-  limitations: null
+  checked_at: '2026-08-13'
+  processing_status: *id003
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
 - id: ADRG-010
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   path: data/adrg/items/normalized-adrg-source.md/statements.yml
-  status: ready_for_review
+  status: null
   kind: fact
   text: раздел практик описывает критерии готовности решения (Definition of Ready)
     и завершённости (Definition of Done — доказательства, критерии и альтернативы,
     согласие, документирование, план реализации или пересмотра).
   artifact: source.md
-  checked_at: '2026-06-29'
-  processing_status: null
-  source_role: null
-  evidence_strength: null
-  confidence: null
-  temporal_status: null
-  corroboration: null
-  limitations: null
+  checked_at: '2026-08-13'
+  processing_status: *id003
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
 - id: ADRG-011
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   path: data/adrg/items/normalized-adrg-source.md/statements.yml
-  status: verified
+  status: null
   kind: fact
   text: 'жизненный цикл решения проходит статусы: proposed, accepted, deprecated,
     superseded.'
   artifact: source.md
   checked_at: '2026-07-28'
-  processing_status: null
-  source_role: null
-  evidence_strength: null
-  confidence: null
-  temporal_status: null
-  corroboration: null
-  limitations: null
+  processing_status: *id002
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
 - id: ADRG-012
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   path: data/adrg/items/normalized-adrg-source.md/statements.yml
-  status: ready_for_review
+  status: null
   kind: fact
   text: раздел практик рекомендует рецензирование решений с чек-листами и каталогом
     антипаттернов, а также модель постепенного внедрения практики (adoption model).
   artifact: source.md
-  checked_at: '2026-06-29'
-  processing_status: null
-  source_role: null
-  evidence_strength: null
-  confidence: null
-  temporal_status: null
-  corroboration: null
-  limitations: null
+  checked_at: '2026-08-13'
+  processing_status: *id003
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
 - id: ADRG-013
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   path: data/adrg/items/normalized-adrg-source.md/statements.yml
-  status: ready_for_review
+  status: null
   kind: fact
   text: сайт ведёт каталог инструментов фиксации решений по категориям — создание
     и сопровождение файлов решений (например `adr-tools`, `Log4brains`, `dotnet-adr`,
     `ADR Manager`, `pyadr`), инструменты рядом с кодом и инструменты управления архитектурой
     (`ArchUnit`, `docToolchain`, `Structurizr`); отдельно помечены неподдерживаемые.
   artifact: source.md
-  checked_at: '2026-06-29'
-  processing_status: null
-  source_role: null
-  evidence_strength: null
-  confidence: null
-  temporal_status: null
-  corroboration: null
-  limitations: null
+  checked_at: '2026-08-13'
+  processing_status: *id003
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
 - id: ADRG-014
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   path: data/adrg/items/normalized-adrg-source.md/statements.yml
-  status: verified
+  status: null
   kind: fact
   text: подход ADR в материалах сайта допускает расширение с архитектурных решений
     на любые организационные решения.
   artifact: source.md
   checked_at: '2026-07-28'
-  processing_status: null
-  source_role: null
-  evidence_strength: null
-  confidence: null
-  temporal_status: null
-  corroboration: null
-  limitations: null
+  processing_status: *id002
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
 - id: ADRG-015
   source_id: ADRG
   item_id: ADRG-normalized-ADRG-source.md
   path: data/adrg/items/normalized-adrg-source.md/statements.yml
-  status: ready_for_review
+  status: null
   kind: fact
   text: 'формат Y-Statement задаёт слоты: «в контексте <сценарий или пользовательская
     история>, сталкиваясь с <проблема>, мы выбрали <вариант>, чтобы достичь <качество>,
     принимая <недостаток>»; расширенная форма добавляет «отвергнув <другие варианты>»
     и «потому что <дополнительное обоснование>».'
   artifact: source.md
-  checked_at: '2026-06-29'
-  processing_status: null
-  source_role: null
-  evidence_strength: null
-  confidence: null
-  temporal_status: null
-  corroboration: null
-  limitations: null
+  checked_at: '2026-08-13'
+  processing_status: *id003
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: current
+  corroboration: single_source
+  limitations: []
 - id: AFDS-001
   source_id: AFDS
   item_id: AFDS-skill
@@ -10250,7 +10260,7 @@ statements:
     нужны для решения относящихся к ней задач.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: &id002
+  processing_status: &id004
     extraction: complete
     traceability: passed
     semantic_review: passed
@@ -10272,7 +10282,7 @@ statements:
     конкретная модель.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: *id002
+  processing_status: *id004
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -10289,7 +10299,7 @@ statements:
     идентичности и обычно проектируется неизменяемым.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: *id002
+  processing_status: *id004
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -10306,7 +10316,7 @@ statements:
     корень внешних ссылок и инварианты целого.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: *id002
+  processing_status: *id004
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -10323,7 +10333,7 @@ statements:
     влияет на устройство и свойства программной системы.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: &id003
+  processing_status: &id005
     extraction: complete
     traceability: passed
     semantic_review: passed
@@ -10346,7 +10356,7 @@ statements:
     но и обоснования решений, точки изменчивости и связи с другими представлениями.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: *id003
+  processing_status: *id005
   source_role: primary
   evidence_strength: moderate
   confidence: high
@@ -10364,7 +10374,7 @@ statements:
     реализацию и оптимизации.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: *id003
+  processing_status: *id005
   source_role: primary
   evidence_strength: moderate
   confidence: high
@@ -10381,7 +10391,7 @@ statements:
     атрибута, идентификатор и ограничения отдельных или совместных значений.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: *id003
+  processing_status: *id005
   source_role: primary
   evidence_strength: moderate
   confidence: high
@@ -10398,7 +10408,7 @@ statements:
     участников.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: *id003
+  processing_status: *id005
   source_role: primary
   evidence_strength: moderate
   confidence: high
@@ -10415,7 +10425,7 @@ statements:
     когда фиксируют значимое решение или влияют на требуемые свойства системы.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: *id003
+  processing_status: *id005
   source_role: primary
   evidence_strength: moderate
   confidence: high
@@ -14896,7 +14906,7 @@ statements:
     размытого обобщения.
   artifact: personas-goals-scenarios.md
   checked_at: '2026-07-31'
-  processing_status: &id004
+  processing_status: &id006
     extraction: complete
     traceability: passed
     semantic_review: passed
@@ -14920,7 +14930,7 @@ statements:
     правильности первоначального описания.
   artifact: personas-goals-scenarios.md
   checked_at: '2026-08-03'
-  processing_status: *id004
+  processing_status: *id006
   source_role: primary
   evidence_strength: moderate
   confidence: high
@@ -14939,7 +14949,7 @@ statements:
     и поэтому лучше подходят как основа проектирования.
   artifact: personas-goals-scenarios.md
   checked_at: '2026-07-31'
-  processing_status: *id004
+  processing_status: *id006
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -14956,7 +14966,7 @@ statements:
     должно помогать достигать рабочего результата, не мешая личным целям.
   artifact: personas-goals-scenarios.md
   checked_at: '2026-08-03'
-  processing_status: *id004
+  processing_status: *id006
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -14975,7 +14985,7 @@ statements:
     и помогает проверять проектные предположения.
   artifact: personas-goals-scenarios.md
   checked_at: '2026-07-31'
-  processing_status: *id004
+  processing_status: *id006
   source_role: primary
   evidence_strength: moderate
   confidence: high
@@ -14992,7 +15002,7 @@ statements:
     детализации каждого шага.
   artifact: personas-goals-scenarios.md
   checked_at: '2026-07-31'
-  processing_status: *id004
+  processing_status: *id006
   source_role: primary
   evidence_strength: moderate
   confidence: high
@@ -15009,7 +15019,7 @@ statements:
     сценариях, не давая исключительным случаям доминировать.
   artifact: personas-goals-scenarios.md
   checked_at: '2026-07-31'
-  processing_status: *id004
+  processing_status: *id006
   source_role: primary
   evidence_strength: moderate
   confidence: high
@@ -15026,7 +15036,7 @@ statements:
     цели.
   artifact: personas-goals-scenarios.md
   checked_at: '2026-07-31'
-  processing_status: *id004
+  processing_status: *id006
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -15043,7 +15053,7 @@ statements:
     сама по себе не раскрывает конечный результат.
   artifact: personas-goals-scenarios.md
   checked_at: '2026-07-31'
-  processing_status: *id004
+  processing_status: *id006
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -15060,7 +15070,7 @@ statements:
     ошибаться, желание выполнять адекватный объём работы и не скучать.
   artifact: personas-goals-scenarios.md
   checked_at: '2026-08-03'
-  processing_status: *id004
+  processing_status: *id006
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -15078,7 +15088,7 @@ statements:
   text: Источник различает личные, корпоративные, практические и ложные цели.
   artifact: personas-goals-scenarios.md
   checked_at: '2026-07-31'
-  processing_status: *id004
+  processing_status: *id006
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -15095,7 +15105,7 @@ statements:
     но не отменяет личные цели этого пользователя.
   artifact: personas-goals-scenarios.md
   checked_at: '2026-07-31'
-  processing_status: *id004
+  processing_status: *id006
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -15112,7 +15122,7 @@ statements:
     средство, а не конечный результат. Классификация зависит от контекста.
   artifact: personas-goals-scenarios.md
   checked_at: '2026-07-31'
-  processing_status: *id004
+  processing_status: *id006
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -15130,7 +15140,7 @@ statements:
     наблюдение и изменение сети в одно целостное взаимодействие.
   artifact: personas-goals-scenarios.md
   checked_at: '2026-07-31'
-  processing_status: *id004
+  processing_status: *id006
   source_role: primary
   evidence_strength: moderate
   confidence: high
@@ -15148,7 +15158,7 @@ statements:
     а его постоянная готовность с постепенным улучшением.
   artifact: personas-goals-scenarios.md
   checked_at: '2026-07-31'
-  processing_status: *id004
+  processing_status: *id006
   source_role: primary
   evidence_strength: moderate
   confidence: high
@@ -15167,7 +15177,7 @@ statements:
     цель видеть собственную успешность и расти профессионально.
   artifact: personas-goals-scenarios.md
   checked_at: '2026-08-03'
-  processing_status: *id004
+  processing_status: *id006
   source_role: primary
   evidence_strength: moderate
   confidence: high
@@ -15187,7 +15197,7 @@ statements:
     и позволять отложить сложные возможности.
   artifact: personas-goals-scenarios.md
   checked_at: '2026-07-31'
-  processing_status: *id004
+  processing_status: *id006
   source_role: primary
   evidence_strength: moderate
   confidence: high
@@ -15205,7 +15215,7 @@ statements:
     дополнительное вознаграждение.
   artifact: personas-goals-scenarios.md
   checked_at: '2026-07-31'
-  processing_status: *id004
+  processing_status: *id006
   source_role: primary
   evidence_strength: moderate
   confidence: high
@@ -15222,7 +15232,7 @@ statements:
     который может начинаться с разумного правдоподобного приближения.
   artifact: personas-goals-scenarios.md
   checked_at: '2026-08-03'
-  processing_status: *id004
+  processing_status: *id006
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -15242,7 +15252,7 @@ statements:
     подходящего персонажа с первой попытки.
   artifact: personas-goals-scenarios.md
   checked_at: '2026-08-03'
-  processing_status: *id004
+  processing_status: *id006
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -15261,7 +15271,7 @@ statements:
     объединить разные роли в один персонаж.
   artifact: personas-goals-scenarios.md
   checked_at: '2026-08-03'
-  processing_status: *id004
+  processing_status: *id006
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -15281,7 +15291,7 @@ statements:
     для команды и уменьшают её эластичность.
   artifact: personas-goals-scenarios.md
   checked_at: '2026-08-03'
-  processing_status: *id004
+  processing_status: *id006
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -15299,7 +15309,7 @@ statements:
     помогает сделать его более реальным для участников проекта.
   artifact: personas-goals-scenarios.md
   checked_at: '2026-08-03'
-  processing_status: *id004
+  processing_status: *id006
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -15317,7 +15327,7 @@ statements:
     типами JSON.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: &id005
+  processing_status: &id007
     extraction: complete
     traceability: passed
     semantic_review: passed
@@ -15339,7 +15349,7 @@ statements:
     значение.'
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: *id005
+  processing_status: *id007
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -15356,7 +15366,7 @@ statements:
     верхние и нижние границы.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: *id005
+  processing_status: *id007
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -15373,7 +15383,7 @@ statements:
     регулярному выражению.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: *id005
+  processing_status: *id007
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -15390,7 +15400,7 @@ statements:
     элементов, числа свойств и обязательного присутствия свойств.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: *id005
+  processing_status: *id007
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -15407,7 +15417,7 @@ statements:
     и поддержки этой возможности реализацией.'
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: *id005
+  processing_status: *id007
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -25193,7 +25203,7 @@ statements:
     столбцы.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: &id006
+  processing_status: &id008
     extraction: complete
     traceability: passed
     semantic_review: passed
@@ -25215,7 +25225,7 @@ statements:
     и сам по себе не запрещает хранить значение другого типа.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: *id006
+  processing_status: *id008
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -25232,7 +25242,7 @@ statements:
     которое нельзя без потерь привести к этому типу.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: *id006
+  processing_status: *id008
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -25249,7 +25259,7 @@ statements:
     отсутствующего значения требует отдельного ограничения `NOT NULL`.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: *id006
+  processing_status: *id008
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -25267,7 +25277,7 @@ statements:
     переносятся автоматически на другие СУБД.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: *id006
+  processing_status: *id008
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -29318,7 +29328,7 @@ statements:
     элемента должно принадлежать указанному типу.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: &id007
+  processing_status: &id009
     extraction: complete
     traceability: passed
     semantic_review: passed
@@ -29340,7 +29350,7 @@ statements:
     отдельно задать упорядоченность и уникальность набора.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: *id007
+  processing_status: *id009
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -29357,7 +29367,7 @@ statements:
     значений указанного для свойства типа.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: *id007
+  processing_status: *id009
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -29374,7 +29384,7 @@ statements:
     модели.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: *id007
+  processing_status: *id009
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -29391,7 +29401,7 @@ statements:
     выполняться в допустимой реализации модели.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: *id007
+  processing_status: *id009
   source_role: primary
   evidence_strength: strong
   confidence: high
@@ -29408,7 +29418,7 @@ statements:
     и постусловия операций и правила вычисления производных атрибутов.
   artifact: normalized.md
   checked_at: '2026-07-31'
-  processing_status: *id007
+  processing_status: *id009
   source_role: primary
   evidence_strength: strong
   confidence: high

@@ -19,7 +19,7 @@ from typing import Any, Iterable
 from urllib.parse import unquote
 
 
-STATE_SCHEMA_VERSION = 11
+STATE_SCHEMA_VERSION = 12
 CLASSIFICATION_VERSION = 1
 CONCEPT_CAPABILITY_ID = "skill-ait-docs-concept"
 KNOWLEDGE_CAPABILITY_NAME = "kc-validation"
@@ -43,7 +43,6 @@ PARTICIPATION = {
 APPLICATION_METHODS = {"command", "inspection", "review", "validation"}
 APPLICATION_OUTCOMES = {"applied", "failed", "passed"}
 REVIEW_DECISIONS = {"accept", "needs_human_decision", "reject", "revise"}
-SEMANTIC_STAGES = {"requirements", "design"}
 CHALLENGE_OUTCOMES = {"confirmed", "inconclusive", "refuted"}
 OBSERVATION_RESULTS = {"not_applicable", "problem", "supports"}
 CRITERION_COVERAGE = {"each_subject", "surface"}
@@ -218,6 +217,23 @@ def repository_snapshot(repo: Path) -> dict[str, Any]:
     return {"id": digest, "files": files, "metadata": metadata}
 
 
+def content_files(repo: Path) -> set[str]:
+    """Return project files eligible for ontology-defined content review.
+
+    This intentionally does not use VCS inclusion rules.  A project ontology
+    defines semantic scope; VCS is used separately for the technical snapshot.
+    """
+    files: set[str] = set()
+    for root, directories, names in os.walk(repo):
+        directories[:] = [name for name in directories if name != ".git"]
+        root_path = Path(root)
+        for name in names:
+            path = root_path / name
+            if path.is_file() or path.is_symlink():
+                files.add(path.relative_to(repo).as_posix())
+    return files
+
+
 def stable_hash(value: Any) -> str:
     payload = json.dumps(
         value,
@@ -349,8 +365,12 @@ def candidate_components(
 ) -> list[tuple[str, str, Path]]:
     candidates: list[tuple[str, str, Path]] = []
     deployed = dependency_owners(repo / "apm.lock.yaml")
-    available = {repo / relative for relative in deployed}
-    available.update(path for path in repo.rglob("*") if path.is_file())
+    snapshot = repository_snapshot(repo)
+    available = {
+        repo / relative
+        for relative in {*deployed, *snapshot["files"]}
+        if (repo / relative).is_file()
+    }
     for entry in classification["capabilities"]:
         kind = entry["kind"]
         name = classification_name(entry)
@@ -549,6 +569,7 @@ def ontology_scope_for_decision(
     classification: dict[str, Any],
     ontology: dict[str, Any] | None,
     snapshot: dict[str, Any],
+    repo: Path | None,
 ) -> dict[str, Any] | None:
     scope = classification.get("ontology_scope")
     if scope is None:
@@ -575,12 +596,14 @@ def ontology_scope_for_decision(
     if not targets:
         return {"targets": [], "prerequisites": []}
     prerequisites = sorted(upstream_nodes(ontology, targets) - set(targets))
+    available_files = content_files(repo) if repo is not None else set(snapshot["files"])
+
     def scoped_node(identifier: str) -> dict[str, Any]:
         node = dict(ontology["nodes"][identifier])
         node["paths"] = sorted(node["paths"])
         node["subjects"] = sorted(
             reference
-            for reference in snapshot["files"]
+            for reference in available_files
             if any(
                 fnmatch.fnmatch(reference, pattern)
                 for pattern in node["paths"]
@@ -611,6 +634,7 @@ def initial_capability_decisions(
             classification,
             ontology,
             snapshot,
+            repo,
         )
         activation_patterns = classification.get("activation_patterns", [])
         activated = any(
@@ -1036,6 +1060,33 @@ def application_covers_paths(
     return set(paths).issubset(covered)
 
 
+def knowledge_review_covers_paths(
+    state: dict[str, Any],
+    capability: str | None,
+    paths: Iterable[str],
+) -> bool:
+    """Return whether the proven corpus barrier covers the requested paths.
+
+    The technical corpus phase inventories every discovered corpus artifact,
+    while the semantic phase deliberately focuses on source and statement
+    representations.  A proven two-phase corpus review is therefore evidence
+    for an ontology prerequisite that covers the whole discovered corpus.
+    """
+    knowledge = state.get("knowledge_review")
+    if not isinstance(knowledge, dict):
+        return False
+    if capability != knowledge.get("capability"):
+        return False
+    if not knowledge_review_is_proven(state):
+        return False
+    covered = {
+        item["reference"]
+        for item in knowledge.get("subjects", [])
+        if item.get("reference")
+    }
+    return set(paths).issubset(covered)
+
+
 def unready_finding_capabilities(
     state: dict[str, Any],
     finding_ids: Iterable[str],
@@ -1361,10 +1412,24 @@ def unverified_ontology_prerequisites(
         for check in node["checks"]:
             identifier = identifiers_by_name.get(check)
             applications = completed.get(identifier, []) if identifier else []
-            if not any(
+            if check == "kc-impact-audit":
+                audited_changed_scope = any(
+                    application.get("outcome") == "passed"
+                    and application.get("subject_artifacts")
+                    for application in applications
+                )
+                if not audited_changed_scope:
+                    missing.append(f"{node['title']} ({check})")
+                continue
+            application_covers_scope = any(
                 application.get("outcome") == "passed"
                 and application_covers_paths(application, paths)
                 for application in applications
+            )
+            if not application_covers_scope and not knowledge_review_covers_paths(
+                state,
+                identifier,
+                paths,
             ):
                 missing.append(f"{node['title']} ({check})")
     return sorted(set(missing))
@@ -1436,8 +1501,10 @@ def repository_artifact(
         relative = path.relative_to(repo).as_posix()
     except ValueError as exc:
         raise ReviewError(f"{purpose} находится вне репозитория") from exc
-    if relative not in snapshot["files"] or not path.is_file():
-        raise ReviewError(f"{purpose} не входит в текущую область Git: {reference}")
+    if relative not in content_files(repo) or not path.is_file():
+        raise ReviewError(
+            f"{purpose} недоступен в рабочем дереве проекта: {reference}",
+        )
     return relative, file_hash(path)
 
 
@@ -1627,13 +1694,16 @@ def record_knowledge_discovery(
         raise ReviewError("корень корпуса находится вне репозитория") from exc
     prefix = root.rstrip("/") + "/"
     subjects = [
-        {"reference": reference, "sha256": digest}
-        for reference, digest in sorted(current["files"].items())
+        {
+            "reference": reference,
+            "sha256": file_hash(repo / reference),
+        }
+        for reference in sorted(content_files(repo))
         if reference.startswith(prefix)
     ]
     if not root_path.is_dir() or not subjects:
         raise ReviewError(
-            "корень корпуса не содержит файлов из текущей области Git",
+            "корень корпуса не содержит файлов рабочего дерева",
         )
     identifier = knowledge_capability(state)
     knowledge.update(
@@ -1689,7 +1759,7 @@ def linked_markdown_subjects(
             continue
         if path.suffix.lower() != ".md":
             continue
-        if relative not in current["files"] or not path.is_file():
+        if not path.is_file():
             raise ReviewError(
                 "индекс предметной области ссылается на отсутствующий "
                 f"Markdown-файл: {relative}",
@@ -1716,9 +1786,10 @@ def resolve_subject_scope(
             raise ReviewError(
                 f"предмет проверки находится вне репозитория: {reference}",
             ) from exc
-        if relative not in current["files"] or not path.is_file():
+        if not path.is_file():
             raise ReviewError(
-                f"предмет проверки не входит в текущую область Git: {reference}",
+                "предмет проверки отсутствует в рабочем дереве: "
+                f"{reference}",
             )
         references.add(relative)
         return relative
@@ -1736,7 +1807,7 @@ def resolve_subject_scope(
     for pattern in patterns:
         matches = sorted(
             path
-            for path in current["files"]
+            for path in content_files(repo)
             if fnmatch.fnmatchcase(path, pattern)
             and (repo / path).is_file()
         )
@@ -2005,12 +2076,15 @@ def start_application(
                 + " или выполните связанную проверку поверхности",
             )
 
-    semantic_trace_required = args.method == "review" or (
-        bool(args.capability)
-        and decision["participation"] == "check"
+    semantic_trace_required = knowledge_phase == "semantic" or (
+        knowledge_phase is None
         and (
-            args.stage in SEMANTIC_STAGES
-            or decision.get("semantic_required", False)
+            args.method == "review"
+            or (
+                bool(args.capability)
+                and decision["participation"] == "check"
+                and decision.get("semantic_required", False)
+            )
         )
     )
     current = repository_snapshot(repo)
@@ -2086,6 +2160,13 @@ def start_application(
                     "statements.yml",
                 }
             }
+            nonsemantic_subjects = sorted(actual_subjects - semantic_subjects)
+            if semantic_subjects and nonsemantic_subjects:
+                raise ReviewError(
+                    "смысловая проверка корпуса не должна охватывать "
+                    "технические или двоичные представления: "
+                    + ", ".join(nonsemantic_subjects[:10])
+                )
             missing_subjects = sorted(semantic_subjects - actual_subjects)
             if missing_subjects:
                 raise ReviewError(
@@ -2167,9 +2248,13 @@ def start_application(
     if knowledge_phase == "technical":
         knowledge["status"] = "technical_running"
         knowledge["technical_application"] = args.id
+        knowledge["technical_outcome"] = None
+        knowledge["semantic_application"] = None
+        knowledge["semantic_outcome"] = None
     elif knowledge_phase == "semantic":
         knowledge["status"] = "semantic_running"
         knowledge["semantic_application"] = args.id
+        knowledge["semantic_outcome"] = None
     state["next_action"] = args.action
     add_history(
         state,
@@ -2242,10 +2327,12 @@ def record_observation(
 
     try:
         lines = path.read_text(encoding="utf-8").splitlines()
-    except UnicodeDecodeError as exc:
-        raise ReviewError(
-            f"смысловое наблюдение требует текстовый файл UTF-8: {relative}",
-        ) from exc
+    except UnicodeDecodeError:
+        data = path.read_bytes()
+        lines = [
+            "Двоичный артефакт: "
+            f"{len(data)} байт, SHA-256 {hashlib.sha256(data).hexdigest()}.",
+        ]
     if (
         args.start_line < 1
         or args.end_line < args.start_line
@@ -2280,6 +2367,31 @@ def record_observation(
         artifact=relative,
     )
     return {**observation, "excerpt": excerpt}
+
+
+def validate_observation_history(state: dict[str, Any]) -> None:
+    """Reject semantic observations that were not recorded by the controller."""
+    recorded = {
+        (
+            event.get("application"),
+            event.get("observation"),
+            event.get("artifact"),
+        )
+        for event in state.get("history", [])
+        if event.get("event") == "semantic_observation_recorded"
+    }
+    for application_id, application in state.get("applications", {}).items():
+        for observation in application.get("observations", []):
+            receipt = (
+                application_id,
+                observation.get("id"),
+                observation.get("artifact"),
+            )
+            if receipt not in recorded:
+                raise ReviewError(
+                    "смысловое наблюдение не записано через "
+                    "record-observation",
+                )
 
 
 def artifact_evidence(repo: Path, references: list[str]) -> list[dict[str, str]]:
@@ -2384,23 +2496,30 @@ def validate_semantic_evidence(
         subject["reference"]
         for subject in application.get("subject_scope", [])
     }
-    missing = sorted(subject_artifacts - observed_artifacts)
-    if missing:
-        raise ReviewError(
-            "нет предметных наблюдений для заявленных файлов: "
-            + ", ".join(missing),
-        )
+    criteria = application.get("review_criteria", [])
+    requires_each_subject = not criteria or any(
+        criterion.get("coverage") == "each_subject"
+        for criterion in criteria
+    )
+    if requires_each_subject:
+        missing = sorted(subject_artifacts - observed_artifacts)
+        if missing:
+            raise ReviewError(
+                "нет предметных наблюдений для заявленных файлов: "
+                + ", ".join(missing),
+            )
     substantive_artifacts = {
         observation["artifact"]
         for observation in observations
         if observation.get("result") != "not_applicable"
     }
-    missing_substantive = sorted(subject_artifacts - substantive_artifacts)
-    if missing_substantive:
-        raise ReviewError(
-            "нет содержательного результата проверки для файлов: "
-            + ", ".join(missing_substantive),
-        )
+    if requires_each_subject:
+        missing_substantive = sorted(subject_artifacts - substantive_artifacts)
+        if missing_substantive:
+            raise ReviewError(
+                "нет содержательного результата проверки для файлов: "
+                + ", ".join(missing_substantive),
+            )
     problems = [
         observation["id"]
         for observation in observations
@@ -2809,9 +2928,9 @@ def record_check(
 
 def migrate_state(state: dict[str, Any]) -> None:
     source_version = state.get("schema_version")
-    if source_version not in {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}:
+    if source_version not in {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}:
         raise ReviewError(
-            "миграция поддерживает состояния версий 1–10",
+            "миграция поддерживает состояния версий 1–11",
         )
     invalidated_applications = len(state.get("applications", {}))
     invalidated_checks = len(state.get("checks", {}))
@@ -2915,6 +3034,13 @@ def successful_capability_applications(
         if not snapshot_is_current:
             continue
         successful.add(capability)
+    knowledge = state.get("knowledge_review", {})
+    if (
+        stage == "repository"
+        and knowledge_review_is_proven(state)
+        and knowledge.get("capability")
+    ):
+        successful.add(knowledge["capability"])
     return successful
 
 
@@ -3260,6 +3386,15 @@ def validate_completion(state: dict[str, Any], target: str) -> None:
         )
     if target == "complete_with_accepted_risks" and not accepted:
         raise ReviewError("нет принятого риска для выбранного конечного статуса")
+
+
+def require_terminal_state(state: dict[str, Any]) -> None:
+    """Отказать до передачи итога, если проход ещё не достиг конца."""
+    if state["status"] not in TERMINAL_STATES:
+        raise ReviewError(
+            "полная проверка не завершена: состояние "
+            f"{state['status']!r}; продолжите с сохранённого next_action",
+        )
 
 
 def transition(
@@ -3610,6 +3745,7 @@ def accept_pending_snapshot(
         )
 
     previous_snapshot = state["snapshot"]["id"]
+    invalidate_knowledge_review_for_changed_paths(state, repo, changed)
     state["snapshot"] = current
     state["pending_snapshot"] = None
     state["decision_brief"] = None
@@ -3642,6 +3778,42 @@ def accept_pending_snapshot(
     refresh(state, repo)
 
 
+def invalidate_knowledge_review_for_changed_paths(
+    state: dict[str, Any],
+    repo: Path,
+    changed: list[str],
+) -> None:
+    """Reset the corpus barrier when the accepted corpus content changed."""
+    knowledge = state.get("knowledge_review")
+    if (
+        not isinstance(knowledge, dict)
+        or knowledge.get("status") == "absent"
+        or not isinstance(knowledge.get("root"), str)
+    ):
+        return
+    prefix = knowledge["root"].rstrip("/") + "/"
+    affected_paths = [path for path in changed if path.startswith(prefix)]
+    current_subjects = [
+        {"reference": reference, "sha256": file_hash(repo / reference)}
+        for reference in sorted(content_files(repo))
+        if reference.startswith(prefix)
+    ]
+    if not affected_paths and knowledge.get("subjects") == current_subjects:
+        return
+    knowledge["status"] = "located"
+    knowledge["subjects"] = current_subjects
+    knowledge["technical_application"] = None
+    knowledge["technical_outcome"] = None
+    knowledge["semantic_application"] = None
+    knowledge["semantic_outcome"] = None
+    add_history(
+        state,
+        "knowledge_review_invalidated",
+        root=knowledge["root"],
+        changed_paths=affected_paths,
+    )
+
+
 def refresh(state: dict[str, Any], repo: Path) -> None:
     require_nonterminal(state)
     invalidate_stale_active_application(state)
@@ -3657,6 +3829,8 @@ def refresh(state: dict[str, Any], repo: Path) -> None:
         add_history(state, "external_change", paths=external)
         return
     state["snapshot"] = new_snapshot
+
+    invalidate_knowledge_review_for_changed_paths(state, repo, changed)
 
     old_inventory = state["capability_inventory"]
     new_inventory = inventory(repo)
@@ -3753,6 +3927,7 @@ def refresh(state: dict[str, Any], repo: Path) -> None:
 
 
 def validate_state(state: dict[str, Any]) -> None:
+    validate_observation_history(state)
     concept = state.get("concept_review")
     if not isinstance(concept, dict) or concept.get("status") not in {
         "pending",
@@ -3931,12 +4106,15 @@ def restart_review(
     mode: str,
     controller: str | None,
     controller_proven: bool,
+    discard_incomplete: bool = False,
 ) -> tuple[dict[str, Any], Path]:
-    if state["status"] not in TERMINAL_STATES:
+    if state["status"] not in TERMINAL_STATES and not discard_incomplete:
         raise ReviewError("restart допустим только после завершения проверки")
     archive = review_history_path(path, state)
     archived_state = json.loads(json.dumps(state))
     archived_state["archived_at"] = now()
+    if state["status"] not in TERMINAL_STATES:
+        archived_state["discarded_at"] = now()
     atomic_write(archive, archived_state)
     restarted = new_state(repo, mode, controller, controller_proven)
     restarted["previous_review"] = {
@@ -3950,6 +4128,9 @@ def restart_review(
         previous_status=state["status"],
         previous_snapshot=state["snapshot"]["id"],
         archive=str(archive),
+        discarded_incomplete=(
+            state["status"] not in TERMINAL_STATES and discard_incomplete
+        ),
     )
     return restarted, archive
 
@@ -3981,8 +4162,9 @@ def build_parser() -> argparse.ArgumentParser:
     )
     restart_parser.add_argument("--controller")
     restart_parser.add_argument("--controller-proven", action="store_true")
+    restart_parser.add_argument("--discard-incomplete", action="store_true")
 
-    for name in ("show", "validate", "refresh"):
+    for name in ("show", "validate", "assert-terminal", "refresh"):
         subparser = commands.add_parser(name)
         add_common_repo(subparser)
 
@@ -4218,6 +4400,11 @@ def main() -> None:
                 print("Project review state is internally consistent; "
                       "review remains in progress")
             return
+        if args.operation == "assert-terminal":
+            validate_state(state)
+            require_terminal_state(state)
+            print(f"Project review has terminal status: {state['status']}")
+            return
         if args.operation == "restart":
             restarted, archive = restart_review(
                 repo,
@@ -4226,6 +4413,7 @@ def main() -> None:
                 args.mode,
                 args.controller,
                 args.controller_proven,
+                args.discard_incomplete,
             )
             atomic_write(path, restarted)
             print_json(

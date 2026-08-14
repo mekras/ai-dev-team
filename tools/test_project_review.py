@@ -12,6 +12,9 @@ from pathlib import Path
 from unittest import mock
 
 
+sys.dont_write_bytecode = True
+
+
 SCRIPT = (
     Path(__file__).parents[1]
     / ".apm/skills/ait-project-revalidation/scripts/project_review.py"
@@ -33,7 +36,7 @@ class ProjectReviewTest(unittest.TestCase):
         run("git", "init", "-q", cwd=self.root)
         run("git", "config", "user.email", "test@example.invalid", cwd=self.root)
         run("git", "config", "user.name", "Test", cwd=self.root)
-        self.write(".gitignore", "ignored.txt\n")
+        self.write(".gitignore", "ignored.txt\n.ai-dev-team/local/\n")
         self.write("tracked.txt", "before\n")
         run("git", "add", ".gitignore", "tracked.txt", cwd=self.root)
 
@@ -571,6 +574,17 @@ class ProjectReviewTest(unittest.TestCase):
             "unknown",
         )
 
+    def test_inventory_ignores_local_files_outside_git_scope(self) -> None:
+        self.write(
+            ".ai-dev-team/local/skills/ignored-check/SKILL.md",
+            "---\nname: ignored-check\ndescription: Не учитывать.\n---\n",
+        )
+
+        inventory = MODULE.inventory(self.root, self.classification)
+        identifiers = {item["id"] for item in inventory["capabilities"]}
+
+        self.assertNotIn("skill:ignored-check", identifiers)
+
     def test_inventory_changes_when_lock_changes(self) -> None:
         before = MODULE.inventory(self.root, self.classification)["fingerprint"]
         self.write("apm.lock.yaml", "lockfile_version: '2'\n")
@@ -747,6 +761,35 @@ class ProjectReviewTest(unittest.TestCase):
                 item["sha256"]
                 for item in state["concept_review"]["subjects"]
             ),
+        )
+
+    def test_concept_discovery_accepts_file_ignored_by_git(self) -> None:
+        state = self.pending_concept_state()
+        self.write(".gitignore", "ignored-concept.md\n")
+        self.write("docs/ignored-concept.md", "# Концепция\n")
+        self.write(
+            "AGENTS.md",
+            "Концепция проекта: `docs/ignored-concept.md`.\n",
+        )
+        state["snapshot"] = MODULE.repository_snapshot(self.root)
+
+        self.assertNotIn("docs/ignored-concept.md", state["snapshot"]["files"])
+
+        MODULE.record_concept_discovery(
+            state,
+            argparse.Namespace(
+                result="found",
+                instructions="AGENTS.md",
+                concept=["docs/ignored-concept.md"],
+                evidence=["Инструкции указывают на представление концепции."],
+            ),
+            self.root,
+        )
+
+        self.assertEqual(state["concept_review"]["status"], "located")
+        self.assertEqual(
+            state["concept_review"]["subjects"][0]["reference"],
+            "docs/ignored-concept.md",
         )
 
     def test_concept_discovery_requires_exact_root_pointer(self) -> None:
@@ -953,6 +996,45 @@ class ProjectReviewTest(unittest.TestCase):
                 ),
                 self.root,
             )
+
+    def test_semantic_retry_clears_previous_outcome(self) -> None:
+        state = self.new_state(self.root, "manual", None, False)
+        knowledge = state["knowledge_review"]
+        previous = state["applications"]["knowledge-semantic"]
+        previous["outcome"] = "failed"
+        previous["decision"] = "revise"
+        knowledge["status"] = "semantic_failed"
+        knowledge["semantic_outcome"] = "failed"
+
+        MODULE.start_application(
+            state,
+            argparse.Namespace(
+                id="knowledge-semantic-retry",
+                stage="repository",
+                capability=knowledge["capability"],
+                finding=None,
+                method="review",
+                surface="Корпус относительно концепции.",
+                action="Повторить смысловую проверку корпуса.",
+                priority_rationale=(
+                    "Повторная проверка обязательна после снятия находки."
+                ),
+                knowledge_phase="semantic",
+                subject=[],
+                subject_index=[],
+                subject_pattern=[
+                    "knowledge/corpus.yml",
+                    "knowledge/catalog.yml",
+                    "knowledge/**/source.yml",
+                    "knowledge/**/statements.yml",
+                ],
+            ),
+            self.root,
+        )
+
+        self.assertEqual(knowledge["status"], "semantic_running")
+        self.assertIsNone(knowledge["semantic_outcome"])
+        MODULE.validate_state(state)
 
     def test_failed_concept_review_does_not_open_other_work(self) -> None:
         state = self.pending_concept_state()
@@ -1234,6 +1316,37 @@ class ProjectReviewTest(unittest.TestCase):
         self.assertEqual(MODULE.load_json(archive)["status"], "complete")
         self.assertEqual(restarted["status"], "running")
         self.assertEqual(restarted["previous_review"]["archive"], str(archive))
+
+    def test_restart_discards_incomplete_state_only_when_requested(self) -> None:
+        state = self.new_state(self.root, "manual", None, False)
+        path = MODULE.state_path(self.root)
+
+        with self.assertRaisesRegex(MODULE.ReviewError, "только после"):
+            MODULE.restart_review(self.root, path, state, "manual", None, False)
+
+        restarted, archive = MODULE.restart_review(
+            self.root,
+            path,
+            state,
+            "manual",
+            None,
+            False,
+            discard_incomplete=True,
+        )
+
+        archived = MODULE.load_json(archive)
+        self.assertIn("discarded_at", archived)
+        self.assertEqual(restarted["status"], "running")
+        self.assertTrue(restarted["history"][-1]["discarded_incomplete"])
+
+    def test_terminal_assertion_rejects_incomplete_review(self) -> None:
+        state = self.new_state(self.root, "manual", None, False)
+
+        with self.assertRaisesRegex(MODULE.ReviewError, "не завершена"):
+            MODULE.require_terminal_state(state)
+
+        state["status"] = "complete"
+        MODULE.require_terminal_state(state)
 
     def test_external_change_interrupts_state(self) -> None:
         state = self.new_state(self.root, "manual", None, False)
@@ -1534,6 +1647,31 @@ class ProjectReviewTest(unittest.TestCase):
             ["concept"],
         )
 
+    def test_changed_knowledge_content_reopens_corpus_barrier(self) -> None:
+        state = self.new_state(self.root, "manual", None, False)
+        self.write(
+            "knowledge/data/test/statements.yml",
+            "- statement: updated evidence\n",
+        )
+        MODULE.refresh(state, self.root)
+
+        self.accept_snapshot(
+            state,
+            external_paths=["knowledge/data/test/statements.yml"],
+            external_reason="Пользователь подтвердил изменение корпуса.",
+            reopen_stages=["repository"],
+        )
+
+        knowledge = state["knowledge_review"]
+        self.assertEqual(knowledge["status"], "located")
+        self.assertIsNone(knowledge["technical_application"])
+        self.assertIsNone(knowledge["semantic_application"])
+        self.assertFalse(MODULE.knowledge_review_is_proven(state))
+        self.assertIn(
+            "knowledge_review_invalidated",
+            [entry["event"] for entry in state["history"]],
+        )
+
     def test_content_pattern_makes_check_mandatory(self) -> None:
         inventory = {
             "capabilities": [
@@ -1767,7 +1905,10 @@ class ProjectReviewTest(unittest.TestCase):
     ) -> None:
         semantic = method == "review" or (
             capability is not None
-            and stage in MODULE.SEMANTIC_STAGES
+            and state["capability_decisions"][capability].get(
+                "semantic_required",
+                False,
+            )
         )
         MODULE.start_application(
             state,
@@ -2457,7 +2598,9 @@ class ProjectReviewTest(unittest.TestCase):
                 self.root,
             )
 
-    def test_semantic_review_rejects_self_attested_fields(self) -> None:
+    def test_validation_in_requirements_does_not_require_semantic_trace(
+        self,
+    ) -> None:
         state = self.new_state(self.root, "manual", None, False)
         decision = state["capability_decisions"]["skill:core-check"]
         decision["stage"] = "requirements"
@@ -2469,6 +2612,46 @@ class ProjectReviewTest(unittest.TestCase):
                 capability="skill:core-check",
                 finding=None,
                 method="validation",
+                surface="Структурный договор требований",
+                action="Проверить структурный договор требований.",
+                priority_rationale=(
+                    "Ошибка основания обесценит зависимые решения."
+                ),
+                subject=[],
+            ),
+            self.root,
+        )
+        MODULE.finish_application(
+            state,
+            argparse.Namespace(
+                application="requirements-core",
+                outcome="passed",
+                decision="accept",
+                evidence=["Структурный валидатор завершился без ошибок."],
+                artifact=["tracked.txt"],
+                coverage="Структурный договор требований.",
+                claim=["Структурный договор соблюдён."],
+                claim_support=[],
+                challenge=None,
+                challenge_outcome=None,
+                challenge_support=[],
+                command="git diff --cached --check",
+            ),
+            self.root,
+        )
+
+    def test_semantic_review_rejects_self_attested_fields(self) -> None:
+        state = self.new_state(self.root, "manual", None, False)
+        decision = state["capability_decisions"]["skill:core-check"]
+        decision["stage"] = "requirements"
+        MODULE.start_application(
+            state,
+            argparse.Namespace(
+                id="requirements-core",
+                stage="requirements",
+                capability="skill:core-check",
+                finding=None,
+                method="review",
                 surface="Концепция и требования",
                 action="Проверить смысл концепции и требований.",
                 priority_rationale=(
@@ -2488,7 +2671,7 @@ class ProjectReviewTest(unittest.TestCase):
                 argparse.Namespace(
                     application="requirements-core",
                     outcome="passed",
-                    decision=None,
+                    decision="accept",
                     evidence=["Структурный валидатор завершился без ошибок."],
                     artifact=["tracked.txt"],
                     coverage="Концепция и все требования.",
@@ -2557,6 +2740,53 @@ class ProjectReviewTest(unittest.TestCase):
                 ),
                 self.root,
             )
+
+    def test_validate_rejects_observation_without_controller_receipt(self) -> None:
+        state = self.new_state(self.root, "manual", None, False)
+        decision = state["capability_decisions"]["skill:core-check"]
+        decision["stage"] = "requirements"
+        MODULE.start_application(
+            state,
+            argparse.Namespace(
+                id="requirements-core",
+                stage="requirements",
+                capability="skill:core-check",
+                finding=None,
+                method="review",
+                surface="Требования",
+                action="Проверить требования.",
+                priority_rationale="Требования определяют поведение продукта.",
+                subject=["tracked.txt"],
+                subject_index=[],
+                subject_pattern=[],
+            ),
+            self.root,
+        )
+        observation = MODULE.record_observation(
+            state,
+            argparse.Namespace(
+                application="requirements-core",
+                artifact="tracked.txt",
+                start_line=1,
+                end_line=1,
+                criterion_id="custom",
+                criterion="Наличие обязательства.",
+                result="supports",
+                note="Требование содержит обязательство.",
+            ),
+            self.root,
+        )
+        state["history"] = [
+            event
+            for event in state["history"]
+            if event.get("observation") != observation["id"]
+        ]
+
+        with self.assertRaisesRegex(
+            MODULE.ReviewError,
+            "не записано через record-observation",
+        ):
+            MODULE.validate_state(state)
 
     def test_full_requirements_review_rejects_handpicked_subjects(self) -> None:
         self.write(
@@ -2701,6 +2931,81 @@ class ProjectReviewTest(unittest.TestCase):
                 self.root,
             )
 
+    def test_proven_knowledge_review_covers_ontology_prerequisite(self) -> None:
+        self.write("knowledge/auxiliary.md", "# Дополнительный индекс\n")
+        run("git", "add", "knowledge", cwd=self.root)
+        state = self.pending_concept_state()
+        self.complete_concept_review(state)
+        self.complete_knowledge_review(state)
+
+        decision = {
+            "ontology_scope": {
+                "prerequisites": [
+                    {
+                        "title": "Корпус знаний",
+                        "subjects": [
+                            "knowledge/catalog.yml",
+                            "knowledge/auxiliary.md",
+                        ],
+                        "checks": ["kc-validation"],
+                    },
+                ],
+            },
+        }
+
+        self.assertEqual(
+            MODULE.unverified_ontology_prerequisites(state, decision),
+            [],
+        )
+
+    def test_knowledge_impact_audit_requires_changed_subjects_only(self) -> None:
+        state = self.new_state(self.root, "manual", None, False)
+        state["capability_inventory"]["capabilities"].append(
+            {"id": "skill:kc-impact-audit", "name": "kc-impact-audit"},
+        )
+        state["capability_decisions"]["skill:kc-impact-audit"] = {
+            "input_hash": "impact-audit-input",
+            "participation": "check",
+        }
+        state["applications"]["knowledge-impact"] = {
+            "capability": "skill:kc-impact-audit",
+            "status": "complete",
+            "outcome": "passed",
+            "capability_input_hash": "impact-audit-input",
+            "input_snapshot": state["snapshot"]["id"],
+            "completed_snapshot": state["snapshot"]["id"],
+            "evidence_fingerprint": "evidence",
+            "coverage": "Изменённые утверждения.",
+            "claims": ["Влияние проверено."],
+            "subject_artifacts": ["tracked.txt"],
+        }
+        decision = {
+            "ontology_scope": {
+                "prerequisites": [
+                    {
+                        "title": "Корпус знаний",
+                        "subjects": ["knowledge/whole-corpus.yml"],
+                        "checks": ["kc-impact-audit"],
+                    },
+                ],
+            },
+        }
+
+        self.assertEqual(
+            MODULE.unverified_ontology_prerequisites(state, decision),
+            [],
+        )
+
+    def test_proven_knowledge_review_closes_repository_capability(self) -> None:
+        state = self.pending_concept_state()
+        self.complete_concept_review(state)
+        self.complete_knowledge_review(state)
+
+        self.assertIn(
+            state["knowledge_review"]["capability"],
+            MODULE.successful_capability_applications(state, "repository"),
+        )
+
     def test_subject_index_expands_linked_business_requirements(self) -> None:
         self.write(
             "docs/requirements.md",
@@ -2794,7 +3099,29 @@ class ProjectReviewTest(unittest.TestCase):
                     command=None,
                 ),
                 self.root,
-            )
+        )
+
+    def test_subject_scope_includes_ontology_file_ignored_by_git(self) -> None:
+        self.write(".gitignore", "ignored.md\n")
+        self.write("docs/ignored.md", "# Представление\n")
+        snapshot = MODULE.repository_snapshot(self.root)
+
+        self.assertNotIn("docs/ignored.md", snapshot["files"])
+        scope, _ = MODULE.resolve_subject_scope(
+            self.root,
+            snapshot,
+            [],
+            [],
+            ["docs/ignored.md"],
+        )
+
+        self.assertEqual(
+            scope,
+            [{
+                "reference": "docs/ignored.md",
+                "sha256": MODULE.file_hash(self.root / "docs/ignored.md"),
+            }],
+        )
 
     def test_failed_semantic_application_requires_linked_finding(self) -> None:
         state = self.new_state(self.root, "manual", None, False)
@@ -3039,6 +3366,43 @@ class ProjectReviewTest(unittest.TestCase):
             application["claim_support"],
             ["observation-001"],
         )
+
+    def test_semantic_review_records_binary_artifact_metadata(self) -> None:
+        binary = self.root / "artifact.bin"
+        binary.write_bytes(b"\x00\xff\x10")
+        state = self.new_state(self.root, "manual", None, False)
+        decision = state["capability_decisions"]["skill:core-check"]
+        decision["stage"] = "design"
+        MODULE.start_application(
+            state,
+            argparse.Namespace(
+                id="binary-design",
+                stage="design",
+                capability="skill:core-check",
+                finding=None,
+                method="review",
+                surface="Двоичный артефакт",
+                action="Проверить метаданные двоичного артефакта.",
+                priority_rationale="Двоичный артефакт входит в предметную область.",
+                subject=["artifact.bin"],
+            ),
+            self.root,
+        )
+        observation = MODULE.record_observation(
+            state,
+            argparse.Namespace(
+                application="binary-design",
+                artifact="artifact.bin",
+                start_line=1,
+                end_line=1,
+                criterion_id="custom",
+                criterion="Метаданные двоичного артефакта.",
+                result="supports",
+                note="Размер и контрольная сумма позволяют идентифицировать артефакт.",
+            ),
+            self.root,
+        )
+        self.assertIn("Двоичный артефакт", observation["excerpt"])
 
     def test_changed_snapshot_allows_only_failed_application(self) -> None:
         state = self.new_state(self.root, "manual", None, False)

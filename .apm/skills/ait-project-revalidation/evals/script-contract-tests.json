@@ -5,6 +5,11 @@
       "script": "scripts/project_review.py",
       "function": "record_check",
       "reason": "Защитный отказ для удалённой команды. Публичный маршрут использует start-application и finish-application."
+    },
+    {
+      "script": "scripts/project_review.py",
+      "function": "knowledge_review_covers_paths",
+      "reason": "Резервная ветвь для сохранённого барьера корпуса. Обычный маршрут доказывает охват завершёнными фазами и не достигает этой ветви."
     }
   ],
   "operations": [
@@ -61,6 +66,14 @@
       "inputs": []
     },
     {
+      "id": "project-review-assert-terminal",
+      "script": "scripts/project_review.py",
+      "command_prefix": [
+        "assert-terminal"
+      ],
+      "inputs": []
+    },
+    {
       "id": "project-review-refresh",
       "script": "scripts/project_review.py",
       "command_prefix": [
@@ -96,7 +109,9 @@
       "command_prefix": [
         "transition"
       ],
-      "inputs": []
+      "inputs": [
+        "apm.lock.yaml"
+      ]
     },
     {
       "id": "project-review-stage",
@@ -1550,7 +1565,8 @@
         "skill:kc-validation", "--method", "validation", "--surface",
         "knowledge/index.md", "--action", "Проверить структуру корпуса",
         "--priority-rationale", "Корпус обязателен после концепции",
-        "--knowledge-phase", "technical", "--subject-index", "knowledge/index.md"
+        "--knowledge-phase", "technical", "--subject-index", "knowledge/index.md",
+        "--subject-pattern", "knowledge/**"
       ],
       "covers": ["project-review-start-application"],
       "expect": {
@@ -1570,6 +1586,28 @@
       ],
       "command": ["{python}", "{script}", "refresh", "--repo", "{fixture}"],
       "covers": ["project-review-refresh"],
+      "expect": {"stdout_contains": ["\"status\": \"interrupted\""]}
+    },
+    {
+      "id": "refresh-legacy-capability-decision-workflow",
+      "script": "scripts/project_review.py",
+      "fixture": "evals/script-fixtures/knowledge-workflow-project",
+      "prepare": [
+        ["git", "init", "{fixture}"],
+        ["git", "-C", "{fixture}", "add", "-A"],
+        ["git", "-C", "{fixture}", "-c", "user.email=contract@example.invalid", "-c", "user.name=Contract", "commit", "-m", "init"],
+        ["{python}", "{script}", "init", "--repo", "{fixture}", "--mode", "manual"],
+        ["{python}", "-c", "import json\nfrom pathlib import Path\np = Path('.git/ai-dev-team/project-review-state.json')\ns = json.loads(p.read_text(encoding='utf-8'))\ni = next(x for x in s['capability_inventory']['capabilities'] if x['id'] == 'skill:kc-validation')\ns['capability_decisions']['skill:kc-validation']['input_hash'] = i['component_input_hash']\np.write_text(json.dumps(s, ensure_ascii=False, indent=2), encoding='utf-8')\np = Path('.agents/skills/kc-validation/SKILL.md')\np.write_text(p.read_text(encoding='utf-8') + '\\nИзменение.\\n', encoding='utf-8')\n"],
+        ["{python}", "{script}", "refresh", "--repo", "{fixture}"]
+      ],
+      "command": [
+        "{python}", "{script}", "accept-snapshot", "--repo", "{fixture}",
+        "--external-path", ".agents/skills/kc-validation/SKILL.md",
+        "--external-reason", "Подтверждено для проверки совместимости.",
+        "--reopen-stage", "repository", "--impact-rationale",
+        "Изменение влияет на проверку корпуса знаний."
+      ],
+      "covers": ["project-review-accept-snapshot"],
       "expect": {"stdout_contains": ["\"status\": \"running\""]}
     },
     {
@@ -1586,6 +1624,39 @@
       ],
       "covers": ["project-review-start-application"],
       "expect": {"stdout_contains": ["\"status\": \"running\""]}
+    },
+    {
+      "id": "finish-validation-in-requirements-after-semantic-knowledge-barrier",
+      "script": "scripts/project_review.py",
+      "fixture": "evals/script-fixtures/knowledge-workflow-project",
+      "prepare": [["{python}", "prepare.py", "{script}", "{fixture}", "requirements-validation"]],
+      "command": [
+        "{python}", "{script}", "finish-application", "--repo", "{fixture}",
+        "--application", "requirements-validation", "--outcome", "passed",
+        "--evidence", "Структурная проверка завершилась без ошибок",
+        "--artifact", "docs/concept.md", "--coverage", "Структурный договор концепции",
+        "--claim", "Структурный договор соблюдён", "--command", "true"
+      ],
+      "covers": ["project-review-finish-application"],
+      "expect": {"stdout_contains": ["\"status\": \"running\""]}
+    },
+    {
+      "id": "reject-technical-artifacts-in-semantic-knowledge-workflow",
+      "script": "scripts/project_review.py",
+      "fixture": "evals/script-fixtures/knowledge-workflow-project",
+      "prepare": [["{python}", "prepare.py", "{script}", "{fixture}", "technical"]],
+      "command": [
+        "{python}", "{script}", "start-application", "--repo", "{fixture}",
+        "--id", "knowledge-semantic", "--stage", "repository", "--capability",
+        "skill:kc-validation", "--method", "review", "--surface", "knowledge/**",
+        "--action", "Проверить смысл корпуса", "--priority-rationale",
+        "Смысл корпуса определяет основания решений", "--knowledge-phase", "semantic",
+        "--subject-pattern", "knowledge/**"
+      ],
+      "expect": {
+        "exit_code": 1,
+        "stderr_contains": ["смысловая проверка корпуса не должна охватывать технические или двоичные представления"]
+      }
     },
     {
       "id": "complete-repository-stage-workflow",
@@ -1626,6 +1697,29 @@
       "command": ["{python}", "{script}", "transition", "--repo", "{fixture}", "--to", "complete"],
       "covers": ["project-review-transition"],
       "expect": {"stdout_contains": ["\"status\": \"complete\""]}
+    },
+    {
+      "id": "assert-terminal-complete-workflow",
+      "script": "scripts/project_review.py",
+      "fixture": "evals/script-fixtures/knowledge-workflow-project",
+      "prepare": [
+        ["{python}", "prepare.py", "{script}", "{fixture}", "complete"],
+        ["{python}", "{script}", "transition", "--repo", "{fixture}", "--to", "complete"]
+      ],
+      "command": ["{python}", "{script}", "assert-terminal", "--repo", "{fixture}"],
+      "covers": ["project-review-assert-terminal"],
+      "expect": {"stdout_contains": ["Project review has terminal status: complete"]}
+    },
+    {
+      "id": "reject-assert-terminal-while-running",
+      "script": "scripts/project_review.py",
+      "fixture": "evals/script-fixtures/knowledge-workflow-project",
+      "prepare": [["{python}", "prepare.py", "{script}", "{fixture}", "semantic"]],
+      "command": ["{python}", "{script}", "assert-terminal", "--repo", "{fixture}"],
+      "expect": {
+        "exit_code": 1,
+        "stderr_contains": ["полная проверка не завершена"]
+      }
     },
     {
       "id": "stage-code-full-workflow",

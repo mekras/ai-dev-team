@@ -70,68 +70,87 @@ call(
     "--challenge-outcome", "refuted", "--challenge-support", "observation-001",
 )
 mode = sys.argv[3] if len(sys.argv) > 3 else None
-if mode in {"knowledge", "technical", "semantic", "complete"}:
+if mode in {
+    "knowledge", "technical", "semantic", "semantic-broad", "complete", "blocking",
+    "requirements-validation",
+}:
     call(
         "record-knowledge", "--result", "found", "--root", "knowledge",
         "--evidence", "Корпус находится в knowledge",
     )
-if mode in {"technical", "semantic", "complete"}:
+if mode in {
+    "technical", "semantic", "semantic-broad", "complete", "blocking",
+    "requirements-validation",
+}:
     call(
         "start-application", "--id", "knowledge-technical", "--stage",
         "repository", "--capability", "skill:kc-validation", "--method",
         "validation", "--surface", "knowledge/index.md", "--action",
         "Проверить структуру корпуса", "--priority-rationale",
         "Корпус обязателен после концепции", "--knowledge-phase", "technical",
-        "--subject-index", "knowledge/index.md",
+        "--subject-pattern", "knowledge/**",
     )
-    for artifact, end_line, note in (
-        ("knowledge/index.md", "3", "Индекс ссылается на доступное утверждение."),
-        ("knowledge/statement.md", "3", "Утверждение доступно из индекса."),
-    ):
-        call(
-            "record-observation", "--application", "knowledge-technical",
-            "--artifact", artifact, "--start-line", "1", "--end-line", end_line,
-            "--criterion-id", "corpus-admission", "--criterion",
-            "Материал корпуса доступен для проверки.", "--result", "supports",
-            "--note", note,
-        )
     call(
         "finish-application", "--application", "knowledge-technical", "--outcome",
         "passed", "--decision", "accept", "--evidence", "technical-evidence",
-        "--artifact", "knowledge/index.md", "--artifact", "knowledge/statement.md",
+        "--artifact", "knowledge/catalog.yml", "--artifact", "knowledge/corpus.yml",
+        "--artifact", "knowledge/data/test/response-headers.txt", "--artifact",
+        "knowledge/data/test/source.yml", "--artifact",
+        "knowledge/data/test/statements.yml",
         "--coverage", "Корпус проверен", "--claim", "Корпус структурно пригоден",
-        "--claim-support", "observation-001", "--challenge",
+        "--challenge",
         "Есть ли недоступный материал корпуса", "--challenge-outcome", "refuted",
-        "--challenge-support", "observation-001", "--command", "true",
+        "--command", "true",
     )
-if mode in {"semantic", "complete", "blocking"}:
+if mode in {"semantic", "complete", "blocking", "requirements-validation"}:
     call(
         "start-application", "--id", "knowledge-semantic", "--stage",
         "repository", "--capability", "skill:kc-validation", "--method", "review",
         "--surface", "knowledge/index.md", "--action", "Проверить смысл корпуса",
         "--priority-rationale", "Смысл корпуса определяет основания решений",
-        "--knowledge-phase", "semantic", "--subject-index", "knowledge/index.md",
+        "--knowledge-phase", "semantic", "--subject-pattern", "knowledge/corpus.yml",
+        "--subject-pattern", "knowledge/catalog.yml", "--subject-pattern",
+        "knowledge/**/source.yml", "--subject-pattern", "knowledge/**/statements.yml",
     )
-    for artifact, criterion, note in (
-        ("knowledge/index.md", "source-concept-fit", "Индекс раскрывает состав корпуса."),
-        ("knowledge/statement.md", "statement-consistency", "Утверждение относится к корпусу."),
-        ("knowledge/index.md", "coverage-gaps", "Ограничения охвата названы."),
-        ("knowledge/index.md", "decision-value", "Утверждение пригодно для решения."),
+    for artifact, end_line, criterion, note in (
+        ("knowledge/data/test/source.yml", "2", "source-concept-fit", "Источник раскрывает состав корпуса."),
+        ("knowledge/data/test/statements.yml", "3", "statement-consistency", "Утверждение относится к корпусу."),
+        ("knowledge/catalog.yml", "4", "coverage-gaps", "Ограничения охвата названы."),
+        ("knowledge/corpus.yml", "1", "decision-value", "Утверждение пригодно для решения."),
     ):
         call(
             "record-observation", "--application", "knowledge-semantic",
-            "--artifact", artifact, "--start-line", "1", "--end-line", "3",
+            "--artifact", artifact, "--start-line", "1", "--end-line", end_line,
             "--criterion-id", criterion, "--result", "supports",
             "--note", note,
         )
     call(
         "finish-application", "--application", "knowledge-semantic", "--outcome",
         "passed", "--decision", "accept", "--evidence", "semantic-evidence",
-        "--artifact", "knowledge/index.md", "--artifact", "knowledge/statement.md",
+        "--artifact", "knowledge/catalog.yml", "--artifact", "knowledge/corpus.yml",
+        "--artifact", "knowledge/data/test/source.yml", "--artifact",
+        "knowledge/data/test/statements.yml",
         "--coverage", "Смысл корпуса проверен", "--claim",
         "Корпус содержит проверяемое утверждение", "--claim-support",
         "observation-001", "--challenge", "Есть ли разрыв между индексом и утверждением",
         "--challenge-outcome", "refuted", "--challenge-support", "observation-001",
+    )
+if mode == "semantic-broad":
+    call(
+        "start-application", "--id", "knowledge-semantic", "--stage",
+        "repository", "--capability", "skill:kc-validation", "--method", "review",
+        "--surface", "knowledge/**", "--action", "Проверить смысл корпуса",
+        "--priority-rationale", "Смысл корпуса определяет основания решений",
+        "--knowledge-phase", "semantic", "--subject-pattern", "knowledge/**",
+    )
+if mode == "requirements-validation":
+    call(
+        "start-application", "--id", "requirements-validation", "--stage",
+        "requirements", "--capability", "skill:ait-docs-concept", "--method",
+        "validation", "--surface", "docs/concept.md", "--action",
+        "Проверить структурный договор концепции", "--priority-rationale",
+        "Структурная проверка устраняет риск недостоверного договора", "--subject",
+        "docs/concept.md",
     )
 if mode in {"complete", "blocking"}:
     call(

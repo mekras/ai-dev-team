@@ -77,6 +77,13 @@ class CapabilityValidationTest(unittest.TestCase):
         self.write()
         MODULE.validate(self.root, self.classification)
 
+    def test_component_name_derives_portable_path(self) -> None:
+        entry = self.data["capabilities"][0]
+        entry.pop("path")
+        entry["name"] = "analyst"
+        self.write()
+        MODULE.validate(self.root, self.classification)
+
     def test_new_skill_without_entry_fails(self) -> None:
         (self.root / ".apm/skills/new-skill").mkdir()
         self.write()
