@@ -516,14 +516,24 @@ def project_ontology(repo: Path) -> dict[str, Any] | None:
             raise ReviewError("граф содержит повторяющийся идентификатор вершины")
         representations = node.get("representations")
         if representations is None:
+            default_role = (
+                "canonical"
+                if node.get("authority") == "canonical"
+                else "supporting"
+            )
             representations = [
-                {"path": item} for item in node.get("paths", [])
+                {"path": item, "role": default_role}
+                for item in node.get("paths", [])
             ]
-        paths = {
-            item["path"]
+        representation_items = [
+            {
+                "path": item["path"],
+                "role": item.get("role", "supporting"),
+            }
             for item in representations
             if isinstance(item, dict) and isinstance(item.get("path"), str)
-        }
+        ]
+        paths = {item["path"] for item in representation_items}
         checks = node.get("checks")
         if not isinstance(checks, list) or not all(
             isinstance(item, str) for item in checks
@@ -536,6 +546,7 @@ def project_ontology(repo: Path) -> dict[str, Any] | None:
             "review_stages": node.get("review_stages", []),
             "checks": checks,
             "paths": paths,
+            "representations": representation_items,
         }
         predecessors[identifier] = set()
     for edge in edges:
@@ -607,6 +618,19 @@ def ontology_scope_for_decision(
             if any(
                 fnmatch.fnmatch(reference, pattern)
                 for pattern in node["paths"]
+            )
+        )
+        semantic_paths = {
+            item["path"]
+            for item in node["representations"]
+            if item["role"] != "navigation"
+        }
+        node["semantic_subjects"] = sorted(
+            reference
+            for reference in available_files
+            if any(
+                fnmatch.fnmatch(reference, pattern)
+                for pattern in semantic_paths
             )
         )
         return node
@@ -1381,7 +1405,7 @@ def required_subjects_for_decision(
         return {
             subject
             for node in ontology_scope["targets"]
-            for subject in node["subjects"]
+            for subject in node.get("semantic_subjects", node["subjects"])
         }
     patterns = decision.get("required_subject_patterns", [])
     return {
@@ -1405,7 +1429,7 @@ def unverified_ontology_prerequisites(
     completed = completed_capability_applications(state)
     missing: list[str] = []
     for node in scope["prerequisites"]:
-        paths = node["subjects"]
+        paths = node.get("semantic_subjects", node["subjects"])
         if not paths:
             missing.append(f"{node['title']} (нет обнаруженных представлений)")
             continue

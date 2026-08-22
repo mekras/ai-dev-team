@@ -158,7 +158,8 @@ if mode in {"complete", "blocking"}:
         "requirements", "--capability", "skill:ait-req-revalidation", "--method",
         "review", "--surface", "docs/concept.md", "--action",
         "Проверить требования", "--priority-rationale",
-        "Требования определяют последующую работу", "--subject-pattern", "docs/*.md",
+        "Требования определяют последующую работу", "--subject-pattern",
+        "docs/concept.md",
     )
     for criterion, note, result in (
         (

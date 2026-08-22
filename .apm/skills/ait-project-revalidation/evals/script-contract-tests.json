@@ -1620,7 +1620,8 @@
         "--id", "requirements-check", "--stage", "requirements", "--capability",
         "skill:ait-req-revalidation", "--method", "review", "--surface",
         "docs/concept.md", "--action", "Проверить требования", "--priority-rationale",
-        "Требования определяют последующую работу", "--subject-pattern", "docs/*.md"
+        "Требования определяют последующую работу", "--subject-pattern",
+        "docs/concept.md"
       ],
       "covers": ["project-review-start-application"],
       "expect": {"stdout_contains": ["\"status\": \"running\""]}
