@@ -193,6 +193,32 @@ if mode in {"complete", "blocking"}:
         "observation-001", "--challenge", "Есть ли разрыв с концепцией",
         "--challenge-outcome", "confirmed" if mode == "blocking" else "refuted", "--challenge-support", "observation-001",
     )
+    if mode == "complete":
+        call(
+            "start-application", "--id", "code-review", "--stage", "code",
+            "--capability", "skill:ait-code-review", "--method", "review",
+            "--surface", "src/module.py", "--action", "Проверить реализацию",
+            "--priority-rationale", "Исходный код требует содержательного обзора.",
+            "--subject-pattern", "src/*.py",
+        )
+        for criterion, note in (
+            ("implementation-quality", "Реализация читаема и не имеет внешних границ."),
+            ("implementation-traceability", "Реализация относится к проверяемой фикстуре."),
+        ):
+            call(
+                "record-observation", "--application", "code-review", "--artifact",
+                "src/module.py", "--start-line", "1", "--end-line", "2",
+                "--criterion-id", criterion, "--result", "supports", "--note", note,
+            )
+        call(
+            "finish-application", "--application", "code-review", "--outcome",
+            "passed", "--decision", "accept", "--evidence", "code-review-evidence",
+            "--artifact", "src/module.py", "--coverage", "Реализация проверена.",
+            "--claim", "Реализация соответствует фикстуре.", "--claim-support",
+            "observation-001", "--challenge", "Есть ли скрытая ошибка",
+            "--challenge-outcome", "refuted", "--challenge-support",
+            "observation-001",
+        )
     for stage in ("repository", "requirements", "design", "code", "tests", "assurance", "impact") if mode == "complete" else ():
         call("stage", "--name", stage, "--status", "running")
         call("stage", "--name", stage, "--status", "complete")

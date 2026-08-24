@@ -3217,6 +3217,26 @@
       }
     },
     {
+      "id": "reject-command-only-code-review",
+      "script": "scripts/project_review.py",
+      "fixture": "evals/script-fixtures/code-review-workflow-project",
+      "prepare": [["{python}", "prepare.py", "{script}", "{fixture}"]],
+      "command": [
+        "{python}", "{script}", "start-application", "--repo", "{fixture}",
+        "--id", "code-review-command-only", "--stage", "code", "--capability",
+        "skill:ait-code-review", "--method", "command", "--surface",
+        "src/module.py", "--action", "Запустить проверку кода", "--priority-rationale",
+        "Код требует обзора", "--subject", "src/module.py"
+      ],
+      "covers": ["project-review-start-application"],
+      "expect": {
+        "exit_code": 1,
+        "stderr_contains": [
+          "полная смысловая проверка требует обнаружить предметную область"
+        ]
+      }
+    },
+    {
       "id": "restart-full-workflow",
       "script": "scripts/project_review.py",
       "fixture": "evals/script-fixtures/full-workflow-project",

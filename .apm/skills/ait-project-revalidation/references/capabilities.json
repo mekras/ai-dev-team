@@ -173,7 +173,33 @@
       "purpose": "Обзор готового кода",
       "participation": "check",
       "stage": "code",
-      "applicability": "model"
+      "applicability": "model",
+      "activation_patterns": [
+        "**/*.c", "**/*.cc", "**/*.cpp", "**/*.cs", "**/*.go",
+        "**/*.h", "**/*.hpp", "**/*.java", "**/*.js", "**/*.jsx",
+        "**/*.kt", "**/*.kts", "**/*.php", "**/*.py", "**/*.rb",
+        "**/*.rs", "**/*.swift", "**/*.ts", "**/*.tsx"
+      ],
+      "required_subject_patterns": [
+        "**/*.c", "**/*.cc", "**/*.cpp", "**/*.cs", "**/*.go",
+        "**/*.h", "**/*.hpp", "**/*.java", "**/*.js", "**/*.jsx",
+        "**/*.kt", "**/*.kts", "**/*.php", "**/*.py", "**/*.rb",
+        "**/*.rs", "**/*.swift", "**/*.ts", "**/*.tsx"
+      ],
+      "subject_discovery_required": true,
+      "semantic_required": true,
+      "review_criteria": [
+        {
+          "id": "implementation-quality",
+          "description": "Исходный код читаем, обрабатывает ошибки в своей границе и не распространяет детали внешних API без необходимости.",
+          "coverage": "each_subject"
+        },
+        {
+          "id": "implementation-traceability",
+          "description": "Реализация и её тесты прослеживаются к требованиям, архитектуре и пользовательским сценариям либо имеют проверяемое основание отсутствия влияния.",
+          "coverage": "surface"
+        }
+      ]
     },
     {
       "id": "skill-ait-code-testing",
@@ -182,7 +208,29 @@
       "purpose": "Проектирование и проверка тестов разработчика",
       "participation": "check",
       "stage": "tests",
-      "applicability": "model"
+      "applicability": "model",
+      "activation_patterns": [
+        "**/*Test.*", "**/*Tests.*", "**/*test.*", "**/*tests.*",
+        "**/test_*.py"
+      ],
+      "required_subject_patterns": [
+        "**/*Test.*", "**/*Tests.*", "**/*test.*", "**/*tests.*",
+        "**/test_*.py"
+      ],
+      "subject_discovery_required": true,
+      "semantic_required": true,
+      "review_criteria": [
+        {
+          "id": "test-quality",
+          "description": "Тесты читаемы, независимы, повторяемы и проверяют наблюдаемое поведение на нужной границе.",
+          "coverage": "each_subject"
+        },
+        {
+          "id": "test-risk-coverage",
+          "description": "Набор тестов покрывает значимые риски реализации либо содержит проверяемое обоснование остаточного риска.",
+          "coverage": "surface"
+        }
+      ]
     },
     {
       "id": "skill-ait-commit-messages",
