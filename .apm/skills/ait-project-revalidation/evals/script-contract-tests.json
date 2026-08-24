@@ -3237,6 +3237,142 @@
       }
     },
     {
+      "id": "reject-duplicate-observation-for-different-subjects",
+      "script": "scripts/project_review.py",
+      "fixture": "evals/script-fixtures/knowledge-workflow-project",
+      "prepare": [
+        [
+          "{python}",
+          "-c",
+          "from pathlib import Path\np = Path('{fixture}') / 'docs' / 'other.md'\np.write_text('# Дополнительный предмет\\n', encoding='utf-8')\n"
+        ],
+        ["{python}", "prepare.py", "{script}", "{fixture}", "semantic"],
+        [
+          "{python}",
+          "{script}",
+          "start-application",
+          "--repo",
+          "{fixture}",
+          "--id",
+          "duplicate-observations",
+          "--stage",
+          "requirements",
+          "--capability",
+          "skill:ait-req-revalidation",
+          "--method",
+          "review",
+          "--surface",
+          "Документы требований",
+          "--action",
+          "Проверить два предметных файла",
+          "--priority-rationale",
+          "Требования связывают основания с реализацией",
+          "--subject",
+          "docs/concept.md",
+          "--subject",
+          "docs/other.md"
+        ],
+        [
+          "{python}",
+          "{script}",
+          "record-observation",
+          "--repo",
+          "{fixture}",
+          "--application",
+          "duplicate-observations",
+          "--artifact",
+          "docs/concept.md",
+          "--start-line",
+          "1",
+          "--end-line",
+          "3",
+          "--criterion-id",
+          "level-and-solution-boundary",
+          "--result",
+          "supports",
+          "--note",
+          "Содержательный результат проверки установлен."
+        ]
+      ],
+      "command": [
+        "{python}",
+        "{script}",
+        "record-observation",
+        "--repo",
+        "{fixture}",
+        "--application",
+        "duplicate-observations",
+        "--artifact",
+        "docs/other.md",
+        "--start-line",
+        "1",
+        "--end-line",
+        "1",
+        "--criterion-id",
+        "level-and-solution-boundary",
+        "--result",
+        "supports",
+        "--note",
+        "Содержательный результат проверки установлен."
+      ],
+      "expect": {
+        "exit_code": 1,
+        "stderr_contains": [
+          "одно описание наблюдения нельзя использовать для разных предметных файлов"
+        ]
+      }
+    },
+    {
+      "id": "reject-downgrade-of-mandatory-capability",
+      "script": "scripts/project_review.py",
+      "fixture": "evals/script-fixtures/full-workflow-project",
+      "prepare": [
+        [
+          "{python}",
+          "-c",
+          "import shutil\nshutil.move(\n    '.agents/skills/ait-docs-concept/SKILL.md.fixture',\n    '.agents/skills/ait-docs-concept/SKILL.md',\n)\n"
+        ],
+        ["git", "init", "{fixture}"],
+        ["git", "-C", "{fixture}", "add", "-A"],
+        [
+          "git",
+          "-C",
+          "{fixture}",
+          "-c",
+          "user.email=contract@example.invalid",
+          "-c",
+          "user.name=Contract",
+          "commit",
+          "-m",
+          "init"
+        ],
+        ["{python}", "{script}", "init", "--repo", "{fixture}", "--mode", "manual"]
+      ],
+      "command": [
+        "{python}",
+        "{script}",
+        "classify",
+        "--repo",
+        "{fixture}",
+        "--id",
+        "role:project-manager",
+        "--participation",
+        "preparation",
+        "--stage",
+        "repository",
+        "--applicable",
+        "no",
+        "--reason",
+        "Проверка уже выполнена"
+      ],
+      "expect": {
+        "exit_code": 1,
+        "stderr_contains": [
+          "обязательную или обнаруженную проверку нельзя объявить неприменимой"
+        ]
+      }
+    },
+    {
       "id": "restart-full-workflow",
       "script": "scripts/project_review.py",
       "fixture": "evals/script-fixtures/full-workflow-project",

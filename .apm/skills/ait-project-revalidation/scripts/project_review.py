@@ -19,7 +19,7 @@ from typing import Any, Iterable
 from urllib.parse import unquote
 
 
-STATE_SCHEMA_VERSION = 12
+STATE_SCHEMA_VERSION = 13
 CLASSIFICATION_VERSION = 1
 CONCEPT_CAPABILITY_ID = "skill-ait-docs-concept"
 KNOWLEDGE_CAPABILITY_NAME = "kc-validation"
@@ -681,6 +681,9 @@ def initial_capability_decisions(
                 if classification.get("applicability") == "always" or activated
                 else None
             ),
+            "enforced_applicable": (
+                classification.get("applicability") == "always" or activated
+            ),
             "reason": (
                 "Поставляемая классификация требует применения."
                 if classification.get("applicability") == "always"
@@ -874,6 +877,11 @@ def classify_capability(state: dict[str, Any], args: argparse.Namespace) -> None
     if not args.reason or not args.reason.strip():
         raise ReviewError("классификация требует непустое основание")
     decision = state["capability_decisions"][args.id]
+    if decision.get("enforced_applicable") and args.applicable != "yes":
+        raise ReviewError(
+            "обязательную или обнаруженную проверку нельзя объявить "
+            "неприменимой",
+        )
     required_subjects = required_subjects_for_decision(
         decision,
         state["snapshot"],
@@ -2371,6 +2379,20 @@ def record_observation(
         raise ReviewError("наблюдаемый фрагмент не должен быть пустым")
 
     identifier = f"observation-{len(application['observations']) + 1:03d}"
+    duplicate_note = next(
+        (
+            observation
+            for observation in application["observations"]
+            if observation["artifact"] != relative
+            and observation["note"].strip() == args.note.strip()
+        ),
+        None,
+    )
+    if duplicate_note:
+        raise ReviewError(
+            "одно описание наблюдения нельзя использовать для разных "
+            "предметных файлов",
+        )
     observation = {
         "id": identifier,
         "artifact": relative,
@@ -2952,9 +2974,9 @@ def record_check(
 
 def migrate_state(state: dict[str, Any]) -> None:
     source_version = state.get("schema_version")
-    if source_version not in {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}:
+    if source_version not in {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}:
         raise ReviewError(
-            "миграция поддерживает состояния версий 1–11",
+            "миграция поддерживает состояния версий 1–12",
         )
     invalidated_applications = len(state.get("applications", {}))
     invalidated_checks = len(state.get("checks", {}))
@@ -3895,6 +3917,10 @@ def refresh(state: dict[str, Any], repo: Path) -> None:
             )
             previous["semantic_required"] = decision.get("semantic_required", False)
             previous["ontology_scope"] = decision.get("ontology_scope")
+            previous["enforced_applicable"] = decision.get(
+                "enforced_applicable",
+                False,
+            )
             state["capability_decisions"][identifier] = previous
 
     changed_capabilities = [
