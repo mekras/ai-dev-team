@@ -3934,6 +3934,38 @@ class ProjectReviewTest(unittest.TestCase):
         self.assertEqual(restored["status"], "running")
         self.assertEqual(restored["concept_review"]["status"], "pending")
 
+    def test_semantic_table_requires_a_type_for_every_subject(self) -> None:
+        scope = [
+            {"reference": "docs/alex.md", "sha256": "a"},
+            {"reference": "docs/regina.md", "sha256": "b"},
+        ]
+        criteria = [
+            {"id": "persona", "subject_types": ["persona"]},
+            {"id": "actor", "subject_types": ["external-actor"]},
+        ]
+        with self.assertRaisesRegex(MODULE.ReviewError, "каждый предмет"):
+            MODULE.parse_subject_types(
+                ["docs/alex.md=persona"],
+                scope,
+                criteria,
+            )
+
+    def test_typed_criterion_excludes_another_subject_type(self) -> None:
+        application = {
+            "subject_scope": [
+                {"reference": "docs/alex.md", "semantic_type": "persona"},
+                {
+                    "reference": "docs/regina.md",
+                    "semantic_type": "external-actor",
+                },
+            ],
+        }
+        criterion = {"id": "persona", "subject_types": ["persona"]}
+        self.assertEqual(
+            MODULE.criterion_subjects(application, criterion),
+            {"docs/alex.md"},
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

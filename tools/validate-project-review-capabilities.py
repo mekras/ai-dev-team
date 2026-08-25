@@ -198,6 +198,20 @@ def validate(root: Path, classification: Path) -> None:
                 raise CapabilityError(
                     f"{identifier}: неизвестный охват критерия {coverage}",
                 )
+            subject_types = criterion.get("subject_types")
+            if subject_types is not None and (
+                not isinstance(subject_types, list)
+                or not subject_types
+                or any(
+                    not isinstance(value, str) or not value.strip()
+                    for value in subject_types
+                )
+                or len(set(subject_types)) != len(subject_types)
+            ):
+                raise CapabilityError(
+                    f"{identifier}: subject_types критерия {criterion_id} "
+                    "должен быть непустым списком уникальных строк",
+                )
         if review_criteria and participation != "check":
             raise CapabilityError(
                 f"{identifier}: review_criteria допустимы только для check",

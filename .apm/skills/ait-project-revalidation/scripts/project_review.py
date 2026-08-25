@@ -19,7 +19,7 @@ from typing import Any, Iterable
 from urllib.parse import unquote
 
 
-STATE_SCHEMA_VERSION = 13
+STATE_SCHEMA_VERSION = 14
 CLASSIFICATION_VERSION = 1
 CONCEPT_CAPABILITY_ID = "skill-ait-docs-concept"
 KNOWLEDGE_CAPABILITY_NAME = "kc-validation"
@@ -1071,7 +1071,7 @@ def completed_capability_applications(
         ):
             continue
         if application.get("semantic_trace_required") and (
-            application.get("semantic_contract_version") != 2
+            application.get("semantic_contract_version") != 3
             or not application.get("subject_scope")
             or not application.get("observations")
         ):
@@ -1866,6 +1866,81 @@ def resolve_subject_scope(
     return scope, discovery
 
 
+def parse_subject_types(
+    values: Iterable[str],
+    subject_scope: Iterable[dict[str, str]],
+    criteria: Iterable[dict[str, Any]],
+) -> dict[str, str]:
+    """Validate the semantic table declared for a mixed subject surface."""
+    typed_criteria = [item for item in criteria if item.get("subject_types")]
+    if not typed_criteria:
+        if list(values):
+            raise ReviewError(
+                "семантические типы предметов допустимы только для "
+                "критериев с ограниченной применимостью",
+            )
+        return {}
+    types: dict[str, str] = {}
+    for value in values:
+        if "=" not in value:
+            raise ReviewError(
+                "семантический тип предмета задаётся как <файл>=<тип>",
+            )
+        reference, semantic_type = value.rsplit("=", 1)
+        if not reference.strip() or not semantic_type.strip():
+            raise ReviewError(
+                "семантический тип предмета задаётся как <файл>=<тип>",
+            )
+        if reference in types:
+            raise ReviewError(
+                "для предмета задано несколько семантических типов: "
+                + reference,
+            )
+        types[reference] = semantic_type.strip()
+    subjects = {item["reference"] for item in subject_scope}
+    if set(types) != subjects:
+        missing = sorted(subjects - set(types))
+        extra = sorted(set(types) - subjects)
+        details = []
+        if missing:
+            details.append("не указаны: " + ", ".join(missing))
+        if extra:
+            details.append("не входят в область: " + ", ".join(extra))
+        raise ReviewError(
+            "семантическая таблица должна охватывать каждый предмет ровно один "
+            "раз: " + "; ".join(details),
+        )
+    allowed = {
+        semantic_type
+        for criterion in typed_criteria
+        for semantic_type in criterion["subject_types"]
+    }
+    unknown = sorted(set(types.values()) - allowed)
+    if unknown:
+        raise ReviewError(
+            "семантическая таблица содержит тип без применимого критерия: "
+            + ", ".join(unknown),
+        )
+    return types
+
+
+def criterion_subjects(
+    application: dict[str, Any],
+    criterion: dict[str, Any],
+) -> set[str]:
+    types = criterion.get("subject_types")
+    if not types:
+        return {
+            item["reference"]
+            for item in application.get("subject_scope", [])
+        }
+    return {
+        item["reference"]
+        for item in application.get("subject_scope", [])
+        if item.get("semantic_type") in types
+    }
+
+
 def start_application(
     state: dict[str, Any],
     args: argparse.Namespace,
@@ -2139,6 +2214,14 @@ def start_application(
         subject_indexes,
         subject_patterns,
     )
+    subject_types = parse_subject_types(
+        getattr(args, "subject_type", []),
+        subject_scope,
+        decision.get("review_criteria", []),
+    )
+    for item in subject_scope:
+        if item["reference"] in subject_types:
+            item["semantic_type"] = subject_types[item["reference"]]
     if args.capability:
         required_subjects = required_subjects_for_decision(decision, current)
         actual_subjects = {
@@ -2256,7 +2339,7 @@ def start_application(
         "subject_scope": subject_scope,
         "subject_discovery": subject_discovery,
         "semantic_trace_required": semantic_trace_required,
-        "semantic_contract_version": 2 if semantic_trace_required else None,
+        "semantic_contract_version": 3 if semantic_trace_required else None,
         "knowledge_phase": knowledge_phase,
         "review_criteria": (
             KNOWLEDGE_REVIEW_CRITERIA
@@ -2352,6 +2435,20 @@ def record_observation(
                 f"критерий не входит в контракт проверки: {criterion_id}",
             )
         criterion = criteria[criterion_id]["description"]
+        allowed_types = criteria[criterion_id].get("subject_types")
+        subject_type = next(
+            (
+                item.get("semantic_type")
+                for item in application.get("subject_scope", [])
+                if item["reference"] == relative
+            ),
+            None,
+        )
+        if allowed_types and subject_type not in allowed_types:
+            raise ReviewError(
+                f"критерий {criterion_id} неприменим к предмету типа "
+                f"{subject_type}",
+            )
     if not criterion or not criterion.strip() or not args.note.strip():
         raise ReviewError(
             "наблюдение требует критерия и предметного описания",
@@ -2588,14 +2685,15 @@ def validate_semantic_evidence(
             for observation in observations
             if observation.get("criterion_id") == criterion_id
         }
+        expected_subjects = criterion_subjects(application, criterion)
         if criterion["coverage"] == "each_subject":
-            criterion_missing = sorted(subject_artifacts - covered)
+            criterion_missing = sorted(expected_subjects - covered)
             if criterion_missing:
                 raise ReviewError(
                     f"критерий {criterion_id} не проверен для файлов: "
                     + ", ".join(criterion_missing),
                 )
-        elif not covered:
+        elif expected_subjects and not covered:
             raise ReviewError(
                 f"критерий {criterion_id} не проверен для предметной области",
             )
@@ -2974,9 +3072,9 @@ def record_check(
 
 def migrate_state(state: dict[str, Any]) -> None:
     source_version = state.get("schema_version")
-    if source_version not in {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}:
+    if source_version not in {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13}:
         raise ReviewError(
-            "миграция поддерживает состояния версий 1–12",
+            "миграция поддерживает состояния версий 1–13",
         )
     invalidated_applications = len(state.get("applications", {}))
     invalidated_checks = len(state.get("checks", {}))
@@ -3058,7 +3156,7 @@ def successful_capability_applications(
         ):
             continue
         if application.get("semantic_trace_required") and (
-            application.get("semantic_contract_version") != 2
+            application.get("semantic_contract_version") != 3
             or not application.get("subject_scope")
             or not application.get("observations")
             or not application.get("claim_support")
@@ -3117,7 +3215,7 @@ def concept_review_is_proven(state: dict[str, Any]) -> bool:
         or application.get("capability") != concept.get("capability")
         or application.get("stage") != "requirements"
         or application.get("method") != "review"
-        or application.get("semantic_contract_version") != 2
+        or application.get("semantic_contract_version") != 3
         or not application.get("coverage")
         or not application.get("evidence")
         or not application.get("artifacts")
@@ -3199,11 +3297,12 @@ def concept_review_is_proven(state: dict[str, Any]) -> bool:
             for item in observations
             if item.get("criterion_id") == criterion.get("id")
         }
+        expected_subjects = criterion_subjects(application, criterion)
         if criterion.get("coverage") == "each_subject":
-            if not required_subjects.issubset(covered):
+            if not expected_subjects.issubset(covered):
                 return False
         elif criterion.get("coverage") == "surface":
-            if not covered:
+            if expected_subjects and not covered:
                 return False
         else:
             return False
@@ -3297,7 +3396,7 @@ def knowledge_review_is_proven(state: dict[str, Any]) -> bool:
         or semantic.get("knowledge_phase") != "semantic"
         or semantic.get("stage") != "repository"
         or semantic.get("method") != "review"
-        or semantic.get("semantic_contract_version") != 2
+        or semantic.get("semantic_contract_version") != 3
         or semantic.get("capability") != knowledge.get("capability")
     ):
         return False
@@ -4347,6 +4446,7 @@ def build_parser() -> argparse.ArgumentParser:
     start_parser.add_argument("--subject", action="append", default=[])
     start_parser.add_argument("--subject-index", action="append", default=[])
     start_parser.add_argument("--subject-pattern", action="append", default=[])
+    start_parser.add_argument("--subject-type", action="append", default=[])
 
     observation_parser = commands.add_parser("record-observation")
     add_common_repo(observation_parser)

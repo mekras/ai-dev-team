@@ -623,7 +623,8 @@
       "subject_discovery_required": true,
       "semantic_required": true,
       "review_criteria": [
-        {"id": "persona-goals-and-specificity", "description": "Каждый персонаж различим по целям, мотивам, контексту и значимым особенностям, а не по должности или перечню функций.", "coverage": "each_subject"},
+        {"id": "persona-goals-and-specificity", "description": "Каждый персонаж различим по целям, мотивам, контексту и значимым особенностям, а не по должности или перечню функций.", "coverage": "each_subject", "subject_types": ["persona"]},
+        {"id": "external-actor-scenario-link", "description": "Каждый внешний актор связан с пользовательским сценарием и не выдаётся за персонажа без подтверждённой пользовательской модели.", "coverage": "each_subject", "subject_types": ["external-actor"]},
         {"id": "ux-traceability", "description": "Цели персонажей и сценарии прослеживаются до решений продукта без подмены целей функциями.", "coverage": "surface"}
       ]
     },
