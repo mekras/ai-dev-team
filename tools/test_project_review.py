@@ -408,7 +408,8 @@ class ProjectReviewTest(unittest.TestCase):
                     criterion=None,
                     result="supports",
                     note=(
-                        "Содержание связано с проблемой и целью концепции."
+                        "Содержание файла "
+                        f"{artifact} связано с проблемой и целью концепции."
                     ),
                 ),
                 self.root,

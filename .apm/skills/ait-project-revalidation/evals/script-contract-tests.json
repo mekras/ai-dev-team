@@ -3270,7 +3270,9 @@
           "--subject",
           "docs/concept.md",
           "--subject",
-          "docs/other.md"
+          "docs/other.md",
+          "--subject-pattern",
+          "docs/*.md"
         ],
         [
           "{python}",
@@ -3355,7 +3357,7 @@
         "--repo",
         "{fixture}",
         "--id",
-        "role:project-manager",
+        "skill:ait-docs-concept",
         "--participation",
         "preparation",
         "--stage",

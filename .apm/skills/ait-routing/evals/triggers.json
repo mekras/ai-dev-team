@@ -54,6 +54,60 @@
       "prompt": "Исправь опечатку в уже согласованном документе, не меняя смысл.",
       "should_trigger": false,
       "rationale": "Простая редакторская правка не создаёт нового маршрута."
+    },
+    {
+      "id": "ait-routing-role-obligation-new-ux-delta",
+      "prompt": "После технической задачи появился новый UX-вопрос об экране. Пересмотри маршрут.",
+      "should_trigger": true,
+      "rationale": "Новая профильная область требует пересмотра маршрута и обязательства UX-роли."
+    },
+    {
+      "id": "ait-routing-role-obligation-skill-is-not-role",
+      "prompt": "Я прочитал ait-interface-design. Можно ли без ux-specialist утвердить экран?",
+      "should_trigger": true,
+      "rationale": "Нужно проверить запрет на подмену роли профильным навыком."
+    },
+    {
+      "id": "ait-routing-role-obligation-scenario-delta",
+      "prompt": "UX-роль проверила первую версию экрана, но пользовательский сценарий изменился.",
+      "should_trigger": true,
+      "rationale": "Значимая дельта может инвалидировать прежнее UX-покрытие."
+    },
+    {
+      "id": "ait-routing-role-obligation-bounded-delta",
+      "prompt": "Внутри согласованной UX-границы изменили подпись кнопки без нового сценария.",
+      "should_trigger": true,
+      "rationale": "Маршрут должен проверить границы покрытия без ложного полного перезапуска."
+    },
+    {
+      "id": "ait-routing-role-obligation-security-after-ux",
+      "prompt": "После UX-разбора добавь задачу об управлении доступом к API.",
+      "should_trigger": true,
+      "rationale": "Новая область безопасности требует security-engineer, а не UX-результата."
+    },
+    {
+      "id": "ait-routing-role-obligation-new-task-same-session",
+      "prompt": "В этой же сессии начни новую существенную задачу по лицензированию.",
+      "should_trigger": true,
+      "rationale": "Новая цель или граница создаёт новый маршрут независимо от сессии."
+    },
+    {
+      "id": "ait-routing-role-obligation-fact-reply",
+      "prompt": "Как называется текущий статус уже принятого ADR-0016?",
+      "should_trigger": false,
+      "rationale": "Простая фактологическая справка не создаёт новый полный маршрут."
+    },
+    {
+      "id": "ait-routing-role-obligation-human-waiver",
+      "prompt": "Я как владелец отменяю обязательную проверку UX для этого экрана.",
+      "should_trigger": true,
+      "rationale": "Маршрут должен сохранить явное исключение человека и его ограничение."
+    },
+    {
+      "id": "ait-routing-role-obligation-launch-link",
+      "prompt": "UX-роль вернула результат, но запись запуска не содержит идентификатора обязательства. Можно утвердить экран?",
+      "should_trigger": true,
+      "rationale": "Результат без связи с обязательством не закрывает профильное покрытие."
     }
   ]
 }
