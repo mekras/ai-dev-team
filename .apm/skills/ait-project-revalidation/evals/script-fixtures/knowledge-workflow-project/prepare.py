@@ -6,6 +6,7 @@ from __future__ import annotations
 import shutil
 import subprocess
 import sys
+import json
 from pathlib import Path
 
 
@@ -78,6 +79,14 @@ if mode in {
         "record-knowledge", "--result", "found", "--root", "knowledge",
         "--evidence", "Корпус находится в knowledge",
     )
+    state = json.loads(
+        (repo / ".git/ai-dev-team/project-review-state.json").read_text(
+            encoding="utf-8",
+        ),
+    )
+    subjects = state["knowledge_review"]["subjects"]
+    if any(".local." in item["reference"] for item in subjects):
+        raise RuntimeError("локальные файлы попали в технический состав корпуса")
 if mode in {
     "technical", "semantic", "semantic-broad", "complete", "blocking",
     "requirements-validation",
@@ -90,6 +99,27 @@ if mode in {
         "Корпус обязателен после концепции", "--knowledge-phase", "technical",
         "--subject-pattern", "knowledge/**",
     )
+    state = json.loads(
+        (repo / ".git/ai-dev-team/project-review-state.json").read_text(
+            encoding="utf-8",
+        ),
+    )
+    technical_scope = state["applications"]["knowledge-technical"][
+        "subject_scope"
+    ]
+    technical_subjects = [item["reference"] for item in technical_scope]
+    registered_subjects = [
+        item["reference"] for item in state["knowledge_review"]["subjects"]
+    ]
+    if technical_subjects != registered_subjects:
+        raise RuntimeError(
+            "техническая область не совпадает с зарегистрированным составом "
+            "корпуса",
+        )
+    if any(".local." in reference for reference in technical_subjects):
+        raise RuntimeError(
+            "локальный файл попал в техническую область применения",
+        )
     call(
         "finish-application", "--application", "knowledge-technical", "--outcome",
         "passed", "--decision", "accept", "--evidence", "technical-evidence",

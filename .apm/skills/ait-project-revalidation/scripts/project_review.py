@@ -234,6 +234,16 @@ def content_files(repo: Path) -> set[str]:
     return files
 
 
+def snapshot_files_in_root(snapshot: dict[str, Any], root: str) -> set[str]:
+    """Return files admitted by the VCS snapshot below a declared corpus root."""
+    prefix = root.rstrip("/") + "/"
+    return {
+        reference
+        for reference in snapshot["files"]
+        if reference.startswith(prefix)
+    }
+
+
 def stable_hash(value: Any) -> str:
     payload = json.dumps(
         value,
@@ -1730,8 +1740,7 @@ def record_knowledge_discovery(
             "reference": reference,
             "sha256": file_hash(repo / reference),
         }
-        for reference in sorted(content_files(repo))
-        if reference.startswith(prefix)
+        for reference in sorted(snapshot_files_in_root(current, root))
     ]
     if not root_path.is_dir() or not subjects:
         raise ReviewError(
@@ -2207,13 +2216,29 @@ def start_application(
             "полная смысловая проверка требует обнаружить предметную область "
             "через --subject-index или --subject-pattern",
         )
-    subject_scope, subject_discovery = resolve_subject_scope(
-        repo,
-        current,
-        getattr(args, "subject", []),
-        subject_indexes,
-        subject_patterns,
-    )
+    if knowledge_phase == "technical":
+        subject_scope = [
+            {
+                "reference": item["reference"],
+                "sha256": item["sha256"],
+            }
+            for item in knowledge.get("subjects", [])
+        ]
+        subject_discovery = {
+            "registered_knowledge_subjects": [
+                item["reference"] for item in subject_scope
+            ],
+            "requested_indexes": sorted(set(subject_indexes)),
+            "requested_patterns": sorted(set(subject_patterns)),
+        }
+    else:
+        subject_scope, subject_discovery = resolve_subject_scope(
+            repo,
+            current,
+            getattr(args, "subject", []),
+            subject_indexes,
+            subject_patterns,
+        )
     subject_types = parse_subject_types(
         getattr(args, "subject_type", []),
         subject_scope,
@@ -3940,8 +3965,9 @@ def invalidate_knowledge_review_for_changed_paths(
     affected_paths = [path for path in changed if path.startswith(prefix)]
     current_subjects = [
         {"reference": reference, "sha256": file_hash(repo / reference)}
-        for reference in sorted(content_files(repo))
-        if reference.startswith(prefix)
+        for reference in sorted(
+            snapshot_files_in_root(repository_snapshot(repo), knowledge["root"]),
+        )
     ]
     if not affected_paths and knowledge.get("subjects") == current_subjects:
         return
