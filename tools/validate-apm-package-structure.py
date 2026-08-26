@@ -889,6 +889,33 @@ def check_connection_effort_contract() -> None:
                 )
 
 
+def check_installed_package_file_ownership_contract() -> None:
+    required_markers = {
+        "docs/05-requirements/functional/ft-3.md": (
+            "dependencies[].deployed_files",
+            "Остальные файлы не требуют отдельной проверки APM.",
+            "исходного пакета",
+        ),
+        ".apm/instructions/ai-dev-team-connection.instructions.md": (
+            "## Файлы установленных пакетов",
+            "dependencies[].deployed_files",
+            "Не запускай `apm find` для",
+            "имеет исключений.",
+            "исходный файл только в репозитории",
+            "не требует отдельной проверки",
+        ),
+    }
+    for relative_path, markers in required_markers.items():
+        path = ROOT / relative_path
+        text = path.read_text(encoding="utf-8")
+        for marker in markers:
+            if marker not in text:
+                fail(
+                    f"{relative_path} is missing installed package ownership "
+                    f"marker {marker!r}",
+                )
+
+
 def check_portability_contract() -> None:
     manifest = read_yaml(ROOT / "apm.yml")
     if set(manifest.get("targets", [])) != REQUIRED_PACKAGE_TARGETS:
@@ -2209,6 +2236,7 @@ def main() -> None:
     check_reconstructability_contract()
     check_persistent_sdd_contract()
     check_connection_effort_contract()
+    check_installed_package_file_ownership_contract()
     check_portability_contract()
     check_codex_routing_reachability()
     check_deployed_skill_references()

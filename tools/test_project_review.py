@@ -634,7 +634,15 @@ class ProjectReviewTest(unittest.TestCase):
         MODULE.refresh(state, self.root)
 
         migrated = state["capability_decisions"]["skill:core-check"]
-        self.assertEqual(migrated["input_hash"], item["input_hash"])
+        self.assertEqual(
+            migrated["input_hash"],
+            MODULE.stable_hash(
+                {
+                    "capability": item["input_hash"],
+                    "ontology_scope": migrated["ontology_scope"],
+                },
+            ),
+        )
         self.assertEqual(migrated["reason"], "Проверенное прежнее решение.")
         self.assertEqual(state["status"], "running")
 
@@ -3119,6 +3127,70 @@ class ProjectReviewTest(unittest.TestCase):
                 "reference": "docs/ignored.md",
                 "sha256": MODULE.file_hash(self.root / "docs/ignored.md"),
             }],
+        )
+
+    def test_refresh_recomputes_ontology_scope_after_graph_change(self) -> None:
+        classification = json.loads(self.classification.read_text(encoding="utf-8"))
+        classification["capabilities"][0]["ontology_scope"] = {
+            "node_kinds": ["knowledge"],
+        }
+        self.classification.write_text(json.dumps(classification), encoding="utf-8")
+        self.write(
+            ".ai-dev-team/project-impact.json",
+            json.dumps(
+                {
+                    "nodes": [
+                        {
+                            "id": "knowledge",
+                            "title": "Корпус знаний",
+                            "kind": "knowledge",
+                            "paths": ["knowledge/**"],
+                            "checks": ["core-check"],
+                            "review_stages": ["repository"],
+                        },
+                    ],
+                    "edges": [],
+                },
+            ),
+        )
+        state = self.new_state(self.root, "manual", None, False)
+        previous_scope = state["capability_decisions"]["skill:core-check"][
+            "ontology_scope"
+        ]
+        previous_hash = state["capability_decisions"]["skill:core-check"][
+            "input_hash"
+        ]
+        previous_inventory = state["capability_inventory"]["fingerprint"]
+
+        self.write(
+            ".ai-dev-team/project-impact.json",
+            json.dumps(
+                {
+                    "nodes": [
+                        {
+                            "id": "knowledge",
+                            "title": "Корпус знаний",
+                            "kind": "knowledge",
+                            "paths": ["knowledge/data/**"],
+                            "checks": ["core-check"],
+                            "review_stages": ["repository"],
+                        },
+                    ],
+                    "edges": [],
+                },
+            ),
+        )
+        state["snapshot"] = MODULE.repository_snapshot(self.root)
+
+        MODULE.refresh(state, self.root)
+
+        decision = state["capability_decisions"]["skill:core-check"]
+        self.assertEqual(previous_inventory, state["capability_inventory"]["fingerprint"])
+        self.assertNotEqual(previous_hash, decision["input_hash"])
+        self.assertNotEqual(previous_scope, decision["ontology_scope"])
+        self.assertEqual(
+            ["knowledge/data/test/source.yml", "knowledge/data/test/statements.yml"],
+            decision["ontology_scope"]["targets"][0]["subjects"],
         )
 
     def test_failed_semantic_application_requires_linked_finding(self) -> None:

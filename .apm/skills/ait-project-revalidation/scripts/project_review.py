@@ -681,7 +681,12 @@ def initial_capability_decisions(
         if ontology_scope is not None:
             activated = bool(ontology_scope["targets"])
         decisions[item["id"]] = {
-            "input_hash": item["input_hash"],
+            "input_hash": stable_hash(
+                {
+                    "capability": item["input_hash"],
+                    "ontology_scope": ontology_scope,
+                },
+            ),
             "origin": item["origin"],
             "status": classification["status"],
             "participation": classification["participation"],
@@ -3984,19 +3989,15 @@ def refresh(state: dict[str, Any], repo: Path) -> None:
 
     invalidate_knowledge_review_for_changed_paths(state, repo, changed)
 
-    old_inventory = state["capability_inventory"]
-    new_inventory = inventory(repo)
-    if old_inventory["fingerprint"] == new_inventory["fingerprint"]:
-        add_history(state, "refreshed", changed_paths=changed)
-        return
-
     old_decisions = state["capability_decisions"]
-    state["capability_inventory"] = new_inventory
-    state["capability_decisions"] = initial_capability_decisions(
+    new_inventory = inventory(repo)
+    new_decisions = initial_capability_decisions(
         new_inventory,
         new_snapshot,
         repo,
     )
+    state["capability_inventory"] = new_inventory
+    state["capability_decisions"] = new_decisions
     new_items = {
         item["id"]: item
         for item in new_inventory["capabilities"]
@@ -4035,6 +4036,10 @@ def refresh(state: dict[str, Any], repo: Path) -> None:
         if identifier not in old_decisions
         or old_decisions[identifier]["input_hash"] != decision["input_hash"]
     ]
+    if not changed_capabilities:
+        add_history(state, "refreshed", changed_paths=changed)
+        return
+
     invalidated_mandatory_reviews: list[str] = []
     concept = state.get("concept_review", {})
     if (
