@@ -3,6 +3,11 @@
   "unexercised_functions": [
     {
       "script": "scripts/project_review.py",
+      "function": "linked_markdown_subjects",
+      "reason": "Вспомогательная ветвь раскрывает Markdown-ссылки только для возможности с index_patterns. Поставляемая классификация использует явные предметы и шаблоны файлов."
+    },
+    {
+      "script": "scripts/project_review.py",
       "function": "record_check",
       "reason": "Защитный отказ для удалённой команды. Публичный маршрут использует start-application и finish-application."
     },

@@ -1,0 +1,41 @@
+{
+  "skill_name": "ait-session-analysis",
+  "cases": [
+    {
+      "id": "ait-session-analysis-positive-default",
+      "prompt": "Проанализируй сессии этого проекта.",
+      "should_trigger": true,
+      "rationale": "Короткий запрос означает инкрементальный анализ новых завершённых частей."
+    },
+    {
+      "id": "ait-session-analysis-positive-current",
+      "prompt": "Проверь завершённую часть текущей сессии и найди потери времени.",
+      "should_trigger": true,
+      "rationale": "Явно запрошен качественный анализ текущей сессии без продвижения состояния."
+    },
+    {
+      "id": "ait-session-analysis-positive-specific",
+      "prompt": "Проанализируй сессию 0198f2 и предложи недостающие навыки.",
+      "should_trigger": true,
+      "rationale": "Нужно выбрать указанную историческую сессию и выполнить смысловой анализ."
+    },
+    {
+      "id": "ait-session-analysis-boundary-all",
+      "prompt": "По моей явной просьбе проверь всю доступную историю сессий проекта.",
+      "should_trigger": true,
+      "rationale": "Полная история является явным режимом навыка и не меняет курсор."
+    },
+    {
+      "id": "ait-session-analysis-negative-report",
+      "prompt": "Вот отчёт другого пользователя о сессиях. Проверь, верны ли его выводы.",
+      "should_trigger": false,
+      "rationale": "Готовый внешний отчёт проверяет парный навык ait-session-report-review."
+    },
+    {
+      "id": "ait-session-analysis-negative-statistics",
+      "prompt": "Сравни среднюю эффективность версий 0.25 и 0.26 по всем пользователям.",
+      "should_trigger": false,
+      "rationale": "Агрегированная статистика и причинное сравнение версий находятся вне навыка."
+    }
+  ]
+}

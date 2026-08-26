@@ -108,8 +108,8 @@ class BusinessRequirementValidationTests(unittest.TestCase):
 
 
 class RequirementTitleValidationTests(unittest.TestCase):
-    def test_functional_requirements_include_ft_40(self) -> None:
-        self.assertIn(40, VALIDATOR.CATEGORIES["functional"][2])
+    def test_functional_requirements_include_ft_42(self) -> None:
+        self.assertIn(42, VALIDATOR.CATEGORIES["functional"][2])
 
     def check_requirement(
         self,

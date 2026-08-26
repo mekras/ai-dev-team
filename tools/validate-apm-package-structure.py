@@ -51,6 +51,8 @@ REQUIRED_SKILLS = {
     "ait-docs-structure-rules",
     "ait-hypotheses",
     "ait-impact-analysis",
+    "ait-session-analysis",
+    "ait-session-report-review",
     "ait-licensing",
     "ait-personal-data",
     "ait-private-knowledge",
