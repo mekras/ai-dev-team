@@ -1192,31 +1192,12 @@ def complete_sentence(value: str) -> str:
 
 
 def render_decision_message(brief: dict[str, Any]) -> str:
-    problems = "\n".join(
-        f"- {complete_sentence(item)}" for item in brief["problems"]
-    )
-    paths = (
-        ", ".join(f"`{path}`" for path in brief["allowed_paths"])
-        or "изменение файлов не предлагается"
-    )
-    verifications = (
-        " ".join(brief["verifications"])
-        or "отдельная проверка изменения не требуется"
-    )
-    verification_text = complete_sentence(verifications)
     return (
         f"{complete_sentence(brief['review_context'])}\n\n"
-        "Проверка остановлена перед исправлением найденной группы.\n\n"
-        f"Сейчас проверяется: {complete_sentence(brief['checked_subject'])}\n"
-        "Связь с полной проверкой: "
-        f"{complete_sentence(brief['relation'])}\n\n"
-        f"Что обнаружено:\n\n{problems}\n\n"
+        f"Нужно решение: {complete_sentence(brief['decision_question'])}\n\n"
+        f"Предлагаю: {complete_sentence(brief['proposed_change'])}\n"
         f"Почему это важно: {complete_sentence(brief['impact'])}\n\n"
-        "Что предлагается изменить: "
-        f"{complete_sentence(brief['proposed_change'])}\n"
-        f"Граница изменения: {complete_sentence(paths)}\n"
-        f"Проверка после изменения: {verification_text}\n\n"
-        f"Нужно ваше решение: {brief['decision_question']}"
+        "Подробности проверки и границы изменения покажу по вашему запросу."
     )
 
 

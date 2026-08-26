@@ -2145,12 +2145,10 @@ class ProjectReviewTest(unittest.TestCase):
         brief = self.prepare_decision(state, "finding-readme")
         self.assertEqual(state["status"], "waiting_decision")
         self.assertIn("Полная проверка тестового проекта", brief["message"])
-        self.assertIn(
-            "Сейчас проверяется: механизм, который управляет тестовым проходом",
-            brief["message"],
-        )
-        self.assertIn("Связь с полной проверкой:", brief["message"])
-        self.assertIn("Нужно ваше решение:", brief["message"])
+        self.assertIn("Нужно решение:", brief["message"])
+        self.assertIn("Подробности проверки", brief["message"])
+        self.assertNotIn("Граница изменения:", brief["message"])
+        self.assertNotIn("Проверка после изменения:", brief["message"])
         MODULE.record_decision(state, decision)
         self.assertEqual(
             state["findings"]["finding-readme"]["status"],
@@ -2174,18 +2172,17 @@ class ProjectReviewTest(unittest.TestCase):
 
         self.assertIn(
             "Полная проверка тестового проекта.\n\n"
-            "Проверка остановлена перед исправлением найденной группы.",
-            message,
-        )
-        self.assertIn("Сейчас проверяется: Пользовательский маршрут.", message)
-        self.assertIn(
-            "Связь с полной проверкой: Он влияет на остальные проверки!",
+            "Нужно решение: Одобряете исправление?",
             message,
         )
         self.assertIn(
             "Почему это важно: Читатель может неверно понять сообщение?",
             message,
         )
+        self.assertNotIn("Пользовательский маршрут", message)
+        self.assertNotIn("Он влияет на остальные проверки", message)
+        self.assertNotIn("README.md", message)
+        self.assertNotIn("Проверить итоговое сообщение", message)
         self.assertNotIn("..", message)
         self.assertNotIn("!.", message)
         self.assertNotIn("?.", message)
