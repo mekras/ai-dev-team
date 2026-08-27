@@ -20,6 +20,12 @@
       "rationale": "Нужно выбрать указанную историческую сессию и выполнить смысловой анализ."
     },
     {
+      "id": "ait-session-analysis-positive-period",
+      "prompt": "Проанализируй сессии проекта за август 2026 года.",
+      "should_trigger": true,
+      "rationale": "Явно запрошен качественный анализ ограниченного периода."
+    },
+    {
       "id": "ait-session-analysis-boundary-all",
       "prompt": "По моей явной просьбе проверь всю доступную историю сессий проекта.",
       "should_trigger": true,

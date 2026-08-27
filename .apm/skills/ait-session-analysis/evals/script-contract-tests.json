@@ -225,6 +225,92 @@
       "expect": {
         "stdout_contains": ["\"selected_parts\": 0"]
       }
+    },
+    {
+      "id": "prepare-period-selection",
+      "script": "scripts/session_analysis.py",
+      "fixture": "evals/script-fixtures/basic",
+      "prepare": [
+        ["git", "init", "--quiet", "{fixture}/project"]
+      ],
+      "command": [
+        "{python}",
+        "{script}",
+        "prepare",
+        "--project-root",
+        "{fixture}/project",
+        "--state",
+        "{fixture}/project/.ai-dev-team/local/session-analysis/state.json",
+        "--candidate",
+        "{fixture}/project/.ai-dev-team/local/session-analysis/candidate-period.json",
+        "--mode",
+        "period",
+        "--period-start",
+        "2026-08-25T10:30:00Z",
+        "--period-end",
+        "2026-08-25T11:30:00Z",
+        "--codex-root",
+        "{fixture}/codex",
+        "--claude-root",
+        "{fixture}/claude"
+      ],
+      "covers": ["session-analysis-prepare"],
+      "expect": {
+        "stdout_contains": [
+          "\"mode\": \"period\"",
+          "\"selected_parts\": 1",
+          "\"start\": \"2026-08-25T10:30:00+00:00\"",
+          "A required check was skipped."
+        ],
+        "files": [
+          {
+            "path": "project/.ai-dev-team/local/session-analysis/candidate-period.json",
+            "json": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "prepare-period-excludes-end",
+      "script": "scripts/session_analysis.py",
+      "fixture": "evals/script-fixtures/basic",
+      "prepare": [
+        ["git", "init", "--quiet", "{fixture}/project"]
+      ],
+      "command": [
+        "{python}",
+        "{script}",
+        "prepare",
+        "--project-root",
+        "{fixture}/project",
+        "--state",
+        "{fixture}/project/.ai-dev-team/local/session-analysis/state.json",
+        "--candidate",
+        "{fixture}/project/.ai-dev-team/local/session-analysis/candidate-period-end.json",
+        "--mode",
+        "period",
+        "--period-start",
+        "2026-08-25T10:30:00Z",
+        "--period-end",
+        "2026-08-25T11:01:00Z",
+        "--codex-root",
+        "{fixture}/codex",
+        "--claude-root",
+        "{fixture}/claude"
+      ],
+      "covers": ["session-analysis-prepare"],
+      "expect": {
+        "stdout_contains": [
+          "\"selected_parts\": 0",
+          "\"end\": \"2026-08-25T11:01:00+00:00\""
+        ],
+        "files": [
+          {
+            "path": "project/.ai-dev-team/local/session-analysis/candidate-period-end.json",
+            "json": true
+          }
+        ]
+      }
     }
   ]
 }

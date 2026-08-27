@@ -1258,6 +1258,8 @@ def select_units(
     state: dict[str, Any],
     mode: str,
     session: str | None,
+    period_start: dt.datetime | None,
+    period_end: dt.datetime | None,
     limit: int,
     offset: int,
 ) -> tuple[list[Unit], bool, bool, str | None]:
@@ -1268,6 +1270,23 @@ def select_units(
     if mode == "all":
         selected = units[offset : offset + limit]
         return selected, False, offset + len(selected) < len(units), None
+    if mode == "period":
+        candidates = [
+            unit
+            for unit in units
+            if (
+                period_start is None
+                or strict_time(unit.completed_at, "время завершения части")
+                >= period_start
+            )
+            and (
+                period_end is None
+                or strict_time(unit.completed_at, "время завершения части")
+                < period_end
+            )
+        ]
+        selected = candidates[offset : offset + limit]
+        return selected, False, offset + len(selected) < len(candidates), None
 
     baseline = state.get("baseline_at")
     handled = state.get("handled", {})
@@ -1348,6 +1367,18 @@ def prepare(args: argparse.Namespace) -> int:
         args.max_total_bytes,
         max(32, args.limit * 4) if first_incremental_run else None,
     )
+    period_start = (
+        strict_time(args.period_start, "Начало периода")
+        if args.period_start is not None
+        else None
+    )
+    period_end = (
+        strict_time(args.period_end, "Конец периода")
+        if args.period_end is not None
+        else None
+    )
+    if period_start is not None and period_end is not None and period_start >= period_end:
+        raise SessionError("Начало периода должно быть раньше конца периода")
     if history_limited and not units:
         errors.append(
             "Ограниченная история не содержит завершённых частей"
@@ -1357,6 +1388,8 @@ def prepare(args: argparse.Namespace) -> int:
         state,
         args.mode,
         args.session,
+        period_start,
+        period_end,
         args.limit,
         args.offset,
     )
@@ -1429,6 +1462,12 @@ def prepare(args: argparse.Namespace) -> int:
             "errors": [public_error(error) for error in errors],
             "redactions": redactions,
             "abbreviated_values": abbreviations,
+            "period": {
+                "start": period_start.isoformat() if period_start else None,
+                "end": period_end.isoformat() if period_end else None,
+            }
+            if args.mode == "period"
+            else None,
         },
         "commit_allowed_after_successful_report": committable,
         "units": output_units,
@@ -1583,10 +1622,12 @@ def parser() -> argparse.ArgumentParser:
     prepare_parser.add_argument("--candidate", required=True)
     prepare_parser.add_argument(
         "--mode",
-        choices=("incremental", "session", "all"),
+        choices=("incremental", "session", "period", "all"),
         default="incremental",
     )
     prepare_parser.add_argument("--session")
+    prepare_parser.add_argument("--period-start")
+    prepare_parser.add_argument("--period-end")
     prepare_parser.add_argument("--limit", type=int, default=DEFAULT_LIMIT)
     prepare_parser.add_argument("--offset", type=int, default=0)
     prepare_parser.add_argument("--max-chars", type=int, default=DEFAULT_MAX_CHARS)
@@ -1630,6 +1671,14 @@ def main() -> int:
         return 2
     if getattr(args, "mode", None) == "session" and not args.session:
         print("Для режима session нужен --session", file=sys.stderr)
+        return 2
+    if getattr(args, "mode", None) == "period" and not (
+        args.period_start or args.period_end
+    ):
+        print(
+            "Для режима period нужна --period-start или --period-end",
+            file=sys.stderr,
+        )
         return 2
     try:
         return int(args.handler(args))

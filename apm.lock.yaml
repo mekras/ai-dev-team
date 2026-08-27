@@ -6139,7 +6139,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:4f3ca5fae0cd63227c076ed674dab3e7c3f0ce9fe8cf0b7e55f36b92395210e6
+  content_hash: sha256:17c3055df505de0dc130f14647b734c373e159e5434d5b0a0f7a63757d673f8c
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-session-analysis/evals/result-scenarios.json
@@ -6148,7 +6148,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:847e909a490fbecd17706cb7aab71584dd736e7589b8ee68aa5481b49bf15b8d
+  content_hash: sha256:8dedf1bd664d38474cb1c086e2d5f327464ce1c388c6c888ca6962ee8e23ea4c
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-session-analysis/evals/script-contract-tests.json
@@ -6157,7 +6157,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:03ff81372f000a2a0ee803a093d1a6819cf56869696834329a767638e96946a3
+  content_hash: sha256:1f1372cc11ab6433cbf39a8b80b194f26736279b1d37d4adad5a6ed9e666fa75
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-session-analysis/evals/script-fixtures/basic/claude/session.jsonl
@@ -6247,7 +6247,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:feee55505f4a92be8e9d8e669ee697645481e51ac468e833ae5fac8904b56fa5
+  content_hash: sha256:76b0566f892b1ac4423083f66413b6536306820d363089eb7ac8122ae1563952
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-session-analysis/scripts/session_analysis.py
@@ -6256,7 +6256,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:a2bd48a31974a94d05c55b866aa3ba01cfa17a061f19761f1bef1e365418839a
+  content_hash: sha256:84cde1b56e06d5ce13c5ce3516d82ff5caffb3c7c6d7c260ae5e04104c183701
 - kind: project-relative
   target: agents
   value: .agents/skills/ait-session-report-review
@@ -10315,7 +10315,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:4f3ca5fae0cd63227c076ed674dab3e7c3f0ce9fe8cf0b7e55f36b92395210e6
+  content_hash: sha256:17c3055df505de0dc130f14647b734c373e159e5434d5b0a0f7a63757d673f8c
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-session-analysis/evals/result-scenarios.json
@@ -10324,7 +10324,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:847e909a490fbecd17706cb7aab71584dd736e7589b8ee68aa5481b49bf15b8d
+  content_hash: sha256:8dedf1bd664d38474cb1c086e2d5f327464ce1c388c6c888ca6962ee8e23ea4c
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-session-analysis/evals/script-contract-tests.json
@@ -10333,7 +10333,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:03ff81372f000a2a0ee803a093d1a6819cf56869696834329a767638e96946a3
+  content_hash: sha256:1f1372cc11ab6433cbf39a8b80b194f26736279b1d37d4adad5a6ed9e666fa75
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-session-analysis/evals/script-fixtures/basic/claude/session.jsonl
@@ -10423,7 +10423,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:feee55505f4a92be8e9d8e669ee697645481e51ac468e833ae5fac8904b56fa5
+  content_hash: sha256:76b0566f892b1ac4423083f66413b6536306820d363089eb7ac8122ae1563952
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-session-analysis/scripts/session_analysis.py
@@ -10432,7 +10432,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:a2bd48a31974a94d05c55b866aa3ba01cfa17a061f19761f1bef1e365418839a
+  content_hash: sha256:84cde1b56e06d5ce13c5ce3516d82ff5caffb3c7c6d7c260ae5e04104c183701
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-session-report-review
@@ -13148,9 +13148,9 @@ local_deployed_file_hashes:
   .agents/skills/ait-sec-threat-modeling/references/risk-and-validation.md: sha256:7aae1335a5ee6c2b7d57b6035e264d622496c3f0a4f8199d8138488f44e3e167
   .agents/skills/ait-sec-tooling/SKILL.md: sha256:b3193f5f6214bf93d50c40e9451ac993315494dd1c4c908f1fb73d32be384af0
   .agents/skills/ait-sec-tooling/evals/triggers.json: sha256:2326a3a717462754f4057a4d9bb54b8ba94c9682dec204642fc7a392ce5cb8b1
-  .agents/skills/ait-session-analysis/SKILL.md: sha256:4f3ca5fae0cd63227c076ed674dab3e7c3f0ce9fe8cf0b7e55f36b92395210e6
-  .agents/skills/ait-session-analysis/evals/result-scenarios.json: sha256:847e909a490fbecd17706cb7aab71584dd736e7589b8ee68aa5481b49bf15b8d
-  .agents/skills/ait-session-analysis/evals/script-contract-tests.json: sha256:03ff81372f000a2a0ee803a093d1a6819cf56869696834329a767638e96946a3
+  .agents/skills/ait-session-analysis/SKILL.md: sha256:17c3055df505de0dc130f14647b734c373e159e5434d5b0a0f7a63757d673f8c
+  .agents/skills/ait-session-analysis/evals/result-scenarios.json: sha256:8dedf1bd664d38474cb1c086e2d5f327464ce1c388c6c888ca6962ee8e23ea4c
+  .agents/skills/ait-session-analysis/evals/script-contract-tests.json: sha256:1f1372cc11ab6433cbf39a8b80b194f26736279b1d37d4adad5a6ed9e666fa75
   .agents/skills/ait-session-analysis/evals/script-fixtures/basic/claude/session.jsonl: sha256:9041bafe85151aec46dbda05264c2d76c02f566508cd67b2daaefea0e605c6d7
   .agents/skills/ait-session-analysis/evals/script-fixtures/basic/codex/session.jsonl: sha256:f49330554233580dfab4563d56b3286f22dffccb7dc25669b5013f09f6714f5a
   .agents/skills/ait-session-analysis/evals/script-fixtures/basic/project/README.md: sha256:0baf168604350cefae457498370cdd9be46e8c1e80f7d9a0edfb9f8a991a9b44
@@ -13162,8 +13162,8 @@ local_deployed_file_hashes:
   : sha256:694ff60b8fa08c3df3bc8acf79dd84ea9da54b66cf1597d9ecc4bd6d02d446c8
   .agents/skills/ait-session-analysis/evals/script-fixtures/existing/project/.ai-dev-team/local/session-analysis/state.json: sha256:547b8a378ac3a98c6f0d0f8326c028604423e6e62247d9947301c0a2307c8703
   .agents/skills/ait-session-analysis/evals/script-fixtures/existing/project/README.md: sha256:0baf168604350cefae457498370cdd9be46e8c1e80f7d9a0edfb9f8a991a9b44
-  .agents/skills/ait-session-analysis/evals/triggers.json: sha256:feee55505f4a92be8e9d8e669ee697645481e51ac468e833ae5fac8904b56fa5
-  .agents/skills/ait-session-analysis/scripts/session_analysis.py: sha256:a2bd48a31974a94d05c55b866aa3ba01cfa17a061f19761f1bef1e365418839a
+  .agents/skills/ait-session-analysis/evals/triggers.json: sha256:76b0566f892b1ac4423083f66413b6536306820d363089eb7ac8122ae1563952
+  .agents/skills/ait-session-analysis/scripts/session_analysis.py: sha256:84cde1b56e06d5ce13c5ce3516d82ff5caffb3c7c6d7c260ae5e04104c183701
   .agents/skills/ait-session-report-review/SKILL.md: sha256:2d18a0b6cf545be3bf136f2ac312e1840e31a3e12325e48560ebbca3292f4149
   .agents/skills/ait-session-report-review/evals/result-scenarios.json: sha256:0e14af5a3db9b9a29231027b00b9ee3c087ddf781cf80ad71c4397c12684348c
   .agents/skills/ait-session-report-review/evals/triggers.json: sha256:669c2e99fe2a17a8719454e8ed6b77a406fc060d2364f974f3121b2f4aca9aca
@@ -13441,9 +13441,9 @@ local_deployed_file_hashes:
   .claude/skills/ait-sec-threat-modeling/references/risk-and-validation.md: sha256:7aae1335a5ee6c2b7d57b6035e264d622496c3f0a4f8199d8138488f44e3e167
   .claude/skills/ait-sec-tooling/SKILL.md: sha256:b3193f5f6214bf93d50c40e9451ac993315494dd1c4c908f1fb73d32be384af0
   .claude/skills/ait-sec-tooling/evals/triggers.json: sha256:2326a3a717462754f4057a4d9bb54b8ba94c9682dec204642fc7a392ce5cb8b1
-  .claude/skills/ait-session-analysis/SKILL.md: sha256:4f3ca5fae0cd63227c076ed674dab3e7c3f0ce9fe8cf0b7e55f36b92395210e6
-  .claude/skills/ait-session-analysis/evals/result-scenarios.json: sha256:847e909a490fbecd17706cb7aab71584dd736e7589b8ee68aa5481b49bf15b8d
-  .claude/skills/ait-session-analysis/evals/script-contract-tests.json: sha256:03ff81372f000a2a0ee803a093d1a6819cf56869696834329a767638e96946a3
+  .claude/skills/ait-session-analysis/SKILL.md: sha256:17c3055df505de0dc130f14647b734c373e159e5434d5b0a0f7a63757d673f8c
+  .claude/skills/ait-session-analysis/evals/result-scenarios.json: sha256:8dedf1bd664d38474cb1c086e2d5f327464ce1c388c6c888ca6962ee8e23ea4c
+  .claude/skills/ait-session-analysis/evals/script-contract-tests.json: sha256:1f1372cc11ab6433cbf39a8b80b194f26736279b1d37d4adad5a6ed9e666fa75
   .claude/skills/ait-session-analysis/evals/script-fixtures/basic/claude/session.jsonl: sha256:9041bafe85151aec46dbda05264c2d76c02f566508cd67b2daaefea0e605c6d7
   .claude/skills/ait-session-analysis/evals/script-fixtures/basic/codex/session.jsonl: sha256:f49330554233580dfab4563d56b3286f22dffccb7dc25669b5013f09f6714f5a
   .claude/skills/ait-session-analysis/evals/script-fixtures/basic/project/README.md: sha256:0baf168604350cefae457498370cdd9be46e8c1e80f7d9a0edfb9f8a991a9b44
@@ -13455,8 +13455,8 @@ local_deployed_file_hashes:
   : sha256:694ff60b8fa08c3df3bc8acf79dd84ea9da54b66cf1597d9ecc4bd6d02d446c8
   .claude/skills/ait-session-analysis/evals/script-fixtures/existing/project/.ai-dev-team/local/session-analysis/state.json: sha256:547b8a378ac3a98c6f0d0f8326c028604423e6e62247d9947301c0a2307c8703
   .claude/skills/ait-session-analysis/evals/script-fixtures/existing/project/README.md: sha256:0baf168604350cefae457498370cdd9be46e8c1e80f7d9a0edfb9f8a991a9b44
-  .claude/skills/ait-session-analysis/evals/triggers.json: sha256:feee55505f4a92be8e9d8e669ee697645481e51ac468e833ae5fac8904b56fa5
-  .claude/skills/ait-session-analysis/scripts/session_analysis.py: sha256:a2bd48a31974a94d05c55b866aa3ba01cfa17a061f19761f1bef1e365418839a
+  .claude/skills/ait-session-analysis/evals/triggers.json: sha256:76b0566f892b1ac4423083f66413b6536306820d363089eb7ac8122ae1563952
+  .claude/skills/ait-session-analysis/scripts/session_analysis.py: sha256:84cde1b56e06d5ce13c5ce3516d82ff5caffb3c7c6d7c260ae5e04104c183701
   .claude/skills/ait-session-report-review/SKILL.md: sha256:2d18a0b6cf545be3bf136f2ac312e1840e31a3e12325e48560ebbca3292f4149
   .claude/skills/ait-session-report-review/evals/result-scenarios.json: sha256:0e14af5a3db9b9a29231027b00b9ee3c087ddf781cf80ad71c4397c12684348c
   .claude/skills/ait-session-report-review/evals/triggers.json: sha256:669c2e99fe2a17a8719454e8ed6b77a406fc060d2364f974f3121b2f4aca9aca
