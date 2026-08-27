@@ -165,6 +165,17 @@ class Unit:
         value = f"{self.client}\0{self.session_id}\0{self.unit_id}"
         return hashlib.sha256(value.encode("utf-8")).hexdigest()
 
+    @property
+    def completed_part_id(self) -> str:
+        """Return the identifier shared by normalized fragments of one part."""
+        return self.unit_id.split(":chunk:", 1)[0]
+
+    @property
+    def completed_part_hash(self) -> str:
+        """Return a disclosure-safe identifier of the completed part."""
+        value = f"{self.client}\0{self.session_id}\0{self.completed_part_id}"
+        return hashlib.sha256(value.encode("utf-8")).hexdigest()[:12]
+
 
 @dataclass(frozen=True)
 class FileSnapshot:
@@ -1328,6 +1339,16 @@ def select_units(
     return selected, False, len(candidates) > len(selected), baseline
 
 
+def completed_part_count(units: Iterable[Unit]) -> int:
+    """Count logical completed parts without multiplying their fragments."""
+    return len(
+        {
+            (unit.client, unit.session_id, unit.completed_part_id)
+            for unit in units
+        }
+    )
+
+
 def prepare(args: argparse.Namespace) -> int:
     project = canonical_project(Path(args.project_root))
     fingerprint = hashlib.sha256(str(project).encode("utf-8")).hexdigest()
@@ -1420,6 +1441,7 @@ def prepare(args: argparse.Namespace) -> int:
                 "session": hashlib.sha256(
                     f"{unit.client}\0{unit.session_id}".encode("utf-8")
                 ).hexdigest()[:12],
+                "completed_part": unit.completed_part_hash,
                 "completed_at": unit.completed_at,
                 "content": clean,
             }
@@ -1447,14 +1469,16 @@ def prepare(args: argparse.Namespace) -> int:
         "status": "ready" if not errors and not truncated else "incomplete",
         "mode": args.mode,
         "coverage": {
-            "completed_parts_found": len(units),
-            "selected_parts": len(output_units),
+            "completed_parts_found": completed_part_count(units),
+            "normalized_fragments_found": len(units),
+            "selected_parts": completed_part_count(selected),
+            "normalized_fragments_selected": len(output_units),
             "earlier_history_not_selected": earlier_unseen,
             "history_files_not_read": history_limited,
             "more_parts_available": more_available,
             "next_offset": (
                 args.offset + len(output_units)
-                if more_available and args.mode in {"all", "session"}
+                if more_available and args.mode in {"all", "period", "session"}
                 else None
             ),
             "truncated_by_context_limit": truncated,

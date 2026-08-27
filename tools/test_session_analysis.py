@@ -684,6 +684,81 @@ class SessionAnalysisTest(unittest.TestCase):
         self.assertFalse(first_result["commit_allowed_after_successful_report"])
         self.assertFalse((self.local / "state.json").exists())
 
+    def test_period_mode_is_paginated_and_reports_logical_parts(self) -> None:
+        self.write_sessions()
+        common = (
+            "prepare",
+            "--project-root",
+            str(self.project),
+            "--state",
+            str(self.local / "state.json"),
+            "--mode",
+            "period",
+            "--period-start",
+            "2026-08-25T10:00:00Z",
+            "--period-end",
+            "2026-08-25T12:00:00Z",
+            "--limit",
+            "1",
+            "--codex-root",
+            str(self.codex),
+            "--claude-root",
+            str(self.claude),
+        )
+
+        first = self.run_script(
+            *common,
+            "--candidate",
+            str(self.local / "candidate-period-one.json"),
+        )
+        second = self.run_script(
+            *common,
+            "--offset",
+            "1",
+            "--candidate",
+            str(self.local / "candidate-period-two.json"),
+        )
+
+        self.assertEqual(first.returncode, 0, first.stderr)
+        self.assertEqual(second.returncode, 0, second.stderr)
+        first_result = json.loads(first.stdout)
+        first_coverage = first_result["coverage"]
+        second_coverage = json.loads(second.stdout)["coverage"]
+        self.assertEqual(first_coverage["completed_parts_found"], 2)
+        self.assertEqual(first_coverage["normalized_fragments_found"], 2)
+        self.assertEqual(first_coverage["selected_parts"], 1)
+        self.assertEqual(first_coverage["normalized_fragments_selected"], 1)
+        self.assertTrue(first_coverage["more_parts_available"])
+        self.assertEqual(first_coverage["next_offset"], 1)
+        self.assertIn("completed_part", first_result["units"][0])
+        self.assertEqual(second_coverage["selected_parts"], 1)
+        self.assertEqual(second_coverage["normalized_fragments_selected"], 1)
+        self.assertFalse(second_coverage["more_parts_available"])
+        self.assertIsNone(second_coverage["next_offset"])
+
+    def test_fragment_count_does_not_multiply_completed_parts(self) -> None:
+        module = load_session_module()
+        fragments = [
+            module.Unit(
+                "codex", "session", "turn:chunk:000001:000002", "time",
+                "source", "first", "digest-one",
+            ),
+            module.Unit(
+                "codex", "session", "turn:chunk:000002:000002", "time",
+                "source", "second", "digest-two",
+            ),
+            module.Unit(
+                "codex", "session", "next", "time", "source", "next",
+                "digest-three",
+            ),
+        ]
+
+        self.assertEqual(module.completed_part_count(fragments), 2)
+        self.assertEqual(
+            fragments[0].completed_part_hash,
+            fragments[1].completed_part_hash,
+        )
+
     @unittest.skipUnless(hasattr(os, "symlink"), "symlink is unavailable")
     def test_symlink_state_is_rejected(self) -> None:
         self.write_sessions()
