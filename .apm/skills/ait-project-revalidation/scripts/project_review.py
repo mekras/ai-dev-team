@@ -1197,11 +1197,17 @@ def complete_sentence(value: str) -> str:
 
 
 def render_decision_message(brief: dict[str, Any]) -> str:
+    problems = " ".join(
+        complete_sentence(problem) for problem in brief["problems"]
+    )
+    checked_subject = complete_sentence(brief["checked_subject"])
+    relation = complete_sentence(brief["relation"])
     return (
         f"{complete_sentence(brief['review_context'])}\n\n"
-        f"Нужно решение: {complete_sentence(brief['decision_question'])}\n\n"
-        f"Предлагаю: {complete_sentence(brief['proposed_change'])}\n"
+        f"Проблема: Проверялся {checked_subject} {relation} {problems}\n\n"
         f"Почему это важно: {complete_sentence(brief['impact'])}\n\n"
+        f"Предлагаю: {complete_sentence(brief['proposed_change'])}\n\n"
+        f"Нужно решение: {complete_sentence(brief['decision_question'])}\n\n"
         "Подробности проверки и границы изменения покажу по вашему запросу."
     )
 

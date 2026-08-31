@@ -2153,10 +2153,12 @@ class ProjectReviewTest(unittest.TestCase):
         brief = self.prepare_decision(state, "finding-readme")
         self.assertEqual(state["status"], "waiting_decision")
         self.assertIn("Полная проверка тестового проекта", brief["message"])
+        self.assertIn("Проблема:", brief["message"])
         self.assertIn("Нужно решение:", brief["message"])
         self.assertIn("Подробности проверки", brief["message"])
         self.assertNotIn("Граница изменения:", brief["message"])
         self.assertNotIn("Проверка после изменения:", brief["message"])
+        self.assertNotIn("Критерий приёмки", brief["message"])
         MODULE.record_decision(state, decision)
         self.assertEqual(
             state["findings"]["finding-readme"]["status"],
@@ -2178,17 +2180,26 @@ class ProjectReviewTest(unittest.TestCase):
             }
         )
 
-        self.assertIn(
-            "Полная проверка тестового проекта.\n\n"
-            "Нужно решение: Одобряете исправление?",
-            message,
-        )
+        self.assertIn("Проблема: Проверялся Пользовательский маршрут.", message)
+        self.assertIn("Найдена повторяющаяся ошибка.", message)
         self.assertIn(
             "Почему это важно: Читатель может неверно понять сообщение?",
             message,
         )
-        self.assertNotIn("Пользовательский маршрут", message)
-        self.assertNotIn("Он влияет на остальные проверки", message)
+        self.assertLess(
+            message.index("Проблема:"),
+            message.index("Почему это важно:"),
+        )
+        self.assertLess(
+            message.index("Почему это важно:"),
+            message.index("Предлагаю:"),
+        )
+        self.assertLess(
+            message.index("Предлагаю:"),
+            message.index("Нужно решение:"),
+        )
+        self.assertNotIn("Критерий приёмки", message)
+        self.assertIn("Он влияет на остальные проверки!", message)
         self.assertNotIn("README.md", message)
         self.assertNotIn("Проверить итоговое сообщение", message)
         self.assertNotIn("..", message)
