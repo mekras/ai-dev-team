@@ -1349,7 +1349,7 @@ def check_user_development_journey_contract() -> None:
         ),
         ".apm/agents/project-manager.agent.md": (
             "Менеджер всегда запускает задачу через единый входной этап",
-            "Передаёт человеку результаты на приёмку",
+            "При необходимости передаёт человеку результат на приёмку",
         ),
     }
     for relative_path, markers in required_markers.items():
@@ -1677,7 +1677,7 @@ def check_owner_decision_pattern_contract() -> None:
 def check_result_acceptance_contract() -> None:
     required_markers = {
         "docs/05-requirements/user/pt-1.md": (
-            "Вместе с итоговым результатом продукт должен передать пользователю",
+            "При передаче проверяемого результата на явную приёмку продукт должен",
             "Продукт должен считать результат принятым только после",
             "явный выбор: принять результат или вернуть его на доработку",
         ),
@@ -1688,9 +1688,7 @@ def check_result_acceptance_contract() -> None:
         ),
         ".apm/agents/project-manager.agent.md": (
             "### Передача результата на приёмку",
-            "Статус `готов к приёмке` допустим",
-            "Статус `принят` ставится только после явного решения человека",
-            "Частично проверенный результат нельзя выдавать",
+            "Передачу результата на приёмку выполняй по шагу 5 `ait-routing`",
         ),
         ".apm/skills/ait-routing/evals/result-scenarios.json": (
             "ait-routing-routing-result-handoff-for-acceptance",
