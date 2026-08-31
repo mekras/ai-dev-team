@@ -1,5 +1,5 @@
 name: ai-dev-team
-version: 0.27.3
+version: 0.27.4
 description: Команда агентной разработки ПО
 author: mekras
 license: MIT
@@ -13,7 +13,8 @@ dependencies:
   apm:
     - mekras/ai-russian-language#^2.1.5
     - mekras/ai-agent-supervisor#^2.3.20
-    - mekras/project-knowlege-corpus#0.19.5
+    - mekras/project-knowlege-corpus#^0.19.5
+    - talkstream/ru-text#v2.4.0
 scripts:
   tests: >-
     sh -c 'set -e; export PYTHONDONTWRITEBYTECODE=1;
