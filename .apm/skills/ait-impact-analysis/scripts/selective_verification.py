@@ -418,7 +418,8 @@ def files_for_patterns(repo: Path, patterns: list[str]) -> list[dict[str, Any]]:
     snapshot: list[dict[str, Any]] = []
     for pattern in patterns:
         matches: list[dict[str, str]] = []
-        for path in sorted(repo.glob(pattern)):
+        file_pattern = f"{pattern}/*" if pattern.endswith("/**") else pattern
+        for path in sorted(repo.glob(file_pattern)):
             try:
                 relative = path.relative_to(repo).as_posix()
             except ValueError:
