@@ -3,33 +3,39 @@
   "cases": [
     {
       "id": "ait-session-analysis-positive-default",
-      "prompt": "Проанализируй сессии этого проекта.",
+      "prompt": "Запусти ait-session-analysis",
       "should_trigger": true,
-      "rationale": "Короткий запрос означает инкрементальный анализ новых завершённых частей."
+      "rationale": "Точная команда запускает инкрементальный анализ новых завершённых частей."
     },
     {
-      "id": "ait-session-analysis-positive-current",
+      "id": "ait-session-analysis-negative-current",
       "prompt": "Проверь завершённую часть текущей сессии и найди потери времени.",
-      "should_trigger": true,
-      "rationale": "Явно запрошен качественный анализ текущей сессии без продвижения состояния."
+      "should_trigger": false,
+      "rationale": "Запрос не содержит точную команду запуска навыка."
     },
     {
-      "id": "ait-session-analysis-positive-specific",
+      "id": "ait-session-analysis-negative-specific",
       "prompt": "Проанализируй сессию 0198f2 и предложи недостающие навыки.",
-      "should_trigger": true,
-      "rationale": "Нужно выбрать указанную историческую сессию и выполнить смысловой анализ."
+      "should_trigger": false,
+      "rationale": "Идентификатор сессии не является командой запуска навыка."
     },
     {
-      "id": "ait-session-analysis-positive-period",
+      "id": "ait-session-analysis-negative-period",
       "prompt": "Проанализируй сессии проекта за август 2026 года.",
-      "should_trigger": true,
-      "rationale": "Явно запрошен качественный анализ ограниченного периода."
+      "should_trigger": false,
+      "rationale": "Запрос периода не содержит точную команду запуска навыка."
     },
     {
       "id": "ait-session-analysis-boundary-all",
       "prompt": "По моей явной просьбе проверь всю доступную историю сессий проекта.",
-      "should_trigger": true,
-      "rationale": "Полная история является явным режимом навыка и не меняет курсор."
+      "should_trigger": false,
+      "rationale": "Явная просьба о полной истории не заменяет точную команду."
+    },
+    {
+      "id": "ait-session-analysis-negative-own-errors",
+      "prompt": "Сделай выводы из своих ошибок в сессии 01a05d39-e00f-7bd1-b3ce-0565bd19b025 и предложи исправления на будущее.",
+      "should_trigger": false,
+      "rationale": "Разбор ошибок конкретной сессии не содержит точную команду запуска навыка."
     },
     {
       "id": "ait-session-analysis-negative-report",
