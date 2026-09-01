@@ -82,6 +82,11 @@
       "prepare": [
         ["git", "init", "--quiet", "{fixture}/project"],
         [
+          "chmod",
+          "600",
+          "{fixture}/project/.ai-dev-team/local/session-analysis/integrity.key"
+        ],
+        [
           "{python}",
           "-c",
           "from pathlib import Path\nPath(r'{fixture}/project/.ai-dev-team/local/session-analysis/state.json').unlink()\nPath(r'{fixture}/project/.ai-dev-team/local/session-analysis/candidate-run.json').unlink()"
@@ -128,6 +133,11 @@
       "fixture": "evals/script-fixtures/existing",
       "prepare": [
         ["git", "init", "--quiet", "{fixture}/project"],
+        [
+          "chmod",
+          "600",
+          "{fixture}/project/.ai-dev-team/local/session-analysis/integrity.key"
+        ],
         [
           "{python}",
           "-c",
@@ -176,6 +186,11 @@
       "fixture": "evals/script-fixtures/existing",
       "prepare": [
         ["git", "init", "--quiet", "{fixture}/project"],
+        [
+          "chmod",
+          "600",
+          "{fixture}/project/.ai-dev-team/local/session-analysis/integrity.key"
+        ],
         [
           "{python}",
           "-c",
