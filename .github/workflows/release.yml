@@ -37,6 +37,10 @@ jobs:
           setup-only: 'true'
           apm-version: '0.29.0'
 
+      - name: Подготовить самоприменение APM
+        shell: bash
+        run: apm install --frozen
+
       - name: Проверить готовность выпуска
         shell: bash
         run: |
