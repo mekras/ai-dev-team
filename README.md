@@ -35,13 +35,15 @@
 Для Claude:
 
 ```shell
-apm install mekras/ai-dev-team#^0.27.5 --target claude
+apm marketplace add mekras/apm-marketplace --ref master
+apm install ai-dev-team@mekras#0.27.6 --target claude
 ```
 
 Для Codex:
 
 ```shell
-apm install mekras/ai-dev-team#^0.27.5 --target codex
+apm marketplace add mekras/apm-marketplace --ref master
+apm install ai-dev-team@mekras#0.27.6 --target codex
 ```
 
 После установки откройте выбранный инструмент для общения с агентами в корне
@@ -113,13 +115,13 @@ apm install mekras/ai-dev-team#^0.27.5 --target codex
 Для Claude:
 
 ```shell
-apm update mekras/ai-dev-team --target claude
+apm update ai-dev-team@mekras --target claude
 ```
 
 Для Codex:
 
 ```shell
-apm update mekras/ai-dev-team --target codex
+apm update ai-dev-team@mekras --target codex
 ```
 
 Затем в корне проекта дайте агенту команду:
@@ -133,6 +135,21 @@ apm update mekras/ai-dev-team --target codex
 запускать названные в журнале навыки не нужно.
 
 Что изменилось между версиями, описано в [журнале изменений](CHANGELOG.md).
+
+## Выпуск
+
+Перед выпуском обновите `version` в `apm.yml` и перенесите изменения из
+раздела «Невыпущено» в раздел этой версии в `CHANGELOG.md`. Номер тега исходного
+репозитория должен совпадать с `version`, например `0.27.6`.
+
+После отправки тега GitHub Actions проверит коллекцию, перенесёт публичный
+состав в `mekras/apm-marketplace`, пересоберёт описания реестра и создаст тег
+пакета `ai-dev-team--v<версия>`.
+
+Для первого автоматического выпуска добавьте в настройках репозитория
+`mekras/ai-dev-team` секрет Actions `APM_MARKETPLACE_TOKEN`. Это должен быть
+тонко настроенный personal access token с правом **Contents: Read and write**
+только для репозитория `mekras/apm-marketplace`.
 
 ## Документация
 

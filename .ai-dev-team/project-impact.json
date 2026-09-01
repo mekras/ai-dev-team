@@ -186,7 +186,8 @@
         ".ai-dev-team/local/knowledge-evaluation.yml.sample",
         ".ai-dev-team/local/product-evals.yml.sample",
         ".ai-dev-team/project-verification.json",
-        ".ai-dev-team/project-impact.json"
+        ".ai-dev-team/project-impact.json",
+        ".github/workflows/**"
       ],
       "checks": ["ai-setup-apm", "ai-audit-project"],
       "review_stages": ["repository", "assurance"]

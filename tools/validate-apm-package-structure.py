@@ -23,9 +23,9 @@ OWNER_DECISION_PATTERN = re.compile(
 )
 
 REQUIRED_APM_DEPENDENCIES = {
-    "mekras/ai-agent-supervisor",
-    "mekras/ai-russian-language",
-    "mekras/project-knowlege-corpus",
+    "ai-agent-supervisor",
+    "ai-russian-language",
+    "project-knowledge-corpus",
 }
 
 REQUIRED_PACKAGE_TARGETS = {
@@ -235,6 +235,14 @@ def read_yaml(path: Path) -> dict:
     return data
 
 
+def package_name_from_reference(reference: str) -> str:
+    source = reference.split("#", maxsplit=1)[0].rstrip("/")
+    marker = "/packages/"
+    if marker in source:
+        return source.rsplit(marker, maxsplit=1)[1].split("/", maxsplit=1)[0]
+    return source.rsplit("/", maxsplit=1)[-1]
+
+
 def check_manifest() -> None:
     manifest = read_yaml(ROOT / "apm.yml")
     if manifest.get("type") != "hybrid":
@@ -247,7 +255,7 @@ def check_manifest() -> None:
     ):
         fail("apm.yml dependencies.apm must be a list of package references")
     actual_dependencies = {
-        dependency.split("#", maxsplit=1)[0] for dependency in dependencies
+        package_name_from_reference(dependency) for dependency in dependencies
     }
     missing_dependencies = sorted(REQUIRED_APM_DEPENDENCIES - actual_dependencies)
     if missing_dependencies:
@@ -1447,7 +1455,7 @@ def check_client_target_contract() -> None:
                     f"installation target {fragment!r}",
                 )
         for line in text.splitlines():
-            if "apm install mekras/ai-dev-team" not in line:
+            if "apm install " not in line:
                 continue
             if not re.search(r"--target (?:claude|codex)(?:\s|$|`)", line):
                 fail(
@@ -1721,12 +1729,12 @@ def check_result_acceptance_contract() -> None:
     manifest = read_yaml(ROOT / "apm.yml")
     apm_dependencies = manifest.get("dependencies", {}).get("apm", [])
     if not any(
-        dependency.startswith("mekras/ai-agent-supervisor#")
+        package_name_from_reference(dependency) == "ai-agent-supervisor"
         for dependency in apm_dependencies
     ):
         fail(
             "apm.yml must provide ai-work-result-evaluation through "
-            "mekras/ai-agent-supervisor",
+            "the ai-agent-supervisor package",
         )
 
 
@@ -2128,14 +2136,21 @@ def check_installation_contract() -> None:
     for path in paths:
         text = path.read_text(encoding="utf-8")
         for target in ("claude", "codex"):
-            command = (
-                f"apm install mekras/ai-dev-team#^{version} "
-                f"--target {target}"
-            )
-            if command not in text:
+            commands = [
+                line.strip()
+                for line in text.splitlines()
+                if line.strip().startswith("apm install ")
+                and re.search(
+                    rf"--target {target}(?:\\s|$|`)", line,
+                )
+            ]
+            if not any(
+                "ai-dev-team" in command and version in command
+                for command in commands
+            ):
                 fail(
-                    f"{path.relative_to(ROOT)} does not contain the current "
-                    f"{target} installation command",
+                    f"{path.relative_to(ROOT)} does not contain an installation "
+                    f"command for ai-dev-team {version} and {target}",
                 )
         if "github.com/mekras/ai-dev-team#master" in text:
             fail(f"{path.relative_to(ROOT)} contains the legacy installation ref")
