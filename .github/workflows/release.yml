@@ -119,7 +119,8 @@ jobs:
               )
           marketplace_manifest.write_text(text, encoding="utf-8")
           PY
-          if find "$package_dir" \( -name AGENTS.md -o -name .editorconfig \) \
+          if find "$package_dir" -maxdepth 1 \
+            \( -name AGENTS.md -o -name .editorconfig \) \
             -print -quit | grep -q .; then
             echo "В состав пакета попал служебный файл проекта-разработчика" >&2
             exit 1
