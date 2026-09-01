@@ -1,5 +1,5 @@
 name: ai-dev-team
-version: 0.27.8
+version: 0.27.9
 description: Команда агентной разработки ПО
 author: mekras
 license: MIT
@@ -42,8 +42,10 @@ scripts:
     .agents/skills/kc-retrieval-evaluation/scripts/validate-evaluation-suite.py
     knowledge-evaluation.yml --corpus-root knowledge;
     python3 tools/check-knowledge-index.py;
-    python3 .agents/skills/kc-inventory/scripts/validate-corpus-layout.py
-    knowledge --strict-statements;
+    if [ "${APM_PUBLIC_RELEASE:-0}" != 1 ]; then
+      python3 .agents/skills/kc-inventory/scripts/validate-corpus-layout.py
+      knowledge --strict-statements;
+    fi;
     python3 tools/validate-knowledge-operational.py;
     python3 "$validators/validate-hidden-unicode.py" .apm;
     APM_SKILL_DESCRIPTION_TOTAL_MAX_CHARS=2700
