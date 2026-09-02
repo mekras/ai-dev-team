@@ -22,6 +22,8 @@ def load(script_name: str, module_name: str):
 
 index_check = load("check-knowledge-index.py", "check_knowledge_index")
 sources = load("check-knowledge-sources.py", "check_knowledge_sources")
+fetch_queue = load("fetch-knowledge-queue.py", "fetch_knowledge_queue")
+transcribe_queue = load("transcribe-knowledge-queue.py", "transcribe_knowledge_queue")
 
 
 def make_corpus(root: Path) -> Path:
@@ -190,6 +192,45 @@ class SourceCheckTest(unittest.TestCase):
 
             self.assertEqual(fresh, [])
             self.assertEqual(len(stale), 1)
+
+
+class FetchQueueTest(unittest.TestCase):
+    def test_accepts_only_selected_items(self) -> None:
+        self.assertTrue(fetch_queue.eligible({"workflow_stage": "needs_fetch"}))
+        self.assertTrue(
+            fetch_queue.eligible(
+                {
+                    "workflow_stage": "indexed",
+                    "processing_scope": "selected_fragments",
+                }
+            )
+        )
+        self.assertFalse(fetch_queue.eligible({"workflow_stage": "indexed"}))
+
+    def test_rejects_path_outside_source(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            source_dir = Path(tmp) / "source"
+            source_dir.mkdir()
+            with self.assertRaises(ValueError):
+                fetch_queue.item_directory(source_dir, {"path": "../../outside"})
+
+
+class TranscribeQueueTest(unittest.TestCase):
+    def test_selects_the_only_media_file(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            directory = Path(tmp)
+            media = directory / "recording.tmp.mp3"
+            media.write_bytes(b"audio")
+
+            self.assertEqual(transcribe_queue.media_file(directory), media)
+
+    def test_rejects_ambiguous_media_files(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            directory = Path(tmp)
+            (directory / "first.tmp.mp3").write_bytes(b"audio")
+            (directory / "second.tmp.wav").write_bytes(b"audio")
+
+            self.assertIsNone(transcribe_queue.media_file(directory))
 
 
 if __name__ == "__main__":

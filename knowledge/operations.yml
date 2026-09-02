@@ -8,17 +8,17 @@
 #   traceability      — tools/check-knowledge-index.py
 #   source_check      — tools/check-knowledge-sources.py
 #   corpus_validation — tools/validate-knowledge-operational.py
-#   fetch             — остаётся ручной, см. пояснение ниже
-#   transcribe        — исполнителя нет, аудио- и видеоисточников в корпусе нет
+#   fetch             — tools/fetch-knowledge-queue.py
+#   transcribe        — tools/transcribe-knowledge-queue.py
 #
 # Смысловые очереди без команды: content_selection, normalize, statements,
 # semantic_review, strong_review, corroboration, concepts, impact_audit,
 # apply_changes. Их ведёт агент через навыки kc-* по маршруту kc-pipeline.
 #
-# Очередь получения материала (fetch) не автоматизирована намеренно: у всех
-# источников способ получения указан как ручной, большинство хранится по
-# стратегии внешней ссылки или точечного получения, а часть запрещает массовое
-# копирование. Общий загрузчик нарушил бы эти ограничения.
+# Получение работает только для единицы с явным fetch_url и политикой
+# fragments_only или metadata_only. Это предотвращает массовую загрузку и не
+# меняет договоры существующих источников. Расшифровка использует локальный
+# whisper и запускается лишь при наличии одной локальной медиа-записи.
 
 operations_version: 1
 
@@ -37,6 +37,22 @@ normalized_artifacts:
   - stenogram.txt
 
 stages:
+  fetch:
+    commands:
+      - id: fetch-allowed-fragments
+        argv: [python3, tools/fetch-knowledge-queue.py]
+        working_directory: .
+        write_paths: [knowledge/data]
+        required: true
+
+  transcribe:
+    commands:
+      - id: transcribe-local-media
+        argv: [python3, tools/transcribe-knowledge-queue.py]
+        working_directory: .
+        write_paths: [knowledge/data]
+        required: true
+
   # Сверка производных указателей с отслеживаемыми данными. Пересборку
   # выполняет переносимое средство kc-pipeline, скрипт только вызывает его и
   # сравнивает результат. Средство считает пути от текущего каталога, поэтому
