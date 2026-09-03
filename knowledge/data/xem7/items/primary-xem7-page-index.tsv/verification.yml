@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: page-index.tsv
+hash:
+  algorithm: sha256
+  value: 0c02949a2918d454cf111396003c6e692b4632c99c515034d2c92b22fbd96534
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: local_integrity_only
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: none
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: unverified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: unverified
+      publication_date: unverified
+  limitations:
+  - Проверена только целостность локального снимка; повторное сопоставление с веб-источником
+    не выполнялось.

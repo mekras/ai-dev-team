@@ -1,19 +1,18 @@
 id: TMDS-pdf
 source_id: TMDS
 title: 'TMDS: pdf'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/tmds/ и общие ограничения в knowledge/source-attribution.md.
+access: Смотри карточку единицы и связанные артефакты в knowledge/data/tmds/ и общие
+  ограничения в knowledge/source-attribution.md.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 processing_scope: selected_fragments
 retrieval_mode: on_demand
-copy_policy: no_bulk_copy
+copy_policy: fragments_only
 allowed_use: Локальная нормализация и извлечение кратких утверждений.
 automatic_attempts:
-  - "2026-08-11: проверен каталог единицы, PDF отсутствует в доступном слое."
-  - "2026-08-11: проверено отсутствие извлечённого текста и transcript.txt."
-  - "2026-08-12: локальный PDF найден и сверён по размеру, числу страниц и SHA-256."
-retrieval_mode: on_demand
-copy_policy: fragments_only
+- '2026-08-11: проверен каталог единицы, PDF отсутствует в доступном слое.'
+- '2026-08-11: проверено отсутствие извлечённого текста и transcript.txt.'
+- '2026-08-12: локальный PDF найден и сверён по размеру, числу страниц и SHA-256.'
 requires_access_check: true
 primary_file:
   location: knowledge/data/tmds/items/pdf/threat-modeling.local.pdf
@@ -23,4 +22,6 @@ primary_file:
   page_count: 626
   metadata_source: pdfinfo
 known_limitations:
-- Полный файл хранится только рядом с единицей под маркером `*.local.*` и не публикуется в Git.
+- Полный файл хранится только рядом с единицей под маркером `*.local.*` и не публикуется
+  в Git.
+item_contract_version: 2

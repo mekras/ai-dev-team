@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: evidence.md
+hash:
+  algorithm: sha256
+  value: 2fcd7a9bd6ef8b4bb1558764ce9abe14236c94d06e0cab4fee098f3f67211dab
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: local_integrity_only
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: none
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: unverified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: unverified
+      publication_date: unverified
+  limitations:
+  - Проверена только целостность локального снимка; повторное сопоставление с первоисточником
+    не выполнялось.

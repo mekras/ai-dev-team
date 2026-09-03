@@ -1,18 +1,19 @@
 id: NFRM-source
-title: "Neuform"
-url: "https://neuform.ai/"
-access: "Внешний публичный сайт. Получать только релевантные фрагменты."
+title: Neuform
+url: https://neuform.ai/
+access: Внешний публичный сайт. Получать только релевантные фрагменты.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 processing_scope: selected_fragments
 retrieval_mode: on_demand
 copy_policy: no_bulk_copy
-allowed_use: "Точечная проверка назначения и структуры `DESIGN.md`."
+allowed_use: Точечная проверка назначения и структуры `DESIGN.md`.
 requires_access_check: false
 files:
   tracked:
-    - normalized.md
-    - statements.yml
+  - normalized.md
+  - statements.yml
 known_limitations:
-  - "Публичная страница содержит только краткое описание продукта."
+- Публичная страница содержит только краткое описание продукта.
 processing_notes: []
+item_contract_version: 2

@@ -3,7 +3,7 @@ title: Требования к защите и организационным д
 url: https://government.ru/docs/6339/
 access: Официальные акты доступны публично; сверять действующие редакции.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 processing_scope: fragments_only
 retrieval_mode: on_demand
 copy_policy: fragments_only
@@ -11,8 +11,9 @@ allowed_use: Краткое изложение применимых требов
 requires_access_check: true
 files:
   tracked:
-    - normalized.md
-    - statements.yml
+  - normalized.md
+  - statements.yml
 known_limitations:
-  - Применимость мер зависит от конкретной информационной системы и угроз.
+- Применимость мер зависит от конкретной информационной системы и угроз.
 processing_notes: []
+item_contract_version: 2

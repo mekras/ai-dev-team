@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: page-index.tsv
+hash:
+  algorithm: sha256
+  value: e21e88de62369ff1d55679f25aa09704a22574849bd5ac2d929526f303cd42dd
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: local_integrity_only
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: none
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: unverified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: unverified
+      publication_date: unverified
+  limitations:
+  - Индекс является производным локальным описанием распаковки. Его сопоставление
+    с первичным ZIP-архивом не выполнялось.

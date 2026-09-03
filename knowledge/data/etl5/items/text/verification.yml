@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: enisa-threat-landscape-2025.txt
+hash:
+  algorithm: sha256
+  value: 55fcc0594633608d4d5310cc2220b3d226a4a015d8bee9d0fde584afab530090
+acquisition:
+  method: local_file
+  recorded_at: '2026-09-03'
+verification:
+  method: local_integrity_only
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: none
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: unverified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: unverified
+      publication_date: unverified
+  limitations:
+  - Проверена только целостность локальной текстовой копии; повторное сопоставление
+    с первоисточником не выполнялось.

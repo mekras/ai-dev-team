@@ -1,0 +1,29 @@
+verification_contract_version: 1
+artifact: normalized.md
+hash:
+  algorithm: sha256
+  value: 1eb4d8dd30b7b22e7822dd8a7fefd2d1d86d717811d62c1458c5d6ee5d4400a8
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-07-27'
+verification:
+  method: local_integrity_only
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: fragment
+    metadata: []
+    fragment: Краткий пересказ официальных страниц и схемы обменного формата без нормативных
+      определений.
+  result:
+    overall: unverified
+    content_match: unverified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: unverified
+      publication_date: unverified
+  limitations:
+  - Точное соответствие внешним страницам в этом проходе не сверялось повторно.
+  - Полный текст спецификации ArchiMate не получался и не анализировался.

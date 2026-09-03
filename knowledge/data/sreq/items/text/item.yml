@@ -1,9 +1,10 @@
 id: SREQ-text
 source_id: SREQ
-title: "SREQ: text"
-access: "Смотри карточку единицы и связанные артефакты в knowledge/data/sreq/ и общие ограничения в knowledge/source-attribution.md."
+title: 'SREQ: text'
+access: Смотри карточку единицы и связанные артефакты в knowledge/data/sreq/ и общие
+  ограничения в knowledge/source-attribution.md.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 retrieval_mode: on_demand
 copy_policy: fragments_only
 requires_access_check: true
@@ -17,4 +18,6 @@ coverage_map:
   location: knowledge/data/sreq/items/text/coverage.md
   granularity: chapter
 known_limitations:
-- Полная текстовая выгрузка хранится только рядом с единицей под маркером `*.local.*` и не публикуется в Git.
+- Полная текстовая выгрузка хранится только рядом с единицей под маркером `*.local.*`
+  и не публикуется в Git.
+item_contract_version: 2

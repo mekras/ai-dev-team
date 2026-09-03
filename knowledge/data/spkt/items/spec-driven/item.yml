@@ -1,21 +1,21 @@
 id: SPKT-spec-driven
 source_id: SPKT
-title: "Specification-Driven Development"
-url: "https://github.com/github/spec-kit/blob/main/spec-driven.md"
-access: >-
-  Внешний публичный документ. Использовать выбранные фрагменты по правилам
-  карточки источника.
+title: Specification-Driven Development
+url: https://github.com/github/spec-kit/blob/main/spec-driven.md
+access: Внешний публичный документ. Использовать выбранные фрагменты по правилам карточки
+  источника.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 processing_scope: selected_fragments
 retrieval_mode: on_demand
 copy_policy: fragments_only
-allowed_use: "Проверяемые утверждения о первичности спецификации."
+allowed_use: Проверяемые утверждения о первичности спецификации.
 requires_access_check: true
 files:
   tracked:
-    - evidence.md
-    - statements.yml
+  - evidence.md
+  - statements.yml
 known_limitations:
-  - "Сохранены только короткие фрагменты, нужные текущему анализу."
+- Сохранены только короткие фрагменты, нужные текущему анализу.
 processing_notes: []
+item_contract_version: 2

@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: source.md
+hash:
+  algorithm: sha256
+  value: b3da5e1c98bbdef0d7fb38f62d37d7321b053117358ed1314d088576a7458163
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: local_integrity_only
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: none
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: unverified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: unverified
+      publication_date: unverified
+  limitations:
+  - Паспорт внешней живой базы проверен только как локальная запись. Содержимое MITRE
+    ATT&CK в рамках этой проверки не снималось.

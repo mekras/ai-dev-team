@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: inmates-are-running-the-asylum-ru.local.txt
+hash:
+  algorithm: sha256
+  value: 19ea665457abdeee1f8f0d374c2ac82910be09bedb715a7f0bb2395f78da3980
+acquisition:
+  method: local_file
+  recorded_at: '2026-09-03'
+verification:
+  method: local_integrity_only
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: none
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: unverified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: unverified
+      publication_date: unverified
+  limitations:
+  - Проверена только целостность локальной текстовой копии; повторное сопоставление
+    с первоисточником не выполнялось.

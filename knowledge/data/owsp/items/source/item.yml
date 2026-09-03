@@ -1,19 +1,19 @@
 id: OWSP-source
-title: "OWASP GenAI Security Project"
-url: "https://genai.owasp.org/"
-access: "Внешний публичный сайт. Получать релевантные каталоги по запросу."
+title: OWASP GenAI Security Project
+url: https://genai.owasp.org/
+access: Внешний публичный сайт. Получать релевантные каталоги по запросу.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 processing_scope: selected_fragments
 retrieval_mode: on_demand
 copy_policy: no_bulk_copy
-allowed_use: "Навигация к актуальным каталогам рисков LLM и агентных приложений."
+allowed_use: Навигация к актуальным каталогам рисков LLM и агентных приложений.
 requires_access_check: true
 files:
   tracked:
-    - normalized.md
+  - normalized.md
 statements_file: statements.yml
 known_limitations: []
 processing_notes:
-  - "Точечно проверены OWASP Top 10 for LLMs 2025 и Agentic Security
-    Initiative 2026-07-29."
+- Точечно проверены OWASP Top 10 for LLMs 2025 и Agentic Security Initiative 2026-07-29.
+item_contract_version: 2

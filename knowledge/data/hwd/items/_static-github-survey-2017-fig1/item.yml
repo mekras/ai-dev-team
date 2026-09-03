@@ -1,22 +1,23 @@
 id: HWD-_static-github-survey-2017-fig1
 source_id: HWD
 title: 'HWD: _static/github-survey-2017-fig1'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/hwd/ и общие ограничения в knowledge/source-attribution.md.
+access: Смотри карточку единицы и связанные артефакты в knowledge/data/hwd/ и общие
+  ограничения в knowledge/source-attribution.md.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 processing_scope: selected_fragments
 retrieval_mode: local_snapshot
 copy_policy: no_bulk_copy
-allowed_use: >-
-  Проверяемая расшифровка, нормализация и извлечение кратких утверждений без
-  массового копирования источника.
+allowed_use: Проверяемая расшифровка, нормализация и извлечение кратких утверждений
+  без массового копирования источника.
 automatic_attempts:
-  - "2026-08-11: проверен состав карточки, доступен только PNG-файл."
-  - "2026-08-11: проверено отсутствие transcript.txt и текстового первичного файла."
-  - "2026-08-12: подготовлена ручная расшифровка подписей и шкалы изображения."
+- '2026-08-11: проверен состав карточки, доступен только PNG-файл.'
+- '2026-08-11: проверено отсутствие transcript.txt и текстового первичного файла.'
+- '2026-08-12: подготовлена ручная расшифровка подписей и шкалы изображения.'
 files:
   tracked:
   - github-survey-2017-fig1.png
   - transcript.txt
   - normalized.md
   - statements.yml
+item_contract_version: 2

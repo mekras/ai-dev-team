@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: chapter-index.tsv
+hash:
+  algorithm: sha256
+  value: b081c973737fce6f9483abbc9c31c84a9cdb9589fb4da8cca5fa3576406d4133
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: local_integrity_only
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: none
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: unverified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: unverified
+      publication_date: unverified
+  limitations:
+  - Индекс описывает локальные непубликуемые главы. Повторное сопоставление содержимого
+    глав с внешним репозиторием не выполнялось.

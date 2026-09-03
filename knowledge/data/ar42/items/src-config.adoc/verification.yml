@@ -1,0 +1,27 @@
+verification_contract_version: 1
+artifact: config.adoc
+hash:
+  algorithm: sha256
+  value: 1a2c78782e23d589f9bc3418f7fbbd3590b59c8f08435dd387ca385a49742504
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: full_text
+    metadata:
+    - locator
+  result:
+    overall: verified
+    content_match: verified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Текст сопоставлен с текущим ZIP-архивом по официальному URL.

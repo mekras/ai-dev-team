@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: index.md
+hash:
+  algorithm: sha256
+  value: 340366b2eeecfc7627fe67bfaef4044a43fe29c72507ac8c96dc7a5d5ac1840e
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: local_integrity_only
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: none
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: unverified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: unverified
+      publication_date: unverified
+  limitations:
+  - 'Нормализованное производное представление: проверена только целостность локального
+    снимка, без повторного сопоставления с веб-источником.'

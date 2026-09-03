@@ -1,0 +1,29 @@
+verification_contract_version: 1
+artifact: normalized.md
+hash:
+  algorithm: sha256
+  value: df1139fb01a847d87bab5c4864557edc070e503673d87b09033674fcb7c5152a
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-07-29'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: fragment
+    metadata:
+    - locator
+    fragment: Рекомендации Touch Controls, Hit Targets и Contrast на странице UI Design
+      Dos and Don’ts.
+  result:
+    overall: verified
+    content_match: verified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Полная Human Interface Guidelines не копировалась и не проверялась.

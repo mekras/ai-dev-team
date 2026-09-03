@@ -1,0 +1,27 @@
+verification_contract_version: 1
+artifact: appendix.rst
+hash:
+  algorithm: sha256
+  value: f07d62fba80bfaf5f3adae359996e170b081975d0e8230555261e90a4a31c64c
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: full_text
+    metadata:
+    - locator
+  result:
+    overall: verified
+    content_match: verified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Файл сопоставлен с зафиксированным commit снимка HWD, а не с текущей веткой master.

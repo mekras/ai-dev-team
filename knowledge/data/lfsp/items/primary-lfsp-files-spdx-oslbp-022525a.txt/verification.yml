@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: spdx-oslbp-022525a.txt
+hash:
+  algorithm: sha256
+  value: 67cec5f026ca920f0d4e635c3aab53b338da4eda803cee09799d414377d42d99
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: local_integrity_only
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: none
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: unverified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: unverified
+      publication_date: unverified
+  limitations:
+  - Проверена только целостность локальной текстовой копии; повторное сопоставление
+    с первоисточником не выполнялось.

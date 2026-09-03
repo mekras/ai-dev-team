@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: source.md
+hash:
+  algorithm: sha256
+  value: 9ec36884f12da0ba698f67745b9b10291c87affbff53fcd589511854ae587418
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: local_integrity_only
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: none
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: unverified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: unverified
+      publication_date: unverified
+  limitations:
+  - Паспорт источника проверен только как локальная запись. Полный набор внешних и
+    производных артефактов не сопоставлялся повторно.

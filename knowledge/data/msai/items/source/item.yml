@@ -1,18 +1,20 @@
 id: MSAI-source
-title: "Microsoft: обзор моделирования угроз ИИ"
-url: "https://learn.microsoft.com/ru-ru/security/engineering/threat-modeling-aiml"
-access: "Внешний публичный источник. Получать релевантные страницы по запросу."
+title: 'Microsoft: обзор моделирования угроз ИИ'
+url: https://learn.microsoft.com/ru-ru/security/engineering/threat-modeling-aiml
+access: Внешний публичный источник. Получать релевантные страницы по запросу.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 processing_scope: selected_fragments
 retrieval_mode: on_demand
 copy_policy: no_bulk_copy
-allowed_use: "Навигация к методике Microsoft по моделированию угроз ИИ и машинного обучения."
+allowed_use: Навигация к методике Microsoft по моделированию угроз ИИ и машинного
+  обучения.
 requires_access_check: true
 files:
   tracked:
-    - normalized.md
+  - normalized.md
 statements_file: statements.yml
 known_limitations: []
 processing_notes:
-  - "Точечно проверено официальное руководство Microsoft Learn 2026-07-29."
+- Точечно проверено официальное руководство Microsoft Learn 2026-07-29.
+item_contract_version: 2

@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: source.md
+hash:
+  algorithm: sha256
+  value: c5210581d02fe6b7193cd82cc481a4729455b0d6405788b51906179e8115243b
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: local_integrity_only
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: none
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: unverified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: unverified
+      publication_date: unverified
+  limitations:
+  - Проверена только целостность локального нормализованного представления; повторное
+    сопоставление с первоисточником не выполнялось.

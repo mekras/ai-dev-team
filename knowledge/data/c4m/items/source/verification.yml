@@ -1,0 +1,29 @@
+verification_contract_version: 1
+artifact: index.html
+hash:
+  algorithm: sha256
+  value: 4ef58fa070d74616b82673d54f44cf19f1dff2f649e825b50a1832233884b94a
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: full_text
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: mismatch
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Текущая главная страница C4 Model не совпадает с сохранённым HTML-снимком. Снимок
+    нельзя считать повторно подтверждённым без обновления или сопоставления смыслового
+    слоя.

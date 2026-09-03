@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: AR42.md
+hash:
+  algorithm: sha256
+  value: 4ee8eafa5aaebc3c9ccf254c4c24b702e6384a230f45315d6a70533ea87dc1cc
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: local_integrity_only
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: none
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: unverified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: unverified
+      publication_date: unverified
+  limitations:
+  - Инвентарная запись является производным локальным описанием. Её внешнее сопоставление
+    не выполнялось.

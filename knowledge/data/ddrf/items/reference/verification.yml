@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: normalized.md
+hash:
+  algorithm: sha256
+  value: 0dd0fecf897d8961470354be987e9fe9af6827bd267c3b9ba5f14534ff313220
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: fragment
+    metadata:
+    - locator
+    fragment: Definitions, pages 6–7; Bounded Context, pages 9–10; Value Objects,
+      page 19; Aggregates, pages 22–23
+  result:
+    overall: verified
+    content_match: verified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations: []

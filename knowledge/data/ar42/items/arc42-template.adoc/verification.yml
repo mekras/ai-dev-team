@@ -1,0 +1,27 @@
+verification_contract_version: 1
+artifact: arc42-template.adoc
+hash:
+  algorithm: sha256
+  value: 425a367d8bb445f782e766ea658b67121980217df217b548b9427fee5c41c0fe
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: full_text
+    metadata:
+    - locator
+  result:
+    overall: verified
+    content_match: verified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Текст сопоставлен с текущим ZIP-архивом по официальному URL.

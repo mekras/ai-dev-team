@@ -1,9 +1,10 @@
 id: EVAR-text
 source_id: EVAR
-title: "EVAR: text"
-access: "Смотри карточку единицы и связанные артефакты в knowledge/data/evar/ и общие ограничения в knowledge/source-attribution.md."
+title: 'EVAR: text'
+access: Смотри карточку единицы и связанные артефакты в knowledge/data/evar/ и общие
+  ограничения в knowledge/source-attribution.md.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 retrieval_mode: on_demand
 copy_policy: fragments_only
 requires_access_check: true
@@ -14,4 +15,6 @@ extracted_text:
   content_hash: sha256:ab665abe0a60e4d68218a273f878a116ebae3ff572ab9086ce05560e95841453
   metadata_source: pdftotext
 known_limitations:
-- Полная текстовая выгрузка хранится только рядом с единицей под маркером `*.local.*` и не публикуется в Git.
+- Полная текстовая выгрузка хранится только рядом с единицей под маркером `*.local.*`
+  и не публикуется в Git.
+item_contract_version: 2

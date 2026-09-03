@@ -1,0 +1,29 @@
+verification_contract_version: 1
+artifact: evidence.md
+hash:
+  algorithm: sha256
+  value: 1aa2314cd9cc891dfa11bc942d7634cd8862b99e66a39bdb81184c59d1987fb2
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: fragment
+    metadata:
+    - locator
+    fragment: Фразы Engineers edit specs; machines produce code, delete generated
+      code, regenerate from spec, confirm tests pass и состав generation-grade спецификации.
+  result:
+    overall: verified
+    content_match: verified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Проверены только перечисленные короткие фрагменты руководства.

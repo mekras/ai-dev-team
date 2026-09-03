@@ -1,23 +1,23 @@
 id: TFA-normalized-TFA-source.md
 source_id: TFA
-title: "TFA: нормализованная карта сайта"
-url: "https://12factor.net/ru/"
-access: "Смотри карточку источника и ограничения в knowledge/source-attribution.md."
+title: 'TFA: нормализованная карта сайта'
+url: https://12factor.net/ru/
+access: Смотри карточку источника и ограничения в knowledge/source-attribution.md.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 processing_scope: fragments_only
 retrieval_mode: on_demand
 copy_policy: no_bulk_copy
-allowed_use: "Проверка кратких утверждений о методологии со ссылкой на
-  первоисточник."
+allowed_use: Проверка кратких утверждений о методологии со ссылкой на первоисточник.
 requires_access_check: true
 files:
   tracked:
-    - source.md
-    - statements.yml
+  - source.md
+  - statements.yml
 known_limitations:
-  - "Полный первичный текст не хранится в Git."
-  - "Сайт изменяемый; перед значимым применением нужна повторная сверка."
+- Полный первичный текст не хранится в Git.
+- Сайт изменяемый; перед значимым применением нужна повторная сверка.
 processing_notes:
-  - "Все сохранённые фрагменты повторно найдены в соответствующих страницах
-    первоисточника 2026-07-13."
+- Все сохранённые фрагменты повторно найдены в соответствующих страницах первоисточника
+  2026-07-13.
+item_contract_version: 2

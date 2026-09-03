@@ -1,9 +1,10 @@
 id: APIB-md
 source_id: APIB
-title: "APIB: md (главы канонической редакции)"
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/apib/ и общие ограничения в knowledge/source-attribution.md.
+title: 'APIB: md (главы канонической редакции)'
+access: Смотри карточку единицы и связанные артефакты в knowledge/data/apib/ и общие
+  ограничения в knowledge/source-attribution.md.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 retrieval_mode: on_demand
 copy_policy: fragments_only
 requires_access_check: true
@@ -18,11 +19,19 @@ provenance:
   branch: gh-pages
   path: src/ru/clean-copy
   last_commit_touching_path: 95215afb09ca598925edfd48fb413790f865512c
-  last_commit_date: "2025-10-11"
-  retrieved_at: "2026-07-17"
+  last_commit_date: '2025-10-11'
+  retrieved_at: '2026-07-17'
   retrieval_method: raw.githubusercontent.com, по одному файлу главы
 known_limitations:
-  - Файлы глав хранятся только рядом с единицей под маркером `*.local.*` и не публикуются в Git; в Git — только этот паспорт и `chapter-index.tsv` (пути, sha256, объём, заголовок, без текста).
-  - Это снимок канонической версии на дату `retrieved_at`; книга продолжает развиваться в репозитории автора.
-  - Заменяет `items/pdf` и `items/text` как основной первичный материал: та же редакция книги (шесть разделов), но без искажений вёрстки и колонтитулов, присущих выгрузке `pdftotext`.
-  - "`items/pdf` и `items/text` сохранены как снимок более ранней редакции (три раздела, метаданные PDF от 2023-04-09); утверждения `APIB-001`–`APIB-071` привязаны к ним и не переносились на новый слой."
+- Файлы глав хранятся только рядом с единицей под маркером `*.local.*` и не публикуются
+  в Git; в Git — только этот паспорт и `chapter-index.tsv` (пути, sha256, объём, заголовок,
+  без текста).
+- Это снимок канонической версии на дату `retrieved_at`; книга продолжает развиваться
+  в репозитории автора.
+- Заменяет `items/pdf` и `items/text` как основной первичный материал: та же редакция
+    книги (шесть разделов), но без искажений вёрстки и колонтитулов, присущих выгрузке
+    `pdftotext`.
+- '`items/pdf` и `items/text` сохранены как снимок более ранней редакции (три раздела,
+  метаданные PDF от 2023-04-09); утверждения `APIB-001`–`APIB-071` привязаны к ним
+  и не переносились на новый слой.'
+item_contract_version: 2

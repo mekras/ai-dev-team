@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: ddd-evans-ru.local.pdf
+hash:
+  algorithm: sha256
+  value: 8ef1848bedec791ddbf6409674b8b3a5f20b259912fa6636c76d762a6c22f86c
+acquisition:
+  method: local_file
+  recorded_at: '2026-09-03'
+verification:
+  method: local_integrity_only
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: none
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: unverified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: unverified
+      publication_date: unverified
+  limitations:
+  - Проверена только целостность локального PDF-снимка; повторное сопоставление с
+    первоисточником не выполнялось.

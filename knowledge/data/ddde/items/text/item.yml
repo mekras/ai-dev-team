@@ -1,9 +1,10 @@
 id: DDDE-text
 source_id: DDDE
-title: "DDDE: text"
-access: "Смотри карточку единицы и связанные артефакты в knowledge/data/ddde/ и общие ограничения в knowledge/source-attribution.md."
+title: 'DDDE: text'
+access: Смотри карточку единицы и связанные артефакты в knowledge/data/ddde/ и общие
+  ограничения в knowledge/source-attribution.md.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 retrieval_mode: on_demand
 copy_policy: fragments_only
 requires_access_check: true
@@ -14,4 +15,6 @@ extracted_text:
   content_hash: sha256:cd6e437c52fbfdfe064da9b97b0f0a73eef9b384e45ec7194d81cbce30c22773
   metadata_source: pdftotext
 known_limitations:
-- Полная текстовая выгрузка хранится только рядом с единицей под маркером `*.local.*` и не публикуется в Git.
+- Полная текстовая выгрузка хранится только рядом с единицей под маркером `*.local.*`
+  и не публикуется в Git.
+item_contract_version: 2

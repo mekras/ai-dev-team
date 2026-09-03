@@ -1,0 +1,27 @@
+verification_contract_version: 1
+artifact: network-folder.rst
+hash:
+  algorithm: sha256
+  value: 1001dc6bd69b63cb184d34cd44e7c3591252fe3c91c2852f8dd071d44176f6f6
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: full_text
+    metadata:
+    - locator
+  result:
+    overall: verified
+    content_match: verified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Файл сопоставлен с зафиксированным commit снимка HWD, а не с текущей веткой master.

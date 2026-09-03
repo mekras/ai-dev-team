@@ -1,0 +1,27 @@
+verification_contract_version: 1
+artifact: asylum.rst
+hash:
+  algorithm: sha256
+  value: b6a4e57d3d4dcf9f9117a205773f32c17ad8c6607a3b76917dbe0e01c4d9b383
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: full_text
+    metadata:
+    - locator
+  result:
+    overall: verified
+    content_match: verified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Файл сопоставлен с зафиксированным commit снимка HWD, а не с текущей веткой master.

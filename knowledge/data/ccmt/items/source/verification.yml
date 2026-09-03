@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: source.md
+hash:
+  algorithm: sha256
+  value: a8fd85c4c1acdd93fda7a4423f67c5be0721edb44c03982f5e7cdd1f2185d034
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: fragment
+    metadata:
+    - locator
+    fragment: Название, версия 1.0.0 и лицензия CC BY 3.0.
+  result:
+    overall: verified
+    content_match: verified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Проверены только метаданные краткого паспорта источника.

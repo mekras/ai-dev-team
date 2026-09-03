@@ -1,18 +1,19 @@
 id: ENAI-source
-title: "ENISA: обзор источника"
-url: "https://www.enisa.europa.eu/publications/multilayer-framework-for-good-cybersecurity-practices-for-ai"
-access: "Внешний публичный источник. Получать релевантные документы по запросу."
+title: 'ENISA: обзор источника'
+url: https://www.enisa.europa.eu/publications/multilayer-framework-for-good-cybersecurity-practices-for-ai
+access: Внешний публичный источник. Получать релевантные документы по запросу.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 processing_scope: selected_fragments
 retrieval_mode: on_demand
 copy_policy: no_bulk_copy
-allowed_use: "Навигация к рамке ENISA для проверки практик кибербезопасности ИИ."
+allowed_use: Навигация к рамке ENISA для проверки практик кибербезопасности ИИ.
 requires_access_check: true
 files:
   tracked:
-    - normalized.md
+  - normalized.md
 statements_file: statements.yml
 known_limitations: []
 processing_notes:
-  - "Точечно проверено публичное описание рамки ENISA 2026-07-29."
+- Точечно проверено публичное описание рамки ENISA 2026-07-29.
+item_contract_version: 2

@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: po-ksis-tech-task.local.pdf
+hash:
+  algorithm: sha256
+  value: 92675dbb1224b728a81447121d660c9106dc7085ed74b556d3fabd7053741d23
+acquisition:
+  method: local_file
+  recorded_at: '2026-09-03'
+verification:
+  method: local_integrity_only
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: none
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: unverified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: unverified
+      publication_date: unverified
+  limitations:
+  - Проверена целостность восстановленного локального PDF-снимка; повторное сопоставление
+    с первоисточником не выполнялось.

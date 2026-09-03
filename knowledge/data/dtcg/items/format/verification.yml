@@ -1,0 +1,29 @@
+verification_contract_version: 1
+artifact: normalized.md
+hash:
+  algorithm: sha256
+  value: 46286aacbd24b317ad2dc870d98f13c4ae6c2364a29f8705ed88c67fdbab014e
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: fragment
+    metadata:
+    - locator
+    fragment: Аннотация, статус документа и разделы Introduction и Design Token спецификации
+      DTCG 2025.10.
+  result:
+    overall: verified
+    content_match: verified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Полный текст спецификации за пределами сохранённых фрагментов не проверялся.

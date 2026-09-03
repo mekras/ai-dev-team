@@ -1,0 +1,30 @@
+verification_contract_version: 1
+artifact: index.md
+hash:
+  algorithm: sha256
+  value: 3aab06991e421a732daada8b2460df045d628c6689ba9c6d3e73e747c59f27c7
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: fragment
+    metadata:
+    - locator
+    fragment: Вводный раздел, Designing test cases и Running evals, включая Workspace
+      structure.
+  result:
+    overall: verified
+    content_match: verified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Проверены только перечисленные фрагменты нормализованного представления, не весь
+    исходный HTML-снимок.

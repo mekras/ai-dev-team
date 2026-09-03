@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: index.html
+hash:
+  algorithm: sha256
+  value: 873d425faf3264ae4bcdcbbe35677cded3acc1e20d5f58f4ea7573614b48e5ab
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: full_text
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: mismatch
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Текущая HTML-выдача arXiv не совпадает с сохранённым снимком. Отличаются генератор
+    и оболочка страницы, поэтому снимок нельзя считать повторно подтверждённым.

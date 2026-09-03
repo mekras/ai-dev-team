@@ -1,9 +1,10 @@
 id: TMDS-text
 source_id: TMDS
-title: "TMDS: text"
-access: "Смотри карточку единицы и связанные артефакты в knowledge/data/tmds/ и общие ограничения в knowledge/source-attribution.md."
+title: 'TMDS: text'
+access: Смотри карточку единицы и связанные артефакты в knowledge/data/tmds/ и общие
+  ограничения в knowledge/source-attribution.md.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 retrieval_mode: on_demand
 copy_policy: fragments_only
 requires_access_check: true
@@ -14,4 +15,6 @@ extracted_text:
   content_hash: sha256:ca7d2437d793ac68e2f7582aff246524256256b4c7b855253458625e81b34b85
   metadata_source: pdftotext
 known_limitations:
-- Полная текстовая выгрузка хранится только рядом с единицей под маркером `*.local.*` и не публикуется в Git.
+- Полная текстовая выгрузка хранится только рядом с единицей под маркером `*.local.*`
+  и не публикуется в Git.
+item_contract_version: 2

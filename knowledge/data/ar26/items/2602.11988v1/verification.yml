@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: index.html
+hash:
+  algorithm: sha256
+  value: 0662d969f485db953d859a8e21742a5230be402dd145bd27dd75123b550df1c6
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: full_text
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: mismatch
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Текущая HTML-выдача arXiv не совпадает с сохранённым снимком. Снимок нельзя считать
+    повторно подтверждённым без обновления или постраничного сопоставления.

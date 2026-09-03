@@ -1,0 +1,27 @@
+verification_contract_version: 1
+artifact: arc42-logo.png
+hash:
+  algorithm: sha256
+  value: 6ec4570bca83ff071b241692d8561d5cebe9737917d57724ed731a7e8801c6ce
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: full_text
+    metadata:
+    - locator
+  result:
+    overall: verified
+    content_match: verified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Файл сопоставлен с текущим ZIP-архивом по официальному URL.

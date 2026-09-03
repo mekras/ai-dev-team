@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: owasp-samm-v2.pdf
+hash:
+  algorithm: sha256
+  value: 2244ea9a594c665ae50ef5d7a9a086d1dc74125ffe6e57fd03d5dbde483e250d
+acquisition:
+  method: local_file
+  recorded_at: '2026-09-03'
+verification:
+  method: local_integrity_only
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: none
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: unverified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: unverified
+      publication_date: unverified
+  limitations:
+  - Проверена только целостность локального PDF-снимка; повторное сопоставление с
+    первоисточником не выполнялось.

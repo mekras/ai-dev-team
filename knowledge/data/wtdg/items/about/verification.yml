@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: index.html
+hash:
+  algorithm: sha256
+  value: 7d11713c90587645636a90a74d04207c440705040d5c58a1ad54c925e740ea5f
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: full_text
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: mismatch
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Текущая страница Write the Docs не совпадает с сохранённым HTML-снимком; без обновления
+    источника полное совпадение не подтверждено.

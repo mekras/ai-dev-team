@@ -1,9 +1,10 @@
 id: RADR-pdf
 source_id: RADR
 title: 'RADR: pdf'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/radr/ и общие ограничения в knowledge/source-attribution.md.
+access: Смотри карточку единицы и связанные артефакты в knowledge/data/radr/ и общие
+  ограничения в knowledge/source-attribution.md.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 retrieval_mode: on_demand
 copy_policy: fragments_only
 requires_access_check: true
@@ -15,4 +16,6 @@ primary_file:
   page_count: 114
   metadata_source: pdfinfo
 known_limitations:
-- Полный файл хранится только рядом с единицей под маркером `*.local.*` и не публикуется в Git.
+- Полный файл хранится только рядом с единицей под маркером `*.local.*` и не публикуется
+  в Git.
+item_contract_version: 2

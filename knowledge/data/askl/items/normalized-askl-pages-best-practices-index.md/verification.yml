@@ -1,0 +1,30 @@
+verification_contract_version: 1
+artifact: index.md
+hash:
+  algorithm: sha256
+  value: 33c421e036bad53f7d43c49f5157213feb2672653f07d58a6ccd5caaa999ee8a
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: fragment
+    metadata:
+    - locator
+    fragment: Разделы Start from real expertise и Refine with real execution, включая
+      подразделы Extract from a hands-on task и Synthesize from existing project artifacts.
+  result:
+    overall: verified
+    content_match: verified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Проверены только перечисленные фрагменты нормализованного представления, не весь
+    исходный HTML-снимок.

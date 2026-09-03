@@ -1,18 +1,19 @@
 id: ATLS-source
-title: "MITRE ATLAS"
-url: "https://atlas.mitre.org/"
-access: "Внешняя публичная база знаний. Получать релевантные техники и меры по запросу."
+title: MITRE ATLAS
+url: https://atlas.mitre.org/
+access: Внешняя публичная база знаний. Получать релевантные техники и меры по запросу.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 processing_scope: selected_fragments
 retrieval_mode: on_demand
 copy_policy: no_bulk_copy
-allowed_use: "Поиск атак и мер, относящихся к конкретной модели угроз ИИ."
+allowed_use: Поиск атак и мер, относящихся к конкретной модели угроз ИИ.
 requires_access_check: true
 files:
   tracked:
-    - normalized.md
+  - normalized.md
 statements_file: statements.yml
 known_limitations: []
 processing_notes:
-  - "Точечно проверена матрица ATLAS 2026-07-29."
+- Точечно проверена матрица ATLAS 2026-07-29.
+item_contract_version: 2

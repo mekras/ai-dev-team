@@ -1,17 +1,18 @@
 id: OPDS-quickstart
-title: "Open Design QUICKSTART"
-url: "https://github.com/nexu-io/open-design/blob/main/QUICKSTART.md"
-access: "Внешний публичный файл. Получать только релевантные фрагменты."
+title: Open Design QUICKSTART
+url: https://github.com/nexu-io/open-design/blob/main/QUICKSTART.md
+access: Внешний публичный файл. Получать только релевантные фрагменты.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 processing_scope: selected_fragments
 retrieval_mode: on_demand
 copy_policy: no_bulk_copy
-allowed_use: "Точечная проверка схемы `DESIGN.md` и рабочего процесса."
+allowed_use: Точечная проверка схемы `DESIGN.md` и рабочего процесса.
 requires_access_check: false
 files:
   tracked:
-    - normalized.md
-    - statements.yml
+  - normalized.md
+  - statements.yml
 known_limitations: []
 processing_notes: []
+item_contract_version: 2

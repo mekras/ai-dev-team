@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: gost-r-iso-iec-25010-2015.local.pdf
+hash:
+  algorithm: sha256
+  value: b63ca8abfc533ad4a201a9120429dac095cee270c9a2af9bfef73acd33a92976
+acquisition:
+  method: local_file
+  recorded_at: '2026-09-03'
+verification:
+  method: local_integrity_only
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: none
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: unverified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: unverified
+      publication_date: unverified
+  limitations:
+  - Проверена целостность восстановленного локального PDF-снимка; повторное сопоставление
+    с первоисточником не выполнялось.

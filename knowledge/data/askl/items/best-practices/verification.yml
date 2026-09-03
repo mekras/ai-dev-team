@@ -1,0 +1,29 @@
+verification_contract_version: 1
+artifact: index.html
+hash:
+  algorithm: sha256
+  value: 6a6fde1257b4e8fb35a033aa89ec38fdbcc5b9ba141a51a4d037243093098c98
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: full_text
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: mismatch
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Текущая HTML-страница Agent Skills не совпадает с сохранённым снимком. Снимок
+    нельзя считать повторно подтверждённым без обновления или сопоставления смыслового
+    слоя.

@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: page-index.tsv
+hash:
+  algorithm: sha256
+  value: 49567debca614cea1e9d5dfda9917e7a65cc560a2da96bc1bc641811a9755f2f
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: local_integrity_only
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: none
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: unverified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: unverified
+      publication_date: unverified
+  limitations:
+  - Индекс страниц является производным локальным артефактом. Его воспроизводимость
+    из PDF в этой проверке не оценивалась.

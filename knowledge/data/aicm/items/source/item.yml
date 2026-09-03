@@ -1,18 +1,19 @@
 id: AICM-source
-title: "CSA AI Controls Matrix"
-url: "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix-v1-1"
-access: "Внешний публичный каталог. Проверять условия доступа и версию перед использованием."
+title: CSA AI Controls Matrix
+url: https://cloudsecurityalliance.org/artifacts/ai-controls-matrix-v1-1
+access: Внешний публичный каталог. Проверять условия доступа и версию перед использованием.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 processing_scope: selected_fragments
 retrieval_mode: on_demand
 copy_policy: no_bulk_copy
-allowed_use: "Сопоставление принятых мер с рекомендациями для ИИ."
+allowed_use: Сопоставление принятых мер с рекомендациями для ИИ.
 requires_access_check: true
 files:
   tracked:
-    - normalized.md
+  - normalized.md
 statements_file: statements.yml
 known_limitations: []
 processing_notes:
-  - "Точечно проверена официальная страница AICM v1.1 2026-07-29."
+- Точечно проверена официальная страница AICM v1.1 2026-07-29.
+item_contract_version: 2

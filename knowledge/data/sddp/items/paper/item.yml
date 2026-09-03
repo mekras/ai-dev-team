@@ -1,22 +1,21 @@
 id: SDDP-paper
 source_id: SDDP
-title: "Spec-Driven Development"
-url: "https://arxiv.org/html/2602.00180v1"
-access: >-
-  Внешний публичный препринт. Использовать выбранные фрагменты по правилам
-  карточки источника.
+title: Spec-Driven Development
+url: https://arxiv.org/html/2602.00180v1
+access: Внешний публичный препринт. Использовать выбранные фрагменты по правилам карточки
+  источника.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 processing_scope: selected_fragments
 retrieval_mode: on_demand
 copy_policy: fragments_only
-allowed_use: >-
-  Проверяемые утверждения о спектре подходов и границах spec-as-source.
+allowed_use: Проверяемые утверждения о спектре подходов и границах spec-as-source.
 requires_access_check: true
 files:
   tracked:
-    - evidence.md
-    - statements.yml
+  - evidence.md
+  - statements.yml
 known_limitations:
-  - "Сохранены только короткие фрагменты, нужные текущему анализу."
+- Сохранены только короткие фрагменты, нужные текущему анализу.
 processing_notes: []
+item_contract_version: 2

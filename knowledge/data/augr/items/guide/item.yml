@@ -1,23 +1,21 @@
 id: AUGR-guide
 source_id: AUGR
-title: "The Spec as Source of Truth"
-url: >-
-  https://www.augmentcode.com/guides/spec-as-source-of-truth-rebuildable-codebase
-access: >-
-  Внешний публичный материал. Использовать выбранные фрагменты по правилам
-  карточки источника.
+title: The Spec as Source of Truth
+url: https://www.augmentcode.com/guides/spec-as-source-of-truth-rebuildable-codebase
+access: Внешний публичный материал. Использовать выбранные фрагменты по правилам карточки
+  источника.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 processing_scope: selected_fragments
 retrieval_mode: on_demand
 copy_policy: fragments_only
-allowed_use: >-
-  Проверяемые утверждения о проверке восстановления и её входах.
+allowed_use: Проверяемые утверждения о проверке восстановления и её входах.
 requires_access_check: true
 files:
   tracked:
-    - evidence.md
-    - statements.yml
+  - evidence.md
+  - statements.yml
 known_limitations:
-  - "Сохранены только короткие фрагменты, нужные текущему анализу."
+- Сохранены только короткие фрагменты, нужные текущему анализу.
 processing_notes: []
+item_contract_version: 2

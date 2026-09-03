@@ -1,9 +1,10 @@
 id: CLAR-text
 source_id: CLAR
-title: "CLAR: text"
-access: "Смотри карточку единицы и связанные артефакты в knowledge/data/clar/ и общие ограничения в knowledge/source-attribution.md."
+title: 'CLAR: text'
+access: Смотри карточку единицы и связанные артефакты в knowledge/data/clar/ и общие
+  ограничения в knowledge/source-attribution.md.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 retrieval_mode: on_demand
 copy_policy: fragments_only
 requires_access_check: true
@@ -14,4 +15,6 @@ extracted_text:
   content_hash: sha256:5f93fad7e71325e632c803aab2a6a6dab5df09d4667413c04c4cc018213c79e1
   metadata_source: Python 3 xml.etree.ElementTree
 known_limitations:
-  - Полная текстовая выгрузка хранится только рядом с единицей под маркером `*.local.*` и не публикуется в Git.
+- Полная текстовая выгрузка хранится только рядом с единицей под маркером `*.local.*`
+  и не публикуется в Git.
+item_contract_version: 2

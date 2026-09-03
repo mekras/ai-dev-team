@@ -1,0 +1,27 @@
+verification_contract_version: 1
+artifact: owasp-asvs-4.0.3.pdf
+hash:
+  algorithm: sha256
+  value: 31f7755e6564b657454388079aa87b3c62884b7b91e1053eef5dd2a9107419d2
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: full_text
+    metadata:
+    - locator
+  result:
+    overall: verified
+    content_match: verified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - PDF сопоставлен с официальным файлом OWASP ASVS 4.0.3 по фиксированному пути выпуска.

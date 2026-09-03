@@ -3,7 +3,7 @@ title: Уведомление об инциденте с персональны�
 url: https://pd.rkn.gov.ru/incidents/
 access: Внешний публичный официальный источник.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 processing_scope: fragments_only
 retrieval_mode: on_demand
 copy_policy: fragments_only
@@ -11,8 +11,9 @@ allowed_use: Проверка срока и состава уведомлени�
 requires_access_check: true
 files:
   tracked:
-    - normalized.md
-    - statements.yml
+  - normalized.md
+  - statements.yml
 known_limitations:
-  - Сроки применять только после установления применимости статьи 21 закона.
+- Сроки применять только после установления применимости статьи 21 закона.
 processing_notes: []
+item_contract_version: 2

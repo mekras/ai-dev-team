@@ -1,18 +1,19 @@
 id: NIST-source
-title: "NIST: обзор источника"
-url: "https://www.nist.gov/itl/ai-risk-management-framework"
-access: "Внешний публичный источник. Получать релевантные документы по запросу."
+title: 'NIST: обзор источника'
+url: https://www.nist.gov/itl/ai-risk-management-framework
+access: Внешний публичный источник. Получать релевантные документы по запросу.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 processing_scope: selected_fragments
 retrieval_mode: on_demand
 copy_policy: no_bulk_copy
-allowed_use: "Навигация к NIST AI RMF, профилю генеративного ИИ и таксономии атак."
+allowed_use: Навигация к NIST AI RMF, профилю генеративного ИИ и таксономии атак.
 requires_access_check: true
 files:
   tracked:
-    - normalized.md
+  - normalized.md
 statements_file: statements.yml
 known_limitations: []
 processing_notes:
-  - "Точечно проверена официальная страница NIST AI RMF 2026-07-29."
+- Точечно проверена официальная страница NIST AI RMF 2026-07-29.
+item_contract_version: 2

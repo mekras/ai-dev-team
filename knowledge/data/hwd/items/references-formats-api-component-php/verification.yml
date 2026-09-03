@@ -1,0 +1,27 @@
+verification_contract_version: 1
+artifact: PHP.rst
+hash:
+  algorithm: sha256
+  value: 849e80e1e9a8067aa07ffdd3163380ea4cc8a32046c82e77c81f257f18ed9fca
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: full_text
+    metadata:
+    - locator
+  result:
+    overall: verified
+    content_match: verified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Файл сопоставлен с зафиксированным commit снимка HWD, а не с текущей веткой master.

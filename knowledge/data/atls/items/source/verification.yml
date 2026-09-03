@@ -1,0 +1,29 @@
+verification_contract_version: 1
+artifact: normalized.md
+hash:
+  algorithm: sha256
+  value: 3ac20ab7d4e5b736dfd9b70d20a7fe707551008a092d25a5bdde2fdf9ab1a24a
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: fragment
+    metadata:
+    - locator
+    fragment: Описание агентной платформы и проверяемый фрагмент autonomously plan,
+      decide, and execute multi-step actions.
+  result:
+    overall: verified
+    content_match: verified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Проверен выбранный фрагмент живой базы ATLAS, не весь её каталог техник и мер.

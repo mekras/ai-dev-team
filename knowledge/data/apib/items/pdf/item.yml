@@ -1,9 +1,10 @@
 id: APIB-pdf
 source_id: APIB
 title: 'APIB: pdf'
-access: Смотри карточку единицы и связанные артефакты в knowledge/data/apib/ и общие ограничения в knowledge/source-attribution.md.
+access: Смотри карточку единицы и связанные артефакты в knowledge/data/apib/ и общие
+  ограничения в knowledge/source-attribution.md.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 retrieval_mode: on_demand
 copy_policy: fragments_only
 requires_access_check: true
@@ -15,8 +16,10 @@ primary_file:
   page_count: 336
   metadata_source: pdfinfo
 known_limitations:
-- Полный файл хранится только рядом с единицей под маркером `*.local.*` и не публикуется в Git.
-- Снимок ранней редакции книги (три раздела, метаданные PDF от 2023-04-09).
-  Актуальная редакция (шесть разделов) получена как единица `md`
-  (`../md/item.yml`); эта единица сохранена ради трассируемости утверждений
-  `APIB-001`–`APIB-071`, привязанных к ней и к `items/text`.
+- Полный файл хранится только рядом с единицей под маркером `*.local.*` и не публикуется
+  в Git.
+- Снимок ранней редакции книги (три раздела, метаданные PDF от 2023-04-09). Актуальная
+  редакция (шесть разделов) получена как единица `md` (`../md/item.yml`); эта единица
+  сохранена ради трассируемости утверждений `APIB-001`–`APIB-071`, привязанных к ней
+  и к `items/text`.
+item_contract_version: 2

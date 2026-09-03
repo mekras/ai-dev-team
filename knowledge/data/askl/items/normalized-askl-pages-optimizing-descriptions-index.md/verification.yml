@@ -1,0 +1,29 @@
+verification_contract_version: 1
+artifact: index.md
+hash:
+  algorithm: sha256
+  value: 9cc84a28fbb81724080cb7728a1d0f9c1a79f722ddf121701d22954de8bbc3d0
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: fragment
+    metadata:
+    - locator
+    fragment: Вводный раздел, How skill triggering works и Writing effective descriptions.
+  result:
+    overall: verified
+    content_match: verified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Проверены только перечисленные фрагменты нормализованного представления, не весь
+    исходный HTML-снимок.

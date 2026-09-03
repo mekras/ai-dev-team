@@ -1,0 +1,27 @@
+verification_contract_version: 1
+artifact: format.rst
+hash:
+  algorithm: sha256
+  value: a21e99b24df5f0733b4d38cc361f3c1e77ca4da20b5242e2c43a5fc79d1cef75
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: full_text
+    metadata:
+    - locator
+  result:
+    overall: verified
+    content_match: verified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Файл сопоставлен с зафиксированным commit снимка HWD, а не с текущей веткой master.

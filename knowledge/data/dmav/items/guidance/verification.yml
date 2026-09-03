@@ -1,0 +1,29 @@
+verification_contract_version: 1
+artifact: normalized.md
+hash:
+  algorithm: sha256
+  value: ed2e91ddcc2af9f606bc28908bde5638fa63be94691ca94ad9d76afa76c6b5a5
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: fragment
+    metadata:
+    - locator
+    fragment: Метаданные CMU/SEI-2009-TN-024 от 1 октября 2009 года и утверждение
+      об архитектурной роли модели данных.
+  result:
+    overall: verified
+    content_match: verified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Проверены метаданные и аннотация карточки SEI, не весь текст технической записки.

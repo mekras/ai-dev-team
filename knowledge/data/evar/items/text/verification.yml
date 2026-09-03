@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: evolutionary-architecture-ru.local.txt
+hash:
+  algorithm: sha256
+  value: ab665abe0a60e4d68218a273f878a116ebae3ff572ab9086ce05560e95841453
+acquisition:
+  method: local_file
+  recorded_at: '2026-09-03'
+verification:
+  method: local_integrity_only
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: none
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: unverified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: unverified
+      publication_date: unverified
+  limitations:
+  - Проверена только целостность локальной текстовой копии; повторное сопоставление
+    с первоисточником не выполнялось.

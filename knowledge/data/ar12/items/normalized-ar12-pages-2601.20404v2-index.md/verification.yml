@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: index.md
+hash:
+  algorithm: sha256
+  value: c3d51cf684323a6871399781d7ce45de72d1034e6d2e4710438b07683c340b20
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-06-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: fragment
+    metadata:
+    - locator
+    fragment: Аннотация и таблица результатов статьи arXiv:2601.20404v2.
+  result:
+    overall: verified
+    content_match: verified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Полный текст статьи и выводы за пределами нормализованного указателя не проверялись.

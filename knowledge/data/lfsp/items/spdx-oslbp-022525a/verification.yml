@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: spdx-oslbp-022525a.pdf
+hash:
+  algorithm: sha256
+  value: 1eac62503b54ffd67ba2a98196b9001baf1618627cc80bf68323684f5a16bca2
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: local_integrity_only
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: none
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: unverified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: unverified
+      publication_date: unverified
+  limitations:
+  - Проверена только целостность локального PDF-снимка; повторное сопоставление с
+    первоисточником не выполнялось.

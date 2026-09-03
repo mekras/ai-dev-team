@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: clean-architecture-martin-ru.local.epub
+hash:
+  algorithm: sha256
+  value: c908087fde4407de4fd3097df8431f6e443a8f30c6d5631b30493b3b68ee6cc2
+acquisition:
+  method: local_file
+  recorded_at: '2026-09-03'
+verification:
+  method: local_integrity_only
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: none
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: unverified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: unverified
+      publication_date: unverified
+  limitations:
+  - Проверена только целостность локального EPUB-снимка; повторное сопоставление с
+    первоисточником не выполнялось.

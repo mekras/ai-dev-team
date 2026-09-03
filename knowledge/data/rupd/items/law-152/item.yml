@@ -1,22 +1,21 @@
 id: RUPD-152
 title: Федеральный закон № 152-ФЗ «О персональных данных»
 url: https://ips.pravo.gov.ru/
-access: >-
-  Внешний публичный официальный источник; перед применением сверять дату
-  редакции и вступление изменений в силу.
+access: Внешний публичный официальный источник; перед применением сверять дату редакции
+  и вступление изменений в силу.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 processing_scope: fragments_only
 retrieval_mode: on_demand
 copy_policy: fragments_only
-allowed_use: >-
-  Хранить краткое нормализованное изложение выбранных положений и ссылку на
-  действующую редакцию.
+allowed_use: Хранить краткое нормализованное изложение выбранных положений и ссылку
+  на действующую редакцию.
 requires_access_check: true
 files:
   tracked:
-    - normalized.md
-    - statements.yml
+  - normalized.md
+  - statements.yml
 known_limitations:
-  - Закон может измениться после даты проверки.
+- Закон может измениться после даты проверки.
 processing_notes: []
+item_contract_version: 2

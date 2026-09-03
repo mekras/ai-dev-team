@@ -1,0 +1,30 @@
+verification_contract_version: 1
+artifact: normalized.md
+hash:
+  algorithm: sha256
+  value: d850548a4dd93f6f9f038412878bfd90b9e6c655ce62b77cc791830f07c740f0
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: local_integrity_only
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: fragment
+    metadata: []
+    fragment: Нормализованные сведения о UML 2.5.1 и OCL 2.4 без полной лицензионной
+      спецификации.
+  result:
+    overall: unverified
+    content_match: unverified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: unverified
+      publication_date: unverified
+  limitations:
+  - Официальная карточка UML 2.5.1 доступна, но полный нормативный PDF не сверялся
+    в этом проходе.
+  - Сведения об OCL 2.4 не были повторно сверены.

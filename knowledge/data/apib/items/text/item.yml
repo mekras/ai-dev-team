@@ -1,9 +1,10 @@
 id: APIB-text
 source_id: APIB
-title: "APIB: text"
-access: "Смотри карточку единицы и связанные артефакты в knowledge/data/apib/ и общие ограничения в knowledge/source-attribution.md."
+title: 'APIB: text'
+access: Смотри карточку единицы и связанные артефакты в knowledge/data/apib/ и общие
+  ограничения в knowledge/source-attribution.md.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 retrieval_mode: on_demand
 copy_policy: fragments_only
 requires_access_check: true
@@ -14,7 +15,9 @@ extracted_text:
   content_hash: sha256:2f07909c00ac215979439632484d6fadc8bae6b8eedcc5eb66f56a480adcb159
   metadata_source: pdftotext
 known_limitations:
-- Полная текстовая выгрузка хранится только рядом с единицей под маркером `*.local.*` и не публикуется в Git.
-- Снимок ранней редакции книги (три раздела). Актуальная редакция (шесть
-  разделов) получена как единица `md` (`../md/item.yml`); эта единица
-  сохранена ради трассируемости утверждений `APIB-001`–`APIB-071`.
+- Полная текстовая выгрузка хранится только рядом с единицей под маркером `*.local.*`
+  и не публикуется в Git.
+- Снимок ранней редакции книги (три раздела). Актуальная редакция (шесть разделов)
+  получена как единица `md` (`../md/item.yml`); эта единица сохранена ради трассируемости
+  утверждений `APIB-001`–`APIB-071`.
+item_contract_version: 2

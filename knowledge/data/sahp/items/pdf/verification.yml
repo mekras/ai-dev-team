@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: software-architecture-hard-parts-ru.local.pdf
+hash:
+  algorithm: sha256
+  value: c7885313d03e284dc96be1918caad6f59e562459801998b37d2427d35e9e00d4
+acquisition:
+  method: local_file
+  recorded_at: '2026-09-03'
+verification:
+  method: local_integrity_only
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: none
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: unverified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: unverified
+      publication_date: unverified
+  limitations:
+  - Проверена только целостность локального PDF-снимка; повторное сопоставление с
+    первоисточником не выполнялось.

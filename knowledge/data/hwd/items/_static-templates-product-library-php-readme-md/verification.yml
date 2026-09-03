@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: README.md
+hash:
+  algorithm: sha256
+  value: 734d3ae852be6ac6d4bd8852bf0e87b4e076fd275cbd208ade5e30f5e9999cbf
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: full_text
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: mismatch
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Снимок отличается от зафиксированного HWD только форматированием строк и абзаца;
+    полное побайтовое совпадение не подтверждено.

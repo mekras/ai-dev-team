@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: legal.rst
+hash:
+  algorithm: sha256
+  value: 280e371ca756d980102c481c3a26f95dc7f324d43e91a38a1af56ca826c93570
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-09-03'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-03'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: full_text
+    metadata:
+    - locator
+  result:
+    overall: unverified
+    content_match: mismatch
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Снимок намеренно содержит редактированную электронную почту вместо открытого адреса
+    из зафиксированного commit HWD; полное совпадение не подтверждено.

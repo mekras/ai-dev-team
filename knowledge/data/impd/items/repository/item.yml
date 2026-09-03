@@ -1,17 +1,18 @@
 id: IMPD-repository
-title: "Репозиторий `pbakaus/impeccable`"
-url: "https://github.com/pbakaus/impeccable"
-access: "Внешний публичный репозиторий. Получать только релевантные файлы."
+title: Репозиторий `pbakaus/impeccable`
+url: https://github.com/pbakaus/impeccable
+access: Внешний публичный репозиторий. Получать только релевантные файлы.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 processing_scope: selected_fragments
 retrieval_mode: on_demand
 copy_policy: no_bulk_copy
-allowed_use: "Точечная проверка структуры навыка, команд и лицензии."
+allowed_use: Точечная проверка структуры навыка, команд и лицензии.
 requires_access_check: false
 files:
   tracked:
-    - normalized.md
-    - statements.yml
+  - normalized.md
+  - statements.yml
 known_limitations: []
 processing_notes: []
+item_contract_version: 2
