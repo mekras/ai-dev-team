@@ -1,18 +1,19 @@
 id: AFDS-skill
-title: "Навык `frontend-design`"
-url: "https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md"
-access: "Внешний публичный файл. Получать релевантные фрагменты по запросу."
+title: Навык `frontend-design`
+url: https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md
+access: Внешний публичный файл. Получать релевантные фрагменты по запросу.
 status: approved
-workflow_stage: source_checked
+workflow_stage: verification_assessed
 processing_scope: selected_fragments
 retrieval_mode: on_demand
 copy_policy: no_bulk_copy
-allowed_use: "Точечная проверка области применения и структуры готового навыка."
+allowed_use: Точечная проверка области применения и структуры готового навыка.
 requires_access_check: true
 files:
   tracked:
-    - normalized.md
+  - normalized.md
 statements_file: statements.yml
 known_limitations: []
 processing_notes:
-  - "Точечно проверен навык frontend-design 2026-07-29."
+- Точечно проверен навык frontend-design 2026-07-29.
+item_contract_version: 2

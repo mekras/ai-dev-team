@@ -1,0 +1,29 @@
+verification_contract_version: 1
+artifact: normalized.md
+hash:
+  algorithm: sha256
+  value: dd0533bf65306d54465ef61d6f7d3c97a0e8f8ff7b3ca1ff2cc4425b4f0d6ae1
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-07-29'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-02'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: full_text
+    metadata:
+    - locator
+  result:
+    overall: verified
+    content_match: verified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Проверен обзор руководства и три извлечённых факта, а не содержание всех дочерних
+    страниц.
+  - Источник изменяемый, повторная сверка требуется перед новым содержательным использованием.

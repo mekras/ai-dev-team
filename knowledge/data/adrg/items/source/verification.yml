@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: source.md
+hash:
+  algorithm: sha256
+  value: 9590b224bd07ddd67ca6337fff27eff86460fa460ee4ed83e2aa191ccd3188f0
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-06-29'
+verification:
+  method: direct_reopen
+  checked_at: '2026-09-02'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: full_text
+    metadata:
+    - locator
+  result:
+    overall: partially_verified
+    content_match: partially_verified
+    scope_completeness: partial
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  limitations:
+  - Подтверждены официальный адрес, доступность сайта и сведения о репозитории.
+  - Источник изменяемый, его полное содержание не сохраняется в корпусе.

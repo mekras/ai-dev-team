@@ -1,0 +1,28 @@
+verification_contract_version: 1
+artifact: software-architecture-hard-parts-ru.local.txt
+hash:
+  algorithm: sha256
+  value: 51bccf7e89f7a1484e552c8419fe2b9785e0ef8af1616b8ac912d854ca48628e
+acquisition:
+  method: local_file
+  recorded_at: '2026-07-29'
+verification:
+  method: export_comparison
+  checked_at: '2026-09-02'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: full_text
+    metadata: []
+  result:
+    overall: partially_verified
+    content_match: verified
+    scope_completeness: complete
+    metadata:
+      author: unverified
+      locator: unverified
+      publication_date: unverified
+  limitations:
+  - Текстовая выгрузка совпала с повторным извлечением из локальной PDF-копии через
+    pdftotext.
+  - Локальная PDF-копия не сопоставлена с внешним первоисточником.

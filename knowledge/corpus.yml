@@ -100,6 +100,7 @@ workflow_stages:
   - source_checked
   - blocked
   - rejected
+  - verification_assessed
 statement_statuses:
   ready_for_review: Утверждение извлечено из источника, сверка ещё не проведена.
   verified: Утверждение сверено с источником — прослеживается до конкретного фрагмента
