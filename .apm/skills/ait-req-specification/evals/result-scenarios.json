@@ -474,5 +474,18 @@
         "не использовать заголовок «Расширения»"
       ]
     }
+    ,{
+      "id": "ait-req-specification-business-rule-and-derived-requirement",
+      "prompt": "Оформи правило «Возврат свыше 10 000 рублей требует одобрения руководителя» и подтверждённое требование к системе его проверять.",
+      "input_files": [{"path": ".apm/skills/ait-req-specification/SKILL.md", "purpose": "порядок записи"}],
+      "required_corpus_claims": ["SREQ-006"],
+      "expected_output": {"report_structure": ["отдельные правило и требование", "связь между ними"], "findings": [{"severity": "high", "observed_problem": "правило подменено системным требованием", "expected_conclusion": "автоматизация не заменяет правило", "acceptable_fix_direction": "записать два связанных артефакта"}]},
+      "negative_control": {"description": "Оформить только системное требование.", "expected_failure": "Теряется источник поведения системы."},
+      "oracle": {"success_criteria": ["правило не содержит системного исполнителя", "требование описывает наблюдаемое поведение системы"], "failure_indicators": ["правило переименовано в требование к системе"]},
+      "application_evidence": ["связь правила и требования видима"],
+      "evaluation_surface": "запись бизнес-правила и автоматизации",
+      "assertions": ["автоматизация не заменяет правило"],
+      "must_not": ["не добавлять автоматизацию без подтверждения"]
+    }
   ]
 }

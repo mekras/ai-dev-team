@@ -383,5 +383,18 @@
         "не пропускать потерю обязательных разделов"
       ]
     }
+    ,{
+      "id": "ait-req-validation-reject-system-as-business-rule",
+      "prompt": "Проверь запись «БП-1: Система должна отправлять уведомление при просрочке». Внешнего правила и решения об автоматизации нет.",
+      "input_files": [{"path": ".apm/skills/ait-req-validation/SKILL.md", "purpose": "проверка требований"}],
+      "required_corpus_claims": ["SREQ-006"],
+      "expected_output": {"report_structure": ["дефект классификации", "открытый вопрос об автоматизации"], "findings": [{"severity": "high", "observed_problem": "системное действие названо правилом", "expected_conclusion": "нужны источник и отдельное требование", "acceptable_fix_direction": "вернуть запись в анализ"}]},
+      "negative_control": {"description": "Принять запись по заголовку БП-1.", "expected_failure": "Формат ошибочно выдан за семантическую проверку."},
+      "oracle": {"success_criteria": ["системное обязательство отклонено как бизнес-правило"], "failure_indicators": ["запись признана корректной по заголовку"]},
+      "application_evidence": ["проверка не принимает формат за семантику"],
+      "evaluation_surface": "валидация границы бизнес-правила",
+      "assertions": ["проверка требует источник и отдельное требование"],
+      "must_not": ["не принимать системное действие за правило"]
+    }
   ]
 }

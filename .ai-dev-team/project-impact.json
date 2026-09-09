@@ -86,8 +86,25 @@
       "kind": "requirements",
       "semantic_type": "требования продукта",
       "authority": "canonical",
-      "paths": ["docs/05-requirements/README.md", "docs/05-requirements/**"],
+      "paths": [
+        "docs/05-requirements/README.md",
+        "docs/05-requirements/business/**",
+        "docs/05-requirements/functional/**",
+        "docs/05-requirements/quality/**",
+        "docs/05-requirements/rules/**",
+        "docs/05-requirements/user/**"
+      ],
       "checks": ["ait-req-management", "ait-req-validation"],
+      "review_stages": ["requirements"]
+    },
+    {
+      "id": "business-rules",
+      "title": "Бизнес-правила",
+      "kind": "requirements",
+      "semantic_type": "бизнес-правила предметной области",
+      "authority": "canonical",
+      "paths": ["docs/05-requirements/business-rules/**"],
+      "checks": ["ait-req-analysis", "ait-req-validation"],
       "review_stages": ["requirements"]
     },
     {
@@ -369,6 +386,13 @@
         "operation"
       ],
       "rationale": "Архитектурные и проектные решения отвечают на требования и ограничения."
+    },
+    {
+      "from": "business-rules",
+      "to": "requirements",
+      "relation": "constrains",
+      "facets": ["semantic", "data", "interface", "operation"],
+      "rationale": "Бизнес-правила являются источником связанных требований к поведению системы."
     },
     {
       "from": "requirements",

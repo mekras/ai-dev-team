@@ -188,6 +188,40 @@ concepts:
         Policy BMM взаимозаменяемыми без явного выбора подхода.
     related_concepts: [guiding-statement]
 
+  - id: business-rule
+    primary: бизнес-правило
+    primary_ru: бизнес-правило
+    definition: >-
+      Нормативное утверждение о факте, ограничении, вычислении, выводе или
+      событии предметной области, независимое от конкретного продукта.
+    boundaries:
+      includes: [факт, ограничение, вычисление, вывод, событие]
+      excludes: [требование к поведению системы, деталь интерфейса, реализация]
+    forms_ru: [правило предметной области]
+    forms_en: [business rule]
+    authority:
+      type: source-synthesis
+      ref: SREQ-006, SREQ-007
+    authority_note: >-
+      SREQ требует отделять правила от требований и процессов и задаёт их
+      базовую таксономию.
+    defined_by: [SREQ-006, SREQ-007]
+    cite_as: [SREQ]
+    covered_in:
+      - ait-req-analysis/references/business-rules.md
+      - ../../docs/05-requirements/functional/ft-44.md
+    synonyms_by_source:
+      SREQ: business rule
+    reconciliation:
+      - >-
+        Правило может быть источником требования к системе, но автоматизация
+        не заменяет правило и не определяет его формулировку.
+    collisions:
+      - >-
+        Не путать с требованием к системе, которое описывает наблюдаемое
+        поведение конкретного продукта.
+    related_concepts: [domain-model]
+
   - id: project-reconstructability
     primary: реконструируемость проекта
     primary_ru: реконструируемость проекта

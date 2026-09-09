@@ -12,10 +12,14 @@ REQUIREMENTS_ROOT = ROOT / "docs" / "05-requirements"
 
 CATEGORIES = {
     "business": ("bt", "БТ", (1, 2, 3)),
-    "functional": ("ft", "ФТ", tuple(range(1, 44))),
+    "functional": ("ft", "ФТ", tuple(range(1, 45))),
     "quality": ("kach", "КАЧ", tuple(range(1, 11))),
     "rules": ("pr", "ПР", tuple(range(1, 9))),
     "user": ("pt", "ПТ", (1, 2, 3, 5, 6, 7)),
+}
+
+NON_REQUIREMENT_DOCUMENTS = {
+    REQUIREMENTS_ROOT / "business-rules" / "README.md",
 }
 
 INLINE_REQUIREMENT_RE = re.compile(
@@ -158,7 +162,7 @@ def check_tree(expected: dict[Path, str]) -> None:
     actual = {
         path
         for path in REQUIREMENTS_ROOT.rglob("*.md")
-        if path != INDEX
+        if path != INDEX and path not in NON_REQUIREMENT_DOCUMENTS
     }
     missing = sorted(set(expected) - actual)
     unexpected = sorted(actual - set(expected))
