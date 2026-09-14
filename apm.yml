@@ -55,6 +55,9 @@ scripts:
     python3 "$validators/validate-skill-result-evals.py" "$target";
     python3 "$validators/validate-skill-portability.py" "$target";
     python3 "$validators/run-skill-script-contract-tests.py" "$target";
+    python3 "$validators/test-run-apm-safe.py";
+    python3 "$validators/test-validate-python-artifacts.py";
+    python3 "$validators/test-validate-python-syntax.py";
     python3 tools/validate-portable-corpus-references.py;
     apm compile --validate --local-only --target codex;
     apm compile --validate --local-only --target claude;
