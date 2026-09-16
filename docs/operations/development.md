@@ -40,12 +40,19 @@ apm audit --ci
 пакет для Claude и Codex и проверяет упаковку. Вторая воспроизводит установку из
 файла блокировки и отклоняет дрейф.
 
-Локальные роли маршрутизации моделей `mini_mechanical`, `luna_patch_worker`,
-`spark_evidence` и `strong_reviewer`, а также `.codex/config.toml` обслуживают
-разработку этого репозитория. Они не входят в переносимое ядро `.apm/`.
+Разработку этого репозитория обслуживают четыре класса исполнения —
+`cheap_readonly_research`, `mechanical_readonly`, `small_write_patch` и
+`deep_review`, — локальные роли маршрутизации моделей `mini_mechanical`,
+`luna_patch_worker`, `spark_evidence` и `strong_reviewer`, а также
+`.codex/config.toml`. Ничто из этого не входит в переносимое ядро `.apm/`.
+Классы работают в обеих оснастках, роли — только в Codex. Класс
+`small_write_patch` требует режима записи, поэтому цели `claude` у него нет.
 
 Локальная политика классов исполнения задаётся в игнорируемом
-`.ai-dev-team/local/subagents.toml`. Переносимый запускатель поставляет
+`.ai-dev-team/local/subagents.toml`. Этот файл личный: в репозитории его нет,
+каждый разработчик заводит его по собственному усмотрению из образца
+`.agents/skills/ai-setup-subagents/assets/subagents.local.toml.sample`. Без него
+ролевая маршрутизация просто не настроена. Переносимый запускатель поставляет
 `ai-agent-supervisor`: вызывайте
 `.agents/skills/ai-setup-subagents/scripts/run-execution-class` напрямую или
 скопируйте его и адаптеры в `tools/` установщиками навыка. Запускатель сохраняет

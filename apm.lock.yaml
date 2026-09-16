@@ -1,12 +1,12 @@
 lockfile_version: '1'
-generated_at: '2026-09-16T11:48:23.649668+00:00'
-apm_version: 0.29.1
+generated_at: '2026-09-16T13:51:56.106266+00:00'
+apm_version: 0.29.0
 dependencies:
 - repo_url: mekras/apm-marketplace
   name: ai-agent-supervisor
   host: github.com
-  resolved_commit: 5f39318991067365b2c07c7e4df636a88bd02db2
-  resolved_ref: ai-agent-supervisor--v2.6.2
+  resolved_commit: d26f5746b487452dda3c68b43fa73b5739d27c09
+  resolved_ref: ai-agent-supervisor--v2.6.1
   version: 2.6.1
   virtual_path: packages/ai-agent-supervisor
   is_virtual: true
@@ -4606,6 +4606,2796 @@ deployments:
   - mekras/apm-marketplace/packages/project-knowledge-corpus
   active_owner: mekras/apm-marketplace/packages/project-knowledge-corpus
   content_hash: sha256:4dd2a72292e983a42abdf0e0b6b168abec1f4fec9c62c79a4f3345b8c18117a9
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-analysis
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-analysis/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:9dd402cab3d01504d1cd537cc9841db16a4061214d2baea89b7ff9dfb5a26c8f
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-analysis/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:7ecfb8ac16ae387cc8fed1fd8c40da8c64b8d42650d6b95bc2f1a3ef67c0c23f
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-analysis/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:a8137c3527cf1880fe996f54dbb96c219023f21bfc9c0462119a0966692c14a7
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-arch-revalidation
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-arch-revalidation/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:7693d9e204c5dd88b503c458ad12796fa4f0a8252c09d38db07d884881833fe6
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-arch-revalidation/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:6b63cee56315a51ca3754774ac463b3daa550ae140e36ed711899be394ecab2c
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-arch-revalidation/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:3581658f9e0a38b741138f8a0f3dcc29653b19ee47e9ea2380f87e3c9dae56bf
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-architecture
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-architecture/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:87aa1c0102b53883556529af81ccafb6b6a51aacc8783c83aa0c90a8b9a0689b
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-architecture/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:a621f9a1c89b3328e91f1b43f32bfe0f9cbb39ebc75612ad73d719966d1424f1
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-architecture/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:ee96e9231387cc1b38866a00d01458668d55c9a1123f303cfe31826dab9d538d
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-architecture/references/api-design.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:44e4f40fd8468ddb31c03d03720552e135d4f0df28f1b1cb8ce55e9cb58a68eb
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-architecture/references/architectural-decisions.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:2d2cb04d1f18a667ed55bf687593fed51e83836e2150361cec874c8b6e723cee
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-architecture/references/architectural-forces.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:11076999f412aee483a58cd141c228b64f5dbb668ddde7ff2f2023731b553a6a
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-architecture/references/architecture-documentation.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:b6768556f7b6c0e883cf41cddf9eab656e923d59dfdb1cf36b198d3e6537633b
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-architecture/references/clean-architecture.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:f0b9fc294500b869fe3706c3ab0618e7042c1c622b1d65086979d27ef8aff99d
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-architecture/references/component-design.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:1e50c4f048ccb0775625798eb33dac0077017044974f2ba9e5de0bf78a8c49c6
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-architecture/references/core-principles.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:025bbe072717425aaf612293175b2b18c18e06884db791558648fd04a0b2a883
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-architecture/references/data-modeling.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:288bf42a14b146804d1c76a232e6da907324851debc6e9b35fd45f476e6c5b49
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-architecture/references/decomposition.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:b47a94f0dc360cffb03a2c71b05abe325b8be385688afc03e3941e466681e032
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-architecture/references/distributed-tradeoffs.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:9c81a6fb10a05dfccdc8f812d8762943a97345531d5a2653dc84149a1dc1da48
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-architecture/references/domain-modeling.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:608717c14d6fafc1ae3e5143aa3cad1aa13c56e88e2277582573a112cd90b521
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-architecture/references/evolutionary-architecture.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:2fcbed65a55e46291245b867d171f6759ae1269d24f25aea4c51e8424df04085
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-architecture/references/organization-principles.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:dbf7de0581b101418070257cc1121ef23aad9647e200f07dd798d3d0cd1bdc25
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-architecture/references/quality-criteria.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:05035f79cca5320329eaa1a8c8088af2457c1bc61e41c5bdbb21f61f787b6682
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-architecture/references/reliability.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:40efb3da69f6682fc57d423b788f6a71b8ad0fd4e402d9c052ef4d5c48eb12ab
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-architecture/references/system-complexity.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:119c2eeb8a1379875a91befd77e7e6dc245ad005bb64eb63d58d5ea0e047cca5
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-architecture/references/task-protocol.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:0b89c374dbf5f525a8bf723b2e0f684145ca57170d7c30387bf6d68da3d78c2f
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-changelog
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-changelog/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:22ee1491ece2a9a0aa3eb2dc2246bda19e2090b7130bbc2ec19ac72f9afde4e0
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-changelog/assets/changelog-template.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:43644f939888cb6fcd514ded875bd165eb7ea935d592f758c5884bcb18565074
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-changelog/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:0290d007db2aea139a018d2b47e91e45f680e5cec6d08b99178760a983062038
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-changelog/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:1ad6e3f98d31d078afc51b11bb122945c482fd4854a9b16b4569bd00394b622d
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-code-construction
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-code-construction/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:bb7b2934b20356bbaf0083864cee90dae6c85d25912d5f6cc3fe0679a971afae
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-code-construction/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:4b18fb06b12a13ed9729d2aa8205da2cb96fa06ec366d462e81afa404e8b5221
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-code-construction/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:6eb3f3bd43b2c707b97ed6722e86fd361aa1ba3392118e99827b649d06430837
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-code-review
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-code-review/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:100ccc9936e8bac706c89d54679efd3da0a769695f9ba1d63169cc8a9ea38652
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-code-review/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:59edb7f6b5e20f69b9c34b2f0796f875b86d5c102a73b951c49c425f028a76fe
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-code-review/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:84a1b019fae9a239f1d627d041937b1cfacb4df571202f401b85773c2c91fba3
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-code-testing
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-code-testing/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:07f80102e8f653efcfa10f1edefbe7545d329ac132a8835a9770614bf4f52141
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-code-testing/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:a6bcd0088fd4e57aace76a7b4bfca43720002bb26a46a7e616bb66ed3c7c315e
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-code-testing/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:11ebcc4ffc4beccba42c8de7b044e8d394cabc34ea982ce608d2d884fea50959
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-commit-messages
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-commit-messages/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:ed97133e5cba1147ec4b9201557f0368e83965bde2cf75ec48da3966cadf9ed8
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-commit-messages/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:76a2def455151ce5bb34e49fef730483f630374e524623b4149f72865e9c5691
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-commit-messages/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:494bd1f41c487d947afa3627dc7d8c9843f87c01262b45eeab776f40f5b41d77
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-commit-messages/references/schemes.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:5ac4944287e5ec5f2df1df4a8c5d8b1df0e101f8536068225f5468123d9d6a04
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-decisions
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-decisions/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:74134c7de91d3a7e1d39a766c51b61afb14f5d9a76dc1aabf4a68cd2b83b8add
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-decisions/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:8cb396f6aa3408f556d5ce6662b21e5302f842fdc6a1cf392213a20fe0cb7a04
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-decisions/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:7dd803f9a98ff29d8e3ad3ef1cb85e6d5f6eb62c11e2459662ffe07e22322f7f
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-decisions/references/decision-templates.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:ab947e96b32019e84e68cf9a19ed4a7aca25a08743ea0db5819d012fa91525ac
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-decisions/references/decision-workflow.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:993a9dd3da028a048f5a95889283d0784cef31a905edbb9982888ea8d275de0d
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-docs-concept
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-docs-concept/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:34dc70fb57e7fc019be10079ddea93c5a7988c4c1fad9cd2b8c9cc89f9c344d7
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-docs-concept/assets/concept-template.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:a5a0bb35495bef7ae6b2bf6b391c6ac2122bd5d5a097dbbf5f21df01673b7cf7
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-docs-concept/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:89f6da9b83573d8f95bb9acb0e9cc30c4f07eb2955c4655d47f92bf29da881d9
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-docs-concept/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:e9eb8012a5463071ecaba25a44fb5740c555551de6ca67d38080a0bfceed752c
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-docs-concept/references/concept-dialogue.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:5cc4d63d44f9780162af63708d61bc487a7cd99cb2e7069763f81a5ee0545250
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-docs-structure-audit
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-docs-structure-audit/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:fc99fc4706b40270cdb52dbb42946f93312eb3152759b6d427b8d0855dc1a1b9
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-docs-structure-audit/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:2955e0ab97dbd7a8c585aa9e616810bf85cf614e3e5cabb7e8a8017544a5ac58
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-docs-structure-audit/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:b1850d991d32d380ff872d3142f78540bdd503e59f99f7c30c7184f1fc55e9b3
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-docs-structure-design
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-docs-structure-design/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:ec2a173365e693a8e570ecea893ae7e91e7556899be57da05c416bd0da85a1e9
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-docs-structure-design/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:1a78aba8a8734feeb2e0dc05783ad6d06b0b25daab2deaab1c6e043fafb25553
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-docs-structure-design/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:a7596455997a8cd091b02b6e434924b564b2b66b1c840c70345cb76bbccb9786
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-docs-structure-rules
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-docs-structure-rules/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:8b1107c36e7474ce7531e9c8bbf719ddb7039ff06f3c3a6ec9b14d6f37b9d50e
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-docs-structure-rules/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:0b6cb81e12c788a9013e9f64381023aeb5556bd5ee8ad4fad5802f67328f60ad
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-hypotheses
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-hypotheses/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:76624569cc90ee900675299f6cec3a8e808d860671a39a153d51eaed2a656224
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-hypotheses/assets/hypothesis-index-template.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:eedf4eeb37c97cb1de869b81115f6f321e4dc9b0b2ca7493f792700faca4ed6c
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-hypotheses/assets/hypothesis-record-template.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:0aff18fd6ee051f3a1cc153c5e834600d51e1d8b6fdc4e75d7392bb8fe5c0cb7
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-hypotheses/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:7f163a3a9e503a7f3bbdd8b360148e22d59a7d2af48bb2eb9c8e77f350792cd0
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-hypotheses/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:d01dcd0ef068c8051604c558d5ff076b88276609c3db8da4110ed8ff730d4584
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-hypotheses/references/hypothesis-workflow.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:68915a926ee849afb99330646761263d1852d61da093fabdce0597b894a44fbd
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-impact-analysis
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-impact-analysis/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:df1216b3b965af597495c53e1bd4e301ea3f70dca1622982adc28c3c197f7a54
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-impact-analysis/assets/project-impact-template.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:c2911570be850f202d611d6a569b0906c58516a5a0b98f6a879fe9a7c114b276
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-impact-analysis/assets/project-verification-template.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:bbe23fd5466e9d9e126a97bbddef5a53a08e9173b04cdce6bf00d2776073774f
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-impact-analysis/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:895f766b3b6f6d904484aad6153c6c84eb65bf09e1e2273b61f91e50c0972b6c
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-impact-analysis/evals/script-contract-tests.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:f5a3455dbf246367b58091b8ff8f4cba4a60a4837fb1ad94843e7b474e2bbe9f
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-impact-analysis/evals/script-fixtures/minimal-project/.ai-dev-team/project-impact.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:f6eca67a76d77b5e80dfefcab1b2825c670e09a94c690f061e01f537d32ac06c
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-impact-analysis/evals/script-fixtures/minimal-project/.ai-dev-team/project-verification.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:3191d1cf09f3c0c9f8960166c409f888a4420053cf7923e9d4af9e3f623865a7
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-impact-analysis/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:d7fa135d4578ce57e2976295919c6e7f3dc118c1e12c07a68375541772c1c522
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-impact-analysis/references/impact-graph-contract.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:3681cc4a75ed0c31b756fc744bac04816ac1b862bd49d85dc086ceddcca4f382
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-impact-analysis/references/selective-verification.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:29fd89e622cb34e0436d19c3999fea682bbd51fa65fbf7d1704d04e9aab48a90
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-impact-analysis/scripts/impact_graph.py
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:cc13f63c12d8897ce4fd60f211740097d72ec2176dd6b64695aa34c0d5aab091
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-impact-analysis/scripts/selective_verification.py
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:e7e67fad304b1f326694c59b9aff4d6f0df6fb58e9cc2fa3c422eafd07fd5e51
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-interface-design
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-interface-design/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:8859a7829c4608426490ea09a56de88c568bdce2fd70b9d52b1e3b7921549566
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-interface-design/evals/fixtures/copy-action-with-layout-defect.html
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:d982026e0d3f0d9f5fd1d1e8e9719d483e2ddb4cbfc863f39944c7921846825b
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-interface-design/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:f171de3b2ce135182b78f940d3e9d7398e0e851e81faf328033f7c3052ac8c3b
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-interface-design/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:0819900bc0d8b768448380ca79e4be8b0e274e00b2595b144240a6a9eef481a4
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-interface-design/references/interface-design-workflow.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:103fafe2bd3b9a39b67c97884a21cd1fe62515b9a1754b4fd25ebc4092f6d9a9
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-licensing
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-licensing/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:f70b3e9d22b4832f916ed00ae44e00a2013538d394c0e054a9311558c364cb3f
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-licensing/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:425f51dbf95893558b55f113206af661abbfff7a52e438d906e03660532422ab
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-licensing/references/license-comparison.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:2376bbdd543251073b59384720e0765c1f9ce3ad7a2e53addf8d5d8f83c50a22
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-personal-data
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-personal-data/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:cfeff143eb490a0d82ec08a274dca7e19de51eb30668088048b38e221f908049
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-personal-data/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:ad227696552dca597662660c6c9c061364c3a496ddd6a010694bc73c9c27b795
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-personal-data/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:b92b706464113ac05ccf5eb2595a9238d5a306d966ae33f13696b7bfb3622d78
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-personal-data/references/russian-personal-data-workflow.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:0c63744bc4011afec71bc54c86f1f999bc4272c49a0d4d8f78db908645e9a781
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-private-knowledge
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-private-knowledge/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:36d3742074063095aaee4fafc9f4f6442b8b36256cdf2b5097b4c3d2b7bac41a
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-private-knowledge/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:5d51382a7050ff1b40b6d613419a65cfeed7c8ca3dad8e662ef1d6ff0fdf4696
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-private-knowledge/references/local-layer.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:1a63b55c3b88daf6b2692177fbb26b669cf695bd96b0d6fb2d09dabde485953b
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:f24da988ee6533dca18dd86ac5f06b88fc738d7a6e978c6c67e335a5573cfe27
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:2c210be42e2464f9f90f80d150749ba10d045e1048ab5ff57e5f6be638d40af6
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-contract-tests.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:000f276262a400d0e54a1ba67510632d7093f2104ff8013ad300b84a05a7de5f
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/code-review-workflow-project/.agents/skills/ait-code-review/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:91ce2a503d0f7505395cb50218e6904ddc0229d6757321c20cd281f8140cfb5d
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/code-review-workflow-project/.agents/skills/ait-code-review/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:854fc849869528ad18a1329feb809e553d21888c8f73fa525b9d55cd983619dd
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/code-review-workflow-project/.agents/skills/ait-docs-concept/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:298aef38f6d22c05d6753547693795c146424d08ab1cdf683fd2f75d5e672dea
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/code-review-workflow-project/.agents/skills/ait-docs-concept/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:1ab806f78a34d1af389a697833725ef76ce74221d0a27a14d35df4b17024f164
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/code-review-workflow-project/AGENTS.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:a4c85a2e17e4c5e297eebf3488e40b7b75bf3cb26b5871387c733c9a46da4da6
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/code-review-workflow-project/docs/concept.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:9f1055f390ee535ed6835b80d606ebd8766941deb3be158fc96fadb9dec33065
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/code-review-workflow-project/prepare.py
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:39417f4df383f3ef30d9bf0c74e09142fd4346daaba006f5bded4962127d4733
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/code-review-workflow-project/src/module.py
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:05c8b8a9bf65d522a08d3a6b6b98aaa19d0572870fc73ef4b9d94b53fe59c1da
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/full-workflow-project/.agents/skills/ait-docs-concept/SKILL.md.fixture
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:40c541c80175d14fe9543452308bf05c88a9361cc1c92732a7ff6d43b140ca59
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/full-workflow-project/.ai-dev-team/project-impact.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:af286b8ca229023745dce6c5852f96d7ce83b2b4bcec630be6b3c936d39b436d
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/full-workflow-project/.claude/agents/analyst.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:17362c7a523bc567fb34c07faf2e4c80ca42c85d54fc74fc4ac811c53a521cf0
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/full-workflow-project/AGENTS.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:e85d513663e59237c415eedbfb537db391dfee878a4718e564567946de83eac6
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/full-workflow-project/CLAUDE.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:74f4f95a15bf9701b3d97dd650eeef134ae2f4354067c03472e8f966c465b101
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/full-workflow-project/apm.lock.yaml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:a6b28a81ce730d3e3a844e528fa070274202f8ece343e14550bd7756c1105462
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/full-workflow-project/docs/concept.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:f93e62c360da7ae4a0f87d28b91063400db7b3d1289608292f673049925cb5c0
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/full-workflow-project/src/module.py
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:cc42155088fca5730758db72b2a5bca33112a941dfaa2d43098ec422ce4ea213
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/.agents/skills/ait-code-review/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:91ce2a503d0f7505395cb50218e6904ddc0229d6757321c20cd281f8140cfb5d
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/.agents/skills/ait-code-review/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:efeb11a965d57b90f1e84568f516a2092b6cecb710cadbd713e39ad14d2c027d
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/.agents/skills/ait-docs-concept/SKILL.md.fixture
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:40c541c80175d14fe9543452308bf05c88a9361cc1c92732a7ff6d43b140ca59
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/.agents/skills/ait-req-revalidation/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:6dc30dd0c7507d176f91d7873f85f64b6e50af10f6ecfc159f949f73c8910395
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/.agents/skills/ait-req-revalidation/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:5d4a7553cc5a19e5c2da7279876e1cf6394bb8c9e49b11d35df680b14e23d770
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/.agents/skills/kc-validation/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:5b01827e75cdaf6aa684920d048cace29517d34e2299f67e29cb31852c4dd5dc
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/.agents/skills/kc-validation/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:2e8e1ba57f27c90bb08bf714b9fcfa8fe06fef36bcd084a322a5982e6fdee53d
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/.ai-dev-team/project-impact.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:a51bc8bc07c32d11c4e581b2f310116baa4b6f5e64b2dd9e1006cdc9cababd32
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/.gitignore
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:62252dffbe441b241fa2482d7e71ede613fc97a8ef7ab16796a84123e196bc17
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/AGENTS.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:e85d513663e59237c415eedbfb537db391dfee878a4718e564567946de83eac6
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/docs/concept.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:c81ca6b7d58d710b9a56eab635f8855f7ecfd45bcb8b7623c88fa93743066828
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/docs/index.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:b1375ade90e532dd11eea0ea28b2f7a6676607d75eca90f3aa7b88e5a5d7b934
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/knowledge/catalog.yml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:bd28bf6cc2d7525b91de9e516fd5c8d5f7a740db7a7381bcd80f106745f7a4f8
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/knowledge/corpus.yml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:b6cddab03633381b3aa41dc2b24170dec16505f918e942d0faeefc62ca5ab843
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/knowledge/data/test/raw.local.txt
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:db36abccb84988a4036478802874c62264ce74e826f7823df94a96ba69f1008f
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/knowledge/data/test/response-headers.txt
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:8daf148509303d3254aacff2124001d514084181d375b220fd2963dab88dd379
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/knowledge/data/test/source.yml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:ed8419079105bd7ecaa18b07b64e649bed57156a69ac38bba73826711516910c
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/knowledge/data/test/statements.yml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:396361ed1a3dffcbe1208c3a06bf8011285d7381324f1a10b8bd0f51297cd7a6
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/knowledge/index.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:50eb443fa796e5950e5e488cc5ed8f31161b7709d0a78cc87145f0e64f0c91f0
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/knowledge/statement.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:5af5bf042ed3328d5293ad92ea9ce49450507e56737b7fef3313c38e61507705
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/prepare.py
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:f62ae1d315c8787185233fe02ef68a6410bca23e86a2b7c26c89de0c448a5456
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/src/module.py
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:05c8b8a9bf65d522a08d3a6b6b98aaa19d0572870fc73ef4b9d94b53fe59c1da
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/minimal-git-project-with-optional-inputs/AGENTS.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:90bed9f30a4628629ac5001c519a6e22fd7ba28811435ebb9ee3e07549cae25c
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/minimal-git-project-with-optional-inputs/CLAUDE.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:74f4f95a15bf9701b3d97dd650eeef134ae2f4354067c03472e8f966c465b101
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/minimal-git-project-with-optional-inputs/apm.lock.yaml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:a6b28a81ce730d3e3a844e528fa070274202f8ece343e14550bd7756c1105462
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/minimal-git-project-with-optional-inputs/capabilities.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:2aa0058cf6e558785657c6063cd98b18e32c8ee2a903c79b2b3f0b7c7efa7dfe
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/minimal-git-project/capabilities.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:db8015c4fce9574949ce95291ec61b9a4a290a642cde1758d6b843d8e421b250
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:331b5d92912641452d0a49d8a611d3d6fef418d2b7cbd53f1a56fccf4ff1356e
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/references/capabilities.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:abbc76094c53082e6bf20de80f5181cca6e63c5a37e5c601af18b6bc9eef3702
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/references/controller.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:8cfe37ccdf80e0d0ff45ce4becbcfb13141c31066e418daad2f43089a20aaa04
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/references/workflow.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:0fc8c943e3c311563130aae6299985d6acd0861c7800fe6df1ef93b3756dfc79
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-project-revalidation/scripts/project_review.py
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:df832f547868c4ecfe54da2e206457b21de11e6bf5c24bf84a842d33877a5506
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-readme
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-readme/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:ad3e09da08a28810b15b728e2762a20cee5c09cfa94ca2edc4f23d03ad7fa34e
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-readme/evals/apm-skill-collection.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:d537a695d52d4722cc650c650a4698db97411621ef6e9b6b40bba0ecc5984f62
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-readme/evals/installation-vs-project-connection.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:cb5ae5e32bead5a2624e5c6680e292e0815a78e11b95238c22c1dd1f06f7af63
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-readme/evals/openclaw-skills-regression.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:b48190de29c662632ee631353b84005094c1ac7b598861513e24179246320dd2
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-readme/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:d71c13761faff119c903bcff147b44e83197002feb0c28e757734a4f67ba889e
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-readme/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:095c8649d0fc0e8eb8d0b42245146515f32f05ec7d8d3c7c594047564b7f9a61
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-readme/evals/user-entry.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:9143e4111b9327f3d1eb18a4940ff2c701db7909dd0413a4013a97b783aaf154
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-readme/references/apm-skill-collections.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:feb4f02cea15065ceb8cf966d036ecb44a79483d1cdc6782b4a427e400820db4
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-reconstructability
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-reconstructability/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:5dbffe85de18dcdf02c60ff475ba869b44076acb064f069bac5c8cf8b0bfd606
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-reconstructability/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:0e33ae5ea0591f3c816bfc20b74cf79ad94031371fd79974823ab78cb7bdefa8
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-reconstructability/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:3d4da7f3a251ff9b1709ccb940ca3859ec8856b7cf9f35efb8780a1692d99e19
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-reliability
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-reliability/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:c973ff542e6aa23ffe5b0f04734b2e8399cffeb374c478036a5fc24bcd0c1844
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-reliability/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:2fd9d6a5c3ea113bdb4dcda44d4c95d8cace2e7198416bf0f4c6455728eb5d6d
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-reliability/references/concepts.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:093d1c0313833c27eed1d86ac5b08489a0d7e4516a895cfcc77748d4c3bfee7a
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-reliability/references/operational-reliability.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:2d8f3fd5759f730293dfc59fb7c3139b604c85dbb822fff29d6be6d5064ad2f8
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-analysis
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-analysis/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:710dcba44ed09c854b936a267b6032a85f1435c4cf2962ddfdf6bb4c67fa9139
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-analysis/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:713a654d48b0eb24f9ecc546c1451615b0b9ce45474d8f54c0fd37fc04b7360c
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-analysis/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:9dbe2bd05dd0d01d4d79c4622bbfd525f8d250a99aa64660292d202459bd6240
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-analysis/references/business-rules.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:f676034d1d24b504eca99597fa2191f2152631581ce6c55cbd07ad25b46083cf
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-analysis/references/guiding-statements.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:3272e3a040117d4a4f96be3927dc05a67b3c9db2a9e5ebb3c4cac97c3c86499c
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-elicitation
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-elicitation/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:c927532a1d0445eb4d30048a2a90b671408ac5a1147a0b107279cd40b4b860f6
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-elicitation/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:96d6c1314e0b66efc27ae4e4db1e352632b65bc3bcdeab0cee0f1acd24cb5d10
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-elicitation/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:02524f8ed97d73973ba8915d068b50e099d31e616357971bc43cd40032e78971
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-management
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-management/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:84fa72aebb819f70f047e9f2f96a6c7e02404c6b2c2fecc3873f3fbd3497d986
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-management/assets/requirements-management-template.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:3278c51742157f47c180ca2f5441cc420fae085b4dcf6f22a59d3980ada53bea
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-management/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:58d60f1ebb922259545bb6a0397adaee5416e3bd4dfa53689486edaab9cd1b8f
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-management/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:913de6154eeaa299dfbc1968a9a3b06075a1a5c2feac28da83f1a8620a21ad1b
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-refactoring
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-refactoring/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:d23dba7264c4663fd895685e0efdda52959132eca36adf48bb6226b988e33a75
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-refactoring/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:794fefa5a72a1f72716d365e9fe4e1fe78828b26c2b1f05191d7d6a4feba86e5
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-refactoring/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:3b65cd289fb247eebffdd7b4e9e17a2bde54db3208211ed85ad8600439b3bd1b
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-revalidation
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-revalidation/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:24e2e6b176b797056db4eb3ebc09b1ad048e7e772db5c341aada7ed6e1b832ef
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-revalidation/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:01d06f12bfc04817f66c9af6b5114acaf3e78d83eccf5a38a71af73ed59932d5
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-revalidation/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:be5d7e2e69f7eaa9750b3853946dd30532d89085ad8112df6ebfebd6f6bc3bb9
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-specification
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-specification/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:5bee427de7e7e5832400a535c870641993d6cf96001a11ebe5afb0d73557a74e
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-specification/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:25fe19cc8c9adba29e832e4edf8e612d68ec0227a5fa3edaa354cdcb819399c8
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-specification/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:802adb22f94269cebfd8b57e73d2b173d70fc03bd9c5b4bb64726bc736b2bb37
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-specification/references/gost-tech-task.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:8b6e16ee1ea44b5a3f1a6d5561e705d13578389392d3c440b43026351b3324ab
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-specification/references/maintainability-requirements.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:6cf5de5e7e4339724c37eb1b0a13b8fb5d6c5df116bb2a1a12b5423c88d69d5f
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-specification/references/quality-characteristics.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:5b9ae9ccdf90048ec3259b09c7d6204cfb47ed084454f1b97ccfaf52402472e6
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-specification/references/reliability-requirements.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:404cbc365dcca516085cbfa1540c978b504a46c39aec93e2f1483834ae36a12c
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-specification/references/use-case-templates.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:47ea49887ceab1ec75d64e4213ff00abe22fbd6b36a68f9d97596ebc31601d3c
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-validation
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-validation/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:6d4aba5263b129b9aa67d9b9a0f7b362d8fb10f168447f8c37ba58897b1bc603
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-validation/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:cd52966277a9072c18df9f5aa42dff3e2cf9491a0224f2de720980294902c331
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-req-validation/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:51f0be0044202c0e2e11d90b11cb97e79eeddfe6b09be05a76ecb3b7f223ac0d
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-routing
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-routing/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:1cba6268c8594142a13cb19fe1e5fb1509fc69015acfccb54f8ba45c291e3bb2
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-routing/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:6c07377778ef6a6a04e86427f1e7dfb47a76a20ebb4961bf723a14b755950bd0
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-routing/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:56fe16c31d3fbee74139fc1c2bbc1e1f5dd4202202628c12b5a853fb3c69eeef
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-routing/references/skill-index.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:b4f8483a411c231b591c838618452a92996946ab703e1d50f0733d5ae4caa67c
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-scrum
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-scrum/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:d592e5d0f2315a2999dbacdbdf9dbd12250f2433ebb3effc32a46461a352ca1a
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-scrum/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:e04873eaeb1ca9cf70ef88ff8ecc119b9e1293bd06f7058a9e0d1d57e4968749
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-scrum/references/adoption-scaling.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:a44f7f4f1e85978cccda2f221c46b06daadc900fcea2e9ea3053f93aa2828302
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-scrum/references/engineering-quality.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:8f5b96fbcce050641f7fd812dd431ab19f3e78cdc1427e4e6ad164085ae36a0f
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-scrum/references/estimation-planning.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:f78bf73894f17986b721e58adf221c02cd1d597f55d81a054247d0085930d5b3
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-scrum/references/events-artifacts.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:e225910751a1a0c3b94282032f723b749fe3fcc569d956848e149880101c4a3a
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-scrum/references/roles.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:3fbe4824b51107a05d6bc8c777abfbcf2d329e3b62eba4b148128456db87fe44
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sdd
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sdd/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:aad871c0e0822262aeb9e0c12e77f1814b67a79b5c4d38baa77cda8d3f9ae60e
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sdd/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:9a12d92b7d5d1f586fe7057604f4edb30578660c76bea3f3ff3c4d6ac172b9c7
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sdd/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:52658257b7d515e7b40fd7558c1dbe563be81bf50b597b08300a9b20aeef61da
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sec-access-control
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sec-access-control/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:e229f7256ce3c3fa335e6508d0b1d704899df55d45bd9e89d3e4b9d26cc09526
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sec-access-control/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:61ba8ddf31e2616e97a683abe748286c01ee6aaf70903a2da22447cb70fcddc4
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sec-access-control/references/dharma.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:1a19780cc753075af9cc47cd64b2409b0d9a2060175a526968f3277d908aa3c9
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sec-ai
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sec-ai/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:57ddd7d0e938cc4bf7d2a4cbf4ea207bb730e1a099f0898b639af613b234cee2
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sec-ai/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:e94e01713b3e8ae4a4d9e82f126efa2813702d6255ddd9e1909a71235def9af7
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sec-ai/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:a939df0d5ad4329eeec47c77a04560fcfdd2c37d64e40a8cfd080ea56d1b9878
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sec-ai/references/ai-security-scope.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:8464970adef806fb97c345a34b423c8858563aabf71625b514ba513a9fa06d36
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sec-audit
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sec-audit/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:37f02699d850da154f54664d1aede74beed045ebcdf0a11ff8289beac245f225
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sec-audit/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:78e2583649e849ef5a98c32883f428c7d503a2921246e33b00aaf9ffe9350f20
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sec-audit/references/standards-and-maturity.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:020fa5512998d4d5803a91fa257905a3e9dce2186a02a4e62f40503880704c6c
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sec-threat-modeling
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sec-threat-modeling/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:f2d6e39eabe1e73ae58ecb967dac785f671bb70b17dd373479c36e64ae13ab76
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sec-threat-modeling/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:6b10aa5aec67ed3b26bf11b0e65d931005b7a9d724ae5fc0cb4b275bd0a99368
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sec-threat-modeling/references/finding-threats.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:fb81b1468c25d090dc7b6f6bd2b820f4e650a5f9d99c0b1a89226bf68d1857f9
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sec-threat-modeling/references/risk-and-validation.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:7aae1335a5ee6c2b7d57b6035e264d622496c3f0a4f8199d8138488f44e3e167
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sec-tooling
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sec-tooling/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:b3193f5f6214bf93d50c40e9451ac993315494dd1c4c908f1fb73d32be384af0
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-sec-tooling/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:2326a3a717462754f4057a4d9bb54b8ba94c9682dec204642fc7a392ce5cb8b1
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-session-analysis
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-session-analysis/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:c892e488b2cbd2688d9f6a2e83f77be659abbe360a29546bf5ff2f58307860e4
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-session-analysis/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:a812450f3f9ec0a95bd24b4c8db17607135ca13e3ff2f974580d28019335670d
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-session-analysis/evals/script-contract-tests.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:33202ed948801586cf6145ae15ed4016fb53d2f481f4ad8e11a0dc7270db9c1d
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-session-analysis/evals/script-fixtures/basic/claude/session.jsonl
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:9041bafe85151aec46dbda05264c2d76c02f566508cd67b2daaefea0e605c6d7
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-session-analysis/evals/script-fixtures/basic/codex/session.jsonl
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:f49330554233580dfab4563d56b3286f22dffccb7dc25669b5013f09f6714f5a
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-session-analysis/evals/script-fixtures/basic/project/README.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:0baf168604350cefae457498370cdd9be46e8c1e80f7d9a0edfb9f8a991a9b44
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-session-analysis/evals/script-fixtures/existing/claude/session.jsonl
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:c6b8c083dc5b474f6b88f66f5928f845c6625af426275a80ca255328616e5822
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-session-analysis/evals/script-fixtures/existing/codex/session.jsonl
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:555b229c5caea7f0229d0ecfc3b5453eb5dd5542d364e4273646a4391c32a4af
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-session-analysis/evals/script-fixtures/existing/project/.ai-dev-team/local/session-analysis/candidate-run.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:547b8a378ac3a98c6f0d0f8326c028604423e6e62247d9947301c0a2307c8703
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-session-analysis/evals/script-fixtures/existing/project/.ai-dev-team/local/session-analysis/integrity.key
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:694ff60b8fa08c3df3bc8acf79dd84ea9da54b66cf1597d9ecc4bd6d02d446c8
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-session-analysis/evals/script-fixtures/existing/project/.ai-dev-team/local/session-analysis/state.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:547b8a378ac3a98c6f0d0f8326c028604423e6e62247d9947301c0a2307c8703
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-session-analysis/evals/script-fixtures/existing/project/README.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:0baf168604350cefae457498370cdd9be46e8c1e80f7d9a0edfb9f8a991a9b44
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-session-analysis/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:d1aa2156897f78c4a22c505ff88e05c9cd164703daf65e1d10162b05f1535cab
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-session-analysis/scripts/session_analysis.py
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:0dcfc48e666eccfdbe9629993526ec08ff68aa9e232b0048839b6e8d9766d140
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-session-report-review
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-session-report-review/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:2d18a0b6cf545be3bf136f2ac312e1840e31a3e12325e48560ebbca3292f4149
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-session-report-review/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:9846132e5c7e70b47fd12c20fb1ef72d0ef21fb80bbd6a86cbce6b5aadad03a8
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-session-report-review/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:669c2e99fe2a17a8719454e8ed6b77a406fc060d2364f974f3121b2f4aca9aca
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-setup
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-setup/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:68c70eb8195c2d50998af7547504516e5af656a7a9fa599184f035274e11ab4c
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-setup/assets/minimal-files.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:d8cf333631330712af41fc66ea8f7f560f96f290af578c23f65453aad70b3438
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-setup/assets/project-AGENTS.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:469d9c8bf6c25964046a9b996b4f4de1a7ae76bb833360425df8336f1b65bab2
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-setup/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:76acdc23e1e3b48742794145714945e66a68e4a740a16b7340d38646ef0404b8
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-setup/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:67aa2c447dbe50d782544c1f938ce8328e2959eac5b5daec0dd479482244c918
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-setup/references/setup-dialogue.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:5584973c843f7c2114c03a905ee8f1425803659f3baa6172eaddf5846682e2bc
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-twelve-factor
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-twelve-factor/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:71d3433780429be22abfef4c2444f24898b4eec64a1017c95ecb75dc24243ce0
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-twelve-factor/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:567db8b843f685f9903119ad4fda9b4562c2b9e6cb691cf3e0f5fac91e83d336
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-twelve-factor/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:325cabbae6ce7d57d897458583fe0764142861f706fdcd21211fa0a0c056df08
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-twelve-factor/references/factors.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:3c338180f9c0986888443978e4ead67efb0fcbe6a0fae2e8a90044bc1b9931a7
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-ui-kit
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-ui-kit/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:81a234a5e96ba0fb771ec4ea4c7469221798c1dfe5cc4d30fef07063d4857e56
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-ui-kit/assets/ui-kit-template.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:bc2da9ee7759518c7472c675c3131f140c7318dbe24b896c934f6434942e456e
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-ui-kit/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:2ab023d561377a310d44bf77b2173da99cbad592141c3b5b0141c0217f0496cc
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-ui-kit/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:fcc382c50ccd4b0daeb53238bfdb8506a852af5297fdec64e0f9c5a9a177d385
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-ui-kit/references/ui-kit-workflow.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:280306f0114c6167a38e48a220fee7ef16078d2127a7cdbe9c85271e9ddded53
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-ux-audit
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-ux-audit/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:dd030c7126f70799afce32befc0c09386f1c0ea1d0f0c72e473efbe8f43c8eea
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-ux-audit/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:965326ec2b9bd7bd56dfe50b32f795cf8c686fff112ad4ee5cbf2e73709739de
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-ux-audit/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:3bfc02dfa96de5f68a75f77fb071404fcb9a0e78265463901299345576fd6400
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-ux-design
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-ux-design/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:bb8b95adb2e878a3b2def7d8c2756440f2a533fb98374390a772a35e7ae4e0ae
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-ux-design/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:3e299708e8cb5800534b0f3b839bc1402a5e31f0f86b6143734114792f07c518
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-ux-design/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:ef8b6d10926db781b56f5038feb9fc03ff18b66200b00be3df0023d6bc13460c
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-ux-design/references/personas.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:9093f0a6aa7a976db31be3b7a64601588f5339d6ddee43823dcf312e97032200
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-ux-design/references/user-goals.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:a3de3020555de633d98cf134ec25218821629162a449133bb2a239bfa450cc77
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-writing
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-writing/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:0b1a0765934d42c9c3c432d6a0e08fd0ec47431f62a984adb6c0e5f7c532cbed
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-writing/assets/document-design-template.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:975920371a5fdbf1b347bf71e208d66c4aa64b031811f6bfd6da158e9f98d1f2
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-writing/assets/documentation-structure-template.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:04a69d31df10c996e578438f6baab337ad1db4d5784302da738e8bdc987bfad0
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-writing/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:a97bdb0a23a6423aa425f7e59f3d2c878df19718331f6ad8c9488254673b6863
+- kind: project-relative
+  target: agents
+  value: .agents/skills/ait-writing/evals/triggers.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:ff5b56a332fa8ac234a7162b77047f8627f3753310116e1c8b8cad99d26caee2
 - kind: project-relative
   target: claude
   value: .claude/agents/analyst.md
@@ -10834,2796 +13624,6 @@ deployments:
   - .
   active_owner: .
   content_hash: sha256:caaaebb82015e3061fab7f4fd929d038e4f71826bc812c44ae395cce1725ea67
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-analysis
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-analysis/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:9dd402cab3d01504d1cd537cc9841db16a4061214d2baea89b7ff9dfb5a26c8f
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-analysis/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:7ecfb8ac16ae387cc8fed1fd8c40da8c64b8d42650d6b95bc2f1a3ef67c0c23f
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-analysis/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:a8137c3527cf1880fe996f54dbb96c219023f21bfc9c0462119a0966692c14a7
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-arch-revalidation
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-arch-revalidation/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:7693d9e204c5dd88b503c458ad12796fa4f0a8252c09d38db07d884881833fe6
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-arch-revalidation/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:6b63cee56315a51ca3754774ac463b3daa550ae140e36ed711899be394ecab2c
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-arch-revalidation/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:3581658f9e0a38b741138f8a0f3dcc29653b19ee47e9ea2380f87e3c9dae56bf
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-architecture
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-architecture/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:87aa1c0102b53883556529af81ccafb6b6a51aacc8783c83aa0c90a8b9a0689b
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-architecture/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:a621f9a1c89b3328e91f1b43f32bfe0f9cbb39ebc75612ad73d719966d1424f1
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-architecture/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:ee96e9231387cc1b38866a00d01458668d55c9a1123f303cfe31826dab9d538d
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-architecture/references/api-design.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:44e4f40fd8468ddb31c03d03720552e135d4f0df28f1b1cb8ce55e9cb58a68eb
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-architecture/references/architectural-decisions.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:2d2cb04d1f18a667ed55bf687593fed51e83836e2150361cec874c8b6e723cee
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-architecture/references/architectural-forces.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:11076999f412aee483a58cd141c228b64f5dbb668ddde7ff2f2023731b553a6a
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-architecture/references/architecture-documentation.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:b6768556f7b6c0e883cf41cddf9eab656e923d59dfdb1cf36b198d3e6537633b
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-architecture/references/clean-architecture.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:f0b9fc294500b869fe3706c3ab0618e7042c1c622b1d65086979d27ef8aff99d
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-architecture/references/component-design.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:1e50c4f048ccb0775625798eb33dac0077017044974f2ba9e5de0bf78a8c49c6
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-architecture/references/core-principles.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:025bbe072717425aaf612293175b2b18c18e06884db791558648fd04a0b2a883
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-architecture/references/data-modeling.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:288bf42a14b146804d1c76a232e6da907324851debc6e9b35fd45f476e6c5b49
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-architecture/references/decomposition.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:b47a94f0dc360cffb03a2c71b05abe325b8be385688afc03e3941e466681e032
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-architecture/references/distributed-tradeoffs.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:9c81a6fb10a05dfccdc8f812d8762943a97345531d5a2653dc84149a1dc1da48
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-architecture/references/domain-modeling.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:608717c14d6fafc1ae3e5143aa3cad1aa13c56e88e2277582573a112cd90b521
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-architecture/references/evolutionary-architecture.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:2fcbed65a55e46291245b867d171f6759ae1269d24f25aea4c51e8424df04085
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-architecture/references/organization-principles.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:dbf7de0581b101418070257cc1121ef23aad9647e200f07dd798d3d0cd1bdc25
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-architecture/references/quality-criteria.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:05035f79cca5320329eaa1a8c8088af2457c1bc61e41c5bdbb21f61f787b6682
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-architecture/references/reliability.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:40efb3da69f6682fc57d423b788f6a71b8ad0fd4e402d9c052ef4d5c48eb12ab
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-architecture/references/system-complexity.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:119c2eeb8a1379875a91befd77e7e6dc245ad005bb64eb63d58d5ea0e047cca5
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-architecture/references/task-protocol.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:0b89c374dbf5f525a8bf723b2e0f684145ca57170d7c30387bf6d68da3d78c2f
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-changelog
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-changelog/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:22ee1491ece2a9a0aa3eb2dc2246bda19e2090b7130bbc2ec19ac72f9afde4e0
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-changelog/assets/changelog-template.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:43644f939888cb6fcd514ded875bd165eb7ea935d592f758c5884bcb18565074
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-changelog/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:0290d007db2aea139a018d2b47e91e45f680e5cec6d08b99178760a983062038
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-changelog/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:1ad6e3f98d31d078afc51b11bb122945c482fd4854a9b16b4569bd00394b622d
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-code-construction
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-code-construction/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:bb7b2934b20356bbaf0083864cee90dae6c85d25912d5f6cc3fe0679a971afae
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-code-construction/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:4b18fb06b12a13ed9729d2aa8205da2cb96fa06ec366d462e81afa404e8b5221
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-code-construction/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:6eb3f3bd43b2c707b97ed6722e86fd361aa1ba3392118e99827b649d06430837
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-code-review
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-code-review/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:100ccc9936e8bac706c89d54679efd3da0a769695f9ba1d63169cc8a9ea38652
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-code-review/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:59edb7f6b5e20f69b9c34b2f0796f875b86d5c102a73b951c49c425f028a76fe
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-code-review/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:84a1b019fae9a239f1d627d041937b1cfacb4df571202f401b85773c2c91fba3
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-code-testing
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-code-testing/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:07f80102e8f653efcfa10f1edefbe7545d329ac132a8835a9770614bf4f52141
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-code-testing/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:a6bcd0088fd4e57aace76a7b4bfca43720002bb26a46a7e616bb66ed3c7c315e
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-code-testing/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:11ebcc4ffc4beccba42c8de7b044e8d394cabc34ea982ce608d2d884fea50959
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-commit-messages
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-commit-messages/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:ed97133e5cba1147ec4b9201557f0368e83965bde2cf75ec48da3966cadf9ed8
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-commit-messages/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:76a2def455151ce5bb34e49fef730483f630374e524623b4149f72865e9c5691
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-commit-messages/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:494bd1f41c487d947afa3627dc7d8c9843f87c01262b45eeab776f40f5b41d77
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-commit-messages/references/schemes.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:5ac4944287e5ec5f2df1df4a8c5d8b1df0e101f8536068225f5468123d9d6a04
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-decisions
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-decisions/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:74134c7de91d3a7e1d39a766c51b61afb14f5d9a76dc1aabf4a68cd2b83b8add
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-decisions/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:8cb396f6aa3408f556d5ce6662b21e5302f842fdc6a1cf392213a20fe0cb7a04
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-decisions/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:7dd803f9a98ff29d8e3ad3ef1cb85e6d5f6eb62c11e2459662ffe07e22322f7f
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-decisions/references/decision-templates.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:ab947e96b32019e84e68cf9a19ed4a7aca25a08743ea0db5819d012fa91525ac
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-decisions/references/decision-workflow.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:993a9dd3da028a048f5a95889283d0784cef31a905edbb9982888ea8d275de0d
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-docs-concept
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-docs-concept/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:34dc70fb57e7fc019be10079ddea93c5a7988c4c1fad9cd2b8c9cc89f9c344d7
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-docs-concept/assets/concept-template.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:a5a0bb35495bef7ae6b2bf6b391c6ac2122bd5d5a097dbbf5f21df01673b7cf7
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-docs-concept/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:89f6da9b83573d8f95bb9acb0e9cc30c4f07eb2955c4655d47f92bf29da881d9
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-docs-concept/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:e9eb8012a5463071ecaba25a44fb5740c555551de6ca67d38080a0bfceed752c
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-docs-concept/references/concept-dialogue.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:5cc4d63d44f9780162af63708d61bc487a7cd99cb2e7069763f81a5ee0545250
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-docs-structure-audit
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-docs-structure-audit/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:fc99fc4706b40270cdb52dbb42946f93312eb3152759b6d427b8d0855dc1a1b9
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-docs-structure-audit/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:2955e0ab97dbd7a8c585aa9e616810bf85cf614e3e5cabb7e8a8017544a5ac58
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-docs-structure-audit/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:b1850d991d32d380ff872d3142f78540bdd503e59f99f7c30c7184f1fc55e9b3
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-docs-structure-design
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-docs-structure-design/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:ec2a173365e693a8e570ecea893ae7e91e7556899be57da05c416bd0da85a1e9
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-docs-structure-design/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:1a78aba8a8734feeb2e0dc05783ad6d06b0b25daab2deaab1c6e043fafb25553
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-docs-structure-design/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:a7596455997a8cd091b02b6e434924b564b2b66b1c840c70345cb76bbccb9786
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-docs-structure-rules
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-docs-structure-rules/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:8b1107c36e7474ce7531e9c8bbf719ddb7039ff06f3c3a6ec9b14d6f37b9d50e
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-docs-structure-rules/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:0b6cb81e12c788a9013e9f64381023aeb5556bd5ee8ad4fad5802f67328f60ad
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-hypotheses
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-hypotheses/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:76624569cc90ee900675299f6cec3a8e808d860671a39a153d51eaed2a656224
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-hypotheses/assets/hypothesis-index-template.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:eedf4eeb37c97cb1de869b81115f6f321e4dc9b0b2ca7493f792700faca4ed6c
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-hypotheses/assets/hypothesis-record-template.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:0aff18fd6ee051f3a1cc153c5e834600d51e1d8b6fdc4e75d7392bb8fe5c0cb7
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-hypotheses/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:7f163a3a9e503a7f3bbdd8b360148e22d59a7d2af48bb2eb9c8e77f350792cd0
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-hypotheses/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:d01dcd0ef068c8051604c558d5ff076b88276609c3db8da4110ed8ff730d4584
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-hypotheses/references/hypothesis-workflow.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:68915a926ee849afb99330646761263d1852d61da093fabdce0597b894a44fbd
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-impact-analysis
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-impact-analysis/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:df1216b3b965af597495c53e1bd4e301ea3f70dca1622982adc28c3c197f7a54
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-impact-analysis/assets/project-impact-template.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:c2911570be850f202d611d6a569b0906c58516a5a0b98f6a879fe9a7c114b276
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-impact-analysis/assets/project-verification-template.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:bbe23fd5466e9d9e126a97bbddef5a53a08e9173b04cdce6bf00d2776073774f
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-impact-analysis/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:895f766b3b6f6d904484aad6153c6c84eb65bf09e1e2273b61f91e50c0972b6c
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-impact-analysis/evals/script-contract-tests.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:f5a3455dbf246367b58091b8ff8f4cba4a60a4837fb1ad94843e7b474e2bbe9f
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-impact-analysis/evals/script-fixtures/minimal-project/.ai-dev-team/project-impact.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:f6eca67a76d77b5e80dfefcab1b2825c670e09a94c690f061e01f537d32ac06c
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-impact-analysis/evals/script-fixtures/minimal-project/.ai-dev-team/project-verification.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:3191d1cf09f3c0c9f8960166c409f888a4420053cf7923e9d4af9e3f623865a7
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-impact-analysis/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:d7fa135d4578ce57e2976295919c6e7f3dc118c1e12c07a68375541772c1c522
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-impact-analysis/references/impact-graph-contract.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:3681cc4a75ed0c31b756fc744bac04816ac1b862bd49d85dc086ceddcca4f382
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-impact-analysis/references/selective-verification.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:29fd89e622cb34e0436d19c3999fea682bbd51fa65fbf7d1704d04e9aab48a90
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-impact-analysis/scripts/impact_graph.py
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:cc13f63c12d8897ce4fd60f211740097d72ec2176dd6b64695aa34c0d5aab091
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-impact-analysis/scripts/selective_verification.py
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:e7e67fad304b1f326694c59b9aff4d6f0df6fb58e9cc2fa3c422eafd07fd5e51
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-interface-design
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-interface-design/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:8859a7829c4608426490ea09a56de88c568bdce2fd70b9d52b1e3b7921549566
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-interface-design/evals/fixtures/copy-action-with-layout-defect.html
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:d982026e0d3f0d9f5fd1d1e8e9719d483e2ddb4cbfc863f39944c7921846825b
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-interface-design/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:f171de3b2ce135182b78f940d3e9d7398e0e851e81faf328033f7c3052ac8c3b
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-interface-design/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:0819900bc0d8b768448380ca79e4be8b0e274e00b2595b144240a6a9eef481a4
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-interface-design/references/interface-design-workflow.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:103fafe2bd3b9a39b67c97884a21cd1fe62515b9a1754b4fd25ebc4092f6d9a9
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-licensing
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-licensing/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:f70b3e9d22b4832f916ed00ae44e00a2013538d394c0e054a9311558c364cb3f
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-licensing/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:425f51dbf95893558b55f113206af661abbfff7a52e438d906e03660532422ab
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-licensing/references/license-comparison.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:2376bbdd543251073b59384720e0765c1f9ce3ad7a2e53addf8d5d8f83c50a22
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-personal-data
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-personal-data/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:cfeff143eb490a0d82ec08a274dca7e19de51eb30668088048b38e221f908049
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-personal-data/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:ad227696552dca597662660c6c9c061364c3a496ddd6a010694bc73c9c27b795
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-personal-data/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:b92b706464113ac05ccf5eb2595a9238d5a306d966ae33f13696b7bfb3622d78
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-personal-data/references/russian-personal-data-workflow.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:0c63744bc4011afec71bc54c86f1f999bc4272c49a0d4d8f78db908645e9a781
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-private-knowledge
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-private-knowledge/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:36d3742074063095aaee4fafc9f4f6442b8b36256cdf2b5097b4c3d2b7bac41a
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-private-knowledge/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:5d51382a7050ff1b40b6d613419a65cfeed7c8ca3dad8e662ef1d6ff0fdf4696
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-private-knowledge/references/local-layer.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:1a63b55c3b88daf6b2692177fbb26b669cf695bd96b0d6fb2d09dabde485953b
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:f24da988ee6533dca18dd86ac5f06b88fc738d7a6e978c6c67e335a5573cfe27
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:2c210be42e2464f9f90f80d150749ba10d045e1048ab5ff57e5f6be638d40af6
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-contract-tests.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:000f276262a400d0e54a1ba67510632d7093f2104ff8013ad300b84a05a7de5f
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/code-review-workflow-project/.agents/skills/ait-code-review/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:91ce2a503d0f7505395cb50218e6904ddc0229d6757321c20cd281f8140cfb5d
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/code-review-workflow-project/.agents/skills/ait-code-review/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:854fc849869528ad18a1329feb809e553d21888c8f73fa525b9d55cd983619dd
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/code-review-workflow-project/.agents/skills/ait-docs-concept/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:298aef38f6d22c05d6753547693795c146424d08ab1cdf683fd2f75d5e672dea
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/code-review-workflow-project/.agents/skills/ait-docs-concept/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:1ab806f78a34d1af389a697833725ef76ce74221d0a27a14d35df4b17024f164
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/code-review-workflow-project/AGENTS.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:a4c85a2e17e4c5e297eebf3488e40b7b75bf3cb26b5871387c733c9a46da4da6
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/code-review-workflow-project/docs/concept.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:9f1055f390ee535ed6835b80d606ebd8766941deb3be158fc96fadb9dec33065
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/code-review-workflow-project/prepare.py
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:39417f4df383f3ef30d9bf0c74e09142fd4346daaba006f5bded4962127d4733
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/code-review-workflow-project/src/module.py
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:05c8b8a9bf65d522a08d3a6b6b98aaa19d0572870fc73ef4b9d94b53fe59c1da
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/full-workflow-project/.agents/skills/ait-docs-concept/SKILL.md.fixture
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:40c541c80175d14fe9543452308bf05c88a9361cc1c92732a7ff6d43b140ca59
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/full-workflow-project/.ai-dev-team/project-impact.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:af286b8ca229023745dce6c5852f96d7ce83b2b4bcec630be6b3c936d39b436d
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/full-workflow-project/.claude/agents/analyst.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:17362c7a523bc567fb34c07faf2e4c80ca42c85d54fc74fc4ac811c53a521cf0
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/full-workflow-project/AGENTS.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:e85d513663e59237c415eedbfb537db391dfee878a4718e564567946de83eac6
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/full-workflow-project/CLAUDE.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:74f4f95a15bf9701b3d97dd650eeef134ae2f4354067c03472e8f966c465b101
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/full-workflow-project/apm.lock.yaml
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:a6b28a81ce730d3e3a844e528fa070274202f8ece343e14550bd7756c1105462
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/full-workflow-project/docs/concept.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:f93e62c360da7ae4a0f87d28b91063400db7b3d1289608292f673049925cb5c0
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/full-workflow-project/src/module.py
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:cc42155088fca5730758db72b2a5bca33112a941dfaa2d43098ec422ce4ea213
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/.agents/skills/ait-code-review/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:91ce2a503d0f7505395cb50218e6904ddc0229d6757321c20cd281f8140cfb5d
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/.agents/skills/ait-code-review/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:efeb11a965d57b90f1e84568f516a2092b6cecb710cadbd713e39ad14d2c027d
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/.agents/skills/ait-docs-concept/SKILL.md.fixture
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:40c541c80175d14fe9543452308bf05c88a9361cc1c92732a7ff6d43b140ca59
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/.agents/skills/ait-req-revalidation/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:6dc30dd0c7507d176f91d7873f85f64b6e50af10f6ecfc159f949f73c8910395
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/.agents/skills/ait-req-revalidation/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:5d4a7553cc5a19e5c2da7279876e1cf6394bb8c9e49b11d35df680b14e23d770
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/.agents/skills/kc-validation/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:5b01827e75cdaf6aa684920d048cace29517d34e2299f67e29cb31852c4dd5dc
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/.agents/skills/kc-validation/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:2e8e1ba57f27c90bb08bf714b9fcfa8fe06fef36bcd084a322a5982e6fdee53d
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/.ai-dev-team/project-impact.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:a51bc8bc07c32d11c4e581b2f310116baa4b6f5e64b2dd9e1006cdc9cababd32
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/.gitignore
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:62252dffbe441b241fa2482d7e71ede613fc97a8ef7ab16796a84123e196bc17
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/AGENTS.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:e85d513663e59237c415eedbfb537db391dfee878a4718e564567946de83eac6
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/docs/concept.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:c81ca6b7d58d710b9a56eab635f8855f7ecfd45bcb8b7623c88fa93743066828
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/docs/index.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:b1375ade90e532dd11eea0ea28b2f7a6676607d75eca90f3aa7b88e5a5d7b934
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/knowledge/catalog.yml
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:bd28bf6cc2d7525b91de9e516fd5c8d5f7a740db7a7381bcd80f106745f7a4f8
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/knowledge/corpus.yml
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:b6cddab03633381b3aa41dc2b24170dec16505f918e942d0faeefc62ca5ab843
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/knowledge/data/test/raw.local.txt
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:db36abccb84988a4036478802874c62264ce74e826f7823df94a96ba69f1008f
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/knowledge/data/test/response-headers.txt
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:8daf148509303d3254aacff2124001d514084181d375b220fd2963dab88dd379
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/knowledge/data/test/source.yml
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:ed8419079105bd7ecaa18b07b64e649bed57156a69ac38bba73826711516910c
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/knowledge/data/test/statements.yml
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:396361ed1a3dffcbe1208c3a06bf8011285d7381324f1a10b8bd0f51297cd7a6
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/knowledge/index.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:50eb443fa796e5950e5e488cc5ed8f31161b7709d0a78cc87145f0e64f0c91f0
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/knowledge/statement.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:5af5bf042ed3328d5293ad92ea9ce49450507e56737b7fef3313c38e61507705
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/prepare.py
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:f62ae1d315c8787185233fe02ef68a6410bca23e86a2b7c26c89de0c448a5456
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/knowledge-workflow-project/src/module.py
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:05c8b8a9bf65d522a08d3a6b6b98aaa19d0572870fc73ef4b9d94b53fe59c1da
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/minimal-git-project-with-optional-inputs/AGENTS.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:90bed9f30a4628629ac5001c519a6e22fd7ba28811435ebb9ee3e07549cae25c
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/minimal-git-project-with-optional-inputs/CLAUDE.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:74f4f95a15bf9701b3d97dd650eeef134ae2f4354067c03472e8f966c465b101
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/minimal-git-project-with-optional-inputs/apm.lock.yaml
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:a6b28a81ce730d3e3a844e528fa070274202f8ece343e14550bd7756c1105462
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/minimal-git-project-with-optional-inputs/capabilities.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:2aa0058cf6e558785657c6063cd98b18e32c8ee2a903c79b2b3f0b7c7efa7dfe
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/script-fixtures/minimal-git-project/capabilities.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:db8015c4fce9574949ce95291ec61b9a4a290a642cde1758d6b843d8e421b250
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:331b5d92912641452d0a49d8a611d3d6fef418d2b7cbd53f1a56fccf4ff1356e
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/references/capabilities.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:abbc76094c53082e6bf20de80f5181cca6e63c5a37e5c601af18b6bc9eef3702
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/references/controller.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:8cfe37ccdf80e0d0ff45ce4becbcfb13141c31066e418daad2f43089a20aaa04
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/references/workflow.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:0fc8c943e3c311563130aae6299985d6acd0861c7800fe6df1ef93b3756dfc79
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-project-revalidation/scripts/project_review.py
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:df832f547868c4ecfe54da2e206457b21de11e6bf5c24bf84a842d33877a5506
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-readme
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-readme/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:ad3e09da08a28810b15b728e2762a20cee5c09cfa94ca2edc4f23d03ad7fa34e
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-readme/evals/apm-skill-collection.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:d537a695d52d4722cc650c650a4698db97411621ef6e9b6b40bba0ecc5984f62
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-readme/evals/installation-vs-project-connection.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:cb5ae5e32bead5a2624e5c6680e292e0815a78e11b95238c22c1dd1f06f7af63
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-readme/evals/openclaw-skills-regression.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:b48190de29c662632ee631353b84005094c1ac7b598861513e24179246320dd2
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-readme/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:d71c13761faff119c903bcff147b44e83197002feb0c28e757734a4f67ba889e
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-readme/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:095c8649d0fc0e8eb8d0b42245146515f32f05ec7d8d3c7c594047564b7f9a61
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-readme/evals/user-entry.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:9143e4111b9327f3d1eb18a4940ff2c701db7909dd0413a4013a97b783aaf154
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-readme/references/apm-skill-collections.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:feb4f02cea15065ceb8cf966d036ecb44a79483d1cdc6782b4a427e400820db4
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-reconstructability
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-reconstructability/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:5dbffe85de18dcdf02c60ff475ba869b44076acb064f069bac5c8cf8b0bfd606
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-reconstructability/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:0e33ae5ea0591f3c816bfc20b74cf79ad94031371fd79974823ab78cb7bdefa8
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-reconstructability/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:3d4da7f3a251ff9b1709ccb940ca3859ec8856b7cf9f35efb8780a1692d99e19
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-reliability
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-reliability/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:c973ff542e6aa23ffe5b0f04734b2e8399cffeb374c478036a5fc24bcd0c1844
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-reliability/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:2fd9d6a5c3ea113bdb4dcda44d4c95d8cace2e7198416bf0f4c6455728eb5d6d
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-reliability/references/concepts.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:093d1c0313833c27eed1d86ac5b08489a0d7e4516a895cfcc77748d4c3bfee7a
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-reliability/references/operational-reliability.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:2d8f3fd5759f730293dfc59fb7c3139b604c85dbb822fff29d6be6d5064ad2f8
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-analysis
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-analysis/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:710dcba44ed09c854b936a267b6032a85f1435c4cf2962ddfdf6bb4c67fa9139
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-analysis/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:713a654d48b0eb24f9ecc546c1451615b0b9ce45474d8f54c0fd37fc04b7360c
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-analysis/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:9dbe2bd05dd0d01d4d79c4622bbfd525f8d250a99aa64660292d202459bd6240
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-analysis/references/business-rules.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:f676034d1d24b504eca99597fa2191f2152631581ce6c55cbd07ad25b46083cf
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-analysis/references/guiding-statements.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:3272e3a040117d4a4f96be3927dc05a67b3c9db2a9e5ebb3c4cac97c3c86499c
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-elicitation
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-elicitation/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:c927532a1d0445eb4d30048a2a90b671408ac5a1147a0b107279cd40b4b860f6
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-elicitation/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:96d6c1314e0b66efc27ae4e4db1e352632b65bc3bcdeab0cee0f1acd24cb5d10
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-elicitation/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:02524f8ed97d73973ba8915d068b50e099d31e616357971bc43cd40032e78971
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-management
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-management/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:84fa72aebb819f70f047e9f2f96a6c7e02404c6b2c2fecc3873f3fbd3497d986
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-management/assets/requirements-management-template.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:3278c51742157f47c180ca2f5441cc420fae085b4dcf6f22a59d3980ada53bea
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-management/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:58d60f1ebb922259545bb6a0397adaee5416e3bd4dfa53689486edaab9cd1b8f
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-management/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:913de6154eeaa299dfbc1968a9a3b06075a1a5c2feac28da83f1a8620a21ad1b
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-refactoring
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-refactoring/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:d23dba7264c4663fd895685e0efdda52959132eca36adf48bb6226b988e33a75
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-refactoring/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:794fefa5a72a1f72716d365e9fe4e1fe78828b26c2b1f05191d7d6a4feba86e5
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-refactoring/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:3b65cd289fb247eebffdd7b4e9e17a2bde54db3208211ed85ad8600439b3bd1b
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-revalidation
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-revalidation/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:24e2e6b176b797056db4eb3ebc09b1ad048e7e772db5c341aada7ed6e1b832ef
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-revalidation/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:01d06f12bfc04817f66c9af6b5114acaf3e78d83eccf5a38a71af73ed59932d5
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-revalidation/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:be5d7e2e69f7eaa9750b3853946dd30532d89085ad8112df6ebfebd6f6bc3bb9
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-specification
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-specification/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:5bee427de7e7e5832400a535c870641993d6cf96001a11ebe5afb0d73557a74e
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-specification/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:25fe19cc8c9adba29e832e4edf8e612d68ec0227a5fa3edaa354cdcb819399c8
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-specification/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:802adb22f94269cebfd8b57e73d2b173d70fc03bd9c5b4bb64726bc736b2bb37
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-specification/references/gost-tech-task.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:8b6e16ee1ea44b5a3f1a6d5561e705d13578389392d3c440b43026351b3324ab
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-specification/references/maintainability-requirements.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:6cf5de5e7e4339724c37eb1b0a13b8fb5d6c5df116bb2a1a12b5423c88d69d5f
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-specification/references/quality-characteristics.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:5b9ae9ccdf90048ec3259b09c7d6204cfb47ed084454f1b97ccfaf52402472e6
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-specification/references/reliability-requirements.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:404cbc365dcca516085cbfa1540c978b504a46c39aec93e2f1483834ae36a12c
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-specification/references/use-case-templates.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:47ea49887ceab1ec75d64e4213ff00abe22fbd6b36a68f9d97596ebc31601d3c
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-validation
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-validation/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:6d4aba5263b129b9aa67d9b9a0f7b362d8fb10f168447f8c37ba58897b1bc603
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-validation/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:cd52966277a9072c18df9f5aa42dff3e2cf9491a0224f2de720980294902c331
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-req-validation/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:51f0be0044202c0e2e11d90b11cb97e79eeddfe6b09be05a76ecb3b7f223ac0d
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-routing
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-routing/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:1cba6268c8594142a13cb19fe1e5fb1509fc69015acfccb54f8ba45c291e3bb2
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-routing/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:6c07377778ef6a6a04e86427f1e7dfb47a76a20ebb4961bf723a14b755950bd0
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-routing/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:56fe16c31d3fbee74139fc1c2bbc1e1f5dd4202202628c12b5a853fb3c69eeef
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-routing/references/skill-index.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:b4f8483a411c231b591c838618452a92996946ab703e1d50f0733d5ae4caa67c
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-scrum
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-scrum/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:d592e5d0f2315a2999dbacdbdf9dbd12250f2433ebb3effc32a46461a352ca1a
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-scrum/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:e04873eaeb1ca9cf70ef88ff8ecc119b9e1293bd06f7058a9e0d1d57e4968749
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-scrum/references/adoption-scaling.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:a44f7f4f1e85978cccda2f221c46b06daadc900fcea2e9ea3053f93aa2828302
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-scrum/references/engineering-quality.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:8f5b96fbcce050641f7fd812dd431ab19f3e78cdc1427e4e6ad164085ae36a0f
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-scrum/references/estimation-planning.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:f78bf73894f17986b721e58adf221c02cd1d597f55d81a054247d0085930d5b3
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-scrum/references/events-artifacts.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:e225910751a1a0c3b94282032f723b749fe3fcc569d956848e149880101c4a3a
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-scrum/references/roles.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:3fbe4824b51107a05d6bc8c777abfbcf2d329e3b62eba4b148128456db87fe44
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sdd
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sdd/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:aad871c0e0822262aeb9e0c12e77f1814b67a79b5c4d38baa77cda8d3f9ae60e
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sdd/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:9a12d92b7d5d1f586fe7057604f4edb30578660c76bea3f3ff3c4d6ac172b9c7
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sdd/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:52658257b7d515e7b40fd7558c1dbe563be81bf50b597b08300a9b20aeef61da
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sec-access-control
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sec-access-control/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:e229f7256ce3c3fa335e6508d0b1d704899df55d45bd9e89d3e4b9d26cc09526
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sec-access-control/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:61ba8ddf31e2616e97a683abe748286c01ee6aaf70903a2da22447cb70fcddc4
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sec-access-control/references/dharma.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:1a19780cc753075af9cc47cd64b2409b0d9a2060175a526968f3277d908aa3c9
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sec-ai
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sec-ai/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:57ddd7d0e938cc4bf7d2a4cbf4ea207bb730e1a099f0898b639af613b234cee2
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sec-ai/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:e94e01713b3e8ae4a4d9e82f126efa2813702d6255ddd9e1909a71235def9af7
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sec-ai/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:a939df0d5ad4329eeec47c77a04560fcfdd2c37d64e40a8cfd080ea56d1b9878
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sec-ai/references/ai-security-scope.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:8464970adef806fb97c345a34b423c8858563aabf71625b514ba513a9fa06d36
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sec-audit
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sec-audit/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:37f02699d850da154f54664d1aede74beed045ebcdf0a11ff8289beac245f225
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sec-audit/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:78e2583649e849ef5a98c32883f428c7d503a2921246e33b00aaf9ffe9350f20
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sec-audit/references/standards-and-maturity.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:020fa5512998d4d5803a91fa257905a3e9dce2186a02a4e62f40503880704c6c
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sec-threat-modeling
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sec-threat-modeling/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:f2d6e39eabe1e73ae58ecb967dac785f671bb70b17dd373479c36e64ae13ab76
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sec-threat-modeling/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:6b10aa5aec67ed3b26bf11b0e65d931005b7a9d724ae5fc0cb4b275bd0a99368
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sec-threat-modeling/references/finding-threats.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:fb81b1468c25d090dc7b6f6bd2b820f4e650a5f9d99c0b1a89226bf68d1857f9
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sec-threat-modeling/references/risk-and-validation.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:7aae1335a5ee6c2b7d57b6035e264d622496c3f0a4f8199d8138488f44e3e167
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sec-tooling
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sec-tooling/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:b3193f5f6214bf93d50c40e9451ac993315494dd1c4c908f1fb73d32be384af0
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-sec-tooling/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:2326a3a717462754f4057a4d9bb54b8ba94c9682dec204642fc7a392ce5cb8b1
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-session-analysis
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-session-analysis/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:c892e488b2cbd2688d9f6a2e83f77be659abbe360a29546bf5ff2f58307860e4
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-session-analysis/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:a812450f3f9ec0a95bd24b4c8db17607135ca13e3ff2f974580d28019335670d
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-session-analysis/evals/script-contract-tests.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:33202ed948801586cf6145ae15ed4016fb53d2f481f4ad8e11a0dc7270db9c1d
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-session-analysis/evals/script-fixtures/basic/claude/session.jsonl
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:9041bafe85151aec46dbda05264c2d76c02f566508cd67b2daaefea0e605c6d7
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-session-analysis/evals/script-fixtures/basic/codex/session.jsonl
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:f49330554233580dfab4563d56b3286f22dffccb7dc25669b5013f09f6714f5a
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-session-analysis/evals/script-fixtures/basic/project/README.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:0baf168604350cefae457498370cdd9be46e8c1e80f7d9a0edfb9f8a991a9b44
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-session-analysis/evals/script-fixtures/existing/claude/session.jsonl
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:c6b8c083dc5b474f6b88f66f5928f845c6625af426275a80ca255328616e5822
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-session-analysis/evals/script-fixtures/existing/codex/session.jsonl
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:555b229c5caea7f0229d0ecfc3b5453eb5dd5542d364e4273646a4391c32a4af
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-session-analysis/evals/script-fixtures/existing/project/.ai-dev-team/local/session-analysis/candidate-run.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:547b8a378ac3a98c6f0d0f8326c028604423e6e62247d9947301c0a2307c8703
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-session-analysis/evals/script-fixtures/existing/project/.ai-dev-team/local/session-analysis/integrity.key
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:694ff60b8fa08c3df3bc8acf79dd84ea9da54b66cf1597d9ecc4bd6d02d446c8
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-session-analysis/evals/script-fixtures/existing/project/.ai-dev-team/local/session-analysis/state.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:547b8a378ac3a98c6f0d0f8326c028604423e6e62247d9947301c0a2307c8703
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-session-analysis/evals/script-fixtures/existing/project/README.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:0baf168604350cefae457498370cdd9be46e8c1e80f7d9a0edfb9f8a991a9b44
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-session-analysis/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:d1aa2156897f78c4a22c505ff88e05c9cd164703daf65e1d10162b05f1535cab
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-session-analysis/scripts/session_analysis.py
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:0dcfc48e666eccfdbe9629993526ec08ff68aa9e232b0048839b6e8d9766d140
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-session-report-review
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-session-report-review/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:2d18a0b6cf545be3bf136f2ac312e1840e31a3e12325e48560ebbca3292f4149
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-session-report-review/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:9846132e5c7e70b47fd12c20fb1ef72d0ef21fb80bbd6a86cbce6b5aadad03a8
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-session-report-review/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:669c2e99fe2a17a8719454e8ed6b77a406fc060d2364f974f3121b2f4aca9aca
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-setup
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-setup/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:68c70eb8195c2d50998af7547504516e5af656a7a9fa599184f035274e11ab4c
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-setup/assets/minimal-files.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:d8cf333631330712af41fc66ea8f7f560f96f290af578c23f65453aad70b3438
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-setup/assets/project-AGENTS.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:469d9c8bf6c25964046a9b996b4f4de1a7ae76bb833360425df8336f1b65bab2
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-setup/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:76acdc23e1e3b48742794145714945e66a68e4a740a16b7340d38646ef0404b8
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-setup/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:67aa2c447dbe50d782544c1f938ce8328e2959eac5b5daec0dd479482244c918
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-setup/references/setup-dialogue.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:5584973c843f7c2114c03a905ee8f1425803659f3baa6172eaddf5846682e2bc
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-twelve-factor
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-twelve-factor/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:71d3433780429be22abfef4c2444f24898b4eec64a1017c95ecb75dc24243ce0
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-twelve-factor/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:567db8b843f685f9903119ad4fda9b4562c2b9e6cb691cf3e0f5fac91e83d336
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-twelve-factor/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:325cabbae6ce7d57d897458583fe0764142861f706fdcd21211fa0a0c056df08
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-twelve-factor/references/factors.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:3c338180f9c0986888443978e4ead67efb0fcbe6a0fae2e8a90044bc1b9931a7
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-ui-kit
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-ui-kit/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:81a234a5e96ba0fb771ec4ea4c7469221798c1dfe5cc4d30fef07063d4857e56
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-ui-kit/assets/ui-kit-template.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:bc2da9ee7759518c7472c675c3131f140c7318dbe24b896c934f6434942e456e
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-ui-kit/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:2ab023d561377a310d44bf77b2173da99cbad592141c3b5b0141c0217f0496cc
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-ui-kit/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:fcc382c50ccd4b0daeb53238bfdb8506a852af5297fdec64e0f9c5a9a177d385
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-ui-kit/references/ui-kit-workflow.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:280306f0114c6167a38e48a220fee7ef16078d2127a7cdbe9c85271e9ddded53
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-ux-audit
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-ux-audit/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:dd030c7126f70799afce32befc0c09386f1c0ea1d0f0c72e473efbe8f43c8eea
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-ux-audit/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:965326ec2b9bd7bd56dfe50b32f795cf8c686fff112ad4ee5cbf2e73709739de
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-ux-audit/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:3bfc02dfa96de5f68a75f77fb071404fcb9a0e78265463901299345576fd6400
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-ux-design
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-ux-design/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:bb8b95adb2e878a3b2def7d8c2756440f2a533fb98374390a772a35e7ae4e0ae
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-ux-design/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:3e299708e8cb5800534b0f3b839bc1402a5e31f0f86b6143734114792f07c518
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-ux-design/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:ef8b6d10926db781b56f5038feb9fc03ff18b66200b00be3df0023d6bc13460c
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-ux-design/references/personas.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:9093f0a6aa7a976db31be3b7a64601588f5339d6ddee43823dcf312e97032200
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-ux-design/references/user-goals.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:a3de3020555de633d98cf134ec25218821629162a449133bb2a239bfa450cc77
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-writing
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: null
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-writing/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:0b1a0765934d42c9c3c432d6a0e08fd0ec47431f62a984adb6c0e5f7c532cbed
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-writing/assets/document-design-template.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:975920371a5fdbf1b347bf71e208d66c4aa64b031811f6bfd6da158e9f98d1f2
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-writing/assets/documentation-structure-template.md
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:04a69d31df10c996e578438f6baab337ad1db4d5784302da738e8bdc987bfad0
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-writing/evals/result-scenarios.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:a97bdb0a23a6423aa425f7e59f3d2c878df19718331f6ad8c9488254673b6863
-- kind: project-relative
-  target: legacy
-  value: .agents/skills/ait-writing/evals/triggers.json
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:ff5b56a332fa8ac234a7162b77047f8627f3753310116e1c8b8cad99d26caee2
 local_deployed_files:
 - .agents/skills/ait-analysis
 - .agents/skills/ait-analysis/SKILL.md
