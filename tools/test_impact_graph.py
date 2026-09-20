@@ -270,6 +270,101 @@ class ImpactGraphTests(unittest.TestCase):
         with self.assertRaisesRegex(impact_graph.ContractError, "unsupported status"):
             impact_graph.parse_statuses(["tests=owner_decision"])
 
+    def test_edge_accepts_optional_basis_boolean(self) -> None:
+        data = sample_graph()
+        data["edges"][0]["basis"] = True
+        data["edges"][1]["basis"] = False
+
+        graph = impact_graph.validate_graph(data)
+
+        self.assertTrue(graph["edges"][0]["basis"])
+        self.assertFalse(graph["edges"][1]["basis"])
+
+    def test_edge_rejects_non_boolean_basis(self) -> None:
+        data = sample_graph()
+        data["edges"][0]["basis"] = "true"
+
+        with self.assertRaisesRegex(
+            impact_graph.ContractError,
+            "basis: expected boolean",
+        ):
+            impact_graph.validate_graph(data)
+
+    def test_basis_field_does_not_change_trace_result(self) -> None:
+        without_basis = impact_graph.validate_graph(sample_graph())
+        result_without_basis = impact_graph.trace_result(
+            without_basis,
+            [],
+            ["docs/concept.md"],
+            "semantic",
+        )
+
+        with_basis = sample_graph()
+        with_basis["edges"][0]["basis"] = False
+        with_basis["edges"][1]["basis"] = True
+        with_basis = impact_graph.validate_graph(with_basis)
+        result_with_basis = impact_graph.trace_result(
+            with_basis,
+            [],
+            ["docs/concept.md"],
+            "semantic",
+        )
+
+        self.assertEqual(
+            [item["id"] for item in result_without_basis["affected"]],
+            [item["id"] for item in result_with_basis["affected"]],
+        )
+
+    def test_validate_reports_basis_cycle_without_blocking_trace(self) -> None:
+        data = sample_graph()
+        data["schema_version"] = 2
+        for node in data["nodes"]:
+            node["semantic_type"] = f"{node['id']} artifact"
+            node["authority"] = "canonical"
+        data["edges"][0]["basis"] = True
+        data["edges"][1]["basis"] = True
+        data["edges"].append(
+            {
+                "from": "implementation",
+                "to": "concept",
+                "relation": "informs",
+                "facets": ["semantic"],
+                "rationale": "Implementation feedback reopens the concept.",
+                "basis": True,
+            },
+        )
+
+        graph = impact_graph.validate_graph(data)
+        result, exit_code = impact_graph.validation_result(graph)
+
+        self.assertEqual(exit_code, 3)
+        self.assertEqual(result["status"], "ok")
+        self.assertTrue(result["semantic_model"])
+        self.assertEqual(result["problems"][0]["code"], "basis-cycle")
+
+        trace = impact_graph.trace_result(graph, [], ["docs/concept.md"], "semantic")
+        self.assertEqual(
+            [item["id"] for item in trace["affected"]],
+            ["implementation", "requirements", "tests"],
+        )
+
+    def test_find_basis_cycle_ignores_non_basis_edges(self) -> None:
+        data = sample_graph()
+        data["edges"][0]["basis"] = True
+        data["edges"].append(
+            {
+                "from": "implementation",
+                "to": "concept",
+                "relation": "informs",
+                "facets": ["semantic"],
+                "rationale": "Not a basis edge, so no cycle among basis edges.",
+                "basis": False,
+            },
+        )
+        graph = impact_graph.validate_graph(data)
+
+        self.assertIsNone(impact_graph.find_basis_cycle(graph))
+
     def test_invalid_edge_target_is_rejected(self) -> None:
         data = sample_graph()
         data["edges"][0]["to"] = "missing"
