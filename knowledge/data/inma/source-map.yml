@@ -104,11 +104,13 @@ coverage:
   units:
     - unit_id: front-matter
       status: postponed
+      blocker_code: owner_decision_required
       reason: Сплошное извлечение знаний ещё не выполнено.
       artifacts: []
       statements: []
     - unit_id: introduction
       status: postponed
+      blocker_code: owner_decision_required
       reason: Есть частичный фрагмент, но сплошной охват не проверен.
       artifacts:
         - items/fragment-process/process-before-code.md
@@ -118,46 +120,55 @@ coverage:
         - items/fragment-process/statements.yml#INMA-003
     - unit_id: chapter-01
       status: postponed
+      blocker_code: owner_decision_required
       reason: Сплошное извлечение знаний ещё не выполнено.
       artifacts: []
       statements: []
     - unit_id: chapter-02
       status: postponed
+      blocker_code: owner_decision_required
       reason: Сплошное извлечение знаний ещё не выполнено.
       artifacts: []
       statements: []
     - unit_id: chapter-03
       status: postponed
+      blocker_code: owner_decision_required
       reason: Сплошное извлечение знаний ещё не выполнено.
       artifacts: []
       statements: []
     - unit_id: chapter-04
       status: postponed
+      blocker_code: owner_decision_required
       reason: Сплошное извлечение знаний ещё не выполнено.
       artifacts: []
       statements: []
     - unit_id: chapter-05
       status: postponed
+      blocker_code: owner_decision_required
       reason: Сплошное извлечение знаний ещё не выполнено.
       artifacts: []
       statements: []
     - unit_id: chapter-06
       status: postponed
+      blocker_code: owner_decision_required
       reason: Сплошное извлечение знаний ещё не выполнено.
       artifacts: []
       statements: []
     - unit_id: chapter-07
       status: postponed
+      blocker_code: owner_decision_required
       reason: Сплошное извлечение знаний ещё не выполнено.
       artifacts: []
       statements: []
     - unit_id: chapter-08
       status: postponed
+      blocker_code: owner_decision_required
       reason: Сплошное извлечение знаний ещё не выполнено.
       artifacts: []
       statements: []
     - unit_id: chapter-09
       status: postponed
+      blocker_code: owner_decision_required
       reason: >-
         Основные разделы о выявлении и конкретизации персонажей обработаны,
         но сплошной охват главы не проверен.
@@ -173,6 +184,7 @@ coverage:
         - items/fragment-personas/statements.yml#INMA-028
     - unit_id: chapter-10
       status: postponed
+      blocker_code: owner_decision_required
       reason: >-
         Разделы о целях и их примерах обработаны. Остальная часть
         главы о поведении и вежливости продукта ещё не извлечена.
@@ -194,6 +206,7 @@ coverage:
         - items/fragment-personas/statements.yml#INMA-023
     - unit_id: chapter-11
       status: postponed
+      blocker_code: owner_decision_required
       reason: Сценарии обработаны частично, сплошной охват главы не проверен.
       artifacts:
         - items/fragment-personas/personas-goals-scenarios.md
@@ -203,16 +216,19 @@ coverage:
         - items/fragment-personas/statements.yml#INMA-012
     - unit_id: chapter-12
       status: postponed
+      blocker_code: owner_decision_required
       reason: Сплошное извлечение знаний ещё не выполнено.
       artifacts: []
       statements: []
     - unit_id: chapter-13
       status: postponed
+      blocker_code: owner_decision_required
       reason: Сплошное извлечение знаний ещё не выполнено.
       artifacts: []
       statements: []
     - unit_id: chapter-14
       status: postponed
+      blocker_code: owner_decision_required
       reason: Сплошное извлечение знаний ещё не выполнено.
       artifacts: []
       statements: []

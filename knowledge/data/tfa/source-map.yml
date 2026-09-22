@@ -65,57 +65,57 @@ structure:
 coverage:
   units:
     - unit_id: introduction
-      status: "извлечено"
+      status: extracted
       artifacts: [items/normalized-tfa-source.md/source.md]
       statements:
         - items/normalized-tfa-source.md/statements.yml#TFA-001
         - items/normalized-tfa-source.md/statements.yml#TFA-014
     - unit_id: codebase
-      status: "извлечено"
+      status: extracted
       artifacts: [items/normalized-tfa-source.md/source.md]
       statements: [items/normalized-tfa-source.md/statements.yml#TFA-002]
     - unit_id: dependencies
-      status: "извлечено"
+      status: extracted
       artifacts: [items/normalized-tfa-source.md/source.md]
       statements: [items/normalized-tfa-source.md/statements.yml#TFA-003]
     - unit_id: config
-      status: "извлечено"
+      status: extracted
       artifacts: [items/normalized-tfa-source.md/source.md]
       statements: [items/normalized-tfa-source.md/statements.yml#TFA-004]
     - unit_id: backing-services
-      status: "извлечено"
+      status: extracted
       artifacts: [items/normalized-tfa-source.md/source.md]
       statements: [items/normalized-tfa-source.md/statements.yml#TFA-005]
     - unit_id: build-release-run
-      status: "извлечено"
+      status: extracted
       artifacts: [items/normalized-tfa-source.md/source.md]
       statements: [items/normalized-tfa-source.md/statements.yml#TFA-006]
     - unit_id: processes
-      status: "извлечено"
+      status: extracted
       artifacts: [items/normalized-tfa-source.md/source.md]
       statements: [items/normalized-tfa-source.md/statements.yml#TFA-007]
     - unit_id: port-binding
-      status: "извлечено"
+      status: extracted
       artifacts: [items/normalized-tfa-source.md/source.md]
       statements: [items/normalized-tfa-source.md/statements.yml#TFA-008]
     - unit_id: concurrency
-      status: "извлечено"
+      status: extracted
       artifacts: [items/normalized-tfa-source.md/source.md]
       statements: [items/normalized-tfa-source.md/statements.yml#TFA-009]
     - unit_id: disposability
-      status: "извлечено"
+      status: extracted
       artifacts: [items/normalized-tfa-source.md/source.md]
       statements: [items/normalized-tfa-source.md/statements.yml#TFA-010]
     - unit_id: dev-prod-parity
-      status: "извлечено"
+      status: extracted
       artifacts: [items/normalized-tfa-source.md/source.md]
       statements: [items/normalized-tfa-source.md/statements.yml#TFA-011]
     - unit_id: logs
-      status: "извлечено"
+      status: extracted
       artifacts: [items/normalized-tfa-source.md/source.md]
       statements: [items/normalized-tfa-source.md/statements.yml#TFA-012]
     - unit_id: admin-processes
-      status: "извлечено"
+      status: extracted
       artifacts: [items/normalized-tfa-source.md/source.md]
       statements: [items/normalized-tfa-source.md/statements.yml#TFA-013]
 publication_limitations:
