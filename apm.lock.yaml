@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-10-07T08:59:04.382620+00:00'
+generated_at: '2026-10-07T10:25:15.880866+00:00'
 apm_version: 0.31.0
 dependencies:
 - repo_url: mekras/apm-marketplace
@@ -9649,7 +9649,25 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:f2d6e39eabe1e73ae58ecb967dac785f671bb70b17dd373479c36e64ae13ab76
+  content_hash: sha256:284f70e52962b9cdba69fff97bd4e41227d6a4e1b14802d50c20acf3279f4bdb
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ait-sec-threat-modeling/assets/threat-model-template.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:0006b1c3811cb5a2daf27df0765594195251e5400fe472899134850f4946327f
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ait-sec-threat-modeling/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:cdef01efdc563a057214bd02d0c2af9aad471eeddba178ed400e5e48b3378c57
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-sec-threat-modeling/evals/triggers.json
@@ -9661,6 +9679,24 @@ deployments:
   content_hash: sha256:6b10aa5aec67ed3b26bf11b0e65d931005b7a9d724ae5fc0cb4b275bd0a99368
 - kind: project-relative
   target: claude
+  value: .claude/skills/ait-sec-threat-modeling/references/adaptation-source.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:ada1d0bd5598605c1eedb4f367c94a844afd8a4e15f1db3c9df93c83e6e3b60d
+- kind: project-relative
+  target: claude
+  value: .claude/skills/ait-sec-threat-modeling/references/coverage-and-traceability.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:7ff586099a57ccf91cb7ee07553d6018fc3ade1dfb7757791539da5f79d4c41e
+- kind: project-relative
+  target: claude
   value: .claude/skills/ait-sec-threat-modeling/references/finding-threats.md
   runtime: null
   scope: project
@@ -9670,13 +9706,22 @@ deployments:
   content_hash: sha256:fb81b1468c25d090dc7b6f6bd2b820f4e650a5f9d99c0b1a89226bf68d1857f9
 - kind: project-relative
   target: claude
+  value: .claude/skills/ait-sec-threat-modeling/references/modern-threat-model-LICENSE.txt
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:be94cac55701e5d552ced8a8eef85487f6f1dd2614ab4dc3c112c303134737d6
+- kind: project-relative
+  target: claude
   value: .claude/skills/ait-sec-threat-modeling/references/risk-and-validation.md
   runtime: null
   scope: project
   owners:
   - .
   active_owner: .
-  content_hash: sha256:7aae1335a5ee6c2b7d57b6035e264d622496c3f0a4f8199d8138488f44e3e167
+  content_hash: sha256:c4df62bf37ac2c273c88c085c3875c4f9dfa74170a3dd78f27f0389244176b9d
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-sec-tooling
@@ -14311,7 +14356,25 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:f2d6e39eabe1e73ae58ecb967dac785f671bb70b17dd373479c36e64ae13ab76
+  content_hash: sha256:284f70e52962b9cdba69fff97bd4e41227d6a4e1b14802d50c20acf3279f4bdb
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/ait-sec-threat-modeling/assets/threat-model-template.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:0006b1c3811cb5a2daf27df0765594195251e5400fe472899134850f4946327f
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/ait-sec-threat-modeling/evals/result-scenarios.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:cdef01efdc563a057214bd02d0c2af9aad471eeddba178ed400e5e48b3378c57
 - kind: project-relative
   target: legacy
   value: .agents/skills/ait-sec-threat-modeling/evals/triggers.json
@@ -14323,6 +14386,24 @@ deployments:
   content_hash: sha256:6b10aa5aec67ed3b26bf11b0e65d931005b7a9d724ae5fc0cb4b275bd0a99368
 - kind: project-relative
   target: legacy
+  value: .agents/skills/ait-sec-threat-modeling/references/adaptation-source.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:ada1d0bd5598605c1eedb4f367c94a844afd8a4e15f1db3c9df93c83e6e3b60d
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/ait-sec-threat-modeling/references/coverage-and-traceability.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:7ff586099a57ccf91cb7ee07553d6018fc3ade1dfb7757791539da5f79d4c41e
+- kind: project-relative
+  target: legacy
   value: .agents/skills/ait-sec-threat-modeling/references/finding-threats.md
   runtime: null
   scope: project
@@ -14332,13 +14413,22 @@ deployments:
   content_hash: sha256:fb81b1468c25d090dc7b6f6bd2b820f4e650a5f9d99c0b1a89226bf68d1857f9
 - kind: project-relative
   target: legacy
+  value: .agents/skills/ait-sec-threat-modeling/references/modern-threat-model-LICENSE.txt
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:be94cac55701e5d552ced8a8eef85487f6f1dd2614ab4dc3c112c303134737d6
+- kind: project-relative
+  target: legacy
   value: .agents/skills/ait-sec-threat-modeling/references/risk-and-validation.md
   runtime: null
   scope: project
   owners:
   - .
   active_owner: .
-  content_hash: sha256:7aae1335a5ee6c2b7d57b6035e264d622496c3f0a4f8199d8138488f44e3e167
+  content_hash: sha256:c4df62bf37ac2c273c88c085c3875c4f9dfa74170a3dd78f27f0389244176b9d
 - kind: project-relative
   target: legacy
   value: .agents/skills/ait-sec-tooling
@@ -15104,8 +15194,13 @@ local_deployed_files:
 - .agents/skills/ait-sec-audit/references/standards-and-maturity.md
 - .agents/skills/ait-sec-threat-modeling
 - .agents/skills/ait-sec-threat-modeling/SKILL.md
+- .agents/skills/ait-sec-threat-modeling/assets/threat-model-template.md
+- .agents/skills/ait-sec-threat-modeling/evals/result-scenarios.json
 - .agents/skills/ait-sec-threat-modeling/evals/triggers.json
+- .agents/skills/ait-sec-threat-modeling/references/adaptation-source.md
+- .agents/skills/ait-sec-threat-modeling/references/coverage-and-traceability.md
 - .agents/skills/ait-sec-threat-modeling/references/finding-threats.md
+- .agents/skills/ait-sec-threat-modeling/references/modern-threat-model-LICENSE.txt
 - .agents/skills/ait-sec-threat-modeling/references/risk-and-validation.md
 - .agents/skills/ait-sec-tooling
 - .agents/skills/ait-sec-tooling/SKILL.md
@@ -15429,8 +15524,13 @@ local_deployed_files:
 - .claude/skills/ait-sec-audit/references/standards-and-maturity.md
 - .claude/skills/ait-sec-threat-modeling
 - .claude/skills/ait-sec-threat-modeling/SKILL.md
+- .claude/skills/ait-sec-threat-modeling/assets/threat-model-template.md
+- .claude/skills/ait-sec-threat-modeling/evals/result-scenarios.json
 - .claude/skills/ait-sec-threat-modeling/evals/triggers.json
+- .claude/skills/ait-sec-threat-modeling/references/adaptation-source.md
+- .claude/skills/ait-sec-threat-modeling/references/coverage-and-traceability.md
 - .claude/skills/ait-sec-threat-modeling/references/finding-threats.md
+- .claude/skills/ait-sec-threat-modeling/references/modern-threat-model-LICENSE.txt
 - .claude/skills/ait-sec-threat-modeling/references/risk-and-validation.md
 - .claude/skills/ait-sec-tooling
 - .claude/skills/ait-sec-tooling/SKILL.md
@@ -15730,10 +15830,15 @@ local_deployed_file_hashes:
   .agents/skills/ait-sec-audit/SKILL.md: sha256:37f02699d850da154f54664d1aede74beed045ebcdf0a11ff8289beac245f225
   .agents/skills/ait-sec-audit/evals/triggers.json: sha256:78e2583649e849ef5a98c32883f428c7d503a2921246e33b00aaf9ffe9350f20
   .agents/skills/ait-sec-audit/references/standards-and-maturity.md: sha256:020fa5512998d4d5803a91fa257905a3e9dce2186a02a4e62f40503880704c6c
-  .agents/skills/ait-sec-threat-modeling/SKILL.md: sha256:f2d6e39eabe1e73ae58ecb967dac785f671bb70b17dd373479c36e64ae13ab76
+  .agents/skills/ait-sec-threat-modeling/SKILL.md: sha256:284f70e52962b9cdba69fff97bd4e41227d6a4e1b14802d50c20acf3279f4bdb
+  .agents/skills/ait-sec-threat-modeling/assets/threat-model-template.md: sha256:0006b1c3811cb5a2daf27df0765594195251e5400fe472899134850f4946327f
+  .agents/skills/ait-sec-threat-modeling/evals/result-scenarios.json: sha256:cdef01efdc563a057214bd02d0c2af9aad471eeddba178ed400e5e48b3378c57
   .agents/skills/ait-sec-threat-modeling/evals/triggers.json: sha256:6b10aa5aec67ed3b26bf11b0e65d931005b7a9d724ae5fc0cb4b275bd0a99368
+  .agents/skills/ait-sec-threat-modeling/references/adaptation-source.md: sha256:ada1d0bd5598605c1eedb4f367c94a844afd8a4e15f1db3c9df93c83e6e3b60d
+  .agents/skills/ait-sec-threat-modeling/references/coverage-and-traceability.md: sha256:7ff586099a57ccf91cb7ee07553d6018fc3ade1dfb7757791539da5f79d4c41e
   .agents/skills/ait-sec-threat-modeling/references/finding-threats.md: sha256:fb81b1468c25d090dc7b6f6bd2b820f4e650a5f9d99c0b1a89226bf68d1857f9
-  .agents/skills/ait-sec-threat-modeling/references/risk-and-validation.md: sha256:7aae1335a5ee6c2b7d57b6035e264d622496c3f0a4f8199d8138488f44e3e167
+  .agents/skills/ait-sec-threat-modeling/references/modern-threat-model-LICENSE.txt: sha256:be94cac55701e5d552ced8a8eef85487f6f1dd2614ab4dc3c112c303134737d6
+  .agents/skills/ait-sec-threat-modeling/references/risk-and-validation.md: sha256:c4df62bf37ac2c273c88c085c3875c4f9dfa74170a3dd78f27f0389244176b9d
   .agents/skills/ait-sec-tooling/SKILL.md: sha256:b3193f5f6214bf93d50c40e9451ac993315494dd1c4c908f1fb73d32be384af0
   .agents/skills/ait-sec-tooling/evals/triggers.json: sha256:2326a3a717462754f4057a4d9bb54b8ba94c9682dec204642fc7a392ce5cb8b1
   .agents/skills/ait-session-analysis/SKILL.md: sha256:c892e488b2cbd2688d9f6a2e83f77be659abbe360a29546bf5ff2f58307860e4
@@ -16025,10 +16130,15 @@ local_deployed_file_hashes:
   .claude/skills/ait-sec-audit/SKILL.md: sha256:37f02699d850da154f54664d1aede74beed045ebcdf0a11ff8289beac245f225
   .claude/skills/ait-sec-audit/evals/triggers.json: sha256:78e2583649e849ef5a98c32883f428c7d503a2921246e33b00aaf9ffe9350f20
   .claude/skills/ait-sec-audit/references/standards-and-maturity.md: sha256:020fa5512998d4d5803a91fa257905a3e9dce2186a02a4e62f40503880704c6c
-  .claude/skills/ait-sec-threat-modeling/SKILL.md: sha256:f2d6e39eabe1e73ae58ecb967dac785f671bb70b17dd373479c36e64ae13ab76
+  .claude/skills/ait-sec-threat-modeling/SKILL.md: sha256:284f70e52962b9cdba69fff97bd4e41227d6a4e1b14802d50c20acf3279f4bdb
+  .claude/skills/ait-sec-threat-modeling/assets/threat-model-template.md: sha256:0006b1c3811cb5a2daf27df0765594195251e5400fe472899134850f4946327f
+  .claude/skills/ait-sec-threat-modeling/evals/result-scenarios.json: sha256:cdef01efdc563a057214bd02d0c2af9aad471eeddba178ed400e5e48b3378c57
   .claude/skills/ait-sec-threat-modeling/evals/triggers.json: sha256:6b10aa5aec67ed3b26bf11b0e65d931005b7a9d724ae5fc0cb4b275bd0a99368
+  .claude/skills/ait-sec-threat-modeling/references/adaptation-source.md: sha256:ada1d0bd5598605c1eedb4f367c94a844afd8a4e15f1db3c9df93c83e6e3b60d
+  .claude/skills/ait-sec-threat-modeling/references/coverage-and-traceability.md: sha256:7ff586099a57ccf91cb7ee07553d6018fc3ade1dfb7757791539da5f79d4c41e
   .claude/skills/ait-sec-threat-modeling/references/finding-threats.md: sha256:fb81b1468c25d090dc7b6f6bd2b820f4e650a5f9d99c0b1a89226bf68d1857f9
-  .claude/skills/ait-sec-threat-modeling/references/risk-and-validation.md: sha256:7aae1335a5ee6c2b7d57b6035e264d622496c3f0a4f8199d8138488f44e3e167
+  .claude/skills/ait-sec-threat-modeling/references/modern-threat-model-LICENSE.txt: sha256:be94cac55701e5d552ced8a8eef85487f6f1dd2614ab4dc3c112c303134737d6
+  .claude/skills/ait-sec-threat-modeling/references/risk-and-validation.md: sha256:c4df62bf37ac2c273c88c085c3875c4f9dfa74170a3dd78f27f0389244176b9d
   .claude/skills/ait-sec-tooling/SKILL.md: sha256:b3193f5f6214bf93d50c40e9451ac993315494dd1c4c908f1fb73d32be384af0
   .claude/skills/ait-sec-tooling/evals/triggers.json: sha256:2326a3a717462754f4057a4d9bb54b8ba94c9682dec204642fc7a392ce5cb8b1
   .claude/skills/ait-session-analysis/SKILL.md: sha256:c892e488b2cbd2688d9f6a2e83f77be659abbe360a29546bf5ff2f58307860e4
