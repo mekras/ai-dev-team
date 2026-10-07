@@ -4,19 +4,34 @@ import glob
 import json
 import os
 from pathlib import Path
+import sys
+
+# Русские сообщения не должны падать на консоли с однобайтовой кодировкой.
+for _stream in (sys.stdout, sys.stderr):
+    _reconfigure = getattr(_stream, "reconfigure", None)
+    if _reconfigure is not None:
+        _reconfigure(encoding="utf-8", errors="replace")
 
 
-HISTORICAL_COMMON_LIMIT_MODELS = {
-    "gpt-5.4",
-    "gpt-5.4-mini",
-    "gpt-5.5",
-}
-COMMON_LIMIT_MODELS = HISTORICAL_COMMON_LIMIT_MODELS | {
-    "gpt-5.6-luna",
-    "gpt-5.6-sol",
-    "gpt-5.6-terra",
-}
-SEPARATE_LIMIT_MODELS = {"gpt-5.3-codex-spark"}
+DEFAULT_COMMON_LIMIT_MODELS = set()
+DEFAULT_SEPARATE_LIMIT_MODELS = set()
+
+
+def env_model_set(name, default):
+    raw = os.environ.get(name)
+    if raw is None:
+        return set(default)
+    return {item.strip() for item in raw.split(",") if item.strip()}
+
+
+COMMON_LIMIT_MODELS = env_model_set(
+    "CODEX_COMMON_LIMIT_MODELS",
+    DEFAULT_COMMON_LIMIT_MODELS,
+)
+SEPARATE_LIMIT_MODELS = env_model_set(
+    "CODEX_SEPARATE_LIMIT_MODELS",
+    DEFAULT_SEPARATE_LIMIT_MODELS,
+)
 
 
 def read_jsonl(path):
@@ -34,7 +49,8 @@ def read_jsonl(path):
 def find_session(thread_id):
     if not thread_id:
         return None
-    root = Path.home() / ".codex" / "sessions"
+    codex_home = Path(os.environ.get("CODEX_HOME", Path.home() / ".codex"))
+    root = codex_home / "sessions"
     pattern = str(root / "**" / f"*{thread_id}.jsonl")
     matches = glob.glob(pattern, recursive=True)
     return matches[0] if matches else None
@@ -236,7 +252,7 @@ def print_simple(rows):
         label = {
             "common": "общий лимит",
             "separate": "отдельный лимит",
-            "unknown": "неизвестный лимит",
+            "unknown": "лимит не настроен (CODEX_COMMON_LIMIT_MODELS/CODEX_SEPARATE_LIMIT_MODELS)",
         }[limit]
         print(f"- {label}: {format_tokens(data['tokens'])} токенов, запусков: {data['runs']}")
 
@@ -246,7 +262,7 @@ def print_simple(rows):
         label = {
             "common": "общий лимит",
             "separate": "отдельный лимит",
-            "unknown": "неизвестный лимит",
+            "unknown": "лимит не настроен (CODEX_COMMON_LIMIT_MODELS/CODEX_SEPARATE_LIMIT_MODELS)",
         }[data["limit_class"]]
         print(
             f"- {model}: {format_tokens(data['tokens'])} токенов, "

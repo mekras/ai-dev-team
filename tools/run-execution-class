@@ -1,0 +1,383 @@
+#!/usr/bin/env python3
+"""Запустить класс исполнения через локальный адаптер оснастки."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import runpy
+import shlex
+import signal
+import subprocess
+import sys
+import threading
+import time
+import tomllib
+import uuid
+from pathlib import Path
+from typing import Any
+
+# Русские сообщения не должны падать на консоли с однобайтовой кодировкой.
+for _stream in (sys.stdout, sys.stderr):
+    _reconfigure = getattr(_stream, "reconfigure", None)
+    if _reconfigure is not None:
+        _reconfigure(encoding="utf-8", errors="replace")
+
+verify_model = runpy.run_path(
+    str(Path(__file__).resolve().parent / "lib/model_evidence.py")
+)["verify_model"]
+
+
+def assignment(
+    data: dict[str, Any], target: str, execution_class: str
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    classes = data.get("execution_classes")
+    if not isinstance(classes, dict):
+        raise ValueError("не найдена таблица execution_classes")
+    contract = classes.get(execution_class)
+    if not isinstance(contract, dict):
+        raise ValueError(f"не найден класс {execution_class}")
+
+    targets = data.get("targets")
+    target_data = targets.get(target) if isinstance(targets, dict) else None
+    assignments = (
+        target_data.get("execution_classes")
+        if isinstance(target_data, dict)
+        else None
+    )
+    configured = assignments.get(execution_class) if isinstance(assignments, dict) else None
+    if not isinstance(configured, dict):
+        raise ValueError(f"для {target} не найдено назначение класса {execution_class}")
+    return contract, configured
+
+
+def command(value: object) -> list[str]:
+    if isinstance(value, str):
+        result = shlex.split(value)
+    elif isinstance(value, list) and all(isinstance(item, str) for item in value):
+        result = value
+    else:
+        result = []
+    if not result:
+        raise ValueError("adapter должен быть непустой командой")
+    return result
+
+
+def model_matches(configured: dict[str, Any], actual: object) -> bool:
+    if not isinstance(actual, str) or not actual:
+        return False
+    model = configured.get("model")
+    if actual == model:
+        return True
+    prefix = configured.get("actual_model_prefix")
+    return isinstance(prefix, str) and bool(prefix) and actual.startswith(prefix)
+
+
+def input_files(values: list[str], parser: argparse.ArgumentParser) -> list[str]:
+    result = []
+    for value in values:
+        path = Path(value).resolve()
+        if not path.is_file():
+            parser.error(f"входной файл не найден: {value}")
+        result.append(str(path))
+    return result
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(
+        description="Запустить класс исполнения через локальный адаптер оснастки."
+    )
+    parser.add_argument("execution_class")
+    parser.add_argument("--target", required=True)
+    parser.add_argument("--config", type=Path, default=Path("subagents.local.toml"))
+    parser.add_argument("--input", action="append", default=[])
+    parser.add_argument("--out", type=Path, default=Path(".codex/subagents"))
+    parser.add_argument(
+        "--timeout-seconds",
+        type=float,
+        help="ограничение времени адаптера в секундах",
+    )
+    parser.add_argument(
+        "--obligation",
+        help="идентификатор обязательства профильной роли, которое обслуживает запуск",
+    )
+    args = parser.parse_args()
+    if args.timeout_seconds is not None and args.timeout_seconds <= 0:
+        parser.error("--timeout-seconds должен быть больше нуля")
+
+    try:
+        data = tomllib.loads(args.config.read_text(encoding="utf-8"))
+        contract, configured = assignment(data, args.target, args.execution_class)
+        model = configured.get("model")
+        effort = configured.get("effort")
+        sandbox = configured.get("sandbox")
+        adapter = command(configured.get("adapter"))
+        if not all(
+            isinstance(value, str) and value for value in (model, effort, sandbox)
+        ):
+            raise ValueError("у назначения обязательны model, effort и sandbox")
+    except (OSError, ValueError, tomllib.TOMLDecodeError) as error:
+        parser.error(f"ошибка настройки: {error}")
+
+    files = input_files(args.input, parser)
+    task = sys.stdin.read()
+    if not task.strip():
+        parser.error("задание для класса исполнения пусто: передайте непустой текст через stdin")
+    request = {
+        "execution_class": args.execution_class,
+        "contract": contract,
+        "inputs": files,
+        "task": task,
+    }
+    args.out.mkdir(parents=True, exist_ok=True)
+    started = time.time()
+    run_id = str(uuid.uuid4())
+    prefix = f"{int(started)}-{args.target}-{args.execution_class}-{run_id}"
+    final = args.out / f"{prefix}.final.txt"
+    transport = args.out / f"{prefix}.transport.txt"
+    transport_header = args.out / f"{prefix}.transport-header.json"
+    record_path = args.out / f"{prefix}.json"
+    stderr_path = args.out / f"{prefix}.stderr.txt"
+    journal = args.out / f"{prefix}.jsonl"
+    codex_stderr_path = args.out / f"{prefix}.codex.stderr.txt"
+
+    def write_record(data: dict[str, Any]) -> None:
+        temporary = record_path.with_suffix(record_path.suffix + ".tmp")
+        temporary.write_text(
+            json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+        temporary.replace(record_path)
+
+    initial_record = {
+        "run_id": run_id,
+        "execution_class": args.execution_class,
+        "target": args.target,
+        "assigned_model": model,
+        "assigned_effort": effort,
+        "effort": effort,
+        "sandbox": sandbox,
+        "inputs": files,
+        "contract": contract,
+        "command": {
+            "adapter_executable": Path(adapter[0]).name,
+            "adapter_argument_count": len(adapter),
+            "model": model,
+            "effort": effort,
+            "sandbox": sandbox,
+        },
+        "environment": {
+            "codex_home_configured": bool(os.environ.get("CODEX_HOME")),
+            "nested_codex_context": any(
+                os.environ.get(name) for name in ("CODEX_SESSION_ID", "CODEX_THREAD_ID")
+            ),
+        },
+        "final": str(final),
+        "result_path": str(final),
+        "transport_path": str(transport),
+        "transport_header_path": None,
+        "stderr": str(stderr_path),
+        "journal": str(journal),
+        "codex_stderr": str(codex_stderr_path),
+        "status": "started",
+        "termination_confirmed": False,
+        "started_at": started,
+    }
+    write_record(initial_record)
+    for path in (transport, stderr_path, journal, codex_stderr_path):
+        path.touch()
+    environment = {
+        **os.environ,
+        "CODEX_ROLE_LOG": str(journal),
+        "CLAUDE_ROLE_LOG": str(journal),
+        "CODEX_ROLE_STDERR": str(codex_stderr_path),
+    }
+    process: subprocess.Popen[str] | None = None
+    def interrupt(signum: int, _frame: object) -> None:
+        write_record(
+            {
+                **initial_record,
+                "status": "interrupted",
+                "signal": signal.Signals(signum).name,
+                "interrupted_at": time.time(),
+                "termination_confirmed": False,
+            }
+        )
+        raise KeyboardInterrupt
+
+    previous_handlers = {
+        signum: signal.signal(signum, interrupt)
+        for signum in (signal.SIGINT, signal.SIGTERM)
+    }
+    stdout_parts: list[str] = []
+
+    def copy_stream(stream: Any, path: Path, parts: list[str] | None) -> None:
+        with path.open("a", encoding="utf-8") as destination:
+            while chunk := stream.readline():
+                destination.write(chunk)
+                destination.flush()
+                if parts is not None:
+                    parts.append(chunk)
+
+    try:
+        process = subprocess.Popen(
+            [*adapter, model, effort, sandbox],
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            env=environment,
+        )
+        assert process.stdin is not None
+        assert process.stdout is not None
+        assert process.stderr is not None
+        process.stdin.write(json.dumps(request, ensure_ascii=False))
+        process.stdin.close()
+        readers = [
+            threading.Thread(target=copy_stream, args=(process.stdout, transport, stdout_parts)),
+            threading.Thread(target=copy_stream, args=(process.stderr, stderr_path, None)),
+        ]
+        for reader in readers:
+            reader.start()
+        try:
+            returncode = process.wait(timeout=args.timeout_seconds)
+            timed_out = False
+        except subprocess.TimeoutExpired:
+            timed_out = True
+            process.terminate()
+            try:
+                returncode = process.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                process.kill()
+                returncode = process.wait()
+        for reader in readers:
+            reader.join()
+    except KeyboardInterrupt:
+        if process is not None and process.poll() is None:
+            process.terminate()
+        raise
+    except OSError as error:
+        write_record(
+            {
+                **initial_record,
+                "status": "failed",
+                "stop_reason": "launch_error",
+                "error": str(error),
+                "completed_at": time.time(),
+                "termination_confirmed": True,
+            }
+        )
+        print(json.dumps({**initial_record, "status": "failed", "stop_reason": "launch_error"}, ensure_ascii=False), file=sys.stderr)
+        return 2
+    finally:
+        for signum, handler in previous_handlers.items():
+            signal.signal(signum, handler)
+
+    completed_stdout = "".join(stdout_parts)
+
+    try:
+        header_line, _separator, result = completed_stdout.partition("\n")
+        header = json.loads(header_line)
+    except (IndexError, json.JSONDecodeError):
+        header = {}
+        header_line = ""
+        result = completed_stdout
+    if header_line:
+        transport_header.write_text(header_line + "\n", encoding="utf-8")
+    final.write_text(result, encoding="utf-8")
+    result_nonempty = bool(result.strip())
+    turn_completed = header.get("turn_completed") if isinstance(header, dict) else None
+    if timed_out:
+        stop_reason = "timeout"
+    elif returncode:
+        stop_reason = "process_exit_nonzero"
+    elif turn_completed is False:
+        stop_reason = "model_turn_not_completed"
+    elif not result_nonempty:
+        stop_reason = "empty_model_result"
+    else:
+        stop_reason = None
+    evidence = verify_model(
+        header,
+        journal,
+        assigned_model=model,
+        assigned_effort=effort,
+    )
+    actual = evidence["actual_model"]
+    assigned_model_matches = model_matches(configured, actual) if actual else None
+    if assigned_model_matches is not None:
+        evidence["model_matches"] = assigned_model_matches
+        if evidence["client_model_status"] == "confirmed":
+            evidence["client_model_matches"] = assigned_model_matches
+        if evidence["server_model_status"] == "confirmed":
+            evidence["server_model_matches"] = assigned_model_matches
+    if (
+        evidence["model_matches"] is True
+        and evidence["client_model_status"] == "confirmed"
+        and evidence["effort_matches"] is not False
+    ):
+        evidence["client_route_status"] = (
+            "confirmed"
+            if evidence["effort_matches"] is True
+            else "model_only"
+        )
+    notice = header.get("model_notice") if isinstance(header, dict) else None
+    usage = header.get("usage") if isinstance(header, dict) else None
+    record = {
+        **initial_record,
+        "run_id": run_id,
+        "execution_class": args.execution_class,
+        "target": args.target,
+        "assigned_model": model,
+        "assigned_effort": effort,
+        **evidence,
+        "reported_model": header.get("model") if isinstance(header, dict) else None,
+        "model_matches": assigned_model_matches,
+        "reported_effort": header.get("effort") if isinstance(header, dict) else None,
+        "model_notice": notice,
+        "usage": usage,
+        "effort": effort,
+        "sandbox": sandbox,
+        "inputs": files,
+        "contract": contract,
+        "final": str(final),
+        "result_path": str(final),
+        "transport_path": str(transport),
+        "transport_header_path": str(transport_header) if header_line else None,
+        "result_available": final.is_file(),
+        "result_file_available": final.is_file(),
+        "result_nonempty": result_nonempty,
+        "result_usable": result_nonempty and stop_reason is None,
+        "turn_completed": turn_completed,
+        "stop_reason": stop_reason,
+        "stderr": str(stderr_path),
+        "journal": str(journal),
+        "seconds": round(time.time() - started, 3),
+        "returncode": returncode,
+        "status": "timed_out" if timed_out else ("failed" if returncode else "completed"),
+        "completed_at": time.time(),
+        "termination_confirmed": True,
+    }
+    if args.obligation is not None:
+        record["obligation_id"] = args.obligation
+    write_record(record)
+    if returncode:
+        print(json.dumps(record, ensure_ascii=False), file=sys.stderr)
+        return 2
+    if stop_reason is not None:
+        print(json.dumps(record, ensure_ascii=False), file=sys.stderr)
+        return 4
+    if (
+        record["model_matches"] is not True
+        or record["client_route_status"] in {"unconfirmed", "mismatch", "conflict"}
+    ):
+        print(json.dumps(record, ensure_ascii=False), file=sys.stderr)
+        return 3
+    print(json.dumps(record, ensure_ascii=False))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
