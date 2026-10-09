@@ -22,16 +22,37 @@ def transcribe(source_file: Path, whisper: str, validator: Path) -> int:
     card = yaml.safe_load(source_file.read_text(encoding="utf-8"))
     if not isinstance(card, dict):
         raise ValueError("карточка источника должна быть YAML-словарём")
+    index_path = source_file.parent / "items.yml"
+    index = yaml.safe_load(index_path.read_text(encoding="utf-8"))
+    if not isinstance(index, dict) or not isinstance(index.get("items"), list):
+        raise ValueError("индекс единиц должен содержать список items")
     count = 0
-    for item in card.get("items", []):
-        if not isinstance(item, dict) or item.get("workflow_stage") != "needs_transcript":
-            continue
+    for item in index["items"]:
+        if not isinstance(item, dict):
+            raise ValueError("запись индекса должна быть YAML-словарём")
         path = item.get("path")
         if not isinstance(path, str) or not path:
             raise ValueError("карточка единицы не задаёт path")
-        directory = source_file.parent / path
+        directory = (source_file.parent / path).resolve()
+        if source_file.parent.resolve() not in directory.parents:
+            raise ValueError("path единицы выходит за пределы источника")
+        item_path = directory / "item.yml"
+        unit = yaml.safe_load(item_path.read_text(encoding="utf-8"))
+        if not isinstance(unit, dict):
+            raise ValueError("карточка единицы должна быть YAML-словарём")
+        if unit.get("workflow_stage") != "needs_transcript":
+            continue
         transcript = directory / "transcript.txt"
         if transcript.is_file() and transcript.stat().st_size > 0:
+            subprocess.run(["python3", str(validator), str(directory)], check=True)
+            unit["workflow_stage"] = "raw_transcribed"
+            item_path.write_text(
+                yaml.safe_dump(unit, allow_unicode=True, sort_keys=False), encoding="utf-8"
+            )
+            item["workflow_stage"] = "raw_transcribed"
+            index_path.write_text(
+                yaml.safe_dump(index, allow_unicode=True, sort_keys=False), encoding="utf-8"
+            )
             continue
         media = media_file(directory)
         if media is None:
@@ -47,6 +68,14 @@ def transcribe(source_file: Path, whisper: str, validator: Path) -> int:
             raise RuntimeError("whisper не создал непустую расшифровку")
         produced.replace(transcript)
         subprocess.run(["python3", str(validator), str(directory)], check=True)
+        unit["workflow_stage"] = "raw_transcribed"
+        item_path.write_text(
+            yaml.safe_dump(unit, allow_unicode=True, sort_keys=False), encoding="utf-8"
+        )
+        item["workflow_stage"] = "raw_transcribed"
+        index_path.write_text(
+            yaml.safe_dump(index, allow_unicode=True, sort_keys=False), encoding="utf-8"
+        )
         count += 1
     return count
 

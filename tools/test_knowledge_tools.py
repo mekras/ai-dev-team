@@ -7,6 +7,7 @@ import subprocess
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 import yaml
 
@@ -194,7 +195,41 @@ class SourceCheckTest(unittest.TestCase):
             self.assertEqual(len(stale), 1)
 
 
+def make_queue_source(root: Path, stage: str) -> tuple[Path, Path]:
+    source = root / "source.yml"
+    unit = root / "items" / "unit"
+    unit.mkdir(parents=True)
+    source.write_text(yaml.safe_dump({"id": "DEMO", "copy_policy": "fragments_only"}))
+    (root / "items.yml").write_text(yaml.safe_dump({"items": [
+        {"id": "DEMO-unit", "path": "items/unit", "workflow_stage": stage}
+    ]}))
+    (unit / "item.yml").write_text(yaml.safe_dump({
+        "id": "DEMO-unit", "workflow_stage": stage,
+        "fetch_url": "https://example.test/fragment"
+    }))
+    return source, unit
+
+
 class FetchQueueTest(unittest.TestCase):
+    def test_fetches_indexed_unit_and_repeat_is_safe(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            source, unit = make_queue_source(Path(tmp), "needs_fetch")
+            original_source = source.read_bytes()
+
+            def download(url, destination):
+                self.assertEqual(url, "https://example.test/fragment")
+                destination.write_text("selected fragment", encoding="utf-8")
+            with patch.object(fetch_queue, "download_fragment", side_effect=download) as call:
+                self.assertEqual(fetch_queue.fetch_source(source), 1)
+                self.assertEqual(fetch_queue.fetch_source(source), 0)
+                self.assertEqual(call.call_count, 1)
+            self.assertEqual((unit / "fragment.html").read_text(), "selected fragment")
+            unit_card = yaml.safe_load((unit / "item.yml").read_text())
+            self.assertEqual(unit_card["workflow_stage"], "fetched")
+            item_index = yaml.safe_load((source.parent / "items.yml").read_text())
+            self.assertEqual(item_index["items"][0]["workflow_stage"], "fetched")
+            self.assertEqual(source.read_bytes(), original_source)
+
     def test_accepts_only_selected_items(self) -> None:
         self.assertTrue(fetch_queue.eligible({"workflow_stage": "needs_fetch"}))
         self.assertTrue(
@@ -216,6 +251,64 @@ class FetchQueueTest(unittest.TestCase):
 
 
 class TranscribeQueueTest(unittest.TestCase):
+    def test_transcribes_indexed_unit_and_repeat_is_safe(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            source, unit = make_queue_source(Path(tmp), "needs_transcript")
+            original_source = source.read_bytes()
+            (unit / "audio.tmp.wav").write_bytes(b"audio fixture")
+            def run(argv, **kwargs):
+                if argv[0] == "fixture-whisper":
+                    (unit / "audio.tmp.txt").write_text("raw transcript", encoding="utf-8")
+                else:
+                    self.assertEqual((unit / "transcript.txt").read_text(), "raw transcript")
+                return subprocess.CompletedProcess(argv, 0)
+            with patch.object(transcribe_queue.subprocess, "run", side_effect=run) as call:
+                self.assertEqual(
+                    transcribe_queue.transcribe(source, "fixture-whisper", Path("validator.py")), 1
+                )
+                self.assertEqual(
+                    transcribe_queue.transcribe(source, "fixture-whisper", Path("validator.py")), 0
+                )
+                self.assertEqual(call.call_count, 2)
+            self.assertEqual((unit / "transcript.txt").read_text(), "raw transcript")
+            unit_card = yaml.safe_load((unit / "item.yml").read_text())
+            self.assertEqual(unit_card["workflow_stage"], "raw_transcribed")
+            item_index = yaml.safe_load((source.parent / "items.yml").read_text())
+            self.assertEqual(item_index["items"][0]["workflow_stage"], "raw_transcribed")
+            self.assertEqual(source.read_bytes(), original_source)
+
+    def test_rejects_path_outside_source_before_execution(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            source, unit = make_queue_source(Path(tmp), "needs_transcript")
+            (source.parent / "items.yml").write_text(yaml.safe_dump({"items": [
+                {"path": "../../outside", "workflow_stage": "needs_transcript"}
+            ]}))
+            with patch.object(transcribe_queue.subprocess, "run") as call:
+                with self.assertRaises(ValueError):
+                    transcribe_queue.transcribe(source, "whisper", Path("validator.py"))
+                call.assert_not_called()
+
+    def test_failed_validation_leaves_unit_queued_for_safe_retry(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            source, unit = make_queue_source(Path(tmp), "needs_transcript")
+            (unit / "transcript.txt").write_text("saved transcript", encoding="utf-8")
+            with patch.object(transcribe_queue.subprocess, "run", side_effect=
+                subprocess.CalledProcessError(1, ["validator"])):
+                with self.assertRaises(subprocess.CalledProcessError):
+                    transcribe_queue.transcribe(source, "whisper", Path("validator.py"))
+            unit_card = yaml.safe_load((unit / "item.yml").read_text())
+            self.assertEqual(unit_card["workflow_stage"], "needs_transcript")
+            self.assertEqual((unit / "transcript.txt").read_text(), "saved transcript")
+            with patch.object(transcribe_queue.subprocess, "run", return_value=
+                subprocess.CompletedProcess([], 0)) as call:
+                self.assertEqual(
+                    transcribe_queue.transcribe(source, "whisper", Path("validator.py")), 0
+                )
+                self.assertEqual(call.call_count, 1)
+                self.assertEqual(call.call_args.args[0][0], "python3")
+            unit_card = yaml.safe_load((unit / "item.yml").read_text())
+            self.assertEqual(unit_card["workflow_stage"], "raw_transcribed")
+
     def test_selects_the_only_media_file(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             directory = Path(tmp)

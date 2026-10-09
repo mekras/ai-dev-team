@@ -65,31 +65,44 @@ def fetch_source(source_file: Path) -> int:
     policy = card.get("copy_policy")
     if policy not in ALLOWED_COPY_POLICIES:
         return 0
-    items = card.get("items", [])
+    index_path = source_file.parent / "items.yml"
+    index = yaml.safe_load(index_path.read_text(encoding="utf-8"))
+    if not isinstance(index, dict):
+        raise ValueError("индекс единиц должен быть YAML-словарём")
+    items = index.get("items", [])
     if not isinstance(items, list):
         raise ValueError("поле items должно быть списком")
 
-    changed = False
+    changed = 0
     for item in items:
-        if not isinstance(item, dict) or not eligible(item):
+        if not isinstance(item, dict):
+            raise ValueError("запись индекса должна быть YAML-словарём")
+        directory = item_directory(source_file.parent, item)
+        item_path = directory / "item.yml"
+        unit = yaml.safe_load(item_path.read_text(encoding="utf-8"))
+        if not isinstance(unit, dict):
+            raise ValueError("карточка единицы должна быть YAML-словарём")
+        if not eligible(unit):
             continue
-        url = item.get("fetch_url")
+        url = unit.get("fetch_url")
         if not isinstance(url, str) or not url:
             raise ValueError(
                 "выбранная единица должна задавать fetch_url для точечного получения"
             )
-        directory = item_directory(source_file.parent, item)
-        directory.mkdir(parents=True, exist_ok=True)
         destination = directory / "fragment.html"
         download_fragment(url, destination)
+        unit["workflow_stage"] = "fetched"
+        item_path.write_text(
+            yaml.safe_dump(unit, allow_unicode=True, sort_keys=False), encoding="utf-8"
+        )
         item["workflow_stage"] = "fetched"
-        changed = True
+        changed += 1
 
     if changed:
-        source_file.write_text(
-            yaml.safe_dump(card, allow_unicode=True, sort_keys=False), encoding="utf-8"
+        index_path.write_text(
+            yaml.safe_dump(index, allow_unicode=True, sort_keys=False), encoding="utf-8"
         )
-    return int(changed)
+    return changed
 
 
 def main(argv: list[str] | None = None) -> int:

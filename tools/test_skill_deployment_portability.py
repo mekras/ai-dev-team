@@ -58,6 +58,7 @@ class SkillDeploymentPortabilityTests(unittest.TestCase):
         for target, skill_root in targets.items():
             with self.subTest(target=target), tempfile.TemporaryDirectory() as temporary:
                 destination = Path(temporary)
+                shutil.copy2(ROOT / "apm.lock.yaml", destination / "apm.lock.yaml")
                 completed = subprocess.run(
                     [apm, "install", "--frozen", "--target", target, "--root", temporary],
                     cwd=ROOT,

@@ -1,13 +1,21 @@
 # Локальная политика подагентов. Не добавляйте рабочий файл в Git.
-# Идентификатор модели берите только из нативного каталога активной оснастки.
+# Идентификатор модели берите только из нативного каталога выбранного исполнителя.
 
-# Это единственный источник рабочей политики. Короткий фрагмент в реально
+# Это источник действующих условий рабочей политики. Короткий фрагмент в реально
 # загружаемой инструкции оснастки только направляет агента сюда, не копируя
 # проектные правила. Состояния подключения и исполнения различаются.
+# Проектирование и прежние наблюдения хранятся отдельно по образцу
+# subagent-policy-history.toml.sample. Они не разрешают рабочие назначения.
 [policy_runtime]
 schema_version = 2
 launcher = "tools/run-execution-class"
+# Историю читайте только при настройке, пересмотре или разборе свидетельства.
+# history_path = "subagent-policy-history.local.toml"
+# target обозначает исполнителя. Родителем может быть другая оснастка.
 target = "codex"
+# Каталог должен быть доступен родительскому запускателю и исключён из VCS.
+# run_records_dir = "ai-subagent-runs.local"
+# Явный --out имеет приоритет. Без поля сохраняется прежний .codex/subagents.
 # direct_execution = ["микрозадача", "контракт и приёмка дороже ожидаемой пользы"]
 # direct_execution_scope = "whole_parent_task"
 # subtask_routing = "match_each_bounded_subtask"
@@ -27,38 +35,6 @@ target = "codex"
 # when = "ограниченный поиск по нескольким файлам"
 # execution_class = "cheap_readonly_research"
 
-# Единое предложение заполните до технической настройки.
-# Запускатель не проверяет смысл этих полей. Сверьте их с итоговым ответом.
-# [policy_design]
-# task_coverage = "unknown"
-# design_status = "provisional"
-# implementation_status = "unchanged"
-# verification_status = "pending"
-# [[policy_design.tasks]]
-# task = "сравнить варианты решения"
-# acceptance = "альтернативы сравнены по заданным критериям"
-# parent_basis = "historical_setup_observation"
-# parent_basis_model = "unknown"
-# parent_basis_effort = "unknown"
-# parent_basis_evidence = "метаданные активной сессии на момент настройки либо явная неизвестность"
-# parent_basis_observed_at = "unknown"
-# delegation_reason = "польза относительно прямого выполнения и расходы всего маршрута"
-# proposed_effort = "unknown"
-# effort_reason = "достаточность для задачи пока не установлена"
-# candidate_comparison = "почему кандидат предпочтительнее подходящих альтернатив"
-# proposed_route = "execution_class:analysis"
-# proposed_candidates = ["candidate-a", "candidate-b"]
-# selection_status = "unresolved" # provisional, unresolved или excluded
-# reason = "нужны сопоставимые проверки качества рекомендаций"
-# current_route = "parent"
-# retention_reason = "новый класс ещё не проверен"
-# retention_effect = "новое предложение пока не исполняется"
-# replacement_condition = "подтверждены исполнение и пригодность нового назначения"
-# verification_status = "blocked"
-# next_step = "получить свидетельство исполнения, затем сравнить кандидатов"
-# Для parent и human список кандидатов пуст, причина относится к самой задаче.
-# Если выбран один предварительный кандидат, укажите только его и основание.
-
 [policy_review]
 # Состояния: "configured" или "creation_declined".
 # state = "configured"
@@ -67,7 +43,7 @@ target = "codex"
 # last_checked_at = "YYYY-MM-DD"
 
 [adapters]
-# Здесь записывается только адаптер каталога моделей оснастки. Он обязан
+# Здесь записывается только адаптер каталога моделей исполнителя. Он обязан
 # отвечать каталогом на вызов <команда> list и пробой на вызов <команда> <модель>.
 # Адаптер класса исполнения сюда не записывается: его место — поле adapter
 # назначения класса. Если у оснастки нет адаптера каталога, оставьте раздел
@@ -83,7 +59,7 @@ target = "codex"
 # stop = "неоднозначность, конфликтующие свидетельства, недостающий контекст или выход за границу"
 
 [targets.alpha.execution_classes.cheap_readonly_research]
-# Назначение класса для одной оснастки. Класс без назначения считается
+# Назначение класса для одной исполнительной оснастки. Класс без назначения считается
 # ненастроенным для неё, и задачу выполняет родитель.
 # model = "точный-идентификатор-из-каталога"
 # effort = "поддерживаемое-усилие"
@@ -94,3 +70,29 @@ target = "codex"
 # принимает псевдоним, укажите префикс фактического идентификатора, который
 # разрешено считать соответствием. Не добавляйте в образец модели, лимиты или
 # классы конкретного проекта.
+
+# Условия применимости читает рабочий агент. Запускатель их не блокирует.
+[policy_applicability]
+schema_version = 1
+enforcement = "agent_instruction"
+# До квалификации пустой набор не разрешает зависимые назначения.
+# [[policy_applicability.parents]]
+# id = "parent-a"
+# model = "model-a"
+# effort = "medium"
+# harness = "runner-a"
+# access = "subscription-a"
+# conditions = "Контекст, инструменты и режим исполнения, покрытые основанием"
+# [[policy_applicability.bindings]]
+# parent_id = "parent-a"
+# target = "alpha"
+# execution_class = "cheap_readonly_research"
+# model = "model-b"
+# effort = "high"
+# scope = "Извлечение фактов из переданных документов"
+# status = "candidate" # candidate или qualified
+# quality_status = "unknown" # unknown, supported или refuted
+# economy_status = "unknown" # unknown, supported или refuted
+# basis = "Приёмка всей связки и границы проверки"
+# comparison_basis = "Сопоставимый маршрут без делегирования и полный учёт либо пробел"
+# Независимые исключения описывайте по parent-applicability.md.
