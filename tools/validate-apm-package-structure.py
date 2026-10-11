@@ -401,6 +401,29 @@ def check_organization_principles_contract() -> None:
             fail(f"{requirement.relative_to(ROOT)} is missing {marker!r}")
 
 
+def check_complexity_reference_contract() -> None:
+    guide_name = "complexity-in-software-development.md"
+    guide = ROOT / ".apm/skills/ait-routing/references" / guide_name
+    if not guide.is_file():
+        fail("missing the software-development complexity reference")
+
+    owner = "ai-work-control/references/complexity-management.md"
+    if owner not in guide.read_text(encoding="utf-8"):
+        fail("complexity reference does not point to the general principle owner")
+
+    consumers = {
+        ".apm/skills/ait-routing/SKILL.md": f"references/{guide_name}",
+        ".apm/agents/project-manager.agent.md": f"ait-routing/references/{guide_name}",
+        ".apm/skills/ait-architecture/references/system-complexity.md": (
+            f"ait-routing/references/{guide_name}"
+        ),
+    }
+    for relative_path, reference in consumers.items():
+        path = ROOT / relative_path
+        if not path.is_file() or reference not in path.read_text(encoding="utf-8"):
+            fail(f"{relative_path} does not point to the complexity reference")
+
+
 def check_decision_status_contract() -> None:
     status_paths = (
         ROOT / "docs/05-requirements/functional/ft-7.md",
@@ -2243,6 +2266,7 @@ def main() -> None:
     check_manifest()
     check_tree()
     check_organization_principles_contract()
+    check_complexity_reference_contract()
     check_decision_status_contract()
     check_decision_initiative_contract()
     check_decision_before_action_contract()
