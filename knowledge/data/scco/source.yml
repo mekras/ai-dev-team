@@ -17,3 +17,10 @@ refresh_policy: Обновлять по правилам источника и �
 access:
   default: Смотри карточки единиц источника в knowledge/data/scco/ и общие ограничения
     в knowledge/source-attribution.md.
+provenance:
+  origin: external_material
+  locator: local:SCCO
+admission:
+  decision:
+    ref: .ai-dev-team/decisions/source-admission-2026-10-13.yml
+    sha256: a6856a2e3ce8acf02566152d3c3c18c07b32fa5dc18f08a2e123fd45966d94a1

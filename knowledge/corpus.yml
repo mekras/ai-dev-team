@@ -125,3 +125,10 @@ sensitive_data_policy:
       актуальности и режима доступа.
 reports:
   source_impact: index/source-impact
+source_admission:
+  version: 1
+  default: require_approval
+  rules:
+    - id: development-dialogues
+      origins: [working_dialogue]
+      action: prohibit

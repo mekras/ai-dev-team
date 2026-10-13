@@ -15,6 +15,8 @@ primary_files:
   total_bytes: 1063370
   index: knowledge/data/apib/items/md/chapter-index.tsv
 provenance:
+  origin: external_material
+  locator: https://github.com/twirl/The-API-Book/tree/gh-pages/src/ru/clean-copy
   repo: https://github.com/twirl/The-API-Book
   branch: gh-pages
   path: src/ru/clean-copy
@@ -35,3 +37,7 @@ known_limitations:
   метаданные PDF от 2023-04-09); утверждения `APIB-001`–`APIB-071` привязаны к ним
   и не переносились на новый слой.'
 item_contract_version: 2
+admission:
+  decision:
+    ref: .ai-dev-team/decisions/source-admission-2026-10-13.yml
+    sha256: a6856a2e3ce8acf02566152d3c3c18c07b32fa5dc18f08a2e123fd45966d94a1

@@ -24,3 +24,10 @@ refresh_policy: Проверять актуальную документацию
 last_checked_at: "2026-07-21"
 known_limitations:
   - Встроенные средства Git не задают конкретную схему сообщений коммитов.
+provenance:
+  origin: external_material
+  locator: https://git-scm.com/docs/git-commit
+admission:
+  decision:
+    ref: .ai-dev-team/decisions/source-admission-2026-10-13.yml
+    sha256: a6856a2e3ce8acf02566152d3c3c18c07b32fa5dc18f08a2e123fd45966d94a1

@@ -51,3 +51,10 @@ items:
     status: approved
     workflow_stage: source_checked
     path: items/validation/item.yml
+provenance:
+  origin: external_material
+  locator: https://json-schema.org/draft/2020-12/json-schema-validation
+admission:
+  decision:
+    ref: .ai-dev-team/decisions/source-admission-2026-10-13.yml
+    sha256: a6856a2e3ce8acf02566152d3c3c18c07b32fa5dc18f08a2e123fd45966d94a1
