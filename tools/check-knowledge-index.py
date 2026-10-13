@@ -7,9 +7,9 @@
 договора: скрипт вызывает то же средство и сравнивает результат с тем, что
 лежит в репозитории.
 
-Рабочим каталогом при вызове должен быть корень корпуса: средство считает пути
-от текущего каталога, а валидатор раскладки `kc-inventory` ожидает их
-относительно корня корпуса.
+Рабочим каталогом при вызове должен быть корень проекта: средство проверяет
+допуск источников по решениям, хранящимся за пределами корпуса. Адреса
+утверждений в указателе остаются относительными к корню корпуса.
 
 Валидатор раскладки сверяет с данными только указатель единиц. Расхождение
 указателя утверждений он не обнаруживает, и эту проверку закрывает данный
@@ -19,6 +19,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -49,12 +50,22 @@ def restore(saved: dict[Path, str | None]) -> None:
 
 def rebuild(corpus_root: Path) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
-        [sys.executable, str(REBUILD_TOOL), ".", "--rebuild-indexes"],
-        cwd=corpus_root,
+        [sys.executable, str(REBUILD_TOOL), corpus_root.name, "--rebuild-indexes"],
+        cwd=corpus_root.parent,
         capture_output=True,
         text=True,
         check=False,
     )
+
+
+def normalize_statement_paths(index: Path, corpus_name: str) -> None:
+    if not index.is_file():
+        return
+    content = index.read_text(encoding="utf-8")
+    pattern = re.compile(rf"(?m)^(  path: ){re.escape(corpus_name)}/")
+    normalized = pattern.sub(r"\1", content)
+    if normalized != content:
+        index.write_text(normalized, encoding="utf-8")
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -92,6 +103,8 @@ def main(argv: list[str] | None = None) -> int:
         print("ERROR: переносимая пересборка указателей завершилась с ошибкой.")
         print(result.stderr.strip() or result.stdout.strip())
         return 2
+
+    normalize_statement_paths(index_dir / "statements.yml", corpus_root.name)
 
     drifted = []
     for path, content in saved.items():

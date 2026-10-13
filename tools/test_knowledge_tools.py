@@ -135,13 +135,14 @@ class IndexCheckTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             self.assertEqual(index_check.main(["--corpus-root", tmp]), 2)
 
-    def test_rebuild_runs_from_corpus_root(self) -> None:
-        """Пути в указателях зависят от рабочего каталога переносимого средства."""
+    def test_rebuild_runs_from_project_root(self) -> None:
+        """Контроллеру нужен доступ к решениям за пределами корпуса."""
         with tempfile.TemporaryDirectory() as tmp:
             knowledge = make_corpus(Path(tmp))
             seen: dict[str, object] = {}
 
-            def capture(*args, **kwargs):
+            def capture(command, **kwargs):
+                seen["command"] = command
                 seen.update(kwargs)
                 return subprocess.CompletedProcess([], 0, stdout="", stderr="")
 
@@ -152,7 +153,25 @@ class IndexCheckTest(unittest.TestCase):
             finally:
                 subprocess.run = original_run
 
-            self.assertEqual(seen.get("cwd"), knowledge)
+            self.assertEqual(seen.get("cwd"), knowledge.parent)
+            self.assertEqual(seen["command"][2:4], ["knowledge", "--rebuild-indexes"])
+
+    def test_generated_statement_paths_remain_corpus_relative(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            knowledge = make_corpus(Path(tmp))
+            index = knowledge / "index" / "statements.yml"
+            index.write_text(
+                "statements:\n- id: DEMO-001\n"
+                "  path: knowledge/data/demo/items/intro/statements.yml\n",
+                encoding="utf-8",
+            )
+
+            index_check.normalize_statement_paths(index, "knowledge")
+
+            self.assertIn(
+                "  path: data/demo/items/intro/statements.yml\n",
+                index.read_text(encoding="utf-8"),
+            )
 
 
 class SourceCheckTest(unittest.TestCase):
