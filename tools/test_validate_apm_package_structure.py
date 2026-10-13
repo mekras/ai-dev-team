@@ -39,6 +39,62 @@ class PackageTargetContractTests(unittest.TestCase):
         )
 
 
+class PortableCoreBoundaryTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.validator = load_validator()
+        self.workspace = tempfile.TemporaryDirectory()
+        self.addCleanup(self.workspace.cleanup)
+        self.root = Path(self.workspace.name)
+        self.skill = self.root / ".apm/skills/example/SKILL.md"
+        self.skill.parent.mkdir(parents=True)
+
+    def check_text(self, text: str) -> None:
+        self.skill.write_text(text, encoding="utf-8")
+        with patch.object(self.validator, "ROOT", self.root):
+            self.validator.check_portable_core_boundary()
+
+    def test_repository_identifiers_without_paths_are_rejected(self) -> None:
+        for identifier in (
+            "ФТ-6", "ФТ-7", "ФТ-8", "ФТ-9", "КАЧ-6",
+            "ADR-0002", "ADR-0003",
+        ):
+            with self.subTest(identifier=identifier):
+                with redirect_stderr(io.StringIO()) as errors:
+                    with self.assertRaises(SystemExit) as raised:
+                        self.check_text(f"Основание: `{identifier}`.")
+                self.assertNotEqual(raised.exception.code, 0)
+                self.assertIn(".apm/skills/example/SKILL.md", errors.getvalue())
+
+    def test_fixed_repository_paths_are_rejected(self) -> None:
+        for path in (
+            "docs/06-architecture/adr/0002-cross-cutting-decision-records.md",
+            "docs/05-requirements/functional/ft-7.md",
+            "knowledge/index/source-impact/2026-06-29-adrg-adr-github-io.md",
+        ):
+            with self.subTest(path=path):
+                with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+                    self.check_text(path)
+
+    def test_portable_rules_sources_and_examples_pass(self) -> None:
+        self.check_text(
+            "Профильный навык задаёт значимость решения.\n"
+            "Статусы основаны на ADRG-011. Принципы — на CLAR-050.\n"
+            "Путь журнала: docs/06-architecture/adr/.\n"
+            "Пример имени: docs/ADR/ADR-0001.md. Формат: ADR-NNNN.md.\n"
+            "Пример: ADR-0007 о миграции хранилища заказов.\n"
+            "Пример требования: ФТ-1. Идентификаторы ФТ-60 и КАЧ-60."
+        )
+
+    def test_local_documentation_is_outside_portable_core(self) -> None:
+        document = self.root / "docs/06-architecture/README.md"
+        document.parent.mkdir(parents=True)
+        document.write_text(
+            "ФТ-6, ФТ-7–ФТ-9, КАЧ-6, ADR-0002, ADR-0003.",
+            encoding="utf-8",
+        )
+        self.check_text("Переносимые правила без локальной трассировки.")
+
+
 class ComplexityReferenceContractTests(unittest.TestCase):
     GUIDE = ".apm/skills/ait-routing/references/complexity-in-software-development.md"
     CONSUMERS = (

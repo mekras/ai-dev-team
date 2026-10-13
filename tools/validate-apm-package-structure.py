@@ -153,6 +153,14 @@ FORBIDDEN_TEXT = (
 
 PORTABLE_CORE_FORBIDDEN_PATTERNS = (
     (
+        r"\b(?:ФТ-[6-9]|КАЧ-6)\b",
+        "repository organization or decision requirement identifier",
+    ),
+    (
+        r"\bADR-000[23]\b",
+        "repository decision-record identifier",
+    ),
+    (
         r"docs/(?:06-architecture/adr|adr)/\d{4}-",
         "fixed project ADR path",
     ),
