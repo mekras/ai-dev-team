@@ -42,11 +42,12 @@ apm audit --ci
 
 Разработку этого репозитория обслуживают четыре класса исполнения —
 `cheap_readonly_research`, `mechanical_readonly`, `small_write_patch` и
-`deep_review`, — локальные роли маршрутизации моделей `mini_mechanical`,
-`luna_patch_worker`, `spark_evidence` и `strong_reviewer`, а также
-`.codex/config.toml`. Ничто из этого не входит в переносимое ядро `.apm/`.
-Классы работают в обеих оснастках, роли — только в Codex. Класс
-`small_write_patch` требует режима записи, поэтому цели `claude` у него нет.
+`deep_review`. Личные назначения моделей для этих классов и локальных ролей
+`mini_mechanical`, `luna_patch_worker`, `spark_evidence` и `strong_reviewer`
+относятся к настройке разработки и не входят в переносимое ядро `.apm/`.
+Продуктовые роли в `.codex/agents/` разворачиваются из `.apm/` и отслеживаются
+в Git, как указано выше. Класс `small_write_patch` требует режима записи,
+поэтому цели `claude` у него нет.
 
 Локальная политика классов исполнения задаётся в игнорируемом
 `.ai-dev-team/local/subagents.local.toml`. Этот файл личный: в репозитории его нет,
