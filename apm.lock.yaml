@@ -1,13 +1,13 @@
 lockfile_version: '1'
-generated_at: '2026-10-15T20:44:35.854523+00:00'
+generated_at: '2026-10-15T21:14:06.250040+00:00'
 apm_version: 0.33.0
 dependencies:
 - repo_url: mekras/apm-marketplace
   name: ai-agent-supervisor
   host: github.com
-  resolved_commit: c9f08d375778c022e7e3aeefafb779a5140ef64f
-  resolved_ref: ai-agent-supervisor--v2.6.25
-  version: 2.6.25
+  resolved_commit: 73938b676f185557bbd7a6e64bbe726404c5c789
+  resolved_ref: ai-agent-supervisor--v2.6.26
+  version: 2.6.26
   virtual_path: packages/ai-agent-supervisor
   is_virtual: true
   package_type: apm_package
@@ -668,7 +668,7 @@ dependencies:
     .agents/skills/ai-setup-subagents/scripts/lib/model_evidence.py: sha256:3e881de9e97e25f27d3e615ad9ce8fdb48566330e837354e1c51d5b641760f51
     .agents/skills/ai-setup-subagents/scripts/lib/run_storage.py: sha256:2707bb3a50410ea80e4475f5a66c6b766626f50d412ef5fbaf91e31e507906c9
     .agents/skills/ai-setup-subagents/scripts/migrate-subagent-policy.py: sha256:84fc1fdae42a6ea7ba30501adc387075af7682c9ab491ba6111504b428290431
-    .agents/skills/ai-setup-subagents/scripts/run-execution-class: sha256:051773e91fed82fba4c115c359aaf638bd067641001bc23819c80c9a9d0fdf33
+    .agents/skills/ai-setup-subagents/scripts/run-execution-class: sha256:19988e20d0d881a92bcabaccc03595fd7b99ce199d8c6bac0172d91f417ff402
     .agents/skills/ai-setup-subagents/scripts/run-subagent-role: sha256:713d39d25c497910c36684c46c99ca828836183ac18dd244ce169531f1080726
     .agents/skills/ai-setup-subagents/scripts/subagent-tools.manifest: sha256:a588264bb6eebb9035630cc0376b06cd6d19eff1fffcef6f33be17b5695436c0
     .agents/skills/ai-skill-development/README.md: sha256:2dd43e1b36daadcd570cbc49a3bb92162cf21877fa42ea390fd69f0479c3f2e1
@@ -901,7 +901,7 @@ dependencies:
     .claude/skills/ai-setup-subagents/scripts/lib/model_evidence.py: sha256:3e881de9e97e25f27d3e615ad9ce8fdb48566330e837354e1c51d5b641760f51
     .claude/skills/ai-setup-subagents/scripts/lib/run_storage.py: sha256:2707bb3a50410ea80e4475f5a66c6b766626f50d412ef5fbaf91e31e507906c9
     .claude/skills/ai-setup-subagents/scripts/migrate-subagent-policy.py: sha256:84fc1fdae42a6ea7ba30501adc387075af7682c9ab491ba6111504b428290431
-    .claude/skills/ai-setup-subagents/scripts/run-execution-class: sha256:051773e91fed82fba4c115c359aaf638bd067641001bc23819c80c9a9d0fdf33
+    .claude/skills/ai-setup-subagents/scripts/run-execution-class: sha256:19988e20d0d881a92bcabaccc03595fd7b99ce199d8c6bac0172d91f417ff402
     .claude/skills/ai-setup-subagents/scripts/run-subagent-role: sha256:713d39d25c497910c36684c46c99ca828836183ac18dd244ce169531f1080726
     .claude/skills/ai-setup-subagents/scripts/subagent-tools.manifest: sha256:a588264bb6eebb9035630cc0376b06cd6d19eff1fffcef6f33be17b5695436c0
     .claude/skills/ai-skill-development/README.md: sha256:2dd43e1b36daadcd570cbc49a3bb92162cf21877fa42ea390fd69f0479c3f2e1
@@ -975,7 +975,7 @@ dependencies:
     .claude/skills/ai-work-result-evaluation/evals/result-scenarios.json: sha256:53e534a410d91787a6c56939584656cd73df5222e976cef9ee04456ae8f8deec
     .claude/skills/ai-work-result-evaluation/evals/triggers.json: sha256:53886909d51af15cf1a76ba85a62564e21d6508076552042437437fcd055e654
     .claude/skills/ai-work-result-evaluation/references/work-result-evaluation.md: sha256:3a0e7281665677b4c082f44f61524cb4fe133b22f56656851f0c634a913244a5
-  content_hash: sha256:84378edb802752bf3d6525b894793564088326e477ee3390517839d6456fa86c
+  content_hash: sha256:0960cd8a944a98757b5c92943a341ac7764af4b688bf4c079345b9b4a90c8595
   declared_license: MIT
 - repo_url: mekras/apm-marketplace
   name: ai-russian-language
@@ -3343,7 +3343,7 @@ deployments:
   owners:
   - mekras/apm-marketplace/packages/ai-agent-supervisor
   active_owner: mekras/apm-marketplace/packages/ai-agent-supervisor
-  content_hash: sha256:051773e91fed82fba4c115c359aaf638bd067641001bc23819c80c9a9d0fdf33
+  content_hash: sha256:19988e20d0d881a92bcabaccc03595fd7b99ce199d8c6bac0172d91f417ff402
 - kind: project-relative
   target: agent-skills
   value: .agents/skills/ai-setup-subagents/scripts/run-subagent-role
@@ -7555,7 +7555,7 @@ deployments:
   owners:
   - mekras/apm-marketplace/packages/ai-agent-supervisor
   active_owner: mekras/apm-marketplace/packages/ai-agent-supervisor
-  content_hash: sha256:051773e91fed82fba4c115c359aaf638bd067641001bc23819c80c9a9d0fdf33
+  content_hash: sha256:19988e20d0d881a92bcabaccc03595fd7b99ce199d8c6bac0172d91f417ff402
 - kind: project-relative
   target: claude
   value: .claude/skills/ai-setup-subagents/scripts/run-subagent-role
