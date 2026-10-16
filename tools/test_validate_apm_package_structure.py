@@ -145,5 +145,64 @@ class ComplexityReferenceContractTests(unittest.TestCase):
                 consumer.write_text(original, encoding="utf-8")
 
 
+class CommunicationLoadingContractTests(unittest.TestCase):
+    PATHS = (
+        ".apm/skills/ait-routing/SKILL.md",
+        ".apm/skills/ait-routing/references/human-texts.md",
+        ".apm/instructions/ai-dev-team-connection.instructions.md",
+        ".apm/skills/ait-setup/SKILL.md",
+        ".apm/skills/ait-setup/assets/project-AGENTS.md",
+        ".apm/skills/ait-routing/references/skill-index.md",
+    )
+
+    def setUp(self) -> None:
+        self.validator = load_validator()
+        self.workspace = tempfile.TemporaryDirectory()
+        self.addCleanup(self.workspace.cleanup)
+        self.root = Path(self.workspace.name)
+        for relative in self.PATHS:
+            target = self.root / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes((ROOT / relative).read_bytes())
+
+    def check_contract(self) -> None:
+        with patch.object(self.validator, "ROOT", self.root):
+            self.validator.check_human_communication_loading_contract()
+
+    def test_complete_loading_chain_passes(self) -> None:
+        self.check_contract()
+
+    def test_mention_without_required_open_is_rejected(self) -> None:
+        routing = self.root / self.PATHS[0]
+        text = routing.read_text(encoding="utf-8")
+        routing.write_text(text.replace(
+            "До первого сообщения открой `ai-human-communication/SKILL.md`",
+            "После ответа упомяни `ai-human-communication/SKILL.md`",
+        ), encoding="utf-8")
+        with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+            self.check_contract()
+
+    def test_missing_product_text_rules_are_rejected(self) -> None:
+        (self.root / self.PATHS[1]).unlink()
+        with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+            self.check_contract()
+
+    def test_lazy_connection_loader_is_rejected(self) -> None:
+        connection = self.root / self.PATHS[2]
+        text = connection.read_text(encoding="utf-8")
+        connection.write_text(text.replace(
+            "---\n", '---\napplyTo: "**/*"\n', 1,
+        ), encoding="utf-8")
+        with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+            self.check_contract()
+
+    def test_stale_immediate_reply_order_is_rejected(self) -> None:
+        routing = self.root / self.PATHS[0]
+        with routing.open("a", encoding="utf-8") as stream:
+            stream.write("\nДо чтения других навыков покажи маршрут.\n")
+        with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+            self.check_contract()
+
+
 if __name__ == "__main__":
     unittest.main()

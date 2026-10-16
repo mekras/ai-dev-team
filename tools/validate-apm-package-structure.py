@@ -1072,6 +1072,39 @@ def check_internal_structure_independence_contract() -> None:
                 )
 
 
+def check_human_communication_loading_contract() -> None:
+    routing = ROOT / ".apm/skills/ait-routing/SKILL.md"
+    text = routing.read_text(encoding="utf-8")
+    first = text.split("## Обязательный первый ответ", 1)[1].split(
+        "## Порядок работы", 1,
+    )[0]
+    opening = "До первого сообщения открой `ai-human-communication/SKILL.md`"
+    if opening not in first or first.index(opening) > first.index("```text"):
+        fail("routing must open the communication skill before its first reply")
+    if "До чтения других навыков" in text:
+        fail("routing contains the obsolete reply-before-skills order")
+    reference = "references/human-texts.md"
+    if f"[human-texts]: {reference}" not in text:
+        fail("routing must link its product text rules")
+    if not (routing.parent / reference).is_file():
+        fail("routing product text rules are missing")
+    connection_text = (
+        ROOT / ".apm/instructions/ai-dev-team-connection.instructions.md"
+    ).read_text(encoding="utf-8")
+    connection = yaml.safe_load(connection_text.split("---", 2)[1])
+    if "applyTo" in connection:
+        fail("the connection loader must be available before file access")
+    for relative, marker in (
+        (".apm/skills/ait-setup/SKILL.md", "Проверь цепочку входа"),
+        (".apm/skills/ait-setup/assets/project-AGENTS.md",
+         "открывает `ai-human-communication`"),
+        (".apm/skills/ait-routing/references/skill-index.md",
+         "`ai-human-communication`"),
+    ):
+        if marker not in (ROOT / relative).read_text(encoding="utf-8"):
+            fail(f"{relative} is missing the communication loading contract")
+
+
 def check_human_readable_communication_contract() -> None:
     required_markers = {
         "docs/05-requirements/quality/kach-4.md": (
@@ -1083,31 +1116,36 @@ def check_human_readable_communication_contract() -> None:
             "конфигурация и машинный вывод",
             "объяснения цели этих элементов.",
             "если требования не названы по заголовкам.",
-            "Проверка ожидает решения владельца (`waiting_decision`)",
+            "Проверка ожидает решения пользователя (`waiting_decision`)",
         ),
         ".apm/skills/ait-routing/SKILL.md": (
             "## Обязательный первый ответ",
             "Режим менеджера: лёгкий|полный.",
             "начальный маршрут по запросу",
             "## Тексты для человека",
-            "проверка требований",
-            "проверка ожидает решения",
-            "`waiting_decision`",
-            "единственное представление",
-            "сохраняй точное",
+            "ai-human-communication/SKILL.md",
+            "[human-texts]: references/human-texts.md",
         ),
         ".apm/instructions/ai-dev-team-connection.instructions.md": (
             "Режим менеджера: лёгкий|полный.",
             "Маршрут: ...",
             "## Тексты для человека",
-            "Не показывай техническое",
+            "по порядку подготовки первого ответа",
         ),
         ".apm/agents/project-manager.agent.md": (
-            "сначала называй сущность, действие или",
-            "служебный код статуса",
-            "заменяй объяснение списком",
-            "технических обозначений",
-            "отдельную проверку KACH-4",
+            "ai-human-communication",
+            "../skills/ait-routing/references/human-texts.md",
+            "проверяй само сообщение",
+        ),
+        ".apm/skills/ait-routing/references/human-texts.md": (
+            "При каждом употреблении",
+            "единственное представление",
+            "сохраняй точное написание",
+            "названия источника и расположения",
+            "не является ссылкой на источник",
+            "выделяй значение, а не название свойства",
+            "такая формальная роль не",
+            "Подтверждённые предметные роли",
             "предыдущем абзаце не делает повторное голое",
         ),
         ".apm/skills/ait-project-revalidation/SKILL.md": (
@@ -1134,7 +1172,7 @@ def check_human_readable_communication_contract() -> None:
         ".apm/skills/ait-routing/evals/result-scenarios.json": (
             "ait-routing-routing-result-explain-technical-status",
             "ait-routing-routing-result-human-readable-final-report",
-            "waiting_decision объяснён как ожидание решения владельца",
+            "waiting_decision объяснён как ожидание решения пользователя",
             "interrupted объяснён как прерывание проверки",
             "не показывать служебный статус без понятного описания",
             "обязательная предфинальная проверка понятности итогового сообщения",
@@ -2291,6 +2329,7 @@ def main() -> None:
     check_codex_routing_reachability()
     check_deployed_skill_references()
     check_internal_structure_independence_contract()
+    check_human_communication_loading_contract()
     check_human_readable_communication_contract()
     check_concise_text_contract()
     check_decision_record_quality_contract()
