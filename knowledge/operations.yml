@@ -12,8 +12,10 @@
 #   transcribe        — tools/transcribe-knowledge-queue.py
 #
 # Смысловые очереди без команды: content_selection, normalize, statements,
-# semantic_review, strong_review, corroboration, concepts, impact_audit,
-# apply_changes. Их ведёт агент через навыки kc-* по маршруту kc-pipeline.
+# coverage_gap, semantic_review, strong_review, corroboration, concepts,
+# impact_audit, apply_changes. Исполнитель — агент, принявший kc-pipeline.
+# Он применяет профильные навыки kc-* и сохраняет требуемую независимость
+# проверки. coverage_gap относится к long_source и карте source-map.yml.
 #
 # Получение работает только для единицы с явным fetch_url и политикой
 # fragments_only или metadata_only. Это предотвращает массовую загрузку и не
