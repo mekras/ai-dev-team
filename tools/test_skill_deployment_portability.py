@@ -11,6 +11,8 @@ import subprocess
 import tempfile
 import unittest
 
+import yaml
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS = ROOT / ".apm" / "skills"
@@ -37,6 +39,102 @@ def executable_files() -> list[Path]:
 
 
 class SkillDeploymentPortabilityTests(unittest.TestCase):
+    def test_context_rules_reach_both_consumer_targets(self) -> None:
+        """Проверяет команду чтения и файлы после установки и компиляции."""
+        apm = shutil.which("apm")
+        self.assertIsNotNone(apm, "для проверки нужен apm")
+        contexts = sorted((ROOT / ".apm" / "context").glob("*.context.md"))
+        self.assertEqual(len(contexts), 3)
+        local_rules = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        self.assertIn(".agents/skills/ait-routing/SKILL.md", local_rules)
+        manifest = yaml.safe_load((ROOT / "apm.yml").read_text(encoding="utf-8"))
+        (ROOT / ".ai-dev-team" / "local").mkdir(exist_ok=True)
+        cases = (
+            ("codex", "AGENTS.md", False),
+            ("codex", "AGENTS.md", True),
+            ("claude", "CLAUDE.md", False),
+        )
+        for target, entry, handwritten in cases:
+            with (
+                self.subTest(target=target, handwritten=handwritten),
+                tempfile.TemporaryDirectory(
+                    prefix="context-delivery-", dir=ROOT / ".ai-dev-team" / "local"
+                ) as temporary,
+            ):
+                sandbox = Path(temporary)
+                package = sandbox / "package"
+                consumer = sandbox / "consumer"
+                consumer.mkdir()
+                if handwritten:
+                    (consumer / entry).write_text(
+                        "Открой .agents/skills/ait-routing/SKILL.md перед работой.\n",
+                        encoding="utf-8",
+                    )
+                for area in ("context", "instructions"):
+                    shutil.copytree(ROOT / ".apm" / area, package / ".apm" / area)
+                shutil.copytree(
+                    SKILLS / "ait-routing", package / ".apm" / "skills" / "ait-routing"
+                )
+                # Проверяется доставка контекста, остальные примитивы и зависимости
+                # пакета не нужны для этой границы.
+                (package / "apm.yml").write_text(
+                    yaml.safe_dump({
+                        "name": manifest["name"], "version": manifest["version"],
+                        "type": "hybrid", "includes": "auto", "targets": [target],
+                    }), encoding="utf-8",
+                )
+                (consumer / "apm.yml").write_text(
+                    yaml.safe_dump({
+                        "name": "context-consumer", "version": "0.0.0",
+                        "targets": [target],
+                        "dependencies": {"apm": ["../package"]},
+                    }), encoding="utf-8",
+                )
+                commands = (
+                    [apm, "install", "--target", target],
+                    [apm, "compile", "--target", target],
+                    [apm, "audit", "--ci"],
+                )
+                for command in commands:
+                    completed = subprocess.run(
+                        command, cwd=consumer,
+                        env={**os.environ, "APM_POLICY_DISABLE": "1"},
+                        text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                        check=False, timeout=120,
+                    )
+                    self.assertEqual(completed.returncode, 0, completed.stdout)
+                surfaces = [consumer / entry]
+                if target == "claude":
+                    surfaces.extend((consumer / ".claude" / "rules").glob("*.md"))
+                self.assertTrue(any(
+                    "ait-routing/SKILL.md" in path.read_text(encoding="utf-8")
+                    for path in surfaces if path.is_file()
+                ), "нет команды загрузки маршрутизатора")
+                skill_root = ".agents" if target == "codex" else ".claude"
+                routing = consumer / skill_root / "skills" / "ait-routing" / "SKILL.md"
+                self.assertEqual(
+                    routing.read_bytes(),
+                    (SKILLS / "ait-routing" / "SKILL.md").read_bytes(),
+                )
+                rules = routing.read_text(encoding="utf-8")
+                self.assertIn("Перед первой предметной работой в сессии прочитай полностью", rules)
+                self.assertIn("name: ai-dev-team", rules)
+                self.assertIn("apm_modules/", rules)
+                package_roots = [
+                    path.parent
+                    for path in (consumer / "apm_modules").rglob("apm.yml")
+                    if yaml.safe_load(path.read_text(encoding="utf-8")).get("name")
+                    == manifest["name"]
+                ]
+                self.assertEqual(len(package_roots), 1, package_roots)
+                for source in contexts:
+                    relative = ".apm/context/" + source.name
+                    self.assertIn(source.name, rules)
+                    installed = package_roots[0] / relative
+                    self.assertTrue(installed.is_relative_to(consumer), installed)
+                    self.assertTrue(installed.is_file(), installed)
+                    self.assertEqual(source.read_bytes(), installed.read_bytes())
+
     def test_executable_materials_use_only_local_resource_paths(self) -> None:
         findings: list[str] = []
         for path in executable_files():

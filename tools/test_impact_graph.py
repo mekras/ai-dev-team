@@ -2,7 +2,11 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import re
+import shlex
+import shutil
 import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -101,6 +105,87 @@ def sample_graph() -> dict:
 
 
 class ImpactGraphTests(unittest.TestCase):
+    def test_documented_commands_from_project_root(self) -> None:
+        skill = SCRIPT.parents[1]
+        commands = re.findall(
+            r"```shell\n(.*?)```", (skill / "SKILL.md").read_text(), re.DOTALL
+        )
+        self.assertEqual(len(commands), 6)
+        fixture = skill / "evals/script-fixtures/minimal-project"
+        for graph_name, config_name in (
+            (".ai-dev-team/project-impact.json", ".ai-dev-team/project-verification.json"),
+            ("config/impact graph.json", "config/checks config.json"),
+        ):
+            with self.subTest(graph=graph_name), tempfile.TemporaryDirectory() as directory:
+                repo = Path(directory)
+                installed = repo / "installed skills/impact"
+                shutil.copytree(skill / "scripts", installed / "scripts")
+                graph = sample_graph()
+                graph["schema_version"] = 2
+                graph["nodes"] = [n for n in graph["nodes"] if n["id"] != "tests"]
+                graph["edges"] = [e for e in graph["edges"] if e["to"] != "tests"]
+                graph["graph"]["ignore"] += ["installed skills/**", graph_name, config_name]
+                for node in graph["nodes"]:
+                    node["semantic_type"] = node["id"]
+                    node["authority"] = "canonical"
+                config = json.loads(
+                    (fixture / ".ai-dev-team/project-verification.json").read_text()
+                )
+                config["verification"]["impact_graph"] = graph_name
+                for field in ("global_inputs", "full_coverage_paths"):
+                    config["verification"][field] = [graph_name, config_name]
+                files = {
+                    graph_name: json.dumps(graph),
+                    config_name: json.dumps(config),
+                    "docs/concept.md": "Concept\n",
+                    "requirements/requirement.md": "Requirement\n",
+                    "src/module.py": "# module\n",
+                }
+                for name, content in files.items():
+                    path = repo / name
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    path.write_text(content, encoding="utf-8")
+                for args in (
+                    ["init", "--quiet"],
+                    ["add", "docs", "requirements", "src", graph_name, config_name],
+                    ["-c", "user.name=Test", "-c", "user.email=test@example.invalid",
+                     "-c", "commit.gpgsign=false", "commit", "--quiet", "-m", "Fixture"],
+                    ["update-ref", "refs/remotes/origin/main", "HEAD"],
+                ):
+                    subprocess.run(["git", *args], cwd=repo, check=True, capture_output=True)
+                (repo / "docs/concept.md").write_text("Changed concept\n")
+                variables = {
+                    "$impact_skill_dir": str(installed.relative_to(repo)),
+                    "$impact_graph_path": graph_name,
+                    "$verification_config_path": config_name,
+                }
+                for block in commands:
+                    command = block.replace("<команда Python 3>", shlex.quote(sys.executable))
+                    args = shlex.split(command.replace("\\\n", " "))
+                    for index, argument in enumerate(args):
+                        for variable, value in variables.items():
+                            argument = argument.replace(variable, value)
+                        args[index] = argument
+                    completed = subprocess.run(
+                        args, cwd=repo, capture_output=True, text=True, check=False
+                    )
+                    self.assertEqual(completed.returncode, 0, completed.stderr)
+                    result = json.loads(completed.stdout)
+                    if args[2] == "trace":
+                        self.assertEqual(
+                            {node["id"] for node in result["affected"]},
+                            {"requirements", "implementation"},
+                        )
+                    elif args[2] in {"assess", "coverage"}:
+                        self.assertTrue(result["complete"])
+                        if args[2] == "coverage":
+                            self.assertEqual(result["mapped_paths"], 3)
+                    elif args[2] == "run":
+                        self.assertEqual(result["status"], "passed")
+                        self.assertIn('"status": "executed"', completed.stdout)
+                    else:
+                        self.assertIn(result["status"], {"ok", "passed"})
+
     def test_version_two_distinguishes_artifact_from_representation(self) -> None:
         data = sample_graph()
         data["schema_version"] = 2
