@@ -1788,7 +1788,8 @@ def check_result_acceptance_contract() -> None:
         ),
         ".agents/skills/ai-work-result-evaluation/SKILL.md": (
             "Принять решение: `accept`, `revise`, `reject`,",
-            "проверяемые артефакты или след выполнения",
+            "свидетельства фактического выполнения",
+            "Сошлись на существующие результаты проверок",
         ),
     }
     for relative_path, markers in required_markers.items():
