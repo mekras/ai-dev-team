@@ -148,7 +148,7 @@ class ComplexityReferenceContractTests(unittest.TestCase):
 class CommunicationLoadingContractTests(unittest.TestCase):
     PATHS = (
         ".apm/skills/ait-routing/SKILL.md",
-        ".apm/skills/ait-routing/references/human-texts.md",
+        ".agents/skills/ai-human-communication/SKILL.md",
         ".apm/instructions/ai-dev-team-connection.instructions.md",
         ".apm/skills/ait-setup/SKILL.md",
         ".apm/skills/ait-setup/assets/project-AGENTS.md",
@@ -182,7 +182,23 @@ class CommunicationLoadingContractTests(unittest.TestCase):
         with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
             self.check_contract()
 
-    def test_missing_product_text_rules_are_rejected(self) -> None:
+    def test_duplicate_product_text_rules_are_rejected(self) -> None:
+        duplicate = self.root / (
+            ".apm/skills/ait-routing/references/human-texts.md"
+        )
+        duplicate.parent.mkdir(parents=True, exist_ok=True)
+        duplicate.write_text("# Тексты для человека\n", encoding="utf-8")
+        with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+            self.check_contract()
+
+    def test_stale_product_rules_link_is_rejected(self) -> None:
+        routing = self.root / self.PATHS[0]
+        with routing.open("a", encoding="utf-8") as stream:
+            stream.write("\n[human-texts]: references/human-texts.md\n")
+        with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+            self.check_contract()
+
+    def test_missing_shared_communication_skill_is_rejected(self) -> None:
         (self.root / self.PATHS[1]).unlink()
         with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
             self.check_contract()

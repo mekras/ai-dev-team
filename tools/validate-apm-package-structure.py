@@ -1088,11 +1088,13 @@ def check_human_communication_loading_contract() -> None:
         fail("routing must open the communication skill before its first reply")
     if "До чтения других навыков" in text:
         fail("routing contains the obsolete reply-before-skills order")
-    reference = "references/human-texts.md"
-    if f"[human-texts]: {reference}" not in text:
-        fail("routing must link its product text rules")
-    if not (routing.parent / reference).is_file():
-        fail("routing product text rules are missing")
+    if (routing.parent / "references/human-texts.md").exists():
+        fail("product text rules must not duplicate the shared communication skill")
+    if "human-texts" in text:
+        fail("routing must not require the removed product text rules")
+    shared = ROOT / ".agents/skills/ai-human-communication/SKILL.md"
+    if not shared.is_file():
+        fail("the shared communication skill is missing; run apm install --frozen")
     connection_text = (
         ROOT / ".apm/instructions/ai-dev-team-connection.instructions.md"
     ).read_text(encoding="utf-8")
@@ -1129,7 +1131,7 @@ def check_human_readable_communication_contract() -> None:
             "начальный маршрут по запросу",
             "## Тексты для человека",
             "ai-human-communication/SKILL.md",
-            "[human-texts]: references/human-texts.md",
+            "Общие правила в продукте не дублируются.",
         ),
         ".apm/instructions/ai-dev-team-connection.instructions.md": (
             "Режим менеджера: лёгкий|полный.",
@@ -1139,19 +1141,22 @@ def check_human_readable_communication_contract() -> None:
         ),
         ".apm/agents/project-manager.agent.md": (
             "ai-human-communication",
-            "../skills/ait-routing/references/human-texts.md",
+            "из `ait-routing`. Перед отправкой",
             "проверяй само сообщение",
         ),
-        ".apm/skills/ait-routing/references/human-texts.md": (
+        ".agents/skills/ai-human-communication/SKILL.md": (
+            "документации,",
+            "требованиям и записям решений",
             "При каждом употреблении",
-            "единственное представление",
-            "сохраняй точное написание",
-            "названия источника и расположения",
-            "не является ссылкой на источник",
-            "выделяй значение, а не название свойства",
-            "такая формальная роль не",
+            "понятное название или описание",
+            "внутреннее имя, идентификатор, путь или код статуса",
+            "Ссылка на источник",
+            "Отдельно стоящий код",
+            "При запросе точного технического следа",
+            "значение: «Статус: **Черновик**»",
+            "не подтверждает роль владельца проекта или продукта",
             "Подтверждённые предметные роли",
-            "предыдущем абзаце не делает повторное голое",
+            "проверь его",
         ),
         ".apm/skills/ait-project-revalidation/SKILL.md": (
             "при каждом употреблении",
