@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-10-21T10:37:41.143475+00:00'
+generated_at: '2026-10-21T11:07:19.991455+00:00'
 apm_version: 0.33.0
 dependencies:
 - repo_url: mekras/apm-marketplace
@@ -980,9 +980,9 @@ dependencies:
 - repo_url: mekras/apm-marketplace
   name: ai-russian-language
   host: github.com
-  resolved_commit: 5515ac1dda60fbaefd0d949e3ee11e7d4f876a5c
-  resolved_ref: ai-russian-language--v2.1.6
-  version: 2.1.6
+  resolved_commit: 8ca53ae58d652f01bb73ee02eff8eb065d807dbe
+  resolved_ref: ai-russian-language--v2.1.8
+  version: 2.1.8
   virtual_path: packages/ai-russian-language
   is_virtual: true
   package_type: apm_package
@@ -1030,7 +1030,7 @@ dependencies:
     .claude/skills/ru-lang/references/main-rules.md: sha256:c4fb597f42ace89ff6e08bf0c585768c26a6d122a208c742dd3bebd4af28ddc9
     .claude/skills/ru-lang/references/strict-rules.md: sha256:82ecb6c85dedac551073891fe0992ba394cc0edd1151b7bd46f374716bb8d497
     .claude/skills/ru-lang/references/technical-russian.md: sha256:a32aaaae7f5ab9d534d9459bda616323d059701b1850d3ea35a43294012c0e18
-  content_hash: sha256:10c6860c69f1410e61019c18894e7ccaecbcfcec361b450693a7a033f00c6790
+  content_hash: sha256:bba2be4a9efcb2bae632075f196ba7e8740e046d5fda466cec65c22658936b42
   declared_license: MIT
 - repo_url: mekras/apm-marketplace
   name: project-knowledge-corpus
@@ -1728,9 +1728,9 @@ dependencies:
 - repo_url: talkstream/ru-text
   name: ru-text
   host: github.com
-  resolved_commit: 73dc04a492fc0bbeae31bd5374ce90c2d3cad6e7
-  resolved_ref: v2.4.0
-  version: 2.4.0
+  resolved_commit: 374a77943648451a591e32a527323d5071f2d06c
+  resolved_ref: v2.10.10
+  version: 2.10.10
   depth: 2
   resolved_by: mekras/apm-marketplace
   package_type: marketplace_plugin
@@ -1772,37 +1772,37 @@ dependencies:
   - .claude/skills/ru-text/references/typography.md
   - .claude/skills/ru-text/references/ux-writing.md
   deployed_file_hashes:
-    .agents/skills/ru-check/SKILL.md: sha256:b966d4632142b9ca18ba0f9274ff41986880d5d0745b73f63e75131f8cd98a88
-    .agents/skills/ru-score/SKILL.md: sha256:872991c0a09fc23af550b666e60e51706c3b0925dcfaf1298043e3f87b6416ff
-    .agents/skills/ru-text/SKILL.md: sha256:ec1a71ff5a6ac99c1360ab5633b9b199c130d0fc0c86d07e29eebd5314cdbcb6
+    .agents/skills/ru-check/SKILL.md: sha256:dae25df3947082355ba3f8f40040ca0e293ca41d2b340602dbe0145395d58e68
+    .agents/skills/ru-score/SKILL.md: sha256:063c423d59231ebbc197c4368bf109c8aac28dd034830b56c966f9545446047b
+    .agents/skills/ru-text/SKILL.md: sha256:aa9d5764536ac353522446f2e4cc424b5bc78c5558b61195fbf2efc4801ab7d2
     .agents/skills/ru-text/agents/gemini.yaml: sha256:806a0fa6a47c6a0e7273951c2ae86c2b7ce388f6281839d5b0159d0dc41b0be0
     .agents/skills/ru-text/agents/openai.yaml: sha256:0679625d13b901b08b459778fbce37d86552132df214b9a1b921f07181c7c205
-    .agents/skills/ru-text/references/addenda.md: sha256:f26aa25bb583f5ca46e053558fb5bc139004f738cb7253f00322cb6bfc016fe5
+    .agents/skills/ru-text/references/addenda.md: sha256:108c8935c3e7dcde834ec5293c7beee75f6b3bf508360d1b39ea403b4cebc950
     .agents/skills/ru-text/references/anti-patterns.md: sha256:5c31b4671ccbe7a4c9c0733e969c915f37e56e9a84a7d0442547cf43db5a9ac7
     .agents/skills/ru-text/references/business-writing.md: sha256:689895e01768e129b38ffebf0dff14f577c32b677040d361d301a561fc97b2ae
-    .agents/skills/ru-text/references/editorial-grammar.md: sha256:d82677c051e0ee6890a90806920fdf663ef8b2e2546929fcaa3d64e2b6e20efc
-    .agents/skills/ru-text/references/editorial-punctuation.md: sha256:e8ff8979eaed30635b3181482454e94791b9fa86f2e8b28bb22e41bcced6b32b
+    .agents/skills/ru-text/references/editorial-grammar.md: sha256:9f4788d2cb28928b25646a66139c0169e1c7f9de5a6711dff4a98902a7673cca
+    .agents/skills/ru-text/references/editorial-punctuation.md: sha256:ce00bb46fb1c7d9718742abdf3602dc91600ad953b680aa8db602ed15a3ff4ba
     .agents/skills/ru-text/references/info-style.md: sha256:fe31d5bb9bf13aee7742bdca830889ed3f716d581651c9e2c5ed29b602d394ce
     .agents/skills/ru-text/references/scoring.md: sha256:2556092becd94f05a5795631f06d506810eb061a85dda0594b8033580fc94bf2
     .agents/skills/ru-text/references/sources.md: sha256:008e6bb32e64877b91d06eeb81e3e369004a29d03627550439215165d795045b
-    .agents/skills/ru-text/references/typography.md: sha256:ec403f92afd13d47c043f0e206f18de8dde3da843451edb98e0af9a8cd698b9a
+    .agents/skills/ru-text/references/typography.md: sha256:72c7074daf593123a255b443effe514a2e844d9175791ccfe85ccf9518ee5d98
     .agents/skills/ru-text/references/ux-writing.md: sha256:7802bc126bff4f754e4eeb0f8b986dd967ac876c038d23a0a63b5846248b4cee
-    .claude/skills/ru-check/SKILL.md: sha256:b966d4632142b9ca18ba0f9274ff41986880d5d0745b73f63e75131f8cd98a88
-    .claude/skills/ru-score/SKILL.md: sha256:872991c0a09fc23af550b666e60e51706c3b0925dcfaf1298043e3f87b6416ff
-    .claude/skills/ru-text/SKILL.md: sha256:ec1a71ff5a6ac99c1360ab5633b9b199c130d0fc0c86d07e29eebd5314cdbcb6
+    .claude/skills/ru-check/SKILL.md: sha256:dae25df3947082355ba3f8f40040ca0e293ca41d2b340602dbe0145395d58e68
+    .claude/skills/ru-score/SKILL.md: sha256:063c423d59231ebbc197c4368bf109c8aac28dd034830b56c966f9545446047b
+    .claude/skills/ru-text/SKILL.md: sha256:aa9d5764536ac353522446f2e4cc424b5bc78c5558b61195fbf2efc4801ab7d2
     .claude/skills/ru-text/agents/gemini.yaml: sha256:806a0fa6a47c6a0e7273951c2ae86c2b7ce388f6281839d5b0159d0dc41b0be0
     .claude/skills/ru-text/agents/openai.yaml: sha256:0679625d13b901b08b459778fbce37d86552132df214b9a1b921f07181c7c205
-    .claude/skills/ru-text/references/addenda.md: sha256:f26aa25bb583f5ca46e053558fb5bc139004f738cb7253f00322cb6bfc016fe5
+    .claude/skills/ru-text/references/addenda.md: sha256:108c8935c3e7dcde834ec5293c7beee75f6b3bf508360d1b39ea403b4cebc950
     .claude/skills/ru-text/references/anti-patterns.md: sha256:5c31b4671ccbe7a4c9c0733e969c915f37e56e9a84a7d0442547cf43db5a9ac7
     .claude/skills/ru-text/references/business-writing.md: sha256:689895e01768e129b38ffebf0dff14f577c32b677040d361d301a561fc97b2ae
-    .claude/skills/ru-text/references/editorial-grammar.md: sha256:d82677c051e0ee6890a90806920fdf663ef8b2e2546929fcaa3d64e2b6e20efc
-    .claude/skills/ru-text/references/editorial-punctuation.md: sha256:e8ff8979eaed30635b3181482454e94791b9fa86f2e8b28bb22e41bcced6b32b
+    .claude/skills/ru-text/references/editorial-grammar.md: sha256:9f4788d2cb28928b25646a66139c0169e1c7f9de5a6711dff4a98902a7673cca
+    .claude/skills/ru-text/references/editorial-punctuation.md: sha256:ce00bb46fb1c7d9718742abdf3602dc91600ad953b680aa8db602ed15a3ff4ba
     .claude/skills/ru-text/references/info-style.md: sha256:fe31d5bb9bf13aee7742bdca830889ed3f716d581651c9e2c5ed29b602d394ce
     .claude/skills/ru-text/references/scoring.md: sha256:2556092becd94f05a5795631f06d506810eb061a85dda0594b8033580fc94bf2
     .claude/skills/ru-text/references/sources.md: sha256:008e6bb32e64877b91d06eeb81e3e369004a29d03627550439215165d795045b
-    .claude/skills/ru-text/references/typography.md: sha256:ec403f92afd13d47c043f0e206f18de8dde3da843451edb98e0af9a8cd698b9a
+    .claude/skills/ru-text/references/typography.md: sha256:72c7074daf593123a255b443effe514a2e844d9175791ccfe85ccf9518ee5d98
     .claude/skills/ru-text/references/ux-writing.md: sha256:7802bc126bff4f754e4eeb0f8b986dd967ac876c038d23a0a63b5846248b4cee
-  content_hash: sha256:9804ae9d63df4122c281bbe1123164accb498e6651a47415a372ecf9a57156d9
+  content_hash: sha256:1fdb6c33999eb7658436b04cb087c7f416e3b78e807e9271700e9d7c5b1b1788
   declared_license: MIT
 deployments:
 - kind: project-relative
@@ -5593,7 +5593,7 @@ deployments:
   owners:
   - talkstream/ru-text
   active_owner: talkstream/ru-text
-  content_hash: sha256:b966d4632142b9ca18ba0f9274ff41986880d5d0745b73f63e75131f8cd98a88
+  content_hash: sha256:dae25df3947082355ba3f8f40040ca0e293ca41d2b340602dbe0145395d58e68
 - kind: project-relative
   target: agent-skills
   value: .agents/skills/ru-lang
@@ -5710,7 +5710,7 @@ deployments:
   owners:
   - talkstream/ru-text
   active_owner: talkstream/ru-text
-  content_hash: sha256:872991c0a09fc23af550b666e60e51706c3b0925dcfaf1298043e3f87b6416ff
+  content_hash: sha256:063c423d59231ebbc197c4368bf109c8aac28dd034830b56c966f9545446047b
 - kind: project-relative
   target: agent-skills
   value: .agents/skills/ru-text
@@ -5728,7 +5728,7 @@ deployments:
   owners:
   - talkstream/ru-text
   active_owner: talkstream/ru-text
-  content_hash: sha256:ec1a71ff5a6ac99c1360ab5633b9b199c130d0fc0c86d07e29eebd5314cdbcb6
+  content_hash: sha256:aa9d5764536ac353522446f2e4cc424b5bc78c5558b61195fbf2efc4801ab7d2
 - kind: project-relative
   target: agent-skills
   value: .agents/skills/ru-text/agents/gemini.yaml
@@ -5755,7 +5755,7 @@ deployments:
   owners:
   - talkstream/ru-text
   active_owner: talkstream/ru-text
-  content_hash: sha256:f26aa25bb583f5ca46e053558fb5bc139004f738cb7253f00322cb6bfc016fe5
+  content_hash: sha256:108c8935c3e7dcde834ec5293c7beee75f6b3bf508360d1b39ea403b4cebc950
 - kind: project-relative
   target: agent-skills
   value: .agents/skills/ru-text/references/anti-patterns.md
@@ -5782,7 +5782,7 @@ deployments:
   owners:
   - talkstream/ru-text
   active_owner: talkstream/ru-text
-  content_hash: sha256:d82677c051e0ee6890a90806920fdf663ef8b2e2546929fcaa3d64e2b6e20efc
+  content_hash: sha256:9f4788d2cb28928b25646a66139c0169e1c7f9de5a6711dff4a98902a7673cca
 - kind: project-relative
   target: agent-skills
   value: .agents/skills/ru-text/references/editorial-punctuation.md
@@ -5791,7 +5791,7 @@ deployments:
   owners:
   - talkstream/ru-text
   active_owner: talkstream/ru-text
-  content_hash: sha256:e8ff8979eaed30635b3181482454e94791b9fa86f2e8b28bb22e41bcced6b32b
+  content_hash: sha256:ce00bb46fb1c7d9718742abdf3602dc91600ad953b680aa8db602ed15a3ff4ba
 - kind: project-relative
   target: agent-skills
   value: .agents/skills/ru-text/references/info-style.md
@@ -5827,7 +5827,7 @@ deployments:
   owners:
   - talkstream/ru-text
   active_owner: talkstream/ru-text
-  content_hash: sha256:ec403f92afd13d47c043f0e206f18de8dde3da843451edb98e0af9a8cd698b9a
+  content_hash: sha256:72c7074daf593123a255b443effe514a2e844d9175791ccfe85ccf9518ee5d98
 - kind: project-relative
   target: agent-skills
   value: .agents/skills/ru-text/references/ux-writing.md
@@ -12712,7 +12712,7 @@ deployments:
   owners:
   - talkstream/ru-text
   active_owner: talkstream/ru-text
-  content_hash: sha256:b966d4632142b9ca18ba0f9274ff41986880d5d0745b73f63e75131f8cd98a88
+  content_hash: sha256:dae25df3947082355ba3f8f40040ca0e293ca41d2b340602dbe0145395d58e68
 - kind: project-relative
   target: claude
   value: .claude/skills/ru-lang
@@ -12829,7 +12829,7 @@ deployments:
   owners:
   - talkstream/ru-text
   active_owner: talkstream/ru-text
-  content_hash: sha256:872991c0a09fc23af550b666e60e51706c3b0925dcfaf1298043e3f87b6416ff
+  content_hash: sha256:063c423d59231ebbc197c4368bf109c8aac28dd034830b56c966f9545446047b
 - kind: project-relative
   target: claude
   value: .claude/skills/ru-text
@@ -12847,7 +12847,7 @@ deployments:
   owners:
   - talkstream/ru-text
   active_owner: talkstream/ru-text
-  content_hash: sha256:ec1a71ff5a6ac99c1360ab5633b9b199c130d0fc0c86d07e29eebd5314cdbcb6
+  content_hash: sha256:aa9d5764536ac353522446f2e4cc424b5bc78c5558b61195fbf2efc4801ab7d2
 - kind: project-relative
   target: claude
   value: .claude/skills/ru-text/agents/gemini.yaml
@@ -12874,7 +12874,7 @@ deployments:
   owners:
   - talkstream/ru-text
   active_owner: talkstream/ru-text
-  content_hash: sha256:f26aa25bb583f5ca46e053558fb5bc139004f738cb7253f00322cb6bfc016fe5
+  content_hash: sha256:108c8935c3e7dcde834ec5293c7beee75f6b3bf508360d1b39ea403b4cebc950
 - kind: project-relative
   target: claude
   value: .claude/skills/ru-text/references/anti-patterns.md
@@ -12901,7 +12901,7 @@ deployments:
   owners:
   - talkstream/ru-text
   active_owner: talkstream/ru-text
-  content_hash: sha256:d82677c051e0ee6890a90806920fdf663ef8b2e2546929fcaa3d64e2b6e20efc
+  content_hash: sha256:9f4788d2cb28928b25646a66139c0169e1c7f9de5a6711dff4a98902a7673cca
 - kind: project-relative
   target: claude
   value: .claude/skills/ru-text/references/editorial-punctuation.md
@@ -12910,7 +12910,7 @@ deployments:
   owners:
   - talkstream/ru-text
   active_owner: talkstream/ru-text
-  content_hash: sha256:e8ff8979eaed30635b3181482454e94791b9fa86f2e8b28bb22e41bcced6b32b
+  content_hash: sha256:ce00bb46fb1c7d9718742abdf3602dc91600ad953b680aa8db602ed15a3ff4ba
 - kind: project-relative
   target: claude
   value: .claude/skills/ru-text/references/info-style.md
@@ -12946,7 +12946,7 @@ deployments:
   owners:
   - talkstream/ru-text
   active_owner: talkstream/ru-text
-  content_hash: sha256:ec403f92afd13d47c043f0e206f18de8dde3da843451edb98e0af9a8cd698b9a
+  content_hash: sha256:72c7074daf593123a255b443effe514a2e844d9175791ccfe85ccf9518ee5d98
 - kind: project-relative
   target: claude
   value: .claude/skills/ru-text/references/ux-writing.md
