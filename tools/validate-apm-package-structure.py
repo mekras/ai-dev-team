@@ -527,6 +527,8 @@ def check_decision_before_action_contract() -> None:
         "docs/05-requirements/functional/ft-9.md": (
             "Самопроверка автора не засчитывается",
             "остановку до решения человека",
+            "прямое и явное правило целевого проекта",
+            "в служебном следе выполнения",
         ),
         ".apm/skills/ait-routing/SKILL.md": (
             "Если задача содержит значимый выбор",
@@ -534,12 +536,17 @@ def check_decision_before_action_contract() -> None:
         ),
         ".apm/skills/ait-decisions/SKILL.md": (
             "Самопроверка автора не считается вторым взглядом",
-            "кто и когда принял запись",
+            "Сохрани в служебном следе выполнения:",
+            "прямое и явное",
+            "правило целевого проекта предписывает это",
             "заменяет решение человека.",
         ),
         ".apm/skills/ait-decisions/evals/result-scenarios.json": (
             "ait-decisions-decisions-result-review-before-action",
             "ait-decisions-decisions-result-human-stop-on-close-options",
+            "ait-decisions-result-acceptance-trace-outside-documentation",
+            "ait-decisions-result-explicit-documentation-rule",
+            "ait-decisions-result-preserve-project-metadata-ban",
         ),
     }
     for relative_path, markers in required_markers.items():
