@@ -38,6 +38,7 @@ REQUIRED_SKILLS = {
     "ait-docs-concept",
     "ait-setup",
     "ait-analysis",
+    "ait-bug-triage",
     "ait-arch-revalidation",
     "ait-interface-design",
     "ait-ui-kit",
