@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import hashlib
+import os
 import re
 import shlex
 import shutil
@@ -9,6 +11,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest import mock
 from pathlib import Path
 
 
@@ -33,6 +36,222 @@ def load_module():
 
 
 impact_graph = load_module()
+
+
+class WorkspaceImpactTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.directory = tempfile.TemporaryDirectory(prefix="рабочее место ")
+        self.addCleanup(self.directory.cleanup)
+        self.root = Path(self.directory.name)
+        fixture = SCRIPT.parents[1] / "evals/script-fixtures/two-repositories"
+        shutil.copytree(fixture, self.root, dirs_exist_ok=True)
+        self.links = self.root / "workspace-impact.json"
+
+    def change_json(self, path: Path, change) -> None:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        change(data)
+        path.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+
+    def run_cli(self, operation: str, *arguments: str, expected: int = 0):
+        completed = subprocess.run(
+            [sys.executable, str(SCRIPT), operation, "--workspace", str(self.links), *arguments],
+            cwd=self.root,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            check=False,
+        )
+        self.assertEqual(completed.returncode, expected, completed.stdout + completed.stderr)
+        if completed.stdout:
+            return json.loads(completed.stdout)
+        self.assertTrue(completed.stderr.startswith("ERROR:"), completed.stderr)
+        self.assertNotIn("Traceback", completed.stderr)
+        return completed.stderr
+
+    def test_validate_two_git_repositories_under_unversioned_root(self) -> None:
+        for name in ("contracts", "service"):
+            subprocess.run(["git", "init", "--quiet", str(self.root / name)], check=True)
+        env = {**os.environ, "GIT_CEILING_DIRECTORIES": str(self.root.parent)}
+        root_git = subprocess.run(
+            ["git", "-C", str(self.root), "rev-parse", "--show-toplevel"],
+            env=env, capture_output=True, check=False,
+        )
+        self.assertNotEqual(root_git.returncode, 0)
+        result = self.run_cli("validate")
+        self.assertEqual(result["status"], "ok")
+        self.assertEqual(len(result["workspace"]["repositories"]), 2)
+        self.assertEqual(result["nodes"], 6)
+
+    def test_contract_reaches_other_repository_checks_without_id_collision(self) -> None:
+        before = {
+            p.relative_to(self.root): p.read_bytes()
+            for p in self.root.rglob("*") if p.is_file()
+        }
+        result = self.run_cli("trace", "--changed-node", "contracts/api", "--facet", "interface")
+        affected = {item["id"]: item for item in result["affected"]}
+        self.assertEqual(set(affected), {"service/implementation", "service/tests"})
+        self.assertEqual(affected["service/tests"]["paths"], [[
+            "contracts/api", "service/implementation", "service/tests",
+        ]])
+        self.assertEqual(affected["service/tests"]["checks"], ["local-test-check"])
+        self.assertEqual(affected["service/tests"]["repository"], "service")
+        self.assertFalse(result["complete"])
+        self.assertEqual(before, {
+            p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()
+        })
+
+    def test_paths_use_repository_identity_not_physical_directory(self) -> None:
+        (self.root / "contracts").rename(self.root / "контракты с пробелами")
+        self.change_json(self.links, lambda data: data["repositories"][0].update(
+            path="контракты с пробелами",
+        ))
+        result = self.run_cli(
+            "trace", "--changed-path", "contracts/api.json", "--facet", "interface",
+        )
+        self.assertEqual(result["changed"][0]["id"], "contracts/api")
+        self.assertEqual(len(result["affected"]), 2)
+
+    def test_cycle_converges_across_both_repositories(self) -> None:
+        self.change_json(self.links, lambda data: data["edges"].append({
+            "from": "service/tests", "to": "contracts/api", "relation": "verifies",
+            "facets": ["interface"], "rationale": "Проверка совместимости контракта.",
+        }))
+        result = self.run_cli("trace", "--changed-node", "contracts/api", "--facet", "interface")
+        self.assertEqual({entry["id"] for entry in result["affected"]}, {
+            "service/implementation", "service/tests",
+        })
+
+    def test_inapplicable_facet_does_not_cross_link(self) -> None:
+        result = self.run_cli(
+            "trace", "--changed-node", "contracts/api", "--facet", "documentation",
+        )
+        self.assertEqual(result["affected"], [])
+
+    def test_assessment_requires_every_foreign_check(self) -> None:
+        arguments = ("--changed-node", "contracts/api", "--facet", "interface")
+        result = self.run_cli("assess", *arguments, expected=3)
+        self.assertEqual(result["missing_statuses"], ["service/implementation", "service/tests"])
+        result = self.run_cli(
+            "assess", *arguments, "--status", "service/implementation=updated", expected=3,
+        )
+        self.assertEqual(result["missing_statuses"], ["service/tests"])
+        for blocking in ("blocked", "human_decision"):
+            result = self.run_cli(
+                "assess", *arguments, "--status", "service/implementation=updated",
+                "--status", f"service/tests={blocking}", expected=3,
+            )
+            self.assertFalse(result["complete"])
+        result = self.run_cli(
+            "assess", *arguments, "--status", "service/implementation=updated",
+            "--status", "service/tests=verified_no_impact",
+        )
+        self.assertTrue(result["complete"])
+
+    def test_package_source_change_does_not_imply_installed_update(self) -> None:
+        source = self.root / "contracts/rules.md"
+        installed = self.root / "service/packages/rules.md"
+        dependency = json.loads((self.root / "service/dependencies.json").read_text())
+        self.assertIn("2", source.read_text())
+        self.assertIn(dependency["rules_version"], installed.read_text())
+        result = self.run_cli("trace", "--changed-node", "contracts/rules", "--facet", "quality")
+        self.assertEqual({entry["id"] for entry in result["affected"]}, {
+            "service/installed-rules", "service/implementation", "service/tests",
+        })
+        self.assertIn("1", installed.read_text())
+        self.assertNotIn("2", installed.read_text())
+        statuses = [argument for entry in result["affected"]
+                    for argument in ("--status", entry["id"] + "=verified_no_impact")]
+        assessed = self.run_cli(
+            "assess", "--changed-node", "contracts/rules", "--facet", "quality", *statuses,
+        )
+        self.assertTrue(assessed["complete"])
+
+    def test_trace_identifies_exact_graph_snapshots(self) -> None:
+        result = self.run_cli("trace", "--changed-node", "contracts/api", "--facet", "interface")
+        snapshot = result["workspace"]
+        self.assertEqual(snapshot["scope"], "declared-repositories")
+        self.assertEqual(snapshot["sha256"], hashlib.sha256(self.links.read_bytes()).hexdigest())
+        for repository in snapshot["repositories"]:
+            self.assertEqual(
+                repository["sha256"],
+                hashlib.sha256(Path(repository["graph"]).read_bytes()).hexdigest(),
+            )
+
+    def test_unknown_endpoint_does_not_silently_truncate_scope(self) -> None:
+        self.change_json(self.links, lambda data: data["edges"][0].update(to="service/missing"))
+        error = self.run_cli("validate", expected=2)
+        self.assertIn("unknown node", error)
+
+    def test_missing_graph_blocks_trace(self) -> None:
+        (self.root / "service/.ai-dev-team/project-impact.json").unlink()
+        error = self.run_cli(
+            "trace", "--changed-node", "contracts/api", "--facet", "interface", expected=2,
+        )
+        self.assertIn("graph unreadable", error)
+
+    def test_repository_aliases_are_rejected(self) -> None:
+        self.change_json(
+            self.links, lambda data: data["repositories"][1].update(path="contracts/."),
+        )
+        self.assertIn("повтор корня", self.run_cli("validate", expected=2))
+
+    def test_workspace_paths_cannot_escape_declared_root(self) -> None:
+        for path in ("../outside", "/tmp", "C:\\outside", "\\\\host\\share"):
+            with self.subTest(path=path):
+                self.change_json(self.links, lambda data: data["repositories"][0].update(path=path))
+                self.run_cli("validate", expected=2)
+
+    def test_graph_symlink_cannot_escape_repository(self) -> None:
+        path = self.root / "service/.ai-dev-team/project-impact.json"
+        path.unlink()
+        path.symlink_to(self.root / "contracts/.ai-dev-team/project-impact.json")
+        self.assertIn("границу", self.run_cli("validate", expected=2))
+
+    def test_file_cannot_be_used_as_repository_root(self) -> None:
+        self.change_json(self.links, lambda data: data["repositories"][0].update(
+            path="contracts/.ai-dev-team/project-impact.json", graph=".",
+        ))
+        self.assertIn("каталогом", self.run_cli("validate", expected=2))
+
+    def test_invalid_path_has_controlled_diagnostic(self) -> None:
+        self.change_json(self.links, lambda data: data["repositories"][0].update(path="\0"))
+        self.assertIn("путь недоступен", self.run_cli("validate", expected=2))
+
+    def test_resolution_failure_is_a_contract_error_on_older_python(self) -> None:
+        with mock.patch.object(Path, "resolve", side_effect=RuntimeError("Symlink loop")):
+            with self.assertRaisesRegex(impact_graph.ContractError, "путь недоступен"):
+                impact_graph.load_workspace(self.links)
+
+    def test_symlink_loop_has_no_traceback(self) -> None:
+        loop = self.root / "loop"
+        loop.symlink_to(loop)
+        self.links = loop
+        self.run_cli("validate", expected=2)
+
+    def test_old_graph_is_not_presented_as_semantic_workspace(self) -> None:
+        path = self.root / "service/.ai-dev-team/project-impact.json"
+        self.change_json(path, lambda data: data.update(schema_version=1))
+        self.run_cli("validate", expected=2)
+
+    def test_local_edges_remain_in_local_graph(self) -> None:
+        self.change_json(self.links, lambda data: data["edges"][0].update(
+            **{"from": "service/implementation", "to": "service/tests"},
+        ))
+        self.assertIn("местное ребро", self.run_cli("validate", expected=2))
+
+    def test_explicit_facet_is_required(self) -> None:
+        self.assertIn("явный --facet", self.run_cli(
+            "trace", "--changed-node", "contracts/api", expected=2,
+        ))
+
+    def test_unmapped_path_and_unaffected_status_are_rejected(self) -> None:
+        self.run_cli(
+            "trace", "--changed-path", "contracts/missing", "--facet", "interface", expected=2,
+        )
+        self.run_cli(
+            "assess", "--changed-node", "contracts/api", "--facet", "interface",
+            "--status", "service/api=updated", expected=2,
+        )
 
 
 def sample_graph() -> dict:
