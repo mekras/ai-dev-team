@@ -1124,14 +1124,19 @@ def check_human_readable_communication_contract() -> None:
     required_markers = {
         "docs/05-requirements/quality/kach-4.md": (
             "В создаваемых текстах для человека, включая сообщения",
-            "При каждом употреблении",
-            "оставляет его без понятного представления.",
+            "знаниями читателя и контекстом",
+            "Узнаваемое",
             "коды статусов",
             "внутренние пути",
             "конфигурация и машинный вывод",
-            "объяснения цели этих элементов.",
-            "если требования не названы по заголовкам.",
-            "Проверка ожидает решения пользователя (`waiting_decision`)",
+            "цели этих элементов.",
+            "Название или описание ради оформления ссылки не придумывают.",
+            "ожидание решения пользователя",
+        ),
+        ".apm/skills/ait-writing/evals/result-scenarios.json": (
+            "ait-writing-result-inline-link",
+            "ait-writing-result-ambiguous-link",
+            "ait-writing-result-known-file-link",
         ),
         ".apm/skills/ait-routing/SKILL.md": (
             "## Обязательный первый ответ",
@@ -1155,34 +1160,29 @@ def check_human_readable_communication_contract() -> None:
         ".agents/skills/ai-human-communication/SKILL.md": (
             "документации,",
             "требованиям и записям решений",
-            "При каждом употреблении",
-            "понятное название или описание",
-            "внутреннее имя, идентификатор, путь или код статуса",
             "Ссылка на источник",
-            "Отдельно стоящий код",
             "При запросе точного технического следа",
             "значение: «Статус: **Черновик**»",
             "не подтверждает роль владельца проекта или продукта",
             "Подтверждённые предметные роли",
-            "проверь его",
         ),
         ".apm/skills/ait-project-revalidation/SKILL.md": (
-            "при каждом употреблении",
-            "внутреннего или технического обозначения",
-            "единственным",
+            "поясняй незнакомые обозначения",
+            "Уже понятное в контексте",
+            "самостоятельно",
             "конечное состояние понятными словами",
         ),
         ".apm/skills/ait-project-revalidation/references/workflow.md": (
             "Служебное состояние является техническим входом",
             "коды состояний или требования без преобразования",
-            "При каждом употреблении",
-            "название при предыдущем употреблении не поясняют",
+            "по знаниям читателя и контексту",
+            "Не придумывай название ради ссылки",
             "проверка ожидает решения владельца",
             "`waiting_decision`",
         ),
         ".apm/skills/ait-project-revalidation/evals/result-scenarios.json": (
             "ait-project-revalidation-result-human-readable-requirement-names",
-            "каждое употребление идентификатора сопровождается названием",
+            "смысл требования понятен читателю из названия и контекста",
             "Путь пользователя от подключения к приёмке",
             "статус complete_with_accepted_risks добавлен как технический след",
             "не показывать только технический статус",
@@ -1204,24 +1204,6 @@ def check_human_readable_communication_contract() -> None:
                 fail(
                     f"{relative_path} is missing human-readable communication "
                     f"marker {marker!r}",
-                )
-    forbidden_first_mention_markers = (
-        "при первом упоминании",
-        "при его первом упоминании",
-        "при первом появлении",
-        "впервые упомянут",
-    )
-    for relative_path in (
-        "docs/05-requirements/quality/kach-4.md",
-        ".apm/skills/ait-project-revalidation/SKILL.md",
-        ".apm/skills/ait-project-revalidation/references/workflow.md",
-    ):
-        text = (ROOT / relative_path).read_text(encoding="utf-8").lower()
-        for marker in forbidden_first_mention_markers:
-            if marker in text:
-                fail(
-                    f"{relative_path} retains forbidden first-mention "
-                    f"exception {marker!r}",
                 )
 
 
