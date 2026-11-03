@@ -1782,7 +1782,7 @@ def check_result_acceptance_contract() -> None:
             "пропущенные проверки, ограничения и остаточные риски",
         ),
         ".agents/skills/ai-work-result-evaluation/SKILL.md": (
-            "Принять решение: `accept`, `revise`, `reject`,",
+            "Прими решение: `accept`, `revise`, `reject`,",
             "свидетельства фактического выполнения",
             "Сошлись на существующие результаты проверок",
         ),
@@ -1894,7 +1894,8 @@ def check_product_evaluation_contract() -> None:
             '"critical_violations"',
         ),
         ".agents/skills/ai-work-result-evaluation/SKILL.md": (
-            "Укажи критерии проверки, метрику и порог пригодности",
+            "Установи действующие цель, критерии",
+            "Укажи метрику и порог пригодности",
             "Сравни с базовой линией",
         ),
         "evals/product-scenarios.yml": (
