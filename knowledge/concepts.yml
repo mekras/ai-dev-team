@@ -33,8 +33,51 @@
 #   collisions         — омонимы и понятия, которые нельзя путать
 #   gaps               — известные разрывы (со ссылкой на BACKLOG.md)
 
-concept_contract_version: 1
+concept_contract_version: 2
 concepts:
+  - id: chief-technical-imperative
+    primary: главный технический императив
+    primary_ru: главный технический императив
+    definition: >-
+      Главный технический ориентир продукта, направляющий работу над всеми
+      аспектами целевого проекта и развитие самого продукта. В ai-dev-team
+      его содержание — управление сложностью.
+    boundaries:
+      includes: [технические решения, устройство и процесс разработки продукта]
+      excludes: [подмена цели пользователя, отмена обязательных ограничений]
+    forms_ru: [ГТИ, главный технический принцип]
+    authority:
+      type: project_decision
+      ref: .ai-dev-team/decisions/complexity-terminology-2026-11-03.yml
+    defined_by: []
+    decision:
+      ref: .ai-dev-team/decisions/complexity-terminology-2026-11-03.yml
+      sha256: 458ccf4fd962c9bf0adc3949901c002473dbac880c00b166dde7bd6a74e7ba1c
+    relationships:
+      - type: implemented-by
+        target: complexity-management
+  - id: complexity-management
+    primary: управление сложностью
+    primary_ru: управление сложностью
+    definition: >-
+      Устранение ненужной сложности и организация необходимой для понятности,
+      проверяемости и удобства изменения и сопровождения проекта с сохранением
+      обязательного поведения, качества и надёжности.
+    boundaries:
+      includes:
+        - результаты разработки
+        - правила, процедуры, инструменты и взаимодействие участников
+      excludes:
+        - сокращение числа элементов без проверки эффекта
+        - потеря обязательного поведения
+    forms_ru: [УС]
+    authority:
+      type: project_decision
+      ref: .ai-dev-team/decisions/complexity-terminology-2026-11-03.yml
+    defined_by: []
+    decision:
+      ref: .ai-dev-team/decisions/complexity-terminology-2026-11-03.yml
+      sha256: 458ccf4fd962c9bf0adc3949901c002473dbac880c00b166dde7bd6a74e7ba1c
   - id: persona
     primary: персонаж
     primary_ru: персонаж
