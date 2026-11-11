@@ -28,6 +28,51 @@ def load_validator():
     return module
 
 
+class SetupDialoguePreparationTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.validator = load_validator()
+        self.workspace = tempfile.TemporaryDirectory()
+        self.addCleanup(self.workspace.cleanup)
+        self.root = Path(self.workspace.name)
+        self.relative_path = ".apm/skills/ait-setup/SKILL.md"
+        self.skill = self.root / self.relative_path
+        self.skill.parent.mkdir(parents=True)
+        self.source = (ROOT / self.relative_path).read_text(encoding="utf-8")
+
+    def check_text(self, source: str) -> None:
+        self.skill.write_text(source, encoding="utf-8")
+        with patch.object(self.validator, "ROOT", self.root):
+            self.validator.check_setup_dialogue_preparation()
+
+    def test_preparation_before_project_steps_passes(self) -> None:
+        self.check_text(self.source)
+
+    def test_missing_preparation_is_rejected(self) -> None:
+        start = self.source.index("## Подготовка диалога")
+        end = self.source.index("## Режим по умолчанию", start)
+        with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+            self.check_text(self.source[:start] + self.source[end:])
+
+    def test_preparation_after_project_steps_is_rejected(self) -> None:
+        start = self.source.index("## Подготовка диалога")
+        end = self.source.index("## Режим по умолчанию", start)
+        moved = self.source[:start] + self.source[end:] + "\n" + self.source[start:end]
+        with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+            self.check_text(moved)
+
+    def test_missing_entry_or_question_check_is_rejected(self) -> None:
+        for marker in (
+            "../ait-routing/SKILL.md",
+            "ai-human-communication",
+            "не создавая повторного корневого входа",
+            "До шага 1 открой полностью раздел «Договор вопросов»",
+            "Перед отправкой каждого вопроса проверь форму ответа",
+        ):
+            with self.subTest(marker=marker):
+                with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+                    self.check_text(self.source.replace(marker, ""))
+
+
 class PackageTargetContractTests(unittest.TestCase):
     def test_manifest_declares_all_required_package_targets(self) -> None:
         validator = load_validator()

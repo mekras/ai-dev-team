@@ -613,7 +613,30 @@ def check_interface_quality_contract() -> None:
                 )
 
 
+def check_setup_dialogue_preparation() -> None:
+    path = ROOT / ".apm/skills/ait-setup/SKILL.md"
+    text = path.read_text(encoding="utf-8")
+    heading = "## Подготовка диалога"
+    if heading not in text:
+        fail("ait-setup is missing dialogue preparation before project steps")
+    preparation = text.split(heading, 1)[1].split("\n## ", 1)[0]
+    if text.index(heading) > text.index("## Обязательный порядок"):
+        fail("ait-setup dialogue preparation must precede project steps")
+    for marker in (
+        "../ait-routing/SKILL.md",
+        "ai-human-communication",
+        "без `AGENTS.md`",
+        "`ai-setup-project`",
+        "не создавая повторного корневого входа",
+        "До шага 1 открой полностью раздел «Договор вопросов»",
+        "Перед отправкой каждого вопроса проверь форму ответа",
+    ):
+        if marker not in preparation:
+            fail(f"ait-setup dialogue preparation is missing {marker!r}")
+
+
 def check_setup_dialogue_contract() -> None:
+    check_setup_dialogue_preparation()
     required_markers = {
         "docs/05-requirements/functional/ft-18.md": (
             "setup.project_profile",
@@ -647,6 +670,9 @@ def check_setup_dialogue_contract() -> None:
             "ait-setup-result-explicit-quotation-requirement",
             "ait-setup-result-deployed-version-drift-stop",
             "ait-setup-result-commit-message-scheme-sequential-question",
+            "ait-setup-result-initial-question-selector",
+            "ait-setup-result-initial-question-numbered",
+            "ait-setup-result-initial-question-restricted",
             "варианты пронумерованы и разрешён ответ номером",
         ),
     }
