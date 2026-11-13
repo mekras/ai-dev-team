@@ -42,6 +42,7 @@ REQUIRED_SKILLS = {
     "ait-arch-revalidation",
     "ait-interface-design",
     "ait-ui-kit",
+    "ait-refactoring",
     "ait-code-construction",
     "ait-code-review",
     "ait-code-testing",
