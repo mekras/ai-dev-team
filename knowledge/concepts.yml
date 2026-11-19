@@ -1672,3 +1672,127 @@ concepts:
     relationships:
       - type: co_defines
         target: persona
+  - id: use-case-launch-condition
+    primary: проверяемое условие запуска
+    primary_ru: проверяемое условие запуска
+    definition: >-
+      Состояние, обеспеченное до начала варианта использования разрабатываемой
+      системой или её окружением, которое система может проверить программно
+      и которое сценарий не проверяет повторно.
+    boundaries:
+      includes: [состояние объекта, признак сеанса или права, результат внешнего интерфейса]
+      excludes: [вероятное обстоятельство, намерение пользователя, проверка на старте сценария]
+    forms_ru: [условие запуска, предусловие]
+    forms_en: [precondition]
+    authority:
+      type: project_decision
+      ref: .ai-dev-team/decisions/use-case-section-names-2026-11-19.yml
+    defined_by: [SMFR-022]
+    decision:
+      ref: .ai-dev-team/decisions/use-case-section-names-2026-11-19.yml
+      sha256: efa24c7113316538a05616311c63dfdca5149e69e171a970114e25388bf3fe1e
+    cite_as: [SMFR]
+    covered_in:
+      - ait-req-specification/references/use-case-templates.md
+    synonyms_by_source:
+      SMFR: предусловие
+    reconciliation:
+      - >-
+        Книга задаёт смысл понятия, основная форма выбрана записью из поля decision.
+        Форма «предусловие» допустима только для связи с источником.
+    collisions:
+      - >-
+        Не путать с запускающим событием: событие отмечает момент запуска,
+        условие описывает уже существующее состояние.
+  - id: use-case-any-outcome-guarantee
+    primary: гарантия при любом исходе
+    primary_ru: гарантия при любом исходе
+    definition: >-
+      Обоснованное интересом и подконтрольное системе состояние, которое
+      система обеспечивает и при успехе, и при неудаче варианта использования.
+    boundaries:
+      includes: [защита интересов участников при неудаче или прерывании]
+      excludes: [решение или действие человека, техническая мера вместо защищаемого результата]
+    forms_ru: [минимальная гарантия]
+    forms_en: [minimal guarantee]
+    authority:
+      type: project_decision
+      ref: .ai-dev-team/decisions/use-case-section-names-2026-11-19.yml
+    defined_by: [SMFR-023]
+    decision:
+      ref: .ai-dev-team/decisions/use-case-section-names-2026-11-19.yml
+      sha256: efa24c7113316538a05616311c63dfdca5149e69e171a970114e25388bf3fe1e
+    cite_as: [SMFR]
+    covered_in:
+      - ait-req-specification/references/use-case-templates.md
+      - ait-req-validation/SKILL.md
+    synonyms_by_source:
+      SMFR: минимальные гарантии
+    reconciliation:
+      - >-
+        Книга задаёт смысл понятия, основная форма выбрана записью из поля decision.
+        Форма «минимальная гарантия» допустима только для связи с источником.
+    collisions:
+      - >-
+        Не путать с гарантией при неудаче: состояние сохраняется и при успехе.
+    relationships:
+      - type: co_defines
+        target: use-case-success-guarantee
+  - id: use-case-success-guarantee
+    primary: гарантия при успехе
+    primary_ru: гарантия при успехе
+    definition: >-
+      Проверяемое состояние, которое система в своей границе делает истинным
+      после успешного завершения варианта использования.
+    boundaries:
+      includes: [состояние, подконтрольное системе в области действия]
+      excludes: [решение, оценка или действие человека]
+    forms_ru: [гарантия успеха]
+    forms_en: [success guarantee]
+    authority:
+      type: project_decision
+      ref: .ai-dev-team/decisions/use-case-section-names-2026-11-19.yml
+    defined_by: [SMFR-023]
+    decision:
+      ref: .ai-dev-team/decisions/use-case-section-names-2026-11-19.yml
+      sha256: efa24c7113316538a05616311c63dfdca5149e69e171a970114e25388bf3fe1e
+    cite_as: [SMFR]
+    covered_in:
+      - ait-req-specification/references/use-case-templates.md
+      - ait-req-validation/SKILL.md
+    synonyms_by_source:
+      SMFR: гарантии успеха
+    reconciliation:
+      - >-
+        Книга задаёт смысл понятия, основная форма выбрана записью из поля decision.
+  - id: use-case-branch
+    primary: возможное ответвление
+    primary_ru: возможное ответвление
+    definition: >-
+      Наблюдаемое условие на шаге основного сценария и его обработка,
+      завершающаяся возвратом, альтернативным успехом или неудачей.
+    boundaries:
+      includes: [ошибка, отказ, альтернативный путь к успеху]
+      excludes: [условие, скрытое внутри шага обработки, детали интерфейса]
+    forms_ru: [ответвление, расширение]
+    forms_en: [extension]
+    authority:
+      type: project_decision
+      ref: .ai-dev-team/decisions/use-case-section-names-2026-11-19.yml
+    defined_by: [SMFR-016, SMFR-018, SMFR-021]
+    decision:
+      ref: .ai-dev-team/decisions/use-case-section-names-2026-11-19.yml
+      sha256: efa24c7113316538a05616311c63dfdca5149e69e171a970114e25388bf3fe1e
+    cite_as: [SMFR]
+    covered_in:
+      - ait-req-specification/references/use-case-templates.md
+      - ait-req-validation/SKILL.md
+    synonyms_by_source:
+      SMFR: расширение
+    reconciliation:
+      - >-
+        Книга задаёт смысл понятия, основная форма выбрана записью из поля decision.
+        Форма «расширение» допустима только для связи с источником.
+    collisions:
+      - >-
+        Не путать с расширением программы, модулем или дополнением.
