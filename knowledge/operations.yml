@@ -30,6 +30,11 @@ report:
 run_state:
   path: .local/state/corpus-pipeline.json
 
+# Без отчёта о влиянии проход с изменениями источников или утверждений не
+# завершится. Отчёт остаётся в локальном слое вне Git.
+impact_report:
+  path: .local/reports/impact-findings.yml
+
 human_attention:
   max_active_groups: 20
 
