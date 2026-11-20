@@ -973,17 +973,28 @@ def check_connection_effort_contract() -> None:
 def check_installed_package_file_ownership_contract() -> None:
     required_markers = {
         "docs/05-requirements/functional/ft-3.md": (
-            "dependencies[].deployed_files",
-            "Остальные файлы не требуют отдельной проверки APM.",
-            "исходного пакета",
+            "не зависит от размера",
+            "больше 20 путей",
+            "исходный файл в репозитории этого пакета",
+            "ADR-0021",
         ),
         ".apm/instructions/ai-dev-team-connection.instructions.md": (
             "## Файлы установленных пакетов",
+            "Для операции над каталогом",
+            "`apm.lock.yaml` в контекст не читай.",
+            "для каждого выполни `apm find <путь>`",
+            "Абсолютный путь",
+            "Если путей больше 20",
             "dependencies[].deployed_files",
-            "Не запускай `apm find` для",
+            "`local_deployed_files`",
+            "Сравнивай пути точно.",
+            "`lockfile_version` не `'2'`",
+            "проверка которого не выполнена",
+            "подтвердит, что путь не развёрнут пакетом",
             "имеет исключений.",
             "исходный файл только в репозитории",
-            "не требует отдельной проверки",
+            "Владелец `.`",
+            "владельцев несколько",
         ),
     }
     for relative_path, markers in required_markers.items():
