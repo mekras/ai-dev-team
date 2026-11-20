@@ -1171,14 +1171,32 @@ def check_codex_routing_reachability() -> None:
         text = agents.read_text(encoding="utf-8")
     required_markers = (
         ".agents/skills/ait-routing/SKILL.md",
-        "Режим менеджера: лёгкий|полный.",
         "Не начинай предметную работу до этого шага.",
     )
     for marker in required_markers:
         if marker not in text:
             fail(f"compiled Codex AGENTS.md is missing routing loader {marker!r}")
-    if "\n## Обязательный первый ответ\n" in text:
+    if "\n## Подготовка первого ответа\n" in text:
         fail("compiled Codex AGENTS.md contains the routing protocol instead of a loader")
+
+
+# ФТ-43 отменил обязательный блок «Режим менеджера / Причина / Маршрут».
+# Его формат не должен вернуться в правила, роли, навыки и шаблоны продукта.
+ROUTING_BLOCK_LINE = "Режим менеджера:"
+
+
+def check_routing_block_removed() -> None:
+    sources = sorted((ROOT / ".apm").rglob("*.md"))
+    holders = [
+        path.relative_to(ROOT).as_posix()
+        for path in sources
+        if ROUTING_BLOCK_LINE in path.read_text(encoding="utf-8")
+    ]
+    if holders:
+        fail(
+            f"the cancelled routing block {ROUTING_BLOCK_LINE!r} is still "
+            f"required in {holders}",
+        )
 
 
 def check_deployed_skill_references() -> None:
@@ -1222,11 +1240,16 @@ def check_internal_structure_independence_contract() -> None:
 def check_human_communication_loading_contract() -> None:
     routing = ROOT / ".apm/skills/ait-routing/SKILL.md"
     text = routing.read_text(encoding="utf-8")
-    first = text.split("## Обязательный первый ответ", 1)[1].split(
+    first = text.split("## Подготовка первого ответа", 1)[1].split(
         "## Порядок работы", 1,
     )[0]
     opening = "До первого сообщения открой `ai-human-communication/SKILL.md`"
-    if opening not in first or first.index(opening) > first.index("```text"):
+    choice = "начальный маршрут по запросу"
+    if (
+        opening not in first
+        or choice not in first
+        or first.index(opening) > first.index(choice)
+    ):
         fail("routing must open the communication skill before its first reply")
     if "До чтения других навыков" in text:
         fail("routing contains the obsolete reply-before-skills order")
@@ -1273,16 +1296,15 @@ def check_human_readable_communication_contract() -> None:
             "ait-writing-result-known-file-link",
         ),
         ".apm/skills/ait-routing/SKILL.md": (
-            "## Обязательный первый ответ",
-            "Режим менеджера: лёгкий|полный.",
+            "## Подготовка первого ответа",
+            "Не показывай классификацию отдельным служебным блоком.",
+            "показала прежние суммы.",
             "начальный маршрут по запросу",
             "## Тексты для человека",
             "ai-human-communication/SKILL.md",
             "Общие правила в продукте не дублируются.",
         ),
         ".apm/instructions/ai-dev-team-connection.instructions.md": (
-            "Режим менеджера: лёгкий|полный.",
-            "Маршрут: ...",
             "## Тексты для человека",
             "по порядку подготовки первого ответа",
         ),
@@ -2468,6 +2490,7 @@ def main() -> None:
     check_deployed_skill_references()
     check_internal_structure_independence_contract()
     check_human_communication_loading_contract()
+    check_routing_block_removed()
     check_human_readable_communication_contract()
     check_concise_text_contract()
     check_decision_record_quality_contract()

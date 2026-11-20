@@ -765,14 +765,14 @@ class ProductEvalTest(unittest.TestCase):
             ],
             "required_commands": ["python3 -m unittest"],
             "handoff_markers": ["приём", "критер", "проверк", "риск"],
-            "routing_markers": ["режим менеджера", "маршрут"],
+            "routing_required": True,
             "decision_marker_groups": [["повтор"]],
         }
         result = {
             "turns": [
-                "Режим менеджера: полный. Маршрут: запросить решение о повторе.",
+                "Запрашиваю решение о повторе.",
                 (
-                    "Режим менеджера: полный. Маршрут: выполнить решение. "
+                    "Решение выполнено. "
                     "Критерий и проверка готовы, риск указан. Передаю на "
                     "приёмку."
                 ),
@@ -792,7 +792,7 @@ class ProductEvalTest(unittest.TestCase):
         self.assertTrue(metrics["routing_opened"])
         self.assertEqual([True, True], metrics["routing_opened_by_turn"])
         self.assertNotIn(
-            "Ход 2 не открыл ait-routing/SKILL.md.",
+            MODULE.ROUTING_ORDER_MISSED.format(turn=2),
             metrics["missed_mandatory_actions"],
         )
 
@@ -803,17 +803,17 @@ class ProductEvalTest(unittest.TestCase):
             ],
             "required_commands": ["python3 -m unittest"],
             "handoff_markers": ["приём", "критер", "проверк", "риск"],
-            "routing_markers": ["режим менеджера", "маршрут"],
+            "routing_required": True,
             "decision_marker_groups": [["повтор"]],
         }
         first = {
-            "answer": "Режим менеджера: полный. Маршрут: ait-routing.",
+            "answer": "Нужно решение о повторе.",
             "commands": [],
             "usage": {},
         }
         second = {
             "answer": (
-                "Режим менеджера: полный. Маршрут: выполнить решение. "
+                "Решение выполнено. "
                 "Критерий и проверка готовы, риск указан. Передаю на приёмку."
             ),
             "commands": ["python3 -m unittest"],
@@ -832,7 +832,7 @@ class ProductEvalTest(unittest.TestCase):
                 routing_opened=[True, False],
             )
         self.assertIn(
-            "Ход 2 не открыл ait-routing/SKILL.md.",
+            MODULE.ROUTING_ORDER_MISSED.format(turn=2),
             metrics["missed_mandatory_actions"],
         )
         self.assertFalse(metrics["routing_opened"])
@@ -844,7 +844,7 @@ class ProductEvalTest(unittest.TestCase):
             ],
             "required_commands": ["python3 -m unittest"],
             "handoff_markers": ["приём", "критер", "проверк", "риск"],
-            "routing_markers": ["режим менеджера", "маршрут"],
+            "routing_required": True,
             "decision_marker_groups": [["повтор"]],
         }
         first = {
@@ -872,16 +872,12 @@ class ProductEvalTest(unittest.TestCase):
         missed = metrics["missed_mandatory_actions"]
         for turn in (1, 2):
             self.assertIn(
-                f"Ход {turn} не открыл ait-routing/SKILL.md.",
+                MODULE.ROUTING_ORDER_MISSED.format(turn=turn),
                 missed,
             )
-            self.assertTrue(
-                any(
-                    item.startswith(
-                        f"Ответ хода {turn} не показал маршрут",
-                    )
-                    for item in missed
-                ),
+            self.assertNotIn(
+                f"Ответ хода {turn} содержит служебный блок маршрутизации.",
+                missed,
             )
 
     def test_routing_trace_checks_all_turn_combinations(self):
@@ -891,20 +887,19 @@ class ProductEvalTest(unittest.TestCase):
             ],
             "required_commands": ["python3 -m unittest"],
             "handoff_markers": ["приём", "критер", "проверк", "риск"],
-            "routing_markers": ["режим менеджера", "маршрут"],
+            "routing_required": True,
             "decision_marker_groups": [["повтор"]],
         }
         first = {
             "answer": (
-                "Режим менеджера: полный. Маршрут: запросить решение о "
-                "повторе."
+                "Нужно решение о повторе."
             ),
             "commands": [],
             "usage": {},
         }
         second = {
             "answer": (
-                "Режим менеджера: полный. Маршрут: выполнить решение. "
+                "Решение выполнено. "
                 "Критерий и проверка готовы, риск указан. На приёмку."
             ),
             "commands": ["python3 -m unittest"],
@@ -932,8 +927,8 @@ class ProductEvalTest(unittest.TestCase):
                     self.assertEqual(all(trace), metrics["routing_opened"])
                     self.assertEqual(trace, metrics["routing_opened_by_turn"])
                     for turn, opened in enumerate(trace, start=1):
-                        message = (
-                            f"Ход {turn} не открыл ait-routing/SKILL.md."
+                        message = MODULE.ROUTING_ORDER_MISSED.format(
+                            turn=turn,
                         )
                         self.assertEqual(
                             not opened,
@@ -947,10 +942,10 @@ class ProductEvalTest(unittest.TestCase):
             ],
             "required_commands": ["python3 -m unittest"],
             "handoff_markers": ["приём", "критер", "проверк", "риск"],
-            "routing_markers": ["режим менеджера", "маршрут"],
+            "routing_required": True,
             "decision_marker_groups": [["повтор"]],
         }
-        answer = "Режим менеджера: полный. Маршрут: продолжить."
+        answer = "Продолжаю."
         result = {
             "turns": [
                 answer + " Решение о повторе?",
@@ -970,9 +965,64 @@ class ProductEvalTest(unittest.TestCase):
             metrics = MODULE.rescore_result(scenario, result, workdir)
         self.assertEqual([True, None], metrics["routing_opened_by_turn"])
         self.assertIn(
-            "Ход 2 не открыл ait-routing/SKILL.md.",
+            MODULE.ROUTING_ORDER_MISSED.format(turn=2),
             metrics["missed_mandatory_actions"],
         )
+
+    def test_answer_with_routing_block_is_reported(self):
+        scenario = {
+            "expected_artifact_groups": [
+                {"label": "результат", "any_of": ["result.txt"]},
+            ],
+            "required_commands": ["python3 -m unittest"],
+            "handoff_markers": ["приём", "критер", "проверк", "риск"],
+            "routing_required": True,
+            "decision_marker_groups": [["повтор"]],
+        }
+        first = {
+            "answer": "Режим менеджера: полный. Маршрут: решение о повторе.",
+            "commands": [],
+            "usage": {},
+        }
+        second = {
+            "answer": "Критерий и проверка готовы, риск указан. На приёмку.",
+            "commands": ["python3 -m unittest"],
+            "usage": {},
+        }
+        with tempfile.TemporaryDirectory() as temp:
+            workdir = Path(temp)
+            (workdir / "result.txt").write_text("done", encoding="utf-8")
+            metrics = MODULE.score_run(
+                scenario,
+                first,
+                second,
+                {"status": "", "diff": ""},
+                {"status": " M result.txt\n", "diff": ""},
+                workdir,
+                routing_opened=[True, True],
+            )
+        missed = metrics["missed_mandatory_actions"]
+        self.assertIn(
+            "Ответ хода 1 содержит служебный блок маршрутизации.",
+            missed,
+        )
+        self.assertNotIn(
+            "Ответ хода 2 содержит служебный блок маршрутизации.",
+            missed,
+        )
+
+    def test_routing_must_be_read_before_message_and_change(self):
+        cases = (
+            ({"routing_read": 0, "first_message": 1, "first_change": 2}, True),
+            ({"routing_read": 0, "first_message": None, "first_change": None}, True),
+            ({"routing_read": 2, "first_message": 1, "first_change": None}, False),
+            ({"routing_read": 3, "first_message": None, "first_change": 1}, False),
+            ({"routing_read": None, "first_message": 0, "first_change": None}, False),
+            (None, None),
+        )
+        for order, expected in cases:
+            with self.subTest(order=order):
+                self.assertIs(expected, MODULE.routing_opened_in_time(order))
 
 
 if __name__ == "__main__":

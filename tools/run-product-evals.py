@@ -107,12 +107,9 @@ def validate_scenarios(data: Any) -> list[dict[str, Any]]:
         for key in ("required_commands", "handoff_markers"):
             if not scenario[key] or not all(isinstance(value, str) for value in scenario[key]):
                 raise EvalError(f"Сценарий {identifier}: поле {key} не должно быть пустым.")
-        routing_markers = scenario.get("routing_markers", [])
-        if not isinstance(routing_markers, list) or not all(
-            isinstance(marker, str) and marker for marker in routing_markers
-        ):
+        if not isinstance(scenario.get("routing_required", False), bool):
             raise EvalError(
-                f"Сценарий {identifier}: routing_markers должен быть массивом строк.",
+                f"Сценарий {identifier}: routing_required должен быть логическим.",
             )
         marker_groups = scenario["decision_marker_groups"]
         if not marker_groups or not all(
@@ -449,6 +446,35 @@ def call_adapter(
     return result
 
 
+# Признак прежнего обязательного блока «Режим менеджера / Причина / Маршрут».
+# ФТ-43 отменил блок, поэтому его появление в ответе считается отступлением.
+ROUTING_BLOCK_MARKER = "режим менеджера:"
+ROUTING_ORDER_MISSED = (
+    "Ход {turn} не открыл и не сверил ait-routing/SKILL.md до первого "
+    "сообщения и изменения файлов."
+)
+
+
+def routing_opened_in_time(order: Any) -> bool | None:
+    """Проверить по порядку событий хода, что маршрутизатор прочитан вовремя.
+
+    Адаптер клиента сообщает номера первых событий: обращения к маршрутизатору,
+    сообщения человеку и изменения файлов. Обращением считается чтение файла
+    или сверка его контрольной суммы: на следующих сообщениях сессии навык
+    разрешает не перечитывать неизменный текст. Без этих сведений порядок не
+    установлен.
+    """
+    if not isinstance(order, dict):
+        return None
+    read = order.get("routing_read")
+    if not isinstance(read, int):
+        return False
+    return all(
+        not isinstance(order.get(key), int) or read < order[key]
+        for key in ("first_message", "first_change")
+    )
+
+
 def score_run(
     scenario: dict[str, Any],
     first: dict[str, Any],
@@ -538,18 +564,14 @@ def score_run(
     missed.extend(f"Не выполнена проверка {command}." for command in missing_commands)
     missed.extend(f"В передаче результата нет признака {marker!r}." for marker in missing_handoff)
     for turn, answer in enumerate(routing_answers, start=1):
-        for marker in scenario.get("routing_markers", []):
-            if marker.lower() not in answer:
-                missed.append(
-                    f"Ответ хода {turn} не показал маршрут: {marker!r}.",
-                )
-        if (
-            scenario.get("routing_markers")
-            and routing_opened_by_turn[turn - 1] is not True
-        ):
+        if not scenario.get("routing_required"):
+            continue
+        if ROUTING_BLOCK_MARKER in answer:
             missed.append(
-                f"Ход {turn} не открыл ait-routing/SKILL.md.",
+                f"Ответ хода {turn} содержит служебный блок маршрутизации.",
             )
+        if routing_opened_by_turn[turn - 1] is not True:
+            missed.append(ROUTING_ORDER_MISSED.format(turn=turn))
     routing_opened_complete = all(
         value is True for value in routing_opened_by_turn
     )
@@ -701,13 +723,6 @@ def run_variant(
         scenario["request"],
         case_root / "turn-1.jsonl",
     )
-    routing_opened = [
-        "ait-routing/SKILL.md" in (case_root / "turn-1.jsonl").read_text(
-            encoding="utf-8",
-            errors="replace",
-        ),
-        None,
-    ]
     before_owner = git_state(workdir)
     second = call_adapter(
         config,
@@ -717,9 +732,8 @@ def run_variant(
         scenario["owner_reply"],
         case_root / "turn-2.jsonl",
     )
-    routing_opened[1] = "ait-routing/SKILL.md" in (
-        case_root / "turn-2.jsonl"
-    ).read_text(encoding="utf-8", errors="replace")
+    trace_order = [first.get("trace_order"), second.get("trace_order")]
+    routing_opened = [routing_opened_in_time(order) for order in trace_order]
     final_state = git_state(workdir)
     result = {
         "scenario": scenario["id"],
@@ -731,6 +745,7 @@ def run_variant(
         "turns": [first["answer"], second["answer"]],
         "before_owner": before_owner,
         "final_state": final_state,
+        "trace_order": trace_order,
         "metrics": score_run(
             scenario,
             first,

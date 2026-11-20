@@ -9,6 +9,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
+ROUTING_PATH = "ait-routing/SKILL.md"
+
 
 def walk(value: Any):
     yield value
@@ -33,6 +35,38 @@ def extract_answer(events: list[Any], fallback: str) -> str:
         if isinstance(value, str) and value.strip():
             messages.append(value)
     return "\n\n".join(messages) if messages else fallback
+
+
+def trace_order(events: list[Any]) -> dict[str, int | None]:
+    """Найти номера первых событий хода для проверки порядка маршрутизации."""
+    order: dict[str, int | None] = {
+        "routing_read": None,
+        "first_message": None,
+        "first_change": None,
+    }
+    for position, event in enumerate(events):
+        if not isinstance(event, dict) or event.get("type") not in {
+            "item.started",
+            "item.completed",
+        }:
+            continue
+        item = event.get("item")
+        if not isinstance(item, dict):
+            continue
+        kind = None
+        if item.get("type") == "agent_message":
+            text = item.get("text")
+            if isinstance(text, str) and text.strip():
+                kind = "first_message"
+        elif item.get("type") == "command_execution":
+            command = item.get("command")
+            if isinstance(command, str) and ROUTING_PATH in command:
+                kind = "routing_read"
+        elif item.get("type") == "file_change":
+            kind = "first_change"
+        if kind and order[kind] is None:
+            order[kind] = position
+    return order
 
 
 def main() -> int:
@@ -126,6 +160,7 @@ def main() -> int:
         ),
         "commands": sorted(set(commands)),
         "usage": usage,
+        "trace_order": trace_order(events),
     }
     print(json.dumps(result, ensure_ascii=False))
     return 0

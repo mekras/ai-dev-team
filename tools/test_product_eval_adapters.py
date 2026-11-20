@@ -48,7 +48,7 @@ class ProductEvalAdapterTest(unittest.TestCase):
                 "type": "assistant",
                 "message": {
                     "content": [
-                        {"type": "text", "text": "Режим менеджера"},
+                        {"type": "text", "text": "План"},
                         {"type": "tool_use", "name": "Bash"},
                     ],
                 },
@@ -61,8 +61,122 @@ class ProductEvalAdapterTest(unittest.TestCase):
             },
         ]
         self.assertEqual(
-            "Режим менеджера\n\nИтог",
+            "План\n\nИтог",
             CLAUDE.extract_answer(events, "последний ответ"),
+        )
+
+    def test_claude_trace_order_finds_first_routing_message_and_change(self):
+        def assistant(*blocks):
+            return {"type": "assistant", "message": {"content": list(blocks)}}
+
+        events = [
+            {"type": "system"},
+            assistant({
+                "type": "tool_use",
+                "name": "Read",
+                "input": {"file_path": ".agents/skills/ait-routing/SKILL.md"},
+            }),
+            assistant({"type": "text", "text": "План работы"}),
+            assistant({
+                "type": "tool_use",
+                "name": "Edit",
+                "input": {"file_path": "catalog.py"},
+            }),
+            assistant({"type": "text", "text": "Итог"}),
+        ]
+        self.assertEqual(
+            {"routing_read": 0, "first_message": 1, "first_change": 2},
+            CLAUDE.trace_order(events),
+        )
+
+    def test_claude_trace_order_reports_late_routing_read(self):
+        events = [
+            {
+                "type": "assistant",
+                "message": {
+                    "content": [
+                        {"type": "text", "text": "Ответ"},
+                        {
+                            "type": "tool_use",
+                            "name": "Bash",
+                            "input": {
+                                "command": "cat .claude/skills/ait-routing/SKILL.md",
+                            },
+                        },
+                    ],
+                },
+            },
+        ]
+        self.assertEqual(
+            {"routing_read": 1, "first_message": 0, "first_change": None},
+            CLAUDE.trace_order(events),
+        )
+
+    def test_codex_trace_order_finds_first_routing_message_and_change(self):
+        events = [
+            {"type": "thread.started", "thread_id": "t"},
+            {
+                "type": "item.started",
+                "item": {
+                    "type": "command_execution",
+                    "command": "sed -n 1,200p .agents/skills/ait-routing/SKILL.md",
+                },
+            },
+            {
+                "type": "item.completed",
+                "item": {"type": "agent_message", "text": "Вопрос"},
+            },
+            {"type": "item.completed", "item": {"type": "file_change"}},
+        ]
+        self.assertEqual(
+            {"routing_read": 1, "first_message": 2, "first_change": 3},
+            CODEX.trace_order(events),
+        )
+
+    def test_checksum_comparison_counts_as_routing_access(self):
+        command = (
+            "sha256sum .agents/skills/ait-routing/SKILL.md "
+            ".agents/skills/ai-human-communication/SKILL.md"
+        )
+        codex_events = [
+            {
+                "type": "item.started",
+                "item": {"type": "command_execution", "command": command},
+            },
+            {
+                "type": "item.completed",
+                "item": {"type": "agent_message", "text": "Ответ"},
+            },
+        ]
+        claude_events = [
+            {
+                "type": "assistant",
+                "message": {
+                    "content": [
+                        {
+                            "type": "tool_use",
+                            "name": "Bash",
+                            "input": {"command": command},
+                        },
+                        {"type": "text", "text": "Ответ"},
+                    ],
+                },
+            },
+        ]
+        expected = {"routing_read": 0, "first_message": 1, "first_change": None}
+        self.assertEqual(expected, CODEX.trace_order(codex_events))
+        self.assertEqual(expected, CLAUDE.trace_order(claude_events))
+
+    def test_codex_trace_order_without_routing_read(self):
+        events = [
+            {
+                "type": "item.completed",
+                "item": {"type": "agent_message", "text": "Ответ"},
+            },
+        ]
+        self.assertEqual(
+            {"routing_read": None, "first_message": 0, "first_change": None},
+            CODEX.trace_order(events),
         )
 
     def test_claude_uses_result_as_fallback(self):

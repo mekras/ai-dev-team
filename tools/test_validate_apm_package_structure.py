@@ -265,6 +265,41 @@ class CommunicationLoadingContractTests(unittest.TestCase):
             self.check_contract()
 
 
+class RoutingBlockRemovalTests(unittest.TestCase):
+    PATHS = (
+        ".apm/instructions/ai-dev-team-connection.instructions.md",
+        ".apm/skills/ait-routing/SKILL.md",
+        ".apm/skills/ait-setup/assets/project-AGENTS.md",
+    )
+
+    def setUp(self) -> None:
+        self.validator = load_validator()
+        self.workspace = tempfile.TemporaryDirectory()
+        self.addCleanup(self.workspace.cleanup)
+        self.root = Path(self.workspace.name)
+        for relative in self.PATHS:
+            target = self.root / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes((ROOT / relative).read_bytes())
+
+    def check_contract(self) -> None:
+        with patch.object(self.validator, "ROOT", self.root):
+            self.validator.check_routing_block_removed()
+
+    def test_current_sources_pass(self) -> None:
+        self.check_contract()
+
+    def test_returned_block_format_is_rejected(self) -> None:
+        template = self.root / self.PATHS[2]
+        template.write_text(
+            template.read_text(encoding="utf-8")
+            + "\nРежим менеджера: лёгкий|полный.\n",
+            encoding="utf-8",
+        )
+        with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+            self.check_contract()
+
+
 class AgentRuleDeliveryTests(unittest.TestCase):
     PATHS = (
         ".apm/instructions/ai-dev-team-connection.instructions.md",

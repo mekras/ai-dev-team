@@ -10,6 +10,11 @@ import uuid
 from pathlib import Path
 from typing import Any
 
+ROUTING_PATH = "ait-routing/SKILL.md"
+# Инструменты Claude Code, которые меняют файлы. Запись через Bash порядок
+# не учитывает: по команде нельзя надёжно определить изменение файла.
+CHANGE_TOOLS = {"Write", "Edit", "MultiEdit", "NotebookEdit"}
+
 
 def walk(value: Any):
     yield value
@@ -44,6 +49,41 @@ def extract_answer(events: list[Any], fallback: str) -> str:
         if texts:
             messages.append("\n".join(texts))
     return "\n\n".join(messages) if messages else fallback
+
+
+def trace_order(events: list[Any]) -> dict[str, int | None]:
+    """Найти номера первых событий хода для проверки порядка маршрутизации."""
+    order: dict[str, int | None] = {
+        "routing_read": None,
+        "first_message": None,
+        "first_change": None,
+    }
+    position = 0
+    for event in events:
+        if not isinstance(event, dict) or event.get("type") != "assistant":
+            continue
+        message = event.get("message")
+        content = message.get("content") if isinstance(message, dict) else None
+        if not isinstance(content, list):
+            continue
+        for block in content:
+            if not isinstance(block, dict):
+                continue
+            kind = None
+            if block.get("type") == "text":
+                text = block.get("text")
+                if isinstance(text, str) and text.strip():
+                    kind = "first_message"
+            elif block.get("type") == "tool_use":
+                arguments = json.dumps(block.get("input"), ensure_ascii=False)
+                if ROUTING_PATH in arguments:
+                    kind = "routing_read"
+                elif block.get("name") in CHANGE_TOOLS:
+                    kind = "first_change"
+            if kind and order[kind] is None:
+                order[kind] = position
+            position += 1
+    return order
 
 
 def main() -> int:
@@ -115,6 +155,7 @@ def main() -> int:
                 "answer": extract_answer(events, answer),
                 "commands": sorted(set(commands)),
                 "usage": usage,
+                "trace_order": trace_order(events),
             },
             ensure_ascii=False,
         ),

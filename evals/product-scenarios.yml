@@ -34,7 +34,7 @@
           ],
         "required_commands": ["python3 -m unittest"],
         "handoff_markers": ["приём", "критер", "проверк", "риск"],
-        "routing_markers": ["режим менеджера", "маршрут"],
+        "routing_required": true,
         "decision_description": "политика обработки повторяющихся идентификаторов",
         "decision_marker_groups": [["повтор", "дублик"], ["id", "идентифик"]],
         "seeded_problems":
@@ -71,7 +71,7 @@
           ],
         "required_commands": ["python3 -m unittest"],
         "handoff_markers": ["приём", "критер", "проверк", "риск"],
-        "routing_markers": ["режим менеджера", "маршрут"],
+        "routing_required": true,
         "decision_description": "устранение противоречия между запросом и принятым форматом хранения",
         "decision_marker_groups":
           [["json lines", "jsonl"], ["sqlite"], ["противореч", "решен", "выбор"]],
@@ -117,7 +117,7 @@
           ],
         "required_commands": ["python3 -m unittest"],
         "handoff_markers": ["приём", "критер", "проверк", "риск"],
-        "routing_markers": ["режим менеджера", "маршрут"],
+        "routing_required": true,
         "decision_description": "поведение при делении на ноль",
         "decision_marker_groups": [["делен"], ["нол"], ["решен", "выбор", "поведен"]],
         "seeded_problems":
@@ -152,7 +152,7 @@
           ],
         "required_commands": ["python3 -m json.tool .ai-dev-team/project-impact.json"],
         "handoff_markers": ["приём", "провер", "риск"],
-        "routing_markers": ["режим менеджера", "маршрут"],
+        "routing_required": true,
         "decision_description": "подготовка отчёта аудита без изменения документации и графа",
         "decision_marker_groups":
           [["отчёт", "audit"], ["решен", "подтверд", "соглас"]],
