@@ -978,8 +978,10 @@ def check_installed_package_file_ownership_contract() -> None:
             "исходный файл в репозитории этого пакета",
             "ADR-0021",
         ),
-        ".apm/instructions/ai-dev-team-connection.instructions.md": (
+        ".apm/skills/ait-routing/SKILL.md": (
             "## Файлы установленных пакетов",
+            "Правило действует в любом режиме менеджера",
+            "до передачи проверь",
             "Для операции над каталогом",
             "`apm.lock.yaml` в контекст не читай.",
             "для каждого выполни `apm find <путь>`",
@@ -1006,6 +1008,100 @@ def check_installed_package_file_ownership_contract() -> None:
                     f"{relative_path} is missing installed package ownership "
                     f"marker {marker!r}",
                 )
+
+
+def check_source_traceability_contract() -> None:
+    required_markers = {
+        "docs/05-requirements/quality/kach-10.md": (
+            "[primary-data]: ../../../.apm/context/primary-data.context.md",
+        ),
+        ".apm/context/primary-data.context.md": (
+            "## Связь фрагмента артефакта с источником",
+            "Правило обязательно для внутренних источников",
+            "к временному выводу и кэшам",
+        ),
+        ".apm/skills/ait-routing/SKILL.md": (
+            "действует в любом режиме",
+            "связь фрагментов проектных артефактов",
+        ),
+    }
+    for relative_path, markers in required_markers.items():
+        text = (ROOT / relative_path).read_text(encoding="utf-8")
+        for marker in markers:
+            if marker not in text:
+                fail(
+                    f"{relative_path} is missing source traceability marker "
+                    f"{marker!r}",
+                )
+
+
+CONNECTION_LOADER = ".apm/instructions/ai-dev-team-connection.instructions.md"
+
+# Разделы инструкции подключения и заголовки маршрутизатора, на которые они
+# указывают. Рукописный AGENTS.md переносит из инструкции только загрузчик,
+# поэтому собственное правило в ней до агента не доходит (КАЧ-2).
+CONNECTION_LOADER_SECTIONS = {
+    "Концепция проекта": "### 1а. Учесть концепцию проекта",
+    "Граф влияния проекта": "### 3а. Запланировать сквозное влияние изменения",
+    "Тексты для человека": "## Тексты для человека",
+}
+
+# Признаки правил, перенесённых из инструкции подключения, и их единственный
+# переносимый источник.
+MOVED_AGENT_RULES = {
+    "`apm.lock.yaml` в контекст не читай.": ".apm/skills/ait-routing/SKILL.md",
+    "Если путей больше 20": ".apm/skills/ait-routing/SKILL.md",
+    "сохраняй локальную и однозначную связь между фрагментом и источником": (
+        ".apm/context/primary-data.context.md"
+    ),
+    "Правило обязательно для внутренних источников": (
+        ".apm/context/primary-data.context.md"
+    ),
+    "наименьшей смысловой частью, которую подтверждает источник": (
+        ".apm/context/primary-data.context.md"
+    ),
+}
+
+
+def normalized_words(text: str) -> str:
+    return " ".join(text.split())
+
+
+def check_agent_rule_delivery() -> None:
+    connection = (ROOT / CONNECTION_LOADER).read_text(encoding="utf-8")
+    routing = (ROOT / ".apm/skills/ait-routing/SKILL.md").read_text(
+        encoding="utf-8",
+    )
+    routing_headings = set(re.findall(r"^#{2,3} .+$", routing, flags=re.MULTILINE))
+    for heading in re.findall(r"^## (.+)$", connection, flags=re.MULTILINE):
+        target = CONNECTION_LOADER_SECTIONS.get(heading.strip())
+        if target is None:
+            fail(
+                f"{CONNECTION_LOADER} section {heading!r} has no routing step: "
+                "a handwritten AGENTS.md carries only the loader, so move the "
+                "rule to ait-routing or a shared context file",
+            )
+        elif target not in routing_headings:
+            fail(
+                f"ait-routing is missing {target!r} referenced by "
+                f"{CONNECTION_LOADER} section {heading!r}",
+            )
+    sources = {
+        path.relative_to(ROOT).as_posix(): normalized_words(
+            path.read_text(encoding="utf-8"),
+        )
+        for path in sorted((ROOT / ".apm").rglob("*.md"))
+    }
+    for marker, owner in MOVED_AGENT_RULES.items():
+        holders = [
+            path for path, text in sources.items()
+            if normalized_words(marker) in text
+        ]
+        if holders != [owner]:
+            fail(
+                f"rule marker {marker!r} must stay only in {owner}; "
+                f"found in {holders}",
+            )
 
 
 def check_portability_contract() -> None:
@@ -2365,6 +2461,8 @@ def main() -> None:
     check_persistent_sdd_contract()
     check_connection_effort_contract()
     check_installed_package_file_ownership_contract()
+    check_source_traceability_contract()
+    check_agent_rule_delivery()
     check_portability_contract()
     check_codex_routing_reachability()
     check_deployed_skill_references()

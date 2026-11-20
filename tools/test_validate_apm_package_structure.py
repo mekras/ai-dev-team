@@ -265,5 +265,79 @@ class CommunicationLoadingContractTests(unittest.TestCase):
             self.check_contract()
 
 
+class AgentRuleDeliveryTests(unittest.TestCase):
+    PATHS = (
+        ".apm/instructions/ai-dev-team-connection.instructions.md",
+        ".apm/skills/ait-routing/SKILL.md",
+        ".apm/context/primary-data.context.md",
+        ".apm/context/principles.context.md",
+    )
+
+    def setUp(self) -> None:
+        self.validator = load_validator()
+        self.workspace = tempfile.TemporaryDirectory()
+        self.addCleanup(self.workspace.cleanup)
+        self.root = Path(self.workspace.name)
+        for relative in self.PATHS:
+            target = self.root / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes((ROOT / relative).read_bytes())
+
+    def check_contract(self) -> None:
+        with patch.object(self.validator, "ROOT", self.root):
+            self.validator.check_agent_rule_delivery()
+
+    def assert_rejected(self) -> None:
+        with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+            self.check_contract()
+
+    def append(self, relative: str, text: str) -> None:
+        with (self.root / relative).open("a", encoding="utf-8") as stream:
+            stream.write(text)
+
+    def test_loader_with_routing_pointers_passes(self) -> None:
+        self.check_contract()
+
+    def test_rule_section_returned_to_loader_is_rejected(self) -> None:
+        self.append(
+            self.PATHS[0],
+            "\n## Файлы установленных пакетов\n\n"
+            "Развёрнутый путь не изменяй в целевом проекте.\n",
+        )
+        self.assert_rejected()
+
+    def test_moved_rule_inside_pointer_section_is_rejected(self) -> None:
+        self.append(
+            self.PATHS[0],
+            "\nЕсли путей больше 20, проверь их одной командой.\n",
+        )
+        self.assert_rejected()
+
+    def test_rewrapped_rule_copy_is_rejected(self) -> None:
+        self.append(
+            self.PATHS[3],
+            "\nсохраняй локальную и однозначную связь между фрагментом\n"
+            "и источником.\n",
+        )
+        self.assert_rejected()
+
+    def test_skill_restatement_of_rule_is_rejected(self) -> None:
+        self.append(
+            self.PATHS[1],
+            "\nПоставь метку ссылки рядом с наименьшей смысловой частью,\n"
+            "которую подтверждает источник.\n",
+        )
+        self.assert_rejected()
+
+    def test_pointer_to_missing_routing_step_is_rejected(self) -> None:
+        routing = self.root / self.PATHS[1]
+        text = routing.read_text(encoding="utf-8")
+        routing.write_text(text.replace(
+            "### 3а. Запланировать сквозное влияние изменения",
+            "### 3а. Учесть влияние",
+        ), encoding="utf-8")
+        self.assert_rejected()
+
+
 if __name__ == "__main__":
     unittest.main()
