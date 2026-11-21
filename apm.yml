@@ -37,6 +37,7 @@ scripts:
     tools/test_validate_project_review_capabilities.py
     tools/test_validate_skill_eval_scenario_executability.py
     tools/test_report_skill_eval_freshness.py
+    tools/test_release_workflow.py
     tools/test_record_skill_eval_run.py;
     python3 .apm/skills/ait-impact-analysis/scripts/impact_graph.py
     validate --graph .ai-dev-team/project-impact.json;

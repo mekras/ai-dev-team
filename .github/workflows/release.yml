@@ -142,20 +142,30 @@ jobs:
         run: |
           set -euo pipefail
           package_tag="${PACKAGE_NAME}--v${RELEASE_VERSION}"
+          tag_ref="refs/tags/${package_tag}"
+          git add -A
+          if git ls-remote --exit-code --tags origin "$tag_ref" >/dev/null; then
+            git fetch origin "${tag_ref}:${tag_ref}"
+            if ! git diff --cached --quiet "${tag_ref}^{commit}" \
+                -- "packages/${PACKAGE_NAME}"; then
+              echo "Содержимое пакета отличается от опубликованного тега ${package_tag}" >&2
+              exit 1
+            fi
+            exit 0
+          else
+            lookup_status=$?
+            if [ "$lookup_status" -ne 2 ]; then
+              exit "$lookup_status"
+            fi
+          fi
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
           if ! git diff --cached --quiet; then
             git commit -m "Опубликована коллекция ${PACKAGE_NAME} ${RELEASE_VERSION}"
-            git push origin master
           fi
-          if git ls-remote --exit-code --tags origin "refs/tags/${package_tag}"; then
-            git fetch origin "refs/tags/${package_tag}:refs/tags/${package_tag}"
-            test "$(git rev-parse "${package_tag}^{}")" = "$(git rev-parse HEAD)"
-          else
-            git tag -a "$package_tag" -m "Опубликована коллекция ${PACKAGE_NAME} ${RELEASE_VERSION}"
-            git push origin "$package_tag"
-          fi
+          git tag -a "$package_tag" -m "Опубликована коллекция ${PACKAGE_NAME} ${RELEASE_VERSION}"
+          git push --atomic origin HEAD:refs/heads/master "$tag_ref"
 
       - name: Создать GitHub Release исходной коллекции
         env:
