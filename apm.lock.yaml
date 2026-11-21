@@ -1,13 +1,13 @@
 lockfile_version: '1'
-generated_at: '2026-11-21T15:11:56.124742+00:00'
+generated_at: '2026-11-21T16:48:40.277442+00:00'
 apm_version: 0.33.0
 dependencies:
 - repo_url: mekras/apm-marketplace
   name: ai-agent-supervisor
   host: github.com
-  resolved_commit: 986387ccaf580839321fded21e043724f0d40382
-  resolved_ref: ai-agent-supervisor--v2.11.0
-  version: 2.11.0
+  resolved_commit: 0d422a34f58ec2139fbadd85e5e56ff90e8a8bb4
+  resolved_ref: ai-agent-supervisor--v2.11.1
+  version: 2.11.1
   virtual_path: packages/ai-agent-supervisor
   is_virtual: true
   package_type: apm_package
@@ -562,9 +562,9 @@ dependencies:
     .agents/skills/ai-evidence-collection/evals/triggers.json: sha256:8d255ccb7d220340f9a9ab6483b989b7c6c955de835555076a26bf0dd279db97
     .agents/skills/ai-evidence-collection/references/data-collection-procedure.md: sha256:3fd5021f707985d66f48a1374b0db247177e960c12e0b0071896289b8075c44a
     .agents/skills/ai-human-communication/README.md: sha256:71b5e60cf2c67d9f02a27868ec0f8b33216d99924f9118c144efcda8343e59a5
-    .agents/skills/ai-human-communication/SKILL.md: sha256:d1e5d4dffb1dd6706ea484a9fe710595de73fee9c54c78f869de93c7cd9366c7
+    .agents/skills/ai-human-communication/SKILL.md: sha256:2d9896b9775bb4484f52597a6a674f4da81c55fff6a0e516a3722f666d84fdda
     .agents/skills/ai-human-communication/agents/openai.yaml: sha256:e53d3bcdcb19498563cfeeb786006a08fc05dcdc6738dca577466d24bdef7449
-    .agents/skills/ai-human-communication/evals/result-scenarios.json: sha256:a341a04546b5ba0be5aaa4c3049256278dd00bf737702a277301da1587cbc906
+    .agents/skills/ai-human-communication/evals/result-scenarios.json: sha256:9669c9679fd4871eafdb7da8c6d826044eb0c153b5724d7b2db915b599252927
     .agents/skills/ai-human-communication/evals/triggers.json: sha256:f28b4bffd0bcab2c81e9ea52c5b7ace383f7826a766b246ccbef90716919b2d5
     .agents/skills/ai-model-analysis/README.md: sha256:def69afe40b9493df80173ff37fb4dc81ead392770ee12cfccff2d05c6d876f2
     .agents/skills/ai-model-analysis/SKILL.md: sha256:5edc4815f3ac6917f90fcce0f1db4383779fab77722b4b989d2ee4fd1857eb57
@@ -809,9 +809,9 @@ dependencies:
     .claude/skills/ai-evidence-collection/evals/triggers.json: sha256:8d255ccb7d220340f9a9ab6483b989b7c6c955de835555076a26bf0dd279db97
     .claude/skills/ai-evidence-collection/references/data-collection-procedure.md: sha256:3fd5021f707985d66f48a1374b0db247177e960c12e0b0071896289b8075c44a
     .claude/skills/ai-human-communication/README.md: sha256:71b5e60cf2c67d9f02a27868ec0f8b33216d99924f9118c144efcda8343e59a5
-    .claude/skills/ai-human-communication/SKILL.md: sha256:d1e5d4dffb1dd6706ea484a9fe710595de73fee9c54c78f869de93c7cd9366c7
+    .claude/skills/ai-human-communication/SKILL.md: sha256:2d9896b9775bb4484f52597a6a674f4da81c55fff6a0e516a3722f666d84fdda
     .claude/skills/ai-human-communication/agents/openai.yaml: sha256:e53d3bcdcb19498563cfeeb786006a08fc05dcdc6738dca577466d24bdef7449
-    .claude/skills/ai-human-communication/evals/result-scenarios.json: sha256:a341a04546b5ba0be5aaa4c3049256278dd00bf737702a277301da1587cbc906
+    .claude/skills/ai-human-communication/evals/result-scenarios.json: sha256:9669c9679fd4871eafdb7da8c6d826044eb0c153b5724d7b2db915b599252927
     .claude/skills/ai-human-communication/evals/triggers.json: sha256:f28b4bffd0bcab2c81e9ea52c5b7ace383f7826a766b246ccbef90716919b2d5
     .claude/skills/ai-model-analysis/README.md: sha256:def69afe40b9493df80173ff37fb4dc81ead392770ee12cfccff2d05c6d876f2
     .claude/skills/ai-model-analysis/SKILL.md: sha256:5edc4815f3ac6917f90fcce0f1db4383779fab77722b4b989d2ee4fd1857eb57
@@ -1033,7 +1033,7 @@ dependencies:
     .claude/skills/ai-work-result-evaluation/evals/result-scenarios.json: sha256:0f0a57642528cc999c5390f266c465498404112eaae07325424e4ce785c4c6a1
     .claude/skills/ai-work-result-evaluation/evals/triggers.json: sha256:ed39ad95629b336e9d89b31ac6bbada0644f1df5c1aecbc1b1517fd003f6b594
     .claude/skills/ai-work-result-evaluation/references/work-result-evaluation.md: sha256:1baf4f21269ab900baeec61c375ef81d434d419897b78d32d0c1075e885acf37
-  content_hash: sha256:add2d3d1beaa16a45ac63da3903ff0f25467bf279e98a54888e3868fd5e13dfa
+  content_hash: sha256:698545eef44d1f007bfe4bffb78ba06157208c72f0cde7970d3a6beb910ee24e
   declared_license: MIT
 - repo_url: mekras/apm-marketplace
   name: ai-russian-language
@@ -2444,7 +2444,7 @@ deployments:
   owners:
   - mekras/apm-marketplace/packages/ai-agent-supervisor
   active_owner: mekras/apm-marketplace/packages/ai-agent-supervisor
-  content_hash: sha256:d1e5d4dffb1dd6706ea484a9fe710595de73fee9c54c78f869de93c7cd9366c7
+  content_hash: sha256:2d9896b9775bb4484f52597a6a674f4da81c55fff6a0e516a3722f666d84fdda
 - kind: project-relative
   target: agent-skills
   value: .agents/skills/ai-human-communication/agents/openai.yaml
@@ -2462,7 +2462,7 @@ deployments:
   owners:
   - mekras/apm-marketplace/packages/ai-agent-supervisor
   active_owner: mekras/apm-marketplace/packages/ai-agent-supervisor
-  content_hash: sha256:a341a04546b5ba0be5aaa4c3049256278dd00bf737702a277301da1587cbc906
+  content_hash: sha256:9669c9679fd4871eafdb7da8c6d826044eb0c153b5724d7b2db915b599252927
 - kind: project-relative
   target: agent-skills
   value: .agents/skills/ai-human-communication/evals/triggers.json
@@ -7538,7 +7538,7 @@ deployments:
   owners:
   - mekras/apm-marketplace/packages/ai-agent-supervisor
   active_owner: mekras/apm-marketplace/packages/ai-agent-supervisor
-  content_hash: sha256:d1e5d4dffb1dd6706ea484a9fe710595de73fee9c54c78f869de93c7cd9366c7
+  content_hash: sha256:2d9896b9775bb4484f52597a6a674f4da81c55fff6a0e516a3722f666d84fdda
 - kind: project-relative
   target: claude
   value: .claude/skills/ai-human-communication/agents/openai.yaml
@@ -7556,7 +7556,7 @@ deployments:
   owners:
   - mekras/apm-marketplace/packages/ai-agent-supervisor
   active_owner: mekras/apm-marketplace/packages/ai-agent-supervisor
-  content_hash: sha256:a341a04546b5ba0be5aaa4c3049256278dd00bf737702a277301da1587cbc906
+  content_hash: sha256:9669c9679fd4871eafdb7da8c6d826044eb0c153b5724d7b2db915b599252927
 - kind: project-relative
   target: claude
   value: .claude/skills/ai-human-communication/evals/triggers.json
