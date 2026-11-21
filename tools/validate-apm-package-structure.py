@@ -1938,7 +1938,10 @@ def check_result_acceptance_contract() -> None:
             "пропущенные проверки, ограничения и остаточные риски",
         ),
         ".agents/skills/ai-work-result-evaluation/SKILL.md": (
-            "Прими решение: `accept`, `revise`, `reject`,",
+            "`accept`",
+            "`revise`",
+            "`reject`",
+            "`needs_human_decision`",
             "свидетельства фактического выполнения",
             "Сошлись на существующие результаты проверок",
         ),
