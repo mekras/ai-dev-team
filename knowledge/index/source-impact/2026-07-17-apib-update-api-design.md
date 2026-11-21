@@ -13,6 +13,14 @@
 - Канонический понятийный аппарат: `knowledge/concepts.yml`, запись `http-api`
 - Дата проверки: `2026-07-17`
 
+18 июля 2026 года утверждения `APIB-072`–`APIB-185` перенесли
+в [файл редакции 2025 года][apib-2025-statements].
+Утверждения `APIB-001`–`APIB-071` доступны
+в [файле редакции 2023 года][apib-2023-statements].
+
+[apib-2025-statements]: ../../data/apib/items/md/statements.yml
+[apib-2023-statements]: ../../data/apib/items/text/statements.yml
+
 ## Границы аудита
 
 Проверялись переносимые области продукта, связанные с проектированием API:

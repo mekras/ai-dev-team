@@ -6,11 +6,14 @@ statements:
   status: ready_for_review
   text: качество навыка следует проверять структурированными оценками, включая сравнение выполнения с
     навыком и без него или с предыдущей версией.
-  excerpt: Grading means evaluating each assertion against the actual outputs and recording
+  excerpt: >-
+    The core pattern is to run each test case twice: once **with the skill** and
+    once **without it** (or with a previous version).
   artifact: index.md
   checked_at: '2026-06-01'
   scope:
-    section_title: Grading outputs
+    section_title: >-
+      Running evals; Grading outputs
     application: оценка качества навыков и регрессионная проверка.
   open_questions: []
 - id: ASKL-009
@@ -20,11 +23,16 @@ statements:
   status: ready_for_review
   text: проверочный случай для навыка должен включать реалистичный запрос, ожидаемый результат и, при
     необходимости, входные файлы.
-  excerpt: '**Input files** (optional): files the skill needs to work with.'
+  excerpt: >-
+    - **Prompt**: a realistic user message — the kind of thing someone would
+    actually type. - **Expected output**: a human-readable description of what
+    success looks like. - **Input files** (optional): files the skill needs to
+    work with.
   artifact: index.md
   checked_at: '2026-06-01'
   scope:
-    section_title: Designing test cases
+    section_title: >-
+      Designing test cases
     application: тестовые наборы навыков.
   open_questions: []
 - id: ASKL-010
@@ -34,10 +42,13 @@ statements:
   status: ready_for_review
   text: оценка результата навыка должна фиксировать проверяемые утверждения о результате и доказательства
     прохождения или непрохождения, а не ограничиваться общей оценкой качества.
-  excerpt: '**Study assertions that pass with the skill but fail without.** This is where'
+  excerpt: >-
+    Grading means evaluating each assertion against the actual outputs and
+    recording **PASS** or **FAIL** with specific evidence.
   artifact: index.md
   checked_at: '2026-06-01'
   scope:
-    section_title: Analyzing patterns
+    section_title: >-
+      Writing assertions; Grading outputs
     application: проверка результатов выполнения навыков.
   open_questions: []

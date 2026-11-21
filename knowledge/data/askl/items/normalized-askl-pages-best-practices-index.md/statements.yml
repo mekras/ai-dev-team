@@ -6,11 +6,13 @@ statements:
   status: ready_for_review
   text: навык должен опираться на реальный предметный опыт, проектные артефакты и выполненные задачи,
     а не только на общие знания модели.
-  excerpt: appropriately,” “follow best practices for authentication”) rather than the
+  excerpt: >-
+    Effective skills are grounded in real expertise.
   artifact: index.md
   checked_at: '2026-06-01'
   scope:
-    section_title: Start from real expertise
+    section_title: >-
+      Start from real expertise
     application: разработка новых навыков и существенная переработка существующих навыков.
   open_questions: []
 - id: ASKL-002
@@ -20,11 +22,14 @@ statements:
   status: ready_for_review
   text: первый вариант навыка следует проверять на реальных задачах и уточнять по следам выполнения, включая
     успешные и неуспешные проходы.
-  excerpt: appropriately,” “follow best practices for authentication”) rather than the
+  excerpt: >-
+    Run the skill against real tasks, then feed the results — all of them, not
+    just failures — back into the creation process.
   artifact: index.md
   checked_at: '2026-06-01'
   scope:
-    section_title: Start from real expertise
+    section_title: >-
+      Refine with real execution
     application: проверка и сопровождение навыков после первого черновика.
   open_questions: []
 - id: ASKL-003
@@ -34,11 +39,14 @@ statements:
   status: ready_for_review
   text: 'содержимое навыка должно добавлять сведения, которых агенту не хватает без навыка: проектные
     соглашения, предметные процедуры, неочевидные случаи, инструменты и API.'
-  excerpt: appropriately,” “follow best practices for authentication”) rather than the
+  excerpt: >-
+    project-specific conventions, domain-specific procedures, non-obvious edge
+    cases, and the particular tools or APIs to use.
   artifact: index.md
   checked_at: '2026-06-01'
   scope:
-    section_title: Start from real expertise
+    section_title: >-
+      Add what the agent lacks, omit what it knows
     application: отбор содержимого для `SKILL.md` и вспомогательных файлов навыка.
   open_questions: []
 - id: ASKL-004
@@ -48,10 +56,13 @@ statements:
   status: ready_for_review
   text: 'крупные навыки следует строить с постепенным раскрытием контекста: основной файл содержит ядро,
     а подробные материалы загружаются по условиям из отдельных файлов.'
-  excerpt: appropriately,” “follow best practices for authentication”) rather than the
+  excerpt: >-
+    move detailed reference material to separate files in `references/` or
+    similar directories.
   artifact: index.md
   checked_at: '2026-06-01'
   scope:
-    section_title: Start from real expertise
+    section_title: >-
+      Structure large skills with progressive disclosure
     application: структура больших навыков и вспомогательных материалов.
   open_questions: []

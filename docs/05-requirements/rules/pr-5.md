@@ -52,6 +52,5 @@
 3. `apm audit --ci` подтверждает отсутствие дрейфа установленного состава.
 
 [^askl-001]:
-    Публичный веб-источник о создании, описании и оценке навыков агентов, раздел
-    «Start from real expertise». Внутренние идентификаторы утверждений:
-    `ASKL-001`, `ASKL-002`.
+    Agent Skills, «Best practices». Разделы «Start from real expertise»
+    (`ASKL-001`) и «Refine with real execution» (`ASKL-002`).

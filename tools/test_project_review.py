@@ -325,6 +325,10 @@ class ProjectReviewTest(unittest.TestCase):
         )
 
     def complete_knowledge_review(self, state: dict[str, object]) -> None:
+        self.start_knowledge_semantic_review(state)
+        self.finish_knowledge_semantic_review(state)
+
+    def start_knowledge_semantic_review(self, state: dict[str, object]) -> None:
         self.locate_knowledge(state)
         capability = state["knowledge_review"]["capability"]
         MODULE.start_application(
@@ -390,6 +394,7 @@ class ProjectReviewTest(unittest.TestCase):
             ),
             self.root,
         )
+    def finish_knowledge_semantic_review(self, state: dict[str, object]) -> None:
         observation_ids = []
         for artifact in (
             "knowledge/catalog.yml",
@@ -585,6 +590,42 @@ class ProjectReviewTest(unittest.TestCase):
         identifiers = {item["id"] for item in inventory["capabilities"]}
 
         self.assertNotIn("skill:ignored-check", identifiers)
+
+    def test_inventory_uses_active_component_paths(self) -> None:
+        self.write(".gitignore", ".codex/agents/\n.claude/agents/\n")
+        self.write(
+            "apm.lock.yaml",
+            "lockfile_version: '2'\n"
+            "local_deployed_files:\n"
+            "- .claude/agents/analyst.md\n"
+            "- .codex/agents/analyst.toml\n",
+        )
+        self.write(".apm/agents/analyst.agent.md", "Роль ядра.\n")
+        self.write(".claude/agents/analyst.md", "Роль ядра.\n")
+        self.write(".codex/agents/analyst.toml", 'description = "Роль ядра."\n')
+        self.write(".claude/rules/project.md", "Правило проекта.\n")
+        self.write("docs/analyst.rst", "Документация.\n")
+        self.write(
+            ".apm/skills/core-check/evals/fixture/.claude/agents/analyst.md",
+            "Тестовая роль.\n",
+        )
+        self.write(
+            ".apm/skills/core-check/evals/fixture/.agents/skills/nested/SKILL.md",
+            "Тестовый навык.\n",
+        )
+
+        inventory = MODULE.inventory(self.root, self.classification)
+        by_id = {item["id"]: item for item in inventory["capabilities"]}
+        self.assertEqual(
+            by_id["role:analyst"]["paths"],
+            [
+                ".apm/agents/analyst.agent.md",
+                ".claude/agents/analyst.md",
+                ".codex/agents/analyst.toml",
+            ],
+        )
+        self.assertEqual(by_id["rule:project"]["origin"], "project")
+        self.assertNotIn("skill:nested", by_id)
 
     def test_inventory_changes_when_lock_changes(self) -> None:
         before = MODULE.inventory(self.root, self.classification)["fingerprint"]
@@ -1419,6 +1460,53 @@ class ProjectReviewTest(unittest.TestCase):
             MODULE.repository_snapshot(self.root),
         )
 
+    def test_verify_blocking_fix_during_interrupted_corpus_review(self) -> None:
+        state = self.pending_concept_state()
+        self.complete_concept_review(state)
+        self.start_knowledge_semantic_review(state)
+        self.record_approved_finding(state, blocking=True)
+        self.write("tracked.txt", "approved fix\n")
+        self.write("apm.lock.yaml", "generated update\n")
+        MODULE.refresh(state, self.root)
+        self.assertEqual(state["status"], "interrupted")
+        self.assertEqual(state["active_application"], "knowledge-semantic")
+        previous = state["snapshot"]["id"]
+        pending = state["pending_snapshot"]["id"]
+
+        with self.assertRaisesRegex(MODULE.ReviewError, "корпуса знаний"):
+            self.apply(
+                state, identifier="unrelated", capability="skill:core-check"
+            )
+        self.write("tracked.txt", "changed after refresh\n")
+        with self.assertRaisesRegex(MODULE.ReviewError, "изменилась"):
+            self.record_passed_check(state)
+        self.assertEqual(state["active_application"], "knowledge-semantic")
+        self.write("tracked.txt", "approved fix\n")
+
+        self.record_passed_check(state)
+        self.assertEqual(state["status"], "interrupted")
+        self.assertEqual(state["snapshot"]["id"], previous)
+        self.assertEqual(state["checks"]["check-1"]["input_snapshot"], pending)
+        self.assertEqual(
+            state["applications"]["knowledge-semantic"]["status"], "invalidated"
+        )
+        with self.assertRaisesRegex(MODULE.ReviewError, "неразрешённые пути"):
+            self.accept_snapshot(state, ["finding-1"])
+        self.accept_snapshot(
+            state,
+            ["finding-1"],
+            external_paths=["apm.lock.yaml"],
+            external_reason="Пользователь подтвердил обновление APM.",
+        )
+        self.assertEqual(state["snapshot"]["id"], pending)
+        self.assertEqual(state["status"], "running")
+        self.assertEqual(state["knowledge_review"]["status"], "admitted")
+        MODULE.validate_state(state)
+        with self.assertRaisesRegex(MODULE.ReviewError, "корпуса знаний"):
+            self.apply(
+                state, identifier="still-unrelated", capability="skill:core-check"
+            )
+
     def test_accepted_snapshot_preserves_independent_completed_stage(self) -> None:
         state = self.new_state(self.root, "manual", None, False)
         state["stages"]["assurance"]["status"] = "complete"
@@ -1865,14 +1953,16 @@ class ProjectReviewTest(unittest.TestCase):
         self.assertEqual(event["previous_snapshot"], previous_snapshot)
         self.assertEqual(event["accepted_snapshot"], accepted_snapshot)
 
-    def record_approved_finding(self, state: dict[str, object]) -> None:
+    def record_approved_finding(
+        self, state: dict[str, object], *, blocking: bool = False
+    ) -> None:
         MODULE.record_finding(
             state,
             argparse.Namespace(
                 id="finding-1",
                 stage="repository",
                 summary="Исправить файл",
-                blocking=False,
+                blocking=blocking,
                 evidence=["tracked.txt"],
                 group=None,
                 allowed_path=["tracked.txt"],

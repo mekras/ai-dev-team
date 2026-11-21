@@ -11,13 +11,15 @@ requires_access_check: true
 extracted_text:
   location: knowledge/data/sreq/items/text/software-requirements-3rd-ru.local.txt
   format: txt
-  file_size_bytes: 3206454
-  content_hash: sha256:5b75bbfcbdfaef1ee9050d0c5bfc9d42bac1ecabeb2331a93552fbb61b377f24
+  file_size_bytes: 3437775
+  content_hash: sha256:272bf72ca4e5ac3cc71e37d92bbe89164ea1a99102237a47d624d147597e4b58
   metadata_source: pdftotext
 coverage_map:
   location: knowledge/data/sreq/items/text/coverage.md
   granularity: chapter
 known_limitations:
+- Размер и хеш описывают локальную выгрузку из записи проверки снимка.
+  Ранние метаданные получения приведены в паспорте источника.
 - Полная текстовая выгрузка хранится только рядом с единицей под маркером `*.local.*`
   и не публикуется в Git.
 item_contract_version: 2

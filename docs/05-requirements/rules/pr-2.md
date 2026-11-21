@@ -40,10 +40,9 @@
    `.apm/skills/` и получает отказ до проверки обязательного перечня навыков.
 
 [^askl-004]:
-    Публичный веб-источник о создании, описании и оценке навыков агентов, раздел
-    «Start from real expertise». Внутренний идентификатор утверждения:
-    `ASKL-004`.
+    Agent Skills, «Best practices». Раздел «Structure large skills with
+    progressive disclosure» (`ASKL-004`).
 
 [^askl-008]:
-    Публичный веб-источник о создании, описании и оценке навыков агентов, раздел
-    «Grading outputs». Внутренний идентификатор утверждения: `ASKL-008`.
+    Agent Skills, «Evaluating skills». Разделы «Running evals» и «Grading
+    outputs» (`ASKL-008`).

@@ -51,11 +51,9 @@
    либо останавливается до решения человека.
 
 [^askl-001]:
-    Публичный веб-источник о создании, описании и оценке навыков агентов, раздел
-    «Start from real expertise». Внутренний идентификатор утверждения:
-    `ASKL-001`.
+    Agent Skills, «Best practices». Раздел «Start from real expertise»
+    (`ASKL-001`).
 
 [^askl-002]:
-    Публичный веб-источник о создании, описании и оценке навыков агентов, раздел
-    «Start from real expertise». Внутренний идентификатор утверждения:
-    `ASKL-002`.
+    Agent Skills, «Best practices». Раздел «Refine with real execution»
+    (`ASKL-002`).

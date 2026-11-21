@@ -23,12 +23,12 @@ edition_history:
     scope: три раздела (32 главы) — Введение, «Проектирование API», «Обратная
       совместимость», «API как продукт»
     carrier: PDF (`items/pdf`), текстовая выгрузка `pdftotext -layout` (`items/text`)
-    statements: APIB-001–APIB-071
+    statements: "`items/text/statements.yml` (APIB-001–APIB-071)"
   - edition: "2025-10-11"
     scope: шесть разделов (61 глава) — добавились «Паттерны API», «HTTP API и
       архитектурные принципы REST», «SDK и UI-библиотеки»
     carrier: markdown-главы из канонического репозитория (`items/md`)
-    statements: см. `items/text/statements.yml` (продолжение нумерации с APIB-072)
+    statements: "`items/md/statements.yml` (APIB-072–APIB-185)"
 provenance:
   origin: external_material
   locator: https://github.com/twirl/The-API-Book

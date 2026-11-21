@@ -2767,9 +2767,9 @@ statements:
   path: data/apib/items/md/statements.yml
   status: ready_for_review
   kind: fact
-  text: Диссертация Филдинга 2000 года («REST») представляет собой абстрактный обзор
-    ограничений распределённой сетевой архитектуры, не привязанный к HTTP или URL,
-    и не содержит правил дизайна API.
+  text: Сергей Константинов характеризует главу диссертации Филдинга о REST как обзор
+    распределённой архитектуры без привязки к HTTP или URL. По его оценке, глава не
+    посвящена правилам проектирования API.
   artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/03-http-api-rest-myth.local.md
   checked_at: '2026-07-17'
   processing_status: null
@@ -2785,9 +2785,9 @@ statements:
   path: data/apib/items/md/statements.yml
   status: ready_for_review
   kind: fact
-  text: 'Филдинг перечисляет шесть ограничений REST: клиент-серверная архитектура,
-    stateless-дизайн, разметка кэшируемости данных, стандартизация интерфейсов взаимодействия,
-    многослойность сети и возможность расширения клиента кодом с сервера (code-on-demand).'
+  text: В пересказе Сергея Константинова ограничения REST включают разделение клиента
+    и сервера, хранение сеанса на клиенте, указание кэшируемости, стандартизацию интерфейсов,
+    многослойность и возможность расширения клиента кодом с сервера.
   artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/03-http-api-rest-myth.local.md
   checked_at: '2026-07-17'
   processing_status: null
@@ -2802,11 +2802,9 @@ statements:
   item_id: APIB-md
   path: data/apib/items/md/statements.yml
   status: ready_for_review
-  kind: fact
-  text: В разъяснении 2008 года Филдинг ужесточил трактовку REST — клиент не должен
-    обладать никаким априорным знанием об API, все операции и ссылки должны извлекаться
-    из гипермедиа-представлений ресурсов (HATEOAS); по утверждению автора книги, этому
-    требованию не удовлетворяет ни одна реально существующая система.
+  kind: observation
+  text: По оценке Сергея Константинова, ни одна существующая система не соответствует
+    описанию REST из разъяснения Филдинга 2008 года.
   artifact: ../md/05-Раздел IV. HTTP API и архитектурные принципы REST/03-http-api-rest-myth.local.md
   checked_at: '2026-07-17'
   processing_status: null
@@ -19366,11 +19364,12 @@ statements:
   path: data/sahp/items/text/statements.yml
   status: verified
   kind: fact
-  text: архитектурный квант — независимо развёртываемый артефакт с высокой функциональной
-    связностью и синхронной связанностью во время выполнения; он включает не только
-    код, но и операционные зависимости (базу данных, брокер, оркестратор контейнеров).
+  text: Архитектурный квант — независимо развёртываемый артефакт с высокой функциональной
+    связностью, высокой статической связанностью его частей и синхронной связанностью
+    во время выполнения. В границу кванта входят операционные зависимости, необходимые
+    для его работы.
   artifact: ../source/normalized-source.md
-  checked_at: '2026-07-28'
+  checked_at: '2026-11-21'
   processing_status: null
   source_role: null
   evidence_strength: null
@@ -20501,6 +20500,23 @@ statements:
     компромиссов; выбор — по нужному сочетанию трёх сил.'
   artifact: software-architecture-hard-parts-ru.local.txt
   checked_at: '2026-07-28'
+  processing_status: null
+  source_role: null
+  evidence_strength: null
+  confidence: null
+  temporal_status: null
+  corroboration: null
+  limitations: null
+- id: SAHP-071
+  source_id: SAHP
+  item_id: SAHP-text
+  path: data/sahp/items/text/statements.yml
+  status: verified
+  kind: fact
+  text: Атомарность транзакции базы данных означает, что все изменения в её границе
+    фиксируются вместе, а при ошибке откатываются.
+  artifact: ../source/normalized-source.md
+  checked_at: '2026-11-21'
   processing_status: null
   source_role: null
   evidence_strength: null
@@ -24777,7 +24793,7 @@ statements:
     запуском варианта использования; вероятное, но не гарантированное обстоятельство
     не должно становиться предусловием.
   artifact: ../source/normalized-source.md
-  checked_at: 2026-06-30
+  checked_at: 2026-11-21
   processing_status: null
   source_role: null
   evidence_strength: null
@@ -24794,7 +24810,7 @@ statements:
   text: Минимальные гарантии и гарантии успеха нужны, чтобы явно защищать интересы
     участников при разных исходах сценария.
   artifact: ../source/normalized-source.md
-  checked_at: 2026-06-30
+  checked_at: 2026-11-21
   processing_status: null
   source_role: null
   evidence_strength: null
@@ -25254,7 +25270,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: клиенты часто смешивают бизнес-цели проекта и собственно требования к системе,
     поэтому аналитик должен разделять бизнес-, пользовательский и функциональный уровни
@@ -25272,7 +25288,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: роль бизнес-аналитика включает определение бизнес-требований, планирование
     работы с требованиями, выявление, анализ, документирование, доведение до участников,
@@ -25290,7 +25306,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: при выявлении требований полезно классифицировать высказывания участников
     по типам, включая бизнес-требования, пользовательские требования, бизнес-правила,
@@ -25309,7 +25325,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: подразумеваемые и неявные требования нужно искать отдельно, потому что именно
     они часто создают разрыв между ожиданиями и реализованной системой; для этого
@@ -25328,7 +25344,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: варианты использования полезны как форма пользовательских требований, но детализировать
     их надо только в горизонте ближайшей реализации, иначе команда тратит силы на
@@ -25346,7 +25362,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: бизнес-правила следует хранить как отдельный массив знаний, а не смешивать
     с бизнес-требованиями и бизнес-процессами; базовая таксономия включает факты,
@@ -25364,7 +25380,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: при работе с фактами как типом бизнес-правил нужно ограничивать сбор сведений
     границами проекта и по возможности связывать каждый факт с входами и выходами
@@ -25383,7 +25399,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: шаблон спецификации требований к ПО рассматривается как структурированный
     и последовательный способ организации функциональных и нефункциональных требований,
@@ -25402,7 +25418,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: качественное отдельное требование должно быть как минимум полным, корректным,
     осуществимым и необходимым, а его качество следует подтверждать рецензированием
@@ -25420,7 +25436,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: требования к атрибутам качества нужно по возможности снабжать источником и
     обоснованием, а сами цели выражать измеримо; значения вроде 100%` для доступности
@@ -25438,7 +25454,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: приоритизация требований является динамическим процессом балансировки ценности
     и ограничений проекта; для практической работы авторы предпочитают трёхуровневую
@@ -25456,7 +25472,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: 'утверждение требований и верификация связаны, но не совпадают: утверждение
     проверяет, что выбраны правильные требования для потребностей клиента, а верификация
@@ -25475,7 +25491,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: управление версиями требований должно начинаться с ранних черновиков, обеспечивать
     уникальную идентификацию версий, историю изменений, ограниченный круг редакторов
@@ -25493,7 +25509,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: анализ влияния изменений обязателен даже для на первый взгляд малых запросов
     и должен охватывать бизнес-последствия, затронутые требования и артефакты, а также
@@ -25511,7 +25527,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: документ о концепции и границах собирает бизнес-требования в единое основание
     для последующей разработки и фиксирует высокоуровневые границы продукта.
@@ -25528,7 +25544,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: владельцем документа о концепции и границах должен быть куратор проекта или
     лицо с аналогичной ответственностью, а бизнес-аналитик может помогать в его подготовке.
@@ -25545,7 +25561,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: 'рекомендуемый шаблон концепции и границ включает три крупных блока: бизнес-требования,
     рамки и ограничения проекта, бизнес-контекст.'
@@ -25562,7 +25578,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: 'шаблоны документов полезны не только для единообразия, но и как средство
     обнаружения пробелов: пустой раздел должен быть осознанно заполнен, удалён или
@@ -25580,7 +25596,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: бизнес-цели должны формулироваться измеримо, потому что именно они помогают
     оценивать ценность функций, границы проекта и приоритеты.
@@ -25597,7 +25613,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: при появлении нового требования аналитик должен соотнести его с границами
     проекта и бизнес-целями, после чего требование можно отклонить, отложить, включить
@@ -25615,7 +25631,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: 'контекстная диаграмма, карта экосистемы и список событий дополняют друг друга:
     первая показывает внешние сущности, вторая окружение, а список событий фиксирует
@@ -25633,7 +25649,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: список событий можно использовать как средство разграничения выпусков или
     итераций, потому что каждое событие может быть связано с конкретным поведением
@@ -25651,7 +25667,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: классы пользователей следует выделять по задачам, функциям, частоте использования,
     правам доступа, опыту, платформе, языку и способу доступа, а не подменять их рыночными
@@ -25669,7 +25685,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: в проекте нужно различать привилегированные, непривилегированные, игнорируемые
     и прочие классы пользователей, потому что их вес при конфликте требований и приоритизации
@@ -25687,7 +25703,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: косвенные пользователи, установщики, специалисты поддержки, разработчики и
     другие неочевидные участники могут быть источниками требований, особенно по данным,
@@ -25705,7 +25721,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: для каждого важного класса пользователей нужен представитель, который понимает
     свою роль, имеет полномочия принимать решения на уровне пользовательских требований
@@ -25723,7 +25739,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: один владелец продукта в гибкой разработке не всегда способен заменить представительство
     всех классов пользователей; при сложной предметной области полезны несколько представителей
@@ -25741,7 +25757,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: выявление требований обычно требует сочетания коллективных и независимых методов,
     потому что разные методы дают разные типы информации и подходят разным заинтересованным
@@ -25759,7 +25775,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: интервью подходят для быстрого входа в предметную область, работы с экспертами,
     сбора бизнес-требований у руководителей и уточнения деликатных вопросов в малой
@@ -25777,7 +25793,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: семинар по выявлению требований требует явных ролей, подготовленной повестки,
     правил обсуждения, фиксации решений и контроля границ проекта.
@@ -25794,7 +25810,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: после мероприятий по выявлению требований нужно рассылать протоколы, фиксировать
     открытые вопросы и классифицировать полученную от клиента информацию по типам
@@ -25812,7 +25828,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: спецификация требований не должна быть единственным документом для всех аудиторий;
     бизнес-цели, пользовательская картина и детальные функциональные требования могут
@@ -25830,7 +25846,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: спецификация требований служит основанием для планирования, дизайна, разработки,
     тестирования, пользовательской документации, обучения, юридической проверки и
@@ -25848,7 +25864,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: спецификация требований должна описывать поведение системы, ограничения и
     качества, но не должна включать подробности дизайна, тестирования и управления
@@ -25866,7 +25882,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: для понятной спецификации нужны шаблон, единообразные названия, оглавление,
     нумерованные рисунки и таблицы, перекрёстные ссылки, гиперссылки, визуальные представления
@@ -25884,7 +25900,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: каждое требование должно иметь устойчивый уникальный идентификатор, чтобы
     на него можно было ссылаться в изменениях, истории, перекрёстных ссылках и матрице
@@ -25902,7 +25918,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: шаблон спецификации требований может включать введение, общее описание, функции
     системы, требования к данным, внешние интерфейсы, атрибуты качества, требования
@@ -25921,7 +25937,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: 'словарь терминов и словарь данных выполняют разные функции: первый определяет
     предметные термины и сокращения, второй описывает элементы и структуры данных.'
@@ -25938,7 +25954,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: модели анализа часто удобнее размещать рядом с релевантными требованиями,
     а не собирать только в конце спецификации.
@@ -25955,7 +25971,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: в гибких проектах знания о требованиях могут храниться не только в едином
     документе, но и в пользовательских историях, критериях приёмки, тестах, ограничениях,
@@ -25973,7 +25989,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: уровень формальности документации требований зависит от объёма неформального
     общения в команде, распределённости участников, потребности в сохранении знаний,
@@ -25991,7 +26007,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: модели анализа должны дополнять текстовые требования, а не заменять их; разные
     представления помогают находить пропущенные, лишние и несовместимые требования.
@@ -26008,7 +26024,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: в моделях требований следует использовать стандартные нотации и явно различать
     модели анализа, описывающие предметную область, и модели дизайна, описывающие
@@ -26026,7 +26042,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: при переходе от слов клиента к моделям анализа существительные часто указывают
     на сущности, данные и действующих лиц, глаголы — на процессы, действия и события,
@@ -26044,7 +26060,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: выбирать модели анализа следует по риску, сложности и вероятности неясностей,
     а не пытаться строить все возможные диаграммы для всей системы.
@@ -26061,7 +26077,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: таблица событий и реакций может стать частью функциональных требований, если
     она покрывает события, состояния, реакции и исключения, но её нужно дополнять
@@ -26079,7 +26095,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: модель данных даёт высокоуровневое представление связей данных, а словарь
     данных фиксирует подробные определения сущностей, атрибутов, типов, допустимых
@@ -26097,7 +26113,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: ведение словаря данных снижает риск интеграционных ошибок, помогает разработчикам
     правильно применять данные и поддерживает повторное использование определений
@@ -26115,7 +26131,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: спецификация отчёта должна связывать отчёт с целью, решениями, пользователями,
     источниками данных, частотой, свежестью данных, макетом, полями, вычислениями,
@@ -26133,7 +26149,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: требования к панели мониторинга следует начинать с решений, которые будут
     приниматься по её данным, затем определять источники данных, типы представления,
@@ -26151,7 +26167,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: 'прототип должен иметь заранее объявленную цель: уточнить и проверить требования,
     исследовать альтернативные решения или эволюционно вырасти в часть продукта.'
@@ -26168,7 +26184,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: прототипы следует применять прежде всего для высокорисковых, сложных или неясных
     частей системы, а не для моделирования всего продукта.
@@ -26185,7 +26201,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: прототип не заменяет спецификацию требований, потому что скрытая функциональность,
     проверки данных, исключения, бизнес-правила и связи между полями должны быть документированы
@@ -26203,7 +26219,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: повторное использование требований может охватывать не только формулировку
     требования, но и атрибуты, контекст, определения данных, термины, приёмочные тесты,
@@ -26221,7 +26237,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: повторное использование требований требует доступного хранилища, качества
     исходных требований, единой терминологии, понимания зависимостей и культуры, в
@@ -26239,7 +26255,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: при повторном использовании требований ссылка на исходный источник часто предпочтительнее
     копирования, потому что копирование создаёт дублирование и риск потери исходного
@@ -26257,7 +26273,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: планы, сметы и графики проекта должны строиться на основе требований, а сами
     оценки нужно уточнять по мере появления новых знаний и завершения части работы.
@@ -26274,7 +26290,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: тестирование должно строиться на требованиях, а тестировщиков нужно подключать
     к рецензированию требований, чтобы проверить их пригодность как основы для системных
@@ -26292,7 +26308,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: приёмочные тесты должны покрывать нормальное поведение, ожидаемые ошибки и
     сценарии отказа, а также ожидания по качеству.
@@ -26309,7 +26325,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: каждое функциональное требование должно прослеживаться хотя бы до одного системного
     теста, чтобы ожидаемая реакция системы не осталась без проверки.
@@ -26331,7 +26347,7 @@ statements:
   text: процесс управления требованиями включает управление версиями, управление изменениями,
     отслеживание состояния и отслеживание связей требований.
   artifact: ../source/normalized-source.md
-  checked_at: '2026-06-22'
+  checked_at: '2026-11-21'
   processing_status: null
   source_role: null
   evidence_strength: null
@@ -26343,7 +26359,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: описание процесса управления требованиями должно определять роли, ответственных,
     порядок исключений, передачу вопросов вверх по ответственности и используемые
@@ -26361,7 +26377,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: базовая версия требований — это утверждённый набор требований для выпуска
     или итерации; после принятия она должна изменяться только через согласованный
@@ -26379,7 +26395,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: атрибуты требований могут включать дату создания, версию, автора, приоритет,
     состояние, источник, обоснование, выпуск, ответственного за изменения и метод
@@ -26397,7 +26413,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: проблемы с требованиями нужно фиксировать в отслеживаемом хранилище, иначе
     открытые вопросы легко теряются и возвращаются как срочные доработки позднее.
@@ -26414,7 +26430,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: изменение требований должно проходить через процесс предложения, анализа влияния,
     принятия решения, обновления требований, обновления планов и сообщения заинтересованным
@@ -26432,7 +26448,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: анализ влияния изменения включает понимание последствий, определение затронутых
     требований и артефактов, а также оценку задач и усилий на реализацию.
@@ -26449,7 +26465,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: связи требований должны поддерживать движение от потребностей к требованиям
     и рабочим продуктам, а также обратный путь от реализации к исходным основаниям.
@@ -26466,7 +26482,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: отслеживаемость помогает находить пропущенные и ненужные требования, поддерживать
     соответствие нормативам, проводить анализ влияния, сопровождать продукт, отслеживать
@@ -26484,7 +26500,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: проект должен выбирать только те связи требований, которые имеют понятную
     пользу, назначать ответственных за их поддержку и обновлять связи по мере создания
@@ -26502,7 +26518,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: набор документов процесса требований может включать процесс разработки требований,
     процедуру назначения требований, процедуру приоритизации, шаблон концепции и границ,
@@ -26520,7 +26536,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: набор документов процесса управления требованиями может включать процесс управления
     требованиями, процедуру отслеживания состояния, процесс управления изменениями,
@@ -26539,7 +26555,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: документы процесса требований должны быть настолько короткими, насколько позволяет
     последовательное выполнение работы, и могут быть объединены в один общий процесс,
@@ -26557,7 +26573,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: документы процесса требований стоит хранить в общей библиотеке с доступным
     механизмом улучшения по мере накопления опыта.
@@ -26574,7 +26590,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: улучшение процесса требований должно иметь измеримую цель и показатели, иначе
     команда не сможет определить прогресс, расставить приоритеты улучшений и понять,
@@ -26592,7 +26608,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: в проектах гибкой разработки требования не становятся особым типом требований;
     меняются глубина проработки, момент документирования и объём письменных материалов.
@@ -26609,7 +26625,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: в гибких проектах клиент или владелец продукта должен быть доступен на протяжении
     итераций, чтобы уточнять пользовательские истории, давать обратную связь и участвовать
@@ -26627,7 +26643,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: пользовательские истории, написанные участниками без опыта требований, следует
     редактировать или проверять человеком с навыками бизнес-анализа до передачи команде
@@ -26645,7 +26661,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: в гибкой разработке минимальная документация требований должна сохранять сведения,
     которые нужны разработчикам, тестировщикам, соблюдению норм и работе с рискованной
@@ -26663,7 +26679,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: в проекте должен быть единый резерв работ, в котором можно сопоставлять и
     приоритизировать пользовательские истории, дефекты, процессы и другие элементы,
@@ -26681,7 +26697,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: в гибком проекте операции выявления, анализа, спецификации и проверки требований
     повторяются на каждой итерации, а не выполняются один раз перед разработкой.
@@ -26698,7 +26714,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: нефункциональные требования в гибком проекте нужно выявлять как можно раньше,
     если они влияют на архитектуру, производительность, удобство использования, доступность
@@ -26716,7 +26732,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: пользовательскую историю следует ограничивать объёмом, который можно реализовать
     в одной итерации; слишком крупные истории нужно разбивать на меньшие истории или
@@ -26734,7 +26750,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: 'при работе с гибкими требованиями важнее качество требований, позволяющее
     удовлетворить потребности клиентов, чем спор о названии элемента: история, эпик
@@ -26752,7 +26768,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: гибкий проект должен рассчитывать на изменения, но управлять ими через приоритизацию,
     оценку влияния и установленный порядок, а не через неконтролируемое добавление
@@ -26770,7 +26786,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: удаление элементов из проекта является обычной частью управления изменениями
     и может быть нужно из-за проблем реализации, замечаний владельца продукта или
@@ -26788,7 +26804,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: в проектах доработки или замены системы полезны дерево функций, анализ влияния,
     модели процессов, бизнес-правила, варианты использования, контекстная диаграмма,
@@ -26806,7 +26822,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: проекты доработки дают безопасную возможность внедрять новые приёмы работы
     с требованиями малыми шагами, потому что изменения ограничены меньшим объёмом,
@@ -26824,7 +26840,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: новые функции в проекте доработки нужно связывать с бизнес-целями и приоритетами,
     чтобы не добавлять в зрелый продукт необязательные возможности.
@@ -26841,7 +26857,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: при замене системы нельзя автоматически переносить функцию только потому,
     что она есть в старой системе; нужно проверять её текущую или будущую бизнес-ценность.
@@ -26858,7 +26874,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: анализ расхождений в проекте замены должен выявлять функции существующей системы,
     которые нужны в новой системе, и потребности, которым старая система не удовлетворяет.
@@ -26875,7 +26891,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: при доработке или замене системы требования к данным должны учитывать достаточность
     существующей модели, миграцию, преобразование, исправление, архивирование и удаление
@@ -26893,7 +26909,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: в проектах с серийным продуктом требования нужны не только для разработки,
     но и для выбора продукта, оценки соответствия, настройки, интеграции и принятия
@@ -26911,7 +26927,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: оценка серийного продукта должна строиться на приоритетных требованиях и анализе
     соответствия, а не на демонстрации поставщика или общем впечатлении о продукте.
@@ -26928,7 +26944,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: требования к серийному продукту должны учитывать ограничения настройки, интеграции,
     миграции данных, внешних интерфейсов, лицензирования и будущего сопровождения.
@@ -26945,7 +26961,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: в проектах, выполняемых сторонними организациями, особенно важны ясные требования,
     критерии приёмки, порядок коммуникации и процесс управления изменениями.
@@ -26962,7 +26978,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: подрядчик может помогать уточнять требования, но ответственность за бизнес-потребности,
     приоритеты и принятие результата остаётся у заказчика или его представителей.
@@ -26979,7 +26995,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: в проектах автоматизации бизнес-процессов требования нужно выводить из текущих
     и целевых процессов, ролей, передач ответственности, исключений, бизнес-правил
@@ -26997,7 +27013,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: модели бизнес-процессов помогают выявлять требования, потому что показывают
     участников, шаги, входы, выходы, решения, исключения и точки взаимодействия с
@@ -27015,7 +27031,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: в проектах бизнес-аналитики требования должны описывать решения, показатели,
     источники данных, преобразования, отчёты, панели и качество данных.
@@ -27032,7 +27048,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: для аналитических систем нужно фиксировать смысл данных, периодичность обновления,
     права доступа, качество, происхождение и правила преобразования данных.
@@ -27049,7 +27065,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: для встроенных систем и систем реального времени особенно важны события, состояния,
     временные ограничения, внешние интерфейсы и взаимодействие программной части с
@@ -27067,7 +27083,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: таблицы событий и реакций, диаграммы переходов состояний и таблицы состояний
     помогают описывать поведение систем, зависящих от внешних событий и временных
@@ -27085,7 +27101,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: для встроенных систем особенно значимы атрибуты качества, связанные с безопасностью,
     надёжностью, производительностью, пригодностью к эксплуатации и ограничениями
@@ -27103,7 +27119,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: в системах с аппаратной частью требования могут влиять на распределение функций
     между программным обеспечением, оборудованием и внешними устройствами.
@@ -27120,7 +27136,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: управление требованиями не предназначено для предотвращения изменений; его
     задача — сделать изменения ожидаемыми, оценёнными и управляемыми.
@@ -27137,7 +27153,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: план управления требованиями должен описывать роли, процесс, инструменты,
     атрибуты требований, базовые версии, статусы, изменения и отслеживаемость.
@@ -27159,7 +27175,7 @@ statements:
   text: 'управление конфигурацией применимо к требованиям так же, как к коду: команде
     нужно знать версии требований, утверждённые наборы и порядок внесения изменений.'
   artifact: ../source/normalized-source.md
-  checked_at: '2026-06-22'
+  checked_at: '2026-11-21'
   processing_status: null
   source_role: null
   evidence_strength: null
@@ -27171,7 +27187,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: полезные атрибуты требования могут включать статус, приоритет, источник, основание,
     владельца, версию, дату изменения и связи с другими артефактами.
@@ -27188,7 +27204,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: отслеживание состояния требований помогает менеджеру проекта понимать, выполняются
     ли проектирование, реализация и проверка согласно принятому плану.
@@ -27210,7 +27226,7 @@ statements:
   text: базовая версия требований фиксирует утверждённый набор, после которого изменения
     должны проходить через согласованный процесс управления изменениями.
   artifact: ../source/normalized-source.md
-  checked_at: '2026-06-22'
+  checked_at: '2026-11-21'
   processing_status: null
   source_role: null
   evidence_strength: null
@@ -27222,7 +27238,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: запрос на изменение должен содержать сведения, достаточные для анализа, решения
     и последующего отслеживания, включая описание, причину, источник, приоритет, статус
@@ -27240,7 +27256,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: решение о существенном изменении требований должно принимать определённое
     лицо или группа, которые имеют полномочия оценить ценность, стоимость, сроки,
@@ -27264,7 +27280,7 @@ statements:
     код, тесты, пользовательскую документацию, планы, стоимость, сроки, качество и
     риски.
   artifact: ../source/normalized-source.md
-  checked_at: '2026-06-22'
+  checked_at: '2026-11-21'
   processing_status: null
   source_role: null
   evidence_strength: null
@@ -27276,7 +27292,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: в гибкой разработке управление изменениями обычно выражается через переупорядочивание
     резерва и перенос низкоприоритетных элементов, но это не отменяет необходимости
@@ -27300,7 +27316,7 @@ statements:
     и целям, вперёд к реализации и тестам, а также вбок к связанным требованиям и
     бизнес-правилам.
   artifact: ../source/normalized-source.md
-  checked_at: '2026-06-22'
+  checked_at: '2026-11-21'
   processing_status: null
   source_role: null
   evidence_strength: null
@@ -27317,7 +27333,7 @@ statements:
   text: связи требований полезны для анализа влияния, проверки покрытия, поиска пропусков,
     контроля объёма и понимания, какие артефакты затронет изменение.
   artifact: ../source/normalized-source.md
-  checked_at: '2026-06-22'
+  checked_at: '2026-11-21'
   processing_status: null
   source_role: null
   evidence_strength: null
@@ -27334,7 +27350,7 @@ statements:
   text: полный набор связей требований не всегда оправдан; команда должна поддерживать
     только те связи, которые реально помогают принимать решения и снижать риск.
   artifact: ../source/normalized-source.md
-  checked_at: '2026-06-22'
+  checked_at: '2026-11-21'
   processing_status: null
   source_role: null
   evidence_strength: null
@@ -27346,7 +27362,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: специализированное средство управления требованиями особенно полезно, когда
     требований много, они часто меняются, распределены между участниками, имеют много
@@ -27364,7 +27380,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: инструмент управления требованиями нужно выбирать под процесс, масштаб, участников
     и дисциплину сопровождения требований, а не под список функций инструмента сам
@@ -27382,7 +27398,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: типичные функции средства управления требованиями включают хранение требований,
     атрибуты, состояния, версии, базовые версии, связи, отчёты, доступ, рецензирование
@@ -27400,7 +27416,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: внедрение средства управления требованиями требует процесса, обучения, миграции
     существующих материалов и правил сопровождения, иначе инструмент не обеспечит
@@ -27418,7 +27434,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: совершенствование процесса требований должно быть эволюционным и непрерывным,
     а не попыткой сразу достичь идеального процесса.
@@ -27435,7 +27451,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: 'улучшение процесса требований нужно начинать с наблюдаемых проблем: переделок,
     сорванного графика, потерянных изменений, неясных требований, лишних затрат на
@@ -27453,7 +27469,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: при улучшении процесса требований нужно объяснять каждой группе заинтересованных
     лиц, какую информацию и поддержку она должна дать команде и что получит от улучшенного
@@ -27471,7 +27487,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: сопротивление изменениям процесса требований нужно снижать через объяснение
     проблем, выгод для участников и практической ценности требований, а не только
@@ -27489,7 +27505,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: приверженность руководства улучшению процесса проявляется в выделении времени,
     ресурсов, полномочий и личной поддержке действий по улучшению.
@@ -27506,7 +27522,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: процессные документы требований должны описывать не только порядок работы
     аналитика, но и взаимодействие с маркетингом, поддержкой, юридической функцией,
@@ -27524,7 +27540,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: риск — это условие, которое ещё не стало проблемой, но может привести к потерям
     или поставить под угрозу успех проекта.
@@ -27541,7 +27557,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: распространённые риски требований включают неверное понимание, недостаточное
     вовлечение пользователей, неточность целей и объёма проекта, а также постоянные
@@ -27559,7 +27575,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: управление рисками включает выявление, оценку, анализ, приоритизацию, планирование
     действий, смягчение, контроль, разрешение и мониторинг рисков.
@@ -27576,7 +27592,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: риск полезно документировать в формате причины и следствия, дополняя его вероятностью,
     влиянием, подверженностью, планом управления, резервным планом, владельцем и сроком.
@@ -27593,7 +27609,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: обнаружение риска и выбор действий по его смягчению недостаточны; действия
     нужно запланировать, выполнить и регулярно отслеживать в ходе проекта.
@@ -27610,7 +27626,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: 'масштаб управления рисками должен соответствовать масштабу проекта: небольшому
     проекту может хватить простого списка рисков, а крупному нужен более формальный
@@ -27628,7 +27644,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: требования создают рабочие входы не только для аналитиков, но и для менеджеров
     проекта, архитекторов, разработчиков, тестировщиков, технических писателей, маркетинга,
@@ -27646,7 +27662,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: 'слабая работа с требованиями проявляется повторяющимися симптомами: неясные
     границы проекта, нехватка времени у клиентов, отсутствие прямого контакта с пользователями,
@@ -27665,7 +27681,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: для требований полезно заранее договориться о рабочей терминологии и разделении
     типов требований; бизнес-правила, ограничения, внешние интерфейсы, функциональные
@@ -27684,7 +27700,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: универсального линейного процесса разработки требований не существует; полезнее
     опираться на набор рекомендуемых приёмов и выбирать их по ситуации, а не пытаться
@@ -27702,7 +27718,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: 'разработка требований идёт итеративно: выявление, анализ, спецификация и
     проверка многократно возвращают команду к уточнению, закрытию пробелов и исправлению
@@ -27721,7 +27737,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: observation
   text: приложение А даёт самооценку зрелости работы с требованиями из 20 вопросов,
     каждый из которых привязан к главе книги и предлагает четыре варианта ответа от
@@ -27739,7 +27755,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: на достоверность самооценки влияет подбор респондентов; независимое прохождение
     несколькими людьми снижает тенденциозность и выявляет расхождения в понимании
@@ -27757,7 +27773,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: приложение Б перечисляет общие симптомы проблем с требованиями — продукт не
     удовлетворяет нужд, ранние исправления и заплаты, недостижение бизнес-целей, срыв
@@ -27776,7 +27792,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: observation
   text: руководство по устранению проблем построено как таблица `симптом или проблема
     -> возможные первопричины -> возможные решения`, сгруппированная по видам деятельности
@@ -27796,7 +27812,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: fact
   text: при внедрении изменений в приёмы работы с требованиями нужно заранее учитывать
     типичные препятствия — нехватку времени, давление рынка, скептицизм к ценности
@@ -27814,7 +27830,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: observation
   text: приложение В даёт сквозной образец комплекта документов требований на одном
     примере (Cafeteria Ordering System) — документ о концепции и границах, варианты
@@ -27832,7 +27848,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: observation
   text: образец документа о концепции и границах показывает измеримые бизнес-цели
     и критерии успеха с устойчивыми идентификаторами (`BO`, `SM`) и бизнес-риски с
@@ -27850,7 +27866,7 @@ statements:
   source_id: SREQ
   item_id: SREQ-text
   path: data/sreq/items/text/statements.yml
-  status: verified
+  status: ready_for_review
   kind: observation
   text: в образце варианты использования намеренно описаны с разной глубиной — от
     подробного до сжатого, что показывает допустимость дозировать детализацию, а не
