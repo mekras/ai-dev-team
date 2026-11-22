@@ -25,12 +25,12 @@ def write(path: Path, content: str) -> None:
     path.write_text(content, encoding="utf-8")
 
 
-def git(repo: Path, *args: str) -> None:
-    subprocess.run(
+def git(repo: Path, *args: str) -> bytes:
+    return subprocess.run(
         ["git", "-C", str(repo), *args],
         check=True,
         capture_output=True,
-    )
+    ).stdout
 
 
 def graph() -> dict:
@@ -252,6 +252,17 @@ class SelectiveVerificationTests(unittest.TestCase):
         statuses = {item["id"]: item["status"] for item in first["checks"]}
         self.assertEqual(statuses, {"local-check": "executed", "full-check": "not_required"})
         self.assertEqual(self.counter.read_text(encoding="utf-8"), "1")
+        cache = self.repo / ".ai-dev-team/cache/selective-verification"
+        self.assertTrue((cache / "state.json").is_file())
+        self.assertEqual(len(list((cache / "entries").glob("*.json"))), 1)
+        self.assertEqual(
+            git(
+                self.repo, "ls-files", "--others", "--exclude-standard",
+                "--", ".ai-dev-team/cache",
+            ),
+            b"",
+        )
+        self.assertFalse((self.repo / ".git/ai-dev-team/selective-verification").exists())
 
         second_code, second = self.invoke()
 
@@ -259,6 +270,18 @@ class SelectiveVerificationTests(unittest.TestCase):
         statuses = {item["id"]: item["status"] for item in second["checks"]}
         self.assertEqual(statuses, {"local-check": "cached", "full-check": "not_required"})
         self.assertEqual(self.counter.read_text(encoding="utf-8"), "1")
+
+    def test_does_not_write_cache_when_existing_ignore_exposes_it(self) -> None:
+        cache = self.repo / ".ai-dev-team/cache/selective-verification"
+        ignore = cache / ".gitignore"
+        write(ignore, "# Настроено в проекте\n")
+
+        code, report = self.invoke()
+
+        self.assertEqual(code, 2)
+        self.assertIn(".ai-dev-team/cache/selective-verification", report["error"])
+        self.assertEqual(ignore.read_text(encoding="utf-8"), "# Настроено в проекте\n")
+        self.assertFalse((cache / "state.json").exists())
 
     def test_changed_declared_input_invalidates_cached_result(self) -> None:
         write(self.repo / "src" / "local.py", "VALUE = 2\n")

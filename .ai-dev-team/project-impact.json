@@ -8,7 +8,10 @@
     "ignore": [
       ".git/**",
       ".agents/**",
-      ".claude/**",
+      ".claude/agents/**",
+      ".claude/rules/**",
+      ".claude/settings.local.json",
+      ".claude/skills/**",
       "apm_modules/**",
       "local/**"
     ]
@@ -193,6 +196,7 @@
         ".ai-dev-team/state.yml",
         ".ai-dev-team/subagents.md",
         ".ai-dev-team/subagents-execution.md",
+        ".claude/settings.json",
         ".codex/**",
         ".editorconfig",
         ".gitignore",

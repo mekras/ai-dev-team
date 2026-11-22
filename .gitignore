@@ -5,8 +5,10 @@
 __pycache__/
 *.py[cod]
 /.agents
-/.claude
+/.claude/*
+!/.claude/settings.json
 /.idea
+/.ai-dev-team/cache/
 /.ai-dev-team/local/
 apm_modules/
 /books.local/
