@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-11-22T09:59:14.349841+00:00'
+generated_at: '2026-11-22T11:24:13.979023+00:00'
 apm_version: 0.33.0
 dependencies:
 - repo_url: mekras/apm-marketplace
@@ -11516,7 +11516,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:8d27b12133a4731455cea653d9052885119f92fae673b760d426246476fbbde1
+  content_hash: sha256:7e2c402f42e1505dc3a3a8434cfdf15f0ea02d10dad5ca12f53fb9fa0c2cbe7e
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-refactoring/evals/result-scenarios.json
@@ -11525,7 +11525,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:72b1a1e48c1fdbccc3610cdc25c3a08e703fc220fdd1cb1401a39694764c4b27
+  content_hash: sha256:e0c8b7f0e8acd3cb77019e33735aaa20326fc669945afcc0c2c86951021b00c2
 - kind: project-relative
   target: claude
   value: .claude/skills/ait-refactoring/evals/triggers.json
@@ -17465,7 +17465,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:8d27b12133a4731455cea653d9052885119f92fae673b760d426246476fbbde1
+  content_hash: sha256:7e2c402f42e1505dc3a3a8434cfdf15f0ea02d10dad5ca12f53fb9fa0c2cbe7e
 - kind: project-relative
   target: legacy
   value: .agents/skills/ait-refactoring/evals/result-scenarios.json
@@ -17474,7 +17474,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:72b1a1e48c1fdbccc3610cdc25c3a08e703fc220fdd1cb1401a39694764c4b27
+  content_hash: sha256:e0c8b7f0e8acd3cb77019e33735aaa20326fc669945afcc0c2c86951021b00c2
 - kind: project-relative
   target: legacy
   value: .agents/skills/ait-refactoring/evals/triggers.json
@@ -19836,8 +19836,8 @@ local_deployed_file_hashes:
   .agents/skills/ait-reconstructability/SKILL.md: sha256:5dbffe85de18dcdf02c60ff475ba869b44076acb064f069bac5c8cf8b0bfd606
   .agents/skills/ait-reconstructability/evals/result-scenarios.json: sha256:0e33ae5ea0591f3c816bfc20b74cf79ad94031371fd79974823ab78cb7bdefa8
   .agents/skills/ait-reconstructability/evals/triggers.json: sha256:3d4da7f3a251ff9b1709ccb940ca3859ec8856b7cf9f35efb8780a1692d99e19
-  .agents/skills/ait-refactoring/SKILL.md: sha256:8d27b12133a4731455cea653d9052885119f92fae673b760d426246476fbbde1
-  .agents/skills/ait-refactoring/evals/result-scenarios.json: sha256:72b1a1e48c1fdbccc3610cdc25c3a08e703fc220fdd1cb1401a39694764c4b27
+  .agents/skills/ait-refactoring/SKILL.md: sha256:7e2c402f42e1505dc3a3a8434cfdf15f0ea02d10dad5ca12f53fb9fa0c2cbe7e
+  .agents/skills/ait-refactoring/evals/result-scenarios.json: sha256:e0c8b7f0e8acd3cb77019e33735aaa20326fc669945afcc0c2c86951021b00c2
   .agents/skills/ait-refactoring/evals/triggers.json: sha256:7b51ccdb24ae299bf475cd9bcb7364a5e777ef00f2bf4c9e3bd08761a1413c48
   .agents/skills/ait-release-preparation/SKILL.md: sha256:9d931978564fac75d2a60e1f57322a05590da0735a855edf3ca2ed326d53368a
   .agents/skills/ait-release-preparation/evals/result-scenarios.json: sha256:9c5f571eae2e6066e03bc051d3151daadb9fa3e41bd154adc9d5c3a64c18f2a8
@@ -20180,8 +20180,8 @@ local_deployed_file_hashes:
   .claude/skills/ait-reconstructability/SKILL.md: sha256:5dbffe85de18dcdf02c60ff475ba869b44076acb064f069bac5c8cf8b0bfd606
   .claude/skills/ait-reconstructability/evals/result-scenarios.json: sha256:0e33ae5ea0591f3c816bfc20b74cf79ad94031371fd79974823ab78cb7bdefa8
   .claude/skills/ait-reconstructability/evals/triggers.json: sha256:3d4da7f3a251ff9b1709ccb940ca3859ec8856b7cf9f35efb8780a1692d99e19
-  .claude/skills/ait-refactoring/SKILL.md: sha256:8d27b12133a4731455cea653d9052885119f92fae673b760d426246476fbbde1
-  .claude/skills/ait-refactoring/evals/result-scenarios.json: sha256:72b1a1e48c1fdbccc3610cdc25c3a08e703fc220fdd1cb1401a39694764c4b27
+  .claude/skills/ait-refactoring/SKILL.md: sha256:7e2c402f42e1505dc3a3a8434cfdf15f0ea02d10dad5ca12f53fb9fa0c2cbe7e
+  .claude/skills/ait-refactoring/evals/result-scenarios.json: sha256:e0c8b7f0e8acd3cb77019e33735aaa20326fc669945afcc0c2c86951021b00c2
   .claude/skills/ait-refactoring/evals/triggers.json: sha256:7b51ccdb24ae299bf475cd9bcb7364a5e777ef00f2bf4c9e3bd08761a1413c48
   .claude/skills/ait-release/SKILL.md: sha256:a1cb136c2eb2035bd48e34022a1b0bfcc23ca5f06d940d1e5d398f7136b1e184
   .claude/skills/ait-release/evals/result-scenarios.json: sha256:889f452d080222f67d0bbde6fd02960264ce6a7fddbf960a3786991b15de4808
