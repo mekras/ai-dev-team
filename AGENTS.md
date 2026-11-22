@@ -228,12 +228,12 @@ python3 .agents/skills/kc-inventory/scripts/validate-corpus-layout.py \
 
 ## Автоматическое обучение
 
-Перед итоговым ответом определи путь локального состояния из корня проекта
-командой `git rev-parse --git-path ai-learning/state.json`. Если файл есть,
-проверь только признак запуска командой ниже, где `state` — полученный путь.
+Перед итоговым ответом из корня проекта проверь только признак запуска в
+приватном журнале `.ai-dev-team/local/ai-learning/state.json`, если он есть.
 Остальное состояние на этом шаге не читай.
 
 ```sh
+state=.ai-dev-team/local/ai-learning/state.json
 jq '.learning |
   if . == null then false
   elif (has("automatic") | not) then false
