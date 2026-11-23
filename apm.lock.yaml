@@ -1,13 +1,13 @@
 lockfile_version: '1'
-generated_at: '2026-11-23T06:55:32.506481+00:00'
+generated_at: '2026-11-23T07:00:02.944404+00:00'
 apm_version: 0.33.0
 dependencies:
 - repo_url: mekras/apm-marketplace
   name: ai-agent-supervisor
   host: github.com
-  resolved_commit: bc21ea4a99684edc6cd3a64f17dc1f5fce477c95
-  resolved_ref: ai-agent-supervisor--v2.11.3
-  version: 2.11.3
+  resolved_commit: 0512be1759e5178cee6c9829d685f090bf79e7db
+  resolved_ref: ai-agent-supervisor--v2.11.4
+  version: 2.11.4
   virtual_path: packages/ai-agent-supervisor
   is_virtual: true
   package_type: apm_package
@@ -711,7 +711,7 @@ dependencies:
     .agents/skills/ai-skill-development/README.md: sha256:4ed8a301f4c19a3b23eab44ed16a3117ab20af4ccc77ea04b43124758568d40b
     .agents/skills/ai-skill-development/SKILL.md: sha256:36af980330f4e8c208e04b0bf2356c2456d38a2d6e34d92d31e22420df39ea3c
     .agents/skills/ai-skill-development/agents/openai.yaml: sha256:2abc385365c197e07c6412572b56adf358320e4dc195464063bb416dbd5cec6c
-    .agents/skills/ai-skill-development/evals/result-scenarios.json: sha256:49e53a883b8dd4313f54fa9b9ae219e5a79f29192afe459b904b843a8bb786a9
+    .agents/skills/ai-skill-development/evals/result-scenarios.json: sha256:302302c0244f45f0859e94d697c7ae1b95a26f8d4b856d49113b00428fcb866a
     .agents/skills/ai-skill-development/evals/script-contract-tests.json: sha256:d45554c4c7d53de5d9cc140c4c7e186b0b1a85e5462d3ed6f87123839a6df785
     .agents/skills/ai-skill-development/evals/script-fixtures/learning-gate/bad-automatic.json: sha256:ec69232f1a0cdc7970fec2819b04b9da8ca39b005dbd15186049e8a462ddf6bd
     .agents/skills/ai-skill-development/evals/script-fixtures/learning-gate/bad-origin.json: sha256:aa282f69e53b7afdcb4ef22388b3bf5b6d706e1ed13ed90f275a713bd2591b05
@@ -746,7 +746,7 @@ dependencies:
     .agents/skills/ai-skill-development/evals/triggers.json: sha256:9bbd393f79e082dba459cbb7104656fb0ada62201cb165bd2b27ec81d0d74d41
     .agents/skills/ai-skill-development/references/dependency-exceptions.md: sha256:50e3674844f3d889d1be10d21090654501c3ae2582fae608dbb4ff746f2c9d0a
     .agents/skills/ai-skill-development/references/learning-gate.md: sha256:ad15438b944c95ac452556064e6c17048f736a1ad53a75d8601f82fc3c7ef091
-    .agents/skills/ai-skill-development/references/learning.md: sha256:a626fdf66d0b4403ad83371f629725489eab25c3ce6cdde95691c1ffc7aaca74
+    .agents/skills/ai-skill-development/references/learning.md: sha256:5dc548630e9683ab683e3726b6ea111b78e9bc6193ea0c8ca76da0bffdae184c
     .agents/skills/ai-skill-development/references/portability.md: sha256:3ccd3584267b9745b781ba29b3545da32b98359f1936d33cea9d75977846fbe2
     .agents/skills/ai-skill-development/references/project-specific-skills.md: sha256:f45b6a3e755fbd765daca1085d653576fea1f2dcf9ed60216afe38406d741c3f
     .agents/skills/ai-skill-development/references/review-checklist.md: sha256:c2f3845f77773eb09db32445bf5480f1f221b007469cdffe1010d17382dd557e
@@ -958,7 +958,7 @@ dependencies:
     .claude/skills/ai-skill-development/README.md: sha256:4ed8a301f4c19a3b23eab44ed16a3117ab20af4ccc77ea04b43124758568d40b
     .claude/skills/ai-skill-development/SKILL.md: sha256:36af980330f4e8c208e04b0bf2356c2456d38a2d6e34d92d31e22420df39ea3c
     .claude/skills/ai-skill-development/agents/openai.yaml: sha256:2abc385365c197e07c6412572b56adf358320e4dc195464063bb416dbd5cec6c
-    .claude/skills/ai-skill-development/evals/result-scenarios.json: sha256:49e53a883b8dd4313f54fa9b9ae219e5a79f29192afe459b904b843a8bb786a9
+    .claude/skills/ai-skill-development/evals/result-scenarios.json: sha256:302302c0244f45f0859e94d697c7ae1b95a26f8d4b856d49113b00428fcb866a
     .claude/skills/ai-skill-development/evals/script-contract-tests.json: sha256:d45554c4c7d53de5d9cc140c4c7e186b0b1a85e5462d3ed6f87123839a6df785
     .claude/skills/ai-skill-development/evals/script-fixtures/learning-gate/bad-automatic.json: sha256:ec69232f1a0cdc7970fec2819b04b9da8ca39b005dbd15186049e8a462ddf6bd
     .claude/skills/ai-skill-development/evals/script-fixtures/learning-gate/bad-origin.json: sha256:aa282f69e53b7afdcb4ef22388b3bf5b6d706e1ed13ed90f275a713bd2591b05
@@ -993,7 +993,7 @@ dependencies:
     .claude/skills/ai-skill-development/evals/triggers.json: sha256:9bbd393f79e082dba459cbb7104656fb0ada62201cb165bd2b27ec81d0d74d41
     .claude/skills/ai-skill-development/references/dependency-exceptions.md: sha256:50e3674844f3d889d1be10d21090654501c3ae2582fae608dbb4ff746f2c9d0a
     .claude/skills/ai-skill-development/references/learning-gate.md: sha256:ad15438b944c95ac452556064e6c17048f736a1ad53a75d8601f82fc3c7ef091
-    .claude/skills/ai-skill-development/references/learning.md: sha256:a626fdf66d0b4403ad83371f629725489eab25c3ce6cdde95691c1ffc7aaca74
+    .claude/skills/ai-skill-development/references/learning.md: sha256:5dc548630e9683ab683e3726b6ea111b78e9bc6193ea0c8ca76da0bffdae184c
     .claude/skills/ai-skill-development/references/portability.md: sha256:3ccd3584267b9745b781ba29b3545da32b98359f1936d33cea9d75977846fbe2
     .claude/skills/ai-skill-development/references/project-specific-skills.md: sha256:f45b6a3e755fbd765daca1085d653576fea1f2dcf9ed60216afe38406d741c3f
     .claude/skills/ai-skill-development/references/review-checklist.md: sha256:c2f3845f77773eb09db32445bf5480f1f221b007469cdffe1010d17382dd557e
@@ -1033,7 +1033,7 @@ dependencies:
     .claude/skills/ai-work-result-evaluation/evals/result-scenarios.json: sha256:0f0a57642528cc999c5390f266c465498404112eaae07325424e4ce785c4c6a1
     .claude/skills/ai-work-result-evaluation/evals/triggers.json: sha256:ed39ad95629b336e9d89b31ac6bbada0644f1df5c1aecbc1b1517fd003f6b594
     .claude/skills/ai-work-result-evaluation/references/work-result-evaluation.md: sha256:1baf4f21269ab900baeec61c375ef81d434d419897b78d32d0c1075e885acf37
-  content_hash: sha256:6540c0aa97e6cd1e03709710a4c675e952b82985b4f25347ab8947d0f8cda06b
+  content_hash: sha256:657b05601b21106c8a52dc2d405af2ad771ada51a4771f43b85d6f642ef8065b
   declared_license: MIT
 - repo_url: mekras/apm-marketplace
   name: ai-russian-language
@@ -3857,7 +3857,7 @@ deployments:
   owners:
   - mekras/apm-marketplace/packages/ai-agent-supervisor
   active_owner: mekras/apm-marketplace/packages/ai-agent-supervisor
-  content_hash: sha256:49e53a883b8dd4313f54fa9b9ae219e5a79f29192afe459b904b843a8bb786a9
+  content_hash: sha256:302302c0244f45f0859e94d697c7ae1b95a26f8d4b856d49113b00428fcb866a
 - kind: project-relative
   target: agent-skills
   value: .agents/skills/ai-skill-development/evals/script-contract-tests.json
@@ -4172,7 +4172,7 @@ deployments:
   owners:
   - mekras/apm-marketplace/packages/ai-agent-supervisor
   active_owner: mekras/apm-marketplace/packages/ai-agent-supervisor
-  content_hash: sha256:a626fdf66d0b4403ad83371f629725489eab25c3ce6cdde95691c1ffc7aaca74
+  content_hash: sha256:5dc548630e9683ab683e3726b6ea111b78e9bc6193ea0c8ca76da0bffdae184c
 - kind: project-relative
   target: agent-skills
   value: .agents/skills/ai-skill-development/references/portability.md
@@ -8951,7 +8951,7 @@ deployments:
   owners:
   - mekras/apm-marketplace/packages/ai-agent-supervisor
   active_owner: mekras/apm-marketplace/packages/ai-agent-supervisor
-  content_hash: sha256:49e53a883b8dd4313f54fa9b9ae219e5a79f29192afe459b904b843a8bb786a9
+  content_hash: sha256:302302c0244f45f0859e94d697c7ae1b95a26f8d4b856d49113b00428fcb866a
 - kind: project-relative
   target: claude
   value: .claude/skills/ai-skill-development/evals/script-contract-tests.json
@@ -9266,7 +9266,7 @@ deployments:
   owners:
   - mekras/apm-marketplace/packages/ai-agent-supervisor
   active_owner: mekras/apm-marketplace/packages/ai-agent-supervisor
-  content_hash: sha256:a626fdf66d0b4403ad83371f629725489eab25c3ce6cdde95691c1ffc7aaca74
+  content_hash: sha256:5dc548630e9683ab683e3726b6ea111b78e9bc6193ea0c8ca76da0bffdae184c
 - kind: project-relative
   target: claude
   value: .claude/skills/ai-skill-development/references/portability.md
