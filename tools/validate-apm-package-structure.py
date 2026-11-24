@@ -1399,17 +1399,24 @@ def check_decision_record_quality_contract() -> None:
             "не выдумывая фиктивный вариант",
             "внутренняя работа агента",
             "ближайшей причины потребности",
+            "во всей записи подробность приводится",
+            "подстановке любого из них",
         ),
         ".apm/skills/ait-decisions/SKILL.md": (
             "Для каждого существенного недостатка",
             "неизбежен для всего",
-            "Контекст начни с ближайшей причины потребности",
+            "контекст начинается с ближайшей причины потребности",
+            "образцом содержания",
+            "До каждого показа записи человеку",
         ),
         ".apm/skills/ait-decisions/references/decision-workflow.md": (
             "проверенное ограничение",
             "неизбежным для всего пространства",
             "Начинай с ближайшей причины",
-            "доказывается включение, а не исключение",
+            "каждое предложение доказывает своё включение",
+            "Подробности во всей записи",
+            "Пункт начинай со следствия",
+            "## Отсечение лишнего перед показом",
         ),
         ".apm/skills/ait-decisions/evals/result-scenarios.json": (
             "ait-decisions-decisions-result-option-space-gap",
@@ -1417,6 +1424,10 @@ def check_decision_record_quality_contract() -> None:
             "не принимать запись с незакрытой дырой",
             "ait-decisions-decisions-result-concise-context-boundaries",
             "ait-decisions-decisions-result-context-nearest-cause",
+            "ait-decisions-result-replaceable-detail-at-origin",
+            "ait-decisions-result-consequences-of-choice",
+            "ait-decisions-result-pruning-brief-without-history",
+            "ait-decisions-result-pruning-self-check-fallback",
         ),
     }
     for relative_path, markers in required_markers.items():
