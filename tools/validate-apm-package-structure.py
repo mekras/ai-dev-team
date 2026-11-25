@@ -1416,7 +1416,7 @@ def check_decision_record_quality_contract() -> None:
             "каждое предложение доказывает своё включение",
             "Подробности во всей записи",
             "Пункт начинай со следствия",
-            "## Отсечение лишнего перед показом",
+            "## Проверка записи перед показом",
         ),
         ".apm/skills/ait-decisions/evals/result-scenarios.json": (
             "ait-decisions-decisions-result-option-space-gap",
@@ -1428,6 +1428,7 @@ def check_decision_record_quality_contract() -> None:
             "ait-decisions-result-consequences-of-choice",
             "ait-decisions-result-pruning-brief-without-history",
             "ait-decisions-result-pruning-self-check-fallback",
+            "ait-decisions-result-journal-modality-and-scope",
         ),
     }
     for relative_path, markers in required_markers.items():
