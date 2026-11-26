@@ -106,10 +106,18 @@ class SkillDeploymentPortabilityTests(unittest.TestCase):
                 surfaces = [consumer / entry]
                 if target == "claude":
                     surfaces.extend((consumer / ".claude" / "rules").glob("*.md"))
-                self.assertTrue(any(
-                    "ait-routing/SKILL.md" in path.read_text(encoding="utf-8")
+                routing_path = "ait-routing/SKILL.md"
+                entry_texts = [
+                    path.read_text(encoding="utf-8")
                     for path in surfaces if path.is_file()
-                ), "нет команды загрузки маршрутизатора")
+                ]
+                loaders = [text for text in entry_texts if routing_path in text]
+                self.assertTrue(loaders, "нет команды загрузки маршрутизатора")
+                if not handwritten:
+                    self.assertTrue(any(
+                        "Если вывод усечён, дочитай" in text.split(routing_path, 1)[0]
+                        for text in loaders
+                    ), "порядок дочитывания недоступен до загрузки маршрутизатора")
                 skill_root = ".agents" if target == "codex" else ".claude"
                 routing = consumer / skill_root / "skills" / "ait-routing" / "SKILL.md"
                 self.assertEqual(
