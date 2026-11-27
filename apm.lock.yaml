@@ -1,13 +1,13 @@
 lockfile_version: '1'
-generated_at: '2026-11-27T06:31:02.263273+00:00'
+generated_at: '2026-11-27T09:31:11.879662+00:00'
 apm_version: 0.33.0
 dependencies:
 - repo_url: mekras/apm-marketplace
   name: ai-agent-supervisor
   host: github.com
-  resolved_commit: 4636b9d8caebc4fc184ae0185b7b9c9b5e06cff0
-  resolved_ref: ai-agent-supervisor--v2.12.1
-  version: 2.12.1
+  resolved_commit: 5eb690f83ddefd485b52f58e71e328cde8fcaf7e
+  resolved_ref: ai-agent-supervisor--v2.12.2
+  version: 2.12.2
   virtual_path: packages/ai-agent-supervisor
   is_virtual: true
   package_type: apm_package
@@ -576,9 +576,9 @@ dependencies:
     .agents/skills/ai-evidence-collection/evals/triggers.json: sha256:8d255ccb7d220340f9a9ab6483b989b7c6c955de835555076a26bf0dd279db97
     .agents/skills/ai-evidence-collection/references/data-collection-procedure.md: sha256:3fd5021f707985d66f48a1374b0db247177e960c12e0b0071896289b8075c44a
     .agents/skills/ai-human-communication/README.md: sha256:6b000f411cddc8187f67a50805031758520191d70ef609465e30c1a213828309
-    .agents/skills/ai-human-communication/SKILL.md: sha256:b6869a6f643d3978e94fd2209fff17e273d1b8a21b26a94417e08ec73ee5e242
+    .agents/skills/ai-human-communication/SKILL.md: sha256:83fb4a01e77dd1759d8e10f65dac27c3ce9ba8173f1836ec78a11a5e183ee091
     .agents/skills/ai-human-communication/agents/openai.yaml: sha256:77e9a274e2e9f1c27ceea61b896bc0b1a5e77304bcd128d56e4e11e39d44c9f7
-    .agents/skills/ai-human-communication/evals/result-scenarios.json: sha256:00efb2f500a9ad39067d2363740088e678723c6f99a5ffc3fd8265749e2513ed
+    .agents/skills/ai-human-communication/evals/result-scenarios.json: sha256:541ab92bd06b02ea2f599e8f47214921501528f1519dab1ed5a4fe10d3dc76d3
     .agents/skills/ai-human-communication/evals/triggers.json: sha256:f28b4bffd0bcab2c81e9ea52c5b7ace383f7826a766b246ccbef90716919b2d5
     .agents/skills/ai-model-analysis/README.md: sha256:def69afe40b9493df80173ff37fb4dc81ead392770ee12cfccff2d05c6d876f2
     .agents/skills/ai-model-analysis/SKILL.md: sha256:5edc4815f3ac6917f90fcce0f1db4383779fab77722b4b989d2ee4fd1857eb57
@@ -630,13 +630,13 @@ dependencies:
     .agents/skills/ai-setup-apm/scripts/eval-tools/run-apm-safe.py: sha256:07ebbd0306b500e143e710fbc93ce01a8e893c0be92d0b1e150f3f7a21b80068
     .agents/skills/ai-setup-apm/scripts/eval-tools/run-collection-checks.py: sha256:29771c8afd4a792fc370f62ceb473cda54f1e5e24b105808bc5796e1e38d02dc
     .agents/skills/ai-setup-apm/scripts/eval-tools/run-fixture-checks.py: sha256:ef56e0e1a77f83800a43219572a7a491afb5dd8b3d4e28522ec4aa03d1fc9cab
-    .agents/skills/ai-setup-apm/scripts/eval-tools/run-skill-evals.py: sha256:72ba60fbd2f7d1f14e2cd1902e717a6d1993f095f3010ee8d9f2b38becac2bf6
+    .agents/skills/ai-setup-apm/scripts/eval-tools/run-skill-evals.py: sha256:ead611979a8aba58c0b7a3da09a8a4ab3201a9b1e9e4ed2d60ac1b60a5476b57
     .agents/skills/ai-setup-apm/scripts/eval-tools/run-skill-script-contract-tests.py: sha256:b0554c61ae9c434e1f443beee6620a54d2ce47d3082b76345c50e6449e7f065e
     .agents/skills/ai-setup-apm/scripts/eval-tools/test-apm-audit-ci.py: sha256:d3be84ad98754df828ecd29edc6f9e4efb8dc517c787cae40f0a1d29658e8625
     .agents/skills/ai-setup-apm/scripts/eval-tools/test-eval-freshness.py: sha256:e41ec2bfdb0d6971bf0c98b564ac4d68ed507d5836b3a316be086508b35582af
     .agents/skills/ai-setup-apm/scripts/eval-tools/test-run-apm-safe.py: sha256:cf8b84ff560fe545ce6cf87a526477768609aed83a76d2204ac531614d3de844
     .agents/skills/ai-setup-apm/scripts/eval-tools/test-run-fixture-checks.py: sha256:5ab197c802db9b22c040400546c98932f6a418b582a8c3665759bbe3e2ffb04a
-    .agents/skills/ai-setup-apm/scripts/eval-tools/test-run-skill-evals.py: sha256:5ba8f21562e76debb0ffe3d88a5a2c2fec59906b45a649a48b997849ce9513ff
+    .agents/skills/ai-setup-apm/scripts/eval-tools/test-run-skill-evals.py: sha256:bc8dabb8048b3bf6c76797c4b90ca8484e0ed39042fcdc332a1ab2d7b0ec264c
     .agents/skills/ai-setup-apm/scripts/eval-tools/test-validate-python-artifacts.py: sha256:0e3ef9fc81b35e34c7cae75c83c10829e3db767f1c5a7caf263dd74cd166be9b
     .agents/skills/ai-setup-apm/scripts/eval-tools/test-validate-python-syntax.py: sha256:f1f5d615eaa603597546c57a535d8d01ef2d759f0f574ca09635ccba7617e50d
     .agents/skills/ai-setup-apm/scripts/eval-tools/validate-fixture-evals.py: sha256:8ed899af4b190244f2a271500246c02329a0fc41dc32c0d05dd14eeedbc6fad6
@@ -827,9 +827,9 @@ dependencies:
     .claude/skills/ai-evidence-collection/evals/triggers.json: sha256:8d255ccb7d220340f9a9ab6483b989b7c6c955de835555076a26bf0dd279db97
     .claude/skills/ai-evidence-collection/references/data-collection-procedure.md: sha256:3fd5021f707985d66f48a1374b0db247177e960c12e0b0071896289b8075c44a
     .claude/skills/ai-human-communication/README.md: sha256:6b000f411cddc8187f67a50805031758520191d70ef609465e30c1a213828309
-    .claude/skills/ai-human-communication/SKILL.md: sha256:b6869a6f643d3978e94fd2209fff17e273d1b8a21b26a94417e08ec73ee5e242
+    .claude/skills/ai-human-communication/SKILL.md: sha256:83fb4a01e77dd1759d8e10f65dac27c3ce9ba8173f1836ec78a11a5e183ee091
     .claude/skills/ai-human-communication/agents/openai.yaml: sha256:77e9a274e2e9f1c27ceea61b896bc0b1a5e77304bcd128d56e4e11e39d44c9f7
-    .claude/skills/ai-human-communication/evals/result-scenarios.json: sha256:00efb2f500a9ad39067d2363740088e678723c6f99a5ffc3fd8265749e2513ed
+    .claude/skills/ai-human-communication/evals/result-scenarios.json: sha256:541ab92bd06b02ea2f599e8f47214921501528f1519dab1ed5a4fe10d3dc76d3
     .claude/skills/ai-human-communication/evals/triggers.json: sha256:f28b4bffd0bcab2c81e9ea52c5b7ace383f7826a766b246ccbef90716919b2d5
     .claude/skills/ai-model-analysis/README.md: sha256:def69afe40b9493df80173ff37fb4dc81ead392770ee12cfccff2d05c6d876f2
     .claude/skills/ai-model-analysis/SKILL.md: sha256:5edc4815f3ac6917f90fcce0f1db4383779fab77722b4b989d2ee4fd1857eb57
@@ -881,13 +881,13 @@ dependencies:
     .claude/skills/ai-setup-apm/scripts/eval-tools/run-apm-safe.py: sha256:07ebbd0306b500e143e710fbc93ce01a8e893c0be92d0b1e150f3f7a21b80068
     .claude/skills/ai-setup-apm/scripts/eval-tools/run-collection-checks.py: sha256:29771c8afd4a792fc370f62ceb473cda54f1e5e24b105808bc5796e1e38d02dc
     .claude/skills/ai-setup-apm/scripts/eval-tools/run-fixture-checks.py: sha256:ef56e0e1a77f83800a43219572a7a491afb5dd8b3d4e28522ec4aa03d1fc9cab
-    .claude/skills/ai-setup-apm/scripts/eval-tools/run-skill-evals.py: sha256:72ba60fbd2f7d1f14e2cd1902e717a6d1993f095f3010ee8d9f2b38becac2bf6
+    .claude/skills/ai-setup-apm/scripts/eval-tools/run-skill-evals.py: sha256:ead611979a8aba58c0b7a3da09a8a4ab3201a9b1e9e4ed2d60ac1b60a5476b57
     .claude/skills/ai-setup-apm/scripts/eval-tools/run-skill-script-contract-tests.py: sha256:b0554c61ae9c434e1f443beee6620a54d2ce47d3082b76345c50e6449e7f065e
     .claude/skills/ai-setup-apm/scripts/eval-tools/test-apm-audit-ci.py: sha256:d3be84ad98754df828ecd29edc6f9e4efb8dc517c787cae40f0a1d29658e8625
     .claude/skills/ai-setup-apm/scripts/eval-tools/test-eval-freshness.py: sha256:e41ec2bfdb0d6971bf0c98b564ac4d68ed507d5836b3a316be086508b35582af
     .claude/skills/ai-setup-apm/scripts/eval-tools/test-run-apm-safe.py: sha256:cf8b84ff560fe545ce6cf87a526477768609aed83a76d2204ac531614d3de844
     .claude/skills/ai-setup-apm/scripts/eval-tools/test-run-fixture-checks.py: sha256:5ab197c802db9b22c040400546c98932f6a418b582a8c3665759bbe3e2ffb04a
-    .claude/skills/ai-setup-apm/scripts/eval-tools/test-run-skill-evals.py: sha256:5ba8f21562e76debb0ffe3d88a5a2c2fec59906b45a649a48b997849ce9513ff
+    .claude/skills/ai-setup-apm/scripts/eval-tools/test-run-skill-evals.py: sha256:bc8dabb8048b3bf6c76797c4b90ca8484e0ed39042fcdc332a1ab2d7b0ec264c
     .claude/skills/ai-setup-apm/scripts/eval-tools/test-validate-python-artifacts.py: sha256:0e3ef9fc81b35e34c7cae75c83c10829e3db767f1c5a7caf263dd74cd166be9b
     .claude/skills/ai-setup-apm/scripts/eval-tools/test-validate-python-syntax.py: sha256:f1f5d615eaa603597546c57a535d8d01ef2d759f0f574ca09635ccba7617e50d
     .claude/skills/ai-setup-apm/scripts/eval-tools/validate-fixture-evals.py: sha256:8ed899af4b190244f2a271500246c02329a0fc41dc32c0d05dd14eeedbc6fad6
@@ -1051,7 +1051,7 @@ dependencies:
     .claude/skills/ai-work-result-evaluation/evals/result-scenarios.json: sha256:0f0a57642528cc999c5390f266c465498404112eaae07325424e4ce785c4c6a1
     .claude/skills/ai-work-result-evaluation/evals/triggers.json: sha256:ed39ad95629b336e9d89b31ac6bbada0644f1df5c1aecbc1b1517fd003f6b594
     .claude/skills/ai-work-result-evaluation/references/work-result-evaluation.md: sha256:1baf4f21269ab900baeec61c375ef81d434d419897b78d32d0c1075e885acf37
-  content_hash: sha256:921475410b8dba718a032383a4feff16185e87a06ead27b6c52dcf8031ea37f2
+  content_hash: sha256:7c1288861ed5f33967b0ad26805b4bdbd6c3597ac73b6beafa6e301b8541e58e
   declared_license: MIT
 - repo_url: mekras/apm-marketplace
   name: ai-russian-language
@@ -2507,7 +2507,7 @@ deployments:
   owners:
   - mekras/apm-marketplace/packages/ai-agent-supervisor
   active_owner: mekras/apm-marketplace/packages/ai-agent-supervisor
-  content_hash: sha256:b6869a6f643d3978e94fd2209fff17e273d1b8a21b26a94417e08ec73ee5e242
+  content_hash: sha256:83fb4a01e77dd1759d8e10f65dac27c3ce9ba8173f1836ec78a11a5e183ee091
 - kind: project-relative
   target: agent-skills
   value: .agents/skills/ai-human-communication/agents/openai.yaml
@@ -2525,7 +2525,7 @@ deployments:
   owners:
   - mekras/apm-marketplace/packages/ai-agent-supervisor
   active_owner: mekras/apm-marketplace/packages/ai-agent-supervisor
-  content_hash: sha256:00efb2f500a9ad39067d2363740088e678723c6f99a5ffc3fd8265749e2513ed
+  content_hash: sha256:541ab92bd06b02ea2f599e8f47214921501528f1519dab1ed5a4fe10d3dc76d3
 - kind: project-relative
   target: agent-skills
   value: .agents/skills/ai-human-communication/evals/triggers.json
@@ -3029,7 +3029,7 @@ deployments:
   owners:
   - mekras/apm-marketplace/packages/ai-agent-supervisor
   active_owner: mekras/apm-marketplace/packages/ai-agent-supervisor
-  content_hash: sha256:72ba60fbd2f7d1f14e2cd1902e717a6d1993f095f3010ee8d9f2b38becac2bf6
+  content_hash: sha256:ead611979a8aba58c0b7a3da09a8a4ab3201a9b1e9e4ed2d60ac1b60a5476b57
 - kind: project-relative
   target: agent-skills
   value: .agents/skills/ai-setup-apm/scripts/eval-tools/run-skill-script-contract-tests.py
@@ -3083,7 +3083,7 @@ deployments:
   owners:
   - mekras/apm-marketplace/packages/ai-agent-supervisor
   active_owner: mekras/apm-marketplace/packages/ai-agent-supervisor
-  content_hash: sha256:5ba8f21562e76debb0ffe3d88a5a2c2fec59906b45a649a48b997849ce9513ff
+  content_hash: sha256:bc8dabb8048b3bf6c76797c4b90ca8484e0ed39042fcdc332a1ab2d7b0ec264c
 - kind: project-relative
   target: agent-skills
   value: .agents/skills/ai-setup-apm/scripts/eval-tools/test-validate-python-artifacts.py
@@ -7646,7 +7646,7 @@ deployments:
   owners:
   - mekras/apm-marketplace/packages/ai-agent-supervisor
   active_owner: mekras/apm-marketplace/packages/ai-agent-supervisor
-  content_hash: sha256:b6869a6f643d3978e94fd2209fff17e273d1b8a21b26a94417e08ec73ee5e242
+  content_hash: sha256:83fb4a01e77dd1759d8e10f65dac27c3ce9ba8173f1836ec78a11a5e183ee091
 - kind: project-relative
   target: claude
   value: .claude/skills/ai-human-communication/agents/openai.yaml
@@ -7664,7 +7664,7 @@ deployments:
   owners:
   - mekras/apm-marketplace/packages/ai-agent-supervisor
   active_owner: mekras/apm-marketplace/packages/ai-agent-supervisor
-  content_hash: sha256:00efb2f500a9ad39067d2363740088e678723c6f99a5ffc3fd8265749e2513ed
+  content_hash: sha256:541ab92bd06b02ea2f599e8f47214921501528f1519dab1ed5a4fe10d3dc76d3
 - kind: project-relative
   target: claude
   value: .claude/skills/ai-human-communication/evals/triggers.json
@@ -8168,7 +8168,7 @@ deployments:
   owners:
   - mekras/apm-marketplace/packages/ai-agent-supervisor
   active_owner: mekras/apm-marketplace/packages/ai-agent-supervisor
-  content_hash: sha256:72ba60fbd2f7d1f14e2cd1902e717a6d1993f095f3010ee8d9f2b38becac2bf6
+  content_hash: sha256:ead611979a8aba58c0b7a3da09a8a4ab3201a9b1e9e4ed2d60ac1b60a5476b57
 - kind: project-relative
   target: claude
   value: .claude/skills/ai-setup-apm/scripts/eval-tools/run-skill-script-contract-tests.py
@@ -8222,7 +8222,7 @@ deployments:
   owners:
   - mekras/apm-marketplace/packages/ai-agent-supervisor
   active_owner: mekras/apm-marketplace/packages/ai-agent-supervisor
-  content_hash: sha256:5ba8f21562e76debb0ffe3d88a5a2c2fec59906b45a649a48b997849ce9513ff
+  content_hash: sha256:bc8dabb8048b3bf6c76797c4b90ca8484e0ed39042fcdc332a1ab2d7b0ec264c
 - kind: project-relative
   target: claude
   value: .claude/skills/ai-setup-apm/scripts/eval-tools/test-validate-python-artifacts.py
