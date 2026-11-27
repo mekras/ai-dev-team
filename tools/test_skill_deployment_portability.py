@@ -124,6 +124,11 @@ class SkillDeploymentPortabilityTests(unittest.TestCase):
                     routing.read_bytes(),
                     (SKILLS / "ait-routing" / "SKILL.md").read_bytes(),
                 )
+                method_path = Path("references/complexity-in-software-development.md")
+                self.assertEqual(
+                    (routing.parent / method_path).read_bytes(),
+                    (SKILLS / "ait-routing" / method_path).read_bytes(),
+                )
                 rules = routing.read_text(encoding="utf-8")
                 self.assertIn("Перед первой предметной работой в сессии прочитай полностью", rules)
                 self.assertIn("name: ai-dev-team", rules)

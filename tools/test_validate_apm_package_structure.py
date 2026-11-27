@@ -141,6 +141,7 @@ class PortableCoreBoundaryTests(unittest.TestCase):
 
 
 class ComplexityReferenceContractTests(unittest.TestCase):
+    METHOD = "Документация/Правила/Сквозной анализ изменений.md"
     GUIDE = ".apm/skills/ait-routing/references/complexity-in-software-development.md"
     CONSUMERS = (
         ".apm/skills/ait-routing/SKILL.md",
@@ -153,7 +154,7 @@ class ComplexityReferenceContractTests(unittest.TestCase):
         self.workspace = tempfile.TemporaryDirectory()
         self.addCleanup(self.workspace.cleanup)
         self.root = Path(self.workspace.name)
-        for relative_path in (self.GUIDE, *self.CONSUMERS):
+        for relative_path in (self.METHOD, self.GUIDE, *self.CONSUMERS):
             target = self.root / relative_path
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes((ROOT / relative_path).read_bytes())
@@ -173,6 +174,11 @@ class ComplexityReferenceContractTests(unittest.TestCase):
     def test_missing_general_principle_owner_is_rejected(self) -> None:
         guide = self.root / self.GUIDE
         guide.write_text("# Справка без источника принципа", encoding="utf-8")
+        with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+            self.check_contract()
+
+    def test_missing_specification_is_rejected(self) -> None:
+        (self.root / self.METHOD).unlink()
         with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
             self.check_contract()
 

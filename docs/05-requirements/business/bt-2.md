@@ -40,7 +40,7 @@
   влиянием
   ([ФТ-22. Приоритетная проверка и исправление](../functional/ФТ-022.md)).
 - После изменения проверяются все зависящие части проекта
-  ([ПР-7. Анализ влияния после изменения](../rules/pr-7.md)).
+  ([порядок после записи][change-analysis]).
 
 ## Проверка
 
@@ -72,3 +72,6 @@
 [ccmp-statements]: ../../../knowledge/data/ccmp/items/text/statements.yml
 [scsu-source]:
   ../../../knowledge/data/scsu/items/normalized-scsu-source.md/source.md
+
+[change-analysis]:
+  <../../../Документация/Правила/Сквозной анализ изменений.md#после-записи>

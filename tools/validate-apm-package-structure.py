@@ -413,6 +413,10 @@ def check_complexity_reference_contract() -> None:
     if owner not in guide.read_text(encoding="utf-8"):
         fail("complexity reference does not point to the general principle owner")
 
+    method = ROOT / "Документация/Правила/Сквозной анализ изменений.md"
+    if not method.is_file():
+        fail("missing the change analysis specification")
+
     consumers = {
         ".apm/skills/ait-routing/SKILL.md": f"references/{guide_name}",
         ".apm/agents/project-manager.agent.md": f"ait-routing/references/{guide_name}",
@@ -2389,7 +2393,8 @@ def check_project_impact_graph_contract() -> None:
             "verified_no_impact",
             ".ai-dev-team/project-impact.json",
         ),
-        "docs/05-requirements/rules/pr-7.md": (
+        ".apm/skills/ait-routing/references/complexity-in-software-development.md": (
+            "До предметного плана",
             "После изменения любого проектного артефакта",
             "полное транзитивное замыкание",
         ),
