@@ -161,7 +161,7 @@ PORTABLE_CORE_FORBIDDEN_PATTERNS = (
     (
         r"docs/(?:05-requirements|requirements)/"
         r"(?:business|constraints|functional|quality|rules|user)/"
-        r"(?:bt|ogr|ft|kach|pr|pt)-\d+\.md",
+        r"(?:bt|ogr|ft|ФТ|kach|pr|pt)-\d+\.md",
         "project requirement path",
     ),
     (
@@ -437,13 +437,13 @@ def check_decision_status_scenarios() -> None:
 
 def check_decision_initiative_contract() -> None:
     required_markers = {
-        "docs/05-requirements/functional/ft-8.md": (
-            "setup.decision_records.status: declined",
+        "docs/05-requirements/functional/ФТ-008.md": (
+            "Отказ заказчика фиксируется в состоянии проекта",
             "договор журнала",
-            "первое принятое решение",
+            "при первом значимом решении, принятом заказчиком в диалоге",
             "незаписанное решение",
         ),
-        "docs/05-requirements/functional/ft-7.md": (
+        "docs/05-requirements/functional/ФТ-007.md": (
             "?DR-NNNN.md",
             "Существующее соглашение проекта",
             "решения о миграции",
@@ -500,9 +500,9 @@ def check_decision_initiative_contract() -> None:
 
 def check_decision_before_action_contract() -> None:
     required_markers = {
-        "docs/05-requirements/functional/ft-9.md": (
-            "Самопроверка автора не засчитывается",
-            "остановку до решения человека",
+        "docs/05-requirements/functional/ФТ-009.md": (
+            "проверяемый след способа\n  принятия, независимого проверяющего",
+            "агент обязан остановиться и запросить решение человека",
             "прямое и явное правило целевого проекта",
             "в служебном следе выполнения",
         ),
@@ -538,9 +538,9 @@ def check_decision_before_action_contract() -> None:
 
 def check_interface_quality_contract() -> None:
     required_markers = {
-        "docs/05-requirements/functional/ft-10.md": (
-            "обязательной проверки веб-интерфейса",
-            "Сценарий ручной приёмки",
+        "docs/05-requirements/functional/ФТ-010.md": (
+            "Продукт не отменяет обязательную проверку из-за её",
+            "не объявляет результат принятым без требуемого ответа человека",
             "предлагает UI Kit",
         ),
         ".apm/skills/ait-routing/SKILL.md": (
@@ -613,7 +613,7 @@ def check_setup_dialogue_preparation() -> None:
 def check_setup_dialogue_contract() -> None:
     check_setup_dialogue_preparation()
     required_markers = {
-        "docs/05-requirements/functional/ft-18.md": (
+        "docs/05-requirements/functional/ФТ-018.md": (
             "setup.project_profile",
             "несколько форм",
             "ответить номером",
@@ -664,7 +664,7 @@ def check_setup_dialogue_contract() -> None:
 
 def check_commit_message_scheme_contract() -> None:
     required_markers = {
-        "docs/05-requirements/functional/ft-17.md": (
+        "docs/05-requirements/functional/ФТ-017.md": (
             "нескольких поддерживаемых схем",
             "setup.commit_messages",
             "рабочее правило проекта",
@@ -755,8 +755,8 @@ def check_commit_message_scheme_contract() -> None:
 
 def check_requirements_elicitation_contract() -> None:
     required_markers = {
-        "docs/05-requirements/functional/ft-11.md": (
-            "требования-кандидаты с типом, основанием и статусом",
+        "docs/05-requirements/functional/ФТ-011.md": (
+            "оформить черновик\nтребований-кандидатов",
             "не должны считаться утверждённой",
         ),
         ".apm/skills/ait-routing/SKILL.md": (
@@ -786,7 +786,7 @@ def check_requirements_elicitation_contract() -> None:
 
 def check_twelve_factor_contract() -> None:
     required_markers = {
-        "docs/05-requirements/functional/ft-12.md": (
+        "docs/05-requirements/functional/ФТ-012.md": (
             "предлагает создать ADR",
             "не создаёт и не принимает ADR без согласия",
             "TFA-014",
@@ -822,7 +822,7 @@ def check_twelve_factor_contract() -> None:
 
 def check_reconstructability_contract() -> None:
     required_markers = {
-        "docs/05-requirements/functional/ft-19.md": (
+        "docs/05-requirements/functional/ФТ-019.md": (
             "канонические входы, контур исполнения",
             "поведенческая\nэквивалентность",
             "Обычная ветка текущего рабочего дерева не",
@@ -865,12 +865,12 @@ def check_reconstructability_contract() -> None:
 
 def check_persistent_sdd_contract() -> None:
     required_markers = {
-        "docs/05-requirements/functional/ft-38.md": (
+        "docs/05-requirements/functional/ФТ-038.md": (
             "`specification_change`",
             "`implementation_correction`",
             "`verified_no_spec_impact`",
             "`exception`",
-            "считывается в новой сессии",
+            "последующей задаче в выбранной области",
         ),
         ".apm/skills/ait-sdd/SKILL.md": (
             "До изменения производного артефакта",
@@ -946,7 +946,7 @@ def check_connection_effort_contract() -> None:
 
 def check_installed_package_file_ownership_contract() -> None:
     required_markers = {
-        "docs/05-requirements/functional/ft-3.md": (
+        "docs/05-requirements/functional/ФТ-003.md": (
             "не зависит от размера",
             "больше 20 путей",
             "исходный файл в репозитории этого пакета",
@@ -1583,7 +1583,7 @@ def check_free_form_goal_contract() -> None:
             "Продукт не должен требовать",
             "заполнить шаблон или анкету",
         ),
-        "docs/05-requirements/functional/ft-11.md": (
+        "docs/05-requirements/functional/ФТ-011.md": (
             "отделять подтверждённые сведения",
             "остановить следующий шаг на одном вопросе",
             "не должны считаться утверждённой",
@@ -1619,7 +1619,7 @@ def check_client_target_contract() -> None:
             "не настраивает остальные",
             "не ограничивает пользователя одним клиентским инструментом",
         ),
-        "docs/05-requirements/functional/ft-3.md": (
+        "docs/05-requirements/functional/ФТ-003.md": (
             "должна содержать ровно одну явную цель",
             "`--target claude`",
             "Значение `all`",
@@ -1894,7 +1894,7 @@ def check_result_acceptance_contract() -> None:
             "Продукт должен считать результат принятым только после",
             "явный выбор: принять результат или вернуть его на доработку",
         ),
-        "docs/05-requirements/functional/ft-2.md": (
+        "docs/05-requirements/functional/ФТ-002.md": (
             "Результат, который не достиг порога пригодности",
             "Частично проверенный результат можно передать только",
             "Контроль должен оставлять проверяемый след",
@@ -1956,9 +1956,9 @@ def check_end_to_end_business_contract() -> None:
             "БТ-1 считается выполненным",
             "Сквозной сценарий в новом целевом проекте",
         ),
-        "docs/05-requirements/functional/ft-1.md": (
+        "docs/05-requirements/functional/ФТ-001.md": (
             "помогать человеку формулировать цель",
-            "В сквозном сценарии пользователь описывает цель",
+            "в проверяемые артефакты и передавать результат человеку для явной",
         ),
         "README.md": (
             "Опишите цель, проблему или ожидаемый результат",
@@ -1990,7 +1990,7 @@ def check_product_evaluation_contract() -> None:
             "не подтверждают снижение стоимости",
             "статистика применения",
         ),
-        "docs/05-requirements/functional/ft-26.md": (
+        "docs/05-requirements/functional/ФТ-026.md": (
             "# ФТ-26. Раннее назначение проверок",
             "вероятные классы ошибок, недостатков и упущений",
             "первую стадию",
@@ -2384,7 +2384,7 @@ def check_installation_contract() -> None:
 
 def check_project_impact_graph_contract() -> None:
     required_markers = {
-        "docs/05-requirements/functional/ft-25.md": (
+        "docs/05-requirements/functional/ФТ-025.md": (
             "полной транзитивной глубине",
             "verified_no_impact",
             ".ai-dev-team/project-impact.json",

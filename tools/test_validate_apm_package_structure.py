@@ -113,7 +113,7 @@ class PortableCoreBoundaryTests(unittest.TestCase):
     def test_fixed_repository_paths_are_rejected(self) -> None:
         for path in (
             "docs/06-architecture/adr/0002-cross-cutting-decision-records.md",
-            "docs/05-requirements/functional/ft-7.md",
+            "docs/05-requirements/functional/ФТ-007.md",
             "knowledge/index/source-impact/2026-06-29-adrg-adr-github-io.md",
         ):
             with self.subTest(path=path):

@@ -4,8 +4,8 @@
 - Исполнитель: основная модель Terra
 - Дата: 2026-07-27
 - Основание: [ПТ-7](../05-requirements/user/pt-7.md),
-  [ФТ-21](../05-requirements/functional/ft-21.md),
-  [ФТ-22](../05-requirements/functional/ft-22.md),
+  [ФТ-21](../05-requirements/functional/ФТ-021.md),
+  [ФТ-22](../05-requirements/functional/ФТ-022.md),
   [КАЧ-8](../05-requirements/quality/kach-8.md),
   [ADR-0007](../06-architecture/adr/0007-dynamic-project-review-capabilities.md)
   и

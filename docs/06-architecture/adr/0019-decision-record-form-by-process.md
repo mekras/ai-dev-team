@@ -5,7 +5,7 @@
 
 ## Контекст
 
-Требование [ФТ-7](../../05-requirements/functional/ft-7.md) относило
+Требование [ФТ-7](../../05-requirements/functional/ФТ-007.md) относило
 рассмотренные варианты и способ проверки к обязательному минимуму любой записи
 решения, а навык `ait-decisions` предписывал подбирать шаблон по весу решения и
 согласовывать выбор с пользователем.
@@ -74,7 +74,7 @@
 
 ## Связанные материалы
 
-- [ФТ-7](../../05-requirements/functional/ft-7.md).
+- [ФТ-7](../../05-requirements/functional/ФТ-007.md).
 - [КАЧ-6](../../05-requirements/quality/kach-6.md).
 - [ADR-0002](0002-cross-cutting-decision-records.md).
 - [ADR-0003](0003-rejected-decision-status.md).

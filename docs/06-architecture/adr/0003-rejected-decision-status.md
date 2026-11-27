@@ -106,7 +106,7 @@
 
 ## Связанные материалы
 
-- [ФТ-7](../../05-requirements/functional/ft-7.md).
+- [ФТ-7](../../05-requirements/functional/ФТ-007.md).
 - [ADR-0002](0002-cross-cutting-decision-records.md).
 
 [^adrg-011]:

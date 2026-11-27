@@ -222,6 +222,6 @@ apm update ai-dev-team@mekras --target codex
 [product-development]:
   https://github.com/mekras/ai-dev-team/blob/HEAD/docs/operations/development.md
 [project-check]:
-  https://github.com/mekras/ai-dev-team/blob/HEAD/docs/05-requirements/functional/ft-72.md
+  https://github.com/mekras/ai-dev-team/blob/HEAD/docs/05-requirements/functional/ФТ-072.md
 [full-project-check]:
   https://github.com/mekras/ai-dev-team/blob/HEAD/docs/05-requirements/user/pt-7.md

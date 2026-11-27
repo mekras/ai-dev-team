@@ -27,9 +27,9 @@
 смещения к технически удобной самопроверке.
 
 Архитектурно значимые требования:
-[ФТ-22](../../05-requirements/functional/ft-22.md),
-[ФТ-23](../../05-requirements/functional/ft-23.md),
-[ФТ-24](../../05-requirements/functional/ft-24.md) и
+[ФТ-22](../../05-requirements/functional/ФТ-022.md),
+[ФТ-23](../../05-requirements/functional/ФТ-023.md),
+[ФТ-24](../../05-requirements/functional/ФТ-024.md) и
 [КАЧ-8](../../05-requirements/quality/kach-8.md). Решение меняет начало каждой
 полной
 проверки, формат состояния, допустимые переходы и повторное использование
@@ -187,7 +187,7 @@
 
 ## Связанные требования
 
-- [ФТ-22](../../05-requirements/functional/ft-22.md)
-- [ФТ-23](../../05-requirements/functional/ft-23.md)
-- [ФТ-24](../../05-requirements/functional/ft-24.md)
+- [ФТ-22](../../05-requirements/functional/ФТ-022.md)
+- [ФТ-23](../../05-requirements/functional/ФТ-023.md)
+- [ФТ-24](../../05-requirements/functional/ФТ-024.md)
 - [КАЧ-8](../../05-requirements/quality/kach-8.md)

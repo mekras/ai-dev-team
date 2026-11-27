@@ -19,17 +19,17 @@
 [ПР-3 — отделению переносимого ядра](../05-requirements/rules/pr-3.md):
 
 - Единая дисциплина записи решений в `ait-decisions` реализует
-  [ФТ-7 — журналы решений](../05-requirements/functional/ft-7.md),
+  [ФТ-7 — журналы решений](../05-requirements/functional/ФТ-007.md),
   [ФТ-8 — инициативное предложение записей][ft-8],
-  [ФТ-9 — решение до действия](../05-requirements/functional/ft-9.md) и
+  [ФТ-9 — решение до действия](../05-requirements/functional/ФТ-009.md) и
   [КАЧ-6 — качество записи решения](../05-requirements/quality/kach-6.md).
   Её выделение в сквозной навык закреплено
   [ADR-0002](adr/0002-cross-cutting-decision-records.md).
 - Статус `Отклонено` в справочнике процесса `ait-decisions` введён решением
   [ADR-0003](adr/0003-rejected-decision-status.md). Исходные четыре статуса
   прослеживаются к справочнику `adr.github.io`, разделу «Статусы решения»
-  (`ADRG-011`), через [ФТ-7](../05-requirements/functional/ft-7.md).
+  (`ADRG-011`), через [ФТ-7](../05-requirements/functional/ФТ-007.md).
 - Единый справочник принципов организации в `ait-architecture` реализует
-  [ФТ-6 — организацию структур](../05-requirements/functional/ft-6.md).
+  [ФТ-6 — организацию структур](../05-requirements/functional/ФТ-006.md).
 
-[ft-8]: ../05-requirements/functional/ft-8.md
+[ft-8]: ../05-requirements/functional/ФТ-008.md

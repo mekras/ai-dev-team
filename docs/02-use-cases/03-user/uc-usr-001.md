@@ -103,9 +103,9 @@
 ## Требования
 
 - [ФТ-72. Выбор программы проверки
-  проекта](../../05-requirements/functional/ft-72.md)
+  проекта](../../05-requirements/functional/ФТ-072.md)
 - [ФТ-71. Проверка при выпуске версии][release]
 - [ПТ-7. Полная проверка проекта](../../05-requirements/user/pt-7.md)
 
-[release]: ../../05-requirements/functional/ft-71.md
+[release]: ../../05-requirements/functional/ФТ-071.md
 [full]: ../../05-requirements/user/pt-7.md

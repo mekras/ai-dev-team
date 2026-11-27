@@ -146,7 +146,7 @@ class RequirementTitleValidationTests(unittest.TestCase):
     def test_rejects_functional_identifier_without_title(self) -> None:
         with redirect_stderr(StringIO()):
             with self.assertRaises(SystemExit):
-                self.check_requirement("functional", "ft-1.md", "ФТ-1", "ФТ-1")
+                self.check_requirement("functional", "ФТ-001.md", "ФТ-1", "ФТ-1")
 
     def test_rejects_rule_identifier_without_title(self) -> None:
         with redirect_stderr(StringIO()):
@@ -157,12 +157,12 @@ class RequirementTitleValidationTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             index = root / "docs/05-requirements/README.md"
-            requirement = root / "docs/05-requirements/functional/ft-1.md"
+            requirement = root / "docs/05-requirements/functional/ФТ-001.md"
             requirement.parent.mkdir(parents=True)
             index.write_text(
                 """# Требования
 
-- [ФТ-1](functional/ft-1.md)
+- [ФТ-1](functional/ФТ-001.md)
 """,
                 encoding="utf-8",
             )

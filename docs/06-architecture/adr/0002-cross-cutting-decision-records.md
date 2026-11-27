@@ -89,9 +89,9 @@
 
 ## Связанные решения
 
-- Требования [ФТ-7](../../05-requirements/functional/ft-7.md),
-  [ФТ-8](../../05-requirements/functional/ft-8.md),
-  [ФТ-9](../../05-requirements/functional/ft-9.md),
+- Требования [ФТ-7](../../05-requirements/functional/ФТ-007.md),
+  [ФТ-8](../../05-requirements/functional/ФТ-008.md),
+  [ФТ-9](../../05-requirements/functional/ФТ-009.md),
   [КАЧ-5](../../05-requirements/quality/kach-5.md) и
   [КАЧ-6](../../05-requirements/quality/kach-6.md).
 - [ADR-0001](0001-canonical-product-conceptual-model.md) — канонический понятийный

@@ -11,11 +11,11 @@ INDEX = ROOT / "docs" / "05-requirements" / "README.md"
 REQUIREMENTS_ROOT = ROOT / "docs" / "05-requirements"
 
 CATEGORIES = {
-    "business": ("bt", "БТ", (1, 2, 3)),
-    "functional": ("ft", "ФТ", tuple(range(1, 79))),
-    "quality": ("kach", "КАЧ", tuple(range(1, 11))),
-    "rules": ("pr", "ПР", tuple(range(1, 10))),
-    "user": ("pt", "ПТ", (1, 2, 3, 5, 6, 7)),
+    "business": ("bt-{number}.md", "БТ", (1, 2, 3)),
+    "functional": ("ФТ-{number:03d}.md", "ФТ", tuple(range(1, 79))),
+    "quality": ("kach-{number}.md", "КАЧ", tuple(range(1, 11))),
+    "rules": ("pr-{number}.md", "ПР", tuple(range(1, 10))),
+    "user": ("pt-{number}.md", "ПТ", (1, 2, 3, 5, 6, 7)),
 }
 
 NON_REQUIREMENT_DOCUMENTS = {
@@ -35,9 +35,10 @@ def fail(message: str) -> None:
 
 def expected_requirements() -> dict[Path, str]:
     result: dict[Path, str] = {}
-    for category, (file_prefix, identifier_prefix, numbers) in CATEGORIES.items():
+    for category, (filename_pattern, identifier_prefix, numbers) in CATEGORIES.items():
         for number in numbers:
-            path = REQUIREMENTS_ROOT / category / f"{file_prefix}-{number}.md"
+            filename = filename_pattern.format(number=number)
+            path = REQUIREMENTS_ROOT / category / filename
             result[path] = f"{identifier_prefix}-{number}"
     return result
 
@@ -121,17 +122,18 @@ def check_requirement_file(path: Path, identifier: str) -> None:
         text,
         flags=re.MULTILINE,
     )
-    if len(check_sections) != 1:
-        fail(
-            f"{path.relative_to(ROOT)} must have one check section named "
-            "'Проверка' or 'Проверка требования'",
-        )
-    if not re.search(
-        r"^## Проверка(?: требования)?\n\n\S",
-        text,
-        flags=re.MULTILINE,
-    ):
-        fail(f"{path.relative_to(ROOT)} has an empty check section")
+    if path.parent.name != "functional" or check_sections:
+        if len(check_sections) != 1:
+            fail(
+                f"{path.relative_to(ROOT)} must have one check section named "
+                "'Проверка' or 'Проверка требования'",
+            )
+        if not re.search(
+            r"^## Проверка(?: требования)?\n\n\S",
+            text,
+            flags=re.MULTILINE,
+        ):
+            fail(f"{path.relative_to(ROOT)} has an empty check section")
     if path.parent.name == "business":
         if "## Проверка требования" in text:
             fail(

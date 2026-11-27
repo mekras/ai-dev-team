@@ -198,7 +198,7 @@
 
 [clarity]: docs/05-requirements/quality/kach-4.md
 [acceptance]: docs/05-requirements/user/pt-1.md
-[decisions]: docs/05-requirements/functional/ft-9.md
+[decisions]: docs/05-requirements/functional/ФТ-009.md
 
 ### Статистика реального применения по версиям
 

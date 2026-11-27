@@ -150,5 +150,5 @@ APM иначе блокирует известные предупреждени�
 
 ## Связанные требования
 
-- [ФТ-1](../../05-requirements/functional/ft-1.md)
+- [ФТ-1](../../05-requirements/functional/ФТ-001.md)
 - [БТ-2](../../05-requirements/business/bt-2.md)
