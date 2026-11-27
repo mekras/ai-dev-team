@@ -24,7 +24,12 @@
       "kind": "concept",
       "semantic_type": "концепция продукта",
       "authority": "canonical",
-      "paths": ["docs/01-concept/README.md"],
+      "representations": [
+        {
+          "path": "README.md",
+          "role": "canonical"
+        }
+      ],
       "checks": ["ait-docs-concept"],
       "review_stages": ["requirements"]
     },

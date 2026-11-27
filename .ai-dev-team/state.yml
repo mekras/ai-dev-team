@@ -48,7 +48,7 @@ setup:
     level: aligned
     scope: [product-behavior, external-contracts]
     specification_paths:
-      - docs/01-concept/**
+      - README.md  # Концепция во вступительных абзацах.
       - docs/02-use-cases/**
       - docs/05-requirements/**
       - docs/06-architecture/adr/**
@@ -84,10 +84,9 @@ setup:
     - name: концепция проекта и указатель
       status: сделано
       basis: Повторная настройка по ait-setup с сохранением ранее принятых решений.
-      evidence: 'ait-docs-concept: перечитаны проблема, цель, способ достижения
-        и практический результат в docs/01-concept/README.md. Указатель AGENTS.md
-        однозначен. Настройка поддерживает системную работу агентов и соразмерный
-        контроль.'
+      evidence: 'Указатель AGENTS.md ведёт к вступительным абзацам README.md,
+        где определены замысел продукта и распределение работы между человеком
+        и агентами.'
       limitations: []
     - name: README.md
       status: сделано
