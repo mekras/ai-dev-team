@@ -26,14 +26,14 @@
 
 ```shell
 apm marketplace add mekras/apm-marketplace --ref master
-apm install ai-dev-team@mekras#1.5.4 --dev --target claude
+apm install ai-dev-team@mekras#1.5.5 --dev --target claude
 ```
 
 Для Codex:
 
 ```shell
 apm marketplace add mekras/apm-marketplace --ref master
-apm install ai-dev-team@mekras#1.5.4 --dev --target codex
+apm install ai-dev-team@mekras#1.5.5 --dev --target codex
 ```
 
 После установки откройте выбранный инструмент для общения с агентами в корне проекта и дайте команду:
@@ -46,9 +46,7 @@ apm install ai-dev-team@mekras#1.5.4 --dev --target codex
 
 ## Документация
 
-- Принципы
-  - [01. Чем проще, тем лучше][principle-01]
-  - [02. Хозяин — барин][principle-02]
+- [Принципы проекта][principles]
 - [Обзор продукта][product-overview]
 - [Роли команды][team-roles]
 - [Требования к продукту][product-requirements]
@@ -164,8 +162,8 @@ apm update ai-dev-team@mekras --target codex
 Для первого автоматического выпуска добавьте в настройках репозитория `mekras/ai-dev-team` секрет Actions `APM_MARKETPLACE_TOKEN`. Это должен быть тонко настроенный personal access token с правом **Contents: Read and write** только для репозитория `mekras/apm-marketplace`.
 
 
-[principle-01]: <Документация/01 Принципы/01 Чем проще, тем лучше.md>
-[principle-02]: <Документация/01 Принципы/02 Хозяин — барин.md>
+[principles]:
+  https://github.com/mekras/ai-dev-team/tree/HEAD/Документация/01%20Принципы
 [product-overview]: https://github.com/mekras/ai-dev-team/blob/HEAD/docs/04-product/README.md
 [team-roles]: https://github.com/mekras/ai-dev-team/blob/HEAD/docs/04-product/roles.md
 [product-requirements]: https://github.com/mekras/ai-dev-team/blob/HEAD/docs/05-requirements/README.md
