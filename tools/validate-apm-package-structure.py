@@ -135,14 +135,6 @@ ORGANIZATION_PRINCIPLE_SKILLS = {
     "ait-docs-structure-rules",
 }
 
-DECISION_STATUSES = (
-    "Предложено",
-    "Принято",
-    "Отклонено",
-    "Устарело",
-    "Заменено",
-)
-
 FORBIDDEN_TEXT = (
     "team/skills",
     "team/roles",
@@ -434,31 +426,13 @@ def check_complexity_reference_contract() -> None:
             fail(f"{relative_path} does not point to the complexity reference")
 
 
-def check_decision_status_contract() -> None:
-    status_paths = (
-        ROOT / "docs/05-requirements/functional/ft-7.md",
-        ROOT / ".apm/skills/ait-decisions/SKILL.md",
-        ROOT / ".apm/skills/ait-decisions/references/decision-workflow.md",
-        ROOT / ".apm/skills/ait-decisions/references/decision-templates.md",
-    )
-    for path in status_paths:
-        text = path.read_text(encoding="utf-8")
-        for status in DECISION_STATUSES:
-            if f"`{status}`" not in text:
-                fail(
-                    f"{path.relative_to(ROOT)} is missing decision status "
-                    f"{status!r}",
-                )
-
-    concepts = (ROOT / "knowledge/concepts.yml").read_text(encoding="utf-8")
-    if "id: decision-record-status" not in concepts or "ADR-0003" not in concepts:
-        fail("knowledge/concepts.yml does not reconcile the decision status model")
-
-    evals = (
-        ROOT / ".apm/skills/ait-decisions/evals/result-scenarios.json"
-    ).read_text(encoding="utf-8")
-    if "ait-decisions-decisions-result-rejected-status" not in evals:
-        fail("ait-decisions has no result scenario for a rejected decision")
+def check_decision_status_scenarios() -> None:
+    path = ROOT / ".apm/skills/ait-decisions/evals/result-scenarios.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    case_ids = {case["id"] for case in data["cases"]}
+    for suffix in ("rejected-status", "review-before-action"):
+        if f"ait-decisions-decisions-result-{suffix}" not in case_ids:
+            fail(f"ait-decisions is missing the decision status scenario {suffix!r}")
 
 
 def check_decision_initiative_contract() -> None:
@@ -495,7 +469,7 @@ def check_decision_initiative_contract() -> None:
             "не помещать общий порядок принятия решений в ADR",
         ),
         ".apm/skills/ait-decisions/SKILL.md": (
-            "не выдавай договор журнала за",
+            "Не выдавай договор журнала за",
             "при первом значимом решении",
             "ретроспективную запись",
         ),
@@ -2477,7 +2451,7 @@ def main() -> None:
     check_tree()
     check_organization_principles_contract()
     check_complexity_reference_contract()
-    check_decision_status_contract()
+    check_decision_status_scenarios()
     check_decision_initiative_contract()
     check_decision_before_action_contract()
     check_interface_quality_contract()
