@@ -1,0 +1,55 @@
+id: TDTZ
+slug: tdtz
+title: "Как писать техническое задание?!"
+status: approved
+carrier_type: web_page
+source_kind: article
+description: >-
+  Статья сайта «Техническая документация» о подготовке технического задания
+  на автоматизированную систему, с примерами разделов по ГОСТ 34.602–89.
+adapter: agent
+agent_route:
+  mode: agent
+  allowed_operations: [index]
+  instructions: >-
+    Открыть указанный URL по HTTPS и сверить доступ и метаданные одной
+    статьи. При изменении метаданных обновить карточку единицы и её запись
+    в индексе источника. Не сохранять полный текст и не обходить остальной сайт.
+  write_scope:
+    - knowledge/data/tdtz/items.yml
+    - knowledge/data/tdtz/pages/1349/item.yml
+storage_strategy: external_reference
+retrieval_mode: on_demand
+copy_policy: fragments_only
+processing_scope: selected_fragments
+allowed_use: >-
+  Точечное обращение к статье. В корпусе допустимы самостоятельные
+  формулировки тезисов и краткие цитаты для их проверки со ссылкой
+  на первоисточник. Перед применением проверить редакцию статьи
+  и применимость упомянутых стандартов.
+requires_access_check: true
+url: https://tdocs.su/1349
+locator: https://tdocs.su/1349
+public_reference: https://tdocs.su/1349
+license_or_terms: Разрешение на публикацию копии не найдено.
+use_policy:
+  action: store_snapshot
+  status: unknown
+  basis: На странице не найдено разрешение на публикацию копии статьи.
+  scope: Хранение полного снимка статьи в публичном корпусе.
+  checked_at: "2026-11-28"
+  restrictions:
+    - Полный текст, снимок страницы и вложения в корпус не включаются.
+access:
+  default: Публичная страница HTML, авторизация не требуется.
+reliability: practitioner_article
+stability: mutable
+refresh_policy: on_demand
+last_checked_at: "2026-11-28"
+provenance:
+  origin: external_material
+  locator: https://tdocs.su/1349
+admission:
+  decision:
+    ref: .ai-dev-team/decisions/source-admission-tdocs-1349.yml
+    sha256: c1a5a1d65478e6f17b28b96c6cb30908a79c100c4c9c78542f58cc47f81da670

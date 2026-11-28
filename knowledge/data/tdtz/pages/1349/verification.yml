@@ -1,0 +1,33 @@
+verification_contract_version: 1
+artifact: normalized.md
+hash:
+  algorithm: sha256
+  value: 20f6073cf474683185198854a11f25a870efc670c7c7c765cb85124b13fd0df0
+acquisition:
+  method: manual_copy
+  recorded_at: '2026-11-28'
+verification:
+  method: direct_reopen
+  checked_at: '2026-11-28'
+  checked_by:
+    role: corpus_maintainer
+  scope:
+    content: fragment
+    fragment: Все содержательные разделы основного текста. Проверены выбранные
+      тезисы и их примеры.
+    metadata:
+    - locator
+  result:
+    overall: partially_verified
+    content_match: verified
+    scope_completeness: partial
+    metadata:
+      author: unverified
+      locator: verified
+      publication_date: unverified
+  evidence:
+  - https://tdocs.su/1349
+  limitations:
+  - Сверены самостоятельные формулировки тезисов и короткие проверочные цитаты.
+  - Основной текст перечитан целиком. Снимок и встроенные публикации не сохранялись.
+  - Содержание встроенных публикаций и актуальность стандартов не проверялись.

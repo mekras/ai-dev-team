@@ -28148,6 +28148,559 @@ statements:
   temporal_status: null
   corroboration: null
   limitations: null
+- id: TDTZ-001
+  source_id: TDTZ
+  item_id: TDTZ-1349
+  path: data/tdtz/pages/1349/statements.yml
+  status: null
+  kind: observation
+  text: Автор начинает работу над ТЗ с шаблона, построенного по структуре стандарта,
+    выбранного для конкретного вида разработки.
+  artifact: normalized.md
+  checked_at: '2026-11-28'
+  processing_status:
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: unknown
+  corroboration: single_source
+  limitations:
+  - Приём относится к проектам, для которых уже выбрана форма ТЗ.
+- id: TDTZ-002
+  source_id: TDTZ
+  item_id: TDTZ-1349
+  path: data/tdtz/pages/1349/statements.yml
+  status: null
+  kind: observation
+  text: Составное требование автор предлагает разбивать на более короткие подпункты
+    по отдельным предметам требований.
+  artifact: normalized.md
+  checked_at: '2026-11-28'
+  processing_status:
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: unknown
+  corroboration: single_source
+  limitations:
+  - Уровень детализации зависит от задачи документа.
+- id: TDTZ-003
+  source_id: TDTZ
+  item_id: TDTZ-1349
+  path: data/tdtz/pages/1349/statements.yml
+  status: null
+  kind: observation
+  text: Автор предлагает сформулировать вопрос к предмету требования, а затем использовать
+    его как основу фразы об обязательном свойстве.
+  artifact: normalized.md
+  checked_at: '2026-11-28'
+  processing_status:
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: unknown
+  corroboration: single_source
+  limitations:
+  - Шаблон фразы не устанавливает предмет или значения требований.
+- id: TDTZ-004
+  source_id: TDTZ
+  item_id: TDTZ-1349
+  path: data/tdtz/pages/1349/statements.yml
+  status: null
+  kind: observation
+  text: Если требование пока нельзя конкретизировать, статья допускает общую формулировку
+    или уточнение на следующей стадии.
+  artifact: normalized.md
+  checked_at: '2026-11-28'
+  processing_status:
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: unknown
+  corroboration: single_source
+  limitations:
+  - Подход автора не гарантирует проверяемость и не заменяет согласования открытого
+    вопроса с заказчиком.
+- id: TDTZ-005
+  source_id: TDTZ
+  item_id: TDTZ-1349
+  path: data/tdtz/pages/1349/statements.yml
+  status: null
+  kind: observation
+  text: Для однотипных требований автор предлагает повторять одинаковые обороты, чтобы
+    их роль в документе была узнаваема.
+  artifact: normalized.md
+  checked_at: '2026-11-28'
+  processing_status:
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: unknown
+  corroboration: single_source
+  limitations:
+  - Единообразие формы не доказывает полноту или качество требований.
+- id: TDTZ-006
+  source_id: TDTZ
+  item_id: TDTZ-1349
+  path: data/tdtz/pages/1349/statements.yml
+  status: null
+  kind: observation
+  text: Устойчивая ссылка на пронумерованный пункт ТЗ позволяет связать с ним методику
+    испытаний и запись о результате проверки.
+  artifact: normalized.md
+  checked_at: '2026-11-28'
+  processing_status:
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: unknown
+  corroboration: single_source
+  limitations:
+  - Приведённый в статье способ адресации — пример, а не универсальный формат.
+- id: TDTZ-007
+  source_id: TDTZ
+  item_id: TDTZ-1349
+  path: data/tdtz/pages/1349/statements.yml
+  status: null
+  kind: observation
+  text: Для описания части системы автор предлагает отдельно указывать её общие характеристики,
+    назначение и компоненты и при необходимости повторять эту структуру на следующем
+    уровне.
+  artifact: normalized.md
+  checked_at: '2026-11-28'
+  processing_status:
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: unknown
+  corroboration: single_source
+  limitations:
+  - Приём относится к описанию структуры, а не к обязательной форме каждого требования.
+- id: TDTZ-008
+  source_id: TDTZ
+  item_id: TDTZ-1349
+  path: data/tdtz/pages/1349/statements.yml
+  status: null
+  kind: observation
+  text: Общая ссылка на узкий стандарт в обязательном требовании может повлечь дополнительные
+    испытания или необходимость представить доказательство соответствия.
+  artifact: normalized.md
+  checked_at: '2026-11-28'
+  processing_status:
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: unknown
+  corroboration: single_source
+  limitations:
+  - Не отменяет обязательных стандартов. Нужные характеристики и доказательства соответствия
+    определяются для конкретного проекта.
+- id: TDTZ-009
+  source_id: TDTZ
+  item_id: TDTZ-1349
+  path: data/tdtz/pages/1349/statements.yml
+  status: null
+  kind: observation
+  text: В ТЗ на ещё не созданную программу описывают требуемое поведение. Фраза о
+    том, что программа уже что-то выполняет или позволяет, может выдать проектное
+    обязательство за существующую возможность.
+  artifact: normalized.md
+  checked_at: '2026-11-28'
+  processing_status:
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: unknown
+  corroboration: single_source
+  limitations:
+  - В описании действующей версии фактическая формулировка уместна, если она подтверждена.
+    Важен смысл, а не сам по себе выбор времени глагола.
+- id: TDTZ-010
+  source_id: TDTZ
+  item_id: TDTZ-1349
+  path: data/tdtz/pages/1349/statements.yml
+  status: null
+  kind: observation
+  text: Если выполнение зависит от пользователя, требование описывает предоставляемую
+    ему возможность. Если функция автоматическая, требование задаёт действие самой
+    системы и условие его запуска. В примере резервная копия создаётся по расписанию
+    без участия персонала.
+  artifact: normalized.md
+  checked_at: '2026-11-28'
+  processing_status:
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: unknown
+  corroboration: single_source
+  limitations:
+  - Инициатор и условие запуска зависят от функции. Автоматическое действие не обязательно
+    происходит безусловно.
+- id: TDTZ-011
+  source_id: TDTZ
+  item_id: TDTZ-1349
+  path: data/tdtz/pages/1349/statements.yml
+  status: null
+  kind: observation
+  text: Длинное наименование изделия, системы или программы можно один раз связать
+    с кратким обозначением, а затем применять его последовательно.
+  artifact: normalized.md
+  checked_at: '2026-11-28'
+  processing_status:
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: unknown
+  corroboration: single_source
+  limitations:
+  - Краткое обозначение должно однозначно указывать на тот же объект.
+- id: TDTZ-012
+  source_id: TDTZ
+  item_id: TDTZ-1349
+  path: data/tdtz/pages/1349/statements.yml
+  status: null
+  kind: observation
+  text: При подготовке набора документов из общего источника повторяемое наименование
+    организации можно задать переменной, чтобы подставлять его в нужные фрагменты.
+  artifact: normalized.md
+  checked_at: '2026-11-28'
+  processing_status:
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: unknown
+  corroboration: single_source
+  limitations:
+  - Это технический приём автора, а не требование использовать конкретный инструмент.
+- id: TDTZ-013
+  source_id: TDTZ
+  item_id: TDTZ-1349
+  path: data/tdtz/pages/1349/statements.yml
+  status: null
+  kind: observation
+  text: Назначение описывает, для решения каких задач создают систему. Для целей автор
+    предлагает формулировать ожидаемое улучшение показателей, например выигрыш в скорости,
+    точности или затратах.
+  artifact: normalized.md
+  checked_at: '2026-11-28'
+  processing_status:
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: unknown
+  corroboration: single_source
+  limitations:
+  - Тезис об улучшении показателей передаёт подход автора и не исчерпывает формы целей.
+- id: TDTZ-014
+  source_id: TDTZ
+  item_id: TDTZ-1349
+  path: data/tdtz/pages/1349/statements.yml
+  status: null
+  kind: observation
+  text: Автор различает задачу, которую требуется решить, и функции, которые для этого
+    выполняются. Несколько функций могут работать на решение одной задачи.
+  artifact: normalized.md
+  checked_at: '2026-11-28'
+  processing_status:
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: unknown
+  corroboration: single_source
+  limitations:
+  - Автор предлагает собственную иерархию и спорит с терминологией упомянутого стандарта.
+    Эту иерархию нельзя считать нормативной.
+- id: TDTZ-015
+  source_id: TDTZ
+  item_id: TDTZ-1349
+  path: data/tdtz/pages/1349/statements.yml
+  status: null
+  kind: observation
+  text: Успешное выполнение функций ещё не означает, что их результат устроит заказчика.
+    В притче мельница работает, но качество муки никто заранее не превратил в понятное
+    условие приёмки.
+  artifact: normalized.md
+  checked_at: '2026-11-28'
+  processing_status:
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: unknown
+  corroboration: single_source
+  limitations:
+  - Притча иллюстрирует риск неявного ожидания и не является историческим свидетельством.
+- id: TDTZ-016
+  source_id: TDTZ
+  item_id: TDTZ-1349
+  path: data/tdtz/pages/1349/statements.yml
+  status: null
+  kind: observation
+  text: В обобщении автора ТЗ задаёт не только требования к результату. Оно также
+    оформляет цель и область применения, состав работ, испытания и приёмку, документирование
+    и нормативные основания.
+  artifact: normalized.md
+  checked_at: '2026-11-28'
+  processing_status:
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: unknown
+  corroboration: single_source
+  limitations:
+  - Это обобщение перечисленных в статье форм, а не перечень обязательных разделов
+    для всех проектов.
+- id: TDTZ-017
+  source_id: TDTZ
+  item_id: TDTZ-1349
+  path: data/tdtz/pages/1349/statements.yml
+  status: null
+  kind: observation
+  text: Автор приводит разные формы ТЗ для изделия, программы и автоматизированной
+    системы. Форму выбирают по объекту разработки, а не по привычному образцу.
+  artifact: normalized.md
+  checked_at: '2026-11-28'
+  processing_status:
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: unknown
+  corroboration: single_source
+  limitations:
+  - Перечисленные в статье редакции стандартов не проверялись на актуальность.
+- id: TDTZ-018
+  source_id: TDTZ
+  item_id: TDTZ-1349
+  path: data/tdtz/pages/1349/statements.yml
+  status: null
+  kind: observation
+  text: Если составителю ТЗ не хватает сведений заказчика и прямого контакта с ним
+    нет, автор предлагает попросить уточнение у руководителя, через которого идёт
+    взаимодействие.
+  artifact: normalized.md
+  checked_at: '2026-11-28'
+  processing_status:
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: unknown
+  corroboration: single_source
+  limitations:
+  - Способ обращения зависит от роли составителя. Сам запрос ещё не подтверждает требование
+    и не позволяет придумывать отсутствующие данные.
+- id: TDTZ-019
+  source_id: TDTZ
+  item_id: TDTZ-1349
+  path: data/tdtz/pages/1349/statements.yml
+  status: null
+  kind: observation
+  text: Чтобы определить уровни системы и степень централизации, автор предлагает
+    начать с назначения системы и задач, которые могут пояснить профильные специалисты.
+    Структуру затем описывают применительно к этим задачам.
+  artifact: normalized.md
+  checked_at: '2026-11-28'
+  processing_status:
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: unknown
+  corroboration: single_source
+  limitations:
+  - Двухуровневая система с центральной обработкой — пример, а не рекомендуемая для
+    всех систем архитектура.
+- id: TDTZ-020
+  source_id: TDTZ
+  item_id: TDTZ-1349
+  path: data/tdtz/pages/1349/statements.yml
+  status: null
+  kind: observation
+  text: Пример с персоналом разводит численность, квалификацию и режим работы по отдельным
+    пунктам. Подготовку и контроль знаний автор упоминает отдельно от деления персонала
+    на группы по функциям.
+  artifact: normalized.md
+  checked_at: '2026-11-28'
+  processing_status:
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: unknown
+  corroboration: single_source
+  limitations:
+  - Сменность и структура персонала зависят от системы. Пример не разрешает вводить
+    штатные ограничения без основания.
+- id: TDTZ-021
+  source_id: TDTZ
+  item_id: TDTZ-1349
+  path: data/tdtz/pages/1349/statements.yml
+  status: null
+  kind: observation
+  text: Точное числовое ограничение в ТЗ создаёт отдельное ожидание приёмочных испытаний.
+    В примере автор задаёт нижний предел скорости, который избыточен для выбранного
+    канала связи.
+  artifact: normalized.md
+  checked_at: '2026-11-28'
+  processing_status:
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: unknown
+  corroboration: single_source
+  limitations:
+  - Из примера не следует запрет измеримых требований. Числа нужны, когда описывают
+    необходимый результат и есть способ его проверить.
+- id: TDTZ-022
+  source_id: TDTZ
+  item_id: TDTZ-1349
+  path: data/tdtz/pages/1349/statements.yml
+  status: null
+  kind: observation
+  text: В приведённом автором порядке подготовки ТЗ на АС документ проверяют до утверждения,
+    включая нормоконтроль, а при необходимости — метрологическую экспертизу.
+  artifact: normalized.md
+  checked_at: '2026-11-28'
+  processing_status:
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: unknown
+  corroboration: single_source
+  limitations:
+  - Это изложение исторической ссылки автора. Вид проверки и обязательность подтверждают
+    по применимым к проекту нормам.
+- id: TDTZ-023
+  source_id: TDTZ
+  item_id: TDTZ-1349
+  path: data/tdtz/pages/1349/statements.yml
+  status: null
+  kind: observation
+  text: Шаблоны и учебные примеры могут помочь составить ТЗ. Автор советует оценивать
+    пригодность каждого раздела перед заимствованием и задавать вопросы, когда исходных
+    сведений не хватает.
+  artifact: normalized.md
+  checked_at: '2026-11-28'
+  processing_status:
+    extraction: complete
+    traceability: passed
+    semantic_review: passed
+    strong_review: not_required
+    corroboration_check: complete
+  source_role: primary
+  evidence_strength: moderate
+  confidence: high
+  temporal_status: unknown
+  corroboration: single_source
+  limitations:
+  - Чужой пример не подтверждает применимость требований или право копировать его
+    текст.
 - id: TFA-001
   source_id: TFA
   item_id: TFA-normalized-TFA-source.md
